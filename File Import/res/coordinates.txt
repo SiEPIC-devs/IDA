@@ -1,0 +1,1733 @@
+-5606, 707, TE, 1550, PCM, PCM, PCMmziTE2
+-5612, 621, TE, 1550, PCM, PCM, PCMmziTE1
+-5620, 2918, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5620, 2848, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5620, 2778, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5624, 1535, TE, 1550, PCM, PCM, Splitter, BDC
+-5622, 1438, TE, 1550, PCM, PCM, Splitter, Y
+-5622, 1361, TE, 1550, PCM, PCM, Splitter, DC
+-5624, 1285, TE, 1550, PCM, PCM, Splitter, BDC
+-5622, 1188, TE, 1550, PCM, PCM, Splitter, Y
+-5622, 1111, TE, 1550, PCM, PCM, Splitter, DC
+-5624, 1035, TE, 1550, PCM, PCM, Splitter, BDC
+-5622, 938, TE, 1550, PCM, PCM, Splitter, Y
+-5622, 861, TE, 1550, PCM, PCM, Splitter, DC
+-5619, 1608, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5609, 774, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5608, 165, TE, 1550, PCM, PCM, Cutback, GC
+-5608, 100, TE, 1550, PCM, PCM, Cutback, GC
+-5608, 35, TE, 1550, PCM, PCM, Cutback, GC
+-5608, -29, TE, 1550, PCM, PCM, Cutback, GC
+-5608, -94, TE, 1550, PCM, PCM, Cutback, GC
+-5608, -159, TE, 1550, PCM, PCM, Cutback, GC
+-5608, -224, TE, 1550, PCM, PCM, Cutback, GC
+-5608, -289, TE, 1550, PCM, PCM, Cutback, GC
+-5615, 4066, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5615, 3996, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5615, 3926, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5615, 3856, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5608, 520, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5608, 450, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5608, 380, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5608, 310, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5608, 240, TE, 1550, PCM, PCM, PCMRingDoubleTER10g100
+-5412, 2685, TE, 1550, PCM, PCM, StraightWGloss7518TE
+-5412, 2390, TE, 1550, PCM, PCM, StraightWGloss29118TE
+-5617, 2243, TE, 1550, PCM, PCM, StraightWGloss21918TE
+-5617, 2685, TE, 1550, PCM, PCM, StraightWGloss14718TE
+-5593, 3744, TE, 1550, PCM, PCM, SpiralWG9529TE
+-5588, 3245, TE, 1550, PCM, PCM, SpiralWG0TE
+-5275, 3744, TE, 1550, PCM, PCM, SpiralWG5833TE
+-5209, 3362, TE, 1550, PCM, PCM, SpiralWG20713TE
+-5584, -411, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.05, WG0.5
+-5584, -607, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.085, WG0.5
+-5584, -802, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.12000000000000001, WG0.5
+-5584, -998, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.15500000000000003, WG0.5
+-5584, -1194, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.19, WG0.5
+-5584, -1390, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.22500000000000003, WG0.5
+-5584, -1585, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.26, WG0.5
+-5584, -1781, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.29500000000000004, WG0.5
+-5584, -1977, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.33, WG0.5
+-5584, -2173, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.36500000000000005, WG0.5
+-5584, -2369, TE, 1550, PCM, PCM, ring, loss, 4pt, r50, g0.4, WG0.5
+5740, 5850, TE, 1550, PCM, PCM, TEAlign, FarmLeft, topleft
+5740, 5770, TE, 1550, PCM, PCM, TEAlign, FarmMiddle, topleft
+5740, 5690, TE, 1550, PCM, PCM, TEAlign, FarmRight, topleft
+5740, -5650, TE, 1550, PCM, PCM, TEAlign, FarmLeft, topright
+5740, -5730, TE, 1550, PCM, PCM, TEAlign, FarmMiddle, topright
+5740, -5810, TE, 1550, PCM, PCM, TEAlign, FarmRight, topright
+-5760, 5850, TE, 1550, PCM, PCM, TEAlign, FarmLeft, bottomleft
+-5760, 5770, TE, 1550, PCM, PCM, TEAlign, FarmMiddle, bottomleft
+-5760, 5690, TE, 1550, PCM, PCM, TEAlign, FarmRight, bottomleft
+-5760, -5650, TE, 1550, PCM, PCM, TEAlign, FarmLeft, bottomright
+-5760, -5730, TE, 1550, PCM, PCM, TEAlign, FarmMiddle, bottomright
+-5760, -5810, TE, 1550, PCM, PCM, TEAlign, FarmRight, bottomright
+1875, 1242, TE, 1550, pranav, device, ringradius90gap0.20
+1875, 792, TE, 1550, pranav, device, ringradius100gap0.20
+1875, 2592, TE, 1550, pranav, device, ringradius60gap0.20
+1875, 2142, TE, 1550, pranav, device, ringradius70gap0.20
+1875, 1692, TE, 1550, pranav, device, ringradius80gap0.20
+2375, 1242, TE, 1550, pranav, device, ringradius90gap0.22
+2375, 792, TE, 1550, pranav, device, ringradius100gap0.22
+2375, 2592, TE, 1550, pranav, device, ringradius60gap0.22
+2375, 2142, TE, 1550, pranav, device, ringradius70gap0.22
+2375, 1692, TE, 1550, pranav, device, ringradius80gap0.22
+2875, 1242, TE, 1550, pranav, device, ringradius90gap0.24
+2875, 792, TE, 1550, pranav, device, ringradius100gap0.24
+2875, 2592, TE, 1550, pranav, device, ringradius60gap0.24
+2875, 2142, TE, 1550, pranav, device, ringradius70gap0.24
+2875, 1692, TE, 1550, pranav, device, ringradius80gap0.24
+3375, 1242, TE, 1550, pranav, device, ringradius90gap0.26
+3375, 792, TE, 1550, pranav, device, ringradius100gap0.26
+3375, 2592, TE, 1550, pranav, device, ringradius60gap0.26
+3375, 2142, TE, 1550, pranav, device, ringradius70gap0.26
+3375, 1692, TE, 1550, pranav, device, ringradius80gap0.26
+3875, 1242, TE, 1550, pranav, device, ringradius90gap0.28
+3875, 792, TE, 1550, pranav, device, ringradius100gap0.28
+3875, 2592, TE, 1550, pranav, device, ringradius60gap0.28
+3875, 2142, TE, 1550, pranav, device, ringradius70gap0.28
+3875, 1692, TE, 1550, pranav, device, ringradius80gap0.28
+3876, 414, TE, 1550, pranav, TP10, device
+3876, 214, TE, 1550, pranav, TP12, device
+3876, 314, TE, 1550, pranav, TP11, device
+2875, 3042, TE, 1550, pranav, device, ringradius50gap0.24
+1875, 3492, TE, 1550, pranav, device, ringradius40gap0.20
+1875, 3042, TE, 1550, pranav, device, ringradius50gap0.20
+2375, 3942, TE, 1550, pranav, device, ringradius30gap0.22
+2875, 4842, TE, 1550, pranav, device, ringradius10gap0.24
+3375, 4392, TE, 1550, pranav, device, ringradius20gap0.26
+2375, 3492, TE, 1550, pranav, device, ringradius40gap0.22
+2375, 3042, TE, 1550, pranav, device, ringradius50gap0.22
+3375, 3942, TE, 1550, pranav, device, ringradius30gap0.26
+3375, 3492, TE, 1550, pranav, device, ringradius40gap0.26
+3375, 3042, TE, 1550, pranav, device, ringradius50gap0.26
+3874, 5464, TE, 1550, pranav, TP7, device
+3874, 5264, TE, 1550, pranav, TP9, device
+3874, 5364, TE, 1550, pranav, TP8, device
+1875, 4392, TE, 1550, pranav, device, ringradius20gap0.20
+1875, 3942, TE, 1550, pranav, device, ringradius30gap0.20
+3375, 4842, TE, 1550, pranav, device, ringradius10gap0.26
+3875, 4392, TE, 1550, pranav, device, ringradius20gap0.28
+2375, 4842, TE, 1550, pranav, device, ringradius10gap0.22
+2875, 4392, TE, 1550, pranav, device, ringradius20gap0.24
+3875, 3942, TE, 1550, pranav, device, ringradius30gap0.28
+3875, 3492, TE, 1550, pranav, device, ringradius40gap0.28
+3875, 3042, TE, 1550, pranav, device, ringradius50gap0.28
+1875, 4842, TE, 1550, pranav, device, ringradius10gap0.20
+2375, 4392, TE, 1550, pranav, device, ringradius20gap0.22
+2875, 3942, TE, 1550, pranav, device, ringradius30gap0.24
+3875, 4842, TE, 1550, pranav, device, ringradius10gap0.28
+2875, 3492, TE, 1550, pranav, device, ringradius40gap0.24
+875, 3492, TE, 1550, pranav, device, ringradius40gap0.16
+875, 3042, TE, 1550, pranav, device, ringradius50gap0.16
+-624, 3942, TE, 1550, pranav, device, ringradius30gap0.1
+875, 4842, TE, 1550, pranav, device, ringradius10gap0.16
+-624, 3492, TE, 1550, pranav, device, ringradius40gap0.1
+-624, 3042, TE, 1550, pranav, device, ringradius50gap0.1
+-624, 4842, TE, 1550, pranav, device, ringradius10gap0.1
+-624, 4392, TE, 1550, pranav, device, ringradius20gap0.1
+-625, 5464, TE, 1550, pranav, TP1, device
+-625, 5264, TE, 1550, pranav, TP3, device
+-625, 5364, TE, 1550, pranav, TP2, device
+1375, 4392, TE, 1550, pranav, device, ringradius20gap0.18
+1375, 3942, TE, 1550, pranav, device, ringradius30gap0.18
+1375, 3492, TE, 1550, pranav, device, ringradius40gap0.18
+1375, 3042, TE, 1550, pranav, device, ringradius50gap0.18
+375, 4842, TE, 1550, pranav, device, ringradius10gap0.14
+875, 4392, TE, 1550, pranav, device, ringradius20gap0.16
+875, 3942, TE, 1550, pranav, device, ringradius30gap0.16
+1375, 4842, TE, 1550, pranav, device, ringradius10gap0.18
+-124, 4392, TE, 1550, pranav, device, ringradius20gap0.12
+-124, 3942, TE, 1550, pranav, device, ringradius30gap0.12
+-124, 3492, TE, 1550, pranav, device, ringradius40gap0.12
+-124, 3042, TE, 1550, pranav, device, ringradius50gap0.12
+-124, 4842, TE, 1550, pranav, device, ringradius10gap0.12
+375, 4392, TE, 1550, pranav, device, ringradius20gap0.14
+375, 3942, TE, 1550, pranav, device, ringradius30gap0.14
+375, 3492, TE, 1550, pranav, device, ringradius40gap0.14
+375, 3042, TE, 1550, pranav, device, ringradius50gap0.14
+-624, 2592, TE, 1550, pranav, device, ringradius60gap0.1
+-624, 2142, TE, 1550, pranav, device, ringradius70gap0.1
+-624, 1692, TE, 1550, pranav, device, ringradius80gap0.1
+-624, 414, TE, 1550, pranav, TP4, device
+-624, 214, TE, 1550, pranav, TP6, device
+-624, 314, TE, 1550, pranav, TP5, device
+375, 2592, TE, 1550, pranav, device, ringradius60gap0.14
+375, 2142, TE, 1550, pranav, device, ringradius70gap0.14
+375, 1692, TE, 1550, pranav, device, ringradius80gap0.14
+1375, 1242, TE, 1550, pranav, device, ringradius90gap0.18
+1375, 792, TE, 1550, pranav, device, ringradius100gap0.18
+-124, 2592, TE, 1550, pranav, device, ringradius60gap0.12
+-124, 2142, TE, 1550, pranav, device, ringradius70gap0.12
+875, 1242, TE, 1550, pranav, device, ringradius90gap0.16
+1375, 2592, TE, 1550, pranav, device, ringradius60gap0.18
+1375, 2142, TE, 1550, pranav, device, ringradius70gap0.18
+1375, 1692, TE, 1550, pranav, device, ringradius80gap0.18
+875, 792, TE, 1550, pranav, device, ringradius100gap0.16
+-124, 1692, TE, 1550, pranav, device, ringradius80gap0.12
+-124, 1242, TE, 1550, pranav, device, ringradius90gap0.12
+-124, 792, TE, 1550, pranav, device, ringradius100gap0.12
+875, 2592, TE, 1550, pranav, device, ringradius60gap0.16
+875, 2142, TE, 1550, pranav, device, ringradius70gap0.16
+875, 1692, TE, 1550, pranav, device, ringradius80gap0.16
+375, 1242, TE, 1550, pranav, device, ringradius90gap0.14
+375, 792, TE, 1550, pranav, device, ringradius100gap0.14
+-624, 1242, TE, 1550, pranav, device, ringradius90gap0.1
+-624, 792, TE, 1550, pranav, device, ringradius100gap0.1
+-2583, 2791, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.03, dW2outer0.03
+-2583, 2611, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.03, dW2outer0.04
+-2583, 2431, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.03, dW2outer0.05
+-2583, 2251, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.03, dW2outer0.06
+-2583, 2071, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.04, dW2outer0.03
+-2583, 1891, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.04, dW2outer0.04
+-2583, 1711, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.04, dW2outer0.05
+-2583, 1531, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.04, dW2outer0.06
+-2583, 1351, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.05, dW2outer0.03
+-2583, 1171, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.05, dW2outer0.04
+-2583, 991, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.05, dW2outer0.05
+-2583, 811, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.05, dW2outer0.06
+-2583, 631, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.06, dW2outer0.03
+-2583, 451, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.06, dW2outer0.04
+-2583, 271, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.06, dW2outer0.05
+-2583, 91, TE, 1550, Adan, device, CDC, preiod0.34, N1200, dW1inner0.06, dW2outer0.06
+-2583, 4951, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.04, dW2outer0.03
+-2583, 4771, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.04, dW2outer0.04
+-2583, 4591, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.04, dW2outer0.05
+-2583, 4411, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.04, dW2outer0.06
+-2583, 4231, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.05, dW2outer0.03
+-2583, 4051, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.05, dW2outer0.04
+-2583, 3871, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.05, dW2outer0.05
+-2583, 3691, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.05, dW2outer0.06
+-2583, 3511, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.06, dW2outer0.03
+-2583, 3331, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.06, dW2outer0.04
+-2583, 3151, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.06, dW2outer0.05
+-2583, 2971, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.06, dW2outer0.06
+-2953, 5671, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.05, dW2outer0.05
+-2953, 5451, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.05, dW2outer0.06
+-2953, 5231, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.06, dW2outer0.03
+-2953, 5011, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.06, dW2outer0.04
+-2953, 4791, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.06, dW2outer0.05
+-2953, 4571, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.06, dW2outer0.06
+-2583, 5671, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.03, dW2outer0.03
+-2583, 5491, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.03, dW2outer0.04
+-2583, 5311, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.03, dW2outer0.05
+-2583, 5131, TE, 1550, Adan, device, CDC, preiod0.33, N1200, dW1inner0.03, dW2outer0.06
+-3323, 3691, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.05, dW2outer0.04
+-3323, 5231, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.03, dW2outer0.05
+-3323, 3471, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.05, dW2outer0.05
+-3323, 4571, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.04, dW2outer0.04
+-3323, 3251, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.05, dW2outer0.06
+-3323, 5451, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.03, dW2outer0.04
+-3323, 3031, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.06, dW2outer0.03
+-3323, 4351, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.04, dW2outer0.05
+-3323, 2811, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.06, dW2outer0.04
+-3323, 5011, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.03, dW2outer0.06
+-3323, 4131, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.04, dW2outer0.06
+-3323, 5671, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.03, dW2outer0.03
+-3323, 3911, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.05, dW2outer0.03
+-3323, 4791, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.04, dW2outer0.03
+-3323, 831, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.04, dW2outer0.05
+-3323, 1711, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.03, dW2outer0.05
+-3323, 611, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.04, dW2outer0.06
+-3323, 2151, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.03, dW2outer0.03
+-3323, 391, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.05, dW2outer0.03
+-3323, 1491, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.03, dW2outer0.06
+-3323, 171, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.05, dW2outer0.04
+-3323, 2371, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.06, dW2outer0.06
+-3323, 1271, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.04, dW2outer0.03
+-3323, 1931, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.03, dW2outer0.04
+-3323, 1051, TE, 1550, Adan, device, CDC, preiod0.34, N600, dW1inner0.04, dW2outer0.04
+-3323, 2591, TE, 1550, Adan, device, CDC, preiod0.33, N600, dW1inner0.06, dW2outer0.05
+4330, -4770, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k13
+4330, -4867, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k14
+4330, -4964, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k1
+4330, -5061, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k2
+4330, -5158, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k3
+4330, -5255, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k4
+4330, -5353, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k5
+4010, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax52, lc, front1.5, k3
+4010, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax55, lc, front1.5, k1
+4010, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax55, lc, front1.5, k2
+4010, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax55, lc, front1.5, k3
+4010, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax58, lc, front1.5, k1
+4010, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax58, lc, front1.5, k2
+4010, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax58, lc, front1.5, k3
+4970, -4749, TE, 1550, Mateo, device, racetrackDevice, g230
+4970, -4846, TE, 1550, Mateo, device, racetrackDevice, Bridge, g230
+4970, -4942, TE, 1550, Mateo, device, racetrackDevice, Cross, g230
+4970, -5039, TE, 1550, Mateo, device, racetrackDevice, g240
+4970, -5136, TE, 1550, Mateo, device, racetrackDevice, Bridge, g240
+4970, -5232, TE, 1550, Mateo, device, racetrackDevice, Cross, g240
+4970, -5329, TE, 1550, Mateo, device, racetrackDevice, g250
+4650, -4760, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k3
+4650, -4858, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k4
+4650, -4955, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k5
+4650, -5052, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k6
+4650, -5149, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k7
+4650, -5246, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k8
+4650, -5343, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k9
+4970, -4363, TE, 1550, Mateo, device, racetrackDevice, Cross, g210
+4970, -4459, TE, 1550, Mateo, device, racetrackDevice, g220
+4970, -4556, TE, 1550, Mateo, device, racetrackDevice, Bridge, g220
+4970, -4652, TE, 1550, Mateo, device, racetrackDevice, Cross, g220
+4010, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax46, lc, front1.5, k3
+4010, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax49, lc, front1.5, k1
+4010, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax49, lc, front1.5, k2
+4010, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax49, lc, front1.5, k3
+4010, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax52, lc, front1.5, k1
+4010, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax52, lc, front1.5, k2
+4970, -4169, TE, 1550, Mateo, device, racetrackDevice, g210
+4650, -4178, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k11
+4650, -4275, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k12
+4650, -4372, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k13
+4650, -4469, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k14
+4650, -4566, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k1
+4650, -4663, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k2
+4330, -4187, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k7
+4330, -4284, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k8
+4330, -4381, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k9
+4330, -4479, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k10
+4330, -4576, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k11
+4330, -4673, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k12
+4970, -4266, TE, 1550, Mateo, device, racetrackDevice, Bridge, g210
+3370, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax64, lc, front1.5, k1
+3370, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax64, lc, front1.5, k2
+3370, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax64, lc, front1.5, k3
+3370, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax67, lc, front1.5, k1
+3050, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax67, lc, front1.5, k3
+3050, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax70, lc, front1.5, k1
+3050, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax70, lc, front1.5, k2
+3050, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax70, lc, front1.5, k3
+3050, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax73, lc, front1.5, k1
+3050, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax73, lc, front1.5, k2
+2730, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax76, lc, front1.5, k3
+2730, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax79, lc, front1.5, k1
+2730, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax79, lc, front1.5, k2
+2730, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax79, lc, front1.5, k3
+2730, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax76, lc, front1.5, k1
+2730, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax76, lc, front1.5, k2
+3690, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax55, lc, front1.5, k2
+3690, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax55, lc, front1.5, k3
+3690, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax58, lc, front1.5, k1
+3690, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax55, lc, front1.5, k1
+3690, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax58, lc, front1.5, k2
+3690, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax58, lc, front1.5, k3
+3370, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax61, lc, front1.5, k2
+3370, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax61, lc, front1.5, k3
+3690, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax61, lc, front1.5, k2
+3690, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax61, lc, front1.5, k3
+3370, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax67, lc, front1.5, k2
+3370, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax67, lc, front1.5, k3
+3370, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax70, lc, front1.5, k1
+3370, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax70, lc, front1.5, k2
+3370, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax70, lc, front1.5, k3
+3370, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax73, lc, front1.5, k1
+3370, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax73, lc, front1.5, k2
+3690, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax64, lc, front1.5, k1
+3690, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax64, lc, front1.5, k2
+3690, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax64, lc, front1.5, k3
+3690, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax67, lc, front1.5, k1
+2730, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax85, lc, front1.5, k3
+2730, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax88, lc, front1.5, k1
+2730, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax82, lc, front1.5, k1
+3050, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax73, lc, front1.5, k3
+3050, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax76, lc, front1.5, k1
+3050, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax76, lc, front1.5, k2
+3050, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax76, lc, front1.5, k3
+3050, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax79, lc, front1.5, k1
+3050, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax79, lc, front1.5, k2
+3050, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax79, lc, front1.5, k3
+2730, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax82, lc, front1.5, k2
+2730, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax82, lc, front1.5, k3
+2730, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax85, lc, front1.5, k1
+2730, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax85, lc, front1.5, k2
+3690, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax61, lc, front1.5, k1
+4970, -4073, TE, 1550, Mateo, device, racetrackDevice, Cross, g200
+4330, -3702, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k2
+4330, -3799, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k3
+4330, -3896, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k4
+4330, -3993, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k5
+4330, -3507, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k14
+4330, -4090, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k6
+4330, -3605, TE, 1550, Mateo, device, taper, bridgeDevice, 44, k1
+4970, -3589, TE, 1550, Mateo, device, racetrackDevice, g190
+4970, -3686, TE, 1550, Mateo, device, racetrackDevice, Bridge, g190
+4650, -3498, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k4
+4650, -3595, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k5
+4970, -3783, TE, 1550, Mateo, device, racetrackDevice, Cross, g190
+4650, -3692, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k6
+4650, -3789, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k7
+4970, -3879, TE, 1550, Mateo, device, racetrackDevice, g200
+4650, -3886, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k8
+4650, -3984, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k9
+4970, -3976, TE, 1550, Mateo, device, racetrackDevice, Bridge, g200
+4650, -4081, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k10
+4010, -3507, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k10
+4010, -3605, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k11
+4010, -3702, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k12
+4010, -3799, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k13
+4010, -3896, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k14
+4010, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax46, lc, front1.5, k1
+4010, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax46, lc, front1.5, k2
+4650, -3304, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k2
+4650, -3401, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k3
+4330, -3410, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k13
+4330, -3119, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k10
+4330, -2925, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k8
+4970, -2913, TE, 1550, Mateo, device, racetrackDevice, Cross, g160
+4330, -3022, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k9
+4650, -2915, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k12
+4330, -3216, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k11
+4970, -3106, TE, 1550, Mateo, device, racetrackDevice, Bridge, g170
+4010, -2925, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k4
+4010, -3022, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k5
+4970, -3203, TE, 1550, Mateo, device, racetrackDevice, Cross, g170
+4010, -3119, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k6
+4010, -3216, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k7
+4010, -3313, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k8
+4010, -3410, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k9
+4970, -3299, TE, 1550, Mateo, device, racetrackDevice, g180
+4970, -3396, TE, 1550, Mateo, device, racetrackDevice, Bridge, g180
+4970, -3009, TE, 1550, Mateo, device, racetrackDevice, g170
+4650, -3012, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k13
+4970, -3493, TE, 1550, Mateo, device, racetrackDevice, Cross, g180
+4650, -3110, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k14
+4650, -3207, TE, 1550, Mateo, device, taper, bridgeDevice, 25, k1
+4330, -3313, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k12
+3370, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax49, lc, front1.5, k2
+3370, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax52, lc, front1.5, k1
+3370, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax49, lc, front1.5, k3
+3370, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax49, lc, front1.5, k1
+3690, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax88, lc, front1.5, k3
+3690, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax46, lc, front1.5, k1
+3690, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax46, lc, front1.5, k2
+3050, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax58, lc, front1.5, k3
+2730, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax61, lc, front1.5, k3
+3050, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax61, lc, front1.5, k1
+2730, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax64, lc, front1.5, k1
+3690, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax85, lc, front1.5, k3
+2730, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax64, lc, front1.5, k2
+3370, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax52, lc, front1.5, k2
+2730, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax64, lc, front1.5, k3
+3690, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax88, lc, front1.5, k1
+2730, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax67, lc, front1.5, k1
+2730, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax67, lc, front1.5, k2
+3050, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax58, lc, front1.5, k1
+3050, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax55, lc, front1.5, k2
+3690, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax88, lc, front1.5, k2
+3050, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax55, lc, front1.5, k3
+3370, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax52, lc, front1.5, k3
+3050, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax58, lc, front1.5, k2
+3050, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax64, lc, front1.5, k1
+3690, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax46, lc, front1.5, k3
+3690, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax49, lc, front1.5, k1
+3690, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax49, lc, front1.5, k2
+3690, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax49, lc, front1.5, k3
+3690, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax52, lc, front1.5, k1
+3690, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax52, lc, front1.5, k2
+3690, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax52, lc, front1.5, k3
+3370, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax58, lc, front1.5, k2
+3050, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax61, lc, front1.5, k2
+3050, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax64, lc, front1.5, k2
+3370, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax61, lc, front1.5, k1
+2730, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax73, lc, front1.5, k3
+3370, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax58, lc, front1.5, k3
+3050, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax64, lc, front1.5, k3
+3370, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax55, lc, front1.5, k3
+3370, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax55, lc, front1.5, k1
+3050, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax67, lc, front1.5, k1
+2730, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax73, lc, front1.5, k1
+3050, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax61, lc, front1.5, k3
+3050, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax67, lc, front1.5, k2
+2730, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax67, lc, front1.5, k3
+3370, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax58, lc, front1.5, k1
+2730, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax70, lc, front1.5, k1
+2730, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax73, lc, front1.5, k2
+2730, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax70, lc, front1.5, k2
+2730, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax70, lc, front1.5, k3
+3370, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax55, lc, front1.5, k2
+1770, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax46, lc, front1.5, k2
+1770, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax49, lc, front1.5, k3
+2410, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax76, lc, front1.5, k1
+2410, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax76, lc, front1.5, k2
+1770, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax49, lc, front1.5, k1
+2410, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax76, lc, front1.5, k3
+2410, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax79, lc, front1.5, k1
+2410, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax79, lc, front1.5, k2
+2410, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax79, lc, front1.5, k3
+2410, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax82, lc, front1.5, k1
+1770, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax46, lc, front1.5, k3
+2090, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax82, lc, front1.5, k2
+2090, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax82, lc, front1.5, k3
+2090, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax85, lc, front1.5, k1
+2090, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax85, lc, front1.5, k2
+2090, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax85, lc, front1.5, k3
+2090, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax88, lc, front1.5, k1
+2090, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax88, lc, front1.5, k2
+1770, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax49, lc, front1.5, k2
+1770, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax88, lc, front1.5, k3
+1770, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax46, lc, front1.5, k1
+2410, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax73, lc, front1.5, k3
+2410, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax70, lc, front1.5, k2
+2410, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax70, lc, front1.5, k3
+2410, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax70, lc, front1.5, k1
+2090, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax76, lc, front1.5, k2
+2090, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax76, lc, front1.5, k3
+2090, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax79, lc, front1.5, k1
+2410, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax73, lc, front1.5, k1
+1770, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax82, lc, front1.5, k3
+1770, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax85, lc, front1.5, k1
+1770, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax85, lc, front1.5, k2
+1770, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax85, lc, front1.5, k3
+1770, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax88, lc, front1.5, k1
+2090, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax79, lc, front1.5, k2
+1770, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax88, lc, front1.5, k2
+2090, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax79, lc, front1.5, k3
+2090, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax82, lc, front1.5, k1
+2410, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax73, lc, front1.5, k2
+810, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax90, lc, back1.4, k3
+1130, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax55, lc, front1.5, k2
+1450, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax46, lc, front1.5, k3
+1450, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax46, lc, front1.5, k1
+810, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax93, lc, back1.4, k1
+1130, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax58, lc, front1.5, k1
+1450, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax46, lc, front1.5, k2
+490, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax99, lc, back1.4, k1
+490, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax102, lc, back1.4, k1
+810, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax87, lc, back1.4, k3
+810, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax93, lc, back1.4, k2
+1130, -3119, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax55, lc, front1.5, k1
+1450, -3410, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax49, lc, front1.5, k3
+490, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax99, lc, back1.4, k2
+1130, -2925, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax52, lc, front1.5, k2
+810, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax90, lc, back1.4, k1
+1450, -3216, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax49, lc, front1.5, k1
+490, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax102, lc, back1.4, k2
+1450, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax49, lc, front1.5, k2
+1130, -3313, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax55, lc, front1.5, k3
+810, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax90, lc, back1.4, k2
+1130, -3022, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax52, lc, front1.5, k3
+490, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax99, lc, back1.4, k3
+490, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax102, lc, back1.4, k3
+490, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax105, lc, back1.4, k2
+1450, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax52, lc, front1.5, k1
+810, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax99, lc, back1.4, k1
+1130, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax64, lc, front1.5, k2
+810, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax99, lc, back1.4, k3
+490, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax111, lc, back1.4, k1
+1130, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax61, lc, front1.5, k1
+1450, -4090, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax58, lc, front1.5, k1
+490, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax105, lc, back1.4, k3
+1130, -3507, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax58, lc, front1.5, k2
+1130, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax61, lc, front1.5, k2
+1450, -3799, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax55, lc, front1.5, k1
+810, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax93, lc, back1.4, k3
+810, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax99, lc, back1.4, k2
+490, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax108, lc, back1.4, k1
+1450, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax52, lc, front1.5, k2
+1450, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax55, lc, front1.5, k3
+810, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax96, lc, back1.4, k1
+490, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax105, lc, back1.4, k1
+1130, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax61, lc, front1.5, k3
+1450, -3702, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax52, lc, front1.5, k3
+490, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax108, lc, back1.4, k2
+810, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax96, lc, back1.4, k2
+1130, -3605, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax58, lc, front1.5, k3
+1450, -3896, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax55, lc, front1.5, k2
+1130, -3993, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax64, lc, front1.5, k1
+810, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax96, lc, back1.4, k3
+490, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax108, lc, back1.4, k3
+2090, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax49, lc, front1.5, k3
+2090, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax52, lc, front1.5, k1
+1770, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax61, lc, front1.5, k3
+2090, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax52, lc, front1.5, k2
+2090, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax52, lc, front1.5, k3
+1770, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax64, lc, front1.5, k1
+2090, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax55, lc, front1.5, k1
+1770, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax58, lc, front1.5, k1
+2090, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax55, lc, front1.5, k2
+2410, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax88, lc, front1.5, k2
+2410, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax88, lc, front1.5, k3
+2090, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax55, lc, front1.5, k3
+2410, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax46, lc, front1.5, k1
+2410, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax46, lc, front1.5, k2
+1770, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax58, lc, front1.5, k2
+2410, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax46, lc, front1.5, k3
+2410, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax49, lc, front1.5, k1
+2410, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax49, lc, front1.5, k2
+1770, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax58, lc, front1.5, k3
+1770, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax61, lc, front1.5, k1
+1770, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax61, lc, front1.5, k2
+2410, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax85, lc, front1.5, k3
+1770, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax52, lc, front1.5, k2
+2410, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax88, lc, front1.5, k1
+2410, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax82, lc, front1.5, k3
+2090, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax49, lc, front1.5, k2
+2090, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax88, lc, front1.5, k3
+1770, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax55, lc, front1.5, k1
+1770, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax55, lc, front1.5, k3
+1770, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax52, lc, front1.5, k3
+2090, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax46, lc, front1.5, k1
+1770, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax52, lc, front1.5, k1
+2410, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax85, lc, front1.5, k1
+2090, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax46, lc, front1.5, k2
+2090, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax46, lc, front1.5, k3
+1770, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax55, lc, front1.5, k2
+2090, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax49, lc, front1.5, k1
+2410, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax82, lc, front1.5, k2
+2410, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax85, lc, front1.5, k2
+810, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax102, lc, back1.4, k2
+1450, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax61, lc, front1.5, k3
+1130, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax67, lc, front1.5, k2
+1450, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax58, lc, front1.5, k3
+490, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax114, lc, back1.4, k3
+1130, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax67, lc, front1.5, k3
+490, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax111, lc, back1.4, k3
+1450, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax64, lc, front1.5, k1
+810, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax105, lc, back1.4, k1
+1130, -4576, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax70, lc, front1.5, k1
+1450, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax58, lc, front1.5, k2
+1130, -4673, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax70, lc, front1.5, k2
+490, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax75, lc, back1.4, k1
+1450, -4381, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax61, lc, front1.5, k1
+490, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax114, lc, back1.4, k2
+810, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax102, lc, back1.4, k1
+810, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax105, lc, back1.4, k2
+490, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax114, lc, back1.4, k1
+1130, -4187, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax64, lc, front1.5, k3
+1450, -4479, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax61, lc, front1.5, k2
+810, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax102, lc, back1.4, k3
+810, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax105, lc, back1.4, k3
+490, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax111, lc, back1.4, k2
+1130, -4284, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax67, lc, front1.5, k1
+490, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax78, lc, back1.4, k2
+810, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax114, lc, back1.4, k1
+1450, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax67, lc, front1.5, k3
+490, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax78, lc, back1.4, k3
+1130, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax76, lc, front1.5, k2
+1450, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax64, lc, front1.5, k2
+490, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax81, lc, back1.4, k1
+1450, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax70, lc, front1.5, k2
+810, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax111, lc, back1.4, k3
+1130, -5353, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax76, lc, front1.5, k3
+1130, -4770, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax70, lc, front1.5, k3
+490, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax81, lc, back1.4, k2
+490, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax75, lc, back1.4, k2
+1450, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax64, lc, front1.5, k3
+1130, -4867, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax73, lc, front1.5, k1
+810, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax111, lc, back1.4, k2
+1130, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax73, lc, front1.5, k2
+490, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax75, lc, back1.4, k3
+1450, -4964, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax67, lc, front1.5, k1
+810, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax111, lc, back1.4, k1
+1130, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax73, lc, front1.5, k3
+1450, -5255, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax70, lc, front1.5, k1
+490, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax78, lc, back1.4, k1
+1450, -5061, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax67, lc, front1.5, k2
+1130, -5158, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax76, lc, front1.5, k1
+810, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax108, lc, back1.4, k1
+810, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax108, lc, back1.4, k3
+810, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax108, lc, back1.4, k2
+4650, -2527, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k8
+4330, -2342, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k2
+4330, -2439, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k3
+4330, -2536, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k4
+4650, -2624, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k9
+4330, -2633, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k5
+4330, -2731, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k6
+4330, -2828, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k7
+4650, -2721, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k10
+4650, -2818, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k11
+4970, -2333, TE, 1550, Mateo, device, racetrackDevice, Cross, g140
+4010, -2342, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k12
+4970, -2430, TE, 1550, Mateo, device, racetrackDevice, g150
+4970, -2526, TE, 1550, Mateo, device, racetrackDevice, Bridge, g150
+4010, -2439, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k13
+4970, -2623, TE, 1550, Mateo, device, racetrackDevice, Cross, g150
+4970, -2719, TE, 1550, Mateo, device, racetrackDevice, g160
+4010, -2536, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k14
+4970, -2816, TE, 1550, Mateo, device, racetrackDevice, Bridge, g160
+4010, -2633, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k1
+4010, -2731, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k2
+4010, -2828, TE, 1550, Mateo, device, taper, bridgeDevice, 59, k3
+4650, -2333, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k6
+4650, -2430, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k7
+4970, -2140, TE, 1550, Mateo, device, racetrackDevice, g140
+4010, -2245, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k11
+4970, -2236, TE, 1550, Mateo, device, racetrackDevice, Bridge, g140
+4010, -1857, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k7
+4650, -1751, TE, 1550, Mateo, device, Y, branchDevice, 10
+4010, -1759, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k6
+4650, -1944, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k2
+4010, -1662, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k5
+4010, -1954, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k8
+4330, -2245, TE, 1550, Mateo, device, taper, bridgeDevice, 39, k1
+4650, -1847, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k1
+4970, -1753, TE, 1550, Mateo, device, racetrackDevice, Cross, g120
+4010, -2051, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k9
+4330, -2148, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k14
+4970, -1850, TE, 1550, Mateo, device, racetrackDevice, g130
+4970, -1946, TE, 1550, Mateo, device, racetrackDevice, Bridge, g130
+4010, -2148, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k10
+4650, -2041, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k3
+4970, -2043, TE, 1550, Mateo, device, racetrackDevice, Cross, g130
+4650, -1654, TE, 1550, Mateo, device, Y, branchDevice, 9
+4650, -2138, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k4
+4650, -2236, TE, 1550, Mateo, device, taper, bridgeDevice, 20, k5
+4330, -1662, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k9
+4330, -1759, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k10
+4330, -1857, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k11
+4970, -1656, TE, 1550, Mateo, device, racetrackDevice, Bridge, g120
+4330, -1954, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k12
+4330, -2051, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k13
+3050, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax88, lc, front1.5, k1
+3690, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax76, lc, front1.5, k3
+3690, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax79, lc, front1.5, k1
+3050, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax46, lc, front1.5, k3
+3370, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax79, lc, front1.5, k3
+3690, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax79, lc, front1.5, k2
+3050, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax49, lc, front1.5, k1
+3050, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax88, lc, front1.5, k3
+2730, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax49, lc, front1.5, k2
+3050, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax88, lc, front1.5, k2
+2730, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax49, lc, front1.5, k3
+2730, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax52, lc, front1.5, k1
+2730, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax52, lc, front1.5, k2
+2730, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax52, lc, front1.5, k3
+2730, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax55, lc, front1.5, k1
+2730, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax55, lc, front1.5, k2
+3690, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax73, lc, front1.5, k2
+3370, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax82, lc, front1.5, k1
+3370, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax85, lc, front1.5, k3
+3690, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax73, lc, front1.5, k3
+3050, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax46, lc, front1.5, k1
+3690, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax76, lc, front1.5, k1
+3370, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax82, lc, front1.5, k2
+3370, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax82, lc, front1.5, k3
+3690, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax76, lc, front1.5, k2
+3370, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax85, lc, front1.5, k1
+3050, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax46, lc, front1.5, k2
+3370, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax85, lc, front1.5, k2
+3050, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax55, lc, front1.5, k1
+3370, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax88, lc, front1.5, k3
+3690, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax85, lc, front1.5, k2
+2730, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax55, lc, front1.5, k3
+3690, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax79, lc, front1.5, k3
+2730, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax58, lc, front1.5, k1
+3370, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax88, lc, front1.5, k1
+3050, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax52, lc, front1.5, k1
+2730, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax58, lc, front1.5, k2
+2730, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax58, lc, front1.5, k3
+3690, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax82, lc, front1.5, k1
+2730, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax61, lc, front1.5, k1
+3370, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax46, lc, front1.5, k2
+2730, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax61, lc, front1.5, k2
+3050, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax52, lc, front1.5, k2
+3690, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax82, lc, front1.5, k2
+3050, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax49, lc, front1.5, k2
+3370, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax46, lc, front1.5, k3
+3370, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax88, lc, front1.5, k2
+3690, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax82, lc, front1.5, k3
+3370, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax46, lc, front1.5, k1
+3690, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax85, lc, front1.5, k1
+3050, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax52, lc, front1.5, k3
+3050, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax49, lc, front1.5, k3
+4970, -1463, TE, 1550, Mateo, device, racetrackDevice, Cross, g110
+4970, -1560, TE, 1550, Mateo, device, racetrackDevice, g120
+4650, -1365, TE, 1550, Mateo, device, Y, branchDevice, 6
+4650, -1269, TE, 1550, Mateo, device, Y, branchDevice, 5
+4650, -1076, TE, 1550, Mateo, device, Y, branchDevice, 3
+4010, -1080, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k13
+4010, -1177, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k14
+4970, -1366, TE, 1550, Mateo, device, racetrackDevice, Bridge, g110
+4010, -1274, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k1
+4010, -1371, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k2
+4010, -1468, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k3
+4010, -1565, TE, 1550, Mateo, device, taper, bridgeDevice, 54, k4
+4650, -1558, TE, 1550, Mateo, device, Y, branchDevice, 8
+4330, -1080, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k3
+4650, -1462, TE, 1550, Mateo, device, Y, branchDevice, 7
+4330, -1177, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k4
+4970, -1076, TE, 1550, Mateo, device, racetrackDevice, Bridge, g100
+4330, -1274, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k5
+4330, -1371, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k6
+4330, -1468, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k7
+4330, -1565, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k8
+4970, -1173, TE, 1550, Mateo, device, racetrackDevice, Cross, g100
+4650, -1172, TE, 1550, Mateo, device, Y, branchDevice, 4
+4970, -1270, TE, 1550, Mateo, device, racetrackDevice, g110
+4330, -497, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k11
+4330, -594, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k12
+4010, -885, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k11
+4330, -691, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k13
+4970, -980, TE, 1550, Mateo, device, racetrackDevice, g100
+4330, -788, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k14
+4330, -885, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k1
+4970, -400, TE, 1550, Mateo, device, racetrackDevice, g80
+4330, -983, TE, 1550, Mateo, device, taper, bridgeDevice, 35, k2
+4010, -983, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k12
+4970, -786, TE, 1550, Mateo, device, racetrackDevice, Bridge, g90
+4970, -593, TE, 1550, Mateo, device, racetrackDevice, Cross, g80
+4010, -497, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k7
+4010, -594, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k8
+4970, -690, TE, 1550, Mateo, device, racetrackDevice, g90
+4650, -883, TE, 1550, Mateo, device, Y, branchDevice, 1
+4010, -691, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k9
+4650, -980, TE, 1550, Mateo, device, Y, branchDevice, 2
+4010, -788, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k10
+4010, -400, TE, 1550, Mateo, device, taper, bridgeDevice, 49, k6
+4970, -883, TE, 1550, Mateo, device, racetrackDevice, Cross, g90
+4970, -497, TE, 1550, Mateo, device, racetrackDevice, Bridge, g80
+4650, -400, TE, 1550, Mateo, device, racetrackDevice, Bridge, g250
+4650, -497, TE, 1550, Mateo, device, racetrackDevice, Cross, g250
+4650, -593, TE, 1550, Mateo, device, racetrackDevice, g260
+4650, -786, TE, 1550, Mateo, device, racetrackDevice, Cross, g260
+4650, -690, TE, 1550, Mateo, device, racetrackDevice, Bridge, g260
+4330, -400, TE, 1550, Mateo, device, taper, bridgeDevice, 30, k10
+3690, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax64, lc, front1.5, k1
+3690, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax61, lc, front1.5, k3
+3370, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax67, lc, front1.5, k3
+3050, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax79, lc, front1.5, k3
+3050, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax79, lc, front1.5, k1
+3690, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax61, lc, front1.5, k1
+3370, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax73, lc, front1.5, k1
+3690, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax64, lc, front1.5, k2
+2730, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax82, lc, front1.5, k3
+2730, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax85, lc, front1.5, k3
+2730, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax82, lc, front1.5, k1
+3690, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax61, lc, front1.5, k2
+3370, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax73, lc, front1.5, k2
+3370, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax70, lc, front1.5, k1
+3050, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax76, lc, front1.5, k3
+2730, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax88, lc, front1.5, k1
+3050, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax73, lc, front1.5, k3
+2730, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax85, lc, front1.5, k1
+3050, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax76, lc, front1.5, k2
+2730, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax82, lc, front1.5, k2
+3370, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax67, lc, front1.5, k2
+3690, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax67, lc, front1.5, k1
+3050, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax79, lc, front1.5, k2
+3690, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax64, lc, front1.5, k3
+3370, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax70, lc, front1.5, k2
+3050, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax76, lc, front1.5, k1
+2730, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax85, lc, front1.5, k2
+3370, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax70, lc, front1.5, k3
+2730, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax88, lc, front1.5, k2
+3690, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax67, lc, front1.5, k3
+3050, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax82, lc, front1.5, k1
+2730, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax46, lc, front1.5, k3
+3370, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax79, lc, front1.5, k1
+3370, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax79, lc, front1.5, k2
+3050, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax85, lc, front1.5, k2
+2730, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin34, rmax88, lc, front1.5, k3
+2730, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax49, lc, front1.5, k1
+3370, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax73, lc, front1.5, k3
+3690, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax70, lc, front1.5, k2
+3690, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax73, lc, front1.5, k1
+2730, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax46, lc, front1.5, k1
+3050, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax85, lc, front1.5, k1
+3690, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax70, lc, front1.5, k1
+3370, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax76, lc, front1.5, k1
+3050, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax82, lc, front1.5, k3
+3370, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax76, lc, front1.5, k3
+3050, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax85, lc, front1.5, k3
+3050, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin31, rmax82, lc, front1.5, k2
+3690, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax70, lc, front1.5, k3
+3690, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin25, rmax67, lc, front1.5, k2
+2730, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax46, lc, front1.5, k2
+3370, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin28, rmax76, lc, front1.5, k2
+2090, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax58, lc, front1.5, k1
+2410, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax55, lc, front1.5, k2
+2090, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax58, lc, front1.5, k2
+2410, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax52, lc, front1.5, k2
+2090, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax58, lc, front1.5, k3
+1770, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax64, lc, front1.5, k2
+2090, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax61, lc, front1.5, k1
+2410, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax49, lc, front1.5, k3
+1770, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax64, lc, front1.5, k3
+2090, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax61, lc, front1.5, k2
+2090, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax61, lc, front1.5, k3
+1770, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax67, lc, front1.5, k1
+2410, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax52, lc, front1.5, k3
+1770, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax67, lc, front1.5, k2
+1770, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax67, lc, front1.5, k3
+1770, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax70, lc, front1.5, k1
+2410, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax52, lc, front1.5, k1
+2410, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax55, lc, front1.5, k1
+1770, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax64, lc, front1.5, k1
+1770, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax58, lc, front1.5, k3
+2090, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax52, lc, front1.5, k2
+1770, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax58, lc, front1.5, k2
+2090, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax52, lc, front1.5, k3
+1770, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax61, lc, front1.5, k1
+1770, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax58, lc, front1.5, k1
+2090, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax55, lc, front1.5, k1
+2410, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax46, lc, front1.5, k1
+2410, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax49, lc, front1.5, k2
+1770, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax61, lc, front1.5, k2
+2090, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax55, lc, front1.5, k2
+2410, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax88, lc, front1.5, k2
+2410, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax46, lc, front1.5, k3
+2090, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax52, lc, front1.5, k1
+2410, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax46, lc, front1.5, k2
+2410, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax49, lc, front1.5, k1
+2090, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax55, lc, front1.5, k3
+2410, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin37, rmax88, lc, front1.5, k3
+2090, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax49, lc, front1.5, k3
+1770, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax61, lc, front1.5, k3
+810, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax82, lc, front1.5, k1
+490, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax75, lc, back1.4, k3
+1450, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax67, lc, front1.5, k1
+810, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax79, lc, front1.5, k2
+490, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax114, lc, back1.4, k3
+490, -983, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax78, lc, back1.4, k2
+1130, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax76, lc, front1.5, k2
+490, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax78, lc, back1.4, k1
+1450, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax67, lc, front1.5, k2
+810, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax82, lc, front1.5, k2
+1130, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax73, lc, front1.5, k2
+810, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax79, lc, front1.5, k1
+1450, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax64, lc, front1.5, k2
+1450, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax67, lc, front1.5, k3
+1130, -788, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax76, lc, front1.5, k1
+1130, -400, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax70, lc, front1.5, k3
+810, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax82, lc, front1.5, k3
+1130, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax73, lc, front1.5, k1
+1450, -885, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax70, lc, front1.5, k1
+810, -594, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax79, lc, front1.5, k3
+810, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax85, lc, front1.5, k1
+1450, -497, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax64, lc, front1.5, k3
+490, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax75, lc, back1.4, k2
+1450, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax70, lc, front1.5, k2
+1130, -691, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax73, lc, front1.5, k3
+490, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax114, lc, back1.4, k2
+1130, -983, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax76, lc, front1.5, k3
+490, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax75, lc, back1.4, k1
+810, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax88, lc, front1.5, k2
+1450, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax70, lc, front1.5, k3
+1130, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax82, lc, front1.5, k3
+810, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax85, lc, front1.5, k2
+810, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax88, lc, front1.5, k3
+1130, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax79, lc, front1.5, k3
+490, -1371, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax81, lc, back1.4, k3
+1450, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax76, lc, front1.5, k1
+490, -1274, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax81, lc, back1.4, k2
+490, -1468, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax84, lc, back1.4, k1
+810, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax85, lc, front1.5, k3
+810, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax75, lc, back1.4, k1
+490, -1177, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax81, lc, back1.4, k1
+1130, -1080, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax79, lc, front1.5, k1
+1130, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax79, lc, front1.5, k2
+490, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax84, lc, back1.4, k2
+810, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax88, lc, front1.5, k1
+1450, -1177, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax73, lc, front1.5, k1
+1450, -1565, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax76, lc, front1.5, k2
+1130, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax82, lc, front1.5, k1
+1450, -1371, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax73, lc, front1.5, k3
+1130, -1468, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax82, lc, front1.5, k2
+1450, -1274, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax73, lc, front1.5, k2
+490, -1080, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax78, lc, back1.4, k3
+2090, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax70, lc, front1.5, k3
+1770, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax82, lc, front1.5, k2
+1770, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax79, lc, front1.5, k3
+2090, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax73, lc, front1.5, k1
+2410, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax64, lc, front1.5, k1
+1770, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax76, lc, front1.5, k3
+1770, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax79, lc, front1.5, k2
+2090, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax73, lc, front1.5, k2
+2410, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax64, lc, front1.5, k2
+2410, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax64, lc, front1.5, k3
+2090, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax73, lc, front1.5, k3
+1770, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax82, lc, front1.5, k1
+2410, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax67, lc, front1.5, k1
+2090, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax76, lc, front1.5, k1
+2410, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax67, lc, front1.5, k2
+2090, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax70, lc, front1.5, k2
+2410, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax67, lc, front1.5, k3
+1770, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax79, lc, front1.5, k1
+2410, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax55, lc, front1.5, k3
+1770, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax76, lc, front1.5, k2
+2410, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax58, lc, front1.5, k1
+2090, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax64, lc, front1.5, k2
+2090, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax64, lc, front1.5, k3
+2410, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax58, lc, front1.5, k3
+2090, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax70, lc, front1.5, k1
+1770, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax73, lc, front1.5, k1
+2090, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax64, lc, front1.5, k1
+1770, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax73, lc, front1.5, k2
+1770, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax76, lc, front1.5, k1
+2410, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax61, lc, front1.5, k1
+1770, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax73, lc, front1.5, k3
+2090, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax67, lc, front1.5, k1
+2410, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax61, lc, front1.5, k3
+1770, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax70, lc, front1.5, k2
+2090, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax67, lc, front1.5, k3
+2090, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin43, rmax67, lc, front1.5, k2
+1770, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin46, rmax70, lc, front1.5, k3
+2410, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax58, lc, front1.5, k2
+2410, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin40, rmax61, lc, front1.5, k2
+810, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax75, lc, back1.4, k3
+1130, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax46, lc, front1.5, k1
+490, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax84, lc, back1.4, k3
+810, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax78, lc, back1.4, k3
+1450, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax82, lc, front1.5, k2
+490, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax87, lc, back1.4, k3
+1450, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax79, lc, front1.5, k2
+1450, -2245, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax82, lc, front1.5, k3
+1130, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax85, lc, front1.5, k2
+1130, -2148, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax88, lc, front1.5, k3
+490, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax87, lc, back1.4, k2
+490, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax90, lc, back1.4, k3
+1130, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax88, lc, front1.5, k2
+1450, -1759, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax79, lc, front1.5, k1
+810, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax78, lc, back1.4, k2
+490, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax87, lc, back1.4, k1
+1450, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax79, lc, front1.5, k3
+1130, -1954, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax88, lc, front1.5, k1
+810, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax81, lc, back1.4, k2
+1130, -1857, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax85, lc, front1.5, k3
+490, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax90, lc, back1.4, k2
+810, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax75, lc, back1.4, k2
+810, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax81, lc, back1.4, k1
+490, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax90, lc, back1.4, k1
+1450, -2051, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax82, lc, front1.5, k1
+1450, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax76, lc, front1.5, k3
+810, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax78, lc, back1.4, k1
+1130, -1662, TE, 1550, Mateo, device, Front, reflectorDevice, rmin52, rmax85, lc, front1.5, k1
+1130, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax46, lc, front1.5, k3
+490, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax93, lc, back1.4, k1
+1450, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax88, lc, front1.5, k1
+1130, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax52, lc, front1.5, k1
+810, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax87, lc, back1.4, k1
+810, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax87, lc, back1.4, k2
+490, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax93, lc, back1.4, k3
+1450, -2439, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax85, lc, front1.5, k2
+490, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax96, lc, back1.4, k3
+810, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax84, lc, back1.4, k2
+810, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax84, lc, back1.4, k1
+1130, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax49, lc, front1.5, k3
+1130, -2633, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax49, lc, front1.5, k2
+1130, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax49, lc, front1.5, k1
+810, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax81, lc, back1.4, k3
+490, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax93, lc, back1.4, k2
+1450, -2536, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax85, lc, front1.5, k3
+490, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax96, lc, back1.4, k1
+810, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin25, rmax84, lc, back1.4, k3
+1450, -2828, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax88, lc, front1.5, k3
+1450, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax85, lc, front1.5, k1
+490, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin28, rmax96, lc, back1.4, k2
+1130, -2342, TE, 1550, Mateo, device, Front, reflectorDevice, rmin55, rmax46, lc, front1.5, k2
+1450, -2731, TE, 1550, Mateo, device, Front, reflectorDevice, rmin49, rmax88, lc, front1.5, k2
+170, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax108, lc, back1.4, k1
+-149, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax111, lc, back1.4, k3
+-149, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax114, lc, back1.4, k1
+-149, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax114, lc, back1.4, k2
+-469, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax81, lc, back1.4, k1
+-149, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax114, lc, back1.4, k3
+-469, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax81, lc, back1.4, k2
+170, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax102, lc, back1.4, k2
+-469, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax81, lc, back1.4, k3
+-149, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax75, lc, back1.4, k1
+-469, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax84, lc, back1.4, k1
+-469, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax84, lc, back1.4, k2
+-149, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax75, lc, back1.4, k2
+-469, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax84, lc, back1.4, k3
+170, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax102, lc, back1.4, k3
+170, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax105, lc, back1.4, k1
+170, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax105, lc, back1.4, k2
+170, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax105, lc, back1.4, k3
+-469, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax75, lc, back1.4, k3
+-469, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax78, lc, back1.4, k1
+-149, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax105, lc, back1.4, k3
+-469, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax78, lc, back1.4, k2
+170, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax96, lc, back1.4, k1
+170, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax102, lc, back1.4, k1
+-469, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax78, lc, back1.4, k3
+170, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax96, lc, back1.4, k2
+-149, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax108, lc, back1.4, k1
+-149, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax108, lc, back1.4, k2
+170, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax96, lc, back1.4, k3
+-149, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax108, lc, back1.4, k3
+170, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax99, lc, back1.4, k1
+-149, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax111, lc, back1.4, k1
+-149, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax111, lc, back1.4, k2
+170, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax99, lc, back1.4, k2
+-469, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax114, lc, back1.4, k3
+-469, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax75, lc, back1.4, k1
+-149, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax105, lc, back1.4, k2
+-469, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax75, lc, back1.4, k2
+170, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax99, lc, back1.4, k3
+-1749, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax75, lc, back1.4, k1
+-1109, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax99, lc, back1.4, k2
+-1109, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax93, lc, back1.4, k3
+-1749, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax114, lc, back1.4, k2
+-1749, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax114, lc, back1.4, k1
+-1429, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax102, lc, back1.4, k3
+-1429, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax105, lc, back1.4, k1
+-1749, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax75, lc, back1.4, k2
+-1429, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax105, lc, back1.4, k2
+-789, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax84, lc, back1.4, k1
+-1109, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax96, lc, back1.4, k3
+-789, -1759, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax84, lc, back1.4, k2
+-1749, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax75, lc, back1.4, k3
+-789, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax84, lc, back1.4, k3
+-1109, -1662, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax93, lc, back1.4, k2
+-789, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax87, lc, back1.4, k1
+-1429, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax108, lc, back1.4, k1
+-789, -2051, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax87, lc, back1.4, k2
+-1109, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax96, lc, back1.4, k1
+-789, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax87, lc, back1.4, k3
+-789, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax90, lc, back1.4, k1
+-1749, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax78, lc, back1.4, k1
+-1749, -1857, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax114, lc, back1.4, k3
+-1429, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax105, lc, back1.4, k3
+-1429, -2245, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax108, lc, back1.4, k3
+-1109, -1954, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax96, lc, back1.4, k2
+-1429, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax108, lc, back1.4, k2
+-1109, -2148, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax99, lc, back1.4, k1
+-1749, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax81, lc, back1.4, k2
+-1109, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax105, lc, back1.4, k2
+-1749, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax78, lc, back1.4, k2
+-1429, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax114, lc, back1.4, k3
+-1749, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax81, lc, back1.4, k3
+-1109, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax102, lc, back1.4, k2
+-1749, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax78, lc, back1.4, k3
+-1749, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax84, lc, back1.4, k1
+-1429, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax111, lc, back1.4, k1
+-789, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax90, lc, back1.4, k2
+-1429, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax114, lc, back1.4, k2
+-789, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax90, lc, back1.4, k3
+-1109, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax102, lc, back1.4, k3
+-789, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax93, lc, back1.4, k1
+-1749, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax81, lc, back1.4, k1
+-1109, -2342, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax99, lc, back1.4, k3
+-789, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax93, lc, back1.4, k2
+-1429, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax111, lc, back1.4, k2
+-1109, -2439, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax102, lc, back1.4, k1
+-789, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax93, lc, back1.4, k3
+-1429, -2633, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax114, lc, back1.4, k1
+-1429, -2536, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax111, lc, back1.4, k3
+-789, -2828, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax96, lc, back1.4, k1
+-1109, -2731, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax105, lc, back1.4, k1
+-469, -1080, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax108, lc, back1.4, k3
+-469, -1177, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax111, lc, back1.4, k1
+-149, -1080, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax99, lc, back1.4, k2
+-149, -1177, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax99, lc, back1.4, k3
+-469, -1274, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax111, lc, back1.4, k2
+170, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax93, lc, back1.4, k3
+-469, -1371, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax111, lc, back1.4, k3
+-149, -1274, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax102, lc, back1.4, k1
+-469, -1468, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax114, lc, back1.4, k1
+-149, -1371, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax102, lc, back1.4, k2
+-469, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax114, lc, back1.4, k2
+-149, -1468, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax102, lc, back1.4, k3
+170, -1468, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax93, lc, back1.4, k2
+-149, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax105, lc, back1.4, k1
+170, -1080, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax90, lc, back1.4, k1
+170, -1177, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax90, lc, back1.4, k2
+170, -1274, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax90, lc, back1.4, k3
+170, -1371, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax93, lc, back1.4, k1
+-469, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax105, lc, back1.4, k2
+-149, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax93, lc, back1.4, k1
+170, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax81, lc, back1.4, k3
+-469, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax102, lc, back1.4, k3
+-149, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax93, lc, back1.4, k3
+170, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax84, lc, back1.4, k1
+-469, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax105, lc, back1.4, k1
+170, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax84, lc, back1.4, k2
+-469, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax102, lc, back1.4, k2
+-469, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax105, lc, back1.4, k3
+170, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax84, lc, back1.4, k3
+-149, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax96, lc, back1.4, k1
+170, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax87, lc, back1.4, k1
+170, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax87, lc, back1.4, k2
+170, -983, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax87, lc, back1.4, k3
+-469, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax108, lc, back1.4, k1
+-149, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax93, lc, back1.4, k2
+-149, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax96, lc, back1.4, k2
+-469, -983, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax108, lc, back1.4, k2
+-149, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax96, lc, back1.4, k3
+-149, -983, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax99, lc, back1.4, k1
+-1749, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax105, lc, back1.4, k1
+-1429, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax93, lc, back1.4, k1
+-789, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax111, lc, back1.4, k3
+-1749, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax102, lc, back1.4, k1
+-1109, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax81, lc, back1.4, k3
+-1749, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax105, lc, back1.4, k2
+-1429, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax93, lc, back1.4, k2
+-789, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax114, lc, back1.4, k1
+-1109, -983, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax87, lc, back1.4, k1
+-1749, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax99, lc, back1.4, k3
+-1109, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax81, lc, back1.4, k2
+-1109, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax84, lc, back1.4, k1
+-1109, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax84, lc, back1.4, k3
+-1749, -983, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax105, lc, back1.4, k3
+-1429, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax93, lc, back1.4, k3
+-789, -983, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax75, lc, back1.4, k3
+-1749, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax102, lc, back1.4, k3
+-1429, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax90, lc, back1.4, k3
+-789, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax114, lc, back1.4, k2
+-789, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax75, lc, back1.4, k2
+-1429, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax96, lc, back1.4, k1
+-1109, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax84, lc, back1.4, k2
+-789, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax75, lc, back1.4, k1
+-1109, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax81, lc, back1.4, k1
+-1749, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax102, lc, back1.4, k2
+-1429, -983, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax96, lc, back1.4, k2
+-789, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax114, lc, back1.4, k3
+-1429, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax90, lc, back1.4, k2
+-1749, -1274, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax108, lc, back1.4, k3
+-1109, -1468, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax90, lc, back1.4, k3
+-789, -1177, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax78, lc, back1.4, k2
+-1429, -1468, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax102, lc, back1.4, k1
+-1429, -1177, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax99, lc, back1.4, k1
+-789, -1371, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax81, lc, back1.4, k1
+-1109, -1274, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax90, lc, back1.4, k1
+-789, -1080, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax78, lc, back1.4, k1
+-1109, -1080, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax87, lc, back1.4, k2
+-1749, -1468, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax111, lc, back1.4, k2
+-1109, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax93, lc, back1.4, k1
+-1749, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax111, lc, back1.4, k3
+-1109, -1371, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax90, lc, back1.4, k2
+-789, -1468, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax81, lc, back1.4, k2
+-1749, -1080, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax108, lc, back1.4, k1
+-1429, -1371, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax99, lc, back1.4, k3
+-1429, -1274, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax99, lc, back1.4, k2
+-1429, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax102, lc, back1.4, k2
+-1429, -1080, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax96, lc, back1.4, k3
+-789, -1274, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax78, lc, back1.4, k3
+-1749, -1371, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax111, lc, back1.4, k1
+-789, -1565, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax81, lc, back1.4, k3
+-1749, -1177, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax108, lc, back1.4, k2
+-1109, -1177, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax87, lc, back1.4, k3
+-2389, -1371, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax80, Fmax45, lc, front1.5, lc, back1.4, k1
+-2709, -1565, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax80, Fmax70, lc, front1.5, lc, back1.4, k1
+-2069, -1177, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax75, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -1468, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax80, Fmax65, lc, front1.5, lc, back1.4, k1
+-2069, -1080, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax75, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -1177, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax75, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -1468, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax80, Fmax50, lc, front1.5, lc, back1.4, k1
+-2709, -1080, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax80, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -1274, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax75, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -1565, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax75, Fmax75, lc, front1.5, lc, back1.4, k1
+-2709, -1371, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax80, Fmax60, lc, front1.5, lc, back1.4, k1
+-2389, -1565, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax80, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -1177, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax80, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -1274, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax75, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -1371, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax75, Fmax65, lc, front1.5, lc, back1.4, k1
+-2069, -1468, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax75, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -1080, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax75, Fmax65, lc, front1.5, lc, back1.4, k1
+-2709, -1274, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax80, Fmax55, lc, front1.5, lc, back1.4, k1
+-2389, -691, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax75, Fmax45, lc, front1.5, lc, back1.4, k1
+-2709, -788, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax75, Fmax65, lc, front1.5, lc, back1.4, k1
+-2069, -594, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax111, lc, back1.4, k3
+-2709, -983, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax75, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -788, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax114, lc, back1.4, k2
+-2389, -788, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax75, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -400, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax105, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -497, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax105, Fmax70, lc, front1.5, lc, back1.4, k1
+-2069, -691, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax114, lc, back1.4, k1
+-2069, -885, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax114, lc, back1.4, k3
+-2389, -983, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax75, Fmax60, lc, front1.5, lc, back1.4, k1
+-2709, -885, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax75, Fmax70, lc, front1.5, lc, back1.4, k1
+-2709, -594, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax75, Fmax55, lc, front1.5, lc, back1.4, k1
+-2389, -594, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax105, Fmax75, lc, front1.5, lc, back1.4, k1
+-2709, -497, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax75, Fmax50, lc, front1.5, lc, back1.4, k1
+-2069, -983, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax75, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -497, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax111, lc, back1.4, k2
+-2709, -400, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax75, Fmax45, lc, front1.5, lc, back1.4, k1
+-2389, -885, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax75, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -691, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax75, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -400, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax111, lc, back1.4, k1
+-3669, -788, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax80, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -497, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax75, Fmax65, lc, front1.5, lc, back1.4, k1
+-3989, -497, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax80, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -691, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax80, Fmax70, lc, front1.5, lc, back1.4, k1
+-3349, -691, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax80, Fmax55, lc, front1.5, lc, back1.4, k1
+-3669, -594, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax80, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -497, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax80, Fmax45, lc, front1.5, lc, back1.4, k1
+-3669, -983, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax85, Fmax50, lc, front1.5, lc, back1.4, k1
+-3989, -594, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax85, Fmax45, lc, front1.5, lc, back1.4, k1
+-3669, -400, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax80, Fmax55, lc, front1.5, lc, back1.4, k1
+-3989, -885, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax85, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -691, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax75, Fmax75, lc, front1.5, lc, back1.4, k1
+-3349, -788, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax80, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -788, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax80, Fmax45, lc, front1.5, lc, back1.4, k1
+-3989, -400, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax80, Fmax70, lc, front1.5, lc, back1.4, k1
+-3989, -983, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax85, Fmax65, lc, front1.5, lc, back1.4, k1
+-3989, -691, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax85, Fmax50, lc, front1.5, lc, back1.4, k1
+-3669, -885, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax85, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -400, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax75, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -594, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax75, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -400, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax75, Fmax60, lc, front1.5, lc, back1.4, k1
+-3349, -594, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax80, Fmax50, lc, front1.5, lc, back1.4, k1
+-3029, -983, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax80, Fmax55, lc, front1.5, lc, back1.4, k1
+-3349, -885, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax80, Fmax65, lc, front1.5, lc, back1.4, k1
+-3669, -497, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax80, Fmax60, lc, front1.5, lc, back1.4, k1
+-3989, -788, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax85, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -885, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax80, Fmax50, lc, front1.5, lc, back1.4, k1
+-3349, -983, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax80, Fmax70, lc, front1.5, lc, back1.4, k1
+-3349, -1565, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax85, Fmax65, lc, front1.5, lc, back1.4, k1
+-3029, -1565, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax85, Fmax50, lc, front1.5, lc, back1.4, k1
+-3989, -1371, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax90, Fmax50, lc, front1.5, lc, back1.4, k1
+-3349, -1371, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax85, Fmax55, lc, front1.5, lc, back1.4, k1
+-3989, -1468, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax90, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -1371, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax80, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -1565, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax90, Fmax45, lc, front1.5, lc, back1.4, k1
+-3669, -1274, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax85, Fmax65, lc, front1.5, lc, back1.4, k1
+-3029, -1080, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax80, Fmax60, lc, front1.5, lc, back1.4, k1
+-3669, -1371, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax85, Fmax70, lc, front1.5, lc, back1.4, k1
+-3989, -1177, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax85, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -1468, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax85, Fmax75, lc, front1.5, lc, back1.4, k1
+-3989, -1565, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax90, Fmax60, lc, front1.5, lc, back1.4, k1
+-3669, -1080, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax85, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -1468, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax85, Fmax45, lc, front1.5, lc, back1.4, k1
+-3029, -1274, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax80, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -1177, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax80, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -1468, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax85, Fmax60, lc, front1.5, lc, back1.4, k1
+-3989, -1274, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax90, Fmax45, lc, front1.5, lc, back1.4, k1
+-3669, -1177, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax85, Fmax60, lc, front1.5, lc, back1.4, k1
+-3349, -1080, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax80, Fmax75, lc, front1.5, lc, back1.4, k1
+-3989, -1080, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax85, Fmax70, lc, front1.5, lc, back1.4, k1
+-3349, -1177, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax85, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -1274, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax85, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -2828, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax90, Fmax50, lc, front1.5, lc, back1.4, k1
+-2069, -2731, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax85, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -2536, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax85, Fmax70, lc, front1.5, lc, back1.4, k1
+-2709, -2439, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax90, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -2828, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax85, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -2633, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax85, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -2342, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax85, Fmax45, lc, front1.5, lc, back1.4, k1
+-2709, -2536, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax90, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -2439, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax85, Fmax65, lc, front1.5, lc, back1.4, k1
+-2709, -2828, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax90, Fmax65, lc, front1.5, lc, back1.4, k1
+-2069, -2439, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax85, Fmax50, lc, front1.5, lc, back1.4, k1
+-2069, -2536, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax85, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -2731, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax90, Fmax60, lc, front1.5, lc, back1.4, k1
+-2389, -2342, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax85, Fmax60, lc, front1.5, lc, back1.4, k1
+-2709, -2633, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax90, Fmax55, lc, front1.5, lc, back1.4, k1
+-2389, -2731, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax90, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -2633, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax85, Fmax60, lc, front1.5, lc, back1.4, k1
+-2709, -2342, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax85, Fmax75, lc, front1.5, lc, back1.4, k1
+-2709, -1662, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax80, Fmax75, lc, front1.5, lc, back1.4, k1
+-2389, -2245, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax85, Fmax55, lc, front1.5, lc, back1.4, k1
+-2389, -2148, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax85, Fmax50, lc, front1.5, lc, back1.4, k1
+-2709, -1857, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax85, Fmax50, lc, front1.5, lc, back1.4, k1
+-2709, -2051, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax85, Fmax60, lc, front1.5, lc, back1.4, k1
+-2709, -1759, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax85, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -1662, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax80, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -2051, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax80, Fmax65, lc, front1.5, lc, back1.4, k1
+-2709, -1954, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax85, Fmax55, lc, front1.5, lc, back1.4, k1
+-2069, -1954, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax80, Fmax60, lc, front1.5, lc, back1.4, k1
+-2389, -2051, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax85, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -1857, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax80, Fmax55, lc, front1.5, lc, back1.4, k1
+-2389, -1662, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax80, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -1759, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax80, Fmax50, lc, front1.5, lc, back1.4, k1
+-2069, -2148, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax80, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -1954, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax80, Fmax75, lc, front1.5, lc, back1.4, k1
+-2709, -2245, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax85, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -1759, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax80, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -1857, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax80, Fmax70, lc, front1.5, lc, back1.4, k1
+-2069, -2245, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax80, Fmax75, lc, front1.5, lc, back1.4, k1
+-2709, -2148, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax85, Fmax65, lc, front1.5, lc, back1.4, k1
+-3029, -2148, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax90, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -1662, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax85, Fmax70, lc, front1.5, lc, back1.4, k1
+-3349, -2148, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax90, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -1954, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax85, Fmax70, lc, front1.5, lc, back1.4, k1
+-3669, -2148, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax90, Fmax75, lc, front1.5, lc, back1.4, k1
+-3349, -1857, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax90, Fmax45, lc, front1.5, lc, back1.4, k1
+-3989, -1662, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax90, Fmax65, lc, front1.5, lc, back1.4, k1
+-3669, -2245, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax95, Fmax45, lc, front1.5, lc, back1.4, k1
+-3989, -1759, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax90, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -2245, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax90, Fmax50, lc, front1.5, lc, back1.4, k1
+-3349, -2245, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax90, Fmax65, lc, front1.5, lc, back1.4, k1
+-3669, -2051, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax90, Fmax70, lc, front1.5, lc, back1.4, k1
+-3989, -1857, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax90, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -1759, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax85, Fmax60, lc, front1.5, lc, back1.4, k1
+-3669, -1759, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax90, Fmax55, lc, front1.5, lc, back1.4, k1
+-3989, -1954, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax95, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -1954, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax90, Fmax50, lc, front1.5, lc, back1.4, k1
+-3669, -1857, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax90, Fmax60, lc, front1.5, lc, back1.4, k1
+-3669, -1662, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax90, Fmax50, lc, front1.5, lc, back1.4, k1
+-3989, -2245, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax95, Fmax60, lc, front1.5, lc, back1.4, k1
+-3989, -2051, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax95, Fmax50, lc, front1.5, lc, back1.4, k1
+-3989, -2148, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax95, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -1662, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax85, Fmax55, lc, front1.5, lc, back1.4, k1
+-3669, -1954, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax90, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -1759, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax85, Fmax75, lc, front1.5, lc, back1.4, k1
+-3349, -2051, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax90, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -1857, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax85, Fmax65, lc, front1.5, lc, back1.4, k1
+-3029, -2051, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax85, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -2536, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax95, Fmax60, lc, front1.5, lc, back1.4, k1
+-3349, -2536, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax95, Fmax45, lc, front1.5, lc, back1.4, k1
+-3989, -2536, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax95, Fmax75, lc, front1.5, lc, back1.4, k1
+-3989, -2342, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax95, Fmax65, lc, front1.5, lc, back1.4, k1
+-3989, -2731, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax100, Fmax50, lc, front1.5, lc, back1.4, k1
+-3029, -2633, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax90, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -2536, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax90, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -2633, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax95, Fmax50, lc, front1.5, lc, back1.4, k1
+-3989, -2633, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax100, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -2342, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax90, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -2342, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax90, Fmax55, lc, front1.5, lc, back1.4, k1
+-3349, -2828, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax95, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -2439, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax90, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -2731, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax90, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -2439, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax95, Fmax55, lc, front1.5, lc, back1.4, k1
+-3669, -2633, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax95, Fmax65, lc, front1.5, lc, back1.4, k1
+-3669, -2342, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax95, Fmax50, lc, front1.5, lc, back1.4, k1
+-3989, -2828, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax100, Fmax55, lc, front1.5, lc, back1.4, k1
+-3989, -2439, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax95, Fmax70, lc, front1.5, lc, back1.4, k1
+-3349, -2439, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax90, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -2828, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax95, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -2828, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax95, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -2731, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax95, Fmax55, lc, front1.5, lc, back1.4, k1
+-3669, -2731, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax95, Fmax70, lc, front1.5, lc, back1.4, k1
+170, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax87, lc, back1.4, k3
+-149, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax96, lc, back1.4, k3
+-469, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax105, lc, back1.4, k2
+-469, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax105, lc, back1.4, k3
+-469, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax108, lc, back1.4, k1
+170, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax90, lc, back1.4, k1
+-149, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax102, lc, back1.4, k1
+-469, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax108, lc, back1.4, k2
+-469, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax108, lc, back1.4, k3
+-149, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax99, lc, back1.4, k1
+-469, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax111, lc, back1.4, k1
+170, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax90, lc, back1.4, k2
+-469, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax111, lc, back1.4, k2
+170, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax90, lc, back1.4, k3
+-149, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax99, lc, back1.4, k3
+-149, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax99, lc, back1.4, k2
+170, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax84, lc, back1.4, k3
+-149, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax96, lc, back1.4, k2
+170, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax87, lc, back1.4, k1
+170, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax87, lc, back1.4, k2
+-149, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax96, lc, back1.4, k1
+170, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax84, lc, back1.4, k2
+-469, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax102, lc, back1.4, k3
+170, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax81, lc, back1.4, k3
+170, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax84, lc, back1.4, k1
+170, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax78, lc, back1.4, k3
+-149, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax90, lc, back1.4, k1
+-149, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax90, lc, back1.4, k2
+-149, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax90, lc, back1.4, k3
+-469, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax102, lc, back1.4, k2
+-149, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax93, lc, back1.4, k1
+-469, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax99, lc, back1.4, k2
+170, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax81, lc, back1.4, k1
+-149, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax93, lc, back1.4, k2
+-469, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax99, lc, back1.4, k3
+-149, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax93, lc, back1.4, k3
+-469, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax102, lc, back1.4, k1
+170, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax81, lc, back1.4, k2
+-469, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax105, lc, back1.4, k1
+-1109, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax78, lc, back1.4, k1
+-1749, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax99, lc, back1.4, k1
+-1109, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax78, lc, back1.4, k2
+-1749, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax99, lc, back1.4, k2
+-1109, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax81, lc, back1.4, k1
+-789, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax111, lc, back1.4, k2
+-1749, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax99, lc, back1.4, k3
+-1429, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax87, lc, back1.4, k2
+-1429, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax90, lc, back1.4, k2
+-789, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax108, lc, back1.4, k3
+-1749, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax102, lc, back1.4, k1
+-789, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax114, lc, back1.4, k2
+-789, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax114, lc, back1.4, k1
+-1109, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax81, lc, back1.4, k2
+-1429, -4576, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax90, lc, back1.4, k3
+-1749, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax102, lc, back1.4, k2
+-1429, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax93, lc, back1.4, k1
+-789, -4479, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax111, lc, back1.4, k3
+-1109, -4673, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax81, lc, back1.4, k3
+-1429, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax87, lc, back1.4, k3
+-789, -4284, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax111, lc, back1.4, k1
+-1109, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax78, lc, back1.4, k3
+-1749, -4187, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax96, lc, back1.4, k3
+-1429, -4381, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax90, lc, back1.4, k1
+-1429, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax99, lc, back1.4, k1
+-1429, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax93, lc, back1.4, k2
+-1429, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax99, lc, back1.4, k2
+-1109, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax87, lc, back1.4, k2
+-789, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax114, lc, back1.4, k3
+-789, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax78, lc, back1.4, k1
+-1109, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax87, lc, back1.4, k3
+-1109, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax84, lc, back1.4, k1
+-1429, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax93, lc, back1.4, k3
+-1749, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax105, lc, back1.4, k2
+-1749, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax105, lc, back1.4, k3
+-1109, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax90, lc, back1.4, k1
+-1429, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax96, lc, back1.4, k1
+-1749, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax108, lc, back1.4, k3
+-1109, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax84, lc, back1.4, k2
+-1749, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax105, lc, back1.4, k1
+-789, -5353, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax78, lc, back1.4, k3
+-1429, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax96, lc, back1.4, k2
+-789, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax75, lc, back1.4, k3
+-1749, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax108, lc, back1.4, k2
+-789, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax75, lc, back1.4, k2
+-1749, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax108, lc, back1.4, k1
+-1109, -4964, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax84, lc, back1.4, k3
+-1749, -4770, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax102, lc, back1.4, k3
+-1429, -5158, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax96, lc, back1.4, k3
+-789, -5255, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax78, lc, back1.4, k2
+-789, -4867, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax75, lc, back1.4, k1
+-1109, -5061, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax87, lc, back1.4, k1
+170, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax75, lc, back1.4, k3
+-149, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax87, lc, back1.4, k1
+170, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax114, lc, back1.4, k3
+-149, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax81, lc, back1.4, k3
+-149, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax87, lc, back1.4, k2
+170, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax78, lc, back1.4, k1
+-149, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax87, lc, back1.4, k3
+-469, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax93, lc, back1.4, k1
+-149, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax84, lc, back1.4, k1
+-469, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax93, lc, back1.4, k2
+170, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax78, lc, back1.4, k2
+170, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax75, lc, back1.4, k1
+-469, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax93, lc, back1.4, k3
+170, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax114, lc, back1.4, k2
+-469, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax96, lc, back1.4, k1
+-469, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax96, lc, back1.4, k2
+-149, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax84, lc, back1.4, k2
+-469, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax96, lc, back1.4, k3
+-469, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax99, lc, back1.4, k1
+170, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin34, rmax75, lc, back1.4, k2
+-149, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax84, lc, back1.4, k3
+-149, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax78, lc, back1.4, k2
+-469, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax90, lc, back1.4, k1
+-469, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax87, lc, back1.4, k1
+170, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax111, lc, back1.4, k1
+170, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax108, lc, back1.4, k2
+-469, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax90, lc, back1.4, k3
+-149, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax78, lc, back1.4, k3
+170, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax111, lc, back1.4, k2
+-149, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax75, lc, back1.4, k3
+-469, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax90, lc, back1.4, k2
+170, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax114, lc, back1.4, k1
+-469, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax87, lc, back1.4, k2
+-149, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax81, lc, back1.4, k1
+170, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax111, lc, back1.4, k3
+-469, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin40, rmax87, lc, back1.4, k3
+-149, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax78, lc, back1.4, k1
+170, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin31, rmax108, lc, back1.4, k3
+-149, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin37, rmax81, lc, back1.4, k2
+-1429, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax75, lc, back1.4, k1
+-1109, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax108, lc, back1.4, k2
+-789, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax102, lc, back1.4, k1
+-1749, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax84, lc, back1.4, k2
+-1109, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax105, lc, back1.4, k3
+-1429, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax78, lc, back1.4, k1
+-1429, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax78, lc, back1.4, k3
+-1749, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax87, lc, back1.4, k3
+-1429, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax75, lc, back1.4, k3
+-789, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax99, lc, back1.4, k1
+-1429, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax75, lc, back1.4, k2
+-1749, -3119, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax87, lc, back1.4, k1
+-1429, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax78, lc, back1.4, k2
+-789, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax99, lc, back1.4, k3
+-1749, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax90, lc, back1.4, k1
+-1109, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax108, lc, back1.4, k3
+-1749, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax84, lc, back1.4, k3
+-1109, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax108, lc, back1.4, k1
+-1749, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax87, lc, back1.4, k2
+-789, -2925, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax96, lc, back1.4, k2
+-1109, -3410, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax111, lc, back1.4, k2
+-789, -3022, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax96, lc, back1.4, k3
+-1109, -3313, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax111, lc, back1.4, k1
+-789, -3216, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax99, lc, back1.4, k2
+-1109, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax114, lc, back1.4, k3
+-1109, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax75, lc, back1.4, k2
+-789, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax105, lc, back1.4, k3
+-789, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax105, lc, back1.4, k1
+-789, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax102, lc, back1.4, k2
+-1429, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax84, lc, back1.4, k3
+-1749, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax93, lc, back1.4, k1
+-1109, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax75, lc, back1.4, k1
+-1429, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax87, lc, back1.4, k1
+-789, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax102, lc, back1.4, k3
+-1429, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax84, lc, back1.4, k2
+-1749, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax93, lc, back1.4, k2
+-1749, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax96, lc, back1.4, k2
+-1109, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax111, lc, back1.4, k3
+-789, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax108, lc, back1.4, k2
+-1749, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax90, lc, back1.4, k2
+-1109, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax114, lc, back1.4, k1
+-1429, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax81, lc, back1.4, k2
+-1109, -4090, TE, 1550, Mateo, device, Back, reflectorDevice, rmin49, rmax75, lc, back1.4, k3
+-1429, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax84, lc, back1.4, k1
+-1429, -3507, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax81, lc, back1.4, k1
+-1749, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax96, lc, back1.4, k1
+-1749, -3605, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax90, lc, back1.4, k3
+-1109, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin46, rmax114, lc, back1.4, k2
+-1429, -3702, TE, 1550, Mateo, device, Back, reflectorDevice, rmin52, rmax81, lc, back1.4, k3
+-1749, -3896, TE, 1550, Mateo, device, Back, reflectorDevice, rmin55, rmax93, lc, back1.4, k3
+-789, -3993, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax108, lc, back1.4, k1
+-789, -3799, TE, 1550, Mateo, device, Back, reflectorDevice, rmin43, rmax105, lc, back1.4, k2
+-2389, -3896, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax95, Fmax70, lc, front1.5, lc, back1.4, k1
+-2709, -3799, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax100, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -3702, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax95, Fmax45, lc, front1.5, lc, back1.4, k1
+-2389, -3799, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax95, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -4090, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax100, Fmax45, lc, front1.5, lc, back1.4, k1
+-2069, -3799, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax95, Fmax50, lc, front1.5, lc, back1.4, k1
+-2709, -3605, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax95, Fmax70, lc, front1.5, lc, back1.4, k1
+-2709, -3896, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax100, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -3507, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax95, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -3993, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax95, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -3507, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax90, Fmax70, lc, front1.5, lc, back1.4, k1
+-2069, -3896, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax95, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -3993, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax100, Fmax55, lc, front1.5, lc, back1.4, k1
+-2389, -3605, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax95, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -3702, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax95, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -3993, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax95, Fmax60, lc, front1.5, lc, back1.4, k1
+-2709, -3507, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax95, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -3702, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax95, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -3605, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax90, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -4090, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax95, Fmax65, lc, front1.5, lc, back1.4, k1
+-2709, -4090, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax100, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -3313, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax90, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -3216, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax90, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -3216, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax95, Fmax50, lc, front1.5, lc, back1.4, k1
+-2709, -3410, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax95, Fmax60, lc, front1.5, lc, back1.4, k1
+-2709, -3313, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax95, Fmax55, lc, front1.5, lc, back1.4, k1
+-2389, -3022, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax90, Fmax60, lc, front1.5, lc, back1.4, k1
+-2389, -3410, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax95, Fmax45, lc, front1.5, lc, back1.4, k1
+-2709, -3022, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax90, Fmax75, lc, front1.5, lc, back1.4, k1
+-2709, -3119, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax95, Fmax45, lc, front1.5, lc, back1.4, k1
+-2389, -3119, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax90, Fmax65, lc, front1.5, lc, back1.4, k1
+-2069, -3119, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax90, Fmax50, lc, front1.5, lc, back1.4, k1
+-2709, -2925, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax90, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -3216, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax90, Fmax70, lc, front1.5, lc, back1.4, k1
+-2069, -2925, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax85, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -3410, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax90, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -3313, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax90, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -3022, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax90, Fmax45, lc, front1.5, lc, back1.4, k1
+-2389, -2925, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax90, Fmax55, lc, front1.5, lc, back1.4, k1
+-3989, -3119, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax100, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -3313, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax95, Fmax70, lc, front1.5, lc, back1.4, k1
+-3349, -3119, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax95, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -2925, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax95, Fmax50, lc, front1.5, lc, back1.4, k1
+-3989, -3410, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax105, Fmax50, lc, front1.5, lc, back1.4, k1
+-3669, -2925, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax100, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -3410, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax100, Fmax55, lc, front1.5, lc, back1.4, k1
+-3989, -3313, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax105, Fmax45, lc, front1.5, lc, back1.4, k1
+-3029, -3022, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax95, Fmax55, lc, front1.5, lc, back1.4, k1
+-3989, -3216, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax100, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -3119, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax95, Fmax60, lc, front1.5, lc, back1.4, k1
+-3989, -2925, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax100, Fmax60, lc, front1.5, lc, back1.4, k1
+-3349, -3022, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax95, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -3410, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax95, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -3216, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax95, Fmax65, lc, front1.5, lc, back1.4, k1
+-3989, -3022, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax100, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -3313, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax100, Fmax50, lc, front1.5, lc, back1.4, k1
+-3669, -3119, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax100, Fmax55, lc, front1.5, lc, back1.4, k1
+-3349, -2925, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax95, Fmax65, lc, front1.5, lc, back1.4, k1
+-3669, -3216, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax100, Fmax60, lc, front1.5, lc, back1.4, k1
+-3669, -3022, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax100, Fmax50, lc, front1.5, lc, back1.4, k1
+-3669, -3410, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax100, Fmax70, lc, front1.5, lc, back1.4, k1
+-3349, -3216, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax100, Fmax45, lc, front1.5, lc, back1.4, k1
+-3669, -3313, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax100, Fmax65, lc, front1.5, lc, back1.4, k1
+-3029, -3799, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax100, Fmax60, lc, front1.5, lc, back1.4, k1
+-3669, -3993, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax105, Fmax65, lc, front1.5, lc, back1.4, k1
+-3029, -4090, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax100, Fmax75, lc, front1.5, lc, back1.4, k1
+-3989, -3799, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax105, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -3605, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax100, Fmax50, lc, front1.5, lc, back1.4, k1
+-3349, -3993, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax105, Fmax50, lc, front1.5, lc, back1.4, k1
+-3029, -3896, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax100, Fmax65, lc, front1.5, lc, back1.4, k1
+-3669, -3702, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax105, Fmax50, lc, front1.5, lc, back1.4, k1
+-3989, -3605, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax105, Fmax60, lc, front1.5, lc, back1.4, k1
+-3989, -3507, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax105, Fmax55, lc, front1.5, lc, back1.4, k1
+-3669, -4090, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax105, Fmax70, lc, front1.5, lc, back1.4, k1
+-3669, -3605, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax105, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -3702, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax100, Fmax70, lc, front1.5, lc, back1.4, k1
+-3349, -3896, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax105, Fmax45, lc, front1.5, lc, back1.4, k1
+-3669, -3507, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax100, Fmax75, lc, front1.5, lc, back1.4, k1
+-3349, -3605, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax100, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -3507, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax100, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -3507, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax100, Fmax45, lc, front1.5, lc, back1.4, k1
+-3989, -3702, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax105, Fmax65, lc, front1.5, lc, back1.4, k1
+-3669, -3799, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax105, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -3702, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax100, Fmax55, lc, front1.5, lc, back1.4, k1
+-3349, -3799, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax100, Fmax75, lc, front1.5, lc, back1.4, k1
+-3349, -4090, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax105, Fmax55, lc, front1.5, lc, back1.4, k1
+-3989, -3896, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax105, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -3896, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax105, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -3993, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax100, Fmax70, lc, front1.5, lc, back1.4, k1
+-2709, -5061, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax105, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -4867, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax100, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -5061, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax105, Fmax60, lc, front1.5, lc, back1.4, k1
+-2709, -5158, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax75, Fmax45, lc, front1.5, lc, back1.4, k1
+-2389, -5255, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax105, Fmax70, lc, front1.5, lc, back1.4, k1
+-2709, -5255, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax75, Fmax50, lc, front1.5, lc, back1.4, k1
+-2069, -4964, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax100, Fmax75, lc, front1.5, lc, back1.4, k1
+-2389, -4964, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax105, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -5353, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax75, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -4770, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax105, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -5061, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax105, Fmax45, lc, front1.5, lc, back1.4, k1
+-2709, -4867, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax105, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -5353, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax105, Fmax75, lc, front1.5, lc, back1.4, k1
+-2069, -5158, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax105, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -5158, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax105, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -4867, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax105, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -4770, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax105, Fmax45, lc, front1.5, lc, back1.4, k1
+-2709, -4964, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax105, Fmax70, lc, front1.5, lc, back1.4, k1
+-2069, -5353, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax105, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -5255, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax105, Fmax55, lc, front1.5, lc, back1.4, k1
+-2069, -4770, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax100, Fmax65, lc, front1.5, lc, back1.4, k1
+-2069, -4187, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax95, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -4479, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax100, Fmax65, lc, front1.5, lc, back1.4, k1
+-2389, -4187, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax100, Fmax50, lc, front1.5, lc, back1.4, k1
+-2389, -4284, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax100, Fmax55, lc, front1.5, lc, back1.4, k1
+-2709, -4381, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax100, Fmax75, lc, front1.5, lc, back1.4, k1
+-2709, -4673, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax105, Fmax55, lc, front1.5, lc, back1.4, k1
+-2389, -4576, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax100, Fmax70, lc, front1.5, lc, back1.4, k1
+-2069, -4673, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax100, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -4479, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax100, Fmax50, lc, front1.5, lc, back1.4, k1
+-2709, -4284, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax100, Fmax70, lc, front1.5, lc, back1.4, k1
+-2389, -4673, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax100, Fmax75, lc, front1.5, lc, back1.4, k1
+-2389, -4381, TE, 1550, Mateo, device, nanobeamDevice, rmin30, Brmax100, Fmax60, lc, front1.5, lc, back1.4, k1
+-2069, -4381, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax100, Fmax45, lc, front1.5, lc, back1.4, k1
+-2709, -4576, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax105, Fmax50, lc, front1.5, lc, back1.4, k1
+-2709, -4479, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax105, Fmax45, lc, front1.5, lc, back1.4, k1
+-2709, -4187, TE, 1550, Mateo, device, nanobeamDevice, rmin35, Brmax100, Fmax65, lc, front1.5, lc, back1.4, k1
+-2069, -4576, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax100, Fmax55, lc, front1.5, lc, back1.4, k1
+-2069, -4284, TE, 1550, Mateo, device, nanobeamDevice, rmin25, Brmax95, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -4576, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax105, Fmax65, lc, front1.5, lc, back1.4, k1
+-3029, -4381, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax105, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -4479, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax105, Fmax60, lc, front1.5, lc, back1.4, k1
+-3349, -4673, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax75, Fmax50, lc, front1.5, lc, back1.4, k1
+-3349, -4479, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax105, Fmax75, lc, front1.5, lc, back1.4, k1
+-3349, -4284, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax105, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -4576, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax75, Fmax45, lc, front1.5, lc, back1.4, k1
+-3669, -4673, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax75, Fmax65, lc, front1.5, lc, back1.4, k1
+-3669, -4187, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax105, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -4479, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax75, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -4187, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax105, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -4187, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax105, Fmax60, lc, front1.5, lc, back1.4, k1
+-3669, -4381, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax75, Fmax50, lc, front1.5, lc, back1.4, k1
+-3349, -4381, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax105, Fmax70, lc, front1.5, lc, back1.4, k1
+-3669, -4284, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax75, Fmax45, lc, front1.5, lc, back1.4, k1
+-3669, -4576, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax75, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -4284, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax105, Fmax50, lc, front1.5, lc, back1.4, k1
+-3029, -4673, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax105, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -4964, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax75, Fmax50, lc, front1.5, lc, back1.4, k1
+-3029, -5061, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax75, Fmax55, lc, front1.5, lc, back1.4, k1
+-3349, -5353, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax80, Fmax50, lc, front1.5, lc, back1.4, k1
+-3669, -5158, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax80, Fmax55, lc, front1.5, lc, back1.4, k1
+-3029, -5158, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax75, Fmax60, lc, front1.5, lc, back1.4, k1
+-3669, -4867, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax75, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -5061, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax80, Fmax50, lc, front1.5, lc, back1.4, k1
+-3029, -5353, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax75, Fmax70, lc, front1.5, lc, back1.4, k1
+-3669, -5353, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax80, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -5158, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax75, Fmax75, lc, front1.5, lc, back1.4, k1
+-3029, -5255, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax75, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -5255, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax80, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -4867, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax75, Fmax60, lc, front1.5, lc, back1.4, k1
+-3349, -5061, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax75, Fmax70, lc, front1.5, lc, back1.4, k1
+-3669, -5255, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax80, Fmax60, lc, front1.5, lc, back1.4, k1
+-3029, -4770, TE, 1550, Mateo, device, nanobeamDevice, rmin40, Brmax105, Fmax75, lc, front1.5, lc, back1.4, k1
+-3669, -4770, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax75, Fmax70, lc, front1.5, lc, back1.4, k1
+-3029, -4867, TE, 1550, Mateo, device, nanobeamDevice, rmin45, Brmax75, Fmax45, lc, front1.5, lc, back1.4, k1
+-3349, -4964, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax75, Fmax65, lc, front1.5, lc, back1.4, k1
+-3349, -4770, TE, 1550, Mateo, device, nanobeamDevice, rmin50, Brmax75, Fmax55, lc, front1.5, lc, back1.4, k1
+-3669, -4964, TE, 1550, Mateo, device, nanobeamDevice, rmin55, Brmax80, Fmax45, lc, front1.5, lc, back1.4, k1

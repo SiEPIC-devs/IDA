@@ -1,0 +1,2568 @@
+% X-coord, Y-coord, Polarization, wavelength, type, deviceID, params 
+-5355, -5358, TE, 1550, device, AlignmentYBranch, comment
+-5155, -5358, TE, 1310, device, AlignmentYBranch, comment
+-5255, -5358, TE, 1310, device, Alignment, comment
+-5455, -5358, TE, 1550, device, Alignment, comment
+5255, -5358, TE, 1550, device, AlignmentYBranch, comment
+5455, -5358, TE, 1310, device, AlignmentYBranch, comment
+5355, -5358, TE, 1310, device, Alignment, comment
+5155, -5358, TE, 1550, device, Alignment, comment
+-5355, 5352, TE, 1550, device, AlignmentYBranch, comment
+-5155, 5352, TE, 1310, device, AlignmentYBranch, comment
+-5255, 5352, TE, 1310, device, Alignment, comment
+-5455, 5352, TE, 1550, device, Alignment, comment
+5255, 5352, TE, 1550, device, AlignmentYBranch, comment
+5455, 5352, TE, 1310, device, AlignmentYBranch, comment
+5355, 5352, TE, 1310, device, Alignment, comment
+5155, 5352, TE, 1550, device, Alignment, comment
+-4701, -3304, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 147.0nm
+-3951, -2044, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 271.0nm
+-5451, -3934, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 106.0nm
+-2451, -4564, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 100.0nm
+-4701, -3934, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 112.0nm
+-3201, -4564, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 94.0nm
+-3951, -3304, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 156.0nm
+-5451, -4564, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 80.0nm
+-2451, -3304, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 174.0nm
+-5451, -1414, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 320.0nm
+-2451, -2674, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 230.0nm
+-3201, -3934, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 125.0nm
+-4701, -1414, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 339.0nm
+-3201, -2044, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 287.0nm
+-2451, -3934, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 132.0nm
+-5451, -2674, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 184.0nm
+-4701, -4564, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 85.0nm
+-4701, -2044, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 257.0nm
+-2451, -1414, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 400.0nm
+-3201, -2674, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 217.0nm
+-3951, -1414, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 358.0nm
+-2451, -2044, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 303.0nm
+-3201, -3304, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 165.0nm
+-3201, -1414, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 378.0nm
+-5451, -3304, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 139.0nm
+-4701, -2674, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 194.0nm
+-3951, -3934, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 118.0nm
+-3951, -4564, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 89.0nm
+-5451, -2044, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 243.0nm
+-3951, -2674, TE, 1550, device, pkirwin, Pulley, Ring, Gap, 206.0nm
+-1600, -1570, TE, 1550, device, pkirwin, calibration, loopback, 4
+-1600, -1730, TE, 1550, device, pkirwin, calibration, loopback, 3
+-1600, -1890, TE, 1550, device, pkirwin, calibration, loopback, 2
+-1600, -2050, TE, 1550, device, pkirwin, calibration, loopback, 1
+-1650, 2446, TE, 1310, device, William, ori, splitter134
+-2389, 2063, TE, 1550, device, ring, r48.3, w0.5, g0.176, b50
+-2219, 2063, TE, 1550, device, ring, r15.5, w0.5, g0.114, b50
+-2219, 2403, TE, 1550, device, ring, r43.5, w0.5, g0.114, b50
+-2389, 1893, TE, 1550, device, ring, r30.3, w0.5, g0.16, b50
+-2389, 1723, TE, 1550, device, ring, r35.5, w0.5, g0.142, b50
+-2219, 2573, TE, 1550, device, ring, r14.3, w0.5, g0.162, b50
+-1879, 1893, TE, 1550, device, ring, r21.1, w0.5, g0.129, b50
+-2049, 1893, TE, 1550, device, ring, r36.6, w0.5, g0.115, b50
+-2559, 2233, TE, 1550, device, ring, r37.4, w0.5, g0.148, b50
+-2559, 2063, TE, 1550, device, ring, r46.5, w0.5, g0.14, b50
+-2049, 2573, TE, 1550, device, ring, r16.7, w0.5, g0.103, b50
+-2389, 2573, TE, 1550, device, ring, r9.8, w0.5, g0.117, b50
+-1879, 2403, TE, 1550, device, ring, r46.1, w0.5, g0.109, b50
+-2219, 2233, TE, 1550, device, ring, r33.3, w0.5, g0.137, b50
+-2559, 2573, TE, 1550, device, ring, r41.7, w0.5, g0.14, b50
+-2219, 1723, TE, 1550, device, ring, r8.1, w0.5, g0.146, b50
+-1879, 2233, TE, 1550, device, ring, r35.2, w0.5, g0.18, b50
+-2559, 2403, TE, 1550, device, ring, r25.9, w0.5, g0.132, b50
+-1650, 1946, TE, 1310, device, William, ori, splitter234
+-1879, 2063, TE, 1550, device, ring, r16.1, w0.5, g0.121, b50
+-2049, 2403, TE, 1550, device, ring, r37.9, w0.5, g0.131, b50
+-2049, 2233, TE, 1550, device, ring, r22.3, w0.5, g0.147, b50
+-2049, 2063, TE, 1550, device, ring, r28.8, w0.5, g0.154, b50
+-1879, 1723, TE, 1550, device, ring, r13.1, w0.5, g0.167, b50
+-2219, 1893, TE, 1550, device, ring, r36.3, w0.5, g0.152, b50
+-2559, 1723, TE, 1550, device, ring, r33.1, w0.5, g0.15, b50
+-2389, 2233, TE, 1550, device, ring, r13.4, w0.5, g0.137, b50
+-2049, 1723, TE, 1550, device, ring, r8.9, w0.5, g0.113, b50
+-2389, 2403, TE, 1550, device, ring, r14.9, w0.5, g0.108, b50
+-2559, 1893, TE, 1550, device, ring, r10.5, w0.5, g0.138, b50
+-1879, 2573, TE, 1550, device, ring, r12.5, w0.5, g0.171, b50
+-3409, 2573, TE, 1550, device, ring, r14.3, w0.5, g0.162, b50
+-2729, 2233, TE, 1550, device, ring, r40.8, w0.5, g0.124, b50
+-3239, 2063, TE, 1550, device, ring, r37.9, w0.5, g0.124, b50
+-3069, 2573, TE, 1550, device, ring, r22.0, w0.5, g0.133, b50
+-2899, 2573, TE, 1550, device, ring, r19.3, w0.5, g0.166, b50
+-3069, 2063, TE, 1550, device, ring, r45.4, w0.5, g0.16, b50
+-2729, 2573, TE, 1550, device, ring, r16.6, w0.5, g0.149, b50
+-2899, 2063, TE, 1550, device, ring, r35.7, w0.5, g0.179, b50
+-2899, 2233, TE, 1550, device, ring, r31.2, w0.5, g0.104, b50
+-2729, 1893, TE, 1550, device, ring, r10.8, w0.5, g0.161, b50
+-3409, 2063, TE, 1550, device, ring, r7.9, w0.5, g0.174, b50
+-2729, 2403, TE, 1550, device, ring, r12.1, w0.5, g0.146, b50
+-2899, 1893, TE, 1550, device, ring, r12.8, w0.5, g0.178, b50
+-3239, 1893, TE, 1550, device, ring, r35.5, w0.5, g0.145, b50
+-3239, 2233, TE, 1550, device, ring, r23.0, w0.5, g0.157, b50
+-3409, 2403, TE, 1550, device, ring, r28.0, w0.5, g0.164, b50
+-2899, 1723, TE, 1550, device, ring, r12.3, w0.5, g0.125, b50
+-2729, 1723, TE, 1550, device, ring, r22.5, w0.5, g0.146, b50
+-3239, 2403, TE, 1550, device, ring, r27.6, w0.5, g0.177, b50
+-3239, 1723, TE, 1550, device, ring, r42.1, w0.5, g0.172, b50
+-2729, 2063, TE, 1550, device, ring, r46.6, w0.5, g0.145, b50
+-3409, 1893, TE, 1550, device, ring, r45.9, w0.5, g0.147, b50
+-3069, 2233, TE, 1550, device, ring, r26.9, w0.5, g0.107, b50
+-3239, 2573, TE, 1550, device, ring, r12.5, w0.5, g0.159, b50
+-2899, 2403, TE, 1550, device, ring, r23.0, w0.5, g0.11, b50
+-3069, 1723, TE, 1550, device, ring, r32.4, w0.5, g0.106, b50
+-3409, 2233, TE, 1550, device, ring, r14.0, w0.5, g0.165, b50
+-3069, 2403, TE, 1550, device, ring, r29.2, w0.5, g0.175, b50
+-3069, 1893, TE, 1550, device, ring, r29.7, w0.5, g0.157, b50
+-3409, 1723, TE, 1550, device, ring, r47.7, w0.5, g0.169, b50
+-3239, 703, TE, 1550, device, ring, r16.8, w0.5, g0.102, b50
+-3069, 873, TE, 1550, device, ring, r6.6, w0.5, g0.104, b50
+-2729, 1213, TE, 1550, device, ring, r14.5, w0.5, g0.124, b50
+-2729, 703, TE, 1550, device, ring, r37.2, w0.5, g0.164, b50
+-3069, 1553, TE, 1550, device, ring, r34.8, w0.5, g0.14, b50
+-2729, 1553, TE, 1550, device, ring, r24.7, w0.5, g0.114, b50
+-2729, 1043, TE, 1550, device, ring, r6.2, w0.5, g0.15, b50
+-3069, 1213, TE, 1550, device, ring, r31.8, w0.5, g0.142, b50
+-3069, 703, TE, 1550, device, ring, r37.6, w0.5, g0.154, b50
+-3239, 1383, TE, 1550, device, ring, r23.7, w0.5, g0.115, b50
+-2899, 873, TE, 1550, device, ring, r25.4, w0.5, g0.101, b50
+-3069, 1043, TE, 1550, device, ring, r40.7, w0.5, g0.102, b50
+-2729, 873, TE, 1550, device, ring, r45.3, w0.5, g0.109, b50
+-3409, 1553, TE, 1550, device, ring, r43.8, w0.5, g0.115, b50
+-3409, 873, TE, 1550, device, ring, r9.9, w0.5, g0.126, b50
+-2899, 1213, TE, 1550, device, ring, r33.0, w0.5, g0.171, b50
+-3409, 1213, TE, 1550, device, ring, r12.1, w0.5, g0.119, b50
+-2899, 1043, TE, 1550, device, ring, r19.8, w0.5, g0.137, b50
+-3069, 1383, TE, 1550, device, ring, r27.8, w0.5, g0.114, b50
+-3239, 1043, TE, 1550, device, ring, r15.9, w0.5, g0.116, b50
+-2729, 1383, TE, 1550, device, ring, r39.1, w0.5, g0.17, b50
+-3409, 1383, TE, 1550, device, ring, r34.8, w0.5, g0.103, b50
+-3239, 1553, TE, 1550, device, ring, r38.6, w0.5, g0.145, b50
+-2899, 1383, TE, 1550, device, ring, r9.9, w0.5, g0.1, b50
+-3409, 703, TE, 1550, device, ring, r17.1, w0.5, g0.115, b50
+-3409, 1043, TE, 1550, device, ring, r6.0, w0.5, g0.15, b50
+-3239, 1213, TE, 1550, device, ring, r12.4, w0.5, g0.174, b50
+-2899, 1553, TE, 1550, device, ring, r29.5, w0.5, g0.14, b50
+-2899, 703, TE, 1550, device, ring, r14.6, w0.5, g0.105, b50
+-3239, 873, TE, 1550, device, ring, r31.5, w0.5, g0.162, b50
+-1879, 873, TE, 1550, device, ring, r35.7, w0.5, g0.108, b50
+-2559, 1553, TE, 1550, device, ring, r38.3, w0.5, g0.173, b50
+-1879, 703, TE, 1550, device, ring, r21.2, w0.5, g0.12, b50
+-2389, 1553, TE, 1550, device, ring, r34.6, w0.5, g0.12, b50
+-2049, 1213, TE, 1550, device, ring, r49.3, w0.5, g0.153, b50
+-2049, 703, TE, 1550, device, ring, r24.7, w0.5, g0.118, b50
+-1650, 1446, TE, 1310, device, William, ori, splitter124
+-2389, 703, TE, 1550, device, ring, r18.8, w0.5, g0.175, b50
+-1650, 946, TE, 1310, device, William, ori, splitter123
+-2559, 703, TE, 1550, device, ring, r20.4, w0.5, g0.174, b50
+-2049, 1553, TE, 1550, device, ring, r40.0, w0.5, g0.115, b50
+-1879, 1043, TE, 1550, device, ring, r27.0, w0.5, g0.143, b50
+-2049, 873, TE, 1550, device, ring, r23.4, w0.5, g0.138, b50
+-2389, 1383, TE, 1550, device, ring, r42.2, w0.5, g0.156, b50
+-2219, 1553, TE, 1550, device, ring, r33.7, w0.5, g0.142, b50
+-2559, 873, TE, 1550, device, ring, r24.9, w0.5, g0.128, b50
+-2389, 873, TE, 1550, device, ring, r32.0, w0.5, g0.146, b50
+-1879, 1213, TE, 1550, device, ring, r28.4, w0.5, g0.125, b50
+-2219, 873, TE, 1550, device, ring, r32.9, w0.5, g0.132, b50
+-2559, 1383, TE, 1550, device, ring, r41.4, w0.5, g0.11, b50
+-1879, 1553, TE, 1550, device, ring, r26.2, w0.5, g0.158, b50
+-2049, 1383, TE, 1550, device, ring, r5.0, w0.5, g0.119, b50
+-2049, 1043, TE, 1550, device, ring, r10.1, w0.5, g0.17, b50
+-2559, 1043, TE, 1550, device, ring, r49.0, w0.5, g0.117, b50
+-1879, 1383, TE, 1550, device, ring, r33.7, w0.5, g0.102, b50
+-2389, 1213, TE, 1550, device, ring, r41.5, w0.5, g0.151, b50
+-2219, 703, TE, 1550, device, ring, r8.0, w0.5, g0.112, b50
+-2389, 1043, TE, 1550, device, ring, r41.8, w0.5, g0.155, b50
+-2219, 1213, TE, 1550, device, ring, r17.6, w0.5, g0.118, b50
+-2219, 1043, TE, 1550, device, ring, r5.3, w0.5, g0.149, b50
+-2219, 1383, TE, 1550, device, ring, r36.6, w0.5, g0.175, b50
+-2559, 1213, TE, 1550, device, ring, r29.1, w0.5, g0.107, b50
+-4089, 2573, TE, 1550, device, ring, r32.8, w0.5, g0.179, b50
+-4259, 2573, TE, 1550, device, ring, r43.6, w0.5, g0.165, b50
+-3749, 2573, TE, 1550, device, ring, r31.4, w0.5, g0.145, b50
+-3919, 2573, TE, 1550, device, ring, r8.4, w0.5, g0.119, b50
+-3749, 1723, TE, 1550, device, ring, r33.5, w0.5, g0.167, b50
+-3579, 2403, TE, 1550, device, ring, r43.0, w0.5, g0.124, b50
+-3919, 1723, TE, 1550, device, ring, r13.2, w0.5, g0.117, b50
+-3749, 2403, TE, 1550, device, ring, r39.2, w0.5, g0.137, b50
+-4429, 2063, TE, 1550, device, ring, r7.4, w0.5, g0.125, b50
+-4089, 2233, TE, 1550, device, ring, r16.4, w0.5, g0.116, b50
+-4259, 2233, TE, 1550, device, ring, r13.8, w0.5, g0.172, b50
+-3749, 2233, TE, 1550, device, ring, r26.4, w0.5, g0.167, b50
+-3919, 1893, TE, 1550, device, ring, r37.1, w0.5, g0.14, b50
+-3919, 2403, TE, 1550, device, ring, r13.1, w0.5, g0.143, b50
+-4089, 2403, TE, 1550, device, ring, r15.5, w0.5, g0.133, b50
+-4089, 2063, TE, 1550, device, ring, r20.4, w0.5, g0.172, b50
+-3919, 2233, TE, 1550, device, ring, r17.7, w0.5, g0.178, b50
+-3579, 2573, TE, 1550, device, ring, r29.2, w0.5, g0.143, b50
+-4429, 1723, TE, 1550, device, ring, r43.7, w0.5, g0.115, b50
+-4429, 2573, TE, 1550, device, ring, r37.3, w0.5, g0.165, b50
+-4429, 2233, TE, 1550, device, ring, r18.8, w0.5, g0.158, b50
+-4429, 1893, TE, 1550, device, ring, r23.5, w0.5, g0.158, b50
+-3579, 1723, TE, 1550, device, ring, r11.1, w0.5, g0.115, b50
+-4259, 2063, TE, 1550, device, ring, r42.1, w0.5, g0.142, b50
+-4089, 1723, TE, 1550, device, ring, r19.5, w0.5, g0.167, b50
+-3579, 2233, TE, 1550, device, ring, r43.5, w0.5, g0.125, b50
+-3579, 2063, TE, 1550, device, ring, r15.7, w0.5, g0.149, b50
+-4259, 1723, TE, 1550, device, ring, r44.9, w0.5, g0.148, b50
+-3749, 2063, TE, 1550, device, ring, r13.2, w0.5, g0.151, b50
+-4429, 2403, TE, 1550, device, ring, r41.7, w0.5, g0.16, b50
+-4259, 2403, TE, 1550, device, ring, r26.5, w0.5, g0.131, b50
+-3749, 1893, TE, 1550, device, ring, r29.7, w0.5, g0.12, b50
+-4089, 1893, TE, 1550, device, ring, r9.2, w0.5, g0.167, b50
+-3579, 1893, TE, 1550, device, ring, r9.8, w0.5, g0.173, b50
+-4259, 1893, TE, 1550, device, ring, r25.1, w0.5, g0.15, b50
+-3919, 2063, TE, 1550, device, ring, r49.6, w0.5, g0.153, b50
+-5279, 1723, TE, 1550, device, ring, r42.1, w0.5, g0.126, b50
+-5109, 1723, TE, 1550, device, ring, r37.9, w0.5, g0.112, b50
+-4939, 2233, TE, 1550, device, ring, r33.4, w0.5, g0.155, b50
+-4599, 2063, TE, 1550, device, ring, r18.6, w0.5, g0.16, b50
+-5279, 2233, TE, 1550, device, ring, r10.1, w0.5, g0.136, b50
+-4769, 2573, TE, 1550, device, ring, r23.0, w0.5, g0.119, b50
+-4939, 2403, TE, 1550, device, ring, r29.9, w0.5, g0.171, b50
+-5109, 2233, TE, 1550, device, ring, r38.8, w0.5, g0.169, b50
+-5449, 1893, TE, 1550, device, ring, r26.7, w0.5, g0.148, b50
+-5109, 2573, TE, 1550, device, ring, r10.9, w0.5, g0.168, b50
+-5449, 1723, TE, 1550, device, ring, r47.3, w0.5, g0.117, b50
+-4939, 2573, TE, 1550, device, ring, r15.7, w0.5, g0.133, b50
+-4769, 2403, TE, 1550, device, ring, r31.8, w0.5, g0.16, b50
+-5279, 2063, TE, 1550, device, ring, r33.4, w0.5, g0.173, b50
+-4599, 2403, TE, 1550, device, ring, r46.2, w0.5, g0.13, b50
+-4599, 2573, TE, 1550, device, ring, r46.5, w0.5, g0.13, b50
+-5279, 2573, TE, 1550, device, ring, r10.4, w0.5, g0.117, b50
+-4769, 2063, TE, 1550, device, ring, r32.7, w0.5, g0.18, b50
+-4769, 1893, TE, 1550, device, ring, r26.9, w0.5, g0.179, b50
+-4599, 1723, TE, 1550, device, ring, r38.0, w0.5, g0.132, b50
+-4599, 1893, TE, 1550, device, ring, r20.7, w0.5, g0.142, b50
+-5449, 2063, TE, 1550, device, ring, r15.2, w0.5, g0.131, b50
+-4939, 1723, TE, 1550, device, ring, r27.1, w0.5, g0.173, b50
+-5279, 2403, TE, 1550, device, ring, r35.7, w0.5, g0.118, b50
+-4939, 1893, TE, 1550, device, ring, r48.7, w0.5, g0.146, b50
+-4599, 2233, TE, 1550, device, ring, r6.1, w0.5, g0.106, b50
+-5449, 2403, TE, 1550, device, ring, r26.1, w0.5, g0.126, b50
+-4769, 2233, TE, 1550, device, ring, r16.0, w0.5, g0.128, b50
+-5109, 2063, TE, 1550, device, ring, r39.8, w0.5, g0.173, b50
+-5109, 2403, TE, 1550, device, ring, r33.1, w0.5, g0.169, b50
+-5279, 1893, TE, 1550, device, ring, r5.1, w0.5, g0.179, b50
+-5109, 1893, TE, 1550, device, ring, r49.0, w0.5, g0.114, b50
+-4939, 2063, TE, 1550, device, ring, r38.0, w0.5, g0.157, b50
+-5449, 2573, TE, 1550, device, ring, r39.1, w0.5, g0.174, b50
+-5449, 2233, TE, 1550, device, ring, r42.1, w0.5, g0.105, b50
+-4769, 1723, TE, 1550, device, ring, r48.4, w0.5, g0.109, b50
+-5279, 1383, TE, 1550, device, ring, r39.6, w0.5, g0.14, b50
+-4599, 1553, TE, 1550, device, ring, r15.6, w0.5, g0.104, b50
+-5109, 1553, TE, 1550, device, ring, r9.5, w0.5, g0.1, b50
+-4939, 873, TE, 1550, device, ring, r19.8, w0.5, g0.106, b50
+-5109, 873, TE, 1550, device, ring, r23.7, w0.5, g0.112, b50
+-4769, 1043, TE, 1550, device, ring, r19.4, w0.5, g0.178, b50
+-4939, 1553, TE, 1550, device, ring, r29.4, w0.5, g0.169, b50
+-5279, 1213, TE, 1550, device, ring, r38.4, w0.5, g0.126, b50
+-5449, 1553, TE, 1550, device, ring, r43.6, w0.5, g0.149, b50
+-4769, 1383, TE, 1550, device, ring, r42.0, w0.5, g0.135, b50
+-4599, 1043, TE, 1550, device, ring, r24.4, w0.5, g0.157, b50
+-4769, 1553, TE, 1550, device, ring, r41.6, w0.5, g0.178, b50
+-4939, 1043, TE, 1550, device, ring, r40.8, w0.5, g0.112, b50
+-4599, 703, TE, 1550, device, ring, r15.4, w0.5, g0.156, b50
+-4769, 1213, TE, 1550, device, ring, r38.9, w0.5, g0.162, b50
+-5109, 1383, TE, 1550, device, ring, r23.3, w0.5, g0.13, b50
+-5109, 1213, TE, 1550, device, ring, r14.1, w0.5, g0.156, b50
+-5109, 703, TE, 1550, device, ring, r48.2, w0.5, g0.169, b50
+-5279, 1043, TE, 1550, device, ring, r48.7, w0.5, g0.159, b50
+-4599, 1383, TE, 1550, device, ring, r27.9, w0.5, g0.118, b50
+-5449, 1213, TE, 1550, device, ring, r13.8, w0.5, g0.164, b50
+-4769, 703, TE, 1550, device, ring, r7.4, w0.5, g0.155, b50
+-4599, 873, TE, 1550, device, ring, r47.0, w0.5, g0.123, b50
+-4939, 1383, TE, 1550, device, ring, r16.7, w0.5, g0.174, b50
+-5449, 1043, TE, 1550, device, ring, r29.7, w0.5, g0.129, b50
+-5449, 873, TE, 1550, device, ring, r32.5, w0.5, g0.108, b50
+-5109, 1043, TE, 1550, device, ring, r7.1, w0.5, g0.178, b50
+-4599, 1213, TE, 1550, device, ring, r14.4, w0.5, g0.156, b50
+-5449, 1383, TE, 1550, device, ring, r23.1, w0.5, g0.178, b50
+-4939, 703, TE, 1550, device, ring, r25.5, w0.5, g0.171, b50
+-4939, 1213, TE, 1550, device, ring, r24.6, w0.5, g0.173, b50
+-5279, 1553, TE, 1550, device, ring, r12.9, w0.5, g0.136, b50
+-5449, 703, TE, 1550, device, ring, r20.3, w0.5, g0.107, b50
+-5279, 703, TE, 1550, device, ring, r14.7, w0.5, g0.116, b50
+-4769, 873, TE, 1550, device, ring, r28.5, w0.5, g0.173, b50
+-5279, 873, TE, 1550, device, ring, r11.3, w0.5, g0.152, b50
+-3749, 1043, TE, 1550, device, ring, r48.0, w0.5, g0.121, b50
+-4429, 703, TE, 1550, device, ring, r27.1, w0.5, g0.175, b50
+-4259, 1383, TE, 1550, device, ring, r40.5, w0.5, g0.103, b50
+-4259, 703, TE, 1550, device, ring, r19.7, w0.5, g0.129, b50
+-3579, 1553, TE, 1550, device, ring, r39.9, w0.5, g0.157, b50
+-3579, 1383, TE, 1550, device, ring, r34.4, w0.5, g0.127, b50
+-3579, 1043, TE, 1550, device, ring, r6.4, w0.5, g0.102, b50
+-4259, 1553, TE, 1550, device, ring, r32.6, w0.5, g0.179, b50
+-4089, 873, TE, 1550, device, ring, r31.5, w0.5, g0.108, b50
+-3919, 873, TE, 1550, device, ring, r30.7, w0.5, g0.176, b50
+-3919, 1213, TE, 1550, device, ring, r12.8, w0.5, g0.123, b50
+-4429, 1553, TE, 1550, device, ring, r29.6, w0.5, g0.134, b50
+-4259, 873, TE, 1550, device, ring, r50.0, w0.5, g0.134, b50
+-4089, 1213, TE, 1550, device, ring, r47.6, w0.5, g0.163, b50
+-4429, 1213, TE, 1550, device, ring, r25.5, w0.5, g0.13, b50
+-4429, 1383, TE, 1550, device, ring, r15.5, w0.5, g0.172, b50
+-3579, 703, TE, 1550, device, ring, r42.7, w0.5, g0.175, b50
+-4089, 1383, TE, 1550, device, ring, r42.7, w0.5, g0.125, b50
+-3579, 873, TE, 1550, device, ring, r19.1, w0.5, g0.121, b50
+-3919, 1553, TE, 1550, device, ring, r12.0, w0.5, g0.154, b50
+-4089, 1043, TE, 1550, device, ring, r9.0, w0.5, g0.144, b50
+-4089, 1553, TE, 1550, device, ring, r28.3, w0.5, g0.178, b50
+-3749, 1553, TE, 1550, device, ring, r11.5, w0.5, g0.165, b50
+-3919, 703, TE, 1550, device, ring, r49.2, w0.5, g0.103, b50
+-4429, 873, TE, 1550, device, ring, r23.9, w0.5, g0.16, b50
+-4259, 1213, TE, 1550, device, ring, r28.4, w0.5, g0.119, b50
+-3749, 1383, TE, 1550, device, ring, r48.4, w0.5, g0.131, b50
+-3749, 873, TE, 1550, device, ring, r41.0, w0.5, g0.13, b50
+-3749, 1213, TE, 1550, device, ring, r20.6, w0.5, g0.163, b50
+-3749, 703, TE, 1550, device, ring, r32.1, w0.5, g0.167, b50
+-3919, 1043, TE, 1550, device, ring, r16.6, w0.5, g0.155, b50
+-4089, 703, TE, 1550, device, ring, r15.2, w0.5, g0.113, b50
+-3579, 1213, TE, 1550, device, ring, r11.8, w0.5, g0.172, b50
+-4259, 1043, TE, 1550, device, ring, r12.9, w0.5, g0.141, b50
+-3919, 1383, TE, 1550, device, ring, r6.6, w0.5, g0.101, b50
+-4429, 1043, TE, 1550, device, ring, r13.0, w0.5, g0.179, b50
+-4259, 23, TE, 1550, device, ring, r22.5, w0.5, g0.135, b50
+-3579, -316, TE, 1550, device, ring, r34.5, w0.5, g0.15, b50
+-4259, 193, TE, 1550, device, ring, r42.8, w0.5, g0.103, b50
+-3579, 533, TE, 1550, device, ring, r31.5, w0.5, g0.164, b50
+-4089, 23, TE, 1550, device, ring, r36.0, w0.5, g0.138, b50
+-4259, -146, TE, 1550, device, ring, r47.2, w0.5, g0.166, b50
+-3579, 23, TE, 1550, device, ring, r7.5, w0.5, g0.143, b50
+-3749, 363, TE, 1550, device, ring, r24.9, w0.5, g0.105, b50
+-4259, -316, TE, 1550, device, ring, r45.4, w0.5, g0.151, b50
+-3749, -146, TE, 1550, device, ring, r46.4, w0.5, g0.159, b50
+-4429, -316, TE, 1550, device, ring, r7.5, w0.5, g0.176, b50
+-3919, 193, TE, 1550, device, ring, r45.6, w0.5, g0.167, b50
+-4429, 23, TE, 1550, device, ring, r39.3, w0.5, g0.109, b50
+-3919, 23, TE, 1550, device, ring, r28.6, w0.5, g0.174, b50
+-3579, -146, TE, 1550, device, ring, r23.8, w0.5, g0.162, b50
+-3579, 363, TE, 1550, device, ring, r34.5, w0.5, g0.121, b50
+-3919, -316, TE, 1550, device, ring, r5.0, w0.5, g0.141, b50
+-4429, 363, TE, 1550, device, ring, r38.6, w0.5, g0.108, b50
+-3749, 533, TE, 1550, device, ring, r30.8, w0.5, g0.116, b50
+-3919, 533, TE, 1550, device, ring, r16.7, w0.5, g0.12, b50
+-4429, -146, TE, 1550, device, ring, r39.3, w0.5, g0.115, b50
+-4089, -146, TE, 1550, device, ring, r23.4, w0.5, g0.141, b50
+-3749, -316, TE, 1550, device, ring, r14.7, w0.5, g0.177, b50
+-4089, 193, TE, 1550, device, ring, r23.8, w0.5, g0.155, b50
+-4259, 363, TE, 1550, device, ring, r43.1, w0.5, g0.123, b50
+-4429, 193, TE, 1550, device, ring, r40.2, w0.5, g0.111, b50
+-4429, 533, TE, 1550, device, ring, r38.5, w0.5, g0.106, b50
+-3579, 193, TE, 1550, device, ring, r46.8, w0.5, g0.139, b50
+-3919, -146, TE, 1550, device, ring, r15.7, w0.5, g0.166, b50
+-4259, 533, TE, 1550, device, ring, r37.9, w0.5, g0.164, b50
+-3919, 363, TE, 1550, device, ring, r41.4, w0.5, g0.165, b50
+-4089, 363, TE, 1550, device, ring, r46.1, w0.5, g0.132, b50
+-4089, 533, TE, 1550, device, ring, r27.1, w0.5, g0.113, b50
+-3749, 193, TE, 1550, device, ring, r14.7, w0.5, g0.143, b50
+-4089, -316, TE, 1550, device, ring, r23.5, w0.5, g0.109, b50
+-3749, 23, TE, 1550, device, ring, r6.1, w0.5, g0.163, b50
+-5279, 23, TE, 1550, device, ring, r44.1, w0.5, g0.109, b50
+-5109, 23, TE, 1550, device, ring, r19.0, w0.5, g0.105, b50
+-4769, 23, TE, 1550, device, ring, r18.4, w0.5, g0.105, b50
+-4599, 23, TE, 1550, device, ring, r35.1, w0.5, g0.108, b50
+-4939, 193, TE, 1550, device, ring, r12.5, w0.5, g0.149, b50
+-5109, 533, TE, 1550, device, ring, r31.3, w0.5, g0.165, b50
+-5449, 193, TE, 1550, device, ring, r26.8, w0.5, g0.115, b50
+-5109, -146, TE, 1550, device, ring, r26.0, w0.5, g0.105, b50
+-5449, 23, TE, 1550, device, ring, r40.6, w0.5, g0.131, b50
+-4599, -146, TE, 1550, device, ring, r14.6, w0.5, g0.129, b50
+-4939, -146, TE, 1550, device, ring, r24.4, w0.5, g0.143, b50
+-4599, 193, TE, 1550, device, ring, r46.9, w0.5, g0.132, b50
+-4769, 193, TE, 1550, device, ring, r14.6, w0.5, g0.159, b50
+-5279, -316, TE, 1550, device, ring, r18.4, w0.5, g0.107, b50
+-4769, 533, TE, 1550, device, ring, r42.5, w0.5, g0.107, b50
+-4599, 533, TE, 1550, device, ring, r16.6, w0.5, g0.143, b50
+-4769, -146, TE, 1550, device, ring, r27.0, w0.5, g0.171, b50
+-4939, 23, TE, 1550, device, ring, r22.5, w0.5, g0.169, b50
+-5279, 363, TE, 1550, device, ring, r25.9, w0.5, g0.14, b50
+-5449, -316, TE, 1550, device, ring, r5.2, w0.5, g0.118, b50
+-5279, 193, TE, 1550, device, ring, r13.9, w0.5, g0.155, b50
+-5449, 533, TE, 1550, device, ring, r17.9, w0.5, g0.162, b50
+-4769, 363, TE, 1550, device, ring, r32.3, w0.5, g0.16, b50
+-5109, -316, TE, 1550, device, ring, r12.0, w0.5, g0.161, b50
+-5449, 363, TE, 1550, device, ring, r36.0, w0.5, g0.125, b50
+-4939, -316, TE, 1550, device, ring, r39.8, w0.5, g0.125, b50
+-4599, -316, TE, 1550, device, ring, r29.8, w0.5, g0.116, b50
+-5279, -146, TE, 1550, device, ring, r6.5, w0.5, g0.144, b50
+-5279, 533, TE, 1550, device, ring, r20.3, w0.5, g0.131, b50
+-5109, 363, TE, 1550, device, ring, r34.8, w0.5, g0.171, b50
+-5449, -146, TE, 1550, device, ring, r17.8, w0.5, g0.171, b50
+-4599, 363, TE, 1550, device, ring, r47.3, w0.5, g0.109, b50
+-4939, 363, TE, 1550, device, ring, r21.9, w0.5, g0.143, b50
+-4769, -316, TE, 1550, device, ring, r43.8, w0.5, g0.148, b50
+-5109, 193, TE, 1550, device, ring, r21.7, w0.5, g0.167, b50
+-4939, 533, TE, 1550, device, ring, r13.8, w0.5, g0.117, b50
+-4599, -656, TE, 1550, device, ring, r8.4, w0.5, g0.121, b50
+-5279, -826, TE, 1550, device, ring, r30.9, w0.5, g0.142, b50
+-4939, -486, TE, 1550, device, ring, r34.2, w0.5, g0.146, b50
+-5449, -1166, TE, 1550, device, ring, r22.1, w0.5, g0.162, b50
+-5109, -486, TE, 1550, device, ring, r21.0, w0.5, g0.102, b50
+-5279, -1166, TE, 1550, device, ring, r43.9, w0.5, g0.158, b50
+-4599, -486, TE, 1550, device, ring, r27.2, w0.5, g0.148, b50
+-4769, -486, TE, 1550, device, ring, r43.3, w0.5, g0.144, b50
+-5449, -996, TE, 1550, device, ring, r12.8, w0.5, g0.133, b50
+-4599, -996, TE, 1550, device, ring, r26.1, w0.5, g0.142, b50
+-5279, -486, TE, 1550, device, ring, r13.3, w0.5, g0.142, b50
+-5449, -826, TE, 1550, device, ring, r26.2, w0.5, g0.129, b50
+-4769, -996, TE, 1550, device, ring, r21.2, w0.5, g0.109, b50
+-4939, -996, TE, 1550, device, ring, r36.4, w0.5, g0.101, b50
+-5109, -656, TE, 1550, device, ring, r7.2, w0.5, g0.113, b50
+-5109, -826, TE, 1550, device, ring, r28.3, w0.5, g0.108, b50
+-4599, -826, TE, 1550, device, ring, r23.5, w0.5, g0.145, b50
+-5279, -996, TE, 1550, device, ring, r46.6, w0.5, g0.146, b50
+-4939, -1166, TE, 1550, device, ring, r37.6, w0.5, g0.142, b50
+-4769, -656, TE, 1550, device, ring, r47.3, w0.5, g0.119, b50
+-4939, -656, TE, 1550, device, ring, r42.7, w0.5, g0.173, b50
+-4599, -1166, TE, 1550, device, ring, r47.7, w0.5, g0.156, b50
+-4769, -1166, TE, 1550, device, ring, r22.1, w0.5, g0.153, b50
+-4939, -826, TE, 1550, device, ring, r36.8, w0.5, g0.12, b50
+-5449, -486, TE, 1550, device, ring, r34.5, w0.5, g0.102, b50
+-4769, -826, TE, 1550, device, ring, r6.3, w0.5, g0.176, b50
+-5279, -656, TE, 1550, device, ring, r7.1, w0.5, g0.168, b50
+-5109, -1166, TE, 1550, device, ring, r31.5, w0.5, g0.167, b50
+-5449, -656, TE, 1550, device, ring, r41.3, w0.5, g0.151, b50
+-5109, -996, TE, 1550, device, ring, r27.5, w0.5, g0.135, b50
+-3919, -996, TE, 1550, device, ring, r13.3, w0.5, g0.107, b50
+-3749, -1166, TE, 1550, device, ring, r31.4, w0.5, g0.149, b50
+-3579, -1166, TE, 1550, device, ring, r21.9, w0.5, g0.124, b50
+-4429, -486, TE, 1550, device, ring, r7.3, w0.5, g0.134, b50
+-4089, -1166, TE, 1550, device, ring, r29.0, w0.5, g0.109, b50
+-3749, -996, TE, 1550, device, ring, r26.7, w0.5, g0.159, b50
+-3579, -996, TE, 1550, device, ring, r13.9, w0.5, g0.132, b50
+-3919, -486, TE, 1550, device, ring, r17.0, w0.5, g0.125, b50
+-4259, -486, TE, 1550, device, ring, r20.6, w0.5, g0.117, b50
+-3919, -826, TE, 1550, device, ring, r36.2, w0.5, g0.131, b50
+-4259, -1166, TE, 1550, device, ring, r26.4, w0.5, g0.176, b50
+-3579, -656, TE, 1550, device, ring, r27.8, w0.5, g0.143, b50
+-4429, -1166, TE, 1550, device, ring, r40.3, w0.5, g0.138, b50
+-4089, -996, TE, 1550, device, ring, r12.5, w0.5, g0.163, b50
+-3749, -486, TE, 1550, device, ring, r32.2, w0.5, g0.113, b50
+-4259, -826, TE, 1550, device, ring, r13.0, w0.5, g0.111, b50
+-4089, -826, TE, 1550, device, ring, r36.2, w0.5, g0.167, b50
+-3919, -656, TE, 1550, device, ring, r19.6, w0.5, g0.179, b50
+-3749, -826, TE, 1550, device, ring, r38.8, w0.5, g0.177, b50
+-4429, -826, TE, 1550, device, ring, r38.7, w0.5, g0.116, b50
+-3919, -1166, TE, 1550, device, ring, r42.4, w0.5, g0.1, b50
+-3579, -826, TE, 1550, device, ring, r20.5, w0.5, g0.107, b50
+-4259, -656, TE, 1550, device, ring, r29.2, w0.5, g0.164, b50
+-3579, -486, TE, 1550, device, ring, r19.5, w0.5, g0.116, b50
+-4089, -486, TE, 1550, device, ring, r11.7, w0.5, g0.177, b50
+-4429, -996, TE, 1550, device, ring, r15.4, w0.5, g0.171, b50
+-4259, -996, TE, 1550, device, ring, r25.7, w0.5, g0.112, b50
+-4429, -656, TE, 1550, device, ring, r32.0, w0.5, g0.146, b50
+-3749, -656, TE, 1550, device, ring, r33.5, w0.5, g0.16, b50
+-4089, -656, TE, 1550, device, ring, r9.9, w0.5, g0.175, b50
+-2049, 23, TE, 1550, device, ring, r25.0, w0.5, g0.169, b50
+-2049, -146, TE, 1550, device, ring, r19.8, w0.5, g0.123, b50
+-1879, -316, TE, 1550, device, ring, r21.5, w0.5, g0.149, b50
+-2559, -146, TE, 1550, device, ring, r16.7, w0.5, g0.14, b50
+-2219, 533, TE, 1550, device, ring, r49.2, w0.5, g0.118, b50
+-2389, -316, TE, 1550, device, ring, r31.2, w0.5, g0.167, b50
+-2389, 533, TE, 1550, device, ring, r41.4, w0.5, g0.136, b50
+-2559, 363, TE, 1550, device, ring, r41.7, w0.5, g0.135, b50
+-2559, -316, TE, 1550, device, ring, r9.9, w0.5, g0.126, b50
+-1879, 23, TE, 1550, device, ring, r7.6, w0.5, g0.108, b50
+-2219, -316, TE, 1550, device, ring, r21.9, w0.5, g0.169, b50
+-2219, -146, TE, 1550, device, ring, r16.5, w0.5, g0.13, b50
+-2389, -146, TE, 1550, device, ring, r48.7, w0.5, g0.161, b50
+-2389, 23, TE, 1550, device, ring, r5.1, w0.5, g0.126, b50
+-2389, 363, TE, 1550, device, ring, r12.3, w0.5, g0.134, b50
+-2559, 23, TE, 1550, device, ring, r49.3, w0.5, g0.128, b50
+-2219, 363, TE, 1550, device, ring, r8.8, w0.5, g0.153, b50
+-1879, 363, TE, 1550, device, ring, r22.6, w0.5, g0.155, b50
+-1879, 533, TE, 1550, device, ring, r7.1, w0.5, g0.143, b50
+-2049, 533, TE, 1550, device, ring, r11.9, w0.5, g0.106, b50
+-2049, -316, TE, 1550, device, ring, r48.8, w0.5, g0.103, b50
+-2219, 193, TE, 1550, device, ring, r25.7, w0.5, g0.156, b50
+-1650, 486, TE, 1310, device, William, sym, splitter234
+-2049, 193, TE, 1550, device, ring, r21.4, w0.5, g0.106, b50
+-1650, 46, TE, 1310, device, William, sym, splitter134
+-1879, -146, TE, 1550, device, ring, r42.3, w0.5, g0.112, b50
+-1879, 193, TE, 1550, device, ring, r40.5, w0.5, g0.117, b50
+-2049, 363, TE, 1550, device, ring, r34.0, w0.5, g0.162, b50
+-2389, 193, TE, 1550, device, ring, r40.0, w0.5, g0.16, b50
+-2559, 193, TE, 1550, device, ring, r34.7, w0.5, g0.141, b50
+-2559, 533, TE, 1550, device, ring, r8.8, w0.5, g0.15, b50
+-2219, 23, TE, 1550, device, ring, r31.7, w0.5, g0.101, b50
+-3409, 193, TE, 1550, device, ring, r38.7, w0.5, g0.116, b50
+-2899, 533, TE, 1550, device, ring, r36.2, w0.5, g0.146, b50
+-2729, -316, TE, 1550, device, ring, r26.3, w0.5, g0.111, b50
+-3239, -146, TE, 1550, device, ring, r41.0, w0.5, g0.149, b50
+-3239, 363, TE, 1550, device, ring, r33.7, w0.5, g0.16, b50
+-3409, -316, TE, 1550, device, ring, r47.9, w0.5, g0.1, b50
+-2729, 363, TE, 1550, device, ring, r8.1, w0.5, g0.167, b50
+-3239, 193, TE, 1550, device, ring, r11.2, w0.5, g0.103, b50
+-3239, 533, TE, 1550, device, ring, r23.9, w0.5, g0.109, b50
+-2729, -146, TE, 1550, device, ring, r43.3, w0.5, g0.172, b50
+-3409, 23, TE, 1550, device, ring, r41.2, w0.5, g0.145, b50
+-3069, -316, TE, 1550, device, ring, r45.1, w0.5, g0.136, b50
+-3239, 23, TE, 1550, device, ring, r44.3, w0.5, g0.104, b50
+-3409, 363, TE, 1550, device, ring, r5.6, w0.5, g0.169, b50
+-3069, -146, TE, 1550, device, ring, r49.8, w0.5, g0.149, b50
+-2729, 533, TE, 1550, device, ring, r37.4, w0.5, g0.107, b50
+-2899, 363, TE, 1550, device, ring, r10.8, w0.5, g0.11, b50
+-3069, 533, TE, 1550, device, ring, r33.5, w0.5, g0.171, b50
+-2899, 23, TE, 1550, device, ring, r18.5, w0.5, g0.13, b50
+-2729, 23, TE, 1550, device, ring, r48.8, w0.5, g0.158, b50
+-3409, 533, TE, 1550, device, ring, r19.5, w0.5, g0.151, b50
+-3069, 23, TE, 1550, device, ring, r32.6, w0.5, g0.168, b50
+-3069, 363, TE, 1550, device, ring, r47.8, w0.5, g0.168, b50
+-3409, -146, TE, 1550, device, ring, r36.1, w0.5, g0.134, b50
+-3069, 193, TE, 1550, device, ring, r29.7, w0.5, g0.104, b50
+-2729, 193, TE, 1550, device, ring, r40.4, w0.5, g0.129, b50
+-2899, 193, TE, 1550, device, ring, r35.0, w0.5, g0.124, b50
+-3239, -316, TE, 1550, device, ring, r21.1, w0.5, g0.141, b50
+-2899, -316, TE, 1550, device, ring, r7.1, w0.5, g0.11, b50
+-2899, -146, TE, 1550, device, ring, r13.1, w0.5, g0.159, b50
+-3239, -826, TE, 1550, device, ring, r33.9, w0.5, g0.178, b50
+-3409, -486, TE, 1550, device, ring, r33.2, w0.5, g0.107, b50
+-2729, -656, TE, 1550, device, ring, r44.0, w0.5, g0.174, b50
+-2899, -826, TE, 1550, device, ring, r35.1, w0.5, g0.141, b50
+-2729, -486, TE, 1550, device, ring, r49.8, w0.5, g0.18, b50
+-3069, -656, TE, 1550, device, ring, r24.5, w0.5, g0.127, b50
+-3409, -826, TE, 1550, device, ring, r31.1, w0.5, g0.163, b50
+-2729, -1166, TE, 1310, device, William, GC
+-3239, -996, TE, 1550, device, ring, r12.7, w0.5, g0.148, b50
+-3069, -996, TE, 1550, device, ring, r29.9, w0.5, g0.113, b50
+-3409, -996, TE, 1550, device, ring, r12.7, w0.5, g0.113, b50
+-3409, -1166, TE, 1550, device, ring, r10.3, w0.5, g0.111, b50
+-2729, -996, TE, 1550, device, ring, r31.0, w0.5, g0.153, b50
+-2729, -826, TE, 1550, device, ring, r29.7, w0.5, g0.149, b50
+-3069, -486, TE, 1550, device, ring, r11.8, w0.5, g0.128, b50
+-2899, -656, TE, 1550, device, ring, r38.3, w0.5, g0.156, b50
+-3239, -1166, TE, 1550, device, ring, r27.5, w0.5, g0.125, b50
+-3069, -1166, TE, 1550, device, ring, r15.9, w0.5, g0.127, b50
+-3069, -826, TE, 1550, device, ring, r12.1, w0.5, g0.112, b50
+-2899, -996, TE, 1550, device, ring, r20.9, w0.5, g0.158, b50
+-2899, -1166, TE, 1550, device, ring, r13.8, w0.5, g0.125, b50
+-3239, -486, TE, 1550, device, ring, r24.4, w0.5, g0.173, b50
+-3409, -656, TE, 1550, device, ring, r21.1, w0.5, g0.125, b50
+-3239, -656, TE, 1550, device, ring, r7.4, w0.5, g0.168, b50
+-2899, -486, TE, 1550, device, ring, r44.2, w0.5, g0.127, b50
+-2219, -656, TE, 1550, device, ring, r27.5, w0.5, g0.171, b50
+-1879, -996, TE, 1550, device, ring, r47.2, w0.5, g0.167, b50
+-1879, -486, TE, 1550, device, ring, r28.4, w0.5, g0.111, b50
+-2559, -656, TE, 1550, device, ring, r25.9, w0.5, g0.156, b50
+-2359, -1166, TE, 1310, device, William, ori, mzi3
+-2559, -486, TE, 1550, device, ring, r27.9, w0.5, g0.153, b50
+-1650, -403, TE, 1310, device, William, sym, splitter124
+-2049, -656, TE, 1550, device, ring, r21.0, w0.5, g0.158, b50
+-2389, -996, TE, 1550, device, ring, r44.5, w0.5, g0.141, b50
+-1879, -656, TE, 1550, device, ring, r49.2, w0.5, g0.103, b50
+-2389, -826, TE, 1550, device, ring, r22.4, w0.5, g0.175, b50
+-1879, -826, TE, 1550, device, ring, r34.1, w0.5, g0.144, b50
+-2059, -1166, TE, 1310, device, William, sym, mzi3
+-2049, -996, TE, 1550, device, ring, r24.4, w0.5, g0.143, b50
+-2219, -826, TE, 1550, device, ring, r23.1, w0.5, g0.13, b50
+-2049, -486, TE, 1550, device, ring, r44.3, w0.5, g0.174, b50
+-2559, -1166, TE, 1310, device, William, ori, mzi1
+-2219, -486, TE, 1550, device, ring, r49.2, w0.5, g0.138, b50
+-2219, -996, TE, 1550, device, ring, r22.6, w0.5, g0.17, b50
+-2459, -1166, TE, 1310, device, William, ori, mzi2
+-2259, -1166, TE, 1310, device, William, sym, mzi1
+-2559, -826, TE, 1550, device, ring, r43.3, w0.5, g0.102, b50
+-2389, -486, TE, 1550, device, ring, r33.5, w0.5, g0.128, b50
+-2559, -996, TE, 1550, device, ring, r38.4, w0.5, g0.109, b50
+-2159, -1166, TE, 1310, device, William, sym, mzi2
+-2049, -826, TE, 1550, device, ring, r44.7, w0.5, g0.135, b50
+-1649, -903, TE, 1310, device, William, sym, splitter123
+-2389, -656, TE, 1550, device, ring, r10.8, w0.5, g0.149, b50
+3811, 3014, TE, 1550, device, 232, 222, 1
+3611, 3014, TE, 1550, device, ref, 2
+3711, 3184, TE, 1550, device, 220, 224, 1
+3611, 2844, TE, 1550, device, ref, 1
+3811, 3694, TE, 1550, device, 232, 230, 1
+3711, 3014, TE, 1550, device, 220, 222, 1
+3811, 3864, TE, 1550, device, 232, 232, 1
+3611, 3864, TE, 1550, device, ref, 7
+3811, 3524, TE, 1550, device, 232, 228, 1
+3811, 3184, TE, 1550, device, 232, 224, 1
+3711, 3354, TE, 1550, device, 220, 226, 1
+3811, 3354, TE, 1550, device, 232, 226, 1
+3611, 3694, TE, 1550, device, ref, 6
+3711, 3694, TE, 1550, device, 220, 230, 1
+3811, 2844, TE, 1550, device, 232, 220, 1
+3611, 3524, TE, 1550, device, ref, 5
+3711, 3864, TE, 1550, device, 220, 232, 1
+3711, 2844, TE, 1550, device, 220, 220, 1
+3611, 3184, TE, 1550, device, ref, 3
+3711, 3524, TE, 1550, device, 220, 228, 1
+3611, 3354, TE, 1550, device, ref, 4
+-1067, 2763, TE, 1550, device, GC, LOOPBACK3
+-1067, 5431, TE, 1550, device, GC, LOOPBACK2
+4235, 5431, TE, 1550, device, GC, LOOPBACK1
+-1067, 5278, TE, 1550, device, taper, s, L5, N8
+-863, 5278, TE, 1550, device, taper, s, L5, N24
+-740, 5278, TE, 1550, device, taper, s, L5, N32
+-972, 5278, TE, 1550, device, taper, s, L5, N16
+-602, 5278, TE, 1550, device, taper, s, L5, N40
+-451, 5278, TE, 1550, device, taper, s, L5, N48
+-286, 5278, TE, 1550, device, taper, lin, L5, N8
+-81, 5278, TE, 1550, device, taper, lin, L5, N24
+41, 5278, TE, 1550, device, taper, lin, L5, N32
+-191, 5278, TE, 1550, device, taper, lin, L5, N16
+178, 5278, TE, 1550, device, taper, lin, L5, N40
+329, 5278, TE, 1550, device, taper, lin, L5, N48
+495, 5278, TE, 1550, device, taper, ctl, L5, N8
+1110, 5278, TE, 1550, device, taper, ctl, L5, N48
+699, 5278, TE, 1550, device, taper, ctl, L5, N24
+822, 5278, TE, 1550, device, taper, ctl, L5, N32
+590, 5278, TE, 1550, device, taper, ctl, L5, N16
+959, 5278, TE, 1550, device, taper, ctl, L5, N40
+1294, 5278, TE, 1550, device, taper, s, L10, N24
+1399, 5278, TE, 1550, device, taper, s, L10, N48
+1528, 5278, TE, 1550, device, taper, s, L10, N72
+1681, 5278, TE, 1550, device, taper, s, L10, N96
+1859, 5278, TE, 1550, device, taper, s, L10, N120
+2060, 5278, TE, 1550, device, taper, s, L10, N144
+2285, 5278, TE, 1550, device, taper, lin, L10, N24
+2390, 5278, TE, 1550, device, taper, lin, L10, N48
+2520, 5278, TE, 1550, device, taper, lin, L10, N72
+2673, 5278, TE, 1550, device, taper, lin, L10, N96
+2850, 5278, TE, 1550, device, taper, lin, L10, N120
+3051, 5278, TE, 1550, device, taper, lin, L10, N144
+3382, 5278, TE, 1550, device, taper, ctl, L10, N48
+3664, 5278, TE, 1550, device, taper, ctl, L10, N96
+3511, 5278, TE, 1550, device, taper, ctl, L10, N72
+3277, 5278, TE, 1550, device, taper, ctl, L10, N24
+3842, 5278, TE, 1550, device, taper, ctl, L10, N120
+4043, 5278, TE, 1550, device, taper, ctl, L10, N144
+-972, 4650, TE, 1550, device, taper, s, L40, N40
+-807, 4650, TE, 1550, device, taper, s, L40, N80
+-558, 4650, TE, 1550, device, taper, s, L40, N120
+-225, 4650, TE, 1550, device, taper, s, L40, N160
+192, 4650, TE, 1550, device, taper, s, L40, N240
+777, 4650, TE, 1550, device, taper, s, L40, N480
+-807, 4858, TE, 1550, device, taper, lin, L40, N80
+192, 4858, TE, 1550, device, taper, lin, L40, N240
+-558, 4858, TE, 1550, device, taper, lin, L40, N120
+777, 4858, TE, 1550, device, taper, lin, L40, N480
+-225, 4858, TE, 1550, device, taper, lin, L40, N160
+-972, 4858, TE, 1550, device, taper, lin, L40, N40
+-972, 5065, TE, 1550, device, taper, ctl, L40, N40
+-807, 5065, TE, 1550, device, taper, ctl, L40, N80
+-558, 5065, TE, 1550, device, taper, ctl, L40, N120
+-225, 5065, TE, 1550, device, taper, ctl, L40, N160
+192, 5065, TE, 1550, device, taper, ctl, L40, N240
+777, 5065, TE, 1550, device, taper, ctl, L40, N480
+-972, 2801, TE, 1550, device, taper, s, L80, N40
+-727, 2801, TE, 1550, device, taper, s, L80, N120
+-154, 2801, TE, 1550, device, taper, s, L80, N240
+910, 2801, TE, 1550, device, taper, s, L80, N480
+-972, 3008, TE, 1550, device, taper, lin, L80, N40
+-727, 3008, TE, 1550, device, taper, lin, L80, N120
+-154, 3008, TE, 1550, device, taper, lin, L80, N240
+910, 3008, TE, 1550, device, taper, lin, L80, N480
+-972, 3215, TE, 1550, device, taper, ctl, L80, N40
+-727, 3215, TE, 1550, device, taper, ctl, L80, N120
+-154, 3215, TE, 1550, device, taper, ctl, L80, N240
+910, 3215, TE, 1550, device, taper, ctl, L80, N480
+1875, 4808, TE, 1550, device, taper, s, L20, N24
+2001, 4808, TE, 1550, device, taper, s, L20, N72
+2214, 4808, TE, 1550, device, taper, s, L20, N120
+2515, 4808, TE, 1550, device, taper, s, L20, N168
+2904, 4808, TE, 1550, device, taper, s, L20, N216
+3382, 4808, TE, 1550, device, taper, s, L20, N264
+1875, 4963, TE, 1550, device, taper, lin, L20, N24
+3382, 4963, TE, 1550, device, taper, lin, L20, N264
+2001, 4963, TE, 1550, device, taper, lin, L20, N72
+2214, 4963, TE, 1550, device, taper, lin, L20, N120
+2515, 4963, TE, 1550, device, taper, lin, L20, N168
+2904, 4963, TE, 1550, device, taper, lin, L20, N216
+1875, 5118, TE, 1550, device, taper, ctl, L20, N24
+2001, 5118, TE, 1550, device, taper, ctl, L20, N72
+2214, 5118, TE, 1550, device, taper, ctl, L20, N120
+2515, 5118, TE, 1550, device, taper, ctl, L20, N168
+2904, 5118, TE, 1550, device, taper, ctl, L20, N216
+3382, 5118, TE, 1550, device, taper, ctl, L20, N264
+-972, 3423, TE, 1550, device, taper, s, L80, N720
+584, 3423, TE, 1550, device, taper, s, L80, N960
+-972, 3830, TE, 1550, device, taper, lin, L80, N720
+584, 3830, TE, 1550, device, taper, lin, L80, N960
+-972, 4238, TE, 1550, device, taper, ctl, L80, N720
+584, 4238, TE, 1550, device, taper, ctl, L80, N960
+-4084, 5129, TE, 1550, PCM, PCM, wglossWide, 60910um
+-4438, 5129, TE, 1550, PCM, PCM, wglossWide, 1014um
+-4846, 5305, TE, 1550, PCM, PCM, wglossWide, 77705um
+-5063, 2775, TE, 1550, device, Alignment, comment
+-4994, 2775, TE, 1310, device, Alignment, comment
+-4994, 2648, TE, 1310, PCM, PCM, wglossStraight, 0um
+-1283, 2775, TE, 1550, device, Alignment, comment
+-1214, 2775, TE, 1310, device, Alignment, comment
+-1214, 2648, TE, 1310, PCM, PCM, wglossStraight, 0um
+-5063, 5436, TE, 1550, device, Alignment, comment
+-4994, 5436, TE, 1310, device, Alignment, comment
+-4994, 5309, TE, 1310, PCM, PCM, wglossStraight, 0um
+-3360, 3861, TE, 1310, PCM, PCM, contraDC, N1
+-3291, 3691, TE, 1310, PCM, PCM, contraDC, N5
+-3360, 3492, TE, 1310, PCM, PCM, contraDC, N3
+-2002, 4844, TE, 1310, PCM, PCM, DCsweep, Length4p00um
+-2102, 4781, TE, 1310, PCM, PCM, DCsweep, Length7p00um
+-2102, 4844, TE, 1310, PCM, PCM, DCsweep, Length6p00um
+-2002, 4781, TE, 1310, PCM, PCM, DCsweep, Length5p00um
+-2302, 4844, TE, 1310, PCM, PCM, DCsweep, Length10p00um
+-1902, 4844, TE, 1310, PCM, PCM, DCsweep, Length2p00um
+-2202, 4844, TE, 1310, PCM, PCM, DCsweep, Length8p00um
+-2302, 4781, TE, 1310, PCM, PCM, DCsweep, Length11p00um
+-2202, 4781, TE, 1310, PCM, PCM, DCsweep, Length9p00um
+-1902, 4781, TE, 1310, PCM, PCM, DCsweep, Length3p00um
+-1802, 4844, TE, 1310, PCM, PCM, DCsweep, Length0p00um
+-2402, 4781, TE, 1310, PCM, PCM, DCsweep, Length13p00um
+-1802, 4781, TE, 1310, PCM, PCM, DCsweep, Length1p00um
+-2402, 4844, TE, 1310, PCM, PCM, DCsweep, Length12p00um
+-2118, 2667, TE, 1550, PCM, PCM, wglossSpiral, mixedRes, 0um
+-2118, 2893, TE, 1550, PCM, PCM, wglossSpiral, mixedRes, 10371um
+-2058, 2667, TE, 1550, PCM, PCM, wglossSpiral, mixedRes, 2379um
+-1903, 2667, TE, 1550, PCM, PCM, wglossSpiral, mixedRes, 5772um
+-2118, 3204, TE, 1550, PCM, PCM, wglossSpiral, mixedRes, 21323um
+-1828, 2893, TE, 1550, PCM, PCM, wglossSpiral, mixedRes, 16177um
+-4428, 4523, TE, 1550, PCM, PCM, YBranchAdibatic, N112
+-4028, 4688, TE, 1550, PCM, PCM, YBranchAdibatic, N0
+-4428, 4688, TE, 1550, PCM, PCM, YBranchAdibatic, N56
+-1589, 4215, TE, 1310, PCM, PCM, MZI, swgassist, te1550nm
+-2579, 4000, TE, 1310, PCM, PCM, RingDoubler10g160
+-1744, 4000, TE, 1310, PCM, PCM, RingDoubler10g380
+-1667, 4000, TE, 1310, PCM, PCM, RingDoubler10g400
+-2276, 4000, TE, 1310, PCM, PCM, RingDoubler10g240
+-1896, 4000, TE, 1310, PCM, PCM, RingDoubler10g340
+-2200, 4000, TE, 1310, PCM, PCM, RingDoubler10g260
+-2124, 4000, TE, 1310, PCM, PCM, RingDoubler10g280
+-1820, 4000, TE, 1310, PCM, PCM, RingDoubler10g360
+-2655, 4000, TE, 1310, PCM, PCM, RingDoubler10g140
+-2807, 4000, TE, 1310, PCM, PCM, RingDoubler10g100
+-1972, 4000, TE, 1310, PCM, PCM, RingDoubler10g320
+-2882, 4000, TE, 1310, PCM, PCM, RingDoubler10g80
+-2048, 4000, TE, 1310, PCM, PCM, RingDoubler10g300
+-2731, 4000, TE, 1310, PCM, PCM, RingDoubler10g120
+-2352, 4000, TE, 1310, PCM, PCM, RingDoubler10g220
+-2428, 4000, TE, 1310, PCM, PCM, RingDoubler10g200
+-2504, 4000, TE, 1310, PCM, PCM, RingDoubler10g180
+-1268, 3050, TE, 1550, PCM, PCM, GC, PhC, RL
+-1168, 3050, TE, 1550, PCM, PCM, GC, PhC, RL, p14nm
+-1563, 3047, TE, 1310, PCM, PCM, GC, PhC, 1270nm
+-1763, 3047, TE, 1550, PCM, PCM, GC, SWG, bias0nm
+-1563, 3204, TE, 1550, PCM, PCM, GC, PhC, biasN4nm
+-1663, 3047, TE, 1310, PCM, PCM, GC, PhC, 1310nm
+-1163, 3204, TE, 1550, PCM, PCM, GC, PhC, biasP14nm
+-1463, 3204, TE, 1550, PCM, PCM, GC, PhC, bias0nm
+-1263, 3204, TE, 1550, PCM, PCM, GC, PhC, biasP10nm
+-1763, 3204, TE, 1550, PCM, PCM, GC, PhC, biasN14nm
+-1363, 3204, TE, 1550, PCM, PCM, GC, PhC, biasP6nm
+-1466, 3051, TE, 1310, PCM, PCM, GC, PhC, 1290nm
+-1663, 3204, TE, 1550, PCM, PCM, GC, PhC, biasN10nm
+-1368, 3050, TE, 1550, PCM, PCM, GC, PhC, RL, n14nm
+-4020, 3233, TE, 1310, PCM, PCM, wglossSpiral, 16506um
+-4848, 3633, TE, 1310, PCM, PCM, wglossStraight, 43786um
+-4778, 3233, TE, 1310, PCM, PCM, wglossStraight, 5346um
+-4467, 3233, TE, 1310, PCM, PCM, wglossStraight, 10616um
+-4848, 3433, TE, 1310, PCM, PCM, wglossStraight, 29526um
+-4848, 3233, TE, 1310, PCM, PCM, wglossStraight, 0um
+-1502, 2893, TE, 1550, PCM, PCM, MZI, BDC, te1550nm
+-3257, 4781, TE, 1550, PCM, PCM, DCsweep, Length3p00um
+-3357, 4781, TE, 1550, PCM, PCM, DCsweep, Length5p00um
+-3257, 4844, TE, 1550, PCM, PCM, DCsweep, Length2p00um
+-3157, 4844, TE, 1550, PCM, PCM, DCsweep, Length0p00um
+-3757, 4781, TE, 1550, PCM, PCM, DCsweep, Length13p00um
+-3757, 4844, TE, 1550, PCM, PCM, DCsweep, Length12p00um
+-3157, 4781, TE, 1550, PCM, PCM, DCsweep, Length1p00um
+-3657, 4844, TE, 1550, PCM, PCM, DCsweep, Length10p00um
+-3357, 4844, TE, 1550, PCM, PCM, DCsweep, Length4p00um
+-3457, 4781, TE, 1550, PCM, PCM, DCsweep, Length7p00um
+-3657, 4781, TE, 1550, PCM, PCM, DCsweep, Length11p00um
+-3557, 4781, TE, 1550, PCM, PCM, DCsweep, Length9p00um
+-3557, 4844, TE, 1550, PCM, PCM, DCsweep, Length8p00um
+-3457, 4844, TE, 1550, PCM, PCM, DCsweep, Length6p00um
+-1705, 3550, TE, 1550, PCM, PCM, YBranch, N12
+-1895, 3550, TE, 1550, PCM, PCM, YBranch, N36
+-2145, 3550, TE, 1550, PCM, PCM, YBranch, N60
+-1705, 3363, TE, 1550, PCM, PCM, YBranch, N0
+-2145, 3363, TE, 1550, PCM, PCM, YBranch, N120
+-4428, 4859, TE, 1310, PCM, PCM, YBranchAdibatic, N112
+-3996, 5024, TE, 1310, PCM, PCM, YBranchAdibatic, N0
+-4428, 5024, TE, 1550, PCM, PCM, YBranchAdibatic, N56
+-4549, 3810, TE, 1550, PCM, PCM, wglossStraight, 10616um
+-4778, 3810, TE, 1550, PCM, PCM, wglossStraight, 5346um
+-4848, 4210, TE, 1550, PCM, PCM, wglossStraight, 43786um
+-4848, 3810, TE, 1550, PCM, PCM, wglossStraight, 0um
+-4848, 4010, TE, 1550, PCM, PCM, wglossStraight, 29526um
+-4148, 3810, TE, 1550, PCM, PCM, wglossSpiral, 16506um
+-4848, 2653, TE, 1550, PCM, PCM, wglossStraight, mixedRes, 0um
+-4549, 2653, TE, 1550, PCM, PCM, wglossStraight, mixedRes, 10616um
+-4848, 3053, TE, 1550, PCM, PCM, wglossStraight, mixedRes, 43786um
+-4778, 2653, TE, 1550, PCM, PCM, wglossStraight, mixedRes, 5346um
+-4848, 2853, TE, 1550, PCM, PCM, wglossStraight, mixedRes, 29526um
+-4148, 2653, TE, 1550, PCM, PCM, wglossSpiral, mixedRes, 16506um
+-2297, 3376, TE, 1310, PCM, PCM, YBranch, N0
+-2278, 3563, TE, 1310, PCM, PCM, YBranch, N12
+-2774, 3563, TE, 1310, PCM, PCM, YBranch, N60
+-2489, 3563, TE, 1310, PCM, PCM, YBranch, N36
+-2774, 3376, TE, 1310, PCM, PCM, YBranch, N120
+-2441, 2893, TE, 1550, PCM, PCM, wglossSpiral, 16177um
+-2731, 2893, TE, 1550, PCM, PCM, wglossSpiral, 10371um
+-2516, 2667, TE, 1550, PCM, PCM, wglossSpiral, 5772um
+-2671, 2667, TE, 1550, PCM, PCM, wglossSpiral, 2379um
+-2731, 3204, TE, 1550, PCM, PCM, wglossSpiral, 21323um
+-2731, 2667, TE, 1550, PCM, PCM, wglossSpiral, 0um
+-3339, 3204, TE, 1310, PCM, PCM, wglossSpiral, 21323um
+-3339, 2893, TE, 1310, PCM, PCM, wglossSpiral, 10371um
+-3339, 2667, TE, 1310, PCM, PCM, wglossSpiral, 0um
+-3049, 2893, TE, 1310, PCM, PCM, wglossSpiral, 16177um
+-3279, 2667, TE, 1310, PCM, PCM, wglossSpiral, 2379um
+-3124, 2667, TE, 1310, PCM, PCM, wglossSpiral, 5772um
+-3049, 4217, TE, 1550, PCM, PCM, MZI, BDC, te1550nm, biasedPlus15nm
+-3118, 4075, TE, 1550, PCM, PCM, strip2slot, N0
+-3290, 4075, TE, 1550, PCM, PCM, strip2slot, N8
+-3366, 4033, TE, 1550, PCM, PCM, strip2slot, N40
+-3366, 4220, TE, 1550, PCM, PCM, strip2slot, N20
+-4981, 4543, TE, 1310, PCM, PCM, BraggPeriod, 300N288nmPeriod350nmW15nmdW0Apo0
+-5061, 4606, TE, 1310, PCM, PCM, BraggPeriod, 300N290nmPeriod350nmW15nmdW0Apo0
+-4981, 4606, TE, 1310, PCM, PCM, BraggPeriod, 300N286nmPeriod350nmW15nmdW0Apo0
+-4901, 4606, TE, 1310, PCM, PCM, BraggPeriod, 300N282nmPeriod350nmW15nmdW0Apo0
+-4821, 4543, TE, 1310, PCM, PCM, BraggPeriod, 300N280nmPeriod350nmW15nmdW0Apo0
+-4661, 4606, TE, 1310, PCM, PCM, BraggPeriod, 300N270nmPeriod350nmW15nmdW0Apo0
+-4821, 4606, TE, 1310, PCM, PCM, BraggPeriod, 300N278nmPeriod350nmW15nmdW0Apo0
+-4901, 4543, TE, 1310, PCM, PCM, BraggPeriod, 300N284nmPeriod350nmW15nmdW0Apo0
+-4741, 4543, TE, 1310, PCM, PCM, BraggPeriod, 300N276nmPeriod350nmW15nmdW0Apo0
+-4741, 4606, TE, 1310, PCM, PCM, BraggPeriod, 300N274nmPeriod350nmW15nmdW0Apo0
+-4661, 4543, TE, 1310, PCM, PCM, BraggPeriod, 300N272nmPeriod350nmW15nmdW0Apo0
+-1583, 3484, TE, 1550, PCM, PCM, contraDC, N1
+-1583, 3849, TE, 1550, PCM, PCM, contraDC, N3
+-1516, 3652, TE, 1550, PCM, PCM, contraDC, N5
+-3000, 3441, TE, 1550, PCM, PCM, wglossBraggFP
+-5061, 5047, TE, 1550, PCM, PCM, BraggPeriod, 300N334nmPeriod500nmW30nmdW0Apo0
+-4981, 5047, TE, 1550, PCM, PCM, BraggPeriod, 300N330nmPeriod500nmW30nmdW0Apo0
+-4901, 5047, TE, 1550, PCM, PCM, BraggPeriod, 300N326nmPeriod500nmW30nmdW0Apo0
+-4661, 5047, TE, 1550, PCM, PCM, BraggPeriod, 300N314nmPeriod500nmW30nmdW0Apo0
+-4741, 4984, TE, 1550, PCM, PCM, BraggPeriod, 300N320nmPeriod500nmW30nmdW0Apo0
+-4821, 5047, TE, 1550, PCM, PCM, BraggPeriod, 300N322nmPeriod500nmW30nmdW0Apo0
+-4901, 4984, TE, 1550, PCM, PCM, BraggPeriod, 300N328nmPeriod500nmW30nmdW0Apo0
+-4821, 4984, TE, 1550, PCM, PCM, BraggPeriod, 300N324nmPeriod500nmW30nmdW0Apo0
+-4741, 5047, TE, 1550, PCM, PCM, BraggPeriod, 300N318nmPeriod500nmW30nmdW0Apo0
+-4661, 4984, TE, 1550, PCM, PCM, BraggPeriod, 300N316nmPeriod500nmW30nmdW0Apo0
+-4981, 4984, TE, 1550, PCM, PCM, BraggPeriod, 300N332nmPeriod500nmW30nmdW0Apo0
+-1506, 4023, TE, 1550, PCM, PCM, MZI, swgassist, te1550nm
+4500, 2438, TE, 1550, device, ring, r49.4, w0.5, g0.134, b50
+4500, 2268, TE, 1550, device, ring, r48.6, w0.5, g0.106, b50
+4670, 1758, TE, 1550, device, ring, r39.3, w0.5, g0.152, b50
+5010, 1758, TE, 1550, device, ring, r12.8, w0.5, g0.152, b50
+4670, 2608, TE, 1550, device, ring, r48.2, w0.5, g0.127, b50
+5010, 2098, TE, 1550, device, ring, r31.1, w0.5, g0.107, b50
+4670, 2098, TE, 1550, device, ring, r37.9, w0.5, g0.155, b50
+4840, 1928, TE, 1550, device, ring, r21.8, w0.5, g0.156, b50
+5180, 1758, TE, 1550, device, ring, r25.1, w0.5, g0.108, b50
+5180, 2608, TE, 1550, device, ring, r20.7, w0.5, g0.12, b50
+5180, 1928, TE, 1550, device, ring, r36.1, w0.5, g0.119, b50
+4500, 1758, TE, 1550, device, ring, r26.0, w0.5, g0.12, b50
+4500, 1928, TE, 1550, device, ring, r46.1, w0.5, g0.105, b50
+4840, 1758, TE, 1550, device, ring, r7.1, w0.5, g0.155, b50
+5010, 2608, TE, 1550, device, ring, r14.6, w0.5, g0.132, b50
+5180, 2438, TE, 1550, device, ring, r15.9, w0.5, g0.11, b50
+4500, 2608, TE, 1550, device, ring, r30.0, w0.5, g0.128, b50
+4500, 2098, TE, 1550, device, ring, r8.2, w0.5, g0.159, b50
+4840, 2608, TE, 1550, device, ring, r20.3, w0.5, g0.175, b50
+5010, 2268, TE, 1550, device, ring, r14.8, w0.5, g0.121, b50
+4840, 2268, TE, 1550, device, ring, r31.1, w0.5, g0.12, b50
+4840, 2438, TE, 1550, device, ring, r39.4, w0.5, g0.156, b50
+4670, 2268, TE, 1550, device, ring, r40.8, w0.5, g0.102, b50
+4840, 2098, TE, 1550, device, ring, r6.9, w0.5, g0.151, b50
+4670, 2438, TE, 1550, device, ring, r38.8, w0.5, g0.12, b50
+5180, 2098, TE, 1550, device, ring, r45.0, w0.5, g0.162, b50
+5180, 2268, TE, 1550, device, ring, r40.5, w0.5, g0.164, b50
+5010, 1928, TE, 1550, device, ring, r19.7, w0.5, g0.173, b50
+4670, 1928, TE, 1550, device, ring, r49.9, w0.5, g0.158, b50
+5010, 2438, TE, 1550, device, ring, r9.2, w0.5, g0.146, b50
+3820, 2438, TE, 1550, device, ring, r8.7, w0.5, g0.11, b50
+3990, 1758, TE, 1550, device, ring, r17.3, w0.5, g0.139, b50
+3650, 2438, TE, 1550, device, ring, r38.0, w0.5, g0.148, b50
+3650, 2268, TE, 1550, device, ring, r18.1, w0.5, g0.11, b50
+3820, 1758, TE, 1550, device, ring, r31.7, w0.5, g0.157, b50
+3820, 2098, TE, 1550, device, ring, r11.0, w0.5, g0.149, b50
+3650, 2608, TE, 1550, device, ring, r19.8, w0.5, g0.106, b50
+4160, 2438, TE, 1550, device, ring, r22.0, w0.5, g0.125, b50
+4330, 1758, TE, 1550, device, ring, r34.1, w0.5, g0.168, b50
+3650, 1928, TE, 1550, device, ring, r26.6, w0.5, g0.158, b50
+4330, 2098, TE, 1550, device, ring, r26.0, w0.5, g0.141, b50
+3990, 1928, TE, 1550, device, ring, r43.0, w0.5, g0.101, b50
+4330, 1928, TE, 1550, device, ring, r44.5, w0.5, g0.151, b50
+4160, 2098, TE, 1550, device, ring, r39.0, w0.5, g0.167, b50
+4330, 2268, TE, 1550, device, ring, r43.4, w0.5, g0.165, b50
+4330, 2608, TE, 1550, device, ring, r45.4, w0.5, g0.144, b50
+3650, 1758, TE, 1550, device, ring, r7.8, w0.5, g0.161, b50
+4160, 2268, TE, 1550, device, ring, r24.5, w0.5, g0.173, b50
+3820, 1928, TE, 1550, device, ring, r12.3, w0.5, g0.159, b50
+3990, 2098, TE, 1550, device, ring, r40.1, w0.5, g0.163, b50
+4160, 1928, TE, 1550, device, ring, r10.0, w0.5, g0.101, b50
+3990, 2268, TE, 1550, device, ring, r12.8, w0.5, g0.11, b50
+3820, 2268, TE, 1550, device, ring, r16.0, w0.5, g0.147, b50
+4160, 1758, TE, 1550, device, ring, r23.0, w0.5, g0.168, b50
+3990, 2438, TE, 1550, device, ring, r38.9, w0.5, g0.149, b50
+4330, 2438, TE, 1550, device, ring, r6.4, w0.5, g0.143, b50
+4160, 2608, TE, 1550, device, ring, r13.1, w0.5, g0.104, b50
+3650, 2098, TE, 1550, device, ring, r36.9, w0.5, g0.143, b50
+3990, 2608, TE, 1550, device, ring, r10.6, w0.5, g0.127, b50
+3820, 2608, TE, 1550, device, ring, r28.4, w0.5, g0.149, b50
+4160, 1418, TE, 1550, device, ring, r36.8, w0.5, g0.167, b50
+4330, 1078, TE, 1550, device, ring, r21.2, w0.5, g0.156, b50
+3650, 908, TE, 1550, device, ring, r19.7, w0.5, g0.145, b50
+3990, 1078, TE, 1550, device, ring, r5.6, w0.5, g0.114, b50
+4330, 908, TE, 1550, device, ring, r43.4, w0.5, g0.102, b50
+3820, 1078, TE, 1550, device, ring, r34.6, w0.5, g0.129, b50
+4330, 1588, TE, 1550, device, ring, r35.9, w0.5, g0.173, b50
+3650, 1418, TE, 1550, device, ring, r43.2, w0.5, g0.145, b50
+3820, 1588, TE, 1550, device, ring, r21.9, w0.5, g0.107, b50
+4160, 908, TE, 1550, device, ring, r41.0, w0.5, g0.172, b50
+4160, 1248, TE, 1550, device, ring, r36.9, w0.5, g0.155, b50
+3990, 908, TE, 1550, device, ring, r33.2, w0.5, g0.13, b50
+3820, 1418, TE, 1550, device, ring, r49.3, w0.5, g0.16, b50
+4160, 1588, TE, 1550, device, ring, r26.1, w0.5, g0.179, b50
+3650, 1588, TE, 1550, device, ring, r20.7, w0.5, g0.17, b50
+3990, 1248, TE, 1550, device, ring, r13.0, w0.5, g0.116, b50
+3820, 908, TE, 1550, device, ring, r35.4, w0.5, g0.112, b50
+4160, 1078, TE, 1550, device, ring, r19.1, w0.5, g0.132, b50
+3990, 1418, TE, 1550, device, ring, r24.7, w0.5, g0.137, b50
+3650, 1248, TE, 1550, device, ring, r31.2, w0.5, g0.178, b50
+4330, 1248, TE, 1550, device, ring, r27.2, w0.5, g0.112, b50
+4330, 1418, TE, 1550, device, ring, r39.0, w0.5, g0.169, b50
+3820, 1248, TE, 1550, device, ring, r26.4, w0.5, g0.122, b50
+3650, 1078, TE, 1550, device, ring, r32.1, w0.5, g0.111, b50
+3990, 1588, TE, 1550, device, ring, r47.6, w0.5, g0.132, b50
+5180, 1588, TE, 1550, device, ring, r14.4, w0.5, g0.152, b50
+4500, 1248, TE, 1550, device, ring, r40.0, w0.5, g0.155, b50
+4500, 908, TE, 1550, device, ring, r22.8, w0.5, g0.171, b50
+4840, 1078, TE, 1550, device, ring, r15.0, w0.5, g0.123, b50
+4500, 1078, TE, 1550, device, ring, r18.3, w0.5, g0.156, b50
+5010, 908, TE, 1550, device, ring, r10.3, w0.5, g0.179, b50
+4500, 1588, TE, 1550, device, ring, r18.7, w0.5, g0.104, b50
+4670, 1078, TE, 1550, device, ring, r26.9, w0.5, g0.105, b50
+5180, 1418, TE, 1550, device, ring, r30.0, w0.5, g0.162, b50
+4670, 1588, TE, 1550, device, ring, r48.4, w0.5, g0.137, b50
+5010, 1078, TE, 1550, device, ring, r36.6, w0.5, g0.103, b50
+4670, 1248, TE, 1550, device, ring, r10.7, w0.5, g0.119, b50
+5180, 908, TE, 1550, device, ring, r28.3, w0.5, g0.116, b50
+5180, 1248, TE, 1550, device, ring, r10.1, w0.5, g0.125, b50
+5010, 1418, TE, 1550, device, ring, r34.1, w0.5, g0.121, b50
+4670, 908, TE, 1550, device, ring, r8.7, w0.5, g0.14, b50
+5010, 1588, TE, 1550, device, ring, r36.4, w0.5, g0.151, b50
+5010, 1248, TE, 1550, device, ring, r11.8, w0.5, g0.129, b50
+4670, 1418, TE, 1550, device, ring, r17.1, w0.5, g0.117, b50
+4840, 1588, TE, 1550, device, ring, r39.6, w0.5, g0.159, b50
+4840, 1418, TE, 1550, device, ring, r45.0, w0.5, g0.167, b50
+4840, 908, TE, 1550, device, ring, r16.7, w0.5, g0.174, b50
+4840, 1248, TE, 1550, device, ring, r19.5, w0.5, g0.166, b50
+5180, 1078, TE, 1550, device, ring, r41.9, w0.5, g0.152, b50
+4500, 1418, TE, 1550, device, ring, r25.4, w0.5, g0.108, b50
+2970, 1758, TE, 1550, device, ring, r48.3, w0.5, g0.144, b50
+3140, 2438, TE, 1550, device, ring, r9.9, w0.5, g0.134, b50
+3140, 2268, TE, 1550, device, ring, r14.4, w0.5, g0.175, b50
+3310, 1928, TE, 1550, device, ring, r32.2, w0.5, g0.178, b50
+3480, 2438, TE, 1550, device, ring, r19.9, w0.5, g0.116, b50
+2800, 2608, TE, 1550, device, ring, r8.0, w0.5, g0.103, b50
+3140, 1758, TE, 1550, device, ring, r11.8, w0.5, g0.108, b50
+3480, 1928, TE, 1550, device, ring, r40.9, w0.5, g0.11, b50
+3480, 1758, TE, 1550, device, ring, r11.3, w0.5, g0.107, b50
+2970, 2438, TE, 1550, device, ring, r31.7, w0.5, g0.104, b50
+3480, 2268, TE, 1550, device, ring, r11.6, w0.5, g0.154, b50
+3310, 2438, TE, 1550, device, ring, r35.1, w0.5, g0.154, b50
+2800, 2268, TE, 1550, device, ring, r47.4, w0.5, g0.162, b50
+3310, 2098, TE, 1550, device, ring, r17.4, w0.5, g0.15, b50
+2800, 2098, TE, 1550, device, ring, r20.4, w0.5, g0.125, b50
+2970, 2098, TE, 1550, device, ring, r12.8, w0.5, g0.162, b50
+3480, 2608, TE, 1550, device, ring, r9.2, w0.5, g0.122, b50
+2800, 2438, TE, 1550, device, ring, r27.8, w0.5, g0.104, b50
+3480, 2098, TE, 1550, device, ring, r27.2, w0.5, g0.142, b50
+2970, 2268, TE, 1550, device, ring, r43.0, w0.5, g0.128, b50
+3140, 2098, TE, 1550, device, ring, r35.5, w0.5, g0.126, b50
+3310, 1758, TE, 1550, device, ring, r12.3, w0.5, g0.162, b50
+2970, 1928, TE, 1550, device, ring, r38.6, w0.5, g0.159, b50
+3140, 2608, TE, 1550, device, ring, r15.8, w0.5, g0.14, b50
+2800, 1758, TE, 1550, device, ring, r17.1, w0.5, g0.116, b50
+3310, 2268, TE, 1550, device, ring, r20.7, w0.5, g0.157, b50
+2800, 1928, TE, 1550, device, ring, r9.0, w0.5, g0.155, b50
+2970, 2608, TE, 1550, device, ring, r49.7, w0.5, g0.135, b50
+3140, 1928, TE, 1550, device, ring, r29.0, w0.5, g0.152, b50
+3310, 2608, TE, 1550, device, ring, r32.7, w0.5, g0.13, b50
+1950, 2438, TE, 1550, device, ring, r42.1, w0.5, g0.135, b50
+2630, 1928, TE, 1550, device, ring, r28.8, w0.5, g0.141, b50
+2460, 2438, TE, 1550, device, ring, r38.4, w0.5, g0.156, b50
+2120, 1928, TE, 1550, device, ring, r30.2, w0.5, g0.131, b50
+1950, 2268, TE, 1550, device, ring, r8.6, w0.5, g0.158, b50
+2630, 2268, TE, 1550, device, ring, r29.3, w0.5, g0.146, b50
+2120, 2268, TE, 1550, device, ring, r25.0, w0.5, g0.135, b50
+2460, 2098, TE, 1550, device, ring, r10.8, w0.5, g0.152, b50
+2120, 2608, TE, 1550, device, ring, r7.6, w0.5, g0.144, b50
+1950, 1758, TE, 1550, device, ring, r23.4, w0.5, g0.172, b50
+1950, 1928, TE, 1550, device, ring, r37.2, w0.5, g0.107, b50
+2290, 1928, TE, 1550, device, ring, r8.9, w0.5, g0.106, b50
+2290, 2438, TE, 1550, device, ring, r9.6, w0.5, g0.175, b50
+2630, 1758, TE, 1550, device, ring, r48.6, w0.5, g0.149, b50
+2630, 2608, TE, 1550, device, ring, r37.6, w0.5, g0.143, b50
+2290, 2608, TE, 1550, device, ring, r7.4, w0.5, g0.124, b50
+2290, 1758, TE, 1550, device, ring, r26.6, w0.5, g0.115, b50
+1950, 2098, TE, 1550, device, ring, r28.7, w0.5, g0.164, b50
+2460, 2608, TE, 1550, device, ring, r44.4, w0.5, g0.159, b50
+2630, 2438, TE, 1550, device, ring, r39.6, w0.5, g0.173, b50
+1950, 2608, TE, 1550, device, ring, r5.2, w0.5, g0.142, b50
+2630, 2098, TE, 1550, device, ring, r27.0, w0.5, g0.145, b50
+2120, 1758, TE, 1550, device, ring, r24.0, w0.5, g0.117, b50
+2290, 2098, TE, 1550, device, ring, r8.0, w0.5, g0.166, b50
+2460, 1928, TE, 1550, device, ring, r19.2, w0.5, g0.148, b50
+2460, 1758, TE, 1550, device, ring, r36.7, w0.5, g0.121, b50
+2120, 2098, TE, 1550, device, ring, r29.6, w0.5, g0.166, b50
+2120, 2438, TE, 1550, device, ring, r17.9, w0.5, g0.115, b50
+2290, 2268, TE, 1550, device, ring, r32.6, w0.5, g0.112, b50
+2460, 2268, TE, 1550, device, ring, r6.4, w0.5, g0.113, b50
+2120, 1078, TE, 1550, device, ring, r15.2, w0.5, g0.147, b50
+1950, 1078, TE, 1550, device, ring, r29.7, w0.5, g0.152, b50
+2630, 1588, TE, 1550, device, ring, r46.7, w0.5, g0.154, b50
+2460, 1078, TE, 1550, device, ring, r13.8, w0.5, g0.106, b50
+1950, 908, TE, 1550, device, ring, r12.2, w0.5, g0.105, b50
+2120, 1588, TE, 1550, device, ring, r24.3, w0.5, g0.169, b50
+2460, 908, TE, 1550, device, ring, r29.3, w0.5, g0.119, b50
+2290, 1078, TE, 1550, device, ring, r40.4, w0.5, g0.138, b50
+1950, 1248, TE, 1550, device, ring, r36.1, w0.5, g0.132, b50
+2120, 908, TE, 1550, device, ring, r10.3, w0.5, g0.175, b50
+2630, 908, TE, 1550, device, ring, r27.4, w0.5, g0.139, b50
+1950, 1418, TE, 1550, device, ring, r23.3, w0.5, g0.152, b50
+2630, 1418, TE, 1550, device, ring, r41.0, w0.5, g0.126, b50
+1950, 1588, TE, 1550, device, ring, r42.6, w0.5, g0.142, b50
+2460, 1418, TE, 1550, device, ring, r37.8, w0.5, g0.124, b50
+2290, 1418, TE, 1550, device, ring, r44.0, w0.5, g0.171, b50
+2460, 1588, TE, 1550, device, ring, r34.0, w0.5, g0.13, b50
+2290, 1248, TE, 1550, device, ring, r17.2, w0.5, g0.1, b50
+2290, 908, TE, 1550, device, ring, r39.4, w0.5, g0.105, b50
+2630, 1248, TE, 1550, device, ring, r6.4, w0.5, g0.155, b50
+2120, 1248, TE, 1550, device, ring, r42.1, w0.5, g0.117, b50
+2290, 1588, TE, 1550, device, ring, r38.2, w0.5, g0.144, b50
+2120, 1418, TE, 1550, device, ring, r49.0, w0.5, g0.157, b50
+2630, 1078, TE, 1550, device, ring, r41.8, w0.5, g0.139, b50
+2460, 1248, TE, 1550, device, ring, r10.3, w0.5, g0.168, b50
+3140, 1588, TE, 1550, device, ring, r33.9, w0.5, g0.153, b50
+3480, 1588, TE, 1550, device, ring, r6.1, w0.5, g0.169, b50
+2800, 1588, TE, 1550, device, ring, r30.8, w0.5, g0.151, b50
+3140, 1248, TE, 1550, device, ring, r20.2, w0.5, g0.16, b50
+3480, 1418, TE, 1550, device, ring, r39.1, w0.5, g0.171, b50
+2970, 1078, TE, 1550, device, ring, r49.5, w0.5, g0.166, b50
+2970, 1248, TE, 1550, device, ring, r47.4, w0.5, g0.129, b50
+2800, 908, TE, 1550, device, ring, r21.0, w0.5, g0.123, b50
+2800, 1418, TE, 1550, device, ring, r26.5, w0.5, g0.174, b50
+2970, 1418, TE, 1550, device, ring, r49.0, w0.5, g0.158, b50
+3310, 1248, TE, 1550, device, ring, r43.2, w0.5, g0.159, b50
+3140, 1078, TE, 1550, device, ring, r35.8, w0.5, g0.124, b50
+3310, 1588, TE, 1550, device, ring, r6.7, w0.5, g0.12, b50
+2800, 1078, TE, 1550, device, ring, r28.7, w0.5, g0.125, b50
+3140, 1418, TE, 1550, device, ring, r9.3, w0.5, g0.105, b50
+3480, 1248, TE, 1550, device, ring, r48.2, w0.5, g0.112, b50
+3310, 1078, TE, 1550, device, ring, r36.2, w0.5, g0.122, b50
+2970, 1588, TE, 1550, device, ring, r42.9, w0.5, g0.134, b50
+3140, 908, TE, 1550, device, ring, r41.0, w0.5, g0.152, b50
+2800, 1248, TE, 1550, device, ring, r17.4, w0.5, g0.136, b50
+3310, 908, TE, 1550, device, ring, r42.1, w0.5, g0.143, b50
+3480, 1078, TE, 1550, device, ring, r38.2, w0.5, g0.119, b50
+2970, 908, TE, 1550, device, ring, r8.4, w0.5, g0.105, b50
+3480, 908, TE, 1550, device, ring, r49.2, w0.5, g0.11, b50
+3310, 1418, TE, 1550, device, ring, r39.0, w0.5, g0.104, b50
+1950, -791, TE, 1550, device, ring, r8.6, w0.5, g0.179, b50
+3140, 228, TE, 1550, device, ring, r49.9, w0.5, g0.143, b50
+3140, 738, TE, 1550, device, ring, r7.4, w0.5, g0.123, b50
+2630, -621, TE, 1550, device, ring, r32.2, w0.5, g0.134, b50
+3140, -281, TE, 1550, device, ring, r19.3, w0.5, g0.14, b50
+3480, -791, TE, 1550, device, ring, r46.4, w0.5, g0.111, b50
+2120, -281, TE, 1550, device, ring, r37.6, w0.5, g0.114, b50
+1950, 738, TE, 1550, device, ring, r44.6, w0.5, g0.16, b50
+2290, 398, TE, 1550, device, ring, r20.0, w0.5, g0.109, b50
+2970, -281, TE, 1550, device, ring, r15.3, w0.5, g0.103, b50
+2800, -451, TE, 1550, device, ring, r45.2, w0.5, g0.173, b50
+2290, -621, TE, 1550, device, ring, r20.7, w0.5, g0.156, b50
+2460, -281, TE, 1550, device, ring, r22.5, w0.5, g0.156, b50
+3140, 58, TE, 1550, device, ring, r36.7, w0.5, g0.126, b50
+3480, 568, TE, 1550, device, ring, r39.9, w0.5, g0.14, b50
+2970, 738, TE, 1550, device, ring, r15.5, w0.5, g0.129, b50
+2630, -111, TE, 1550, device, ring, r9.4, w0.5, g0.111, b50
+2120, 568, TE, 1550, device, ring, r18.1, w0.5, g0.137, b50
+2290, 228, TE, 1550, device, ring, r35.1, w0.5, g0.143, b50
+2630, -281, TE, 1550, device, ring, r18.3, w0.5, g0.168, b50
+3480, -621, TE, 1550, device, ring, r18.8, w0.5, g0.152, b50
+2460, 228, TE, 1550, device, ring, r34.9, w0.5, g0.109, b50
+3140, -791, TE, 1550, device, ring, r13.7, w0.5, g0.1, b50
+2800, 738, TE, 1550, device, ring, r37.0, w0.5, g0.142, b50
+3140, -621, TE, 1550, device, ring, r9.3, w0.5, g0.115, b50
+1950, 398, TE, 1550, device, ring, r21.8, w0.5, g0.17, b50
+3310, -791, TE, 1550, device, ring, r7.1, w0.5, g0.166, b50
+3480, 228, TE, 1550, device, ring, r15.7, w0.5, g0.104, b50
+3140, 398, TE, 1550, device, ring, r37.8, w0.5, g0.167, b50
+2630, 398, TE, 1550, device, ring, r45.0, w0.5, g0.133, b50
+2630, 568, TE, 1550, device, ring, r28.1, w0.5, g0.112, b50
+2290, 568, TE, 1550, device, ring, r12.4, w0.5, g0.162, b50
+2800, -111, TE, 1550, device, ring, r42.4, w0.5, g0.117, b50
+3480, -111, TE, 1550, device, ring, r20.3, w0.5, g0.13, b50
+2460, -791, TE, 1550, device, ring, r42.6, w0.5, g0.102, b50
+2970, 58, TE, 1550, device, ring, r38.0, w0.5, g0.101, b50
+2630, -451, TE, 1550, device, ring, r36.6, w0.5, g0.114, b50
+3310, 568, TE, 1550, device, ring, r40.5, w0.5, g0.113, b50
+2970, -621, TE, 1550, device, ring, r23.5, w0.5, g0.167, b50
+3480, 58, TE, 1550, device, ring, r15.6, w0.5, g0.149, b50
+1950, 568, TE, 1550, device, ring, r11.9, w0.5, g0.107, b50
+2970, -111, TE, 1550, device, ring, r15.9, w0.5, g0.101, b50
+2630, 228, TE, 1550, device, ring, r48.5, w0.5, g0.137, b50
+2460, 58, TE, 1550, device, ring, r18.5, w0.5, g0.104, b50
+3480, -281, TE, 1550, device, ring, r30.7, w0.5, g0.138, b50
+2800, 228, TE, 1550, device, ring, r12.2, w0.5, g0.142, b50
+2120, -791, TE, 1550, device, ring, r7.3, w0.5, g0.126, b50
+2460, 398, TE, 1550, device, ring, r25.6, w0.5, g0.148, b50
+3310, 228, TE, 1550, device, ring, r19.7, w0.5, g0.132, b50
+3140, 568, TE, 1550, device, ring, r45.4, w0.5, g0.146, b50
+3310, -281, TE, 1550, device, ring, r11.3, w0.5, g0.159, b50
+2970, 228, TE, 1550, device, ring, r26.4, w0.5, g0.152, b50
+2120, -111, TE, 1550, device, ring, r12.5, w0.5, g0.108, b50
+2800, 398, TE, 1550, device, ring, r8.3, w0.5, g0.173, b50
+2800, -791, TE, 1550, device, ring, r6.8, w0.5, g0.116, b50
+2800, 58, TE, 1550, device, ring, r16.8, w0.5, g0.123, b50
+2460, -451, TE, 1550, device, ring, r19.4, w0.5, g0.165, b50
+3480, 398, TE, 1550, device, ring, r26.8, w0.5, g0.177, b50
+1950, -111, TE, 1550, device, ring, r37.0, w0.5, g0.144, b50
+2120, -621, TE, 1550, device, ring, r40.8, w0.5, g0.125, b50
+1950, -621, TE, 1550, device, ring, r28.2, w0.5, g0.101, b50
+2460, 568, TE, 1550, device, ring, r8.2, w0.5, g0.112, b50
+2970, -791, TE, 1550, device, ring, r9.4, w0.5, g0.129, b50
+3310, -621, TE, 1550, device, ring, r38.7, w0.5, g0.129, b50
+3310, 738, TE, 1550, device, ring, r41.5, w0.5, g0.118, b50
+2800, -621, TE, 1550, device, ring, r41.8, w0.5, g0.15, b50
+2460, -621, TE, 1550, device, ring, r43.1, w0.5, g0.177, b50
+3140, -451, TE, 1550, device, ring, r36.1, w0.5, g0.103, b50
+2290, 58, TE, 1550, device, ring, r36.2, w0.5, g0.103, b50
+3480, 738, TE, 1550, device, ring, r34.8, w0.5, g0.171, b50
+2800, -281, TE, 1550, device, ring, r35.2, w0.5, g0.15, b50
+3480, -451, TE, 1550, device, ring, r29.6, w0.5, g0.109, b50
+2290, -111, TE, 1550, device, ring, r25.0, w0.5, g0.146, b50
+3310, -451, TE, 1550, device, ring, r39.1, w0.5, g0.127, b50
+2120, 398, TE, 1550, device, ring, r30.4, w0.5, g0.167, b50
+3310, -111, TE, 1550, device, ring, r48.7, w0.5, g0.107, b50
+2970, 398, TE, 1550, device, ring, r18.4, w0.5, g0.165, b50
+2290, -281, TE, 1550, device, ring, r9.1, w0.5, g0.125, b50
+2630, -791, TE, 1550, device, ring, r47.0, w0.5, g0.126, b50
+2290, -791, TE, 1550, device, ring, r29.8, w0.5, g0.173, b50
+2290, -451, TE, 1550, device, ring, r35.9, w0.5, g0.137, b50
+2630, 58, TE, 1550, device, ring, r49.1, w0.5, g0.103, b50
+3310, 398, TE, 1550, device, ring, r36.0, w0.5, g0.126, b50
+2800, 568, TE, 1550, device, ring, r33.6, w0.5, g0.163, b50
+2460, -111, TE, 1550, device, ring, r32.5, w0.5, g0.136, b50
+2120, 738, TE, 1550, device, ring, r21.5, w0.5, g0.128, b50
+3140, -111, TE, 1550, device, ring, r15.8, w0.5, g0.124, b50
+1950, 58, TE, 1550, device, ring, r22.2, w0.5, g0.107, b50
+2290, 738, TE, 1550, device, ring, r9.9, w0.5, g0.116, b50
+2460, 738, TE, 1550, device, ring, r31.4, w0.5, g0.173, b50
+1950, 228, TE, 1550, device, ring, r27.5, w0.5, g0.102, b50
+1950, -451, TE, 1550, device, ring, r33.3, w0.5, g0.179, b50
+2120, 58, TE, 1550, device, ring, r5.5, w0.5, g0.11, b50
+2630, 738, TE, 1550, device, ring, r29.6, w0.5, g0.145, b50
+2970, 568, TE, 1550, device, ring, r14.8, w0.5, g0.165, b50
+1950, -281, TE, 1550, device, ring, r29.1, w0.5, g0.178, b50
+2120, -451, TE, 1550, device, ring, r26.7, w0.5, g0.162, b50
+2970, -451, TE, 1550, device, ring, r49.1, w0.5, g0.133, b50
+2120, 228, TE, 1550, device, ring, r38.1, w0.5, g0.153, b50
+3310, 58, TE, 1550, device, ring, r18.5, w0.5, g0.143, b50
+4500, 738, TE, 1550, device, ring, r20.0, w0.5, g0.132, b50
+3990, -451, TE, 1550, device, ring, r29.5, w0.5, g0.113, b50
+4670, 398, TE, 1550, device, ring, r10.6, w0.5, g0.146, b50
+3650, 568, TE, 1550, device, ring, r40.1, w0.5, g0.174, b50
+3650, -111, TE, 1550, device, ring, r12.2, w0.5, g0.156, b50
+4330, -281, TE, 1550, device, ring, r40.5, w0.5, g0.177, b50
+4330, 398, TE, 1550, device, ring, r6.6, w0.5, g0.125, b50
+3990, 228, TE, 1550, device, ring, r7.1, w0.5, g0.141, b50
+4330, 228, TE, 1550, device, ring, r8.4, w0.5, g0.151, b50
+4500, 58, TE, 1550, device, ring, r45.5, w0.5, g0.176, b50
+4840, -111, TE, 1550, device, ring, r19.3, w0.5, g0.104, b50
+4330, 58, TE, 1550, device, ring, r7.7, w0.5, g0.152, b50
+4160, 568, TE, 1550, device, ring, r21.2, w0.5, g0.104, b50
+4330, -451, TE, 1550, device, ring, r6.5, w0.5, g0.133, b50
+3820, 58, TE, 1550, device, ring, r30.4, w0.5, g0.125, b50
+4670, 568, TE, 1550, device, ring, r48.5, w0.5, g0.174, b50
+3990, -791, TE, 1550, device, ring, r31.4, w0.5, g0.102, b50
+5180, -281, TE, 1550, device, ring, r16.2, w0.5, g0.111, b50
+4330, 568, TE, 1550, device, ring, r48.4, w0.5, g0.168, b50
+4840, 398, TE, 1550, device, ring, r19.6, w0.5, g0.104, b50
+4160, 738, TE, 1550, device, ring, r22.1, w0.5, g0.143, b50
+4840, -281, TE, 1550, device, ring, r9.0, w0.5, g0.111, b50
+4500, -281, TE, 1550, device, ring, r15.0, w0.5, g0.153, b50
+3820, 568, TE, 1550, device, ring, r41.0, w0.5, g0.13, b50
+4330, -621, TE, 1550, device, ring, r12.1, w0.5, g0.14, b50
+4500, -111, TE, 1550, device, ring, r20.6, w0.5, g0.179, b50
+5010, -621, TE, 1550, device, ring, r23.2, w0.5, g0.131, b50
+4160, -621, TE, 1550, device, ring, r11.3, w0.5, g0.144, b50
+3650, -281, TE, 1550, device, ring, r17.6, w0.5, g0.12, b50
+4500, -451, TE, 1550, device, ring, r36.3, w0.5, g0.121, b50
+5010, -281, TE, 1550, device, ring, r45.9, w0.5, g0.15, b50
+3650, -791, TE, 1550, device, ring, r13.8, w0.5, g0.162, b50
+5180, 738, TE, 1550, device, ring, r19.0, w0.5, g0.141, b50
+4500, -791, TE, 1550, device, ring, r16.6, w0.5, g0.107, b50
+3820, 228, TE, 1550, device, ring, r6.9, w0.5, g0.148, b50
+3820, -621, TE, 1550, device, ring, r22.2, w0.5, g0.163, b50
+4330, -111, TE, 1550, device, ring, r12.8, w0.5, g0.139, b50
+3990, 568, TE, 1550, device, ring, r49.1, w0.5, g0.12, b50
+3990, 58, TE, 1550, device, ring, r13.9, w0.5, g0.112, b50
+3820, -791, TE, 1550, device, ring, r30.1, w0.5, g0.167, b50
+4500, 398, TE, 1550, device, ring, r22.1, w0.5, g0.129, b50
+5180, -451, TE, 1550, device, ring, r10.6, w0.5, g0.151, b50
+5010, -111, TE, 1550, device, ring, r36.6, w0.5, g0.138, b50
+5010, -791, TE, 1550, device, ring, r46.2, w0.5, g0.107, b50
+4500, 568, TE, 1550, device, ring, r24.9, w0.5, g0.14, b50
+5010, -451, TE, 1550, device, ring, r7.4, w0.5, g0.175, b50
+4670, -621, TE, 1550, device, ring, r29.8, w0.5, g0.113, b50
+4840, -621, TE, 1550, device, ring, r38.0, w0.5, g0.13, b50
+4670, -791, TE, 1550, device, ring, r6.0, w0.5, g0.169, b50
+4670, -281, TE, 1550, device, ring, r46.5, w0.5, g0.114, b50
+4160, -791, TE, 1550, device, ring, r44.6, w0.5, g0.113, b50
+4840, 58, TE, 1550, device, ring, r21.7, w0.5, g0.154, b50
+5180, -791, TE, 1550, device, ring, r23.1, w0.5, g0.104, b50
+5180, -621, TE, 1550, device, ring, r40.0, w0.5, g0.158, b50
+4670, 58, TE, 1550, device, ring, r10.7, w0.5, g0.111, b50
+4840, 228, TE, 1550, device, ring, r41.8, w0.5, g0.144, b50
+4160, -281, TE, 1550, device, ring, r30.2, w0.5, g0.116, b50
+3990, -111, TE, 1550, device, ring, r24.4, w0.5, g0.133, b50
+5010, 58, TE, 1550, device, ring, r29.1, w0.5, g0.106, b50
+4500, -621, TE, 1550, device, ring, r31.6, w0.5, g0.166, b50
+3990, 738, TE, 1550, device, ring, r34.9, w0.5, g0.166, b50
+3650, -621, TE, 1550, device, ring, r34.8, w0.5, g0.136, b50
+5010, 228, TE, 1550, device, ring, r18.9, w0.5, g0.177, b50
+5010, 398, TE, 1550, device, ring, r7.9, w0.5, g0.153, b50
+3820, -111, TE, 1550, device, ring, r10.0, w0.5, g0.143, b50
+3820, -451, TE, 1550, device, ring, r20.1, w0.5, g0.1, b50
+4330, 738, TE, 1550, device, ring, r23.5, w0.5, g0.144, b50
+5180, 568, TE, 1550, device, ring, r47.2, w0.5, g0.159, b50
+4670, -111, TE, 1550, device, ring, r7.3, w0.5, g0.114, b50
+3650, -451, TE, 1550, device, ring, r15.1, w0.5, g0.145, b50
+3650, 58, TE, 1550, device, ring, r35.0, w0.5, g0.106, b50
+4160, 398, TE, 1550, device, ring, r9.0, w0.5, g0.123, b50
+4670, 228, TE, 1550, device, ring, r27.1, w0.5, g0.165, b50
+4160, 58, TE, 1550, device, ring, r40.5, w0.5, g0.132, b50
+5010, 738, TE, 1550, device, ring, r15.2, w0.5, g0.107, b50
+3650, 398, TE, 1550, device, ring, r11.2, w0.5, g0.145, b50
+5180, 228, TE, 1550, device, ring, r28.3, w0.5, g0.168, b50
+4840, 738, TE, 1550, device, ring, r7.7, w0.5, g0.133, b50
+5010, 568, TE, 1550, device, ring, r32.1, w0.5, g0.156, b50
+3650, 738, TE, 1550, device, ring, r29.4, w0.5, g0.176, b50
+4330, -791, TE, 1550, device, ring, r12.6, w0.5, g0.141, b50
+4670, -451, TE, 1550, device, ring, r28.0, w0.5, g0.13, b50
+4840, 568, TE, 1550, device, ring, r19.0, w0.5, g0.104, b50
+3820, 398, TE, 1550, device, ring, r45.4, w0.5, g0.172, b50
+5180, 58, TE, 1550, device, ring, r46.3, w0.5, g0.102, b50
+3990, -281, TE, 1550, device, ring, r36.2, w0.5, g0.161, b50
+4670, 738, TE, 1550, device, ring, r6.5, w0.5, g0.164, b50
+3820, -281, TE, 1550, device, ring, r15.7, w0.5, g0.169, b50
+4160, -111, TE, 1550, device, ring, r6.1, w0.5, g0.137, b50
+4500, 228, TE, 1550, device, ring, r19.9, w0.5, g0.144, b50
+4840, -791, TE, 1550, device, ring, r24.4, w0.5, g0.177, b50
+3820, 738, TE, 1550, device, ring, r40.1, w0.5, g0.175, b50
+5180, 398, TE, 1550, device, ring, r8.0, w0.5, g0.156, b50
+3650, 228, TE, 1550, device, ring, r34.3, w0.5, g0.1, b50
+3990, 398, TE, 1550, device, ring, r16.8, w0.5, g0.134, b50
+4160, -451, TE, 1550, device, ring, r33.7, w0.5, g0.156, b50
+5180, -111, TE, 1550, device, ring, r46.7, w0.5, g0.143, b50
+3990, -621, TE, 1550, device, ring, r34.8, w0.5, g0.163, b50
+4840, -451, TE, 1550, device, ring, r25.3, w0.5, g0.161, b50
+4160, 228, TE, 1550, device, ring, r32.0, w0.5, g0.143, b50
+1100, 2268, TE, 1550, device, ring, r41.7, w0.5, g0.14, b50
+1440, 2608, TE, 1550, device, ring, r42.6, w0.5, g0.137, b50
+1440, 1758, TE, 1550, device, ring, r42.2, w0.5, g0.177, b50
+1100, 1928, TE, 1550, device, ring, r27.6, w0.5, g0.148, b50
+1440, 2438, TE, 1550, device, ring, r21.3, w0.5, g0.172, b50
+1100, 2438, TE, 1550, device, ring, r32.7, w0.5, g0.159, b50
+1780, 2268, TE, 1550, device, ring, r20.3, w0.5, g0.124, b50
+1780, 2098, TE, 1550, device, ring, r11.3, w0.5, g0.176, b50
+1270, 2268, TE, 1550, device, ring, r11.7, w0.5, g0.127, b50
+1610, 1928, TE, 1550, device, ring, r18.0, w0.5, g0.15, b50
+1100, 2608, TE, 1550, device, ring, r19.3, w0.5, g0.156, b50
+1780, 2438, TE, 1550, device, ring, r9.2, w0.5, g0.145, b50
+1440, 1928, TE, 1550, device, ring, r21.0, w0.5, g0.14, b50
+1440, 2098, TE, 1550, device, ring, r32.5, w0.5, g0.176, b50
+1610, 2608, TE, 1550, device, ring, r29.4, w0.5, g0.103, b50
+1270, 2438, TE, 1550, device, ring, r15.6, w0.5, g0.141, b50
+1440, 2268, TE, 1550, device, ring, r28.8, w0.5, g0.114, b50
+1780, 1758, TE, 1550, device, ring, r46.5, w0.5, g0.105, b50
+1610, 2268, TE, 1550, device, ring, r5.8, w0.5, g0.17, b50
+1270, 2098, TE, 1550, device, ring, r7.2, w0.5, g0.171, b50
+1780, 1928, TE, 1550, device, ring, r39.2, w0.5, g0.13, b50
+1610, 2438, TE, 1550, device, ring, r30.8, w0.5, g0.12, b50
+1270, 1758, TE, 1550, device, ring, r32.5, w0.5, g0.104, b50
+1780, 2608, TE, 1550, device, ring, r33.6, w0.5, g0.14, b50
+1610, 2098, TE, 1550, device, ring, r13.2, w0.5, g0.179, b50
+1270, 1928, TE, 1550, device, ring, r19.1, w0.5, g0.142, b50
+1270, 2608, TE, 1550, device, ring, r41.8, w0.5, g0.142, b50
+1100, 2098, TE, 1550, device, ring, r39.5, w0.5, g0.113, b50
+1610, 1758, TE, 1550, device, ring, r17.8, w0.5, g0.156, b50
+1100, 1758, TE, 1550, device, ring, r48.6, w0.5, g0.115, b50
+590, 2268, TE, 1550, device, ring, r24.8, w0.5, g0.167, b50
+250, 1758, TE, 1550, device, ring, r25.4, w0.5, g0.11, b50
+250, 2098, TE, 1550, device, ring, r32.9, w0.5, g0.153, b50
+930, 1758, TE, 1550, device, ring, r31.3, w0.5, g0.106, b50
+420, 2438, TE, 1550, device, ring, r9.5, w0.5, g0.137, b50
+760, 2608, TE, 1550, device, ring, r42.3, w0.5, g0.173, b50
+760, 2438, TE, 1550, device, ring, r12.2, w0.5, g0.16, b50
+760, 2268, TE, 1550, device, ring, r6.4, w0.5, g0.156, b50
+420, 2608, TE, 1550, device, ring, r22.3, w0.5, g0.167, b50
+590, 2098, TE, 1550, device, ring, r16.5, w0.5, g0.122, b50
+420, 1758, TE, 1550, device, ring, r23.6, w0.5, g0.158, b50
+930, 2608, TE, 1550, device, ring, r41.4, w0.5, g0.125, b50
+760, 1928, TE, 1550, device, ring, r33.6, w0.5, g0.173, b50
+250, 2438, TE, 1550, device, ring, r19.3, w0.5, g0.111, b50
+760, 2098, TE, 1550, device, ring, r5.5, w0.5, g0.121, b50
+590, 2438, TE, 1550, device, ring, r43.7, w0.5, g0.131, b50
+930, 2098, TE, 1550, device, ring, r37.1, w0.5, g0.13, b50
+420, 2268, TE, 1550, device, ring, r24.4, w0.5, g0.12, b50
+930, 2268, TE, 1550, device, ring, r33.1, w0.5, g0.15, b50
+760, 1758, TE, 1550, device, ring, r28.8, w0.5, g0.149, b50
+250, 2608, TE, 1550, device, ring, r28.9, w0.5, g0.104, b50
+420, 2098, TE, 1550, device, ring, r37.4, w0.5, g0.146, b50
+250, 2268, TE, 1550, device, ring, r11.0, w0.5, g0.13, b50
+250, 1928, TE, 1550, device, ring, r39.8, w0.5, g0.172, b50
+590, 1758, TE, 1550, device, ring, r43.9, w0.5, g0.138, b50
+420, 1928, TE, 1550, device, ring, r14.3, w0.5, g0.163, b50
+590, 1928, TE, 1550, device, ring, r39.5, w0.5, g0.173, b50
+930, 2438, TE, 1550, device, ring, r8.9, w0.5, g0.149, b50
+930, 1928, TE, 1550, device, ring, r14.1, w0.5, g0.178, b50
+590, 2608, TE, 1550, device, ring, r46.8, w0.5, g0.132, b50
+590, 1078, TE, 1550, device, ring, r29.6, w0.5, g0.16, b50
+420, 1418, TE, 1550, device, ring, r25.1, w0.5, g0.152, b50
+930, 1588, TE, 1550, device, ring, r40.6, w0.5, g0.11, b50
+760, 1248, TE, 1550, device, ring, r12.4, w0.5, g0.14, b50
+760, 1588, TE, 1550, device, ring, r13.3, w0.5, g0.153, b50
+760, 1418, TE, 1550, device, ring, r40.4, w0.5, g0.14, b50
+250, 1418, TE, 1550, device, ring, r35.1, w0.5, g0.151, b50
+760, 908, TE, 1550, device, ring, r48.4, w0.5, g0.169, b50
+250, 1078, TE, 1550, device, ring, r48.2, w0.5, g0.122, b50
+590, 1588, TE, 1550, device, ring, r12.3, w0.5, g0.101, b50
+930, 1418, TE, 1550, device, ring, r10.8, w0.5, g0.146, b50
+930, 1248, TE, 1550, device, ring, r26.3, w0.5, g0.16, b50
+250, 908, TE, 1550, device, ring, r16.2, w0.5, g0.118, b50
+590, 1418, TE, 1550, device, ring, r24.8, w0.5, g0.105, b50
+250, 1248, TE, 1550, device, ring, r5.5, w0.5, g0.132, b50
+420, 1078, TE, 1550, device, ring, r8.7, w0.5, g0.117, b50
+250, 1588, TE, 1550, device, ring, r38.7, w0.5, g0.104, b50
+930, 1078, TE, 1550, device, ring, r10.6, w0.5, g0.176, b50
+420, 1248, TE, 1550, device, ring, r21.4, w0.5, g0.154, b50
+590, 908, TE, 1550, device, ring, r43.3, w0.5, g0.166, b50
+590, 1248, TE, 1550, device, ring, r38.2, w0.5, g0.177, b50
+930, 908, TE, 1550, device, ring, r17.9, w0.5, g0.142, b50
+420, 908, TE, 1550, device, ring, r12.2, w0.5, g0.132, b50
+760, 1078, TE, 1550, device, ring, r29.2, w0.5, g0.165, b50
+420, 1588, TE, 1550, device, ring, r48.7, w0.5, g0.101, b50
+1100, 908, TE, 1550, device, ring, r38.6, w0.5, g0.139, b50
+1270, 908, TE, 1550, device, ring, r17.6, w0.5, g0.178, b50
+1780, 908, TE, 1550, device, ring, r21.6, w0.5, g0.13, b50
+1270, 1418, TE, 1550, device, ring, r10.7, w0.5, g0.177, b50
+1440, 908, TE, 1550, device, ring, r42.0, w0.5, g0.159, b50
+1780, 1078, TE, 1550, device, ring, r29.6, w0.5, g0.142, b50
+1780, 1248, TE, 1550, device, ring, r32.9, w0.5, g0.113, b50
+1270, 1078, TE, 1550, device, ring, r47.3, w0.5, g0.17, b50
+1610, 1078, TE, 1550, device, ring, r46.6, w0.5, g0.139, b50
+1440, 1588, TE, 1550, device, ring, r43.3, w0.5, g0.158, b50
+1780, 1588, TE, 1550, device, ring, r6.0, w0.5, g0.109, b50
+1440, 1418, TE, 1550, device, ring, r24.0, w0.5, g0.169, b50
+1100, 1248, TE, 1550, device, ring, r43.6, w0.5, g0.171, b50
+1100, 1078, TE, 1550, device, ring, r42.5, w0.5, g0.149, b50
+1610, 1418, TE, 1550, device, ring, r9.6, w0.5, g0.1, b50
+1780, 1418, TE, 1550, device, ring, r39.0, w0.5, g0.113, b50
+1440, 1078, TE, 1550, device, ring, r15.2, w0.5, g0.138, b50
+1610, 1588, TE, 1550, device, ring, r12.7, w0.5, g0.139, b50
+1610, 908, TE, 1550, device, ring, r20.4, w0.5, g0.175, b50
+1270, 1588, TE, 1550, device, ring, r27.9, w0.5, g0.176, b50
+1100, 1588, TE, 1550, device, ring, r43.6, w0.5, g0.138, b50
+1100, 1418, TE, 1550, device, ring, r43.9, w0.5, g0.123, b50
+1610, 1248, TE, 1550, device, ring, r9.3, w0.5, g0.17, b50
+1440, 1248, TE, 1550, device, ring, r10.0, w0.5, g0.158, b50
+1270, 1248, TE, 1550, device, ring, r44.8, w0.5, g0.108, b50
+-429, 2098, TE, 1550, device, ring, r8.7, w0.5, g0.149, b50
+-599, 2098, TE, 1550, device, ring, r36.1, w0.5, g0.164, b50
+-429, 1758, TE, 1550, device, ring, r41.0, w0.5, g0.126, b50
+80, 2268, TE, 1550, device, ring, r19.3, w0.5, g0.179, b50
+-259, 1758, TE, 1550, device, ring, r21.6, w0.5, g0.177, b50
+-259, 1928, TE, 1550, device, ring, r26.8, w0.5, g0.101, b50
+80, 1758, TE, 1550, device, ring, r38.5, w0.5, g0.108, b50
+-599, 2268, TE, 1550, device, ring, r22.6, w0.5, g0.107, b50
+-259, 2268, TE, 1550, device, ring, r12.8, w0.5, g0.165, b50
+-89, 2098, TE, 1550, device, ring, r37.8, w0.5, g0.171, b50
+80, 2608, TE, 1550, device, ring, r47.3, w0.5, g0.142, b50
+-89, 2608, TE, 1550, device, ring, r12.6, w0.5, g0.179, b50
+-89, 2268, TE, 1550, device, ring, r24.9, w0.5, g0.159, b50
+-259, 2608, TE, 1550, device, ring, r25.2, w0.5, g0.111, b50
+80, 2098, TE, 1550, device, ring, r23.5, w0.5, g0.14, b50
+-429, 2268, TE, 1550, device, ring, r48.5, w0.5, g0.156, b50
+-89, 2438, TE, 1550, device, ring, r14.6, w0.5, g0.109, b50
+-599, 1758, TE, 1550, device, ring, r10.2, w0.5, g0.145, b50
+-259, 2438, TE, 1550, device, ring, r18.7, w0.5, g0.105, b50
+-89, 1928, TE, 1550, device, ring, r16.8, w0.5, g0.176, b50
+-429, 2438, TE, 1550, device, ring, r32.4, w0.5, g0.101, b50
+80, 1928, TE, 1550, device, ring, r44.7, w0.5, g0.157, b50
+-429, 2608, TE, 1550, device, ring, r32.4, w0.5, g0.172, b50
+-599, 2608, TE, 1550, device, ring, r45.3, w0.5, g0.165, b50
+-429, 1928, TE, 1550, device, ring, r44.7, w0.5, g0.143, b50
+-599, 2438, TE, 1550, device, ring, r9.6, w0.5, g0.134, b50
+80, 2438, TE, 1550, device, ring, r45.3, w0.5, g0.131, b50
+-89, 1758, TE, 1550, device, ring, r7.5, w0.5, g0.129, b50
+-599, 1928, TE, 1550, device, ring, r19.8, w0.5, g0.145, b50
+-259, 2098, TE, 1550, device, ring, r14.8, w0.5, g0.105, b50
+-1109, 1928, TE, 1550, device, ring, r15.6, w0.5, g0.172, b50
+-1449, 2438, TE, 1550, device, ring, r25.1, w0.5, g0.138, b50
+-769, 2098, TE, 1550, device, ring, r20.5, w0.5, g0.145, b50
+-769, 2438, TE, 1550, device, ring, r13.1, w0.5, g0.116, b50
+-769, 1928, TE, 1550, device, ring, r39.9, w0.5, g0.119, b50
+-1279, 1758, TE, 1550, device, ring, r40.3, w0.5, g0.174, b50
+-1449, 2608, TE, 1550, device, ring, r41.7, w0.5, g0.125, b50
+-939, 1758, TE, 1550, device, ring, r43.0, w0.5, g0.169, b50
+-769, 2268, TE, 1550, device, ring, r41.4, w0.5, g0.106, b50
+-1279, 2608, TE, 1550, device, ring, r20.6, w0.5, g0.153, b50
+-1109, 1758, TE, 1550, device, ring, r37.1, w0.5, g0.113, b50
+-1109, 2268, TE, 1550, device, ring, r31.2, w0.5, g0.13, b50
+-939, 1928, TE, 1550, device, ring, r27.2, w0.5, g0.14, b50
+-1279, 2268, TE, 1550, device, ring, r14.1, w0.5, g0.16, b50
+-939, 2438, TE, 1550, device, ring, r48.0, w0.5, g0.12, b50
+-1449, 2098, TE, 1550, device, ring, r20.2, w0.5, g0.155, b50
+-1109, 2438, TE, 1550, device, ring, r16.2, w0.5, g0.121, b50
+-1279, 2098, TE, 1550, device, ring, r14.6, w0.5, g0.157, b50
+-769, 1758, TE, 1550, device, ring, r26.2, w0.5, g0.166, b50
+-939, 2098, TE, 1550, device, ring, r20.7, w0.5, g0.104, b50
+-939, 2268, TE, 1550, device, ring, r38.1, w0.5, g0.163, b50
+-1449, 2268, TE, 1550, device, ring, r29.6, w0.5, g0.156, b50
+-769, 2608, TE, 1550, device, ring, r25.6, w0.5, g0.17, b50
+-1279, 2438, TE, 1550, device, ring, r47.1, w0.5, g0.127, b50
+-1449, 1758, TE, 1550, device, ring, r8.3, w0.5, g0.13, b50
+-1109, 2608, TE, 1550, device, ring, r22.7, w0.5, g0.131, b50
+-939, 2608, TE, 1550, device, ring, r38.2, w0.5, g0.138, b50
+-1109, 2098, TE, 1550, device, ring, r21.9, w0.5, g0.106, b50
+-1449, 1928, TE, 1550, device, ring, r14.0, w0.5, g0.109, b50
+-1279, 1928, TE, 1550, device, ring, r8.3, w0.5, g0.171, b50
+-939, 1418, TE, 1550, device, ring, r45.3, w0.5, g0.152, b50
+-769, 1078, TE, 1550, device, ring, r38.4, w0.5, g0.168, b50
+-1279, 1588, TE, 1550, device, ring, r17.0, w0.5, g0.153, b50
+-939, 1248, TE, 1550, device, ring, r32.9, w0.5, g0.171, b50
+-1279, 1418, TE, 1550, device, ring, r28.0, w0.5, g0.126, b50
+-769, 1418, TE, 1550, device, ring, r49.6, w0.5, g0.117, b50
+-1109, 1418, TE, 1550, device, ring, r9.3, w0.5, g0.117, b50
+-1109, 1588, TE, 1550, device, ring, r21.0, w0.5, g0.171, b50
+-1109, 1078, TE, 1550, device, ring, r22.3, w0.5, g0.179, b50
+-1449, 1248, TE, 1550, device, ring, r38.4, w0.5, g0.164, b50
+-769, 908, TE, 1550, device, ring, r24.3, w0.5, g0.162, b50
+-769, 1588, TE, 1550, device, ring, r48.2, w0.5, g0.106, b50
+-1449, 1418, TE, 1550, device, ring, r9.6, w0.5, g0.121, b50
+-939, 1588, TE, 1550, device, ring, r41.5, w0.5, g0.131, b50
+-1109, 908, TE, 1550, device, ring, r19.8, w0.5, g0.175, b50
+-1449, 1078, TE, 1550, device, ring, r46.9, w0.5, g0.156, b50
+-1449, 908, TE, 1550, device, ring, r22.0, w0.5, g0.166, b50
+-1109, 1248, TE, 1550, device, ring, r36.5, w0.5, g0.175, b50
+-769, 1248, TE, 1550, device, ring, r13.4, w0.5, g0.102, b50
+-1449, 1588, TE, 1550, device, ring, r42.5, w0.5, g0.136, b50
+-1279, 1078, TE, 1550, device, ring, r41.9, w0.5, g0.167, b50
+-1279, 908, TE, 1550, device, ring, r21.1, w0.5, g0.175, b50
+-939, 908, TE, 1550, device, ring, r36.0, w0.5, g0.153, b50
+-939, 1078, TE, 1550, device, ring, r12.2, w0.5, g0.164, b50
+-1279, 1248, TE, 1550, device, ring, r45.8, w0.5, g0.129, b50
+-429, 1418, TE, 1550, device, ring, r47.9, w0.5, g0.165, b50
+80, 1418, TE, 1550, device, ring, r28.2, w0.5, g0.166, b50
+-259, 908, TE, 1550, device, ring, r17.4, w0.5, g0.17, b50
+-259, 1418, TE, 1550, device, ring, r49.4, w0.5, g0.126, b50
+80, 1248, TE, 1550, device, ring, r17.1, w0.5, g0.11, b50
+-89, 1418, TE, 1550, device, ring, r46.5, w0.5, g0.161, b50
+-599, 1248, TE, 1550, device, ring, r43.9, w0.5, g0.146, b50
+-429, 1248, TE, 1550, device, ring, r22.2, w0.5, g0.169, b50
+-599, 1588, TE, 1550, device, ring, r6.7, w0.5, g0.143, b50
+-259, 1248, TE, 1550, device, ring, r43.8, w0.5, g0.177, b50
+-259, 1588, TE, 1550, device, ring, r22.3, w0.5, g0.118, b50
+-89, 1248, TE, 1550, device, ring, r24.9, w0.5, g0.171, b50
+-429, 1078, TE, 1550, device, ring, r34.9, w0.5, g0.104, b50
+-89, 1588, TE, 1550, device, ring, r8.8, w0.5, g0.169, b50
+-89, 1078, TE, 1550, device, ring, r15.3, w0.5, g0.16, b50
+80, 1078, TE, 1550, device, ring, r18.6, w0.5, g0.145, b50
+-599, 1078, TE, 1550, device, ring, r22.2, w0.5, g0.124, b50
+-429, 908, TE, 1550, device, ring, r38.6, w0.5, g0.122, b50
+-89, 908, TE, 1550, device, ring, r29.1, w0.5, g0.168, b50
+-599, 908, TE, 1550, device, ring, r7.1, w0.5, g0.179, b50
+-429, 1588, TE, 1550, device, ring, r42.3, w0.5, g0.124, b50
+80, 1588, TE, 1550, device, ring, r15.9, w0.5, g0.116, b50
+-259, 1078, TE, 1550, device, ring, r40.1, w0.5, g0.113, b50
+-599, 1418, TE, 1550, device, ring, r45.2, w0.5, g0.169, b50
+80, 908, TE, 1550, device, ring, r44.7, w0.5, g0.161, b50
+-939, 738, TE, 1550, device, ring, r23.1, w0.5, g0.177, b50
+-89, 568, TE, 1550, device, ring, r11.6, w0.5, g0.124, b50
+-939, 58, TE, 1550, device, ring, r6.5, w0.5, g0.139, b50
+-599, -111, TE, 1550, device, ring, r18.9, w0.5, g0.157, b50
+-939, -451, TE, 1550, device, ring, r46.7, w0.5, g0.154, b50
+-599, -791, TE, 1550, device, ring, r17.0, w0.5, g0.132, b50
+-89, 58, TE, 1550, device, ring, r10.4, w0.5, g0.149, b50
+-259, 398, TE, 1550, device, ring, r48.8, w0.5, g0.102, b50
+-1109, 58, TE, 1550, device, ring, r15.2, w0.5, g0.173, b50
+-939, -791, TE, 1550, device, ring, r14.9, w0.5, g0.121, b50
+-89, -791, TE, 1550, device, ring, r47.6, w0.5, g0.133, b50
+-259, -791, TE, 1550, device, ring, r20.1, w0.5, g0.174, b50
+80, -281, TE, 1550, device, ring, r6.8, w0.5, g0.137, b50
+-429, 738, TE, 1550, device, ring, r20.7, w0.5, g0.141, b50
+-1279, 568, TE, 1550, device, ring, r27.0, w0.5, g0.102, b50
+-769, -281, TE, 1550, device, ring, r35.9, w0.5, g0.108, b50
+-1109, -111, TE, 1550, device, ring, r34.9, w0.5, g0.101, b50
+-1449, 228, TE, 1550, device, ring, r48.5, w0.5, g0.122, b50
+-1279, 228, TE, 1550, device, ring, r27.7, w0.5, g0.146, b50
+-1279, -791, TE, 1550, device, ring, r21.7, w0.5, g0.161, b50
+-1449, 58, TE, 1550, device, ring, r18.8, w0.5, g0.147, b50
+-259, 58, TE, 1550, device, ring, r10.0, w0.5, g0.102, b50
+-89, -111, TE, 1550, device, ring, r40.3, w0.5, g0.114, b50
+80, 568, TE, 1550, device, ring, r49.8, w0.5, g0.132, b50
+-1449, 398, TE, 1550, device, ring, r44.7, w0.5, g0.158, b50
+80, 738, TE, 1550, device, ring, r27.3, w0.5, g0.173, b50
+-429, 58, TE, 1550, device, ring, r19.9, w0.5, g0.125, b50
+-429, -791, TE, 1550, device, ring, r21.3, w0.5, g0.127, b50
+-1109, -791, TE, 1550, device, ring, r14.3, w0.5, g0.159, b50
+80, 58, TE, 1550, device, ring, r39.7, w0.5, g0.123, b50
+-259, 568, TE, 1550, device, ring, r47.6, w0.5, g0.163, b50
+-769, -621, TE, 1550, device, ring, r28.5, w0.5, g0.178, b50
+-89, 228, TE, 1550, device, ring, r37.8, w0.5, g0.113, b50
+-1449, -791, TE, 1550, device, ring, r23.9, w0.5, g0.145, b50
+-769, -111, TE, 1550, device, ring, r43.3, w0.5, g0.164, b50
+-599, -621, TE, 1550, device, ring, r18.8, w0.5, g0.129, b50
+80, -621, TE, 1550, device, ring, r36.1, w0.5, g0.175, b50
+-259, -111, TE, 1550, device, ring, r42.1, w0.5, g0.13, b50
+-939, 398, TE, 1550, device, ring, r24.4, w0.5, g0.163, b50
+-1109, 398, TE, 1550, device, ring, r39.9, w0.5, g0.157, b50
+-599, 228, TE, 1550, device, ring, r28.5, w0.5, g0.121, b50
+-1109, 568, TE, 1550, device, ring, r28.4, w0.5, g0.12, b50
+-599, -451, TE, 1550, device, ring, r23.7, w0.5, g0.108, b50
+80, -111, TE, 1550, device, ring, r46.4, w0.5, g0.122, b50
+-259, -621, TE, 1550, device, ring, r14.2, w0.5, g0.113, b50
+-769, 228, TE, 1550, device, ring, r31.7, w0.5, g0.17, b50
+80, 228, TE, 1550, device, ring, r38.5, w0.5, g0.133, b50
+-599, 398, TE, 1550, device, ring, r10.1, w0.5, g0.145, b50
+-1109, -281, TE, 1550, device, ring, r22.7, w0.5, g0.12, b50
+-259, -281, TE, 1550, device, ring, r23.2, w0.5, g0.137, b50
+-939, 568, TE, 1550, device, ring, r40.2, w0.5, g0.109, b50
+80, 398, TE, 1550, device, ring, r13.1, w0.5, g0.137, b50
+-939, -111, TE, 1550, device, ring, r13.7, w0.5, g0.139, b50
+-1279, -281, TE, 1550, device, ring, r47.3, w0.5, g0.12, b50
+-429, -281, TE, 1550, device, ring, r24.5, w0.5, g0.137, b50
+-769, 58, TE, 1550, device, ring, r43.5, w0.5, g0.128, b50
+-939, -281, TE, 1550, device, ring, r15.1, w0.5, g0.164, b50
+-769, -791, TE, 1550, device, ring, r24.7, w0.5, g0.171, b50
+-259, 228, TE, 1550, device, ring, r30.9, w0.5, g0.124, b50
+-429, 228, TE, 1550, device, ring, r8.4, w0.5, g0.164, b50
+-89, -281, TE, 1550, device, ring, r19.0, w0.5, g0.178, b50
+-259, 738, TE, 1550, device, ring, r24.5, w0.5, g0.105, b50
+-1279, -621, TE, 1550, device, ring, r24.4, w0.5, g0.167, b50
+-1109, 228, TE, 1550, device, ring, r43.4, w0.5, g0.137, b50
+-429, -111, TE, 1550, device, ring, r45.7, w0.5, g0.137, b50
+-429, -451, TE, 1550, device, ring, r32.7, w0.5, g0.157, b50
+-89, -621, TE, 1550, device, ring, r45.5, w0.5, g0.108, b50
+-599, 568, TE, 1550, device, ring, r26.3, w0.5, g0.14, b50
+-599, -281, TE, 1550, device, ring, r49.1, w0.5, g0.132, b50
+-1109, -621, TE, 1550, device, ring, r13.0, w0.5, g0.106, b50
+-599, 58, TE, 1550, device, ring, r22.8, w0.5, g0.107, b50
+-939, 228, TE, 1550, device, ring, r42.4, w0.5, g0.171, b50
+-259, -451, TE, 1550, device, ring, r39.1, w0.5, g0.122, b50
+-1449, 738, TE, 1550, device, ring, r29.1, w0.5, g0.123, b50
+80, -791, TE, 1550, device, ring, r46.5, w0.5, g0.151, b50
+80, -451, TE, 1550, device, ring, r12.2, w0.5, g0.111, b50
+-1449, -111, TE, 1550, device, ring, r47.5, w0.5, g0.178, b50
+-1449, -281, TE, 1550, device, ring, r15.8, w0.5, g0.146, b50
+-1109, 738, TE, 1550, device, ring, r47.2, w0.5, g0.172, b50
+-1279, 58, TE, 1550, device, ring, r37.4, w0.5, g0.147, b50
+-1449, -621, TE, 1550, device, ring, r14.8, w0.5, g0.129, b50
+-769, 568, TE, 1550, device, ring, r43.5, w0.5, g0.101, b50
+-1279, -111, TE, 1550, device, ring, r5.9, w0.5, g0.169, b50
+-89, 738, TE, 1550, device, ring, r14.1, w0.5, g0.128, b50
+-429, 568, TE, 1550, device, ring, r19.0, w0.5, g0.159, b50
+-939, -621, TE, 1550, device, ring, r29.2, w0.5, g0.102, b50
+-429, 398, TE, 1550, device, ring, r27.3, w0.5, g0.139, b50
+-1449, 568, TE, 1550, device, ring, r7.0, w0.5, g0.151, b50
+-1279, 738, TE, 1550, device, ring, r18.2, w0.5, g0.13, b50
+-769, 398, TE, 1550, device, ring, r5.0, w0.5, g0.157, b50
+-1279, -451, TE, 1550, device, ring, r20.4, w0.5, g0.123, b50
+-1279, 398, TE, 1550, device, ring, r45.6, w0.5, g0.132, b50
+-1109, -451, TE, 1550, device, ring, r37.6, w0.5, g0.17, b50
+-429, -621, TE, 1550, device, ring, r31.4, w0.5, g0.149, b50
+-769, -451, TE, 1550, device, ring, r26.4, w0.5, g0.122, b50
+-89, 398, TE, 1550, device, ring, r34.1, w0.5, g0.18, b50
+-89, -451, TE, 1550, device, ring, r5.1, w0.5, g0.128, b50
+-769, 738, TE, 1550, device, ring, r48.3, w0.5, g0.137, b50
+-1449, -451, TE, 1550, device, ring, r27.7, w0.5, g0.163, b50
+-599, 738, TE, 1550, device, ring, r28.4, w0.5, g0.176, b50
+590, 568, TE, 1550, device, ring, r18.6, w0.5, g0.109, b50
+1780, -111, TE, 1550, device, ring, r36.4, w0.5, g0.104, b50
+1270, 398, TE, 1550, device, ring, r42.6, w0.5, g0.118, b50
+420, 58, TE, 1550, device, ring, r43.2, w0.5, g0.17, b50
+1100, -281, TE, 1550, device, ring, r35.3, w0.5, g0.175, b50
+1440, 228, TE, 1550, device, ring, r46.7, w0.5, g0.133, b50
+1100, 58, TE, 1550, device, ring, r37.9, w0.5, g0.172, b50
+1780, -621, TE, 1550, device, ring, r14.1, w0.5, g0.165, b50
+1270, 738, TE, 1550, device, ring, r8.1, w0.5, g0.146, b50
+760, 738, TE, 1550, device, ring, r48.8, w0.5, g0.168, b50
+420, 738, TE, 1550, device, ring, r19.3, w0.5, g0.17, b50
+250, 398, TE, 1550, device, ring, r36.6, w0.5, g0.178, b50
+1610, 568, TE, 1550, device, ring, r41.1, w0.5, g0.122, b50
+1440, 398, TE, 1550, device, ring, r34.6, w0.5, g0.167, b50
+1610, -281, TE, 1550, device, ring, r32.5, w0.5, g0.152, b50
+420, -281, TE, 1550, device, ring, r26.2, w0.5, g0.127, b50
+1270, 568, TE, 1550, device, ring, r7.7, w0.5, g0.179, b50
+590, -281, TE, 1550, device, ring, r30.9, w0.5, g0.143, b50
+590, 58, TE, 1550, device, ring, r25.4, w0.5, g0.133, b50
+1610, -111, TE, 1550, device, ring, r37.2, w0.5, g0.108, b50
+250, 228, TE, 1550, device, ring, r20.4, w0.5, g0.152, b50
+1780, -281, TE, 1550, device, ring, r41.4, w0.5, g0.169, b50
+1100, 568, TE, 1550, device, ring, r24.3, w0.5, g0.125, b50
+930, 228, TE, 1550, device, ring, r8.8, w0.5, g0.141, b50
+1440, -111, TE, 1550, device, ring, r47.0, w0.5, g0.153, b50
+250, 738, TE, 1550, device, ring, r34.2, w0.5, g0.117, b50
+590, -451, TE, 1550, device, ring, r40.5, w0.5, g0.174, b50
+1780, 228, TE, 1550, device, ring, r16.5, w0.5, g0.159, b50
+590, -791, TE, 1550, device, ring, r44.6, w0.5, g0.14, b50
+1440, 58, TE, 1550, device, ring, r38.4, w0.5, g0.162, b50
+760, -111, TE, 1550, device, ring, r19.9, w0.5, g0.113, b50
+250, 568, TE, 1550, device, ring, r12.5, w0.5, g0.133, b50
+1100, -111, TE, 1550, device, ring, r32.3, w0.5, g0.143, b50
+1440, 568, TE, 1550, device, ring, r42.9, w0.5, g0.136, b50
+760, 228, TE, 1550, device, ring, r14.4, w0.5, g0.166, b50
+1270, -281, TE, 1550, device, ring, r19.7, w0.5, g0.127, b50
+1100, -621, TE, 1550, device, ring, r39.3, w0.5, g0.137, b50
+420, 398, TE, 1550, device, ring, r24.1, w0.5, g0.117, b50
+1270, 228, TE, 1550, device, ring, r45.8, w0.5, g0.14, b50
+250, 58, TE, 1550, device, ring, r31.6, w0.5, g0.102, b50
+250, -281, TE, 1550, device, ring, r40.6, w0.5, g0.171, b50
+250, -621, TE, 1550, device, ring, r26.2, w0.5, g0.144, b50
+760, -451, TE, 1550, device, ring, r26.0, w0.5, g0.17, b50
+1610, 398, TE, 1550, device, ring, r36.9, w0.5, g0.161, b50
+1100, -451, TE, 1550, device, ring, r36.2, w0.5, g0.122, b50
+1100, 228, TE, 1550, device, ring, r33.0, w0.5, g0.169, b50
+930, -451, TE, 1550, device, ring, r47.8, w0.5, g0.107, b50
+1270, -451, TE, 1550, device, ring, r49.7, w0.5, g0.128, b50
+590, 228, TE, 1550, device, ring, r21.7, w0.5, g0.164, b50
+930, -281, TE, 1550, device, ring, r37.3, w0.5, g0.152, b50
+1780, -791, TE, 1550, device, ring, r23.4, w0.5, g0.16, b50
+760, 398, TE, 1550, device, ring, r48.2, w0.5, g0.108, b50
+1610, 738, TE, 1550, device, ring, r16.9, w0.5, g0.127, b50
+1780, 58, TE, 1550, device, ring, r36.9, w0.5, g0.131, b50
+1270, -111, TE, 1550, device, ring, r21.8, w0.5, g0.116, b50
+1270, -791, TE, 1550, device, ring, r8.5, w0.5, g0.114, b50
+1610, -621, TE, 1550, device, ring, r28.3, w0.5, g0.172, b50
+1270, 58, TE, 1550, device, ring, r31.7, w0.5, g0.174, b50
+1610, 58, TE, 1550, device, ring, r16.5, w0.5, g0.147, b50
+1610, -791, TE, 1550, device, ring, r34.5, w0.5, g0.129, b50
+1610, 228, TE, 1550, device, ring, r47.2, w0.5, g0.103, b50
+1610, -451, TE, 1550, device, ring, r10.1, w0.5, g0.103, b50
+1780, 568, TE, 1550, device, ring, r20.9, w0.5, g0.173, b50
+930, -791, TE, 1550, device, ring, r5.8, w0.5, g0.171, b50
+250, -451, TE, 1550, device, ring, r22.2, w0.5, g0.14, b50
+420, 228, TE, 1550, device, ring, r41.3, w0.5, g0.102, b50
+930, 58, TE, 1550, device, ring, r35.4, w0.5, g0.141, b50
+420, 568, TE, 1550, device, ring, r32.2, w0.5, g0.125, b50
+1440, -621, TE, 1550, device, ring, r7.2, w0.5, g0.129, b50
+930, 738, TE, 1550, device, ring, r37.3, w0.5, g0.136, b50
+1440, 738, TE, 1550, device, ring, r49.5, w0.5, g0.169, b50
+1780, 398, TE, 1550, device, ring, r32.0, w0.5, g0.126, b50
+760, 58, TE, 1550, device, ring, r22.9, w0.5, g0.108, b50
+1270, -621, TE, 1550, device, ring, r38.2, w0.5, g0.15, b50
+1440, -451, TE, 1550, device, ring, r30.7, w0.5, g0.151, b50
+1100, 398, TE, 1550, device, ring, r25.3, w0.5, g0.145, b50
+930, 568, TE, 1550, device, ring, r35.8, w0.5, g0.153, b50
+420, -791, TE, 1550, device, ring, r38.0, w0.5, g0.107, b50
+590, 738, TE, 1550, device, ring, r43.1, w0.5, g0.159, b50
+760, 568, TE, 1550, device, ring, r29.3, w0.5, g0.154, b50
+420, -451, TE, 1550, device, ring, r43.9, w0.5, g0.129, b50
+930, 398, TE, 1550, device, ring, r31.7, w0.5, g0.149, b50
+760, -621, TE, 1550, device, ring, r44.9, w0.5, g0.161, b50
+930, -621, TE, 1550, device, ring, r27.0, w0.5, g0.139, b50
+1100, 738, TE, 1550, device, ring, r13.8, w0.5, g0.142, b50
+420, -621, TE, 1550, device, ring, r26.3, w0.5, g0.175, b50
+590, -111, TE, 1550, device, ring, r21.7, w0.5, g0.135, b50
+250, -111, TE, 1550, device, ring, r29.0, w0.5, g0.12, b50
+1100, -791, TE, 1550, device, ring, r26.3, w0.5, g0.129, b50
+760, -281, TE, 1550, device, ring, r43.5, w0.5, g0.179, b50
+1440, -281, TE, 1550, device, ring, r20.2, w0.5, g0.14, b50
+930, -111, TE, 1550, device, ring, r38.7, w0.5, g0.11, b50
+250, -791, TE, 1550, device, ring, r40.1, w0.5, g0.136, b50
+420, -111, TE, 1550, device, ring, r7.7, w0.5, g0.127, b50
+1780, -451, TE, 1550, device, ring, r20.3, w0.5, g0.146, b50
+590, -621, TE, 1550, device, ring, r26.4, w0.5, g0.102, b50
+760, -791, TE, 1550, device, ring, r25.7, w0.5, g0.161, b50
+1780, 738, TE, 1550, device, ring, r7.9, w0.5, g0.152, b50
+1440, -791, TE, 1550, device, ring, r46.0, w0.5, g0.119, b50
+590, 398, TE, 1550, device, ring, r43.9, w0.5, g0.154, b50
+1100, -961, TE, 1550, device, ring, r9.1, w0.5, g0.12, b50
+1610, -1131, TE, 1550, device, ring, r35.3, w0.5, g0.162, b50
+1270, -961, TE, 1550, device, ring, r20.3, w0.5, g0.113, b50
+1780, -961, TE, 1550, device, ring, r32.8, w0.5, g0.17, b50
+1780, -1301, TE, 1550, device, ring, r18.2, w0.5, g0.141, b50
+1270, -1301, TE, 1550, device, ring, r26.2, w0.5, g0.165, b50
+1440, -961, TE, 1550, device, ring, r43.3, w0.5, g0.126, b50
+1100, -1301, TE, 1550, device, ring, r10.2, w0.5, g0.139, b50
+1780, -1811, TE, 1550, device, ring, r20.5, w0.5, g0.164, b50
+1440, -1811, TE, 1550, device, ring, r8.1, w0.5, g0.127, b50
+1780, -1641, TE, 1550, device, ring, r49.0, w0.5, g0.174, b50
+1610, -961, TE, 1550, device, ring, r43.3, w0.5, g0.155, b50
+1610, -1811, TE, 1550, device, ring, r15.1, w0.5, g0.106, b50
+1270, -1811, TE, 1550, device, ring, r49.5, w0.5, g0.121, b50
+1270, -1641, TE, 1550, device, ring, r35.5, w0.5, g0.147, b50
+1610, -1301, TE, 1550, device, ring, r49.0, w0.5, g0.135, b50
+1440, -1301, TE, 1550, device, ring, r20.4, w0.5, g0.128, b50
+1780, -1131, TE, 1550, device, ring, r26.0, w0.5, g0.157, b50
+1100, -1131, TE, 1550, device, ring, r25.6, w0.5, g0.109, b50
+1440, -1131, TE, 1550, device, ring, r14.0, w0.5, g0.156, b50
+1100, -1811, TE, 1550, device, ring, r41.5, w0.5, g0.129, b50
+1100, -1641, TE, 1550, device, ring, r33.2, w0.5, g0.127, b50
+1610, -1641, TE, 1550, device, ring, r48.6, w0.5, g0.134, b50
+1440, -1471, TE, 1550, device, ring, r45.3, w0.5, g0.112, b50
+1780, -1471, TE, 1550, device, ring, r46.7, w0.5, g0.147, b50
+1270, -1131, TE, 1550, device, ring, r44.7, w0.5, g0.115, b50
+1270, -1471, TE, 1550, device, ring, r21.1, w0.5, g0.127, b50
+1610, -1471, TE, 1550, device, ring, r26.8, w0.5, g0.1, b50
+1440, -1641, TE, 1550, device, ring, r48.4, w0.5, g0.151, b50
+1100, -1471, TE, 1550, device, ring, r46.3, w0.5, g0.107, b50
+760, -1131, TE, 1550, device, ring, r6.6, w0.5, g0.164, b50
+590, -1811, TE, 1550, device, ring, r9.7, w0.5, g0.138, b50
+250, -1641, TE, 1550, device, ring, r45.4, w0.5, g0.134, b50
+760, -961, TE, 1550, device, ring, r27.2, w0.5, g0.115, b50
+420, -1301, TE, 1550, device, ring, r45.2, w0.5, g0.134, b50
+590, -1131, TE, 1550, device, ring, r13.8, w0.5, g0.164, b50
+420, -961, TE, 1550, device, ring, r48.4, w0.5, g0.179, b50
+250, -1301, TE, 1550, device, ring, r11.7, w0.5, g0.114, b50
+250, -961, TE, 1550, device, ring, r44.3, w0.5, g0.148, b50
+930, -1131, TE, 1550, device, ring, r6.5, w0.5, g0.158, b50
+930, -1811, TE, 1550, device, ring, r33.4, w0.5, g0.169, b50
+930, -1641, TE, 1550, device, ring, r28.3, w0.5, g0.108, b50
+420, -1131, TE, 1550, device, ring, r27.9, w0.5, g0.123, b50
+760, -1641, TE, 1550, device, ring, r18.8, w0.5, g0.169, b50
+250, -1131, TE, 1550, device, ring, r40.3, w0.5, g0.166, b50
+590, -1301, TE, 1550, device, ring, r19.7, w0.5, g0.162, b50
+930, -1301, TE, 1550, device, ring, r33.3, w0.5, g0.166, b50
+420, -1471, TE, 1550, device, ring, r16.5, w0.5, g0.177, b50
+930, -961, TE, 1550, device, ring, r13.5, w0.5, g0.142, b50
+590, -1471, TE, 1550, device, ring, r35.4, w0.5, g0.124, b50
+250, -1471, TE, 1550, device, ring, r20.4, w0.5, g0.179, b50
+420, -1811, TE, 1550, device, ring, r29.9, w0.5, g0.137, b50
+760, -1471, TE, 1550, device, ring, r16.0, w0.5, g0.175, b50
+760, -1301, TE, 1550, device, ring, r26.7, w0.5, g0.106, b50
+590, -961, TE, 1550, device, ring, r9.7, w0.5, g0.143, b50
+420, -1641, TE, 1550, device, ring, r41.6, w0.5, g0.138, b50
+590, -1641, TE, 1550, device, ring, r23.1, w0.5, g0.147, b50
+250, -1811, TE, 1550, device, ring, r43.9, w0.5, g0.155, b50
+930, -1471, TE, 1550, device, ring, r47.4, w0.5, g0.121, b50
+760, -1811, TE, 1550, device, ring, r26.1, w0.5, g0.108, b50
+420, -2661, TE, 1550, device, ring, r16.5, w0.5, g0.101, b50
+420, -2491, TE, 1550, device, ring, r12.3, w0.5, g0.112, b50
+590, -1981, TE, 1550, device, ring, r25.7, w0.5, g0.122, b50
+590, -2321, TE, 1550, device, ring, r39.2, w0.5, g0.111, b50
+250, -1981, TE, 1550, device, ring, r11.0, w0.5, g0.148, b50
+590, -2491, TE, 1550, device, ring, r21.3, w0.5, g0.173, b50
+420, -2321, TE, 1550, device, ring, r43.2, w0.5, g0.109, b50
+420, -2151, TE, 1550, device, ring, r42.8, w0.5, g0.169, b50
+590, -2661, TE, 1550, device, ring, r10.5, w0.5, g0.127, b50
+250, -2321, TE, 1550, device, ring, r23.1, w0.5, g0.145, b50
+930, -2321, TE, 1550, device, ring, r31.4, w0.5, g0.138, b50
+930, -1981, TE, 1550, device, ring, r10.9, w0.5, g0.105, b50
+250, -2151, TE, 1550, device, ring, r40.5, w0.5, g0.117, b50
+420, -1981, TE, 1550, device, ring, r23.3, w0.5, g0.112, b50
+760, -1981, TE, 1550, device, ring, r35.9, w0.5, g0.131, b50
+250, -2491, TE, 1550, device, ring, r25.9, w0.5, g0.173, b50
+930, -2491, TE, 1550, device, ring, r7.1, w0.5, g0.105, b50
+930, -2151, TE, 1550, device, ring, r46.3, w0.5, g0.159, b50
+250, -2661, TE, 1550, device, ring, r21.0, w0.5, g0.151, b50
+760, -2151, TE, 1550, device, ring, r7.9, w0.5, g0.163, b50
+590, -2151, TE, 1550, device, ring, r35.9, w0.5, g0.169, b50
+760, -2491, TE, 1550, device, ring, r38.0, w0.5, g0.119, b50
+760, -2321, TE, 1550, device, ring, r27.1, w0.5, g0.102, b50
+930, -2661, TE, 1550, device, ring, r45.1, w0.5, g0.152, b50
+760, -2661, TE, 1550, device, ring, r47.1, w0.5, g0.104, b50
+1610, -1981, TE, 1550, device, ring, r23.4, w0.5, g0.13, b50
+1610, -2321, TE, 1550, device, ring, r40.8, w0.5, g0.117, b50
+1270, -2321, TE, 1550, device, ring, r47.4, w0.5, g0.162, b50
+1780, -2491, TE, 1550, device, ring, r37.6, w0.5, g0.18, b50
+1780, -2661, TE, 1550, device, ring, r7.5, w0.5, g0.171, b50
+1780, -2321, TE, 1550, device, ring, r7.9, w0.5, g0.107, b50
+1780, -2151, TE, 1550, device, ring, r19.7, w0.5, g0.116, b50
+1610, -2661, TE, 1550, device, ring, r35.6, w0.5, g0.136, b50
+1440, -2321, TE, 1550, device, ring, r41.9, w0.5, g0.172, b50
+1440, -1981, TE, 1550, device, ring, r48.4, w0.5, g0.161, b50
+1610, -2491, TE, 1550, device, ring, r18.9, w0.5, g0.111, b50
+1270, -2151, TE, 1550, device, ring, r24.4, w0.5, g0.146, b50
+1100, -2151, TE, 1550, device, ring, r16.9, w0.5, g0.12, b50
+1440, -2151, TE, 1550, device, ring, r30.2, w0.5, g0.16, b50
+1440, -2661, TE, 1550, device, ring, r38.6, w0.5, g0.145, b50
+1270, -1981, TE, 1550, device, ring, r5.6, w0.5, g0.16, b50
+1100, -2491, TE, 1550, device, ring, r29.4, w0.5, g0.138, b50
+1100, -2321, TE, 1550, device, ring, r39.5, w0.5, g0.177, b50
+1270, -2661, TE, 1550, device, ring, r45.3, w0.5, g0.159, b50
+1610, -2151, TE, 1550, device, ring, r11.6, w0.5, g0.141, b50
+1780, -1981, TE, 1550, device, ring, r18.8, w0.5, g0.112, b50
+1270, -2491, TE, 1550, device, ring, r24.3, w0.5, g0.105, b50
+1440, -2491, TE, 1550, device, ring, r25.0, w0.5, g0.155, b50
+1100, -1981, TE, 1550, device, ring, r16.4, w0.5, g0.179, b50
+1100, -2661, TE, 1550, device, ring, r9.5, w0.5, g0.175, b50
+-259, -1641, TE, 1550, device, ring, r48.5, w0.5, g0.146, b50
+-429, -1811, TE, 1550, device, ring, r34.4, w0.5, g0.163, b50
+80, -1131, TE, 1550, device, ring, r49.6, w0.5, g0.111, b50
+-599, -1811, TE, 1550, device, ring, r19.6, w0.5, g0.166, b50
+-259, -1131, TE, 1550, device, ring, r15.0, w0.5, g0.113, b50
+-429, -1301, TE, 1550, device, ring, r17.2, w0.5, g0.152, b50
+80, -1641, TE, 1550, device, ring, r8.5, w0.5, g0.102, b50
+-89, -961, TE, 1550, device, ring, r12.7, w0.5, g0.114, b50
+-599, -961, TE, 1550, device, ring, r43.3, w0.5, g0.177, b50
+-429, -1641, TE, 1550, device, ring, r30.7, w0.5, g0.137, b50
+-259, -1471, TE, 1550, device, ring, r48.4, w0.5, g0.176, b50
+-599, -1471, TE, 1550, device, ring, r13.7, w0.5, g0.107, b50
+-429, -1131, TE, 1550, device, ring, r21.3, w0.5, g0.129, b50
+-89, -1811, TE, 1550, device, ring, r39.1, w0.5, g0.143, b50
+80, -1471, TE, 1550, device, ring, r35.0, w0.5, g0.176, b50
+-259, -961, TE, 1550, device, ring, r13.7, w0.5, g0.178, b50
+-89, -1471, TE, 1550, device, ring, r26.6, w0.5, g0.14, b50
+-429, -1471, TE, 1550, device, ring, r45.3, w0.5, g0.159, b50
+-599, -1131, TE, 1550, device, ring, r38.1, w0.5, g0.142, b50
+-89, -1641, TE, 1550, device, ring, r6.7, w0.5, g0.152, b50
+-89, -1301, TE, 1550, device, ring, r45.1, w0.5, g0.117, b50
+-259, -1301, TE, 1550, device, ring, r8.7, w0.5, g0.142, b50
+-599, -1301, TE, 1550, device, ring, r34.1, w0.5, g0.113, b50
+-259, -1811, TE, 1550, device, ring, r38.6, w0.5, g0.155, b50
+-429, -961, TE, 1550, device, ring, r6.2, w0.5, g0.145, b50
+80, -1811, TE, 1550, device, ring, r43.7, w0.5, g0.171, b50
+-599, -1641, TE, 1550, device, ring, r16.4, w0.5, g0.139, b50
+80, -961, TE, 1550, device, ring, r38.3, w0.5, g0.108, b50
+-89, -1131, TE, 1550, device, ring, r39.0, w0.5, g0.11, b50
+80, -1301, TE, 1550, device, ring, r38.3, w0.5, g0.144, b50
+-1449, -1641, TE, 1550, device, ring, r6.5, w0.5, g0.171, b50
+-1109, -1301, TE, 1550, device, ring, r19.0, w0.5, g0.133, b50
+-939, -1471, TE, 1550, device, ring, r46.2, w0.5, g0.153, b50
+-1279, -1471, TE, 1550, device, ring, r39.3, w0.5, g0.174, b50
+-939, -1131, TE, 1550, device, ring, r42.8, w0.5, g0.118, b50
+-1449, -1131, TE, 1550, device, ring, r48.7, w0.5, g0.109, b50
+-1109, -1471, TE, 1550, device, ring, r30.8, w0.5, g0.165, b50
+-1279, -1641, TE, 1550, device, ring, r32.7, w0.5, g0.126, b50
+-1279, -961, TE, 1550, device, ring, r13.8, w0.5, g0.112, b50
+-1449, -961, TE, 1550, device, ring, r32.6, w0.5, g0.142, b50
+-1279, -1811, TE, 1550, device, ring, r8.9, w0.5, g0.101, b50
+-1109, -1811, TE, 1550, device, ring, r13.8, w0.5, g0.158, b50
+-1449, -1471, TE, 1550, device, ring, r42.0, w0.5, g0.148, b50
+-1279, -1131, TE, 1550, device, ring, r48.8, w0.5, g0.111, b50
+-939, -961, TE, 1550, device, ring, r33.6, w0.5, g0.126, b50
+-769, -1641, TE, 1550, device, ring, r48.5, w0.5, g0.152, b50
+-1109, -1131, TE, 1550, device, ring, r34.5, w0.5, g0.152, b50
+-1109, -1641, TE, 1550, device, ring, r47.1, w0.5, g0.131, b50
+-769, -1811, TE, 1550, device, ring, r21.3, w0.5, g0.117, b50
+-939, -1301, TE, 1550, device, ring, r22.8, w0.5, g0.146, b50
+-769, -1131, TE, 1550, device, ring, r9.2, w0.5, g0.168, b50
+-939, -1811, TE, 1550, device, ring, r42.3, w0.5, g0.111, b50
+-769, -1471, TE, 1550, device, ring, r20.2, w0.5, g0.116, b50
+-939, -1641, TE, 1550, device, ring, r49.6, w0.5, g0.155, b50
+-1449, -1301, TE, 1550, device, ring, r38.3, w0.5, g0.144, b50
+-1279, -1301, TE, 1550, device, ring, r18.9, w0.5, g0.157, b50
+-769, -1301, TE, 1550, device, ring, r5.4, w0.5, g0.174, b50
+-769, -961, TE, 1550, device, ring, r47.4, w0.5, g0.135, b50
+-1109, -961, TE, 1550, device, ring, r8.4, w0.5, g0.174, b50
+-1449, -1811, TE, 1550, device, ring, r7.8, w0.5, g0.11, b50
+-1449, -2661, TE, 1550, device, ring, r42.1, w0.5, g0.133, b50
+-769, -1981, TE, 1550, device, ring, r23.7, w0.5, g0.153, b50
+-1109, -1981, TE, 1550, device, ring, r29.2, w0.5, g0.158, b50
+-1449, -2151, TE, 1550, device, ring, r21.5, w0.5, g0.116, b50
+-1279, -2151, TE, 1550, device, ring, r29.8, w0.5, g0.172, b50
+-939, -2661, TE, 1550, device, ring, r21.3, w0.5, g0.135, b50
+-939, -2491, TE, 1550, device, ring, r36.8, w0.5, g0.154, b50
+-1449, -1981, TE, 1550, device, ring, r49.7, w0.5, g0.157, b50
+-1279, -2491, TE, 1550, device, ring, r26.4, w0.5, g0.116, b50
+-939, -2151, TE, 1550, device, ring, r26.7, w0.5, g0.177, b50
+-1109, -2151, TE, 1550, device, ring, r31.5, w0.5, g0.135, b50
+-1109, -2491, TE, 1550, device, ring, r26.5, w0.5, g0.146, b50
+-769, -2661, TE, 1550, device, ring, r48.6, w0.5, g0.172, b50
+-1279, -1981, TE, 1550, device, ring, r34.2, w0.5, g0.106, b50
+-769, -2491, TE, 1550, device, ring, r46.7, w0.5, g0.168, b50
+-1279, -2661, TE, 1550, device, ring, r42.6, w0.5, g0.13, b50
+-769, -2151, TE, 1550, device, ring, r29.5, w0.5, g0.123, b50
+-939, -2321, TE, 1550, device, ring, r37.9, w0.5, g0.166, b50
+-1109, -2661, TE, 1550, device, ring, r24.9, w0.5, g0.125, b50
+-939, -1981, TE, 1550, device, ring, r5.8, w0.5, g0.138, b50
+-1449, -2491, TE, 1550, device, ring, r36.8, w0.5, g0.12, b50
+-1279, -2321, TE, 1550, device, ring, r14.5, w0.5, g0.167, b50
+-769, -2321, TE, 1550, device, ring, r35.9, w0.5, g0.105, b50
+-1109, -2321, TE, 1550, device, ring, r21.1, w0.5, g0.174, b50
+-1449, -2321, TE, 1550, device, ring, r7.4, w0.5, g0.133, b50
+-429, -2321, TE, 1550, device, ring, r7.4, w0.5, g0.1, b50
+80, -2321, TE, 1550, device, ring, r43.5, w0.5, g0.125, b50
+-599, -2321, TE, 1550, device, ring, r47.5, w0.5, g0.11, b50
+-89, -1981, TE, 1550, device, ring, r29.3, w0.5, g0.132, b50
+-89, -2321, TE, 1550, device, ring, r49.3, w0.5, g0.172, b50
+-599, -2661, TE, 1550, device, ring, r6.6, w0.5, g0.174, b50
+-259, -2321, TE, 1550, device, ring, r7.2, w0.5, g0.179, b50
+-429, -2491, TE, 1550, device, ring, r11.3, w0.5, g0.164, b50
+80, -1981, TE, 1550, device, ring, r46.7, w0.5, g0.172, b50
+80, -2661, TE, 1550, device, ring, r42.1, w0.5, g0.112, b50
+-89, -2491, TE, 1550, device, ring, r30.4, w0.5, g0.13, b50
+-599, -1981, TE, 1550, device, ring, r19.6, w0.5, g0.1, b50
+-429, -2661, TE, 1550, device, ring, r49.8, w0.5, g0.1, b50
+-89, -2661, TE, 1550, device, ring, r19.2, w0.5, g0.118, b50
+80, -2151, TE, 1550, device, ring, r27.9, w0.5, g0.15, b50
+-259, -1981, TE, 1550, device, ring, r44.0, w0.5, g0.135, b50
+-259, -2491, TE, 1550, device, ring, r34.2, w0.5, g0.154, b50
+-429, -1981, TE, 1550, device, ring, r18.0, w0.5, g0.144, b50
+-259, -2661, TE, 1550, device, ring, r14.4, w0.5, g0.166, b50
+80, -2491, TE, 1550, device, ring, r14.0, w0.5, g0.165, b50
+-599, -2491, TE, 1550, device, ring, r6.1, w0.5, g0.148, b50
+-429, -2151, TE, 1550, device, ring, r13.3, w0.5, g0.129, b50
+-599, -2151, TE, 1550, device, ring, r45.7, w0.5, g0.12, b50
+-89, -2151, TE, 1550, device, ring, r27.9, w0.5, g0.11, b50
+-259, -2151, TE, 1550, device, ring, r41.7, w0.5, g0.164, b50
+-599, -3171, TE, 1550, device, ring, r6.5, w0.5, g0.123, b50
+-259, -3001, TE, 1550, device, ring, r13.7, w0.5, g0.164, b50
+-599, -3511, TE, 1550, device, ring, r9.6, w0.5, g0.113, b50
+-429, -2831, TE, 1550, device, ring, r12.1, w0.5, g0.116, b50
+-89, -3511, TE, 1550, device, ring, r16.4, w0.5, g0.143, b50
+-89, -3341, TE, 1550, device, ring, r31.8, w0.5, g0.112, b50
+-429, -3171, TE, 1550, device, ring, r7.8, w0.5, g0.145, b50
+-259, -3171, TE, 1550, device, ring, r9.1, w0.5, g0.131, b50
+-429, -3511, TE, 1550, device, ring, r47.7, w0.5, g0.155, b50
+80, -2831, TE, 1550, device, ring, r29.2, w0.5, g0.16, b50
+-259, -3341, TE, 1550, device, ring, r6.3, w0.5, g0.135, b50
+-599, -3001, TE, 1550, device, ring, r19.4, w0.5, g0.107, b50
+-89, -3171, TE, 1550, device, ring, r9.1, w0.5, g0.178, b50
+80, -3001, TE, 1550, device, ring, r19.7, w0.5, g0.125, b50
+-259, -2831, TE, 1550, device, ring, r24.4, w0.5, g0.137, b50
+-429, -3001, TE, 1550, device, ring, r9.1, w0.5, g0.119, b50
+80, -3511, TE, 1550, device, ring, r32.6, w0.5, g0.109, b50
+80, -3341, TE, 1550, device, ring, r43.8, w0.5, g0.158, b50
+-89, -2831, TE, 1550, device, ring, r23.7, w0.5, g0.127, b50
+-259, -3511, TE, 1550, device, ring, r46.7, w0.5, g0.164, b50
+-429, -3341, TE, 1550, device, ring, r46.1, w0.5, g0.165, b50
+80, -3171, TE, 1550, device, ring, r35.0, w0.5, g0.175, b50
+-599, -3341, TE, 1550, device, ring, r26.0, w0.5, g0.161, b50
+-89, -3001, TE, 1550, device, ring, r44.1, w0.5, g0.117, b50
+-599, -2831, TE, 1550, device, ring, r43.9, w0.5, g0.159, b50
+-1449, -3511, TE, 1550, device, ring, r37.2, w0.5, g0.148, b50
+-939, -2831, TE, 1550, device, ring, r14.7, w0.5, g0.14, b50
+-1279, -2831, TE, 1550, device, ring, r20.8, w0.5, g0.145, b50
+-1279, -3341, TE, 1550, device, ring, r39.6, w0.5, g0.118, b50
+-1449, -2831, TE, 1550, device, ring, r20.8, w0.5, g0.176, b50
+-769, -3341, TE, 1550, device, ring, r44.4, w0.5, g0.113, b50
+-1109, -3001, TE, 1550, device, ring, r14.1, w0.5, g0.121, b50
+-1449, -3341, TE, 1550, device, ring, r9.2, w0.5, g0.153, b50
+-1109, -3341, TE, 1550, device, ring, r35.5, w0.5, g0.159, b50
+-939, -3341, TE, 1550, device, ring, r5.8, w0.5, g0.144, b50
+-769, -3171, TE, 1550, device, ring, r12.2, w0.5, g0.123, b50
+-939, -3001, TE, 1550, device, ring, r24.1, w0.5, g0.124, b50
+-1109, -3511, TE, 1550, device, ring, r15.0, w0.5, g0.134, b50
+-1279, -3511, TE, 1550, device, ring, r23.1, w0.5, g0.151, b50
+-1449, -3171, TE, 1550, device, ring, r7.1, w0.5, g0.144, b50
+-1109, -2831, TE, 1550, device, ring, r24.3, w0.5, g0.152, b50
+-939, -3511, TE, 1550, device, ring, r17.7, w0.5, g0.149, b50
+-1279, -3001, TE, 1550, device, ring, r42.7, w0.5, g0.116, b50
+-1449, -3001, TE, 1550, device, ring, r26.0, w0.5, g0.164, b50
+-939, -3171, TE, 1550, device, ring, r27.2, w0.5, g0.106, b50
+-769, -2831, TE, 1550, device, ring, r41.9, w0.5, g0.169, b50
+-769, -3511, TE, 1550, device, ring, r43.8, w0.5, g0.135, b50
+-1109, -3171, TE, 1550, device, ring, r25.2, w0.5, g0.166, b50
+-769, -3001, TE, 1550, device, ring, r45.0, w0.5, g0.125, b50
+-1279, -3171, TE, 1550, device, ring, r5.6, w0.5, g0.157, b50
+-1279, -3681, TE, 1550, device, ring, r8.9, w0.5, g0.14, b50
+-1449, -3681, TE, 1550, device, ring, r27.1, w0.5, g0.103, b50
+-1449, -4361, TE, 1550, device, ring, r19.6, w0.5, g0.179, b50
+-939, -4191, TE, 1550, device, ring, r44.0, w0.5, g0.167, b50
+-1109, -4531, TE, 1550, device, ring, r9.0, w0.5, g0.123, b50
+-1109, -4021, TE, 1550, device, ring, r21.9, w0.5, g0.119, b50
+-939, -4361, TE, 1550, device, ring, r21.7, w0.5, g0.17, b50
+-939, -3681, TE, 1550, device, ring, r12.4, w0.5, g0.158, b50
+-1109, -4361, TE, 1550, device, ring, r29.0, w0.5, g0.111, b50
+-939, -3851, TE, 1550, device, ring, r13.7, w0.5, g0.176, b50
+-769, -4361, TE, 1550, device, ring, r49.4, w0.5, g0.177, b50
+-1279, -4531, TE, 1550, device, ring, r44.9, w0.5, g0.107, b50
+-769, -4531, TE, 1550, device, ring, r37.6, w0.5, g0.103, b50
+-1279, -4191, TE, 1550, device, ring, r12.8, w0.5, g0.162, b50
+-1449, -4191, TE, 1550, device, ring, r36.7, w0.5, g0.107, b50
+-769, -3851, TE, 1550, device, ring, r37.7, w0.5, g0.121, b50
+-1109, -3851, TE, 1550, device, ring, r28.8, w0.5, g0.121, b50
+-1279, -4021, TE, 1550, device, ring, r30.1, w0.5, g0.172, b50
+-1449, -4021, TE, 1550, device, ring, r29.6, w0.5, g0.137, b50
+-1449, -4531, TE, 1550, device, ring, r34.2, w0.5, g0.103, b50
+-1449, -3851, TE, 1550, device, ring, r31.7, w0.5, g0.127, b50
+-1109, -4191, TE, 1550, device, ring, r48.9, w0.5, g0.126, b50
+-1109, -3681, TE, 1550, device, ring, r40.5, w0.5, g0.173, b50
+-1279, -3851, TE, 1550, device, ring, r14.6, w0.5, g0.162, b50
+-939, -4021, TE, 1550, device, ring, r10.5, w0.5, g0.109, b50
+-769, -4191, TE, 1550, device, ring, r30.4, w0.5, g0.144, b50
+-769, -3681, TE, 1550, device, ring, r48.4, w0.5, g0.14, b50
+-769, -4021, TE, 1550, device, ring, r48.7, w0.5, g0.165, b50
+-939, -4531, TE, 1550, device, ring, r16.4, w0.5, g0.11, b50
+-1279, -4361, TE, 1550, device, ring, r39.3, w0.5, g0.143, b50
+-259, -4361, TE, 1550, device, ring, r29.3, w0.5, g0.131, b50
+80, -3851, TE, 1550, device, ring, r30.8, w0.5, g0.12, b50
+-429, -4191, TE, 1550, device, ring, r41.6, w0.5, g0.132, b50
+80, -3681, TE, 1550, device, ring, r29.8, w0.5, g0.177, b50
+80, -4361, TE, 1550, device, ring, r12.9, w0.5, g0.109, b50
+-259, -3851, TE, 1550, device, ring, r38.9, w0.5, g0.119, b50
+-599, -3681, TE, 1550, device, ring, r30.7, w0.5, g0.116, b50
+80, -4021, TE, 1550, device, ring, r13.8, w0.5, g0.106, b50
+-259, -4021, TE, 1550, device, ring, r29.9, w0.5, g0.137, b50
+-429, -3681, TE, 1550, device, ring, r46.5, w0.5, g0.174, b50
+-599, -3851, TE, 1550, device, ring, r11.6, w0.5, g0.136, b50
+-89, -4361, TE, 1550, device, ring, r13.7, w0.5, g0.166, b50
+80, -4531, TE, 1550, device, ring, r21.0, w0.5, g0.17, b50
+-89, -4021, TE, 1550, device, ring, r47.5, w0.5, g0.131, b50
+-599, -4361, TE, 1550, device, ring, r32.0, w0.5, g0.133, b50
+-259, -3681, TE, 1550, device, ring, r15.9, w0.5, g0.105, b50
+80, -4191, TE, 1550, device, ring, r43.8, w0.5, g0.127, b50
+-89, -3681, TE, 1550, device, ring, r19.4, w0.5, g0.136, b50
+-429, -4021, TE, 1550, device, ring, r12.7, w0.5, g0.161, b50
+-259, -4531, TE, 1550, device, ring, r35.4, w0.5, g0.161, b50
+-599, -4191, TE, 1550, device, ring, r34.7, w0.5, g0.114, b50
+-429, -4531, TE, 1550, device, ring, r45.9, w0.5, g0.158, b50
+-259, -4191, TE, 1550, device, ring, r22.8, w0.5, g0.111, b50
+-89, -4191, TE, 1550, device, ring, r24.8, w0.5, g0.143, b50
+-599, -4531, TE, 1550, device, ring, r15.9, w0.5, g0.13, b50
+-89, -4531, TE, 1550, device, ring, r34.3, w0.5, g0.105, b50
+-429, -3851, TE, 1550, device, ring, r41.1, w0.5, g0.164, b50
+-599, -4021, TE, 1550, device, ring, r8.0, w0.5, g0.117, b50
+-89, -3851, TE, 1550, device, ring, r21.8, w0.5, g0.105, b50
+-429, -4361, TE, 1550, device, ring, r30.7, w0.5, g0.131, b50
+1270, -3341, TE, 1550, device, ring, r40.3, w0.5, g0.136, b50
+1780, -3171, TE, 1550, device, ring, r38.2, w0.5, g0.105, b50
+1610, -2831, TE, 1550, device, ring, r39.5, w0.5, g0.178, b50
+1100, -2831, TE, 1550, device, ring, r29.8, w0.5, g0.134, b50
+1100, -3171, TE, 1550, device, ring, r44.7, w0.5, g0.104, b50
+1440, -3171, TE, 1550, device, ring, r12.9, w0.5, g0.146, b50
+1780, -3001, TE, 1550, device, ring, r27.2, w0.5, g0.124, b50
+1440, -3341, TE, 1550, device, ring, r45.5, w0.5, g0.123, b50
+1270, -3511, TE, 1550, device, ring, r44.2, w0.5, g0.129, b50
+1610, -3171, TE, 1550, device, ring, r28.8, w0.5, g0.15, b50
+1270, -3001, TE, 1550, device, ring, r5.4, w0.5, g0.179, b50
+1440, -2831, TE, 1550, device, ring, r21.1, w0.5, g0.146, b50
+1780, -3341, TE, 1550, device, ring, r7.2, w0.5, g0.139, b50
+1270, -2831, TE, 1550, device, ring, r38.0, w0.5, g0.143, b50
+1270, -3171, TE, 1550, device, ring, r23.6, w0.5, g0.159, b50
+1440, -3001, TE, 1550, device, ring, r14.2, w0.5, g0.165, b50
+1100, -3001, TE, 1550, device, ring, r23.1, w0.5, g0.129, b50
+1610, -3341, TE, 1550, device, ring, r44.2, w0.5, g0.168, b50
+1610, -3511, TE, 1550, device, ring, r24.4, w0.5, g0.1, b50
+1780, -2831, TE, 1550, device, ring, r27.8, w0.5, g0.124, b50
+1610, -3001, TE, 1550, device, ring, r48.1, w0.5, g0.152, b50
+1440, -3511, TE, 1550, device, ring, r47.1, w0.5, g0.113, b50
+1100, -3341, TE, 1550, device, ring, r15.6, w0.5, g0.138, b50
+1780, -3511, TE, 1550, device, ring, r34.2, w0.5, g0.129, b50
+1100, -3511, TE, 1550, device, ring, r26.2, w0.5, g0.121, b50
+420, -3511, TE, 1550, device, ring, r37.8, w0.5, g0.166, b50
+250, -3341, TE, 1550, device, ring, r5.3, w0.5, g0.15, b50
+590, -3001, TE, 1550, device, ring, r26.0, w0.5, g0.178, b50
+420, -3001, TE, 1550, device, ring, r35.2, w0.5, g0.165, b50
+250, -2831, TE, 1550, device, ring, r37.0, w0.5, g0.113, b50
+250, -3511, TE, 1550, device, ring, r32.8, w0.5, g0.179, b50
+420, -3171, TE, 1550, device, ring, r19.4, w0.5, g0.145, b50
+760, -3171, TE, 1550, device, ring, r24.6, w0.5, g0.122, b50
+760, -3001, TE, 1550, device, ring, r35.8, w0.5, g0.107, b50
+760, -3511, TE, 1550, device, ring, r21.9, w0.5, g0.14, b50
+760, -2831, TE, 1550, device, ring, r36.1, w0.5, g0.123, b50
+590, -2831, TE, 1550, device, ring, r49.0, w0.5, g0.121, b50
+760, -3341, TE, 1550, device, ring, r48.7, w0.5, g0.163, b50
+930, -2831, TE, 1550, device, ring, r28.3, w0.5, g0.124, b50
+930, -3341, TE, 1550, device, ring, r26.2, w0.5, g0.127, b50
+590, -3511, TE, 1550, device, ring, r14.8, w0.5, g0.16, b50
+420, -3341, TE, 1550, device, ring, r47.8, w0.5, g0.162, b50
+590, -3171, TE, 1550, device, ring, r11.2, w0.5, g0.131, b50
+250, -3001, TE, 1550, device, ring, r21.3, w0.5, g0.153, b50
+930, -3171, TE, 1550, device, ring, r25.7, w0.5, g0.163, b50
+420, -2831, TE, 1550, device, ring, r38.4, w0.5, g0.11, b50
+930, -3001, TE, 1550, device, ring, r45.4, w0.5, g0.123, b50
+590, -3341, TE, 1550, device, ring, r29.4, w0.5, g0.178, b50
+930, -3511, TE, 1550, device, ring, r16.3, w0.5, g0.102, b50
+250, -3171, TE, 1550, device, ring, r32.7, w0.5, g0.129, b50
+930, -3681, TE, 1550, device, ring, r29.1, w0.5, g0.135, b50
+930, -3851, TE, 1550, device, ring, r32.8, w0.5, g0.16, b50
+420, -4361, TE, 1550, device, ring, r42.7, w0.5, g0.127, b50
+420, -4531, TE, 1550, device, ring, r17.9, w0.5, g0.171, b50
+930, -4531, TE, 1550, device, ring, r22.3, w0.5, g0.107, b50
+420, -3681, TE, 1550, device, ring, r34.0, w0.5, g0.127, b50
+760, -3681, TE, 1550, device, ring, r15.4, w0.5, g0.114, b50
+760, -4191, TE, 1550, device, ring, r29.9, w0.5, g0.122, b50
+760, -3851, TE, 1550, device, ring, r33.9, w0.5, g0.152, b50
+420, -3851, TE, 1550, device, ring, r26.5, w0.5, g0.163, b50
+420, -4021, TE, 1550, device, ring, r40.3, w0.5, g0.141, b50
+590, -4191, TE, 1550, device, ring, r46.5, w0.5, g0.164, b50
+760, -4531, TE, 1550, device, ring, r39.7, w0.5, g0.101, b50
+760, -4021, TE, 1550, device, ring, r10.3, w0.5, g0.171, b50
+420, -4191, TE, 1550, device, ring, r14.3, w0.5, g0.107, b50
+250, -4361, TE, 1550, device, ring, r25.1, w0.5, g0.16, b50
+590, -4021, TE, 1550, device, ring, r13.9, w0.5, g0.148, b50
+590, -3851, TE, 1550, device, ring, r30.1, w0.5, g0.126, b50
+250, -3851, TE, 1550, device, ring, r44.3, w0.5, g0.149, b50
+590, -4361, TE, 1550, device, ring, r25.0, w0.5, g0.169, b50
+590, -3681, TE, 1550, device, ring, r25.1, w0.5, g0.141, b50
+250, -4531, TE, 1550, device, ring, r35.8, w0.5, g0.18, b50
+250, -4021, TE, 1550, device, ring, r32.1, w0.5, g0.156, b50
+590, -4531, TE, 1550, device, ring, r17.5, w0.5, g0.164, b50
+930, -4191, TE, 1550, device, ring, r27.7, w0.5, g0.102, b50
+250, -4191, TE, 1550, device, ring, r30.8, w0.5, g0.133, b50
+760, -4361, TE, 1550, device, ring, r7.8, w0.5, g0.111, b50
+930, -4361, TE, 1550, device, ring, r23.9, w0.5, g0.153, b50
+250, -3681, TE, 1550, device, ring, r22.8, w0.5, g0.164, b50
+930, -4021, TE, 1550, device, ring, r47.4, w0.5, g0.157, b50
+1100, -3851, TE, 1550, device, ring, r10.1, w0.5, g0.112, b50
+1440, -4191, TE, 1550, device, ring, r35.0, w0.5, g0.137, b50
+1270, -3681, TE, 1550, device, ring, r40.5, w0.5, g0.136, b50
+1780, -4531, TE, 1550, device, ring, r17.4, w0.5, g0.13, b50
+1610, -4361, TE, 1550, device, ring, r11.9, w0.5, g0.133, b50
+1270, -4191, TE, 1550, device, ring, r34.8, w0.5, g0.16, b50
+1270, -4361, TE, 1550, device, ring, r22.2, w0.5, g0.164, b50
+1440, -3851, TE, 1550, device, ring, r18.5, w0.5, g0.169, b50
+1610, -3681, TE, 1550, device, ring, r47.4, w0.5, g0.105, b50
+1610, -4191, TE, 1550, device, ring, r28.9, w0.5, g0.118, b50
+1610, -4531, TE, 1550, device, ring, r22.9, w0.5, g0.136, b50
+1100, -4021, TE, 1550, device, ring, r41.6, w0.5, g0.171, b50
+1780, -3681, TE, 1550, device, ring, r17.1, w0.5, g0.173, b50
+1100, -4191, TE, 1550, device, ring, r48.0, w0.5, g0.104, b50
+1780, -4361, TE, 1550, device, ring, r23.6, w0.5, g0.127, b50
+1440, -4361, TE, 1550, device, ring, r7.8, w0.5, g0.126, b50
+1270, -4021, TE, 1550, device, ring, r14.5, w0.5, g0.125, b50
+1780, -4191, TE, 1550, device, ring, r28.8, w0.5, g0.126, b50
+1610, -3851, TE, 1550, device, ring, r18.1, w0.5, g0.117, b50
+1440, -4531, TE, 1550, device, ring, r25.1, w0.5, g0.103, b50
+1100, -4361, TE, 1550, device, ring, r32.1, w0.5, g0.13, b50
+1100, -4531, TE, 1550, device, ring, r5.1, w0.5, g0.167, b50
+1440, -4021, TE, 1550, device, ring, r10.2, w0.5, g0.169, b50
+1610, -4021, TE, 1550, device, ring, r27.6, w0.5, g0.126, b50
+1440, -3681, TE, 1550, device, ring, r30.9, w0.5, g0.132, b50
+1780, -4021, TE, 1550, device, ring, r24.5, w0.5, g0.174, b50
+1270, -4531, TE, 1550, device, ring, r13.1, w0.5, g0.117, b50
+1100, -3681, TE, 1550, device, ring, r46.0, w0.5, g0.123, b50
+1780, -3851, TE, 1550, device, ring, r21.0, w0.5, g0.176, b50
+1270, -3851, TE, 1550, device, ring, r14.7, w0.5, g0.125, b50
+5180, -1471, TE, 1550, device, ring, r34.5, w0.5, g0.135, b50
+5180, -961, TE, 1550, device, ring, r41.5, w0.5, g0.147, b50
+5180, -1301, TE, 1550, device, ring, r22.4, w0.5, g0.129, b50
+4670, -961, TE, 1550, device, ring, r25.5, w0.5, g0.163, b50
+5010, -1811, TE, 1550, device, ring, r46.6, w0.5, g0.134, b50
+5010, -1301, TE, 1550, device, ring, r22.3, w0.5, g0.105, b50
+4840, -1301, TE, 1550, device, ring, r8.2, w0.5, g0.163, b50
+5180, -1641, TE, 1550, device, ring, r40.4, w0.5, g0.123, b50
+4840, -1641, TE, 1550, device, ring, r5.1, w0.5, g0.174, b50
+4500, -1471, TE, 1550, device, ring, r42.9, w0.5, g0.143, b50
+4670, -1641, TE, 1550, device, ring, r40.0, w0.5, g0.113, b50
+4840, -961, TE, 1550, device, ring, r48.6, w0.5, g0.102, b50
+5010, -1471, TE, 1550, device, ring, r23.6, w0.5, g0.145, b50
+4840, -1471, TE, 1550, device, ring, r13.0, w0.5, g0.156, b50
+5180, -1811, TE, 1550, device, ring, r31.3, w0.5, g0.178, b50
+4840, -1811, TE, 1550, device, ring, r19.7, w0.5, g0.166, b50
+4670, -1811, TE, 1550, device, ring, r22.1, w0.5, g0.151, b50
+4670, -1301, TE, 1550, device, ring, r13.1, w0.5, g0.179, b50
+4670, -1471, TE, 1550, device, ring, r39.9, w0.5, g0.114, b50
+4500, -961, TE, 1550, device, ring, r11.3, w0.5, g0.155, b50
+4500, -1131, TE, 1550, device, ring, r8.1, w0.5, g0.105, b50
+5010, -1641, TE, 1550, device, ring, r15.7, w0.5, g0.143, b50
+4500, -1811, TE, 1550, device, ring, r29.5, w0.5, g0.155, b50
+5010, -1131, TE, 1550, device, ring, r28.1, w0.5, g0.118, b50
+5010, -961, TE, 1550, device, ring, r49.9, w0.5, g0.147, b50
+4840, -1131, TE, 1550, device, ring, r31.8, w0.5, g0.129, b50
+5180, -1131, TE, 1550, device, ring, r34.3, w0.5, g0.166, b50
+4670, -1131, TE, 1550, device, ring, r29.4, w0.5, g0.14, b50
+4500, -1641, TE, 1550, device, ring, r33.0, w0.5, g0.162, b50
+4500, -1301, TE, 1550, device, ring, r46.9, w0.5, g0.135, b50
+3990, -1131, TE, 1550, device, ring, r23.9, w0.5, g0.114, b50
+3990, -1811, TE, 1550, device, ring, r20.5, w0.5, g0.107, b50
+3990, -1471, TE, 1550, device, ring, r6.0, w0.5, g0.136, b50
+4330, -1641, TE, 1550, device, ring, r26.5, w0.5, g0.159, b50
+3820, -1811, TE, 1550, device, ring, r23.8, w0.5, g0.173, b50
+3650, -961, TE, 1550, device, ring, r29.9, w0.5, g0.118, b50
+3990, -1641, TE, 1550, device, ring, r40.2, w0.5, g0.123, b50
+3650, -1131, TE, 1550, device, ring, r28.0, w0.5, g0.139, b50
+4330, -1301, TE, 1550, device, ring, r42.1, w0.5, g0.148, b50
+4160, -1131, TE, 1550, device, ring, r25.3, w0.5, g0.119, b50
+3650, -1811, TE, 1550, device, ring, r8.3, w0.5, g0.135, b50
+3820, -1641, TE, 1550, device, ring, r43.2, w0.5, g0.133, b50
+3820, -1131, TE, 1550, device, ring, r38.7, w0.5, g0.135, b50
+3990, -1301, TE, 1550, device, ring, r18.3, w0.5, g0.166, b50
+4330, -1811, TE, 1550, device, ring, r6.3, w0.5, g0.113, b50
+4330, -961, TE, 1550, device, ring, r26.1, w0.5, g0.167, b50
+3990, -961, TE, 1550, device, ring, r24.4, w0.5, g0.149, b50
+3820, -1301, TE, 1550, device, ring, r9.3, w0.5, g0.104, b50
+4160, -1301, TE, 1550, device, ring, r20.1, w0.5, g0.145, b50
+3650, -1301, TE, 1550, device, ring, r6.3, w0.5, g0.174, b50
+4160, -1471, TE, 1550, device, ring, r20.7, w0.5, g0.139, b50
+3820, -961, TE, 1550, device, ring, r32.5, w0.5, g0.156, b50
+3820, -1471, TE, 1550, device, ring, r49.6, w0.5, g0.108, b50
+4160, -1641, TE, 1550, device, ring, r15.6, w0.5, g0.171, b50
+3650, -1471, TE, 1550, device, ring, r13.0, w0.5, g0.151, b50
+4160, -1811, TE, 1550, device, ring, r27.6, w0.5, g0.17, b50
+4330, -1131, TE, 1550, device, ring, r41.9, w0.5, g0.15, b50
+4330, -1471, TE, 1550, device, ring, r42.0, w0.5, g0.125, b50
+4160, -961, TE, 1550, device, ring, r40.3, w0.5, g0.142, b50
+3650, -1641, TE, 1550, device, ring, r16.4, w0.5, g0.112, b50
+4330, -2321, TE, 1550, device, ring, r24.2, w0.5, g0.103, b50
+4330, -2661, TE, 1550, device, ring, r5.7, w0.5, g0.119, b50
+3820, -1981, TE, 1550, device, ring, r11.5, w0.5, g0.164, b50
+3650, -2151, TE, 1550, device, ring, r11.6, w0.5, g0.153, b50
+4330, -1981, TE, 1550, device, ring, r15.7, w0.5, g0.147, b50
+3990, -1981, TE, 1550, device, ring, r24.0, w0.5, g0.127, b50
+3990, -2661, TE, 1550, device, ring, r31.6, w0.5, g0.136, b50
+3650, -2491, TE, 1550, device, ring, r23.9, w0.5, g0.175, b50
+4160, -2321, TE, 1550, device, ring, r44.5, w0.5, g0.155, b50
+3650, -1981, TE, 1550, device, ring, r41.4, w0.5, g0.142, b50
+3650, -2321, TE, 1550, device, ring, r27.7, w0.5, g0.136, b50
+3990, -2151, TE, 1550, device, ring, r31.1, w0.5, g0.12, b50
+3990, -2321, TE, 1550, device, ring, r20.8, w0.5, g0.126, b50
+4160, -2151, TE, 1550, device, ring, r44.2, w0.5, g0.162, b50
+4160, -1981, TE, 1550, device, ring, r29.4, w0.5, g0.117, b50
+4330, -2491, TE, 1550, device, ring, r49.0, w0.5, g0.139, b50
+3650, -2661, TE, 1550, device, ring, r12.5, w0.5, g0.152, b50
+3820, -2321, TE, 1550, device, ring, r21.8, w0.5, g0.178, b50
+3820, -2661, TE, 1550, device, ring, r37.1, w0.5, g0.147, b50
+4330, -2151, TE, 1550, device, ring, r46.0, w0.5, g0.157, b50
+4160, -2491, TE, 1550, device, ring, r48.8, w0.5, g0.107, b50
+3990, -2491, TE, 1550, device, ring, r18.8, w0.5, g0.145, b50
+4160, -2661, TE, 1550, device, ring, r49.5, w0.5, g0.106, b50
+3820, -2491, TE, 1550, device, ring, r8.4, w0.5, g0.168, b50
+3820, -2151, TE, 1550, device, ring, r7.6, w0.5, g0.112, b50
+5180, -2491, TE, 1550, device, ring, r8.2, w0.5, g0.137, b50
+4670, -2491, TE, 1550, device, ring, r30.5, w0.5, g0.101, b50
+4840, -1981, TE, 1550, device, ring, r38.7, w0.5, g0.15, b50
+5180, -2661, TE, 1550, device, ring, r5.1, w0.5, g0.169, b50
+5010, -2321, TE, 1550, device, ring, r9.0, w0.5, g0.145, b50
+4500, -2661, TE, 1550, device, ring, r16.0, w0.5, g0.106, b50
+5180, -2151, TE, 1550, device, ring, r34.9, w0.5, g0.152, b50
+5010, -2661, TE, 1550, device, ring, r49.2, w0.5, g0.122, b50
+4840, -2321, TE, 1550, device, ring, r47.7, w0.5, g0.161, b50
+5010, -2151, TE, 1550, device, ring, r45.3, w0.5, g0.123, b50
+4670, -1981, TE, 1550, device, ring, r43.3, w0.5, g0.138, b50
+4500, -2491, TE, 1550, device, ring, r16.4, w0.5, g0.119, b50
+4840, -2661, TE, 1550, device, ring, r41.6, w0.5, g0.106, b50
+5010, -2491, TE, 1550, device, ring, r25.8, w0.5, g0.123, b50
+5180, -2321, TE, 1550, device, ring, r10.4, w0.5, g0.138, b50
+5180, -1981, TE, 1550, device, ring, r27.4, w0.5, g0.101, b50
+4500, -2151, TE, 1550, device, ring, r15.5, w0.5, g0.163, b50
+4670, -2321, TE, 1550, device, ring, r48.4, w0.5, g0.15, b50
+5010, -1981, TE, 1550, device, ring, r7.1, w0.5, g0.164, b50
+4500, -2321, TE, 1550, device, ring, r30.2, w0.5, g0.136, b50
+4500, -1981, TE, 1550, device, ring, r14.1, w0.5, g0.139, b50
+4840, -2491, TE, 1550, device, ring, r43.2, w0.5, g0.149, b50
+4670, -2661, TE, 1550, device, ring, r16.3, w0.5, g0.117, b50
+4670, -2151, TE, 1550, device, ring, r40.4, w0.5, g0.179, b50
+4840, -2151, TE, 1550, device, ring, r44.3, w0.5, g0.107, b50
+2970, -1301, TE, 1550, device, ring, r43.5, w0.5, g0.168, b50
+3140, -1641, TE, 1550, device, ring, r10.4, w0.5, g0.176, b50
+3140, -1131, TE, 1550, device, ring, r17.9, w0.5, g0.137, b50
+3140, -1301, TE, 1550, device, ring, r10.7, w0.5, g0.122, b50
+2800, -1301, TE, 1550, device, ring, r26.3, w0.5, g0.1, b50
+2970, -961, TE, 1550, device, ring, r21.8, w0.5, g0.138, b50
+2800, -1811, TE, 1550, device, ring, r21.9, w0.5, g0.177, b50
+2970, -1471, TE, 1550, device, ring, r23.2, w0.5, g0.145, b50
+3480, -1641, TE, 1550, device, ring, r47.6, w0.5, g0.168, b50
+3480, -1471, TE, 1550, device, ring, r31.2, w0.5, g0.122, b50
+2970, -1811, TE, 1550, device, ring, r9.8, w0.5, g0.14, b50
+2800, -1131, TE, 1550, device, ring, r40.4, w0.5, g0.131, b50
+3310, -961, TE, 1550, device, ring, r10.5, w0.5, g0.111, b50
+3140, -1471, TE, 1550, device, ring, r8.0, w0.5, g0.141, b50
+3310, -1641, TE, 1550, device, ring, r39.4, w0.5, g0.126, b50
+3480, -1811, TE, 1550, device, ring, r40.2, w0.5, g0.178, b50
+2800, -1641, TE, 1550, device, ring, r44.3, w0.5, g0.145, b50
+3140, -1811, TE, 1550, device, ring, r31.9, w0.5, g0.167, b50
+3140, -961, TE, 1550, device, ring, r26.0, w0.5, g0.157, b50
+2800, -1471, TE, 1550, device, ring, r37.5, w0.5, g0.167, b50
+3480, -1131, TE, 1550, device, ring, r41.7, w0.5, g0.101, b50
+3310, -1131, TE, 1550, device, ring, r18.9, w0.5, g0.153, b50
+2970, -1131, TE, 1550, device, ring, r20.7, w0.5, g0.16, b50
+3310, -1301, TE, 1550, device, ring, r33.6, w0.5, g0.149, b50
+2970, -1641, TE, 1550, device, ring, r6.5, w0.5, g0.129, b50
+2800, -961, TE, 1550, device, ring, r49.2, w0.5, g0.126, b50
+3310, -1811, TE, 1550, device, ring, r35.0, w0.5, g0.135, b50
+3480, -1301, TE, 1550, device, ring, r5.6, w0.5, g0.145, b50
+3480, -961, TE, 1550, device, ring, r42.8, w0.5, g0.163, b50
+3310, -1471, TE, 1550, device, ring, r46.0, w0.5, g0.151, b50
+2630, -961, TE, 1550, device, ring, r29.2, w0.5, g0.154, b50
+2630, -1131, TE, 1550, device, ring, r13.6, w0.5, g0.154, b50
+1950, -1641, TE, 1550, device, ring, r6.8, w0.5, g0.166, b50
+2120, -1811, TE, 1550, device, ring, r12.8, w0.5, g0.143, b50
+2120, -1301, TE, 1550, device, ring, r13.0, w0.5, g0.124, b50
+1950, -1131, TE, 1550, device, ring, r48.5, w0.5, g0.175, b50
+2290, -1131, TE, 1550, device, ring, r29.4, w0.5, g0.103, b50
+2290, -1641, TE, 1550, device, ring, r26.0, w0.5, g0.132, b50
+2120, -1471, TE, 1550, device, ring, r22.6, w0.5, g0.136, b50
+2460, -1811, TE, 1550, device, ring, r45.7, w0.5, g0.146, b50
+2460, -1301, TE, 1550, device, ring, r33.0, w0.5, g0.142, b50
+2460, -1131, TE, 1550, device, ring, r17.3, w0.5, g0.174, b50
+2630, -1811, TE, 1550, device, ring, r16.7, w0.5, g0.168, b50
+2290, -1471, TE, 1550, device, ring, r20.6, w0.5, g0.117, b50
+2630, -1301, TE, 1550, device, ring, r15.6, w0.5, g0.12, b50
+1950, -1301, TE, 1550, device, ring, r31.2, w0.5, g0.177, b50
+2290, -1301, TE, 1550, device, ring, r19.4, w0.5, g0.158, b50
+2460, -1641, TE, 1550, device, ring, r25.4, w0.5, g0.119, b50
+1950, -961, TE, 1550, device, ring, r25.6, w0.5, g0.151, b50
+2120, -1641, TE, 1550, device, ring, r30.5, w0.5, g0.108, b50
+1950, -1811, TE, 1550, device, ring, r31.5, w0.5, g0.178, b50
+2460, -961, TE, 1550, device, ring, r34.3, w0.5, g0.116, b50
+2630, -1641, TE, 1550, device, ring, r41.9, w0.5, g0.17, b50
+2460, -1471, TE, 1550, device, ring, r10.4, w0.5, g0.11, b50
+2290, -961, TE, 1550, device, ring, r11.2, w0.5, g0.115, b50
+1950, -1471, TE, 1550, device, ring, r47.7, w0.5, g0.134, b50
+2630, -1471, TE, 1550, device, ring, r48.4, w0.5, g0.174, b50
+2120, -1131, TE, 1550, device, ring, r48.5, w0.5, g0.154, b50
+2290, -1811, TE, 1550, device, ring, r31.5, w0.5, g0.152, b50
+2120, -961, TE, 1550, device, ring, r11.6, w0.5, g0.149, b50
+2290, -2661, TE, 1550, device, ring, r19.1, w0.5, g0.145, b50
+2460, -1981, TE, 1550, device, ring, r41.3, w0.5, g0.146, b50
+2120, -2151, TE, 1550, device, ring, r31.4, w0.5, g0.156, b50
+2120, -1981, TE, 1550, device, ring, r38.6, w0.5, g0.162, b50
+2460, -2661, TE, 1550, device, ring, r18.2, w0.5, g0.168, b50
+1950, -2321, TE, 1550, device, ring, r45.9, w0.5, g0.105, b50
+2120, -2661, TE, 1550, device, ring, r35.8, w0.5, g0.154, b50
+2630, -2151, TE, 1550, device, ring, r32.1, w0.5, g0.109, b50
+2630, -1981, TE, 1550, device, ring, r45.4, w0.5, g0.158, b50
+2460, -2151, TE, 1550, device, ring, r14.0, w0.5, g0.131, b50
+2460, -2491, TE, 1550, device, ring, r39.5, w0.5, g0.129, b50
+1950, -2151, TE, 1550, device, ring, r49.7, w0.5, g0.108, b50
+2120, -2491, TE, 1550, device, ring, r46.8, w0.5, g0.165, b50
+1950, -2491, TE, 1550, device, ring, r7.3, w0.5, g0.122, b50
+2290, -2151, TE, 1550, device, ring, r45.7, w0.5, g0.177, b50
+2290, -2321, TE, 1550, device, ring, r5.4, w0.5, g0.161, b50
+2120, -2321, TE, 1550, device, ring, r17.0, w0.5, g0.161, b50
+2460, -2321, TE, 1550, device, ring, r35.0, w0.5, g0.153, b50
+1950, -1981, TE, 1550, device, ring, r7.1, w0.5, g0.105, b50
+2630, -2661, TE, 1550, device, ring, r10.4, w0.5, g0.137, b50
+2630, -2321, TE, 1550, device, ring, r12.9, w0.5, g0.123, b50
+2290, -1981, TE, 1550, device, ring, r5.9, w0.5, g0.144, b50
+2630, -2491, TE, 1550, device, ring, r5.3, w0.5, g0.168, b50
+1950, -2661, TE, 1550, device, ring, r33.7, w0.5, g0.112, b50
+2290, -2491, TE, 1550, device, ring, r11.6, w0.5, g0.161, b50
+2800, -1981, TE, 1550, device, ring, r7.1, w0.5, g0.161, b50
+3140, -2661, TE, 1550, device, ring, r22.9, w0.5, g0.132, b50
+3310, -1981, TE, 1550, device, ring, r21.0, w0.5, g0.156, b50
+2800, -2151, TE, 1550, device, ring, r40.6, w0.5, g0.154, b50
+3310, -2491, TE, 1550, device, ring, r8.8, w0.5, g0.126, b50
+3140, -2321, TE, 1550, device, ring, r8.4, w0.5, g0.107, b50
+2800, -2661, TE, 1550, device, ring, r9.8, w0.5, g0.102, b50
+2800, -2321, TE, 1550, device, ring, r44.9, w0.5, g0.163, b50
+3140, -1981, TE, 1550, device, ring, r41.7, w0.5, g0.112, b50
+2970, -2661, TE, 1550, device, ring, r47.6, w0.5, g0.153, b50
+3310, -2151, TE, 1550, device, ring, r12.7, w0.5, g0.172, b50
+3140, -2491, TE, 1550, device, ring, r19.5, w0.5, g0.152, b50
+3480, -1981, TE, 1550, device, ring, r34.7, w0.5, g0.179, b50
+2970, -2321, TE, 1550, device, ring, r5.8, w0.5, g0.148, b50
+3140, -2151, TE, 1550, device, ring, r30.9, w0.5, g0.165, b50
+3310, -2661, TE, 1550, device, ring, r20.5, w0.5, g0.174, b50
+2970, -1981, TE, 1550, device, ring, r46.9, w0.5, g0.145, b50
+2970, -2491, TE, 1550, device, ring, r10.8, w0.5, g0.179, b50
+3310, -2321, TE, 1550, device, ring, r26.0, w0.5, g0.132, b50
+3480, -2491, TE, 1550, device, ring, r11.8, w0.5, g0.106, b50
+3480, -2151, TE, 1550, device, ring, r11.5, w0.5, g0.149, b50
+3480, -2661, TE, 1550, device, ring, r30.8, w0.5, g0.141, b50
+2970, -2151, TE, 1550, device, ring, r28.2, w0.5, g0.124, b50
+3480, -2321, TE, 1550, device, ring, r19.5, w0.5, g0.156, b50
+2800, -2491, TE, 1550, device, ring, r8.7, w0.5, g0.13, b50
+1950, -2831, TE, 1550, device, ring, r18.8, w0.5, g0.101, b50
+2290, -3341, TE, 1550, device, ring, r25.4, w0.5, g0.113, b50
+2800, -3171, TE, 1550, device, ring, r28.4, w0.5, g0.17, b50
+3480, -4021, TE, 1550, device, ring, r15.4, w0.5, g0.143, b50
+2970, -3681, TE, 1550, device, ring, r12.9, w0.5, g0.155, b50
+2970, -4021, TE, 1550, device, ring, r42.9, w0.5, g0.139, b50
+2630, -2831, TE, 1550, device, ring, r8.0, w0.5, g0.117, b50
+2970, -3511, TE, 1550, device, ring, r37.1, w0.5, g0.153, b50
+3480, -4191, TE, 1550, device, ring, r5.8, w0.5, g0.165, b50
+2460, -4361, TE, 1550, device, ring, r37.7, w0.5, g0.176, b50
+2800, -2831, TE, 1550, device, ring, r46.3, w0.5, g0.126, b50
+3140, -3001, TE, 1550, device, ring, r17.0, w0.5, g0.13, b50
+3140, -4361, TE, 1550, device, ring, r28.1, w0.5, g0.146, b50
+2290, -4361, TE, 1550, device, ring, r36.5, w0.5, g0.145, b50
+2290, -4021, TE, 1550, device, ring, r31.1, w0.5, g0.124, b50
+2290, -3851, TE, 1550, device, ring, r18.6, w0.5, g0.178, b50
+2120, -3171, TE, 1550, device, ring, r32.9, w0.5, g0.144, b50
+2630, -3681, TE, 1550, device, ring, r26.7, w0.5, g0.139, b50
+2800, -3001, TE, 1550, device, ring, r19.5, w0.5, g0.112, b50
+3310, -4191, TE, 1550, device, ring, r6.3, w0.5, g0.155, b50
+3480, -3171, TE, 1550, device, ring, r32.7, w0.5, g0.121, b50
+3140, -3171, TE, 1550, device, ring, r16.6, w0.5, g0.11, b50
+3310, -4361, TE, 1550, device, ring, r6.9, w0.5, g0.113, b50
+3310, -3511, TE, 1550, device, ring, r6.6, w0.5, g0.126, b50
+2630, -4361, TE, 1550, device, ring, r21.6, w0.5, g0.164, b50
+2970, -3001, TE, 1550, device, ring, r11.7, w0.5, g0.18, b50
+3480, -3681, TE, 1550, device, ring, r37.4, w0.5, g0.106, b50
+2970, -3851, TE, 1550, device, ring, r20.6, w0.5, g0.134, b50
+2970, -3341, TE, 1550, device, ring, r8.0, w0.5, g0.155, b50
+3480, -3001, TE, 1550, device, ring, r8.0, w0.5, g0.155, b50
+2120, -2831, TE, 1550, device, ring, r21.7, w0.5, g0.119, b50
+1950, -3511, TE, 1550, device, ring, r34.1, w0.5, g0.133, b50
+2120, -3001, TE, 1550, device, ring, r23.0, w0.5, g0.122, b50
+2460, -3511, TE, 1550, device, ring, r10.7, w0.5, g0.162, b50
+3480, -4361, TE, 1550, device, ring, r43.3, w0.5, g0.127, b50
+2970, -3171, TE, 1550, device, ring, r31.9, w0.5, g0.165, b50
+2290, -3171, TE, 1550, device, ring, r13.9, w0.5, g0.146, b50
+2800, -3511, TE, 1550, device, ring, r38.3, w0.5, g0.131, b50
+3480, -3511, TE, 1550, device, ring, r49.7, w0.5, g0.145, b50
+2460, -4191, TE, 1550, device, ring, r13.6, w0.5, g0.173, b50
+2460, -3681, TE, 1550, device, ring, r48.6, w0.5, g0.151, b50
+1950, -4361, TE, 1550, device, ring, r39.4, w0.5, g0.116, b50
+2460, -3341, TE, 1550, device, ring, r49.9, w0.5, g0.138, b50
+2800, -4021, TE, 1550, device, ring, r21.5, w0.5, g0.148, b50
+1950, -4191, TE, 1550, device, ring, r34.8, w0.5, g0.137, b50
+2970, -4361, TE, 1550, device, ring, r19.0, w0.5, g0.15, b50
+3140, -2831, TE, 1550, device, ring, r46.8, w0.5, g0.104, b50
+2120, -4361, TE, 1550, device, ring, r36.7, w0.5, g0.137, b50
+2800, -4191, TE, 1550, device, ring, r23.3, w0.5, g0.131, b50
+3140, -4021, TE, 1550, device, ring, r30.1, w0.5, g0.147, b50
+2120, -4191, TE, 1550, device, ring, r22.9, w0.5, g0.137, b50
+2630, -4021, TE, 1550, device, ring, r43.9, w0.5, g0.123, b50
+1950, -3681, TE, 1550, device, ring, r34.4, w0.5, g0.108, b50
+2630, -4191, TE, 1550, device, ring, r39.5, w0.5, g0.148, b50
+2800, -4361, TE, 1550, device, ring, r22.5, w0.5, g0.115, b50
+2800, -3851, TE, 1550, device, ring, r34.5, w0.5, g0.164, b50
+3310, -3681, TE, 1550, device, ring, r17.9, w0.5, g0.177, b50
+2630, -3511, TE, 1550, device, ring, r37.0, w0.5, g0.11, b50
+2290, -2831, TE, 1550, device, ring, r28.8, w0.5, g0.153, b50
+2120, -3341, TE, 1550, device, ring, r30.4, w0.5, g0.123, b50
+1950, -3851, TE, 1550, device, ring, r49.5, w0.5, g0.134, b50
+3310, -4021, TE, 1550, device, ring, r27.8, w0.5, g0.144, b50
+3310, -3001, TE, 1550, device, ring, r47.7, w0.5, g0.104, b50
+2290, -3001, TE, 1550, device, ring, r16.8, w0.5, g0.139, b50
+1950, -3341, TE, 1550, device, ring, r44.4, w0.5, g0.164, b50
+3140, -3511, TE, 1550, device, ring, r44.0, w0.5, g0.122, b50
+2630, -3001, TE, 1550, device, ring, r49.9, w0.5, g0.115, b50
+3480, -2831, TE, 1550, device, ring, r14.0, w0.5, g0.124, b50
+1950, -4021, TE, 1550, device, ring, r7.0, w0.5, g0.113, b50
+2630, -3851, TE, 1550, device, ring, r7.0, w0.5, g0.125, b50
+2290, -3511, TE, 1550, device, ring, r8.0, w0.5, g0.122, b50
+2630, -3341, TE, 1550, device, ring, r46.8, w0.5, g0.113, b50
+2630, -3171, TE, 1550, device, ring, r27.8, w0.5, g0.156, b50
+3310, -3851, TE, 1550, device, ring, r6.5, w0.5, g0.164, b50
+3480, -3851, TE, 1550, device, ring, r13.1, w0.5, g0.147, b50
+2460, -3171, TE, 1550, device, ring, r24.0, w0.5, g0.105, b50
+2800, -3681, TE, 1550, device, ring, r44.8, w0.5, g0.146, b50
+2970, -4191, TE, 1550, device, ring, r5.2, w0.5, g0.158, b50
+3140, -3681, TE, 1550, device, ring, r13.8, w0.5, g0.121, b50
+2120, -3681, TE, 1550, device, ring, r38.0, w0.5, g0.128, b50
+3310, -2831, TE, 1550, device, ring, r20.0, w0.5, g0.149, b50
+2120, -3511, TE, 1550, device, ring, r47.7, w0.5, g0.12, b50
+3140, -4191, TE, 1550, device, ring, r47.0, w0.5, g0.141, b50
+2120, -3851, TE, 1550, device, ring, r29.0, w0.5, g0.178, b50
+2290, -4191, TE, 1550, device, ring, r35.0, w0.5, g0.105, b50
+2970, -2831, TE, 1550, device, ring, r12.1, w0.5, g0.177, b50
+1950, -3171, TE, 1550, device, ring, r43.0, w0.5, g0.149, b50
+2460, -2831, TE, 1550, device, ring, r10.3, w0.5, g0.142, b50
+3480, -3341, TE, 1550, device, ring, r20.3, w0.5, g0.143, b50
+3140, -3341, TE, 1550, device, ring, r20.2, w0.5, g0.17, b50
+1950, -3001, TE, 1550, device, ring, r6.1, w0.5, g0.137, b50
+2460, -4021, TE, 1550, device, ring, r18.7, w0.5, g0.177, b50
+3140, -3851, TE, 1550, device, ring, r40.3, w0.5, g0.156, b50
+2120, -4021, TE, 1550, device, ring, r45.4, w0.5, g0.11, b50
+2460, -3001, TE, 1550, device, ring, r17.2, w0.5, g0.11, b50
+2460, -3851, TE, 1550, device, ring, r33.3, w0.5, g0.149, b50
+2800, -3341, TE, 1550, device, ring, r33.5, w0.5, g0.162, b50
+3310, -3341, TE, 1550, device, ring, r21.2, w0.5, g0.18, b50
+3310, -3171, TE, 1550, device, ring, r48.4, w0.5, g0.155, b50
+2290, -3681, TE, 1550, device, ring, r18.0, w0.5, g0.111, b50
+4330, -3851, TE, 1550, device, ring, r10.9, w0.5, g0.12, b50
+4160, -4361, TE, 1550, device, ring, r31.3, w0.5, g0.143, b50
+3990, -3851, TE, 1550, device, ring, r22.6, w0.5, g0.14, b50
+4500, -3851, TE, 1550, device, ring, r28.0, w0.5, g0.131, b50
+4670, -4191, TE, 1550, device, ring, r23.6, w0.5, g0.144, b50
+4670, -3851, TE, 1550, device, ring, r11.7, w0.5, g0.15, b50
+5180, -3681, TE, 1550, device, ring, r22.9, w0.5, g0.173, b50
+4330, -3171, TE, 1550, device, ring, r42.6, w0.5, g0.135, b50
+4330, -3681, TE, 1550, device, ring, r46.1, w0.5, g0.156, b50
+3650, -3341, TE, 1550, device, ring, r41.4, w0.5, g0.177, b50
+3990, -3001, TE, 1550, device, ring, r26.8, w0.5, g0.104, b50
+4670, -3511, TE, 1550, device, ring, r20.7, w0.5, g0.161, b50
+4840, -3171, TE, 1550, device, ring, r49.4, w0.5, g0.133, b50
+4840, -3001, TE, 1550, device, ring, r34.6, w0.5, g0.107, b50
+4160, -3851, TE, 1550, device, ring, r8.8, w0.5, g0.135, b50
+5180, -3001, TE, 1550, device, ring, r17.0, w0.5, g0.115, b50
+4330, -4191, TE, 1550, device, ring, r38.2, w0.5, g0.122, b50
+3820, -4191, TE, 1550, device, ring, r28.9, w0.5, g0.104, b50
+4670, -3681, TE, 1550, device, ring, r9.9, w0.5, g0.17, b50
+4330, -4021, TE, 1550, device, ring, r21.8, w0.5, g0.113, b50
+5010, -3681, TE, 1550, device, ring, r21.5, w0.5, g0.104, b50
+4840, -3681, TE, 1550, device, ring, r12.6, w0.5, g0.101, b50
+5010, -2831, TE, 1550, device, ring, r39.0, w0.5, g0.164, b50
+4500, -4021, TE, 1550, device, ring, r25.2, w0.5, g0.11, b50
+5180, -4361, TE, 1550, device, ring, r6.2, w0.5, g0.102, b50
+4840, -4361, TE, 1550, device, ring, r47.5, w0.5, g0.153, b50
+3650, -4191, TE, 1550, device, ring, r36.6, w0.5, g0.124, b50
+5180, -3851, TE, 1550, device, ring, r37.6, w0.5, g0.124, b50
+5180, -3341, TE, 1550, device, ring, r35.9, w0.5, g0.176, b50
+3650, -3171, TE, 1550, device, ring, r16.5, w0.5, g0.143, b50
+5010, -4021, TE, 1550, device, ring, r43.3, w0.5, g0.159, b50
+3820, -3341, TE, 1550, device, ring, r19.7, w0.5, g0.172, b50
+3650, -4021, TE, 1550, device, ring, r47.4, w0.5, g0.154, b50
+3650, -4361, TE, 1550, device, ring, r38.2, w0.5, g0.152, b50
+3990, -3681, TE, 1550, device, ring, r46.0, w0.5, g0.118, b50
+3820, -3171, TE, 1550, device, ring, r17.5, w0.5, g0.166, b50
+4160, -3001, TE, 1550, device, ring, r16.5, w0.5, g0.149, b50
+3650, -3681, TE, 1550, device, ring, r28.5, w0.5, g0.149, b50
+5010, -4191, TE, 1550, device, ring, r46.9, w0.5, g0.177, b50
+4670, -4361, TE, 1550, device, ring, r25.8, w0.5, g0.137, b50
+4160, -2831, TE, 1550, device, ring, r6.7, w0.5, g0.119, b50
+4670, -4021, TE, 1550, device, ring, r33.0, w0.5, g0.104, b50
+4160, -3171, TE, 1550, device, ring, r20.6, w0.5, g0.125, b50
+5180, -4021, TE, 1550, device, ring, r5.4, w0.5, g0.102, b50
+4330, -3341, TE, 1550, device, ring, r38.9, w0.5, g0.128, b50
+3650, -3851, TE, 1550, device, ring, r16.4, w0.5, g0.135, b50
+4330, -2831, TE, 1550, device, ring, r14.0, w0.5, g0.11, b50
+4840, -3511, TE, 1550, device, ring, r49.4, w0.5, g0.132, b50
+4840, -4021, TE, 1550, device, ring, r41.9, w0.5, g0.151, b50
+4840, -2831, TE, 1550, device, ring, r35.3, w0.5, g0.101, b50
+4670, -3001, TE, 1550, device, ring, r6.6, w0.5, g0.107, b50
+4500, -3171, TE, 1550, device, ring, r49.5, w0.5, g0.156, b50
+4330, -3001, TE, 1550, device, ring, r23.8, w0.5, g0.109, b50
+4160, -4021, TE, 1550, device, ring, r30.8, w0.5, g0.111, b50
+3990, -3341, TE, 1550, device, ring, r14.7, w0.5, g0.176, b50
+3820, -4361, TE, 1550, device, ring, r33.6, w0.5, g0.103, b50
+4160, -3511, TE, 1550, device, ring, r17.2, w0.5, g0.166, b50
+3990, -4191, TE, 1550, device, ring, r33.8, w0.5, g0.141, b50
+5180, -4191, TE, 1550, device, ring, r16.2, w0.5, g0.106, b50
+3650, -3511, TE, 1550, device, ring, r20.2, w0.5, g0.1, b50
+3820, -4021, TE, 1550, device, ring, r7.9, w0.5, g0.168, b50
+3820, -3001, TE, 1550, device, ring, r24.6, w0.5, g0.126, b50
+4840, -3851, TE, 1550, device, ring, r28.1, w0.5, g0.11, b50
+4840, -3341, TE, 1550, device, ring, r21.9, w0.5, g0.112, b50
+3990, -4021, TE, 1550, device, ring, r10.4, w0.5, g0.122, b50
+3650, -2831, TE, 1550, device, ring, r44.9, w0.5, g0.151, b50
+5010, -3851, TE, 1550, device, ring, r16.4, w0.5, g0.112, b50
+5180, -3511, TE, 1550, device, ring, r47.6, w0.5, g0.138, b50
+5010, -3001, TE, 1550, device, ring, r28.7, w0.5, g0.154, b50
+3820, -3511, TE, 1550, device, ring, r11.4, w0.5, g0.172, b50
+4500, -3341, TE, 1550, device, ring, r30.5, w0.5, g0.161, b50
+4840, -4191, TE, 1550, device, ring, r17.0, w0.5, g0.13, b50
+4500, -3681, TE, 1550, device, ring, r39.5, w0.5, g0.119, b50
+5010, -4361, TE, 1550, device, ring, r24.1, w0.5, g0.146, b50
+5180, -3171, TE, 1550, device, ring, r13.7, w0.5, g0.137, b50
+3820, -3681, TE, 1550, device, ring, r25.8, w0.5, g0.175, b50
+3820, -2831, TE, 1550, device, ring, r41.2, w0.5, g0.167, b50
+4670, -3341, TE, 1550, device, ring, r32.6, w0.5, g0.112, b50
+3990, -3171, TE, 1550, device, ring, r7.9, w0.5, g0.168, b50
+3990, -2831, TE, 1550, device, ring, r43.6, w0.5, g0.152, b50
+4500, -4191, TE, 1550, device, ring, r23.6, w0.5, g0.178, b50
+4670, -3171, TE, 1550, device, ring, r32.1, w0.5, g0.102, b50
+4500, -4361, TE, 1550, device, ring, r36.6, w0.5, g0.105, b50
+4160, -4191, TE, 1550, device, ring, r33.9, w0.5, g0.163, b50
+4160, -3681, TE, 1550, device, ring, r12.5, w0.5, g0.126, b50
+4500, -3511, TE, 1550, device, ring, r6.7, w0.5, g0.141, b50
+3650, -3001, TE, 1550, device, ring, r25.8, w0.5, g0.162, b50
+4330, -3511, TE, 1550, device, ring, r49.6, w0.5, g0.163, b50
+5010, -3171, TE, 1550, device, ring, r8.9, w0.5, g0.144, b50
+5180, -2831, TE, 1550, device, ring, r11.5, w0.5, g0.109, b50
+4500, -2831, TE, 1550, device, ring, r16.2, w0.5, g0.114, b50
+4160, -3341, TE, 1550, device, ring, r29.1, w0.5, g0.101, b50
+5010, -3341, TE, 1550, device, ring, r16.5, w0.5, g0.165, b50
+5010, -3511, TE, 1550, device, ring, r44.1, w0.5, g0.162, b50
+4330, -4361, TE, 1550, device, ring, r34.1, w0.5, g0.138, b50
+4500, -3001, TE, 1550, device, ring, r36.4, w0.5, g0.127, b50
+3990, -4361, TE, 1550, device, ring, r8.9, w0.5, g0.1, b50
+3820, -3851, TE, 1550, device, ring, r6.1, w0.5, g0.147, b50
+3990, -3511, TE, 1550, device, ring, r41.0, w0.5, g0.11, b50
+4670, -2831, TE, 1550, device, ring, r15.6, w0.5, g0.126, b50
+4310, 3438, TE, 1550, ybranch, inverse, 3
+4923, 3822, TE, 1550, ybranch, inverse, 11
+4310, 3628, TE, 1550, ybranch, inverse, 2
+4310, 3827, TE, 1550, ybranch, inverse, 1
+4923, 3434, TE, 1550, ybranch, inverse, 13
+4609, 3430, TE, 1550, ybranch, inverse, 9
+4923, 4023, TE, 1550, ybranch, inverse, 10
+4310, 3243, TE, 1550, ybranch, inverse, 4
+4923, 3623, TE, 1550, ybranch, inverse, 12
+4923, 3237, TE, 1550, ybranch, inverse, 14
+4606, 3827, TE, 1550, ybranch, inverse, 6
+4606, 3623, TE, 1550, ybranch, inverse, 7
+4309, 4021, TE, 1550, cutback, ybranch, inverse
+4606, 4021, TE, 1550, cutback, ybranch, inverse, 1
+-5442, 2980, TE, 1550, device, AlignmentRotation, comment
+-5228, 2980, TE, 1310, device, AlignmentRotation, comment
+
+% X-coord, Y-coord, deviceID, padName, params 
+
+% X-coord, Y-coord, recipeID, params 
+-5570, 3692, ST2ST, SiEPICfabZEP, comment
+-5570, 3819, ST2ST, SiEPICfabZEP, comment
+-5570, 3946, ST2ST, SiEPICfabZEP, comment
+-5570, 4073, ST2ST, SiEPICfabZEP, comment
+-5570, 4200, ST2ST, SiEPICfabZEP, comment
+-5570, 4327, ST2ST, SiEPICfabZEP, comment
+-5570, 4454, ST2ST, SiEPICfabZEP, comment
+-5570, 4581, ST2ST, SiEPICfabZEP, comment
