@@ -373,8 +373,8 @@ if __name__ == '__main__':
     webview.create_window(
         'Stage Control',
         f'http://{local_ip}:8000',
-        width=672,
-        height=407,
+        width=672, height=407,
+        x=800, y=465,
         resizable=True
     )
 

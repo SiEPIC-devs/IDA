@@ -97,7 +97,7 @@ def get_local_ip():
 def run_remi():
     start(
         stage_control,
-        address="0.0.0.0", port=8001,
+        address="0.0.0.0", port=8002,
         start_browser=False, multiple_instance=False
     )
 
@@ -117,9 +117,10 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     local_ip = get_local_ip()
     webview.create_window(
-        'Sensor Control',
-        f'http://{local_ip}:8001',
+        'TEC Control',
+        f'http://{local_ip}:8002',
         width=322, height=157,
+        x=800, y=100,
         resizable=True
     )
     webview.start(func=disable_scroll)

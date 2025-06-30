@@ -108,8 +108,8 @@ if __name__ == '__main__':
     webview.create_window(
         'Probe Stage',
         f'http://{local_ip}',
-        width=672,
-        height=771,
+        width=672, height=771,
+        x= 100, y= 100,
         resizable=True
     )
 

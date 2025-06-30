@@ -215,6 +215,7 @@ if __name__ == '__main__':
         'Sensor Control',
         f'http://{local_ip}:8001',
         width=672, height=207,
+        x=800, y=255,
         resizable=True
     )
     webview.start(func=disable_scroll)
