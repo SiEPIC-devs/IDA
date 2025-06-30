@@ -44,12 +44,23 @@ class stage_control(App):
         self.configure = StageConfiguration()
         self.stage_manager = StageManager(self.configure, create_shm=True)
         asyncio.run(self.stage_manager.initialize([AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER]))
-        stage_control_container = StyledContainer(container=None, variable_name="stage_control_container", left=0, top=0, height=350, width=650)
-        xyz_container = StyledContainer(container=stage_control_container, variable_name="xyz_container", left=0, top=20, height=300, width=410)
-        self.stop_btn = StyledButton(container=xyz_container, text="Stop", variable_name="stop_button", font_size=100,
-                        left=125, top=10, width=90, height=30, normal_color="#dc3545", press_color="#c82333")
-        self.lock_box = StyledCheckBox(container=xyz_container, variable_name="lock_box", left=225, top=10, width=10, height=10, position="absolute")
-        StyledLabel(container=xyz_container, text="Lock", variable_name="lock_label", left=255, top=17, width=80, height=50, font_size=100, color="#222")
+        stage_control_container = StyledContainer(
+            container=None, variable_name="stage_control_container", left=0, top=0, height=350, width=650)
+
+        xyz_container = StyledContainer(
+            container=stage_control_container, variable_name="xyz_container", left=0, top=20, height=300, width=410)
+
+        self.stop_btn = StyledButton(
+            container=xyz_container, text="Stop", variable_name="stop_button", font_size=100,
+            left=125, top=10, width=90, height=30, normal_color="#dc3545", press_color="#c82333")
+
+        self.lock_box = StyledCheckBox(
+            container=xyz_container, variable_name="lock_box",
+            left=225, top=10, width=10, height=10, position="absolute")
+
+        StyledLabel(
+            container=xyz_container, text="Lock", variable_name="lock_label",
+            left=255, top=17, width=80, height=50, font_size=100, color="#222")
 
         labels = ["X", "Y", "Z", "Chip", "Fiber"]
         top_positions = [70, 110, 150, 190, 230]
@@ -58,94 +69,120 @@ class stage_control(App):
         var_prefixes = ["x", "y", "z", "chip", "fiber"]
         position_texts = [f"{0}", f"{0}", f"{0}", f"{0}", f"{0}"]
         position_unit = ["um", "um", "um", "deg", "deg"]
-        init_value = ["10", "10", "10", "0.1", "0.1"]
+        init_value = ["10.0", "10.0", "10.0", "0.1", "0.1"]
 
         for i in range(5):
             prefix = var_prefixes[i]
             top = top_positions[i]
 
-            StyledLabel(container=xyz_container, text=labels[i], variable_name=f"{prefix}_label", left=0, top=top,
-                        width=55, height=30, font_size=100, color="#222", flex=True, bold=True, justify_content="right")
-            setattr(self, f"{prefix}_left_btn",
-                    StyledButton(container=xyz_container, text=left_arrows[i],
-                                 variable_name=f"{prefix}_left_button",
-                                 font_size=100, left=65, top=top, width=50, height=30,
-                                 normal_color="#007BFF", press_color="#0056B3"))
-            setattr(self, f"{prefix}_input",
-                    StyledSpinBox(container=xyz_container,
-                                  variable_name=f"{prefix}_step", min_value=0, max_value=1000, value=init_value[i],
-                                  step=0.1, left=125, top=top, width=73, height=30, position="absolute"))
-            setattr(self, f"{prefix}_right_btn",
-                    StyledButton(container=xyz_container, text=right_arrows[i],
-                                 variable_name=f"{prefix}_right_button",
-                                 font_size=100, left=225, top=top, width=50, height=30,
-                                 normal_color="#007BFF", press_color="#0056B3"))
-            setattr(self, f"{prefix}_position_lb",
-                    StyledLabel(container=xyz_container, text=position_texts[i],
-                                variable_name=f"{prefix}_position_lb", left=280, top=top, width=70, height=30,
-                                font_size=100, color="#222", flex=True, bold=True, justify_content="right"))
-            setattr(self, f"{prefix}_position_unit",
-                    StyledLabel(container=xyz_container, text=position_unit[i],
-                                variable_name=f"{prefix}_position_unit", left=355, top=top, width=40, height=30,
-                                font_size=100, color="#222", flex=True, bold=True, justify_content="left"))
+            StyledLabel(
+                container=xyz_container, text=labels[i], variable_name=f"{prefix}_label", left=0, top=top,width=55,
+                height=30, font_size=100, color="#222", flex=True, bold=True, justify_content="right")
 
-        self.zero_btn = StyledButton(container=xyz_container, text="Zero", variable_name="zero_button", font_size=100,
-                                     left=310, top=10, width=90, height=30, normal_color="#007BFF", press_color="#0056B3")
+            setattr(self, f"{prefix}_left_btn", StyledButton(
+                container=xyz_container, text=left_arrows[i], variable_name=f"{prefix}_left_button", font_size=100,
+                left=65, top=top, width=50, height=30, normal_color="#007BFF", press_color="#0056B3"))
 
-        limits_container = StyledContainer(container=stage_control_container, variable_name="limits_container",
-                                           left=430, top=20, height=90, width=90, border=True)
-        StyledLabel(container=limits_container, text="Limits", variable_name="limits_label",
-                    left=22.5, top=-12, width=40, height=20, font_size=100, color="#444", position="absolute",
-                    flex=True, on_line=True, justify_content="center")
-        self.limit_setting_btn = StyledButton(container=limits_container, text="Setting",
-                                              variable_name="limit_setting_btn", font_size=100, left=5, top=10,
-                                              width=80, height=30, normal_color="#007BFF", press_color="#0056B3")
-        StyledButton(container=limits_container, text="Clear", variable_name="clear_button",
-                     font_size=100, left=5, top=50, width=80, height=30,
-                     normal_color="#007BFF", press_color="#0056B3")
-        fine_align_container = StyledContainer(container=stage_control_container, variable_name="fine_align_container",
-                                               left=540, top=20, height=90, width=90, border=True)
-        StyledLabel(container=fine_align_container, text="Fine Align",
-                    variable_name="fine_align_label", left=12.5, top=-12, width=65, height=20,
-                    font_size=100, color="#444", position="absolute", flex=True, on_line=True, justify_content="center")
-        self.fine_align_setting_btn = StyledButton(container=fine_align_container, text="Setting",
-                                                   variable_name="fine_align_setting_btn",
-                                                   font_size=100, left=5, top=10, width=80, height=30,
-                                                   normal_color="#007BFF", press_color="#0056B3")
-        StyledButton(container=fine_align_container, text="Start", variable_name="start_button",
-                     font_size=100, left=5, top=50, width=80, height=30,
-                     normal_color="#007BFF", press_color="#0056B3")
+            setattr(self, f"{prefix}_input", StyledSpinBox(
+                container=xyz_container, variable_name=f"{prefix}_step", min_value=0, max_value=1000,
+                value=init_value[i], step=0.1, left=125, top=top, width=73, height=30, position="absolute"))
 
-        area_scan_container = StyledContainer(container=stage_control_container, variable_name="area_scan_container",
-                                           left=430, top=130, height=90, width=90, border=True)
-        StyledLabel(container=area_scan_container, text="Area Scan", variable_name="area_scan_label",
-                    left=13, top=-12, width=65, height=20, font_size=100, color="#444", position="absolute",
-                    flex=True, on_line=True, justify_content="center")
-        self.scan_setting_btn = StyledButton(container=area_scan_container, text="Setting",
-                                             variable_name="area_scan_setting_btn",
-                                             font_size=100, left=5, top=10, width=80, height=30,
-                                             normal_color="#007BFF", press_color="#0056B3")
-        StyledButton(container=area_scan_container, text="Scan", variable_name="scan_button",
-                     font_size=100, left=5, top=50, width=80, height=30,
-                     normal_color="#007BFF", press_color="#0056B3")
+            setattr(self, f"{prefix}_right_btn", StyledButton(
+                container=xyz_container, text=right_arrows[i], variable_name=f"{prefix}_right_button", font_size=100,
+                left=225, top=top, width=50, height=30, normal_color="#007BFF", press_color="#0056B3"))
 
-        move_container = StyledContainer(container=stage_control_container, variable_name="move_container",
-                                         left=430, top=240, height=88, width=200, border=True)
-        StyledLabel(container=move_container, text="Move To Device", variable_name="move_label",
-                    left=50, top=-12, width=100, height=20, font_size=100, color="#444", position="absolute",
-                    flex=True, on_line=True, justify_content="center")
-        StyledLabel(container=move_container, text="Move to", variable_name="move_to_label",
-                    left=0, top=15, width=60, height=28, font_size=100, color="#222",
-                    position="absolute", flex=True, justify_content="right")
-        self.move_dd = StyledDropDown(container=move_container, variable_name="move_to_dd", text="N/A",
-                       left=75, top=15, height=28, width=115)
+            setattr(self, f"{prefix}_position_lb", StyledLabel(
+                container=xyz_container, text=position_texts[i], variable_name=f"{prefix}_position_lb",
+                left=280, top=top, width=70, height=30, font_size=100, color="#222", flex=True, bold=True,
+                justify_content="right"))
+
+            setattr(self, f"{prefix}_position_unit", StyledLabel(
+                container=xyz_container, text=position_unit[i], variable_name=f"{prefix}_position_unit",
+                left=355, top=top, width=40, height=30, font_size=100, color="#222", flex=True, bold=True,
+                justify_content="left"))
+
+        self.zero_btn = StyledButton(
+            container=xyz_container, text="Zero", variable_name="zero_button", font_size=100,
+            left=310, top=10, width=90, height=30, normal_color="#007BFF", press_color="#0056B3")
+
+        limits_container = StyledContainer(
+            container=stage_control_container, variable_name="limits_container",
+            left=430, top=20, height=90, width=90, border=True)
+
+        StyledLabel(
+            container=limits_container, text="Limits", variable_name="limits_label",
+            left=22.5, top=-12, width=40, height=20, font_size=100, color="#444", position="absolute",
+            flex=True, on_line=True, justify_content="center")
+
+        self.limit_setting_btn = StyledButton(
+            container=limits_container, text="Setting", variable_name="limit_setting_btn", font_size=100,
+            left=5, top=10, width=80, height=30, normal_color="#007BFF", press_color="#0056B3")
+
+        StyledButton(
+            container=limits_container, text="Clear", variable_name="clear_button", font_size=100,
+            left=5, top=50, width=80, height=30, normal_color="#007BFF", press_color="#0056B3")
+
+        fine_align_container = StyledContainer(
+            container=stage_control_container, variable_name="fine_align_container",
+            left=540, top=20, height=90, width=90, border=True)
+
+        StyledLabel(
+            container=fine_align_container, text="Fine Align", variable_name="fine_align_label",
+            left=12.5, top=-12, width=65, height=20, font_size=100, color="#444", position="absolute",
+            flex=True, on_line=True, justify_content="center")
+
+        self.fine_align_setting_btn = StyledButton(
+            container=fine_align_container, text="Setting", variable_name="fine_align_setting_btn", font_size=100,
+            left=5, top=10, width=80, height=30, normal_color="#007BFF", press_color="#0056B3")
+
+        StyledButton(
+            container=fine_align_container, text="Start", variable_name="start_button", font_size=100,
+            left=5, top=50, width=80, height=30, normal_color="#007BFF", press_color="#0056B3")
+
+        area_scan_container = StyledContainer(
+            container=stage_control_container, variable_name="area_scan_container",
+            left=430, top=130, height=90, width=90, border=True)
+
+        StyledLabel(
+            container=area_scan_container, text="Area Scan", variable_name="area_scan_label",
+            left=13, top=-12, width=65, height=20, font_size=100, color="#444", position="absolute",
+            flex=True, on_line=True, justify_content="center")
+
+        self.scan_setting_btn = StyledButton(
+            container=area_scan_container, text="Setting", variable_name="area_scan_setting_btn", font_size=100,
+            left=5, top=10, width=80, height=30, normal_color="#007BFF", press_color="#0056B3")
+
+        StyledButton(
+            container=area_scan_container, text="Scan", variable_name="scan_button", font_size=100,
+            left=5, top=50, width=80, height=30, normal_color="#007BFF", press_color="#0056B3")
+
+        move_container = StyledContainer(
+            container=stage_control_container, variable_name="move_container",
+            left=430, top=240, height=88, width=200, border=True)
+
+        StyledLabel(
+            container=move_container, text="Move To Device", variable_name="move_label",
+            left=50, top=-12, width=100, height=20, font_size=100, color="#444", position="absolute",
+            flex=True, on_line=True, justify_content="center")
+
+        StyledLabel(
+            container=move_container, text="Move to", variable_name="move_to_label",
+            left=0, top=15, width=60, height=28, font_size=100, color="#222",
+            position="absolute", flex=True, justify_content="right")
+
+        self.move_dd = StyledDropDown(
+            container=move_container, variable_name="move_to_dd", text="N/A",
+            left=75, top=15, height=28, width=115)
+
         self.move_dd.attributes["title"] = "N/A"
-        self.load_btn = StyledButton(container=move_container, text="Load", variable_name="load_button",
-                     font_size=100, left=10, top=50, width=85, height=28,
-                     normal_color="#007BFF", press_color="#0056B3")
-        self.move_btn = StyledButton(container=move_container, text="Move", variable_name="move_button",
-                     font_size=100, left=105, top=50, width=85, height=28,
-                     normal_color="#007BFF", press_color="#0056B3")
+
+        self.load_btn = StyledButton(
+            container=move_container, text="Load", variable_name="load_button", font_size=100,
+            left=10, top=50, width=85, height=28, normal_color="#007BFF", press_color="#0056B3")
+
+        self.move_btn = StyledButton(
+            container=move_container, text="Move", variable_name="move_button", font_size=100,
+            left=105, top=50, width=85, height=28, normal_color="#007BFF", press_color="#0056B3")
 
         self.stop_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_stop))
         self.zero_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_zero))

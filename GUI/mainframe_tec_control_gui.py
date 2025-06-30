@@ -57,6 +57,7 @@ class stage_control(App):
 
         self.minus_tem.do_onclick(lambda *_: self.run_in_thread(self.onclick_minus_tem))
         self.plus_tem.do_onclick(lambda *_: self.run_in_thread(self.onclick_plus_tem))
+        self.tem.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_tem, emitter, value))
 
         self.sensor_control_container = sensor_control_container
         return sensor_control_container
@@ -64,17 +65,21 @@ class stage_control(App):
     def onclick_minus_tem(self):
         value = round(float(self.tem.get_value()), 1)
         value = round(value - 0.1, 1)
+        if value < 0: value = 0.0
+        if value > 100: value = 100.0
         self.tem.set_value(value)
         print(f"TEC temperature: {value:.1f} °C")
 
     def onclick_plus_tem(self):
         value = round(float(self.tem.get_value()), 1)
         value = round(value + 0.1, 1)
+        if value < 0: value = 0.0
+        if value > 100: value = 100.0
         self.tem.set_value(value)
         print(f"TEC temperature: {value:.1f} °C")
 
-
-
+    def onchange_tem(self, emitter, value):
+        print(f"TEC temperature: {value:.1f} °C")
 
 def get_local_ip():
     """Automatically detect local LAN IP address"""

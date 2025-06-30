@@ -126,6 +126,8 @@ class stage_control(App):
         self.minus_pwr.do_onclick(lambda *_: self.run_in_thread(self.onclick_minus_pwr))
         self.add_wvl.do_onclick(lambda *_: self.run_in_thread(self.onclick_add_wvl))
         self.add_pwr.do_onclick(lambda *_: self.run_in_thread(self.onclick_add_pwr))
+        self.wvl.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_wvl, emitter, value))
+        self.pwr.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_pwr, emitter, value))
 
         self.sensor_control_container = sensor_control_container
         return sensor_control_container
@@ -166,6 +168,12 @@ class stage_control(App):
         if value < -1000:  value = -1000.0
         if value > 1000: value = 1000.0
         self.pwr.set_value(value)
+        print(f"Power: {value:.1f} dBm")
+
+    def onchange_wvl(self, emitter, value):
+        print(f"Wavelength: {value:.1f} nm")
+
+    def onchange_pwr(self, emitter, value):
         print(f"Power: {value:.1f} dBm")
 
 def get_local_ip():
