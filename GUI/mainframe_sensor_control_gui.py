@@ -27,42 +27,43 @@ class stage_control(App):
                        width=10, height=10, position="absolute")
         StyledLabel(container=sensor_control_container, text="On", variable_name="on_label", left=50, top=10,
                     width=40, height=30, font_size=100, flex=True, justify_content="left", color="#222")
-        StyledLabel(container=sensor_control_container, text="Wvl [nm]", variable_name="wvl_label", left=50, top=50,
+        StyledLabel(container=sensor_control_container, text="Wvl [nm]", variable_name="wvl_label", left=55, top=55,
                     width=80, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        StyledLabel(container=sensor_control_container, text="Pwr [dBm]", variable_name="pwr_label", left=50, top=90,
+        StyledLabel(container=sensor_control_container, text="Pwr [dBm]", variable_name="pwr_label", left=55, top=95,
                     width=80, height=25, font_size=100, flex=True, justify_content="right", color="#222")
         StyledButton(container=sensor_control_container, text="⮜", variable_name="wvl_left_button",
-                     font_size=100, left=140, top=50, width=40, height=25, normal_color="#007BFF", press_color="#0056B3")
+                     font_size=100, left=140, top=55, width=40, height=25, normal_color="#007BFF", press_color="#0056B3")
         StyledButton(container=sensor_control_container, text="-", variable_name="pwr_left_button",
-                     font_size=130, left=140, top=90, width=40, height=25, normal_color="#007BFF", press_color="#0056B3")
-        StyledTextInput(container=sensor_control_container, variable_name="wvl_input", left=185, top=50,
+                     font_size=130, left=140, top=95, width=40, height=25, normal_color="#007BFF", press_color="#0056B3")
+        StyledTextInput(container=sensor_control_container, variable_name="wvl_input", left=185, top=55,
                         width=65, height=24, position="absolute")
-        StyledTextInput(container=sensor_control_container, variable_name="pwr_input", left=185, top=90,
+        StyledTextInput(container=sensor_control_container, variable_name="pwr_input", left=185, top=95,
                         width=65, height=24, position="absolute")
         StyledButton(container=sensor_control_container, text="⮞", variable_name="wvl_right_button",
-                     font_size=100, left=272, top=50, width=40, height=25, normal_color="#007BFF", press_color="#0056B3")
+                     font_size=100, left=272, top=55, width=40, height=25, normal_color="#007BFF", press_color="#0056B3")
         StyledButton(container=sensor_control_container, text="+", variable_name="pwr_right_button",
-                     font_size=100, left=272, top=90, width=40, height=25, normal_color="#007BFF", press_color="#0056B3")
+                     font_size=100, left=272, top=95, width=40, height=25, normal_color="#007BFF", press_color="#0056B3")
         StyledButton(container=sensor_control_container, text="Calibrate", variable_name="calibrate_button",
-                     font_size=90, left=140, top=15, width=80, height=25, normal_color="#007BFF", press_color="#0056B3")
+                     font_size=90, left=140, top=20, width=80, height=28, normal_color="#007BFF", press_color="#0056B3")
         StyledButton(container=sensor_control_container, text="Setting", variable_name="setting_button",
-                     font_size=90, left=232, top=15, width=80, height=25, normal_color="#007BFF", press_color="#0056B3")
+                     font_size=90, left=232, top=20, width=80, height=28, normal_color="#007BFF", press_color="#0056B3")
         sweep_container = StyledContainer(container=sensor_control_container, variable_name="sweep_container",
-                                          left=330, top=20, height=90, width=300, border=True)
+                                          left=330, top=20, height=100, width=300, border=True)
         StyledButton(container=sweep_container, text="Sweep", variable_name="sweep_button",
-                     font_size=90, left=90, top=10, width=82, height=25, normal_color="#007BFF", press_color="#0056B3")
+                     font_size=90, left=90, top=15, width=82, height=28, normal_color="#007BFF", press_color="#0056B3")
         self.configure = StyledButton(container=sweep_container, text="Configure", variable_name="configure_button",
-                                      font_size=90, left=200, top=10, width=82, height=25, normal_color="#007BFF", press_color="#0056B3")
-        StyledLabel(container=sweep_container, text="Range [nm]", variable_name="range_label", left=0, top=50,
+                                      font_size=90, left=200, top=15, width=82, height=28, normal_color="#007BFF", press_color="#0056B3")
+        StyledLabel(container=sweep_container, text="Range [nm]", variable_name="range_label", left=0, top=55,
                     width=85, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        StyledTextInput(container=sweep_container, variable_name="range_start", left=90, top=50,
+        StyledTextInput(container=sweep_container, variable_name="range_start", left=90, top=55,
                         width=65, height=24, position="absolute")
-        StyledLabel(container=sweep_container, text="to", variable_name="to_label", left=175, top=50,
+        StyledLabel(container=sweep_container, text="to", variable_name="to_label", left=175, top=55,
                     width=20, height=25, font_size=100, flex=True, justify_content="center", color="#222")
-        StyledTextInput(container=sweep_container, variable_name="range_end", left=200, top=50,
+        StyledTextInput(container=sweep_container, variable_name="range_end", left=200, top=55,
                         width=65, height=24, position="absolute")
 
         self.configure.do_onclick(lambda *_: self.run_in_thread(self.onclick_configure))
+
 
         self.sensor_control_container = sensor_control_container
         return sensor_control_container
