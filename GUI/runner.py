@@ -6,7 +6,7 @@ import os
 import time
 from lab_gui import *
 
-# ────────── Configuration ──────────
+# ────────── Configuration ───────────
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 PY = sys.executable
 LOG_FILE = BASE_DIR / "log.txt"
