@@ -13,6 +13,7 @@ from lab_tsp import TSPSolver
 import wx
 import webview
 
+json_path = os.path.join("database", "shared_memory.json")
 
 def fmt(val):
     try:
@@ -29,6 +30,7 @@ class testing(App):
         self.init = False
         self.load_file()
         self.init = True
+        self._user_mtime = None
         # runtime flags
         self.running = False  # becomes True while measurement loop is active
 
@@ -38,14 +40,12 @@ class testing(App):
     # ------------------------------------------------------------------ REMI HOOKS
     def idle(self):
         self.terminal.terminal_refresh()
-
-        json_path = os.path.join(os.getcwd(), "database", "current_user.json")
         try:
             mtime = os.path.getmtime(json_path)
         except FileNotFoundError:
             mtime = None
 
-        if mtime != getattr(self, "_user_mtime", None):
+        if mtime != self._user_mtime:
             self._user_mtime = mtime
             cur_user = ""
             if mtime is not None:
@@ -307,7 +307,7 @@ class testing(App):
         self.display_plot.set_image("my_res:wait.png")
         solver = TSPSolver(
             coord_json="./database/coordinates.json",
-            selected_json="./database/selection_serial.json",
+            selected_json="./database/shared_memory.json",
             time_limit=20,
             output_dir="./res"
         )
@@ -319,12 +319,18 @@ class testing(App):
         self.tsp_btn.set_enabled(True)
 
     def load_file(self):
-        file_path = os.path.join(os.getcwd(), "database", "selection_serial.json")
+        file_path = os.path.join("database", "shared_memory.json")
         if (self.init == False):
             self.serial_list = []
         else:
             with open(file_path, "r") as f:
-                self.serial_list = json.load(f)
+                try:
+                    data = json.load(f)
+                    self.serial_list = set(data.get("selection", []))
+                except json.JSONDecodeError as e:
+                    print(f"❌ Failed to parse JSON: {e}")
+                    self.serial_list = set()
+
         self.timestamp = -1
         self.gds = lab_coordinates.coordinates(read_file=False, name="./database/coordinates.json")
         self.number = self.gds.listdeviceparam("number")
@@ -351,7 +357,7 @@ class testing(App):
         app.Destroy()
 
     def save_file(self):
-        src = os.path.join(os.getcwd(), "database", "selection_serial.json")
+        src = os.path.join(os.getcwd(), "database", "shared_memory.json")
         dest_dir = self.save_path_input.get_text().strip()
 
         if not os.path.isfile(src):
@@ -367,7 +373,7 @@ class testing(App):
                 print(f"[Error] Create dir failed: {e}\n")
                 return
 
-        dest = os.path.join(dest_dir, "selection_serial.json")
+        dest = os.path.join(dest_dir, "shared_memory.json")
         try:
             shutil.copy(src, dest)
             print(f"[OK] Copied to {dest}\n")

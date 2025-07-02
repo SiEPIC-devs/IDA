@@ -353,3 +353,26 @@ class Memory():
         del sp
         del raw
         shm.close()
+
+class File():
+    def __init__(self, filename, data_name, data_info=""):
+        self.filename = filename
+        self.data_name = data_name
+        self.data_info = data_info
+
+    def save(self):
+        filepath = os.path.join("database", f"{self.filename}.json")
+        os.makedirs("database", exist_ok=True)
+        if os.path.exists(filepath):
+            with open(filepath, "r", encoding="utf-8") as f:
+                try:
+                    data = json.load(f)
+                except json.JSONDecodeError:
+                    data = {}
+        else:
+            data = {}
+        data[f"{self.data_name}"] = self.data_info
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+
+        print(f"Saved to {filepath}")

@@ -20,8 +20,8 @@ from remi import App, start
 from lab_gui import *
 
 # ──────────────────────────────────────────
-ROOT_DIR = ".\\UserData"
-JSON_PATH = ".\\database\\current_user.json"
+ROOT_DIR = "./UserData"
+JSON_PATH = "database/shared_memory.json"
 
 
 class Starts(App):
@@ -48,11 +48,8 @@ class Starts(App):
         # 2) current dropdown selection changed → write JSON
         current_user = self.user_dd.get_value()
         if current_user != self._last_saved_user:
-            try:
-                with open(JSON_PATH, "w", encoding="utf-8") as f:
-                    json.dump({"user": current_user}, f)
-            except Exception as exc:
-                print(f"❌ Failed to write JSON: {exc}")
+            file = File("shared_memory", "user", current_user)
+            file.save()
             self._last_saved_user = current_user
 
     def main(self):
@@ -205,11 +202,11 @@ class Starts(App):
         folder = self.user_dd.get_value().replace(" ", "")
         path = os.path.join(ROOT_DIR, folder)
         if not os.path.isdir(path):
-            print(f"⚠️ No such folder: {path}")
+            print(f"⚠️ No such folder: {folder}")
             return
         try:
             shutil.rmtree(path)
-            print(f"🗑️ Removed {path}")
+            print(f"🗑️ Removed {folder}")
         except Exception as exc:
             print(f"❌ Failed to remove: {exc}")
 

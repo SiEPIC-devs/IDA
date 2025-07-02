@@ -251,15 +251,9 @@ class devices(App):
         if not selected_idx:
             print("No device selected — serial not saved.")
             return
+        file = File("shared_memory", "selection", selected_idx)
+        file.save()
 
-        db_folder = os.path.join(os.getcwd(), "database")
-        os.makedirs(db_folder, exist_ok=True)
-        path = os.path.join(db_folder, "selection_serial.json")
-
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(selected_idx, f, indent=2)
-
-        print(f"Serial saved to {path}")
 
     def onclick_load(self):
         self.read_file()
