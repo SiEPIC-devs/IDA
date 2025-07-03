@@ -1,8 +1,8 @@
 import asyncio
 import time
 
-from motor_stage_manager_w_debug import StageManager, StageConfiguration
-from motors_hal import AxisType, MotorEvent, MotorEventType
+from modern.test.motor_stage_manager_w_debug import StageManager, StageConfiguration
+from modern.test.motors_hal import AxisType, MotorEvent, MotorEventType
 
 # Define a simple event callback that just prints everything it sees
 def print_event(event: MotorEvent):
