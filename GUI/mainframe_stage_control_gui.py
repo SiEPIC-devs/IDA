@@ -6,7 +6,8 @@ from modern.stage_manager import StageManager
 from modern.config.stage_config import StageConfiguration
 
 filename = "coordinates.json"
-json_path = os.path.join("database", "shared_memory.json")
+shared_memory_path = os.path.join("database", "shared_memory.json")
+command_path = os.path.join("database", "command.json")
 
 class stage_control(App):
     def __init__(self, *args, **kwargs):
@@ -19,14 +20,21 @@ class stage_control(App):
         self.chip_position_lb = None
         self.fiber_position_lb = None
         self._user_mtime = None
+        self._first_command_check = True
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
         try:
-            mtime = os.path.getmtime(json_path)
+            mtime = os.path.getmtime(command_path)
         except FileNotFoundError:
             mtime = None
+
+        if self._first_command_check:
+            self._user_mtime = mtime
+            self._first_command_check = False
+            return
+
         if mtime != self._user_mtime:
             self._user_mtime = mtime
             self.execute_command()
@@ -372,7 +380,7 @@ class stage_control(App):
             on_top=True,
         )
 
-    def execute_command(self, path="database/shared_memory.json"):
+    def execute_command(self, path=command_path):
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -381,8 +389,69 @@ class stage_control(App):
             print(f"[Error] Failed to load command: {e}")
             return
 
-        if "move_x_step" in command:
-            self.x_input.set_value(str(command["move_x_step"]))
+        for key, val in command.items():
+            if key == "stage_x_step":
+                self.x_input.set_value(str(val))
+            elif key == "stage_y_step":
+                self.y_input.set_value(str(val))
+            elif key == "stage_z_step":
+                self.z_input.set_value(str(val))
+            elif key == "stage_chip_step":
+                self.chip_input.set_value(str(val))
+            elif key == "stage_fiber_step":
+                self.fiber_input.set_value(str(val))
+
+            elif key == "stage_x_left":
+                self.onclick_x_left()
+            elif key == "stage_y_left":
+                self.onclick_y_left()
+            elif key == "stage_z_left":
+                self.onclick_z_left()
+            elif key == "stage_chip_left":
+                self.onclick_chip_left()
+            elif key == "stage_fiber_left":
+                self.onclick_fiber_left()
+
+            elif key == "stage_x_right":
+                self.onclick_x_right()
+            elif key == "stage_y_right":
+                self.onclick_y_right()
+            elif key == "stage_z_right":
+                self.onclick_z_right()
+            elif key == "stage_chip_right":
+                self.onclick_chip_right()
+            elif key == "stage_fiber_right":
+                self.onclick_fiber_right()
+
+            elif key == "stage_x_left_distance":
+                self.x_input.set_value(str(val))
+                self.onclick_x_left()
+            elif key == "stage_y_left_distance":
+                self.y_input.set_value(str(val))
+                self.onclick_y_left()
+            elif key == "stage_z_left_distance":
+                self.z_input.set_value(str(val))
+                self.onclick_z_left()
+            elif key == "stage_chip_left_distance":
+                self.chip_input.set_value(str(val))
+                self.onclick_chip_left()
+            elif key == "stage_fiber_left_distance":
+                self.fiber_input.set_value(str(val))
+                self.onclick_fiber_left()
+
+            elif key == "stage_stop":
+                self.onclick_stop()
+            elif key == "stage_zero":
+                self.onclick_zero()
+            elif key == "stage_load":
+                self.onclick_load_btn()
+            elif key == "stage_lock":
+                self.lock_box.set_value(1)
+                self.onchange_lock_box(val, 1)
+            elif key == "stage_unlock":
+                self.lock_box.set_value(0)
+                self.onchange_lock_box(val, 0)
+
 
         print("✅ Command executed.")
 

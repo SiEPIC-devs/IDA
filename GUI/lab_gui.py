@@ -340,7 +340,7 @@ class Memory():
 
     def reader_pos(self):
         # give writer a moment
-        sleep(0.1)
+        # sleep(0.1)
         shm, raw = open_shared_stage_position("stage_position")
         sp = StagePosition(shared_struct=raw)
         self.x_pos = sp.x.position

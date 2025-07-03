@@ -9,6 +9,7 @@ class stage_control(App):
     def __init__(self, *args, **kwargs):
         self.command_input = None
         self.confirm_btn = None
+        self.uploaded_filename = None
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -23,7 +24,7 @@ class stage_control(App):
 
     def construct_ui(self):
         command_container = StyledContainer(
-            container=None, variable_name="command_container", left=0, top=0, height=50, width=400
+            container=None, variable_name="command_container", left=0, top=0, height=80, width=400
         )
 
         StyledLabel(
@@ -39,20 +40,36 @@ class stage_control(App):
             container=command_container, variable_name="confirm", text="Confirm", left=310, top=10, height=27, width=80
         )
 
+        self.uploader = StyledFileUploader(
+            container=command_container, variable_name="uploader", left=10, top=45, width=220, height=30
+        )
+
         self.confirm_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_confirm_btn))
+        self.uploader.ondata.do(lambda emitter, filedata, filename: self.run_in_thread(self.ondata_uploader, emitter, filedata, filename))
 
         self.command_container = command_container
         return command_container
 
     def onclick_confirm_btn(self):
         command_text = self.command_input.get_value().strip()
-        if not command_text:
-            print("Empty command ignored")
+        command_data = {}
+
+        if command_text:
+            parts = [p.strip() for p in command_text.split(",")]
+        elif self.uploaded_filename:
+            try:
+                filepath = os.path.join("./res", self.uploaded_filename)
+                with open(filepath, "r", encoding="utf-8") as f:
+                    text = f.read().strip()
+                    parts = [p.strip() for p in text.split(",")]
+            except Exception as e:
+                print(f"[Error] Failed to load uploaded .txt file: {e}")
+                return
+        else:
+            print("⚠️ No input or uploaded file to use")
             return
 
-        command_data = {}
         try:
-            parts = [p.strip() for p in command_text.split(",")]
             for part in parts:
                 if "_" not in part:
                     continue
@@ -67,15 +84,24 @@ class stage_control(App):
                     val = False
                 elif val.replace(".", "", 1).isdigit():
                     val = float(val) if "." in val else int(val)
-                else:
-                    val = val
                 command_data[key] = val
         except Exception as e:
-            print(f"[Error] Invalid command format: {e}")
+            print(f"[Error] Failed to parse command text: {e}")
             return
 
-        file = File("shared_memory", "command", command_data)
+        file = File("command", "command", command_data)
         file.save()
+
+    def ondata_uploader(self, emitter, filedata: bytes, filename: str):
+        try:
+            os.makedirs("./res", exist_ok=True)
+            filepath = os.path.join("./res", filename)
+            with open(filepath, "wb") as f:
+                f.write(filedata)
+            self.uploaded_filename = filename
+            print(f"✅ File '{filename}' saved to ./res/")
+        except Exception as e:
+            print(f"[Error] Failed to save file: {e}")
 
 def get_local_ip():
     """Automatically detect local LAN IP address"""
@@ -115,8 +141,8 @@ if __name__ == '__main__':
     webview.create_window(
         'TEC Control',
         f'http://{local_ip}:8003',
-        width=422, height=107,
-        x=800, y=100,
+        width=422, height=137,
+        x=1150, y=100,
         resizable=True
     )
     webview.start(func=disable_scroll)

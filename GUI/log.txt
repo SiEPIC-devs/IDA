@@ -6,8 +6,111 @@ Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2,
 Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2, '系统找不到指定的路径。', None, 3)
 Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2, '系统找不到指定的路径。', None, 3)
 Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2, '系统找不到指定的路径。', None, 3)
-✅ Command executed.
-Saved to database\shared_memory.json
-✅ Command executed.
-Saved to database\shared_memory.json
-✅ Command executed.
+X Left 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+Wavelength: 9.9 nm
+Wavelength: 9.8 nm
+Wavelength: 9.7 nm
+Wavelength: 9.6 nm
+Wavelength: 9.5 nm
+Wavelength: 9.4 nm
+Wavelength: 9.3 nm
+Wavelength: 9.2 nm
+Wavelength: 9.3 nm
+Wavelength: 9.4 nm
+Wavelength: 9.5 nm
+Wavelength: 9.6 nm
+Wavelength: 9.7 nm
+Wavelength: 9.8 nm
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+Move
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Right 10.0 um
+X Left 10.0 um
+X Left 10.0 um
+Y Left 10.0 um
+Y Right 10.0 um
+X Left 10.0 um
+X Right 10.0 um
+X Left 10.0 um
+X Left 10.0 um
+Y Left 10.0 um
+Y Right 10.0 um
+Y Right 10.0 um
+Y Right 10.0 um
+Y Right 10.0 um
+Y Right 10.0 um
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+Move
+TEC temperature: 25.1 °C
+TEC temperature: 25.2 °C
+TEC temperature: 25.3 °C
+TEC temperature: 25.4 °C
+TEC temperature: 25.5 °C
+TEC temperature: 25.6 °C
+TEC temperature: 25.5 °C
+TEC temperature: 25.4 °C
+TEC temperature: 25.3 °C
+TEC temperature: 25.2 °C
+TEC temperature: 25.1 °C
+TEC temperature: 25.0 °C
+TEC temperature: 24.9 °C
+TEC temperature: 24.8 °C
+TEC temperature: 24.7 °C
+TEC temperature: 24.6 °C
+TEC temperature: 24.5 °C
+TEC temperature: 24.4 °C

@@ -141,8 +141,7 @@ class registration(App):
         except:
             pass
 
-        self.gds = lab_coordinates.coordinates(("./res/" + filename), read_file=True,
-                                           name="./database/coordinates.json")
+        self.gds = lab_coordinates.coordinates(("./res/" + filename), read_file=True,name="./database/coordinates.json")
         self.number = self.gds.listdeviceparam("number")
         self.coordinate = self.gds.listdeviceparam("coordinate")
         self.polarization = self.gds.listdeviceparam("polarization")

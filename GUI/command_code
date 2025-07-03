@@ -1,0 +1,19 @@
+stage_{x/y/z/chip/fiber}_step_{num} ex: move_x_step_10.0 # set move step
+
+stage_{x/y/z/chip/fiber}_left_true # move {x/y/z/chip/fiber} left 1 time
+
+stage_{x/y/z/chip/fiber}_left_distance_{num} # move {x/y/z/chip/fiber} {num} um
+
+stage_{x/y/z/chip/fiber}_right_true # move {x/y/z/chip/fiber} right 1 time
+
+stage_{x/y/z/chip/fiber}_right_distance_{num} # move {x/y/z/chip/fiber} {num} um
+
+stage_stop_true # stop movement
+
+stage_zero_true # set zero
+
+stage_laod_true # load the devices
+
+stage_lock_true # lock
+
+stage_unlock_true # unlock
