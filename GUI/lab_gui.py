@@ -374,5 +374,3 @@ class File():
         data[f"{self.data_name}"] = self.data_info
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
-
-        print(f"Saved to {filepath}")

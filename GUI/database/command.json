@@ -1,5 +1,5 @@
 {
   "command": {
-    "stage_unlock": true
+    "sensor_range_end": 12
   }
 }

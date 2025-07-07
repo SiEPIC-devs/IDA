@@ -6,14 +6,29 @@ import webview
 import signal
 import socket
 
+command_path = os.path.join("database", "command.json")
 
 class stage_control(App):
     def __init__(self, *args, **kwargs):
+        self._user_mtime = None
+        self._first_command_check = True
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
-        pass
+        try:
+            mtime = os.path.getmtime(command_path)
+        except FileNotFoundError:
+            mtime = None
+
+        if self._first_command_check:
+            self._user_mtime = mtime
+            self._first_command_check = False
+            return
+
+        if mtime != self._user_mtime:
+            self._user_mtime = mtime
+            self.execute_command()
 
     def main(self):
         return self.construct_ui()
@@ -26,7 +41,7 @@ class stage_control(App):
             container=None, variable_name="sensor_control_container", left=0, top=0, height=150, width=650
         )
 
-        StyledCheckBox(
+        self.on_box = StyledCheckBox(
             container=sensor_control_container, variable_name="on_box", left=20, top=10, width=10,
             height=10, position="absolute"
         )
@@ -106,7 +121,7 @@ class stage_control(App):
             width=85, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        StyledSpinBox(
+        self.range_start = StyledSpinBox(
             container=sweep_container, variable_name="range_start", left=90, top=55, min_value=0,
             max_value=2000, value=1540, step=0.1, width=65, height=24, position="absolute"
         )
@@ -116,7 +131,7 @@ class stage_control(App):
             width=20, height=25, font_size=100, flex=True, justify_content="center", color="#222"
         )
 
-        StyledSpinBox(
+        self.range_end = StyledSpinBox(
             container=sweep_container, variable_name="range_end", left=200, top=55, min_value=0,
             max_value=2000, value=1560, step=0.1, width=65, height=24, position="absolute"
         )
@@ -128,6 +143,8 @@ class stage_control(App):
         self.add_pwr.do_onclick(lambda *_: self.run_in_thread(self.onclick_add_pwr))
         self.wvl.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_wvl, emitter, value))
         self.pwr.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_pwr, emitter, value))
+        self.range_start.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_range_start, emitter, value))
+        self.range_end.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_range_end, emitter, value))
 
         self.sensor_control_container = sensor_control_container
         return sensor_control_container
@@ -175,6 +192,55 @@ class stage_control(App):
 
     def onchange_pwr(self, emitter, value):
         print(f"Power: {value:.1f} dBm")
+
+    def onchange_range_start(self, emitter, value):
+        print(f"Range Start: {value:.1f} nm")
+
+    def onchange_range_end(self, emitter, value):
+        print(f"Range End: {value:.1f} dBm")
+
+    def execute_command(self, path=command_path):
+        sensor = 0
+        record = 0
+        new_command = {}
+
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                command = data.get("command", {})
+        except Exception as e:
+            print(f"[Error] Failed to load command: {e}")
+            return
+
+        for key, val in command.items():
+            if key == "sensor_control" and val == True and record == 0:
+                sensor = 1
+            elif key == "stage_control" and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key == "tec_control" and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key == "sensor_on" and val == True:
+                self.on_box.set_value(1)
+            elif key == "sensor_off" and val:
+                self.on_box.set_value(0)
+            elif key == "sensor_wvl":
+                self.wvl.set_value(val)
+                self.onchange_wvl(1, float(val))
+            elif key == "sensor_pwr":
+                self.pwr.set_value(val)
+                self.onchange_pwr(1, float(val))
+            elif key == "sensor_range_start":
+                self.range_start.set_value(val)
+                self.onchange_range_start(1, float(val))
+            elif key == "sensor_range_end":
+                self.range_end.set_value(val)
+                self.onchange_range_end(1, float(val))
+
+        if sensor == 1:
+            file = File("command", "command", new_command)
+            file.save()
 
 def get_local_ip():
     """Automatically detect local LAN IP address"""

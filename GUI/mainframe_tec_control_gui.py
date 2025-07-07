@@ -6,14 +6,29 @@ import webview
 import signal
 import socket
 
+command_path = os.path.join("database", "command.json")
 
 class stage_control(App):
     def __init__(self, *args, **kwargs):
+        self._user_mtime = None
+        self._first_command_check = True
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
-        pass
+        try:
+            mtime = os.path.getmtime(command_path)
+        except FileNotFoundError:
+            mtime = None
+
+        if self._first_command_check:
+            self._user_mtime = mtime
+            self._first_command_check = False
+            return
+
+        if mtime != self._user_mtime:
+            self._user_mtime = mtime
+            self.execute_command()
 
     def main(self):
         return self.construct_ui()
@@ -26,7 +41,7 @@ class stage_control(App):
             container=None, variable_name="sensor_control_container", left=0, top=0, height=100, width=300
         )
 
-        StyledCheckBox(
+        self.on_box = StyledCheckBox(
             container=sensor_control_container, variable_name="on_box", left=20, top=10, width=10,
             height=10, position="absolute"
         )
@@ -58,6 +73,7 @@ class stage_control(App):
         self.minus_tem.do_onclick(lambda *_: self.run_in_thread(self.onclick_minus_tem))
         self.plus_tem.do_onclick(lambda *_: self.run_in_thread(self.onclick_plus_tem))
         self.tem.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_tem, emitter, value))
+        self.on_box.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_box, emitter, value))
 
         self.sensor_control_container = sensor_control_container
         return sensor_control_container
@@ -80,6 +96,46 @@ class stage_control(App):
 
     def onchange_tem(self, emitter, value):
         print(f"TEC temperature: {value:.1f} °C")
+
+    def onchange_box(self, emitter, value):
+        if value:
+            print("on")
+        else:
+            print("off")
+
+    def execute_command(self, path=command_path):
+        tec = 0
+        record = 0
+        new_command = {}
+
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                command = data.get("command", {})
+        except Exception as e:
+            print(f"[Error] Failed to load command: {e}")
+            return
+
+        for key, val in command.items():
+            if key == "tec_control" and val == True and record == 0:
+                tec = 1
+            elif key == "stage_control" and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key == "sensor_control" and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key == "tec_on" and val == True:
+                self.on_box.set_value(1)
+            elif key == "tec_off" and val:
+                self.on_box.set_value(0)
+            elif key == "tec_tem":
+                self.tem.set_value(val)
+                self.onchange_tem(1, float(val))
+
+        if tec == 1:
+            file = File("command", "command", new_command)
+            file.save()
 
 def get_local_ip():
     """Automatically detect local LAN IP address"""

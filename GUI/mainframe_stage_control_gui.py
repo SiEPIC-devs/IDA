@@ -151,7 +151,7 @@ class stage_control(App):
             left=5, top=10, width=80, height=30, normal_color="#007BFF", press_color="#0056B3"
         )
 
-        StyledButton(
+        self.clear_btn = StyledButton(
             container=limits_container, text="Clear", variable_name="clear_button", font_size=100,
             left=5, top=50, width=80, height=30, normal_color="#007BFF", press_color="#0056B3"
         )
@@ -172,7 +172,7 @@ class stage_control(App):
             left=5, top=10, width=80, height=30, normal_color="#007BFF", press_color="#0056B3"
         )
 
-        StyledButton(
+        self.start_btn = StyledButton(
             container=fine_align_container, text="Start", variable_name="start_button", font_size=100,
             left=5, top=50, width=80, height=30, normal_color="#007BFF", press_color="#0056B3"
         )
@@ -193,7 +193,7 @@ class stage_control(App):
             left=5, top=10, width=80, height=30, normal_color="#007BFF", press_color="#0056B3"
         )
 
-        StyledButton(
+        self.scan_btn = StyledButton(
             container=area_scan_container, text="Scan", variable_name="scan_button", font_size=100,
             left=5, top=50, width=80, height=30, normal_color="#007BFF", press_color="#0056B3"
         )
@@ -234,6 +234,9 @@ class stage_control(App):
 
         self.stop_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_stop))
         self.zero_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_zero))
+        self.clear_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_clear))
+        self.start_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_start))
+        self.scan_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_scan))
         self.x_left_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_x_left))
         self.x_right_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_x_right))
         self.y_left_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_y_left))
@@ -244,8 +247,8 @@ class stage_control(App):
         self.chip_right_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_chip_right))
         self.fiber_left_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_fiber_left))
         self.fiber_right_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_fiber_right))
-        self.load_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_load_btn))
-        self.move_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_move_btn))
+        self.load_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_load))
+        self.move_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_move))
         self.limit_setting_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_limit_setting_btn))
         self.fine_align_setting_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_fine_align_setting_btn))
         self.scan_setting_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_scan_setting_btn))
@@ -260,6 +263,15 @@ class stage_control(App):
 
     def onclick_zero(self):
         print("Zero")
+
+    def onclick_clear(self):
+        print("Clear")
+
+    def onclick_start(self):
+        print("Start")
+
+    def onclick_scan(self):
+        print("Scan")
 
     def onclick_x_left(self):
         value = float(self.x_input.get_value())
@@ -311,7 +323,7 @@ class stage_control(App):
         print(f"Fiber Turn CCW {value} deg")
         asyncio.run(self.stage_manager.move_single_axis(AxisType.ROTATION_FIBER, -value, True))
 
-    def onclick_load_btn(self):
+    def onclick_load(self):
         self.gds = lab_coordinates.coordinates(("./res/" + filename), read_file=False,
                                                name="./database/coordinates.json")
         self.number = self.gds.listdeviceparam("number")
@@ -325,7 +337,7 @@ class stage_control(App):
         self.move_dd.append(self.devices)
         self.move_dd.attributes["title"] = self.devices[0]
 
-    def onclick_move_btn(self):
+    def onclick_move(self):
         print("Move")
 
     def onchange_lock_box(self, emitter, value):
@@ -357,6 +369,7 @@ class stage_control(App):
             height=206,
             resizable=True,
             on_top=True,
+            hidden=False
         )
 
     def onclick_fine_align_setting_btn(self):
@@ -368,6 +381,7 @@ class stage_control(App):
             height=236,
             resizable=True,
             on_top=True,
+            hidden=False
         )
     def onclick_scan_setting_btn(self):
         local_ip = get_local_ip()
@@ -378,9 +392,13 @@ class stage_control(App):
             height=236,
             resizable=True,
             on_top=True,
+            hidden=False
         )
 
     def execute_command(self, path=command_path):
+        stage = 0
+        record = 0
+        new_command = {}
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -390,7 +408,15 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key == "stage_x_step":
+            if key == "stage_control" and val == True and record == 0:
+                stage = 1
+            elif key == "tec_control" and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key == "sensor_control" and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key == "stage_x_step":
                 self.x_input.set_value(str(val))
             elif key == "stage_y_step":
                 self.y_input.set_value(str(val))
@@ -401,26 +427,26 @@ class stage_control(App):
             elif key == "stage_fiber_step":
                 self.fiber_input.set_value(str(val))
 
-            elif key == "stage_x_left":
+            elif key == "stage_x_left" and val == True:
                 self.onclick_x_left()
-            elif key == "stage_y_left":
+            elif key == "stage_y_left" and val == True:
                 self.onclick_y_left()
-            elif key == "stage_z_left":
+            elif key == "stage_z_left" and val == True:
                 self.onclick_z_left()
-            elif key == "stage_chip_left":
+            elif key == "stage_chip_left" and val == True:
                 self.onclick_chip_left()
-            elif key == "stage_fiber_left":
+            elif key == "stage_fiber_left" and val == True:
                 self.onclick_fiber_left()
 
-            elif key == "stage_x_right":
+            elif key == "stage_x_right" and val == True:
                 self.onclick_x_right()
-            elif key == "stage_y_right":
+            elif key == "stage_y_right" and val == True:
                 self.onclick_y_right()
-            elif key == "stage_z_right":
+            elif key == "stage_z_right" and val == True:
                 self.onclick_z_right()
-            elif key == "stage_chip_right":
+            elif key == "stage_chip_right" and val == True:
                 self.onclick_chip_right()
-            elif key == "stage_fiber_right":
+            elif key == "stage_fiber_right" and val == True:
                 self.onclick_fiber_right()
 
             elif key == "stage_x_left_distance":
@@ -439,21 +465,32 @@ class stage_control(App):
                 self.fiber_input.set_value(str(val))
                 self.onclick_fiber_left()
 
-            elif key == "stage_stop":
+            elif key == "stage_stop" and val == True:
                 self.onclick_stop()
-            elif key == "stage_zero":
+            elif key == "stage_zero" and val == True:
                 self.onclick_zero()
-            elif key == "stage_load":
-                self.onclick_load_btn()
-            elif key == "stage_lock":
+            elif key == "stage_load" and val == True:
+                self.onclick_load()
+            elif key == "stage_clear" and val == True:
+                self.onclick_clear()
+            elif key == "stage_start" and val == True:
+                self.onclick_start()
+            elif key == "stage_scan" and val == True:
+                self.onclick_scan()
+            elif key == "stage_move" and val == True:
+                self.onclick_move()
+            elif key == "stage_lock" and val == True:
                 self.lock_box.set_value(1)
                 self.onchange_lock_box(val, 1)
-            elif key == "stage_unlock":
+            elif key == "stage_unlock" and val == True:
                 self.lock_box.set_value(0)
                 self.onchange_lock_box(val, 0)
 
+        if stage == 1:
+            print("stage record")
+            file = File("command", "command", new_command)
+            file.save()
 
-        print("✅ Command executed.")
 
 
 def get_local_ip():
@@ -497,6 +534,36 @@ if __name__ == '__main__':
         width=672, height=407,
         x=800, y=465,
         resizable=True
+    )
+
+    webview.create_window(
+        "Setting",
+        f"http://{local_ip}:7002",
+        width=317,
+        height=206,
+        resizable=True,
+        on_top=True,
+        hidden=True
+    )
+
+    webview.create_window(
+        "Setting",
+        f"http://{local_ip}:7003",
+        width=222,
+        height=236,
+        resizable=True,
+        on_top=True,
+        hidden=True
+    )
+
+    webview.create_window(
+        "Setting",
+        f"http://{local_ip}:7004",
+        width=222,
+        height=236,
+        resizable=True,
+        on_top=True,
+        hidden=True
     )
 
     webview.start(func=disable_scroll)
