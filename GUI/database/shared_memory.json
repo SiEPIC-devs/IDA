@@ -1,5 +1,9 @@
 {
   "user": "A",
+  "SweepRange": {
+    "start": 1212.0,
+    "stop": 3000.0
+  },
   "selection": [
     2552,
     2553

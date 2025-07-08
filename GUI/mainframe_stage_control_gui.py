@@ -399,6 +399,7 @@ class stage_control(App):
         stage = 0
         record = 0
         new_command = {}
+
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -408,14 +409,27 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key == "stage_control" and val == True and record == 0:
+            if key.startswith("stage_control") and val == True and record == 0:
                 stage = 1
-            elif key == "tec_control" and val == True or record == 1:
+            elif key.startswith("tec_control") and val == True or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key == "sensor_control" and val == True or record == 1:
+            elif key.startswith("sensor_control") and val == True or record == 1:
                 record = 1
                 new_command[key] = val
+            elif key.startswith("lim_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("as_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("fa_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sweep_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+
             elif key == "stage_x_step":
                 self.x_input.set_value(str(val))
             elif key == "stage_y_step":

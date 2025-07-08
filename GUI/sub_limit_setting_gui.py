@@ -123,6 +123,10 @@ class limit(App):
         print("Confirm Limit")
 
     def execute_command(self, path=command_path):
+        lim = 0
+        record = 0
+        new_command = {}
+
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -132,20 +136,46 @@ class limit(App):
             return
 
         for key, val in command.items():
-            if key == "stage_lim_x_left":
+            if key.startswith("lim_set") and val == True and record == 0:
+                lim = 1
+            elif key.startswith("stage_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("tec_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sensor_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("as_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("fa_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sweep_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+
+            elif key == "lim_x_left":
                 self.x_left_lim.set_value(val)
-            elif key == "stage_lim_x_right":
+            elif key == "lim_x_right":
                 self.x_right_lim.set_value(val)
-            elif key == "stage_lim_y_left":
+            elif key == "lim_y_left":
                 self.y_left_lim.set_value(val)
-            elif key == "stage_lim_y_right":
+            elif key == "lim_y_right":
                 self.y_right_lim.set_value(val)
-            elif key == "stage_lim_z_left":
+            elif key == "lim_z_left":
                 self.z_left_lim.set_value(val)
-            elif key == "stage_lim_z_right":
+            elif key == "lim_z_right":
                 self.z_right_lim.set_value(val)
-            elif key == "stage_lim_confirm" and val == True:
+            elif key == "lim_confirm" and val == True:
                 self.onclick_confirm()
+
+        if lim == 1:
+            print("limit record")
+            file = File("command", "command", new_command)
+            file.save()
 
 if __name__ == "__main__":
     configuration = {

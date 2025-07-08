@@ -77,11 +77,6 @@ class area_scan(App):
         )
 
         StyledLabel(
-            container=area_scan_setting_container, text="um", variable_name="y_count_um", left=150, top=74,
-            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
-        )
-
-        StyledLabel(
             container=area_scan_setting_container, text="Y Step", variable_name="y_step_lb", left=0, top=106,
             width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
@@ -110,6 +105,10 @@ class area_scan(App):
         print("Confirm Area Scan")
 
     def execute_command(self, path=command_path):
+        area = 0
+        record = 0
+        new_command = {}
+
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -119,16 +118,42 @@ class area_scan(App):
             return
 
         for key, val in command.items():
-            if key == "stage_as_x_count":
+            if key.startswith("as_set") and val == True and record == 0:
+                area = 1
+            elif key.startswith("stage_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("tec_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sensor_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("fa_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("lim_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sweep_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+
+            elif key == "as_x_count":
                 self.x_count.set_value(val)
-            elif key == "stage_as_x_step":
+            elif key == "as_x_step":
                 self.x_step.set_value(val)
-            elif key == "stage_as_y_count":
+            elif key == "as_y_count":
                 self.y_count.set_value(val)
-            elif key == "stage_as_y_step":
+            elif key == "as_y_step":
                 self.y_step.set_value(val)
-            elif key == "stage_as_confirm" and val == True:
+            elif key == "as_confirm" and val == True:
                 self.onclick_confirm()
+
+        if area == 1:
+            print("as record")
+            file = File("command", "command", new_command)
+            file.save()
 
 if __name__ == "__main__":
     configuration = {

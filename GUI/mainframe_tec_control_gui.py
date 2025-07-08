@@ -117,14 +117,27 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key == "tec_control" and val == True and record == 0:
+            if key.startswith("tec_control") and val == True and record == 0:
                 tec = 1
-            elif key == "stage_control" and val == True or record == 1:
+            elif key.startswith("stage_control") and val == True or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key == "sensor_control" and val == True or record == 1:
+            elif key.startswith("sensor_control") and val == True or record == 1:
                 record = 1
                 new_command[key] = val
+            elif key.startswith("lim_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("as_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("fa_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sweep_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+
             elif key == "tec_on" and val == True:
                 self.on_box.set_value(1)
             elif key == "tec_off" and val:
@@ -134,6 +147,7 @@ class stage_control(App):
                 self.onchange_tem(1, float(val))
 
         if tec == 1:
+            print("tec record")
             file = File("command", "command", new_command)
             file.save()
 

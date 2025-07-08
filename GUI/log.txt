@@ -5,5 +5,3 @@ Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2,
 Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2, '系统找不到指定的路径。', None, 3)
 Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2, '系统找不到指定的路径。', None, 3)
 Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2, '系统找不到指定的路径。', None, 3)
-Range Start: 12.0 nm
-Range End: 12.0 dBm

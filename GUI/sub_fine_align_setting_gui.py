@@ -110,6 +110,10 @@ class fine_align(App):
         print("Confirm Fine Align")
 
     def execute_command(self, path=command_path):
+        fa = 0
+        record = 0
+        new_command = {}
+
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -119,16 +123,42 @@ class fine_align(App):
             return
 
         for key, val in command.items():
-            if key == "stage_fa_x_count":
+            if key.startswith("fa_set") and val == True and record == 0:
+                fa = 1
+            elif key.startswith("stage_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("tec_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sensor_control") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("as_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("lim_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sweep_set") and val == True or record == 1:
+                record = 1
+                new_command[key] = val
+
+            elif key == "fa_x_count":
                 self.x_count.set_value(val)
-            elif key == "stage_fa_x_step":
+            elif key == "fa_x_step":
                 self.x_step.set_value(val)
-            elif key == "stage_fa_y_count":
+            elif key == "fa_y_count":
                 self.y_count.set_value(val)
-            elif key == "stage_fa_y_step":
+            elif key == "fa_y_step":
                 self.y_step.set_value(val)
-            elif key == "stage_fa_confirm" and val == True:
+            elif key == "fa_confirm" and val == True:
                 self.onclick_confirm()
+
+        if fa == 1:
+            print("fa record")
+            file = File("command", "command", new_command)
+            file.save()
 
 if __name__ == "__main__":
     configuration = {
