@@ -21,7 +21,9 @@ class add_btn(App):
             stime = None
 
         if self._first_command_check:
+            self.onclick_confirm()
             self._user_mtime = mtime
+            self._user_stime = stime
             self._first_command_check = False
             return
 
@@ -36,9 +38,13 @@ class add_btn(App):
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     sweep_range = data.get("SweepRange", {})
+                    power = data.get("Power", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
                 sweep_range = {}
+
+            if power != "":
+                self.power.set_value(power)
 
             if isinstance(sweep_range, dict):
                 start = sweep_range.get("start")
@@ -65,7 +71,7 @@ class add_btn(App):
         )
 
         self.speed = StyledSpinBox(
-            container=laser_sweep_container, variable_name="speed_in", left=95, top=10, value=1,
+            container=laser_sweep_container, variable_name="speed_in", left=95, top=10, value=1.0,
             width=65, height=24, min_value=0, max_value=1000, step=0.1, position="absolute"
         )
 
@@ -80,7 +86,7 @@ class add_btn(App):
         )
 
         self.power = StyledSpinBox(
-            container=laser_sweep_container, variable_name="power_in", left=95, top=42,
+            container=laser_sweep_container, variable_name="power_in", left=95, top=42, value=0.0,
             width=65, height=24, min_value=0, max_value=1000, step=0.1, position="absolute"
         )
 
@@ -110,7 +116,7 @@ class add_btn(App):
         )
 
         self.start_wvl = StyledSpinBox(
-            container=laser_sweep_container, variable_name="start_wvl_in", left=95, top=106, value=1540,
+            container=laser_sweep_container, variable_name="start_wvl_in", left=95, top=106, value=1540.0,
             width=65, height=24, min_value=0, max_value=2000, step=0.1, position="absolute"
         )
 
@@ -125,7 +131,7 @@ class add_btn(App):
         )
 
         self.stop_wvl = StyledSpinBox(
-            container=laser_sweep_container, variable_name="stop_wvl_in", left=95, top=138, value=1560,
+            container=laser_sweep_container, variable_name="stop_wvl_in", left=95, top=138, value=1560.0,
             width=65, height=24, min_value=0, max_value=2000, step=0.1, position="absolute"
         )
 
@@ -156,10 +162,13 @@ class add_btn(App):
 
     def onclick_confirm(self):
         print("Confirm Laser Sweep")
-        shared_memory = {}
-        shared_memory["start"] = float(self.start_wvl.get_value())
-        shared_memory["stop"] = float(self.stop_wvl.get_value())
-        file = File("shared_memory", "SweepRange", shared_memory)
+        self.speed.set_value(float(self.speed.get_value()))
+        self.step_size.set_value(float(self.step_size.get_value()))
+        shared_mem = {}
+        shared_mem2 = float(self.power.get_value())
+        shared_mem["start"] = float(self.start_wvl.get_value())
+        shared_mem["stop"] = float(self.stop_wvl.get_value())
+        file = File("shared_memory", "SweepRange", shared_mem, "Power", shared_mem2)
         file.save()
 
     def execute_command(self, path=command_path):

@@ -31,6 +31,7 @@ class testing(App):
         self.load_file()
         self.init = True
         self._user_mtime = None
+        self.notopen = True
         # runtime flags
         self.running = False  # becomes True while measurement loop is active
 
@@ -55,9 +56,11 @@ class testing(App):
                 except Exception as e:
                     print(f"[Warn] read json failed: {e}")
 
-            new_path = os.path.join(os.getcwd(), "UserData", cur_user) if cur_user else ""
+            new_path = os.path.join(os.getcwd(), "UserData", cur_user, "Spectrum") if cur_user else ""
             if new_path and new_path != self.save_path_input.get_text():
                 self.save_path_input.set_text(new_path)
+                file = File("shared_memory", "SavePosition", new_path)
+                file.save()
 
     def main(self):
         return testing.construct_ui(self)
@@ -353,6 +356,7 @@ class testing(App):
                           style=wx.DD_DEFAULT_STYLE) as dlg:
             if dlg.ShowModal() == wx.ID_OK:
                 self.save_path_input.set_text(dlg.GetPath())
+                self.notopen = False
                 print(f"You choose {dlg.GetPath()}")
         app.Destroy()
 

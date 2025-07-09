@@ -1,3 +1,5 @@
 {
-  "command": {}
+  "command": {
+    "stage_unlock": true
+  }
 }

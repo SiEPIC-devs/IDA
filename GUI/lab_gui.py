@@ -8,6 +8,10 @@ from modern.config.stage_config import *
 from modern.utils.shared_memory import *
 from modern.hal.motors_hal import AxisType
 import gc
+import plotly.express as px
+import matplotlib
+import matplotlib.pyplot as plt
+import shutil
 
 def apply_common_style(widget, left, top, width, height, position="absolute", percent=False):
     widget.css_position = position
@@ -355,10 +359,12 @@ class Memory():
         shm.close()
 
 class File():
-    def __init__(self, filename, data_name, data_info=""):
+    def __init__(self, filename, data_name, data_info="", data_name2="", data_info2=""):
         self.filename = filename
         self.data_name = data_name
+        self.data_name2 = data_name2
         self.data_info = data_info
+        self.data_info2 = data_info2
 
     def save(self):
         filepath = os.path.join("database", f"{self.filename}.json")
@@ -372,5 +378,65 @@ class File():
         else:
             data = {}
         data[f"{self.data_name}"] = self.data_info
+        if self.data_info2 != "":
+            data[f"{self.data_name2}"] = self.data_info2
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
+
+class plot():
+    def __init__(self, x, y, filename, fileTime, savefile):
+        self.x = x
+        self.y = y
+        self.filename = filename
+        self.fileTime = fileTime
+        self.savefile = savefile
+
+    def generate_plots(self):
+        print("Start html plot")
+        x_axis = self.x
+        y_values = self.y
+        filename = self.filename
+        fileTime = self.fileTime
+        savefile = self.savefile
+        try:
+            plots = {"Wavelength [nm]": x_axis*1000000000}
+            plotnames = []
+            for element in range(0, len(y_values)):
+                plotname = "Detector " + str(element + 1)
+                plots[plotname] = y_values[element]
+                plotnames.append(plotname)
+            fig = px.line(plots, x="Wavelength [nm]", y=plotnames,
+                          labels={'value': "Power [dBm]", 'x': "Wavelength [nm]"})
+            for i in range(0, len(y_values)):
+                fig.data[i].name = str(i + 1)
+            fig.update_layout(legend_title_text="Detector")
+            cwd = os.getcwd()
+            output_html = os.path.join(savefile, f"{filename}_{fileTime}.html")
+            fig.write_html(output_html)
+            print("Done html plot")
+        except Exception as e:
+            try:
+                print("Exception generating html plot")
+                print(e)
+            finally:
+                e = None
+                del e
+        try:
+            print("Start pdf plot")
+            image_dpi = 20
+            plt.figure(figsize=(100 / image_dpi, 100 / image_dpi), dpi=image_dpi)
+            for element in range(0, len(y_values)):
+                plt.plot(x_axis*1000000000, y_values[element], linewidth=0.2)
+            plt.xlabel("Wavelength [nm]")
+            plt.ylabel("Power [dBm]")
+            output_pdf = os.path.join(savefile, f"{filename}_{fileTime}.pdf")
+            plt.savefig(output_pdf, dpi=image_dpi)
+            plt.close()
+            print("Done pdf plot")
+        except Exception as e:
+            try:
+                print("Exception generating pdf plot")
+                print(e)
+            finally:
+                e = None
+                del e

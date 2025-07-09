@@ -37,6 +37,8 @@ class add_btn(App):
         try:
             os.makedirs(DEFAULT_DIR, exist_ok=True)  # Ensure root exists
             os.makedirs(target_path, exist_ok=False)  # Create sub-folder
+            os.makedirs(os.path.join(target_path, "Spectrum"), exist_ok=True)
+            os.makedirs(os.path.join(target_path, "HeatMap"), exist_ok=True)
             print(f"✅ Folder created: {target_path}")
         except FileExistsError:
             print(f"⚠️  Folder already exists: {target_path}")

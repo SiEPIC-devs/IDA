@@ -4,6 +4,9 @@ from remi import start, App
 import threading
 import webview
 import signal
+import numpy as np
+import pandas as pd
+import datetime
 
 command_path = os.path.join("database", "command.json")
 shared_path = os.path.join("database", "shared_memory.json")
@@ -13,6 +16,7 @@ class stage_control(App):
         self._user_mtime = None
         self._user_stime = None
         self._first_command_check = True
+        self.save_pos = None
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -26,6 +30,7 @@ class stage_control(App):
 
         if self._first_command_check:
             self._user_mtime = mtime
+            self._user_stime = stime
             self._first_command_check = False
             return
 
@@ -35,14 +40,18 @@ class stage_control(App):
 
         if stime != self._user_stime:
             self._user_stime = stime
-
             try:
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     sweep_range = data.get("SweepRange", {})
+                    power = data.get("Power", "")
+                    self.save_pos = data.get("SavePosition", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
                 sweep_range = {}
+
+            if power != "":
+                self.pwr.set_value(power)
 
             if isinstance(sweep_range, dict):
                 start = sweep_range.get("start")
@@ -187,9 +196,9 @@ class stage_control(App):
 
     def onchange_box(self, emitter, value):
         if value:
-            print("on")
+            print("On")
         else:
-            print("off")
+            print("Off")
 
     def onclick_minus_wvl(self):
         value = round(float(self.wvl.get_value()), 1)
@@ -220,37 +229,49 @@ class stage_control(App):
         value = round(value + 0.1, 1)
         if value < -1000:  value = -1000.0
         if value > 1000: value = 1000.0
-        self.pwr.set_value(value)
+        file = File("shared_memory", "Power", value)
+        file.save()
+        self.pwr.set_value(f"{value:.1f}")
         print(f"Power: {value:.1f} dBm")
 
     def onclick_sweep(self):
-        print("Sweep")
+        filename = "res/spectral_sweep/spectral_sweep.csv"
+        df = pd.read_csv(filename, header=None)
+        x = df.iloc[:, 0].values
+        y = df.iloc[:, 1:].values.T
+        fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        diagram = plot(x, y, "spectral_sweep", fileTime, self.save_pos)
+        diagram.generate_plots()
 
     def onchange_wvl(self, emitter, value):
         print(f"Wavelength: {value:.1f} nm")
 
     def onchange_pwr(self, emitter, value):
+        value = float(value)
+        file = File("shared_memory", "Power", value)
+        file.save()
+        self.pwr.set_value(f"{value:.1f}")
         print(f"Power: {value:.1f} dBm")
 
     def onchange_range_start(self, emitter, value):
         print(f"Range Start: {value:.1f} nm")
         value = float(value)
-        shared_memory = {
+        shared_mem = {
             "start": round(value, 1),
             "stop": round(float(self.range_end.get_value()), 1)
         }
-        file = File("shared_memory", "SweepRange", shared_memory)
+        file = File("shared_memory", "SweepRange", shared_mem)
         file.save()
         self.range_start.set_value(f"{value:.1f}")  # 更新显示为一位小数
 
     def onchange_range_end(self, emitter, value):
         print(f"Range End: {value:.1f} dBm")
         value = float(value)
-        shared_memory = {
+        shared_mem = {
             "start": round(float(self.range_start.get_value()), 1),
             "stop": round(value, 1)
         }
-        file = File("shared_memory", "SweepRange", shared_memory)
+        file = File("shared_memory", "SweepRange", shared_mem)
         file.save()
         self.range_end.set_value(f"{value:.1f}")
 

@@ -1,11 +1,23 @@
 {
-  "user": "A",
+  "user": "www",
   "SweepRange": {
-    "start": 1212.0,
-    "stop": 3000.0
+    "start": 1540.0,
+    "stop": 1560.0
   },
+  "Power": 0.0,
+  "SavePosition": "C:\\Users\\12369\\Desktop\\UBC\\Silicon\\Porbe_Stage\\347\\GUI\\UserData\\www\\Spectrum",
   "selection": [
-    2552,
-    2553
+    2540,
+    2541,
+    2542,
+    2543,
+    2544,
+    2545,
+    2546,
+    2547,
+    2548,
+    2549,
+    2550,
+    2551
   ]
 }

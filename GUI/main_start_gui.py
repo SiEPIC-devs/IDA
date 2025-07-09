@@ -39,13 +39,11 @@ class Starts(App):
         """Refresh terminal & sync dropdown/JSON when things change."""
         self.terminal.terminal_refresh()
 
-        # 1) folder list changed → refresh dropdown
         now = tuple(self.list_user_folders())
         if getattr(self, "_last_folders", None) != now:
             self.refresh()
             self._last_folders = now
 
-        # 2) current dropdown selection changed → write JSON
         current_user = self.user_dd.get_value()
         if current_user != self._last_saved_user:
             file = File("shared_memory", "user", current_user)
@@ -68,11 +66,15 @@ class Starts(App):
         ]
         if not names:
             return ""
+        # 确保 Guest 在最前面
+        if "Guest" in names:
+            names.remove("Guest")
+            names = ["Guest"] + sorted(names)
+        else:
+            names = sorted(names)
         if len(names) == 1:
             return names[0]
         return names
-
-    # ──────────────────────────────── UI
 
     def construct_ui(self):
         """Build and return the root container."""
@@ -80,102 +82,49 @@ class Starts(App):
             variable_name="starts_container", left=0, top=0
         )
 
-        # ── dropdowns
         user_folders = self.list_user_folders()
         self.user_dd = StyledDropDown(
-            container=starts_container,
-            text=user_folders,
-            variable_name="set_user",
-            left=260,
-            top=100,
-            width=220,
-            height=30,
+            container=starts_container, text=user_folders, variable_name="set_user",
+            left=260, top=100, width=220, height=30,
         )
+
         self.mode_dd = StyledDropDown(
-            container=starts_container,
-            text=["TE mode", "TM mode"],
-            variable_name="set_mode",
-            left=260,
-            top=140,
-            width=220,
-            height=30,
+            container=starts_container, text=["TE mode", "TM mode"], variable_name="set_mode",
+            left=260, top=140, width=220, height=30,
         )
 
         StyledLabel(
-            container=starts_container,
-            text="User:",
-            variable_name="label_user",
-            left=100,
-            top=105,
-            width=150,
-            height=20,
-            font_size=100,
-            color="#444",
-            align="right",
+            container=starts_container, text="User:", variable_name="label_user",
+            left=100, top=105, width=150, height=20, font_size=100, color="#444", align="right",
         )
         StyledLabel(
-            container=starts_container,
-            text="Operating Mode:",
-            variable_name="label_mode",
-            left=100,
-            top=145,
-            width=150,
-            height=20,
-            font_size=100,
-            color="#444",
-            align="right",
+            container=starts_container, text="Operating Mode:", variable_name="label_mode",
+            left=100, top=145, width=150, height=20, font_size=100, color="#444", align="right",
         )
 
         StyledLabel(
-            container=starts_container,
-            text="Welcome to 347 Probe Stage",
-            variable_name="label_configuration",
-            left=180,
-            top=20,
-            width=300,
-            height=20,
-            font_size=150,
-            color="#222",
-            align="left",
+            container=starts_container, text="Welcome to 347 Probe Stage", variable_name="label_configuration",
+            left=180, top=20, width=300, height=20, font_size=150, color="#222", align="left",
         )
 
-        # ── buttons
         self.add_btn = StyledButton(
-            container=starts_container,
-            text="Add",
-            variable_name="add",
-            left=260,
-            top=180,
-            normal_color="#007BFF",
-            press_color="#0056B3",
-        )
-        self.remove_btn = StyledButton(
-            container=starts_container,
-            text="Remove",
-            variable_name="remove",
-            left=380,
-            top=180,
-            normal_color="#dc3545",
-            press_color="#c82333",
+            container=starts_container, text="Add", variable_name="add",
+            left=260, top=180, normal_color="#007BFF", press_color="#0056B3",
         )
 
-        # ── terminal
-        terminal_container = StyledContainer(
-            container=starts_container,
-            variable_name="terminal_container",
-            left=0,
-            top=500,
-            height=150,
-            width=650,
-            bg_color=True,
+        self.remove_btn = StyledButton(
+            container=starts_container, text="Remove", variable_name="remove",
+            left=380, top=180, normal_color="#dc3545", press_color="#c82333",
         )
+
+        terminal_container = StyledContainer(
+            container=starts_container, variable_name="terminal_container",
+            left=0, top=500, height=150, width=650, bg_color=True,
+        )
+
         self.terminal = Terminal(
-            container=terminal_container,
-            variable_name="terminal_text",
-            left=10,
-            top=15,
-            width=610,
-            height=100,
+            container=terminal_container, variable_name="terminal_text",
+            left=10, top=15, width=610, height=100,
         )
 
         # ── event bindings
@@ -184,8 +133,6 @@ class Starts(App):
 
         self.starts_container = starts_container
         return starts_container
-
-    # ──────────────────────────────── CALLBACKS
 
     def onclick_add(self):
         local_ip = get_local_ip()
@@ -215,10 +162,6 @@ class Starts(App):
     def refresh(self):
         self.user_dd.empty()
         self.user_dd.append(self.list_user_folders())
-
-
-# ────────────────────────────────────────── RUN
-
 
 def run_remi():
     start(

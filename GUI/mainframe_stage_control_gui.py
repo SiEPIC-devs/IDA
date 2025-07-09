@@ -349,7 +349,7 @@ class stage_control(App):
             if hasattr(widget, "variable_name") and widget.variable_name == "lock_box":
                 continue
 
-            if isinstance(widget, (Button, DropDown)):
+            if isinstance(widget, (Button, DropDown, SpinBox)):
                 widget.set_enabled(enabled)
 
             if hasattr(widget, "children"):
