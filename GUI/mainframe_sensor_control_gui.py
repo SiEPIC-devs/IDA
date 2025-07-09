@@ -26,6 +26,7 @@ class stage_control(App):
 
         if self._first_command_check:
             self._user_mtime = mtime
+            self._user_stime = stime
             self._first_command_check = False
             return
 
@@ -35,14 +36,17 @@ class stage_control(App):
 
         if stime != self._user_stime:
             self._user_stime = stime
-
             try:
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     sweep_range = data.get("SweepRange", {})
+                    power = data.get("Power", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
                 sweep_range = {}
+
+            if power != "":
+                self.pwr.set_value(power)
 
             if isinstance(sweep_range, dict):
                 start = sweep_range.get("start")
@@ -220,7 +224,9 @@ class stage_control(App):
         value = round(value + 0.1, 1)
         if value < -1000:  value = -1000.0
         if value > 1000: value = 1000.0
-        self.pwr.set_value(value)
+        file = File("shared_memory", "Power", value)
+        file.save()
+        self.pwr.set_value(f"{value:.1f}")
         print(f"Power: {value:.1f} dBm")
 
     def onclick_sweep(self):
@@ -230,27 +236,31 @@ class stage_control(App):
         print(f"Wavelength: {value:.1f} nm")
 
     def onchange_pwr(self, emitter, value):
+        value = float(value)
+        file = File("shared_memory", "Power", value)
+        file.save()
+        self.pwr.set_value(f"{value:.1f}")
         print(f"Power: {value:.1f} dBm")
 
     def onchange_range_start(self, emitter, value):
         print(f"Range Start: {value:.1f} nm")
         value = float(value)
-        shared_memory = {
+        shared_mem = {
             "start": round(value, 1),
             "stop": round(float(self.range_end.get_value()), 1)
         }
-        file = File("shared_memory", "SweepRange", shared_memory)
+        file = File("shared_memory", "SweepRange", shared_mem)
         file.save()
         self.range_start.set_value(f"{value:.1f}")  # 更新显示为一位小数
 
     def onchange_range_end(self, emitter, value):
         print(f"Range End: {value:.1f} dBm")
         value = float(value)
-        shared_memory = {
+        shared_mem = {
             "start": round(float(self.range_start.get_value()), 1),
             "stop": round(value, 1)
         }
-        file = File("shared_memory", "SweepRange", shared_memory)
+        file = File("shared_memory", "SweepRange", shared_mem)
         file.save()
         self.range_end.set_value(f"{value:.1f}")
 

@@ -355,10 +355,12 @@ class Memory():
         shm.close()
 
 class File():
-    def __init__(self, filename, data_name, data_info=""):
+    def __init__(self, filename, data_name, data_info="", data_name2="", data_info2=""):
         self.filename = filename
         self.data_name = data_name
+        self.data_name2 = data_name2
         self.data_info = data_info
+        self.data_info2 = data_info2
 
     def save(self):
         filepath = os.path.join("database", f"{self.filename}.json")
@@ -372,5 +374,7 @@ class File():
         else:
             data = {}
         data[f"{self.data_name}"] = self.data_info
+        if self.data_info2 != "":
+            data[f"{self.data_name2}"] = self.data_info2
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)

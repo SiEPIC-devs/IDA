@@ -349,13 +349,13 @@ class stage_control(App):
             if hasattr(widget, "variable_name") and widget.variable_name == "lock_box":
                 continue
 
-            if isinstance(widget, (Button, DropDown)):
+            if isinstance(widget, (Button, DropDown, SpinBox)):
                 widget.set_enabled(enabled)
 
             if hasattr(widget, "children"):
                 widgets_to_check.extend(widget.children.values())
 
-        print("Unlocked" if enabled else "Locked")
+        print("Locked" if enabled else "Unlocked")
 
     def onchange_move_dd(self, emitter, value):
         self.move_dd.attributes["title"] = value
