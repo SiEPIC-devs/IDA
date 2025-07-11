@@ -1,11 +1,7 @@
 from remi.gui import *
 from lab_gui import *
 from remi import start, App
-import lab_coordinates
-import threading
-import math
-import json
-import os
+import lab_coordinates,threading, math, json
 from tinydb import TinyDB, Query
 
 
@@ -104,81 +100,125 @@ class devices(App):
         threading.Thread(target=target, args=args, daemon=True).start()
 
     def construct_ui(self):
-        devices_container = StyledContainer(variable_name="devices_container", left=0, top=0)
+        devices_container = StyledContainer(
+            variable_name="devices_container", left=0, top=0
+        )
 
         coordinate_container = StyledContainer(
             container=devices_container, variable_name="coordinate_container",
-            left=10, top=10, height=320, width=625, overflow=True, border=True)
+            left=10, top=10, height=320, width=625, overflow=True, border=True
+        )
 
         headers = ["Device ID", "Test", "Mode", "Wvl", "Type", "GDS x", "GDS y"]
         self.col_widths = [180, 30, 30, 50, 50, 60, 60]
 
         self.table = StyledTable(
             container=coordinate_container, variable_name="device_table",
-            left=0, top=0, height=30, table_width=620,
-            headers=headers, widths=self.col_widths, row=1)
+            left=0, top=0, height=30, table_width=620, headers=headers, widths=self.col_widths, row=1
+        )
 
         self.selection_container = StyledContainer(
             container=devices_container, variable_name="selection_container",
-            left=10, top=350, height=100, width=625, border=True)
+            left=10, top=350, height=100, width=625, border=True
+        )
+
         sc = self.selection_container
 
-        StyledLabel(container=sc, text="Device Selection Control", variable_name="device_selection_control",
-                    left=15, top=-12, width=185, height=20, font_size=120, color="#222", align="center",
-                    position="absolute", flex=True, on_line=True)
+        StyledLabel(
+            container=sc, text="Device Selection Control", variable_name="device_selection_control",
+            left=15, top=-12, width=185, height=20, font_size=120, color="#222", align="center",
+            position="absolute", flex=True, on_line=True
+        )
 
-        self.device_id = StyledTextInput(container=sc, variable_name="selection_id",
-                                         left=20, top=55, width=110, height=25)
-        self.device_mode = StyledDropDown(container=sc, text=["Any", "TE", "TM"],
-                                          variable_name="selection_mode",
-                                          left=160, top=55, width=60, height=25)
-        self.device_wvl = StyledDropDown(container=sc, text=["Any", "1550", "1310"],
-                                         variable_name="selection_wvl",
-                                         left=230, top=55, width=90, height=25)
-        self.device_type = StyledDropDown(container=sc,
-                                          text=["Any", "device", "PCM", "ybranch", "cutback"],
-                                          variable_name="selection_type",
-                                          left=330, top=55, width=90, height=25)
+        self.device_id = StyledTextInput(
+            container=sc, variable_name="selection_id", left=20, top=55, width=110, height=25
+        )
 
-        self.filter_btn = StyledButton(container=sc, text="Apply Filter", variable_name="reset_filter",
-                                          left=435, top=55, width=80, height=25)
-        self.clear_btn = StyledButton(container=sc, text="Clear All", variable_name="clear_all",
-                                         left=525, top=55, width=80, height=25)
-        self.all_btn = StyledButton(container=sc, text="Select All", variable_name="select_all",
-                                       left=525, top=20, width=80, height=25)
-        self.confirm_btn = StyledButton(container=sc, text="Confirm", variable_name="confirm",
-                                        left=435, top=20, width=80, height=25)
+        self.device_mode = StyledDropDown(
+            container=sc, text=["Any", "TE", "TM"], variable_name="selection_mode",
+            left=160, top=55, width=60, height=25
+        )
 
-        StyledLabel(container=sc, text="Device ID Contains", variable_name="device_id_contains",
-                    left=22, top=30, width=150, height=25)
-        StyledLabel(container=sc, text="Mode", variable_name="mode",
-                    left=162, top=30, width=100, height=25)
-        StyledLabel(container=sc, text="Wavelength", variable_name="wavelength",
-                    left=232, top=30, width=100, height=25)
-        StyledLabel(container=sc, text="Type", variable_name="type",
-                    left=332, top=30, width=100, height=25)
+        self.device_wvl = StyledDropDown(
+            container=sc, text=["Any", "1550", "1310"], variable_name="selection_wvl",
+            left=230, top=55, width=90, height=25
+        )
 
-        pg = StyledContainer(container=devices_container, variable_name="pagination_container",
-                             left=10, top=455, height=35, width=625)
+        self.device_type = StyledDropDown(
+            container=sc, text=["Any", "device", "PCM", "ybranch", "cutback"], variable_name="selection_type",
+            left=330, top=55, width=90, height=25
+        )
 
-        self.prev_btn = StyledButton(container=pg, text="◀ Prev", variable_name="prev_page",
-                                     left=0, top=5, width=80, height=25)
-        self.page_input = StyledTextInput(container=pg, variable_name="page_input",
-                                          left=100, top=5, width=25, height=25)
-        self.total_page_label = StyledLabel(container=pg, text=f"/ {self.total_pages()}",
-                                            variable_name="page_total",
-                                            left=145, top=5, width=40, height=25,
-                                            flex=True, justify_content="left")
-        self.jump_btn = StyledButton(container=pg, text="Go", variable_name="jump_page",
-                                     left=180, top=5, width=40, height=25)
-        self.next_btn = StyledButton(container=pg, text="Next ▶", variable_name="next_page",
-                                     left=235, top=5, width=80, height=25)
-        self.load_btn = StyledButton(container=pg, text="Load", variable_name="load_page",
-                                     left=330, top=5, width=60, height=25)
-        terminal_container = StyledContainer(container=devices_container, variable_name="terminal_container",
-                                             left=0, top=500, height=150, width=650, bg_color=True)
-        self.terminal = Terminal(container=terminal_container, variable_name="terminal_text",
-                                 left=10, top=15, width=610, height=100)
+        self.filter_btn = StyledButton(
+            container=sc, text="Apply Filter", variable_name="reset_filter", left=435, top=55, width=80, height=25
+        )
+
+        self.clear_btn = StyledButton(
+            container=sc, text="Clear All", variable_name="clear_all", left=525, top=55, width=80, height=25
+        )
+
+        self.all_btn = StyledButton(
+            container=sc, text="Select All", variable_name="select_all", left=525, top=20, width=80, height=25
+        )
+
+        self.confirm_btn = StyledButton(
+            container=sc, text="Confirm", variable_name="confirm", left=435, top=20, width=80, height=25
+        )
+
+        StyledLabel(
+            container=sc, text="Device ID Contains", variable_name="device_id_contains",
+            left=22, top=30, width=150, height=25
+        )
+
+        StyledLabel(
+            container=sc, text="Mode", variable_name="mode", left=162, top=30, width=100, height=25
+        )
+
+        StyledLabel(
+            container=sc, text="Wavelength", variable_name="wavelength", left=232, top=30, width=100, height=25
+        )
+
+        StyledLabel(
+            container=sc, text="Type", variable_name="type", left=332, top=30, width=100, height=25
+        )
+
+        pg = StyledContainer(
+            container=devices_container, variable_name="pagination_container", left=10, top=455, height=35, width=625
+        )
+
+        self.prev_btn = StyledButton(
+            container=pg, text="◀ Prev", variable_name="prev_page", left=0, top=5, width=80, height=25
+        )
+
+        self.page_input = StyledTextInput(
+            container=pg, variable_name="page_input", left=100, top=5, width=25, height=25
+        )
+
+        self.total_page_label = StyledLabel(
+            container=pg, text=f"/ {self.total_pages()}", variable_name="page_total",
+            left=145, top=5, width=40, height=25, flex=True, justify_content="left"
+        )
+
+        self.jump_btn = StyledButton(
+            container=pg, text="Go", variable_name="jump_page", left=180, top=5, width=40, height=25
+        )
+
+        self.next_btn = StyledButton(
+            container=pg, text="Next ▶", variable_name="next_page", left=235, top=5, width=80, height=25
+        )
+
+        self.load_btn = StyledButton(
+            container=pg, text="Load", variable_name="load_page", left=330, top=5, width=60, height=25
+        )
+
+        terminal_container = StyledContainer(
+            container=devices_container, variable_name="terminal_container",
+            left=0, top=500, height=150, width=650, bg_color=True
+        )
+
+        self.terminal = Terminal(
+            container=terminal_container, variable_name="terminal_text", left=10, top=15, width=610, height=100
+        )
 
         self.prev_btn.do_onclick(lambda *_: self.run_in_thread(self.goto_prev_page))
         self.next_btn.do_onclick(lambda *_: self.run_in_thread(self.goto_next_page))

@@ -1,10 +1,6 @@
-from remi.gui import *
 from remi import start, App
-import os
+import os, lab_coordinates, threading, glob
 from lab_gui import *
-import lab_coordinates
-import glob
-import threading
 
 class registration(App):
     def __init__(self, *args, **kwargs):
@@ -34,35 +30,57 @@ class registration(App):
         thread.start()
 
     def construct_ui(self):
-        registration_container = StyledContainer(container=None, variable_name="registration_container", left=0, top=0)
+        registration_container = StyledContainer(
+            container=None, variable_name="registration_container", left=0, top=0
+        )
 
         # ---------------- File Upload Section ----------------
-        file_container = StyledContainer(container=registration_container, variable_name="file_container",
-                                         left=10, top=10, height=45, width=625, border=True)
-        self.uploader = StyledFileUploader(container=file_container, variable_name="uploader",
-                                           left=10, top=10, width=220, height=30)
-        StyledLabel(container=file_container, text="Stage:", variable_name="label_stage",
+        file_container = StyledContainer(
+            container=registration_container, variable_name="file_container",
+            left=10, top=10, height=45, width=265, border=True
+        )
+
+        self.uploader = StyledFileUploader(
+            container=file_container, variable_name="uploader", savepath="./res/coordinates/",
+            left=10, top=10, width=220, height=30
+        )
+
+        """StyledLabel(container=file_container, text="Stage:", variable_name="label_stage",
                     left=130, top=13, width=150, height=20, font_size=100, color="#444", align="right")
         StyledDropDown(container=file_container, text=["Fiber Stage", "Chip Stage"], variable_name="choose_stage",
                        left=290, top=8, width=220, height=30)
         StyledButton(container=file_container, text="Setting", variable_name="setting",
-                     left=515, top=8, font_size=90, normal_color="#007BFF", press_color="#0056B3")
+                     left=515, top=8, font_size=90, normal_color="#007BFF", press_color="#0056B3")"""
 
         # ---------------- Coordinate Table Section ----------------
-        coordinate_container = StyledContainer(container=registration_container, variable_name="coordinate_container",
-                                               left=10, top=80, height=185, width=625, border=True)
-        StyledLabel(container=coordinate_container, text="Coordinate System Parameters",
-                    variable_name=f"device_selection_control", left=360, top=-12, width=235, height=20,
-                    font_size=120, color="#222", position="absolute", flex=True, on_line=True)
-        self.reset_button = StyledButton(container=coordinate_container, text="Reset", variable_name="reset",
-                                         left=10, top=10, font_size=90, normal_color="#007BFF", press_color="#0056B3")
-        self.transform_button = StyledButton(container=coordinate_container, text="Transform", variable_name="transform",
-                                             left=120, top=10, font_size=90, normal_color="#007BFF", press_color="#0056B3")
+        coordinate_container = StyledContainer(
+            container=registration_container, variable_name="coordinate_container",
+            left=10, top=80, height=185, width=625, border=True
+        )
+
+        StyledLabel(
+            container=coordinate_container, text="Coordinate System Parameters", variable_name=f"dev_sel_lb",
+            left=360, top=-12, width=235, height=20, font_size=120, color="#222", position="absolute",
+            flex=True, on_line=True
+        )
+
+        self.reset_button = StyledButton(
+            container=coordinate_container, text="Reset", variable_name="reset",
+            left=10, top=10, font_size=90, normal_color="#007BFF", press_color="#0056B3"
+        )
+
+        self.transform_button = StyledButton(
+            container=coordinate_container, text="Transform", variable_name="transform",
+            left=120, top=10, font_size=90, normal_color="#007BFF", press_color="#0056B3"
+        )
 
         headers = ["Device ID", "GDS x", "GDS y", "Stage x", "Stage y", "Set"]
         widths = [150, 80, 80, 80, 80, 40]
-        StyledTable(container=coordinate_container, variable_name="device_table",
-                    left=0, top=50, height=30, table_width=625, headers=headers, widths=widths, row=4)
+
+        StyledTable(
+            container=coordinate_container, variable_name="device_table",
+            left=0, top=50, height=30, table_width=625, headers=headers, widths=widths, row=4
+        )
 
         # Initialize each row of the coordinate table with UI elements
         for row_index in range(1, 4):
@@ -110,10 +128,14 @@ class registration(App):
             cell5.append(getattr(self, f"checkbox_{row_index}"))
 
         # ---------------- Terminal Display ----------------
-        terminal_container = StyledContainer(container=registration_container, variable_name="terminal_container",
-                                             left=0, top=500, height=150, width=650, bg_color=True)
-        self.terminal = Terminal(container=terminal_container, variable_name="terminal_text",
-                                 left=10, top=15, width=610, height=100)
+        terminal_container = StyledContainer(
+            container=registration_container, variable_name="terminal_container",
+            left=0, top=500, height=150, width=650, bg_color=True
+        )
+
+        self.terminal = Terminal(
+            container=terminal_container, variable_name="terminal_text", left=10, top=15, width=610, height=100
+        )
 
         # ---------------- Event Bindings ----------------
         self.uploader.ondata.do(lambda emitter, filedata, filename: self.run_in_thread(self.ondata_uploader, emitter, filedata, filename))
@@ -130,18 +152,18 @@ class registration(App):
         return registration_container
 
     def ondata_uploader(self, emitter, filedata: bytes, filename: str):
-        cleanupFiles = glob.glob("./res/*")
-        target = os.path.join(".", "res", filename)
+        cleanupFiles = glob.glob("./res/coordinates/*")
+        target = os.path.join(".", "res", "coordinates", filename)
         if target in cleanupFiles:
             cleanupFiles.remove(target)
 
-        print("./res/" + filename)
+        print("./res/coordinates" + filename)
         try:
             os.remove("./database/coordinates.json")
         except:
             pass
 
-        self.gds = lab_coordinates.coordinates(("./res/" + filename), read_file=True,name="./database/coordinates.json")
+        self.gds = lab_coordinates.coordinates(("./res/coordinates/" + filename), read_file=True,name="./database/coordinates.json")
         self.number = self.gds.listdeviceparam("number")
         self.coordinate = self.gds.listdeviceparam("coordinate")
         self.polarization = self.gds.listdeviceparam("polarization")

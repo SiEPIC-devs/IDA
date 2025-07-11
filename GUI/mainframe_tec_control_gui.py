@@ -1,10 +1,7 @@
 from lab_gui import *
 from remi.gui import *
 from remi import start, App
-import threading
-import webview
-import signal
-import socket
+import threading, webview, signal, socket
 
 command_path = os.path.join("database", "command.json")
 

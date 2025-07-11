@@ -1,19 +1,11 @@
-import shutil
-
-from remi.gui import *
 from lab_gui import *
 from remi import start, App
-import lab_coordinates
-import threading
-import math
-import json
-import os
-import time
+import lab_coordinates, threading, math, json, os, time, webview, wx, shutil
 from lab_tsp import TSPSolver
-import wx
-import webview
+
 
 json_path = os.path.join("database", "shared_memory.json")
+desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 
 def fmt(val):
     try:
@@ -32,8 +24,8 @@ class testing(App):
         self.init = True
         self._user_mtime = None
         self.notopen = True
-        # runtime flags
-        self.running = False  # becomes True while measurement loop is active
+        self.running = False
+        self.cur_user = ""
 
         if "editing_mode" not in kwargs:
             super(testing, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -48,19 +40,13 @@ class testing(App):
 
         if mtime != self._user_mtime:
             self._user_mtime = mtime
-            cur_user = ""
+            self.cur_user = ""
             if mtime is not None:
                 try:
                     with open(json_path, "r", encoding="utf-8") as f:
-                        cur_user = json.load(f).get("user", "").strip()
+                        self.cur_user = json.load(f).get("user", "").strip()
                 except Exception as e:
                     print(f"[Warn] read json failed: {e}")
-
-            new_path = os.path.join(os.getcwd(), "UserData", cur_user, "Spectrum") if cur_user else ""
-            if new_path and new_path != self.save_path_input.get_text():
-                self.save_path_input.set_text(new_path)
-                file = File("shared_memory", "SavePosition", new_path)
-                file.save()
 
     def main(self):
         return testing.construct_ui(self)
@@ -197,74 +183,155 @@ class testing(App):
 
     # ------------------------------------------------------------------ UI LAYOUT
     def construct_ui(self):
-        testing_container = StyledContainer(container=None, variable_name="testing_container", left=0, top=0)
+        testing_container = StyledContainer(
+            container=None, variable_name="testing_container", left=0, top=0
+        )
 
         # -------------------------------------------------- IMAGE BLOCK
-        self.image_container = StyledContainer(container=testing_container, variable_name="image_container",
-                                          left=0, top=0, height=370, width=385, bg_color=True, color="#DCDCDC")
-        path_container = StyledContainer(container=testing_container, variable_name="path_container",
-                                         left=10, top=370, height=110, width=370)
-        StyledLabel(container=path_container, text="Save path", variable_name="save_path", left=5, top=20,
-                    width=80, height=50, font_size=100, color="#222", align="left")
-        StyledLabel(container=path_container, text="Save format", variable_name="save_format", left=5, top=60,
-                    width=80, height=50, font_size=100, color="#222", align="left")
-        self.save_path_input = StyledTextInput(container=path_container, variable_name="save_path_input", left=90, top=15,
-                        width=162, height=28, position="absolute", text="")
-        StyledDropDown(container=path_container, text=["Comma separated (.csv)", "Other"], variable_name="save_format_dd",
-                       left=90, top=55, width=180, height=30)
-        self.save_btn = StyledButton(container=path_container, text="Save", variable_name="Save",
-                     left=275, top=15, width=90, height=30, normal_color="#007BFF", press_color="#0056B3")
-        self.open_btn = StyledButton(container=path_container, text="Open Path", variable_name="open_path",
-                     left=275, top=55, width=90, height=30, normal_color="#007BFF", press_color="#0056B3")
-        self.display_plot = StyledImageBox(container=self.image_container, variable_name="display_plot", left=5, top=5,
-                                           width=375, height=360, image_path="my_res:none.png")
+        self.image_container = StyledContainer(
+            container=testing_container, variable_name="image_container",
+            left=0, top=0, height=370, width=385, bg_color=True, color="#DCDCDC"
+        )
+
+        path_container = StyledContainer(
+            container=testing_container, variable_name="path_container",
+            left=10, top=370, height=110, width=370
+        )
+
+        StyledLabel(
+            container=path_container, text="Save path", variable_name="save_path",
+            left=5, top=20, width=80, height=50, font_size=100, color="#222", align="left"
+        )
+
+        StyledLabel(
+            container=path_container, text="Save format", variable_name="save_format",
+            left=5, top=60, width=80, height=50, font_size=100, color="#222", align="left"
+        )
+
+        self.save_path_input = StyledTextInput(
+            container=path_container, variable_name="save_path_input",
+            left=90, top=15, width=162, height=28, position="absolute", text=desktop_path
+        )
+
+        StyledDropDown(
+            container=path_container, text=["csv", "txt"], variable_name="save_format_dd",
+            left=90, top=55, width=180, height=30
+        )
+
+        self.save_btn = StyledButton(
+            container=path_container, text="Save", variable_name="Save",
+            left=275, top=15, width=90, height=30, normal_color="#007BFF", press_color="#0056B3"
+        )
+
+        self.open_btn = StyledButton(
+            container=path_container, text="Open Path", variable_name="open_path",
+            left=275, top=55, width=90, height=30, normal_color="#007BFF", press_color="#0056B3"
+        )
+
+        self.display_plot = StyledImageBox(
+            container=self.image_container, variable_name="display_plot",
+            left=5, top=5, width=375, height=360, image_path="my_res:TSP/none.png"
+        )
 
         # -------------------------------------------------- SETTING BLOCK
-        setting_container = StyledContainer(container=testing_container, variable_name="setting_container",
-                                            left=400, top=10, height=475, width=240)
-        StyledDropDown(container=setting_container, text=["Laser Sweep", "...."],
-                       variable_name="laser_sweep", left=0, top=0, width=120, height=30)
-        self.setting_btn = StyledButton(container=setting_container, text="Setting", variable_name="setting",
-                                        left=131, top=2.5, width=50, height=25, normal_color="#007BFF", press_color="#0056B3")
-        self.load_btn = StyledButton(container=setting_container, text="Load", variable_name="load",
-                                     left=191, top=2.5, width=50, height=25, normal_color="#007BFF", press_color="#0056B3")
+        setting_container = StyledContainer(
+            container=testing_container, variable_name="setting_container", left=400, top=10, height=475, width=240
+        )
+
+        StyledDropDown(
+            container=setting_container, text=["Laser Sweep", "...."], variable_name="laser_sweep",
+            left=0, top=0, width=120, height=30
+        )
+
+        self.setting_btn = StyledButton(
+            container=setting_container, text="Setting", variable_name="setting",
+            left=131, top=2.5, width=50, height=25, normal_color="#007BFF", press_color="#0056B3"
+        )
+
+        self.load_btn = StyledButton(
+            container=setting_container, text="Load", variable_name="load",
+            left=191, top=2.5, width=50, height=25, normal_color="#007BFF", press_color="#0056B3"
+        )
 
         headers = ["Device", "Status"]
         self.col_widths = [100, 40]
-        table_container = StyledContainer(container=setting_container, variable_name="setting_container",
-                                          left=0, top=40, height=260, width=235, border=True, overflow=True)
-        self.table = StyledTable(container=table_container, variable_name="device_status",
-                                 left=0, top=0, height=25, table_width=235, headers=headers, widths=self.col_widths, row=1)
+        table_container = StyledContainer(
+            container=setting_container, variable_name="setting_container",
+            left=0, top=40, height=230, width=235, border=True, overflow=True
+        )
+
+        self.table = StyledTable(
+            container=table_container, variable_name="device_status",
+            left=0, top=0, height=25, table_width=235, headers=headers, widths=self.col_widths, row=1
+        )
 
         # ------ control buttons
-        self.start_btn = StyledButton(container=setting_container, text="Start", variable_name="start",
-                                      left=0, top=375, width=70, height=30, normal_color="#007BFF", press_color="#0056B3")
-        self.stop_btn = StyledButton(container=setting_container, text="Stop", variable_name="stop",
-                                     left=0, top=415, width=70, height=30, normal_color="#007BFF", press_color="#0056B3")
+        self.start_btn = StyledButton(
+            container=setting_container, text="Start", variable_name="start",
+            left=0, top=375, width=70, height=30, normal_color="#007BFF", press_color="#0056B3"
+        )
 
-        StyledLabel(container=setting_container, text="Elapsed", variable_name="elapsed", left=80, top=382,
-                    width=65, height=30, font_size=100, color="#222", align="right")
-        StyledLabel(container=setting_container, text="Remaining", variable_name="remaining", left=80, top=422,
-                    width=65, height=30, font_size=100, color="#222", align="right")
-        self.elapsed_time = StyledLabel(container=setting_container, text="00:00:00", variable_name="elapsed_time",
-                                         left=165, top=375, width=75, height=25, font_size=100, color="#222", border=True, flex=True)
-        self.remaining_time = StyledLabel(container=setting_container, text="00:00:00", variable_name="remaining_time",
-                                           left=165, top=415, width=75, height=25, font_size=100, color="#222", border=True, flex=True)
+        self.stop_btn = StyledButton(
+            container=setting_container, text="Stop", variable_name="stop",
+            left=0, top=415, width=70, height=30, normal_color="#007BFF", press_color="#0056B3"
+        )
+
+        StyledLabel(
+            container=setting_container, text="Elapsed", variable_name="elapsed",
+            left=80, top=382, width=65, height=30, font_size=100, color="#222", align="right"
+        )
+
+        StyledLabel(
+            container=setting_container, text="Remaining", variable_name="remaining",
+            left=80, top=422, width=65, height=30, font_size=100, color="#222", align="right"
+        )
+
+        self.elapsed_time = StyledLabel(
+            container=setting_container, text="00:00:00", variable_name="elapsed_time",
+            left=165, top=375, width=75, height=25, font_size=100, color="#222", border=True, flex=True
+        )
+
+        self.remaining_time = StyledLabel(
+            container=setting_container, text="00:00:00", variable_name="remaining_time",
+            left=165, top=415, width=75, height=25, font_size=100, color="#222", border=True, flex=True
+        )
 
         # ---- pagination controls
-        self.prev_btn = StyledButton(container=setting_container, text="◀", variable_name="prev_page",
-                                     left=0, top=315, width=30, height=25)
-        self.page_input = StyledTextInput(container=setting_container, variable_name="page_input",
-                                          left=35, top=315, width=25, height=25)
-        self.total_page_label = StyledLabel(container=setting_container, text=f"/ {self.total_pages()}",
-                                            variable_name="page_total", left=80, top=315, width=40, height=25,
-                                            flex=True, justify_content="left")
-        self.jump_btn = StyledButton(container=setting_container, text="Go", variable_name="jump_page",
-                                     left=110, top=315, width=40, height=25)
-        self.next_btn = StyledButton(container=setting_container, text="▶", variable_name="next_page",
-                                     left=155, top=315, width=30, height=25)
-        self.tsp_btn = StyledButton(container=setting_container, text="Solve", variable_name="solve_tsp",
-                                     left=190, top=315, width=50, height=25)
+        self.prev_btn = StyledButton(
+            container=setting_container, text="◀", variable_name="prev_page",
+            left=20, top=285, width=35, height=25
+        )
+
+        self.page_input = StyledTextInput(
+            container=setting_container, variable_name="page_input", left=63, top=285, width=25, height=25
+        )
+
+        self.total_page_label = StyledLabel(
+            container=setting_container, text=f"/ {self.total_pages()}", variable_name="page_total",
+            left=108, top=285, width=40, height=25, flex=True, justify_content="left"
+        )
+
+        self.jump_btn = StyledButton(
+            container=setting_container, text="Go", variable_name="jump_page", left=138, top=285, width=40, height=25
+        )
+
+        self.next_btn = StyledButton(
+            container=setting_container, text="▶", variable_name="next_page", left=186, top=285, width=35, height=25
+        )
+
+        self.tsp_btn = StyledButton(
+            container=setting_container, text="Solve", variable_name="solve_tsp", left=0, top=335, width=70, height=30
+        )
+
+        self.solve_time = StyledSpinBox(
+            container=setting_container, variable_name="solve_time_spin",
+            left=85, top=337, width=50, height=25, min_value=1, max_value=600, step=1, value=60
+        )
+
+        StyledLabel(
+            container=setting_container, text="s", variable_name="second_label",
+            left=160, top=335, width=20, height=30, flex=True, justify_content="left"
+        )
 
         # ---- event bindings
         self.prev_btn.do_onclick(lambda *_: self.run_in_thread(self.goto_prev_page))
@@ -279,17 +346,15 @@ class testing(App):
         self.setting_btn.do_onclick(lambda *_: self.run_in_thread(self.laser_sweep_setting))
 
         # -------------------------------------------------- TERMINAL BLOCK
-        terminal_container = StyledContainer(container=testing_container, variable_name="terminal_container",
-                                             left=0, top=500, height=150, width=650, bg_color=True)
-        self.terminal = Terminal(container=terminal_container, variable_name="terminal_text",
-                                 left=10, top=15, width=610, height=100)
+        terminal_container = StyledContainer(
+            container=testing_container, variable_name="terminal_container",
+            left=0, top=500, height=150, width=650, bg_color=True
+        )
 
-        # vertical separator
-        """StyledContainer(container=testing_container, variable_name="vertical_separator", left=390, top=0, width=1,
-                        height=370, bg_color=True, color="#bbb")
-        # horizontal separator
-        StyledContainer(container=testing_container, variable_name="horizontal_separator", left=0, top=370, width=390,
-                        height=1, bg_color=True, color="#bbb")"""
+        self.terminal = Terminal(
+            container=terminal_container, variable_name="terminal_text",
+            left=10, top=15, width=610, height=100
+        )
 
         # initial data load
         self.build_table_rows()
@@ -307,16 +372,16 @@ class testing(App):
 
     def tsp_solve(self):
         self.tsp_btn.set_enabled(False)
-        self.display_plot.set_image("my_res:wait.png")
+        self.display_plot.set_image("my_res:TSP/wait.png")
         solver = TSPSolver(
             coord_json="./database/coordinates.json",
             selected_json="./database/shared_memory.json",
-            time_limit=20,
-            output_dir="./res"
+            time_limit=int(self.solve_time.get_value()),
+            output_dir="./res/TSP"
         )
         solver.solve_and_plot()
         print(solver.path)
-        self.display_plot.set_image(f"my_res:{solver.path}")
+        self.display_plot.set_image(f"my_res:TSP/{solver.path}")
         self.filtered_idx = solver.route_idx[1:]
         self.build_table_rows()
         self.tsp_btn.set_enabled(True)
@@ -361,28 +426,37 @@ class testing(App):
         app.Destroy()
 
     def save_file(self):
-        src = os.path.join(os.getcwd(), "database", "shared_memory.json")
+        src = os.path.join(os.getcwd(), "UserData", self.cur_user)
         dest_dir = self.save_path_input.get_text().strip()
 
-        if not os.path.isfile(src):
-            print(f"[Error] {src} does not exist.\n")
-            return
         if not dest_dir:
-            print("[Error] Save path is empty.\n")
+            print("❌ Save path cannot be empty!")
             return
-        if not os.path.isdir(dest_dir):
+
+        if not os.path.exists(dest_dir):
             try:
                 os.makedirs(dest_dir, exist_ok=True)
+                print(f"📁 Created destination directory: {dest_dir}")
             except Exception as e:
-                print(f"[Error] Create dir failed: {e}\n")
+                print(f"❌ Failed to create directory: {e}")
                 return
 
-        dest = os.path.join(dest_dir, "shared_memory.json")
+        dest_path = os.path.join(dest_dir, self.cur_user)
+
+        if os.path.exists(dest_path):
+            try:
+                shutil.rmtree(dest_path)
+                print(f"⚠️ Removed existing directory: {dest_path}")
+            except Exception as e:
+                print(f"❌ Failed to remove existing directory: {e}")
+                return
+
         try:
-            shutil.copy(src, dest)
-            print(f"[OK] Copied to {dest}\n")
+            shutil.copytree(src, dest_path)
+            print(f"✅ Files saved to: {dest_path}")
         except Exception as e:
-            print(f"[Error] Copy failed: {e}\n")
+            print(f"❌ Copy failed: {e}")
+
 
     def laser_sweep_setting(self):
         local_ip = get_local_ip()

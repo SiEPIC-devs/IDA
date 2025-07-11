@@ -8,12 +8,7 @@
 from lab_gui import *
 from remi.gui import *
 from remi import start, App
-import threading
-import webview
-import signal
-import time
-import socket
-
+import threading, webview, signal, socket, time
 
 def get_local_ip():
     try:

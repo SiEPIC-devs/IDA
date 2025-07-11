@@ -178,12 +178,12 @@ class Terminal(TextInput):
             self.timestamp = filetime
 
 class StyledFileUploader(FileUploader):
-    def __init__(self, variable_name, left, top, width=300, height=30, position="absolute", percent=False, container=None):
+    def __init__(self, variable_name, left, top, width=300, height=30, position="absolute", percent=False, container=None, savepath="./res/"):
         super().__init__()
         apply_common_style(self, left, top, width, height, position, percent)
         self.css_margin = "0px"
         self.multiple_selection_allowed = False
-        self.savepath = "./res/"
+        self.savepath = savepath
         self.variable_name = variable_name
         if container:
             container.append(self, self.variable_name)
@@ -384,12 +384,12 @@ class File():
             json.dump(data, f, indent=2)
 
 class plot():
-    def __init__(self, x, y, filename, fileTime, savefile):
+    def __init__(self, x, y, filename, fileTime, user):
         self.x = x
         self.y = y
         self.filename = filename
         self.fileTime = fileTime
-        self.savefile = savefile
+        self.user = user
 
     def generate_plots(self):
         print("Start html plot")
@@ -397,7 +397,7 @@ class plot():
         y_values = self.y
         filename = self.filename
         fileTime = self.fileTime
-        savefile = self.savefile
+        user = self.user
         try:
             plots = {"Wavelength [nm]": x_axis*1000000000}
             plotnames = []
@@ -411,7 +411,7 @@ class plot():
                 fig.data[i].name = str(i + 1)
             fig.update_layout(legend_title_text="Detector")
             cwd = os.getcwd()
-            output_html = os.path.join(savefile, f"{filename}_{fileTime}.html")
+            output_html = os.path.join(".", "UserData", user, "Spectrum", f"{filename}_{fileTime}.html")
             fig.write_html(output_html)
             print("Done html plot")
         except Exception as e:
@@ -429,7 +429,7 @@ class plot():
                 plt.plot(x_axis*1000000000, y_values[element], linewidth=0.2)
             plt.xlabel("Wavelength [nm]")
             plt.ylabel("Power [dBm]")
-            output_pdf = os.path.join(savefile, f"{filename}_{fileTime}.pdf")
+            output_pdf = os.path.join(".", "UserData", user, "Spectrum", f"{filename}_{fileTime}.pdf")
             plt.savefig(output_pdf, dpi=image_dpi)
             plt.close()
             print("Done pdf plot")

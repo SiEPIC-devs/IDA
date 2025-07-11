@@ -1,9 +1,4 @@
-import sys
-import pathlib
-import subprocess
-import threading
-import os
-import time
+import sys, pathlib, subprocess, threading, os, time
 from lab_gui import *
 
 # ────────── Configuration ───────────

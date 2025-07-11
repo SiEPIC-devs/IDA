@@ -1,12 +1,8 @@
 from lab_gui import *
 from remi.gui import *
 from remi import start, App
-import threading
-import webview
-import signal
-import numpy as np
+import threading, webview, signal, datetime
 import pandas as pd
-import datetime
 
 command_path = os.path.join("database", "command.json")
 shared_path = os.path.join("database", "shared_memory.json")
@@ -16,7 +12,7 @@ class stage_control(App):
         self._user_mtime = None
         self._user_stime = None
         self._first_command_check = True
-        self.save_pos = None
+        self.user = "Guest"
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -45,7 +41,7 @@ class stage_control(App):
                     data = json.load(f)
                     sweep_range = data.get("SweepRange", {})
                     power = data.get("Power", "")
-                    self.save_pos = data.get("SavePosition", "")
+                    self.user = data.get("user", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
                 sweep_range = {}
@@ -240,7 +236,7 @@ class stage_control(App):
         x = df.iloc[:, 0].values
         y = df.iloc[:, 1:].values.T
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        diagram = plot(x, y, "spectral_sweep", fileTime, self.save_pos)
+        diagram = plot(x, y, "spectral_sweep", fileTime, self.user)
         diagram.generate_plots()
 
     def onchange_wvl(self, emitter, value):

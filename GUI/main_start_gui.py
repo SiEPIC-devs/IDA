@@ -6,17 +6,9 @@ Remi GUI — User/Mode selector with dynamic dropdown + JSON sync
 * No functional change versus the original script — only formatting / layout tidy-up
 """
 
-import json
-import os
-import shutil
-import threading
+import json, os, shutil, threading, webview
 from typing import List, Union
-
-import webview
-from remi.gui import *
 from remi import App, start
-
-# NOTE: external helper modules (keep as-is)
 from lab_gui import *
 
 # ──────────────────────────────────────────
@@ -53,8 +45,6 @@ class Starts(App):
     def main(self):
         return self.construct_ui()
 
-    # ──────────────────────────────── HELPERS
-
     def run_in_thread(self, target, *args) -> None:
         threading.Thread(target=target, args=args, daemon=True).start()
 
@@ -66,7 +56,6 @@ class Starts(App):
         ]
         if not names:
             return ""
-        # 确保 Guest 在最前面
         if "Guest" in names:
             names.remove("Guest")
             names = ["Guest"] + sorted(names)
@@ -156,8 +145,6 @@ class Starts(App):
             print(f"🗑️ Removed {folder}")
         except Exception as exc:
             print(f"❌ Failed to remove: {exc}")
-
-    # ──────────────────────────────── DROPDOWN REFRESH
 
     def refresh(self):
         self.user_dd.empty()

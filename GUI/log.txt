@@ -6,8 +6,35 @@ Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2,
 Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2, '系统找不到指定的路径。', None, 3)
 Connection unsuccessful could not open port '/dev/ttyUSB0': FileNotFoundError(2, '系统找不到指定的路径。', None, 3)
 Confirm Laser Sweep
-✅ Folder created: .\UserData\www
-Start html plot
-Done html plot
-Start pdf plot
-Done pdf plot
+./res/coordinateschangedmeaslabels_20231125_SiEPICfab_ZEP03_Chip1 (2).txt
+Loading devices into database
+This may take awhile
+Device coordinates start on line 1
+Precentage complete
+0.04%
+10.01%
+20.02%
+30.04%
+40.01%
+50.02%
+60.03%
+70.0%
+80.02%
+90.03%
+Problem reading coordinates on line: 2556
+Line contents
+['']
+skipping
+Problem reading coordinates on line: 2557
+Line contents
+['%X-coord', 'Y-coord', 'deviceID', 'padName', 'params']
+skipping
+Problem reading coordinates on line: 2558
+Line contents
+['']
+skipping
+Problem reading coordinates on line: 2559
+Line contents
+['%X-coord', 'Y-coord', 'recipeID', 'params']
+skipping
+All devices has been uploaded to database
