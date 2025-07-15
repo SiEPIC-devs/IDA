@@ -65,6 +65,5 @@ def main():
         terminate_all()
 
 if __name__ == "__main__":
-    # shm_pos, raw_pos = create_shared_stage_position()
-    # del raw_pos
+
     main()

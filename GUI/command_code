@@ -14,6 +14,10 @@ stage_laod_true                                  # load the devices
 stage_move_true                                  # move to devices
 stage_lock_true                                  # lock stage control
 stage_unlock_true                                # unlock stage control
+stage_clear_true                                 # clear the limit
+stage_start_true                                 # do the fine align
+stage_scan_true                                  # do the area scan
+stage_device_{num}                               # choose the device
 
 ### Limit Setting ###
 lim_x_left_{num}                                 # set x left limit

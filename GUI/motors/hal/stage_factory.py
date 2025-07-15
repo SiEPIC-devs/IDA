@@ -1,8 +1,7 @@
 from typing import Type, Dict
+import inspect
 from motors.hal.motors_hal import MotorHAL # import hardware abstraction  
 
-# Try
-import inspect
 
 """
 Made by: Cameron Basara, 6/10/2025

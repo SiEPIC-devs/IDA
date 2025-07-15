@@ -1,13 +1,14 @@
 from lab_gui import *
 from remi.gui import *
 from remi import start, App
-import threading, webview, signal, lab_coordinates, asyncio
+import threading, webview, signal, lab_coordinates, asyncio, datetime
 from modern.stage_manager import StageManager
 from modern.config.stage_config import StageConfiguration
 
 filename = "coordinates.json"
-shared_memory_path = os.path.join("database", "shared_memory.json")
+
 command_path = os.path.join("database", "command.json")
+shared_path = os.path.join("database", "shared_memory.json")
 
 class stage_control(App):
     def __init__(self, *args, **kwargs):
@@ -21,23 +22,37 @@ class stage_control(App):
         self.fiber_position_lb = None
         self._user_mtime = None
         self._first_command_check = True
+        self._user_stime = None
+        self.user = "Guest"
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
         try:
             mtime = os.path.getmtime(command_path)
+            stime = os.path.getmtime(shared_path)
         except FileNotFoundError:
             mtime = None
+            stime = None
 
         if self._first_command_check:
             self._user_mtime = mtime
+            self._user_stime = stime
             self._first_command_check = False
             return
 
         if mtime != self._user_mtime:
             self._user_mtime = mtime
             self.execute_command()
+
+        if stime != self._user_stime:
+            self._user_stime = stime
+            try:
+                with open(shared_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    self.user = data.get("user", "")
+            except Exception as e:
+                print(f"[Warn] read json failed: {e}")
 
         self.memory.reader_pos()
         if self.memory.x_pos != float(self.x_position_lb.get_text()):
@@ -62,6 +77,7 @@ class stage_control(App):
         self.configure = StageConfiguration()
         self.stage_manager = StageManager(self.configure, create_shm=True)
         asyncio.run(self.stage_manager.initialize([AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER]))
+
         stage_control_container = StyledContainer(
             container=None, variable_name="stage_control_container", left=0, top=0, height=350, width=650
         )
@@ -271,6 +287,10 @@ class stage_control(App):
         print("Start")
 
     def onclick_scan(self):
+        filename = "./res/heat_map/Heat_Map_2024-01-30_17-48-15.txt"
+        fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        diagram = plot(filename=filename, fileTime=fileTime, user=self.user)
+        diagram.heat_map()
         print("Scan")
 
     def onclick_x_left(self):
@@ -336,6 +356,7 @@ class stage_control(App):
         self.move_dd.empty()
         self.move_dd.append(self.devices)
         self.move_dd.attributes["title"] = self.devices[0]
+        print(self.number)
 
     def onclick_move(self):
         print("Move")
@@ -499,6 +520,14 @@ class stage_control(App):
             elif key == "stage_unlock" and val == True:
                 self.lock_box.set_value(0)
                 self.onchange_lock_box(val, 0)
+            elif key == "stage_device":
+                length = len(self.devices)
+                if val > length:
+                    val = length
+                elif val < 1:
+                    val = 1
+                device = self.devices[int(val-1)]
+                self.move_dd.set_value(device)
 
         if stage == 1:
             print("stage record")

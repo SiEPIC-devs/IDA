@@ -65,7 +65,7 @@ class stage_control(App):
 
     def construct_ui(self):
         sensor_control_container = StyledContainer(
-            container=None, variable_name="sensor_control_container", left=0, top=0, height=150, width=650
+            container=None, variable_name="sensor_control_container", left=0, top=0, height=140, width=650
         )
 
         self.on_box = StyledCheckBox(
@@ -79,53 +79,43 @@ class stage_control(App):
         )
 
         StyledLabel(
-            container=sensor_control_container, text="Wvl [nm]", variable_name="wvl_label", left=55, top=55,
+            container=sensor_control_container, text="Wvl [nm]", variable_name="wvl_label", left=55, top=40,
             width=80, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
         StyledLabel(
-            container=sensor_control_container, text="Pwr [dBm]", variable_name="pwr_label", left=55, top=95,
+            container=sensor_control_container, text="Pwr [dBm]", variable_name="pwr_label", left=55, top=80,
             width=80, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
         self.minus_wvl = StyledButton(
             container=sensor_control_container, text="⮜", variable_name="wvl_left_button", font_size=100,
-            left=140, top=55, width=40, height=25, normal_color="#007BFF", press_color="#0056B3"
+            left=140, top=40, width=40, height=25, normal_color="#007BFF", press_color="#0056B3"
         )
 
         self.minus_pwr = StyledButton(
             container=sensor_control_container, text="-", variable_name="pwr_left_button", font_size=130,
-            left=140, top=95, width=40, height=25, normal_color="#007BFF", press_color="#0056B3"
+            left=140, top=80, width=40, height=25, normal_color="#007BFF", press_color="#0056B3"
         )
 
         self.wvl = StyledSpinBox(
-            container=sensor_control_container, variable_name="wvl_input", left=185, top=55, min_value=0,
+            container=sensor_control_container, variable_name="wvl_input", left=185, top=40, min_value=0,
             max_value=2000, value=10.0, step=0.1, width=65, height=24, position="absolute"
         )
 
         self.pwr = StyledSpinBox(
-            container=sensor_control_container, variable_name="pwr_input", left=185, top=95, min_value=-1000,
+            container=sensor_control_container, variable_name="pwr_input", left=185, top=80, min_value=-1000,
             max_value=1000, value=0.0, step=0.1, width=65, height=24, position="absolute"
         )
 
         self.add_wvl = StyledButton(
             container=sensor_control_container, text="⮞", variable_name="wvl_right_button", font_size=100,
-            left=272, top=55, width=40, height=25, normal_color="#007BFF", press_color="#0056B3"
+            left=272, top=40, width=40, height=25, normal_color="#007BFF", press_color="#0056B3"
         )
 
         self.add_pwr = StyledButton(
             container=sensor_control_container, text="+", variable_name="pwr_right_button", font_size=100,
-            left=272, top=95, width=40, height=25, normal_color="#007BFF", press_color="#0056B3"
-        )
-
-        StyledButton(
-            container=sensor_control_container, text="Calibrate", variable_name="calibrate_button", font_size=90,
-            left=140, top=20, width=80, height=28, normal_color="#007BFF", press_color="#0056B3"
-        )
-
-        StyledButton(
-            container=sensor_control_container, text="Setting", variable_name="setting_button", font_size=90,
-            left=232, top=20, width=80, height=28, normal_color="#007BFF", press_color="#0056B3"
+            left=272, top=80, width=40, height=25, normal_color="#007BFF", press_color="#0056B3"
         )
 
         sweep_container = StyledContainer(
@@ -369,7 +359,7 @@ if __name__ == '__main__':
         'Sensor Control',
         f'http://{local_ip}:8001',
         width=672,
-        height=207,
+        height=197,
         x=800,
         y=255,
         resizable=True

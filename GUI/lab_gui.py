@@ -10,8 +10,12 @@ from modern.hal.motors_hal import AxisType
 import gc
 import plotly.express as px
 import matplotlib
+from pathlib import Path
 import matplotlib.pyplot as plt
 import shutil
+import numpy as np
+from scipy.ndimage import gaussian_filter
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 def apply_common_style(widget, left, top, width, height, position="absolute", percent=False):
     widget.css_position = position
@@ -383,13 +387,80 @@ class File():
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
 
+    def init(self):
+        filepath = os.path.join("database", f"{self.filename}.json")
+        os.makedirs("database", exist_ok=True)
+        if os.path.exists(filepath):
+            with open(filepath, "r", encoding="utf-8") as f:
+                try:
+                    data = json.load(f)
+                except json.JSONDecodeError:
+                    data = {}
+        else:
+            data = {}
+        data["user"] = "Guest"
+        data["Image"] = "TSP/none.png"
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+
 class plot():
-    def __init__(self, x, y, filename, fileTime, user):
+    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None):
         self.x = x
         self.y = y
         self.filename = filename
         self.fileTime = fileTime
         self.user = user
+
+    def heat_map(self):
+        data = np.loadtxt(self.filename, delimiter=',')
+        fig, ax = plt.subplots(figsize=(7, 7))
+        min_value = np.nanmin(data)
+        max_value = np.nanmax(data)
+        heatmap = ax.imshow(
+            data,
+            origin='upper',
+            cmap='gist_heat_r',
+            vmin=min_value - 3,
+            vmax=max_value + 1,
+            interpolation='nearest'
+        )
+
+        ax.set_title('Area Sweep Heat Map', fontsize=16)
+        ax.set_xlabel('X Position Index')
+        ax.set_ylabel('Y Position Index')
+
+        num_x = data.shape[1]
+        num_y = data.shape[0]
+        ax.set_xticks(np.arange(0, num_x, 1))
+        ax.set_yticks(np.arange(0, num_y, 1))
+
+        divider = make_axes_locatable(ax)
+        cax = divider.append_axes("right", size="5%", pad=0.05)
+        plt.colorbar(heatmap, cax=cax, label='Power (dBm)')
+
+        def onclick(event):
+            if event.inaxes == ax and event.xdata is not None and event.ydata is not None:
+                x = int(np.round(event.xdata))
+                y = int(np.round(event.ydata))
+                if 0 <= x < num_x and 0 <= y < num_y:
+                    value = data[y, x]
+                    print(f"Clicked at (x={x}, y={y}), Value = {value:.3f} dBm")
+
+        fig.canvas.mpl_connect('button_press_event', onclick)
+        plt.show()
+
+    def _cleanup_old_plots(self, keep: int = 1) -> None:
+        self.output_dir = Path("./res/spectral_sweep")
+        files = sorted(
+            (p for p in self.output_dir.glob("spectral_sweep_*.png")),
+            key=lambda p: p.stat().st_mtime,
+            reverse=True
+        )
+        for p in files[keep:]:
+            try:
+                p.unlink()
+            except OSError:
+                pass
 
     def generate_plots(self):
         print("Start html plot")
@@ -431,7 +502,14 @@ class plot():
             plt.ylabel("Power [dBm]")
             output_pdf = os.path.join(".", "UserData", user, "Spectrum", f"{filename}_{fileTime}.pdf")
             plt.savefig(output_pdf, dpi=image_dpi)
+
+            output_pdf2 = os.path.join(".", "res", "spectral_sweep",f"{filename}_{fileTime}.png")
+            plt.savefig(output_pdf2, dpi=300)
+            self._cleanup_old_plots(keep=1)
+
             plt.close()
+            file = File("shared_memory", "Image", f"spectral_sweep/{filename}_{fileTime}.png")
+            file.save()
             print("Done pdf plot")
         except Exception as e:
             try:

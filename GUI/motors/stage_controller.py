@@ -150,19 +150,16 @@ class StageControl(MotorHAL):
                     
                     if want_reply:
                         if "STA?" in full_cmd:
-                            # Status queries expect \n\r termination
                             resp = await asyncio.wait_for(
                                 reader.readuntil(b"\n\r"),
                                 timeout=timeout or 1.0
                             )
                         elif "POS?" in full_cmd:
-                            # Position queries expect \n\r termination  
                             resp = await asyncio.wait_for(
                                 reader.readuntil(b"\n\r"),
                                 timeout=timeout or 1.0
                             )
                         else:
-                            # Other commands expect \r\n termination
                             resp = await asyncio.wait_for(
                                 reader.readuntil(b'\r\n'),
                                 timeout=timeout or GLOBAL_TIMEOUT

@@ -26,6 +26,7 @@ class testing(App):
         self.notopen = True
         self.running = False
         self.cur_user = ""
+        self.image_path = ""
 
         if "editing_mode" not in kwargs:
             super(testing, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -44,7 +45,10 @@ class testing(App):
             if mtime is not None:
                 try:
                     with open(json_path, "r", encoding="utf-8") as f:
-                        self.cur_user = json.load(f).get("user", "").strip()
+                        data = json.load(f)
+                        self.cur_user = data.get("user", "").strip()
+                        self.image_path = data.get("Image", "")
+                        self.display_plot.set_image(f"my_res:{self.image_path}")
                 except Exception as e:
                     print(f"[Warn] read json failed: {e}")
 
@@ -385,6 +389,8 @@ class testing(App):
         self.filtered_idx = solver.route_idx[1:]
         self.build_table_rows()
         self.tsp_btn.set_enabled(True)
+        file = File("shared_memory", "Image", f"TSP/{solver.path}")
+        file.save()
 
     def load_file(self):
         file_path = os.path.join("database", "shared_memory.json")

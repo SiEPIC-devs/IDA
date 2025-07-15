@@ -6,7 +6,7 @@ import threading
 from concurrent.futures import ThreadPoolExecutor
 # import numpy as np
 
-from motors.hal.motors_hal import MotorHAL, AxisType, MotorState, Position, MotorConfig, MotorEventType, MotorEvent
+from hal.motors_hal import MotorHAL, AxisType, MotorState, Position, MotorConfig, MotorEventType, MotorEvent
 import serial
 
 
@@ -673,7 +673,7 @@ class StageControl(MotorHAL):
             'position_tolerance': self._position_tolerance
         }
 
-from motors.hal.stage_factory import register_driver
+from hal.stage_factory import register_driver
 
 # Register 347 motor stage
 register_driver("stage_control", StageControl)
