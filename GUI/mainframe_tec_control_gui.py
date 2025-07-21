@@ -114,30 +114,30 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key.startswith("tec_control") and val == True and record == 0:
+            if key.startswith("tec") and val == "control" and record == 0:
                 tec = 1
-            elif key.startswith("stage_control") and val == True or record == 1:
+            elif key.startswith("stage") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor_control") and val == True or record == 1:
+            elif key.startswith("sensor") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim_set") and val == True or record == 1:
+            elif key.startswith("lim") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as_set") and val == True or record == 1:
+            elif key.startswith("as") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa_set") and val == True or record == 1:
+            elif key.startswith("fa") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep_set") and val == True or record == 1:
+            elif key.startswith("sweep") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
 
-            elif key == "tec_on" and val == True:
+            elif key == "tec" and val == "on":
                 self.on_box.set_value(1)
-            elif key == "tec_off" and val:
+            elif key == "tec" and val == "off":
                 self.on_box.set_value(0)
             elif key == "tec_tem":
                 self.tem.set_value(val)

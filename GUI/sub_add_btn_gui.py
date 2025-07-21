@@ -32,7 +32,7 @@ class add_btn(App):
     def onclick_add(self):
         folder_name = self.name_input.get_value().strip()
         if not folder_name:
-            print("⚠️  Please enter a valid name.")  # Empty input
+            print("Please enter a valid name.")  # Empty input
             return
         target_path = os.path.join(DEFAULT_DIR, folder_name)
         try:
@@ -40,11 +40,11 @@ class add_btn(App):
             os.makedirs(target_path, exist_ok=False)  # Create sub-folder
             os.makedirs(os.path.join(target_path, "Spectrum"), exist_ok=True)
             os.makedirs(os.path.join(target_path, "HeatMap"), exist_ok=True)
-            print(f"✅ Folder created: {target_path}")
+            print(f"Folder created: {target_path}")
         except FileExistsError:
-            print(f"⚠️  Folder already exists: {target_path}")
+            print(f"Folder already exists: {target_path}")
         except Exception as e:
-            print(f"❌ Failed to create folder: {e}")
+            print(f"Failed to create folder: {e}")
 
 if __name__ == "__main__":
     configuration = {

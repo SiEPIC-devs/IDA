@@ -42,8 +42,8 @@ class fine_align(App):
         )
 
         self.x_count = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="x_count_in", left=80, top=10,
-            width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
+            container=fine_align_setting_container, variable_name="x_count_in", left=80, top=10, value=20,
+            width=50, height=24, min_value=-1000, max_value=1000, step=1, position="absolute"
         )
 
         StyledLabel(
@@ -57,7 +57,7 @@ class fine_align(App):
         )
 
         self.x_step = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="x_step_in", left=80, top=42,
+            container=fine_align_setting_container, variable_name="x_step_in", left=80, top=42, value=0.1,
             width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
         )
 
@@ -72,8 +72,8 @@ class fine_align(App):
         )
 
         self.y_count = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="y_count_in", left=80, top=74,
-            width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
+            container=fine_align_setting_container, variable_name="y_count_in", left=80, top=74, value=20,
+            width=50, height=24, min_value=-1000, max_value=1000, step=1, position="absolute"
         )
 
         StyledLabel(
@@ -87,7 +87,7 @@ class fine_align(App):
         )
 
         self.y_step = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="y_step_in", left=80, top=106,
+            container=fine_align_setting_container, variable_name="y_step_in", left=80, top=106, value=0.1,
             width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
         )
 
@@ -107,7 +107,15 @@ class fine_align(App):
         return fine_align_setting_container
 
     def onclick_confirm(self):
-        print("Confirm Fine Align")
+        value = {
+            "x_count": float(self.x_count.get_value()),
+            "x_step": float(self.x_step.get_value()),
+            "y_count": float(self.y_count.get_value()),
+            "y_step": float(self.y_step.get_value())
+        }
+        file = File("shared_memory", "FineA", value)
+        file.save()
+        print("Confirm Fine Align Setting")
 
     def execute_command(self, path=command_path):
         fa = 0
@@ -123,24 +131,24 @@ class fine_align(App):
             return
 
         for key, val in command.items():
-            if key.startswith("fa_set") and val == True and record == 0:
+            if key.startswith("fa") and val == "set" and record == 0:
                 fa = 1
-            elif key.startswith("stage_control") and val == True or record == 1:
+            elif key.startswith("stage") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec_control") and val == True or record == 1:
+            elif key.startswith("tec") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor_control") and val == True or record == 1:
+            elif key.startswith("sensor") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as_set") and val == True or record == 1:
+            elif key.startswith("as") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim_set") and val == True or record == 1:
+            elif key.startswith("lim") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep_set") and val == True or record == 1:
+            elif key.startswith("sweep") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
 
@@ -152,7 +160,7 @@ class fine_align(App):
                 self.y_count.set_value(val)
             elif key == "fa_y_step":
                 self.y_step.set_value(val)
-            elif key == "fa_confirm" and val == True:
+            elif key == "fa" and val == "confirm":
                 self.onclick_confirm()
 
         if fa == 1:

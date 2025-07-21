@@ -3,10 +3,10 @@ import os
 import time
 from multiprocessing import Process
 from time import sleep, monotonic
-from modern.config.stage_position import *
-from modern.config.stage_config import *
-from modern.utils.shared_memory import *
-from modern.hal.motors_hal import AxisType
+from motors.config.stage_position import *
+from motors.config.stage_config import *
+from motors.utils.shared_memory import *
+from motors.hal.motors_hal import AxisType
 import gc
 import plotly.express as px
 import matplotlib
@@ -370,6 +370,12 @@ class File():
         self.data_info = data_info
         self.data_info2 = data_info2
 
+    def _safe_write(self, data, filepath):
+        temp_filepath = filepath + ".tmp"
+        with open(temp_filepath, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        os.replace(temp_filepath, filepath)  # 原子替换
+
     def save(self):
         filepath = os.path.join("database", f"{self.filename}.json")
         os.makedirs("database", exist_ok=True)
@@ -381,27 +387,28 @@ class File():
                     data = {}
         else:
             data = {}
-        data[f"{self.data_name}"] = self.data_info
+
+        data[self.data_name] = self.data_info
         if self.data_info2 != "":
-            data[f"{self.data_name2}"] = self.data_info2
-        with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
+            data[self.data_name2] = self.data_info2
+
+        self._safe_write(data, filepath)
 
     def init(self):
         filepath = os.path.join("database", f"{self.filename}.json")
         os.makedirs("database", exist_ok=True)
-        if os.path.exists(filepath):
-            with open(filepath, "r", encoding="utf-8") as f:
-                try:
-                    data = json.load(f)
-                except json.JSONDecodeError:
-                    data = {}
-        else:
-            data = {}
-        data["user"] = "Guest"
-        data["Image"] = "TSP/none.png"
-        with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
+        data = {
+            "User": "Guest",
+            "Image": "TSP/none.png",
+            "Limit": {"x": "Yes", "y": "Yes", "z": "Yes", "chip": "Yes", "fiber": "Yes"},
+            "FineA": {"x_count": 20, "x_step": 0.1, "y_count": 20, "y_step": 0.1},
+            "AreaS": {"x_count": 20, "x_step": 5.0, "y_count": 20, "y_step": 5.0, "plot": "New"},
+            "Sweep": {"speed": 1.0, "power": 0.0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "on"},
+            "ScanPos": {"x": 0, "y": 0},
+            "AutoSweep": {"start": 0, "stage": 0, "sensor": 0, "num": 0}
+        }
+
+        self._safe_write(data, filepath)
 
 class plot():
     def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None):
@@ -445,9 +452,16 @@ class plot():
                 if 0 <= x < num_x and 0 <= y < num_y:
                     value = data[y, x]
                     print(f"Clicked at (x={x}, y={y}), Value = {value:.3f} dBm")
+                    position = {
+                        "x": x,
+                        "y": y,
+                    }
+                    file = File("shared_memory", "ScanPos", position)
+                    file.save()
 
         fig.canvas.mpl_connect('button_press_event', onclick)
         plt.show()
+        plt.close(fig)
 
     def _cleanup_old_plots(self, keep: int = 1) -> None:
         self.output_dir = Path("./res/spectral_sweep")
@@ -463,7 +477,6 @@ class plot():
                 pass
 
     def generate_plots(self):
-        print("Start html plot")
         x_axis = self.x
         y_values = self.y
         filename = self.filename
@@ -484,7 +497,6 @@ class plot():
             cwd = os.getcwd()
             output_html = os.path.join(".", "UserData", user, "Spectrum", f"{filename}_{fileTime}.html")
             fig.write_html(output_html)
-            print("Done html plot")
         except Exception as e:
             try:
                 print("Exception generating html plot")
@@ -493,7 +505,6 @@ class plot():
                 e = None
                 del e
         try:
-            print("Start pdf plot")
             image_dpi = 20
             plt.figure(figsize=(100 / image_dpi, 100 / image_dpi), dpi=image_dpi)
             for element in range(0, len(y_values)):
@@ -510,7 +521,7 @@ class plot():
             plt.close()
             file = File("shared_memory", "Image", f"spectral_sweep/{filename}_{fileTime}.png")
             file.save()
-            print("Done pdf plot")
+            print("Done the graphing")
         except Exception as e:
             try:
                 print("Exception generating pdf plot")

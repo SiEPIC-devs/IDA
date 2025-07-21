@@ -33,7 +33,7 @@ class area_scan(App):
 
     def construct_ui(self):
         area_scan_setting_container = StyledContainer(
-            variable_name="area_scan_setting_container", left=0, top=0, height=180, width=200
+            variable_name="area_scan_setting_container", left=0, top=0, height=210, width=200
         )
 
         StyledLabel(
@@ -42,8 +42,8 @@ class area_scan(App):
         )
 
         self.x_count = StyledSpinBox(
-            container=area_scan_setting_container, variable_name="x_count_in", left=80, top=10,
-            width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
+            container=area_scan_setting_container, variable_name="x_count_in", left=80, top=10, value=20,
+            width=50, height=24, min_value=-1000, max_value=1000, step=1, position="absolute"
         )
 
         StyledLabel(
@@ -57,7 +57,7 @@ class area_scan(App):
         )
 
         self.x_step = StyledSpinBox(
-            container=area_scan_setting_container, variable_name="x_step_in", left=80, top=42,
+            container=area_scan_setting_container, variable_name="x_step_in", left=80, top=42, value=5,
             width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
         )
 
@@ -72,8 +72,8 @@ class area_scan(App):
         )
 
         self.y_count = StyledSpinBox(
-            container=area_scan_setting_container, variable_name="y_count_in", left=80, top=74,
-            width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
+            container=area_scan_setting_container, variable_name="y_count_in", left=80, top=74, value=20,
+            width=50, height=24, min_value=-1000, max_value=1000, step=1, position="absolute"
         )
 
         StyledLabel(
@@ -82,7 +82,7 @@ class area_scan(App):
         )
 
         self.y_step = StyledSpinBox(
-            container=area_scan_setting_container, variable_name="y_step_in", left=80, top=106,
+            container=area_scan_setting_container, variable_name="y_step_in", left=80, top=106, value=5,
             width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
         )
 
@@ -91,9 +91,19 @@ class area_scan(App):
             width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
+        StyledLabel(
+            container=area_scan_setting_container, text="Plot", variable_name="plot_lb", left=0, top=138,
+            width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
+        )
+
+        self.plot_dd = StyledDropDown(
+            container=area_scan_setting_container, variable_name="plot_dd", text=["New", "Previous"] ,
+            left=80, top=138, width=90, height=24, position="absolute"
+        )
+
         self.confirm_btn = StyledButton(
             container=area_scan_setting_container, text="Confirm", variable_name="confirm_btn",
-            left=68, top=142, height=25, width=70, font_size=90
+            left=68, top=172, height=25, width=70, font_size=90
         )
 
         self.confirm_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_confirm))
@@ -102,7 +112,16 @@ class area_scan(App):
         return area_scan_setting_container
 
     def onclick_confirm(self):
-        print("Confirm Area Scan")
+        value = {
+            "x_count": float(self.x_count.get_value()),
+            "x_step": float(self.x_step.get_value()),
+            "y_count": float(self.y_count.get_value()),
+            "y_step": float(self.y_step.get_value()),
+            "plot": self.plot_dd.get_value()
+        }
+        file = File("shared_memory", "AreaS", value)
+        file.save()
+        print("Confirm Area Scan Setting")
 
     def execute_command(self, path=command_path):
         area = 0
@@ -118,24 +137,24 @@ class area_scan(App):
             return
 
         for key, val in command.items():
-            if key.startswith("as_set") and val == True and record == 0:
+            if key.startswith("as") and val == "set" and record == 0:
                 area = 1
-            elif key.startswith("stage_control") and val == True or record == 1:
+            elif key.startswith("stage") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec_control") and val == True or record == 1:
+            elif key.startswith("tec") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor_control") and val == True or record == 1:
+            elif key.startswith("sensor") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa_set") and val == True or record == 1:
+            elif key.startswith("fa") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim_set") and val == True or record == 1:
+            elif key.startswith("lim") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep_set") and val == True or record == 1:
+            elif key.startswith("sweep") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
 
@@ -147,7 +166,15 @@ class area_scan(App):
                 self.y_count.set_value(val)
             elif key == "as_y_step":
                 self.y_step.set_value(val)
-            elif key == "as_confirm" and val == True:
+            elif key == "as_plot":
+                if val.lower() == "new":
+                    val = "New"
+                elif val.lower() == "previous":
+                    val = "Previous"
+                else:
+                    val = "New"
+                self.plot_dd.set_value(val)
+            elif key == "as" and val == "confirm":
                 self.onclick_confirm()
 
         if area == 1:

@@ -4,7 +4,7 @@ import time
 from motors.stage_manager import StageManager
 from motors.config.stage_config import StageConfiguration
 from motors.hal.motors_hal import AxisType, MotorEvent, MotorEventType
-from motors.stage_controller import StageControl
+from motors.stage_controllerv2 import StageControl
 
 def print_event(event: MotorEvent):
     timestamp = event.timestamp

@@ -38,7 +38,7 @@ class Starts(App):
 
         current_user = self.user_dd.get_value()
         if current_user != self._last_saved_user:
-            file = File("shared_memory", "user", current_user)
+            file = File("shared_memory", "User", current_user)
             file.save()
             self._last_saved_user = current_user
 

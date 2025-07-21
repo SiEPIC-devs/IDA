@@ -9,6 +9,7 @@ class add_btn(App):
         self._user_mtime = None
         self._user_stime = None
         self._first_command_check = True
+        self.sweep = None
         if "editing_mode" not in kwargs:
             super(add_btn, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -21,9 +22,7 @@ class add_btn(App):
             stime = None
 
         if self._first_command_check:
-            self.onclick_confirm()
             self._user_mtime = mtime
-            self._user_stime = stime
             self._first_command_check = False
             return
 
@@ -37,22 +36,13 @@ class add_btn(App):
             try:
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    sweep_range = data.get("SweepRange", {})
-                    power = data.get("Power", "")
+                    self.sweep = data.get("Sweep", {})
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
-                sweep_range = {}
 
-            if power != "":
-                self.power.set_value(power)
-
-            if isinstance(sweep_range, dict):
-                start = sweep_range.get("start")
-                stop = sweep_range.get("stop")
-
-                if start is not None and stop is not None:
-                    self.start_wvl.set_value(start)
-                    self.stop_wvl.set_value(stop)
+            self.power.set_value(self.sweep["power"])
+            self.start_wvl.set_value(self.sweep["start"])
+            self.stop_wvl.set_value(self.sweep["end"])
 
     def main(self):
         return self.construct_ui()
@@ -161,15 +151,18 @@ class add_btn(App):
         return laser_sweep_container
 
     def onclick_confirm(self):
-        print("Confirm Laser Sweep")
-        self.speed.set_value(float(self.speed.get_value()))
-        self.step_size.set_value(float(self.step_size.get_value()))
-        shared_mem = {}
-        shared_mem2 = float(self.power.get_value())
-        shared_mem["start"] = float(self.start_wvl.get_value())
-        shared_mem["stop"] = float(self.stop_wvl.get_value())
-        file = File("shared_memory", "SweepRange", shared_mem, "Power", shared_mem2)
+        mem = {
+            "speed": float(self.speed.get_value()),
+            "power": float(self.power.get_value()),
+            "step": float(self.step_size.get_value()),
+            "start": float(self.start_wvl.get_value()),
+            "end": float(self.stop_wvl.get_value()),
+            "done": self.on_off.get_value()
+        }
+        file = File("shared_memory", "Sweep", mem)
         file.save()
+
+        print("Confirm Sweep Setting")
 
     def execute_command(self, path=command_path):
         sweep = 0
@@ -185,24 +178,24 @@ class add_btn(App):
             return
 
         for key, val in command.items():
-            if key.startswith("sweep_set") and val == True and record == 0:
+            if key.startswith("sweep") and val == "set" and record == 0:
                 sweep = 1
-            elif key.startswith("stage_control") and val == True or record == 1:
+            elif key.startswith("stage") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec_control") and val == True or record == 1:
+            elif key.startswith("tec") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor_control") and val == True or record == 1:
+            elif key.startswith("sensor") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa_set") and val == True or record == 1:
+            elif key.startswith("fa") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim_set") and val == True or record == 1:
+            elif key.startswith("lim") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as_set") and val == True or record == 1:
+            elif key.startswith("as") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
 
@@ -221,7 +214,7 @@ class add_btn(App):
                     self.on_off.set_value("Laser On")
                 elif val == "off":
                     self.on_off.set_value("Laser Off")
-            elif key == "sweep_confirm" and val == True:
+            elif key == "sweep" and val == "confirm":
                 self.onclick_confirm()
 
         if sweep == 1:

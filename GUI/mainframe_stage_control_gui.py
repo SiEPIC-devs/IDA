@@ -2,8 +2,8 @@ from lab_gui import *
 from remi.gui import *
 from remi import start, App
 import threading, webview, signal, lab_coordinates, asyncio, datetime
-from modern.stage_manager import StageManager
-from modern.config.stage_config import StageConfiguration
+from motors.stage_manager import StageManager
+from motors.config.stage_config import StageConfiguration
 
 filename = "coordinates.json"
 
@@ -24,6 +24,12 @@ class stage_control(App):
         self._first_command_check = True
         self._user_stime = None
         self.user = "Guest"
+        self.limit = {}
+        self.area_s = {}
+        self.fine_a = {}
+        self.auto_sweep = {}
+        self.count = 0
+        self.filter = {}
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -37,7 +43,6 @@ class stage_control(App):
 
         if self._first_command_check:
             self._user_mtime = mtime
-            self._user_stime = stime
             self._first_command_check = False
             return
 
@@ -50,9 +55,26 @@ class stage_control(App):
             try:
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    self.user = data.get("user", "")
+                    self.user = data.get("User", "")
+                    self.limit = data.get("Limit", {})
+                    self.area_s = data.get("AreaS", {})
+                    self.fine_a = data.get("FineA", {})
+                    self.auto_sweep = data.get("AutoSweep", {})
+                    self.filter = data.get("Filtered", {})
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
+
+        if self.auto_sweep["start"] == 1 and (self.auto_sweep["sensor"] == 1 or self.count == 0):
+            self.lock_all(1)
+            self.count = 1
+            self.auto_sweep["sensor"] = 0
+            file = File("shared_memory", "AutoSweep", self.auto_sweep)
+            file.save()
+            self.run_in_thread(self.do_auto_sweep)
+
+        elif self.auto_sweep["start"] == 0 and self.count == 1:
+            self.lock_all(0)
+            self.count = 0
 
         self.memory.reader_pos()
         if self.memory.x_pos != float(self.x_position_lb.get_text()):
@@ -72,11 +94,50 @@ class stage_control(App):
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
 
+    def do_auto_sweep(self):
+        if self.auto_sweep["num"] < (len(self.filter)):
+            key = list(self.filter.keys())
+            x = float(self.filter[key[self.auto_sweep["num"]]][0])
+            y = float(self.filter[key[self.auto_sweep["num"]]][1])
+
+            print(f"Move to Device {self.auto_sweep['num'] + 1} [{x}, {y}]")
+            for i in range(3):
+                time.sleep(1)
+                print(f"Time: {i+1}s")
+
+            asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
+            asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
+
+            self.onclick_start()
+            for i in range(3):
+                time.sleep(1)
+                print(f"Time: {i+1}s")
+
+            self.auto_sweep["stage"] = 1
+            self.auto_sweep["num"] += 1
+        else:
+            self.auto_sweep["start"] = 0
+            print("The Auto Sweep Is Finished")
+        file = File("shared_memory", "AutoSweep", self.auto_sweep)
+        file.save()
+
+    def lock_all(self, value):
+        enabled = value == 0
+        widgets_to_check = [self.stage_control_container]
+        while widgets_to_check:
+            widget = widgets_to_check.pop()
+
+            if isinstance(widget, (Button, SpinBox, CheckBox, DropDown)):
+                widget.set_enabled(enabled)
+
+            if hasattr(widget, "children"):
+                widgets_to_check.extend(widget.children.values())
+
     def construct_ui(self):
         self.memory = Memory()
         self.configure = StageConfiguration()
         self.stage_manager = StageManager(self.configure, create_shm=True)
-        asyncio.run(self.stage_manager.initialize([AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER]))
+        asyncio.run(self.stage_manager.initialize_all([AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER]))
 
         stage_control_container = StyledContainer(
             container=None, variable_name="stage_control_container", left=0, top=0, height=350, width=650
@@ -146,19 +207,14 @@ class stage_control(App):
                 justify_content="left"
             ))
 
-        self.zero_btn = StyledButton(
-            container=xyz_container, text="Zero", variable_name="zero_button", font_size=100,
-            left=310, top=10, width=90, height=30, normal_color="#007BFF", press_color="#0056B3"
-        )
-
         limits_container = StyledContainer(
             container=stage_control_container, variable_name="limits_container",
             left=430, top=20, height=90, width=90, border=True
         )
 
         StyledLabel(
-            container=limits_container, text="Limits", variable_name="limits_label",
-            left=22.5, top=-12, width=40, height=20, font_size=100, color="#444", position="absolute",
+            container=limits_container, text="Home Lim", variable_name="limits_label",
+            left=12, top=-12, width=66, height=20, font_size=100, color="#444", position="absolute",
             flex=True, on_line=True, justify_content="center"
         )
 
@@ -167,8 +223,8 @@ class stage_control(App):
             left=5, top=10, width=80, height=30, normal_color="#007BFF", press_color="#0056B3"
         )
 
-        self.clear_btn = StyledButton(
-            container=limits_container, text="Clear", variable_name="clear_button", font_size=100,
+        self.home_btn = StyledButton(
+            container=limits_container, text="Home", variable_name="home_btn", font_size=100,
             left=5, top=50, width=80, height=30, normal_color="#007BFF", press_color="#0056B3"
         )
 
@@ -249,8 +305,7 @@ class stage_control(App):
         )
 
         self.stop_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_stop))
-        self.zero_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_zero))
-        self.clear_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_clear))
+        self.home_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_home))
         self.start_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_start))
         self.scan_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_scan))
         self.x_left_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_x_left))
@@ -271,77 +326,97 @@ class stage_control(App):
         self.lock_box.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_lock_box, emitter, value))
         self.move_dd.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_move_dd, emitter, value))
 
+        self.move_btn.set_enabled(False)
         self.stage_control_container = stage_control_container
         return stage_control_container
 
     def onclick_stop(self):
+        asyncio.run(self.stage_manager.emergency_stop())
         print("Stop")
 
-    def onclick_zero(self):
-        print("Zero")
+    def onclick_home(self):
+        home = self.limit
+        x = home["x"]
+        y = home["y"]
+        z = home["z"]
+        chip = home["chip"]
+        fiber = home["fiber"]
 
-    def onclick_clear(self):
-        print("Clear")
+        if x == "Yes":
+            asyncio.run(self.stage_manager.home_limits(AxisType.X))
+        if y == "Yes":
+            asyncio.run(self.stage_manager.home_limits(AxisType.Y))
+        if z == "Yes":
+            asyncio.run(self.stage_manager.home_limits(AxisType.Z))
+        if chip == "Yes":
+            asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_CHIP))
+        if fiber == "Yes":
+            asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_FIBER))
+
+        print("Home")
 
     def onclick_start(self):
-        print("Start")
+        print("Start Fine Align")
 
     def onclick_scan(self):
-        filename = "./res/heat_map/Heat_Map_2024-01-30_17-48-15.txt"
-        fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        diagram = plot(filename=filename, fileTime=fileTime, user=self.user)
-        diagram.heat_map()
+        if self.area_s["plot"] == "New":
+            pass
+        elif self.area_s["plot"] == "Previous":
+            filename = "./res/heat_map/Heat_Map_2024-01-30_17-48-15.txt"
+            fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            diagram = plot(filename=filename, fileTime=fileTime, user=self.user)
+            Process(target=diagram.heat_map).start()
         print("Scan")
 
     def onclick_x_left(self):
         value = float(self.x_input.get_value())
         print(f"X Left {value} um")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.X, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.X, -value, True))
 
     def onclick_x_right(self):
         value = float(self.x_input.get_value())
         print(f"X Right {value} um")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.X, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.X, value, True))
 
     def onclick_y_left(self):
         value = float(self.y_input.get_value())
         print(f"Y Left {value} um")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.Y, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Y, -value, True))
 
     def onclick_y_right(self):
         value = float(self.y_input.get_value())
         print(f"Y Right {value} um")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.Y, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Y, value, True))
 
     def onclick_z_left(self):
         value = float(self.z_input.get_value())
         print(f"Z Down {value} um")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.Z, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Z, -value, True))
 
     def onclick_z_right(self):
         value = float(self.z_input.get_value())
         print(f"Z Up {value} um")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.Z, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Z, value, True))
 
     def onclick_chip_left(self):
         value = float(self.chip_input.get_value())
         print(f"Chip Turn CW {value} deg")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.ROTATION_CHIP, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, -value, True))
 
     def onclick_chip_right(self):
         value = float(self.chip_input.get_value())
         print(f"Chip Turn CCW {value} deg")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.ROTATION_CHIP, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, value, True))
 
     def onclick_fiber_left(self):
         value = float(self.fiber_input.get_value())
         print(f"Fiber Turn CW {value} deg")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.ROTATION_FIBER, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, -value, True))
 
     def onclick_fiber_right(self):
         value = float(self.fiber_input.get_value())
         print(f"Fiber Turn CCW {value} deg")
-        asyncio.run(self.stage_manager.move_single_axis(AxisType.ROTATION_FIBER, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, value, True))
 
     def onclick_load(self):
         self.gds = lab_coordinates.coordinates(("./res/" + filename), read_file=False,
@@ -356,10 +431,30 @@ class stage_control(App):
         self.move_dd.empty()
         self.move_dd.append(self.devices)
         self.move_dd.attributes["title"] = self.devices[0]
-        print(self.number)
+        self.move_btn.set_enabled(True)
 
     def onclick_move(self):
-        print("Move")
+        selected_device = self.move_dd.get_value()
+        print(f"Selected device: {selected_device}")
+
+        try:
+            index = self.devices.index(selected_device)
+        except ValueError:
+            print(f"[Error] Device '{selected_device}' not found in device list.")
+            return
+
+        try:
+            device_coord = self.coordinate[index]
+            x = float(device_coord[0])
+            y = float(device_coord[1])
+            print(f"Moving to coordinate: X={x}, Y={y}")
+
+            asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
+            asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
+
+            print(f"Successfully moved to device {selected_device}")
+        except Exception as e:
+            print(f"[Error] Failed to move to device {selected_device}: {e}")
 
     def onchange_lock_box(self, emitter, value):
         enabled = value == 0
@@ -376,7 +471,7 @@ class stage_control(App):
             if hasattr(widget, "children"):
                 widgets_to_check.extend(widget.children.values())
 
-        print("Locked" if enabled else "Unlocked")
+        print("Unlocked" if enabled else "Locked")
 
     def onchange_move_dd(self, emitter, value):
         self.move_dd.attributes["title"] = value
@@ -386,8 +481,8 @@ class stage_control(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7002",
-            width=317,
-            height=206,
+            width=222,
+            height=266,
             resizable=True,
             on_top=True,
             hidden=False
@@ -404,13 +499,14 @@ class stage_control(App):
             on_top=True,
             hidden=False
         )
+
     def onclick_scan_setting_btn(self):
         local_ip = get_local_ip()
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7004",
             width=222,
-            height=236,
+            height=266,
             resizable=True,
             on_top=True,
             hidden=False
@@ -430,24 +526,24 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key.startswith("stage_control") and val == True and record == 0:
+            if key.startswith("stage") and val == "control" and record == 0:
                 stage = 1
-            elif key.startswith("tec_control") and val == True or record == 1:
+            elif key.startswith("tec") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor_control") and val == True or record == 1:
+            elif key.startswith("sensor") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim_set") and val == True or record == 1:
+            elif key.startswith("lim") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as_set") and val == True or record == 1:
+            elif key.startswith("as") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa_set") and val == True or record == 1:
+            elif key.startswith("fa") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep_set") and val == True or record == 1:
+            elif key.startswith("sweep") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
 
@@ -462,62 +558,62 @@ class stage_control(App):
             elif key == "stage_fiber_step":
                 self.fiber_input.set_value(str(val))
 
-            elif key == "stage_x_left" and val == True:
+            elif key == "stage_x" and val == "left":
                 self.onclick_x_left()
-            elif key == "stage_y_left" and val == True:
+            elif key == "stage_y" and val == "left":
                 self.onclick_y_left()
-            elif key == "stage_z_left" and val == True:
+            elif key == "stage_z" and val == "left":
                 self.onclick_z_left()
-            elif key == "stage_chip_left" and val == True:
+            elif key == "stage_chip" and val == "left":
                 self.onclick_chip_left()
-            elif key == "stage_fiber_left" and val == True:
+            elif key == "stage_fiber" and val == "left":
                 self.onclick_fiber_left()
 
-            elif key == "stage_x_right" and val == True:
+            elif key == "stage_x" and val == "right":
                 self.onclick_x_right()
-            elif key == "stage_y_right" and val == True:
+            elif key == "stage_y" and val == "right":
                 self.onclick_y_right()
-            elif key == "stage_z_right" and val == True:
+            elif key == "stage_z" and val == "right":
                 self.onclick_z_right()
-            elif key == "stage_chip_right" and val == True:
+            elif key == "stage_chip" and val == "right":
                 self.onclick_chip_right()
-            elif key == "stage_fiber_right" and val == True:
+            elif key == "stage_fiber" and val == "right":
                 self.onclick_fiber_right()
 
-            elif key == "stage_x_left_distance":
+            elif key == "stage_x_left":
                 self.x_input.set_value(str(val))
                 self.onclick_x_left()
-            elif key == "stage_y_left_distance":
+            elif key == "stage_y_left":
                 self.y_input.set_value(str(val))
                 self.onclick_y_left()
-            elif key == "stage_z_left_distance":
+            elif key == "stage_z_left":
                 self.z_input.set_value(str(val))
                 self.onclick_z_left()
-            elif key == "stage_chip_left_distance":
+            elif key == "stage_chip_left":
                 self.chip_input.set_value(str(val))
                 self.onclick_chip_left()
-            elif key == "stage_fiber_left_distance":
+            elif key == "stage_fiber_left":
                 self.fiber_input.set_value(str(val))
                 self.onclick_fiber_left()
 
-            elif key == "stage_stop" and val == True:
+            elif key == "stage" and val == "stop":
                 self.onclick_stop()
-            elif key == "stage_zero" and val == True:
+            elif key == "stage" and val == "zero":
                 self.onclick_zero()
-            elif key == "stage_load" and val == True:
+            elif key == "stage" and val == "load":
                 self.onclick_load()
-            elif key == "stage_clear" and val == True:
-                self.onclick_clear()
-            elif key == "stage_start" and val == True:
+            elif key == "stage" and val == "home":
+                self.onclick_home()
+            elif key == "stage" and val == "start":
                 self.onclick_start()
-            elif key == "stage_scan" and val == True:
+            elif key == "stage" and val == "scan":
                 self.onclick_scan()
-            elif key == "stage_move" and val == True:
+            elif key == "stage" and val == "move":
                 self.onclick_move()
-            elif key == "stage_lock" and val == True:
+            elif key == "stage" and val == "lock":
                 self.lock_box.set_value(1)
                 self.onchange_lock_box(val, 1)
-            elif key == "stage_unlock" and val == True:
+            elif key == "stage" and val == "unlock":
                 self.lock_box.set_value(0)
                 self.onchange_lock_box(val, 0)
             elif key == "stage_device":
@@ -533,8 +629,6 @@ class stage_control(App):
             print("stage record")
             file = File("command", "command", new_command)
             file.save()
-
-
 
 def get_local_ip():
     """Automatically detect local LAN IP address"""
@@ -582,8 +676,8 @@ if __name__ == '__main__':
     webview.create_window(
         "Setting",
         f"http://{local_ip}:7002",
-        width=317,
-        height=206,
+        width=222,
+        height=266,
         resizable=True,
         on_top=True,
         hidden=True
@@ -603,7 +697,7 @@ if __name__ == '__main__':
         "Setting",
         f"http://{local_ip}:7004",
         width=222,
-        height=236,
+        height=266,
         resizable=True,
         on_top=True,
         hidden=True

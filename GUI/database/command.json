@@ -1,5 +1,5 @@
 {
   "command": {
-    "stage_device": 2
+    "stage": "lock"
   }
 }

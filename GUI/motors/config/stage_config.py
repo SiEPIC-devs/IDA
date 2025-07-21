@@ -6,9 +6,6 @@ from motors.hal.motors_hal import AxisType
 @dataclass
 class StageConfiguration:
     """Stage config data class to load data to manager"""
-    com_port: str = "/dev/ttyUSB0"
-    baudrate: int = 38400
-    timeout: float = 0.3
     velocities: Dict[AxisType, float] = field(default_factory=lambda:
         {ax:2000.0 for ax in AxisType if ax.name!="ALL"}
     ) # field dict values
@@ -64,9 +61,6 @@ class StageConfiguration:
         
         
         return cls(
-            com_port=data["com_port"],
-            baudrate=data["baudrate"],
-            timeout=data["timeout"],
             velocities=vel,
             accelerations=accel,
             position_limits=lim,
@@ -84,7 +78,7 @@ class StageConfiguration:
                     'velocity': float,
                     'acceleration': float, 
                     'position_limits': Tuple[float, float],
-                    'driver_type': str
+                    'driver_types': str
                 },
                 ...
             }
@@ -96,10 +90,11 @@ class StageConfiguration:
         
         for axis in axes:
             axis_attrs[axis] = {
+                'axis': axis,
                 'velocity': self.velocities.get(axis),
                 'acceleration': self.accelerations.get(axis),
                 'position_limits': self.position_limits.get(axis),
-                'driver_type': self.driver_types.get(axis)
+                'driver_types': self.driver_types.get(axis)
             }
         
         return axis_attrs

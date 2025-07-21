@@ -4,7 +4,6 @@ from lab_gui import *
 
 class registration(App):
     def __init__(self, *args, **kwargs):
-        self.timestamp = -1
         self.first_mark_set = 0
         self.second_mark_set = 0
         self.third_mark_set = 0

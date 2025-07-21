@@ -1,46 +1,46 @@
 ### Take a series command with different block
-{sensor_control_true}, sensor_..., {stage_control_true}, stage_..., {tec_control_true}, tec_...
+{sensor_control}, sensor_..., {stage_control}, stage_..., {tec_control}, tec_...
 
 ### Stage Control ###
 stage_{x/y/z/chip/fiber}_step_{num}              # set move step
-stage_{x/y/z/chip/fiber}_left_true               # move {x/y/z/chip/fiber} left 1 time
-stage_{x/y/z/chip/fiber}_left_distance_{num}     # move {x/y/z/chip/fiber} {num} um
-stage_{x/y/z/chip/fiber}_right_true              # move {x/y/z/chip/fiber} right 1 time
-stage_{x/y/z/chip/fiber}_right_distance_{num}    # move {x/y/z/chip/fiber} {num} um
+stage_{x/y/z/chip/fiber}_left                    # move {x/y/z/chip/fiber} left 1 time
+stage_{x/y/z/chip/fiber}_left_{num}              # move {x/y/z/chip/fiber} {num} um
+stage_{x/y/z/chip/fiber}_right                   # move {x/y/z/chip/fiber} right 1 time
+stage_{x/y/z/chip/fiber}_right_{num}             # move {x/y/z/chip/fiber} {num} um
 
-stage_stop_true                                  # stop movement
-stage_zero_true                                  # set zero
-stage_laod_true                                  # load the devices
-stage_move_true                                  # move to devices
-stage_lock_true                                  # lock stage control
-stage_unlock_true                                # unlock stage control
-stage_clear_true                                 # clear the limit
-stage_start_true                                 # do the fine align
-stage_scan_true                                  # do the area scan
+stage_stop                                       # stop movement
+stage_zero                                       # set zero
+stage_laod                                       # load the devices
+stage_move                                       # move to devices
+stage_lock                                       # lock stage control
+stage_unlock                                     # unlock stage control
+stage_home                                       # do the home limit
+stage_start                                      # do the fine align
+stage_scan                                       # do the area scan
 stage_device_{num}                               # choose the device
 
 ### Limit Setting ###
-lim_x_left_{num}                                 # set x left limit
-lim_x_right_{num}                                # set x right limit
-lim_y_left_{num}                                 # set y left limit
-lim_y_right_{num}                                # set y right limit
-lim_z_left_{num}                                 # set z left limit
-lim_z_right_{num}                                # set z right limit
-lim_confirm_true                                 # confirm the change of limit setting
+lim_x_{yes/no}                                   # set x do home limit
+lim_y_{yes/no}                                   # set y do home limit
+lim_z_{yes/no}                                   # set z do home limit
+lim_chip_{yes/no}                                # set chip do home limit
+lim_fiber_{yes/no}                               # set fiber do home limit
+lim_confirm                                      # confirm the change of limit setting
 
 ### Fine Align ###
 fa_x_count_{num}                                 # setting the fine align x count
 fa_x_step_{num}                                  # setting the fine align x step
 fa_y_count_{num}                                 # setting the fine align y count
 fa_y_step_{num}                                  # setting the fine align y
-fa_confirm_true                                  # confirm the change of fine align setting
+fa_confirm                                       # confirm the change of fine align setting
 
 ### Area Scan ###
 as_x_count_{num}                                 # setting the area scan x count
 as_x_step_{num}                                  # setting the area scan x step
 as_y_count_{num}                                 # setting the area scan y count
 as_y_step_{num}                                  # setting the area scan y step
-as_confirm_true                                  # confirm the change of area scan setting
+as_plot_{new/previous}                           # decided to use new plot or previous plot
+as_confirm                                       # confirm the change of area scan setting
 
 ### Laser Sweep ###
 sweep_speed_{num}                                # set the sweep speed
@@ -50,28 +50,28 @@ sweep_power_{num}                                # set the sweep power
 sweep_start_wvl_{num}                            # set the sweep start wvl
 sweep_stop_wvl_{num}                             # set the sweep stop wvl
 sweep_done_{on/off}                              # set the sweep done case
-sweep_confirm_true                               # confirm the change of sweep setting
+sweep_confirm                                    # confirm the change of sweep setting
 
 
 
 
-sensor_control_1_true,sensor_on_true, stage_control_1_true,stage_lock_true,tec_control_1_true,tec_on_true,
-as_set_1_true,as_x_count_13,fa_set_1_true,fa_x_count_13,lim_set_1_true,lim_x_left_13,sweep_set_1_true,sweep_speed_14,
-as_set_2_true,as_y_count_13,fa_set_2_true,fa_y_count_13,lim_set_2_true,lim_y_left_13,sweep_set_2_true,sweep_power_14
+sensor_1_control,sensor_on, stage_1_control,stage_lock,tec_1_control,tec_on,
+as_1_set,as_x_count_13,fa_1_set,fa_x_count_13,lim_1_set,lim_x_left_13,sweep_1_set,sweep_speed_14,
+as_2_set,as_y_count_13,fa_2_set,fa_y_count_13,lim_2_set,lim_y_left_13,sweep_2_set,sweep_power_14
 
 
 ### TEC Control ###
-tec_on_true                                      # open the TEC
-tec_off_true                                     # close the TEC
+tec_on                                           # open the TEC
+tec_off                                          # close the TEC
 tec_tem_{num}                                    # set the temperature
 
 ### Sensor Control ###
-sensor_on_true                                   # open the laser
-sensor_off_true                                  # close the laser
+sensor_on                                        # open the laser
+sensor_off                                       # close the laser
 sensor_wvl_{num}                                 # set wavelength
 sensor_pwr_{num}                                 # set power
 sensor_wvl_{num}                                 # set wavelength
 sensor_sweep_start_{num}                         # set laser sweep start
 sensor_sweep_end_{num}                           # set laser sweep end
-sensor_sweep_true                                # start sweep
+sensor_sweep                                     # start sweep
 

@@ -291,7 +291,7 @@ class devices(App):
         if not selected_idx:
             print("No device selected — serial not saved.")
             return
-        file = File("shared_memory", "selection", selected_idx)
+        file = File("shared_memory", "Selection", selected_idx)
         file.save()
 
 

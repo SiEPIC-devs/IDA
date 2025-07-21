@@ -13,6 +13,9 @@ class stage_control(App):
         self._user_stime = None
         self._first_command_check = True
         self.user = "Guest"
+        self.sweep = {}
+        self.auto_sweep = {}
+        self.count = 0
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -26,7 +29,6 @@ class stage_control(App):
 
         if self._first_command_check:
             self._user_mtime = mtime
-            self._user_stime = stime
             self._first_command_check = False
             return
 
@@ -39,29 +41,55 @@ class stage_control(App):
             try:
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    sweep_range = data.get("SweepRange", {})
-                    power = data.get("Power", "")
-                    self.user = data.get("user", "")
+                    self.user = data.get("User", "")
+                    self.sweep = data.get("Sweep", {})
+                    self.auto_sweep = data.get("AutoSweep", {})
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
-                sweep_range = {}
 
-            if power != "":
-                self.pwr.set_value(power)
+            self.pwr.set_value(self.sweep["power"])
+            self.range_start.set_value(self.sweep["start"])
+            self.range_end.set_value(self.sweep["end"])
 
-            if isinstance(sweep_range, dict):
-                start = sweep_range.get("start")
-                stop = sweep_range.get("stop")
+        if self.auto_sweep["start"] == 1 and self.auto_sweep["stage"] == 0:
+            self.lock_all(1)
+        elif self.auto_sweep["start"] == 1 and self.auto_sweep["stage"] == 1:
+            self.auto_sweep["stage"] = 0
+            file = File("shared_memory", "AutoSweep", self.auto_sweep)
+            file.save()
+            self.run_in_thread(self.do_auto_sweep)
+        elif self.auto_sweep["start"] == 0:
+            self.lock_all(0)
 
-                if start is not None and stop is not None:
-                    self.range_start.set_value(start)
-                    self.range_end.set_value(stop)
 
     def main(self):
         return self.construct_ui()
 
     def run_in_thread(self, target, *args) -> None:
         threading.Thread(target=target, args=args, daemon=True).start()
+
+    def do_auto_sweep(self):
+        print("Do The Sweep")
+        for i in range(3):
+            time.sleep(1)
+            print(f"Time: {i + 1}s")
+        self.onclick_sweep()
+        self.auto_sweep["sensor"] = 1
+        file = File("shared_memory", "AutoSweep", self.auto_sweep)
+        file.save()
+
+    def lock_all(self, value):
+        enabled = value == 0
+        widgets_to_check = [self.sensor_control_container]
+        while widgets_to_check:
+            widget = widgets_to_check.pop()
+
+            if isinstance(widget, (Button, SpinBox, CheckBox)):
+                widget.set_enabled(enabled)
+
+            if hasattr(widget, "children"):
+                widgets_to_check.extend(widget.children.values())
+
 
     def construct_ui(self):
         sensor_control_container = StyledContainer(
@@ -199,7 +227,9 @@ class stage_control(App):
         value = round(value - 0.1, 1)
         if value < -1000: value = -1000.0
         if value > 1000: value = 1000.0
-        self.pwr.set_value(value)
+        self.sweep["power"] = value
+        file = File("shared_memory", "Sweep", self.sweep)
+        file.save()
         print(f"Power: {value:.1f} dBm")
 
     def onclick_add_wvl(self):
@@ -215,9 +245,9 @@ class stage_control(App):
         value = round(value + 0.1, 1)
         if value < -1000:  value = -1000.0
         if value > 1000: value = 1000.0
-        file = File("shared_memory", "Power", value)
+        self.sweep["power"] = value
+        file = File("shared_memory", "Sweep", self.sweep)
         file.save()
-        self.pwr.set_value(f"{value:.1f}")
         print(f"Power: {value:.1f} dBm")
 
     def onclick_sweep(self):
@@ -227,39 +257,32 @@ class stage_control(App):
         y = df.iloc[:, 1:].values.T
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         diagram = plot(x, y, "spectral_sweep", fileTime, self.user)
-        diagram.generate_plots()
+        Process(target=diagram.generate_plots).start()
+        #diagram.generate_plots()
 
     def onchange_wvl(self, emitter, value):
         print(f"Wavelength: {value:.1f} nm")
 
     def onchange_pwr(self, emitter, value):
         value = float(value)
-        file = File("shared_memory", "Power", value)
+        self.sweep["power"] = value
+        file = File("shared_memory", "Sweep", self.sweep)
         file.save()
-        self.pwr.set_value(f"{value:.1f}")
         print(f"Power: {value:.1f} dBm")
 
     def onchange_range_start(self, emitter, value):
         print(f"Range Start: {value:.1f} nm")
         value = float(value)
-        shared_mem = {
-            "start": round(value, 1),
-            "stop": round(float(self.range_end.get_value()), 1)
-        }
-        file = File("shared_memory", "SweepRange", shared_mem)
+        self.sweep["start"] = value
+        file = File("shared_memory", "Sweep", self.sweep)
         file.save()
-        self.range_start.set_value(f"{value:.1f}")  # 更新显示为一位小数
 
     def onchange_range_end(self, emitter, value):
         print(f"Range End: {value:.1f} dBm")
         value = float(value)
-        shared_mem = {
-            "start": round(float(self.range_start.get_value()), 1),
-            "stop": round(value, 1)
-        }
-        file = File("shared_memory", "SweepRange", shared_mem)
+        self.sweep["end"] = value
+        file = File("shared_memory", "Sweep", self.sweep)
         file.save()
-        self.range_end.set_value(f"{value:.1f}")
 
     def execute_command(self, path=command_path):
         sensor = 0
@@ -275,30 +298,30 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key.startswith("sensor_control") and val == True and record == 0:
+            if key.startswith("sensor") and val == "control" and record == 0:
                 sensor = 1
-            elif key.startswith("stage_control") and val == True or record == 1:
+            elif key.startswith("stage") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec_control") and val == True or record == 1:
+            elif key.startswith("tec") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim_set") and val == True or record == 1:
+            elif key.startswith("lim") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as_set") and val == True or record == 1:
+            elif key.startswith("as") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa_set") and val == True or record == 1:
+            elif key.startswith("fa") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep_set") and val == True or record == 1:
+            elif key.startswith("sweep") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
 
-            elif key == "sensor_on" and val == True:
+            elif key == "sensor" and val == "on":
                 self.on_box.set_value(1)
-            elif key == "sensor_off" and val:
+            elif key == "sensor" and val == "off":
                 self.on_box.set_value(0)
             elif key == "sensor_wvl":
                 self.wvl.set_value(val)
@@ -312,7 +335,7 @@ class stage_control(App):
             elif key == "sensor_sweep_end":
                 self.range_end.set_value(val)
                 self.onchange_range_end(1, float(val))
-            elif key == "sensor_sweep":
+            elif key == "sensor" and val == "sweep":
                 self.onclick_sweep()
 
         if sensor == 1:

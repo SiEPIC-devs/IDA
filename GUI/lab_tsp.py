@@ -24,6 +24,7 @@ class TSPSolver:
 
         self.numbers = [0]
         self.points  = [(0, 0)]
+        self.selected_numbers = []
 
         self._load_selected_numbers()
         self._load_coordinates()
@@ -57,7 +58,7 @@ class TSPSolver:
         with self.selected_json.open("r", encoding="utf-8") as f:
             try:
                 data = json.load(f)
-                self.selected_numbers = set(data.get("selection", []))
+                self.selected_numbers = set(data.get("Selection", []))
             except json.JSONDecodeError as e:
                 print(f"❌ Failed to parse JSON: {e}")
                 self.selected_numbers = set()

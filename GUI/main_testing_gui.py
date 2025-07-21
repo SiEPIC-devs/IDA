@@ -19,14 +19,24 @@ class testing(App):
 
     def __init__(self, *args, **kwargs):
         # ------------------------------------------------------------------ LOAD DATA
-        self.init = False
-        self.load_file()
-        self.init = True
         self._user_mtime = None
         self.notopen = True
         self.running = False
         self.cur_user = ""
         self.image_path = ""
+        self.serial_list = set()
+
+        self.gds = None
+        self.number = None
+        self.coordinate = None
+        self.polarization = None
+        self.wavelength = None
+        self.type = None
+        self.devicename = None
+        self.status = None
+        self.filtered_idx = []
+        self.page_size = 50
+        self.page_index = 0
 
         if "editing_mode" not in kwargs:
             super(testing, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -46,9 +56,10 @@ class testing(App):
                 try:
                     with open(json_path, "r", encoding="utf-8") as f:
                         data = json.load(f)
-                        self.cur_user = data.get("user", "").strip()
+                        self.cur_user = data.get("User", "").strip()
                         self.image_path = data.get("Image", "")
                         self.display_plot.set_image(f"my_res:{self.image_path}")
+                        self.serial_list = set(data.get("Selection", []))
                 except Exception as e:
                     print(f"[Warn] read json failed: {e}")
 
@@ -217,8 +228,8 @@ class testing(App):
             left=90, top=15, width=162, height=28, position="absolute", text=desktop_path
         )
 
-        StyledDropDown(
-            container=path_container, text=["csv", "txt"], variable_name="save_format_dd",
+        self.path_dd = StyledDropDown(
+            container=path_container, text=["All", "HeatMap", "Spectrum"], variable_name="save_format_dd",
             left=90, top=55, width=180, height=30
         )
 
@@ -361,65 +372,70 @@ class testing(App):
         )
 
         # initial data load
+        self.start_btn.set_enabled(False)
+        self.stop_btn.set_enabled(False)
         self.build_table_rows()
         self.testing_container = testing_container
         return testing_container
 
     # ------------------------------------------------------------------ SEQUENCE CONTROL
     def start_sequence(self):
-        if not self.running:
-            self.running = True
-            self.run_in_thread(self._measure_sequence)
+        value = {"start": 1, "stage": 0, "sensor": 0, "num": 0}
+        file = File("shared_memory", "AutoSweep", value)
+        file.save()
+        # if not self.running:
+        #     self.running = True
+        #     self.run_in_thread(self._measure_sequence)
 
     def stop_sequence(self):
-        self.running = False
+        value = {"start": 0, "stage": 0, "sensor": 0, "num":0}
+        file = File("shared_memory", "AutoSweep", value)
+        file.save()
+        # self.running = False
 
     def tsp_solve(self):
-        self.tsp_btn.set_enabled(False)
-        self.display_plot.set_image("my_res:TSP/wait.png")
-        solver = TSPSolver(
-            coord_json="./database/coordinates.json",
-            selected_json="./database/shared_memory.json",
-            time_limit=int(self.solve_time.get_value()),
-            output_dir="./res/TSP"
-        )
-        solver.solve_and_plot()
-        print(solver.path)
-        self.display_plot.set_image(f"my_res:TSP/{solver.path}")
-        self.filtered_idx = solver.route_idx[1:]
-        self.build_table_rows()
-        self.tsp_btn.set_enabled(True)
-        file = File("shared_memory", "Image", f"TSP/{solver.path}")
-        file.save()
+        if self.filtered_idx:
+            self.tsp_btn.set_enabled(False)
+            self.start_btn.set_enabled(False)
+            self.stop_btn.set_enabled(False)
+            self.display_plot.set_image("my_res:TSP/wait.png")
+            solver = TSPSolver(
+                coord_json="./database/coordinates.json",
+                selected_json="./database/shared_memory.json",
+                time_limit=int(self.solve_time.get_value()),
+                output_dir="./res/TSP"
+            )
+            solver.solve_and_plot()
+            print(solver.path)
+            self.display_plot.set_image(f"my_res:TSP/{solver.path}")
+            self.filtered_idx = solver.route_idx[1:]
+            self.build_table_rows()
+            self.tsp_btn.set_enabled(True)
+            self.start_btn.set_enabled(True)
+            self.stop_btn.set_enabled(True)
+
+            filtered = {str(i + 1): self.coordinate[i][0:2] for i in self.filtered_idx}
+            file = File("shared_memory", "Image", f"TSP/{solver.path}", "Filtered", filtered)
+            file.save()
+        else:
+            print("You need to load the file first!")
 
     def load_file(self):
-        file_path = os.path.join("database", "shared_memory.json")
-        if (self.init == False):
-            self.serial_list = []
-        else:
-            with open(file_path, "r") as f:
-                try:
-                    data = json.load(f)
-                    self.serial_list = set(data.get("selection", []))
-                except json.JSONDecodeError as e:
-                    print(f"❌ Failed to parse JSON: {e}")
-                    self.serial_list = set()
-
-        self.timestamp = -1
-        self.gds = lab_coordinates.coordinates(read_file=False, name="./database/coordinates.json")
-        self.number = self.gds.listdeviceparam("number")
-        self.coordinate = self.gds.listdeviceparam("coordinate")
-        self.polarization = self.gds.listdeviceparam("polarization")
-        self.wavelength = self.gds.listdeviceparam("wavelength")
-        self.type = self.gds.listdeviceparam("type")
-        self.devicename = [f"{name} ({num})" for name, num in zip(self.gds.listdeviceparam("devicename"), self.number)]
-        # status list (0 = not done, 1 = done)
-        self.status = ["0"] * len(self.devicename)
-        self.filtered_idx = [i - 1 for i in self.serial_list]  # current filter result (list of global indices)
-        self.page_size = 50
-        self.page_index = 0
-        if (self.init == True):
+        if self.serial_list:
+            self.gds = lab_coordinates.coordinates(read_file=False, name="./database/coordinates.json")
+            self.number = self.gds.listdeviceparam("number")
+            self.coordinate = self.gds.listdeviceparam("coordinate")
+            self.polarization = self.gds.listdeviceparam("polarization")
+            self.wavelength = self.gds.listdeviceparam("wavelength")
+            self.type = self.gds.listdeviceparam("type")
+            self.devicename = [f"{name} ({num})" for name, num in zip(self.gds.listdeviceparam("devicename"), self.number)]
+            self.status = ["0"] * len(self.devicename)
+            self.filtered_idx = [i - 1 for i in self.serial_list]  # current filter result (list of global indices)
+            self.page_size = 50
+            self.page_index = 0
             self.build_table_rows()
+        else:
+            print("No device found!")
 
     def open_file_path(self):
         app = wx.App(False)
@@ -432,7 +448,13 @@ class testing(App):
         app.Destroy()
 
     def save_file(self):
-        src = os.path.join(os.getcwd(), "UserData", self.cur_user)
+        path = self.path_dd.get_value()
+
+        if path == "All":
+            src = os.path.join(os.getcwd(), "UserData", self.cur_user)
+        else:
+            src = os.path.join(os.getcwd(), "UserData", self.cur_user, path)
+
         dest_dir = self.save_path_input.get_text().strip()
 
         if not dest_dir:

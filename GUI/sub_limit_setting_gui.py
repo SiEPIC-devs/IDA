@@ -31,87 +31,64 @@ class limit(App):
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
 
-    def construct_ui(self):
-        limit_setting_container = StyledContainer(variable_name="limit_setting_container", left=0, top=0, height=150, width=295)
-
-        StyledLabel(
-            container=limit_setting_container, text="X Range", variable_name="x_range", left=0, top=10,
-            width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
-        )
-
-        self.x_left_lim = StyledSpinBox(
-            container=limit_setting_container, variable_name="x_left_lim", left=80, top=10,
-            width=55, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
+    def construct_ui(self): #150, 295
+        limit_setting_container = StyledContainer(
+            variable_name="limit_setting_container", left=0, top=0, height=210, width=200
         )
 
         StyledLabel(
-            container=limit_setting_container, text="to", variable_name="x_to", left=160, top=10,
-            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
+            container=limit_setting_container, text="X", variable_name="x_lb", left=0, top=10,
+            width=65, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.x_right_lim = StyledSpinBox(
-            container=limit_setting_container, variable_name="x_right_lim", left=180, top=10,
-            width=55, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
-        )
-
-        StyledLabel(
-            container=limit_setting_container, text="um", variable_name="x_um", left=255, top=10,
-            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
+        self.x_dd = StyledDropDown(
+            container=limit_setting_container, text=["Yes", "No"], variable_name="x_dd", left=75, top=10,
+            width=70, height=24, position="absolute"
         )
 
         StyledLabel(
-            container=limit_setting_container, text="Y Range", variable_name="y_range", left=0, top=42,
-            width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
+            container=limit_setting_container, text="Y", variable_name="y_lb", left=0, top=42,
+            width=65, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.y_left_lim = StyledSpinBox(
-            container=limit_setting_container, variable_name="y_left_lim", left=80, top=42,
-            width=55, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
-        )
-
-        StyledLabel(
-            container=limit_setting_container, text="to", variable_name="y_to", left=160, top=42,
-            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
-        )
-
-        self.y_right_lim = StyledSpinBox(
-            container=limit_setting_container, variable_name="y_right_lim", left=180, top=42,
-            width=55, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
+        self.y_dd = StyledDropDown(
+            container=limit_setting_container, text=["Yes", "No"], variable_name="y_dd", left=75, top=42,
+            width=70, height=24, position="absolute"
         )
 
         StyledLabel(
-            container=limit_setting_container, text="um", variable_name="y_um", left=255, top=42,
-            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
+            container=limit_setting_container, text="Z", variable_name="z_lb", left=0, top=74,
+            width=65, height=25, font_size=100, flex=True, justify_content="right", color="#222"
+        )
+
+        self.z_dd = StyledDropDown(
+            container=limit_setting_container, text=["Yes", "No"], variable_name="z_dd", left=75, top=74,
+            width=70, height=24, position="absolute"
         )
 
         StyledLabel(
-            container=limit_setting_container, text="Z Range", variable_name="z_range", left=0, top=74,
-            width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
+            container=limit_setting_container, text="Chip", variable_name="chip_lb", left=0, top=106,
+            width=65, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.z_left_lim = StyledSpinBox(
-            container=limit_setting_container, variable_name="z_left_lim", left=80, top=74,
-            width=55, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
-        )
-
-        StyledLabel(
-            container=limit_setting_container, text="to", variable_name="z_to", left=160, top=74,
-            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
-        )
-
-        self.z_right_lim = StyledSpinBox(
-            container=limit_setting_container, variable_name="z_right_lim", left=180, top=74,
-            width=55, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
+        self.chip_dd = StyledDropDown(
+            container=limit_setting_container, text=["Yes", "No"], variable_name="chip_dd", left=75, top=106,
+            width=70, height=24, position="absolute"
         )
 
         StyledLabel(
-            container=limit_setting_container, text="um", variable_name="z_um", left=255, top=74,
-            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
+            container=limit_setting_container, text="Fiber", variable_name="fiber_lb", left=0, top=138,
+            width=65, height=25, font_size=100, flex=True, justify_content="right", color="#222"
+        )
+
+        self.fiber_dd = StyledDropDown(
+            container=limit_setting_container, text=["Yes", "No"], variable_name="fiber_dd", left=75, top=138,
+            width=70, height=24, position="absolute"
         )
 
         self.confirm_btn = StyledButton(
             container=limit_setting_container, text="Confirm", variable_name="confirm_btn",
-            left=115, top=110, height=25, width=70, font_size=90
+            left=65, top=170, height=25, width=70, font_size=90
         )
 
         self.confirm_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_confirm))
@@ -120,7 +97,16 @@ class limit(App):
         return limit_setting_container
 
     def onclick_confirm(self):
-        print("Confirm Limit")
+        lim = {
+            "x": self.x_dd.get_value(),
+            "y": self.y_dd.get_value(),
+            "z": self.z_dd.get_value(),
+            "chip": self.chip_dd.get_value(),
+            "fiber": self.fiber_dd.get_value()
+        }
+        file = File("shared_memory", "Limit", lim)
+        file.save()
+        print("Confirm Limit Setting")
 
     def execute_command(self, path=command_path):
         lim = 0
@@ -136,40 +122,64 @@ class limit(App):
             return
 
         for key, val in command.items():
-            if key.startswith("lim_set") and val == True and record == 0:
+            if key.startswith("lim") and val == "set" and record == 0:
                 lim = 1
-            elif key.startswith("stage_control") and val == True or record == 1:
+            elif key.startswith("stage") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec_control") and val == True or record == 1:
+            elif key.startswith("tec") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor_control") and val == True or record == 1:
+            elif key.startswith("sensor") and val == "control" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as_set") and val == True or record == 1:
+            elif key.startswith("as") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa_set") and val == True or record == 1:
+            elif key.startswith("fa") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep_set") and val == True or record == 1:
+            elif key.startswith("sweep") and val == "set" or record == 1:
                 record = 1
                 new_command[key] = val
 
-            elif key == "lim_x_left":
-                self.x_left_lim.set_value(val)
-            elif key == "lim_x_right":
-                self.x_right_lim.set_value(val)
-            elif key == "lim_y_left":
-                self.y_left_lim.set_value(val)
-            elif key == "lim_y_right":
-                self.y_right_lim.set_value(val)
-            elif key == "lim_z_left":
-                self.z_left_lim.set_value(val)
-            elif key == "lim_z_right":
-                self.z_right_lim.set_value(val)
-            elif key == "lim_confirm" and val == True:
+            elif key == "lim_x":
+                if val.lower() == "yes":
+                    self.x_dd.set_value("Yes")
+                elif val.lower() == "no":
+                    self.x_dd.set_value("No")
+                else:
+                    self.x_dd.set_value("Yes")
+            elif key == "lim_y":
+                if val.lower() == "yes":
+                    self.y_dd.set_value("Yes")
+                elif val.lower() == "no":
+                    self.y_dd.set_value("No")
+                else:
+                    self.y_dd.set_value("Yes")
+            elif key == "lim_x":
+                if val.lower() == "yes":
+                    self.z_dd.set_value("Yes")
+                elif val.lower() == "no":
+                    self.z_dd.set_value("No")
+                else:
+                    self.z_dd.set_value("Yes")
+            elif key == "lim_chip":
+                if val.lower() == "yes":
+                    self.chip_dd.set_value("Yes")
+                elif val.lower() == "no":
+                    self.chip_dd.set_value("No")
+                else:
+                    self.chip_dd.set_value("Yes")
+            elif key == "lim_fiber":
+                if val.lower() == "yes":
+                    self.fiber_dd.set_value("Yes")
+                elif val.lower() == "no":
+                    self.fiber_dd.set_value("No")
+                else:
+                    self.fiber_dd.set_value("Yes")
+
+            elif key == "lim" and val == "confirm":
                 self.onclick_confirm()
 
         if lim == 1:
