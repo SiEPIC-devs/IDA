@@ -3,13 +3,31 @@ from remi import start, App
 import os
 
 DEFAULT_DIR = ".\\UserData"
+shared_path = os.path.join("database", "shared_memory.json")
+
 class add_btn(App):
     def __init__(self, *args, **kwargs):
+        self._user_stime = None
+        self.user = None
         if "editing_mode" not in kwargs:
             super(add_btn, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
-        pass
+        try:
+            stime = os.path.getmtime(shared_path)
+        except FileNotFoundError:
+            stime = None
+
+        if stime != self._user_stime:
+            self._user_stime = stime
+            try:
+                with open(shared_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    self.user = data.get("User_add", "")
+            except Exception as e:
+                print(f"[Warn] read json failed: {e}")
+
+            self.user_input.set_value(self.user)
 
     def main(self):
         return self.construct_ui()
@@ -53,6 +71,8 @@ class add_btn(App):
     def onclick_add(self):
         user_name = self.user_input.get_value().strip()
         project_name = self.project_input.get_value().strip()
+        file = File("shared_memory", "User_add", user_name)
+        file.save()
         if not user_name:
             print("Please enter a valid user name.")  # Empty input
             return

@@ -399,14 +399,16 @@ class File():
         os.makedirs("database", exist_ok=True)
         data = {
             "User": "Guest",
+            "Project": "MyProject",
+            "User_add": "Guest",
             "Image": "TSP/none.png",
             "Limit": {"x": "Yes", "y": "Yes", "z": "Yes", "chip": "Yes", "fiber": "Yes"},
             "FineA": {"x_count": 20, "x_step": 0.1, "y_count": 20, "y_step": 0.1},
             "AreaS": {"x_count": 20, "x_step": 5.0, "y_count": 20, "y_step": 5.0, "plot": "New"},
             "Sweep": {"speed": 1.0, "power": 0.0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "on"},
-            "ScanPos": {"x": 0, "y": 0},
+            "ScanPos": {"x": 0, "y": 0, "move": 0},
             "StagePos": {"x": 0, "y": 0},
-            "AutoSweep": {"start": 0, "stage": 0, "sensor": 0, "num": 0},
+            "AutoSweep": {"start": 0, "stage": 0, "sensor": 0, "num": 0, "id": 1},
             "Configuration": {"stage": "", "laser": "", "detector": "", "tec": ""},
             "DeviceNum": 1
         }
@@ -414,21 +416,22 @@ class File():
         self._safe_write(data, filepath)
 
 class plot():
-    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None, num=None):
+    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None, num=None, project=None, data=None):
         self.x = x
         self.y = y
         self.filename = filename
         self.fileTime = fileTime
         self.user = user
         self.num = num
+        self.project = project
+        self.data = data
 
     def heat_map(self):
-        data = np.loadtxt(self.filename, delimiter=',')
         fig, ax = plt.subplots(figsize=(7, 7))
-        min_value = np.nanmin(data)
-        max_value = np.nanmax(data)
+        min_value = np.nanmin(self.data)
+        max_value = np.nanmax(self.data)
         heatmap = ax.imshow(
-            data,
+            self.data,
             origin='upper',
             cmap='gist_heat_r',
             vmin=min_value - 3,
@@ -440,8 +443,8 @@ class plot():
         ax.set_xlabel('X Position Index')
         ax.set_ylabel('Y Position Index')
 
-        num_x = data.shape[1]
-        num_y = data.shape[0]
+        num_x = self.data.shape[1]
+        num_y = self.data.shape[0]
         ax.set_xticks(np.arange(0, num_x, 1))
         ax.set_yticks(np.arange(0, num_y, 1))
 
@@ -454,17 +457,32 @@ class plot():
                 x = int(np.round(event.xdata))
                 y = int(np.round(event.ydata))
                 if 0 <= x < num_x and 0 <= y < num_y:
-                    value = data[y, x]
+                    value = self.data[y, x]
                     print(f"Clicked at (x={x}, y={y}), Value = {value:.3f} dBm")
                     position = {
                         "x": x,
                         "y": y,
+                        "move": 1
                     }
                     file = File("shared_memory", "ScanPos", position)
                     file.save()
 
         fig.canvas.mpl_connect('button_press_event', onclick)
         plt.show()
+
+        output_dir = os.path.join(".", "UserData", self.user, self.project, "HeatMap")
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Save figure
+        fig_path = os.path.join(output_dir, f"{self.filename}_{self.fileTime}.png")
+        fig.savefig(fig_path, dpi=300)
+        print(f"✅ Saved heatmap figure: {fig_path}")
+
+        # Save data as CSV
+        csv_path = os.path.join(output_dir, f"{self.filename}_{self.fileTime}.csv")
+        np.savetxt(csv_path, self.data, delimiter=",", fmt="%.4f")
+        print(f"✅ Saved heatmap data: {csv_path}")
+
         plt.close(fig)
 
     def _cleanup_old_plots(self, keep: int = 1) -> None:
@@ -487,6 +505,8 @@ class plot():
         fileTime = self.fileTime
         user = self.user
         num = self.num
+        project = self.project
+        path = os.path.join(".", "UserData", user, project, "Spectrum", f"Device_{num}")
         try:
             plots = {"Wavelength [nm]": x_axis*1000000000}
             plotnames = []
@@ -499,7 +519,7 @@ class plot():
             for i in range(0, len(y_values)):
                 fig.data[i].name = str(i + 1)
             fig.update_layout(legend_title_text="Detector")
-            output_html = os.path.join(".", "UserData", user, "Spectrum", f"Device_{num}", f"{filename}_{fileTime}.html")
+            output_html = os.path.join(path, f"{filename}_{fileTime}.html")
             os.makedirs(os.path.dirname(output_html), exist_ok=True)
             fig.write_html(output_html)
         except Exception as e:
@@ -516,7 +536,7 @@ class plot():
                 plt.plot(x_axis*1000000000, y_values[element], linewidth=0.2)
             plt.xlabel("Wavelength [nm]")
             plt.ylabel("Power [dBm]")
-            output_pdf = os.path.join(".", "UserData", user, "Spectrum", f"Device_{num}", f"{filename}_{fileTime}.pdf")
+            output_pdf = os.path.join(path, f"{filename}_{fileTime}.pdf")
             os.makedirs(os.path.dirname(output_pdf), exist_ok=True)
             plt.savefig(output_pdf, dpi=image_dpi)
 

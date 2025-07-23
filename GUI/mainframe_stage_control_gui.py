@@ -32,6 +32,11 @@ class stage_control(App):
         self.filter = {}
         self.configuration = {}
         self.configuration_count = 0
+        self.project = None
+        self.scanpos = {}
+        self.stagepos = {}
+        self.stage_x_pos = 0
+        self.stage_y_pos = 0
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -58,12 +63,14 @@ class stage_control(App):
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     self.user = data.get("User", "")
+                    self.project = data.get("Project", "")
                     self.limit = data.get("Limit", {})
                     self.area_s = data.get("AreaS", {})
                     self.fine_a = data.get("FineA", {})
                     self.auto_sweep = data.get("AutoSweep", {})
                     self.filter = data.get("Filtered", {})
                     self.configuration = data.get("Configuration", {})
+                    self.scanpos = data.get("ScanPos", {})
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -79,6 +86,10 @@ class stage_control(App):
             self.lock_all(0)
             self.count = 0
 
+        if self.scanpos["move"] == 1:
+            self.scanpos["move"] = 0
+            self.run_in_thread(self.scan_move)
+
         self.after_configuration()
 
     def main(self):
@@ -86,6 +97,14 @@ class stage_control(App):
 
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
+
+    def scan_move(self):
+        x_pos = self.scanpos["x"] * self.area_s["x_step"] + self.stage_x_pos
+        y_pos = self.scanpos["y"] * self.area_s["y_step"] + self.stage_y_pos
+        asyncio.run(self.stage_manager.move_axis(AxisType.X, x_pos, False))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Y, y_pos, False))
+        file = File("shared_memory", "ScanPos", self.scanpos)
+        file.save()
 
     def after_configuration(self):
         if self.configuration["stage"] != "" and self.configuration_count == 0:
@@ -143,6 +162,7 @@ class stage_control(App):
                 print(f"Time: {i+1}s")
 
             self.auto_sweep["stage"] = 1
+            self.auto_sweep["id"] = int(key[self.auto_sweep["num"]])
             self.auto_sweep["num"] += 1
         else:
             self.auto_sweep["start"] = 0
@@ -384,11 +404,12 @@ class stage_control(App):
 
     def onclick_scan(self):
         if self.area_s["plot"] == "New":
-            pass
+            self.stage_x_pos = self.memory.x_pos
+            self.stage_y_pos = self.memory.y_pos
         elif self.area_s["plot"] == "Previous":
-            filename = "./res/heat_map/Heat_Map_2024-01-30_17-48-15.txt"
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            diagram = plot(filename=filename, fileTime=fileTime, user=self.user)
+            data = np.array([[1,2,3,4,5,np.nan,7],[2,3,4,5,6,7,8],[3,4,5,6,7,8,9]])
+            diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=data)
             Process(target=diagram.heat_map).start()
         print("Scan")
 

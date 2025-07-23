@@ -1,4 +1,2 @@
 Welcome To Probe Stage
-Folder already exists: .\UserData\abc\aaa
-Folder already exists: .\UserData\abc\aaa
-Folder created: .\UserData\abc\aaab
+{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (0.0, 10000.0), 'Y': (0.0, 10000.0), 'Z': (0.0, 10000.0), 'ROTATION_FIBER': (0.0, 10000.0), 'ROTATION_CHIP': (0.0, 10000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': '347_stage_control', 'Y': '347_stage_control', 'Z': '347_stage_control', 'ROTATION_FIBER': '347_stage_control', 'ROTATION_CHIP': '347_stage_control'}}

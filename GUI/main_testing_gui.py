@@ -7,6 +7,7 @@ from lab_tsp import TSPSolver
 json_path = os.path.join("database", "shared_memory.json")
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 
+
 def fmt(val):
     try:
         return f"{float(val):.2f}"
@@ -38,6 +39,9 @@ class testing(App):
         self.page_size = 50
         self.page_index = 0
 
+        self._last_user = ""
+        self._last_user_paths = []
+
         if "editing_mode" not in kwargs:
             super(testing, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -63,10 +67,35 @@ class testing(App):
                 except Exception as e:
                     print(f"[Warn] read json failed: {e}")
 
+            self.update_path_dropdown()
+
     def main(self):
         return testing.construct_ui(self)
 
     # ------------------------------------------------------------------ UI BUILDERS
+    def update_path_dropdown(self):
+        """Update save format dropdown if user or contents change."""
+        if not self.cur_user:
+            return
+
+        user_dir = os.path.join("UserData", self.cur_user)
+        if not os.path.isdir(user_dir):
+            return
+
+        entries = [
+            name for name in os.listdir(user_dir)
+            if os.path.isdir(os.path.join(user_dir, name)) or name.endswith((".json", ".txt", ".csv"))
+        ]
+        entries_sorted = sorted(entries)
+
+        if self.cur_user != self._last_user or entries_sorted != self._last_user_paths:
+            self.path_dd.empty()
+            self.path_dd.append("All")
+            for name in entries_sorted:
+                self.path_dd.append(name)
+            self._last_user = self.cur_user
+            self._last_user_paths = entries_sorted
+
     def total_pages(self):
         return max(1, math.ceil(len(self.filtered_idx) / self.page_size))
 
@@ -380,7 +409,7 @@ class testing(App):
 
     # ------------------------------------------------------------------ SEQUENCE CONTROL
     def start_sequence(self):
-        value = {"start": 1, "stage": 0, "sensor": 0, "num": 0}
+        value = {"start": 1, "stage": 0, "sensor": 0, "num": 0, "id": 1}
         file = File("shared_memory", "AutoSweep", value)
         file.save()
         # if not self.running:
@@ -388,7 +417,7 @@ class testing(App):
         #     self.run_in_thread(self._measure_sequence)
 
     def stop_sequence(self):
-        value = {"start": 0, "stage": 0, "sensor": 0, "num":0}
+        value = {"start": 0, "stage": 0, "sensor": 0, "num":0, "id": 1}
         file = File("shared_memory", "AutoSweep", value)
         file.save()
         # self.running = False
@@ -449,13 +478,14 @@ class testing(App):
 
     def save_file(self):
         path = self.path_dd.get_value()
+        dest_dir = self.save_path_input.get_text().strip()
 
         if path == "All":
             src = os.path.join(os.getcwd(), "UserData", self.cur_user)
+            dest_path = os.path.join(dest_dir, self.cur_user)
         else:
             src = os.path.join(os.getcwd(), "UserData", self.cur_user, path)
-
-        dest_dir = self.save_path_input.get_text().strip()
+            dest_path = os.path.join(dest_dir, self.cur_user, path)
 
         if not dest_dir:
             print("❌ Save path cannot be empty!")
@@ -469,7 +499,6 @@ class testing(App):
                 print(f"❌ Failed to create directory: {e}")
                 return
 
-        dest_path = os.path.join(dest_dir, self.cur_user)
 
         if os.path.exists(dest_path):
             try:

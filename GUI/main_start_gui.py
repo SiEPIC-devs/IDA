@@ -24,6 +24,9 @@ class Starts(App):
     def __init__(self, *args, **kwargs):
         # runtime flags
         self._last_saved_user: str = ""
+        self._last_saved_project: str = ""
+        self._last_user: Union[str, List[str]] = ""
+        self._last_project: Union[str, List[str]] = ""
         if "editing_mode" not in kwargs:
             super().__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -31,16 +34,28 @@ class Starts(App):
         """Refresh terminal & sync dropdown/JSON when things change."""
         self.terminal.terminal_refresh()
 
-        now = tuple(self.list_user_folders())
-        if getattr(self, "_last_folders", None) != now:
-            self.refresh()
-            self._last_folders = now
+        now_user = tuple(self.list_user_folders())
+        if getattr(self, "_last_user", None) != now_user:
+            self.refresh_user()
+            self.refresh_project()
+            self._last_user = now_user
+
+        now_project = tuple(self.list_project_folders())
+        if getattr(self, "_last_project", None) != now_project:
+            self.refresh_project()
+            self._last_project = now_project
 
         current_user = self.user_dd.get_value()
+        current_project = self.project_dd.get_value()
         if current_user != self._last_saved_user:
             file = File("shared_memory", "User", current_user)
             file.save()
             self._last_saved_user = current_user
+            self.refresh_project()
+        if current_project != self._last_saved_project:
+            file = File("shared_memory", "Project", current_project)
+            file.save()
+            self._last_saved_project = current_project
 
     def main(self):
         return self.construct_ui()
@@ -65,6 +80,19 @@ class Starts(App):
             return names[0]
         return names
 
+    def list_project_folders(self) -> Union[str, List[str]]:
+        """Return sub-folders of ROOT_DIR (same logic as original)."""
+        path = os.path.join(ROOT_DIR, self.user_dd.get_value())
+        names = [
+            d for d in os.listdir(path)
+            if os.path.isdir(os.path.join(path, d))
+        ]
+        if not names:
+            return ""
+        if len(names) == 1:
+            return names[0]
+        return names
+
     def construct_ui(self):
         """Build and return the root container."""
         starts_container = StyledContainer(
@@ -77,7 +105,7 @@ class Starts(App):
             left=260, top=100, width=220, height=30,
         )
 
-        self.mode_dd = StyledDropDown(
+        self.project_dd = StyledDropDown(
             container=starts_container, text="Project1", variable_name="set_mode",
             left=260, top=140, width=220, height=30,
         )
@@ -124,6 +152,8 @@ class Starts(App):
         return starts_container
 
     def onclick_add(self):
+        file = File("shared_memory", "User_add", self.user_dd.get_value())
+        file.save()
         local_ip = get_local_ip()
         webview.create_window(
             "Setting",
@@ -146,9 +176,13 @@ class Starts(App):
         except Exception as exc:
             print(f"❌ Failed to remove: {exc}")
 
-    def refresh(self):
+    def refresh_user(self):
         self.user_dd.empty()
         self.user_dd.append(self.list_user_folders())
+
+    def refresh_project(self):
+        self.project_dd.empty()
+        self.project_dd.append(self.list_project_folders())
 
 def run_remi():
     start(

@@ -19,6 +19,7 @@ class stage_control(App):
         self.configuration = {}
         self.configuration_count = 0
         self.num = 1
+        self.project = None
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -45,6 +46,7 @@ class stage_control(App):
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     self.user = data.get("User", "")
+                    self.project = data.get("Project", "")
                     self.sweep = data.get("Sweep", {})
                     self.auto_sweep = data.get("AutoSweep", {})
                     self.configuration = data.get("Configuration", {})
@@ -94,7 +96,7 @@ class stage_control(App):
         for i in range(3):
             time.sleep(1)
             print(f"Time: {i + 1}s")
-        self.onclick_sweep(self.auto_sweep["num"] + 1)
+        self.onclick_sweep(self.auto_sweep["id"])
         self.auto_sweep["sensor"] = 1
         file = File("shared_memory", "AutoSweep", self.auto_sweep)
         file.save()
@@ -279,7 +281,7 @@ class stage_control(App):
         x = df.iloc[:, 0].values
         y = df.iloc[:, 1:].values.T
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, num)
+        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, num, self.project)
         Process(target=diagram.generate_plots).start()
 
     def onchange_wvl(self, emitter, value):
