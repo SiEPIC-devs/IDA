@@ -4,23 +4,54 @@ import threading
 import webview
 import signal
 
+shared_path = os.path.join("database", "shared_memory.json")
 
 class stage_control(App):
     def __init__(self, *args, **kwargs):
+        self._user_stime = None
         self.command_input = None
         self.confirm_btn = None
         self.uploaded_filename = None
+        self.configuration = {}
+        self.configuration_count = 0
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
-        pass
+        try:
+            stime = os.path.getmtime(shared_path)
+        except FileNotFoundError:
+            stime = None
+
+        if stime != self._user_stime:
+            self._user_stime = stime
+            try:
+                with open(shared_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    self.configuration = data.get("Configuration", {})
+            except Exception as e:
+                print(f"[Warn] read json failed: {e}")
+
+        self.after_configuration()
 
     def main(self):
         return self.construct_ui()
 
     def run_in_thread(self, target, *args) -> None:
         threading.Thread(target=target, args=args, daemon=True).start()
+
+    def after_configuration(self):
+        if all(v != "" for v in self.configuration.values()) and self.configuration_count == 0:
+            self.configuration_count = 1
+            webview.create_window(
+                "TEC Control",
+                f"http://{local_ip}:8003",
+                width=422, height=137,
+                x=1150, y=100,
+                resizable=True,
+                hidden=False
+            )
+
 
     def construct_ui(self):
         command_container = StyledContainer(
@@ -127,22 +158,23 @@ def run_remi():
 def disable_scroll():
     try:
         webview.windows[0].evaluate_js("""
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
         """)
     except Exception as e:
         print("JS Wrong", e)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     threading.Thread(target=run_remi, daemon=True).start()
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     local_ip = get_local_ip()
     webview.create_window(
-        'TEC Control',
-        f'http://{local_ip}:8003',
+        "TEC Control",
+        f"http://{local_ip}:8003",
         width=422, height=137,
         x=1150, y=100,
-        resizable=True
+        resizable=True,
+        hidden=True
     )
     webview.start(func=disable_scroll)

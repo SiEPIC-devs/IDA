@@ -4,19 +4,25 @@ from remi import start, App
 import threading, webview, signal, socket
 
 command_path = os.path.join("database", "command.json")
+shared_path = os.path.join("database", "shared_memory.json")
 
 class stage_control(App):
     def __init__(self, *args, **kwargs):
         self._user_mtime = None
+        self._user_stime = None
         self._first_command_check = True
+        self.configuration = {}
+        self.configuration_count = 0
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
         try:
             mtime = os.path.getmtime(command_path)
+            stime = os.path.getmtime(shared_path)
         except FileNotFoundError:
             mtime = None
+            stime = None
 
         if self._first_command_check:
             self._user_mtime = mtime
@@ -27,11 +33,34 @@ class stage_control(App):
             self._user_mtime = mtime
             self.execute_command()
 
+        if stime != self._user_stime:
+            self._user_stime = stime
+            try:
+                with open(shared_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    self.configuration = data.get("Configuration", {})
+            except Exception as e:
+                print(f"[Warn] read json failed: {e}")
+
+        self.after_configuration()
+
     def main(self):
         return self.construct_ui()
 
     def run_in_thread(self, target, *args) -> None:
         threading.Thread(target=target, args=args, daemon=True).start()
+
+    def after_configuration(self):
+        if self.configuration["tec"] != "" and self.configuration_count == 0:
+            self.configuration_count = 1
+            webview.create_window(
+                'TEC Control',
+                f'http://{local_ip}:8002',
+                width=322, height=157,
+                x=800, y=100,
+                resizable=True,
+                hidden=False
+            )
 
     def construct_ui(self):
         sensor_control_container = StyledContainer(
@@ -188,6 +217,7 @@ if __name__ == '__main__':
         f'http://{local_ip}:8002',
         width=322, height=157,
         x=800, y=100,
-        resizable=True
+        resizable=True,
+        hidden=True
     )
     webview.start(func=disable_scroll)

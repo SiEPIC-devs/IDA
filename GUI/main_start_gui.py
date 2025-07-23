@@ -78,16 +78,16 @@ class Starts(App):
         )
 
         self.mode_dd = StyledDropDown(
-            container=starts_container, text=["TE mode", "TM mode"], variable_name="set_mode",
+            container=starts_container, text="Project1", variable_name="set_mode",
             left=260, top=140, width=220, height=30,
         )
 
         StyledLabel(
-            container=starts_container, text="User:", variable_name="label_user",
+            container=starts_container, text="User", variable_name="label_user",
             left=100, top=105, width=150, height=20, font_size=100, color="#444", align="right",
         )
         StyledLabel(
-            container=starts_container, text="Operating Mode:", variable_name="label_mode",
+            container=starts_container, text="Project", variable_name="label_mode",
             left=100, top=145, width=150, height=20, font_size=100, color="#444", align="right",
         )
 
@@ -128,10 +128,10 @@ class Starts(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7000",
-            width=247,
-            height=105,
+            width=212,
+            height=185,
             resizable=True,
-            on_top=True,
+            on_top=True
         )
 
     def onclick_remove(self):

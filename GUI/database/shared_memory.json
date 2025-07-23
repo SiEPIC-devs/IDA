@@ -33,10 +33,21 @@
     "x": 0,
     "y": 0
   },
+  "StagePos": {
+    "x": 0,
+    "y": 0
+  },
   "AutoSweep": {
     "start": 0,
     "stage": 0,
     "sensor": 0,
     "num": 0
-  }
+  },
+  "Configuration": {
+    "stage": "",
+    "laser": "",
+    "detector": "",
+    "tec": ""
+  },
+  "DeviceNum": 1
 }

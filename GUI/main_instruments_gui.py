@@ -4,7 +4,16 @@ from lab_gui import *
 
 class instruments(App):
     def __init__(self, *args, **kwargs):
-        self.timestamp = -1
+        self.configuration = {"stage": "", "laser": "", "detector": "", "tec": ""}
+        self.stage_connect_btn = None
+        self.laser_connect_btn = None
+        self.detector_connect_btn = None
+        self.tec_connect_btn = None
+        self.terminal = None
+        self.stage_dd = None
+        self.laser_dd = None
+        self.detector_dd = None
+        self.tec_dd = None
         if "editing_mode" not in kwargs:
             super(instruments, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -23,12 +32,11 @@ class instruments(App):
             variable_name="instruments_container", left=0, top=0
         )
 
-        for idx, key in enumerate(("chip", "fiber", "laser", "detector", "tec")):
+        for idx, key in enumerate(("stage", "laser", "detector", "tec")):
             # Label
             StyledLabel(
                 container=instruments_container, variable_name=f"label_{key}",
-                text={"chip": "Chip Stage:",
-                      "fiber": "Fiber Stage:",
+                text={"stage": "Stage:",
                       "laser": "Laser:",
                       "detector": "Detector:",
                       "tec": "TEC:"}[key],
@@ -38,11 +46,10 @@ class instruments(App):
             # DropDown
             setattr(self, f"{key}_dd", StyledDropDown(
                 container=instruments_container,
-                text={"chip": ["Chip Stage A", "Chip Stage B", "Chip Stage C"],
-                      "fiber": ["Fiber Stage A", "Fiber Stage B", "Fiber Stage C"],
-                      "laser": ["laser A","laser B","laser C"],
-                      "detector": ["detector A","detector B","detector C"],
-                      "tec": ["TEC A","TEC B","TEC C"]}[key],
+                text={"stage": ["347_stage_control", "stage_B", "stage_C"],
+                      "laser": ["347_stage_control","laser_B","laser_C"],
+                      "detector": ["347_stage_control","detector_B","detector_C"],
+                      "tec": ["347_stage_control","TEC_B","TEC_C"]}[key],
                 variable_name=f"set_{key}", left=160, top=10 + idx * 40, width=180, height=30))
 
             # Configure Button
@@ -67,8 +74,7 @@ class instruments(App):
             container=terminal_container, variable_name="terminal_text", left=10, top=15, width=610, height=100
         )
 
-        self.chip_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_chip_connect_btn))
-        self.fiber_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_fiber_connect_btn))
+        self.stage_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_stage_connect_btn))
         self.laser_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_laser_connect_btn))
         self.detector_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_detector_connect_btn))
         self.tec_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_tec_connect_btn))
@@ -76,30 +82,53 @@ class instruments(App):
         self.instruments_container = instruments_container
         return instruments_container
 
-    def onclick_chip_connect_btn(self):
-        device = self.chip_dd.get_value()
-        file = File("configure", "chip", device)
-        file.save()
-
-    def onclick_fiber_connect_btn(self):
-        device = self.fiber_dd.get_value()
-        file = File("configure", "fiber", device)
-        file.save()
+    def onclick_stage_connect_btn(self):
+        if self.stage_connect_btn.get_text() == "Connect":
+            self.configuration["stage"] = self.stage_dd.get_value()
+            file = File("shared_memory", "Configuration", self.configuration)
+            file.save()
+            self.stage_connect_btn.set_text("Connected")
+        else:
+            self.configuration["stage"] = ""
+            file = File("shared_memory", "Configuration", self.configuration)
+            file.save()
+            self.stage_connect_btn.set_text("Connect")
 
     def onclick_laser_connect_btn(self):
-        device = self.laser_dd.get_value()
-        file = File("configure", "laser", device)
-        file.save()
+        if self.laser_connect_btn.get_text() == "Connect":
+            self.configuration["laser"] = self.laser_dd.get_value()
+            file = File("shared_memory", "Configuration", self.configuration)
+            file.save()
+            self.laser_connect_btn.set_text("Connected")
+        else:
+            self.configuration["laser"] = ""
+            file = File("shared_memory", "Configuration", self.configuration)
+            file.save()
+            self.laser_connect_btn.set_text("Connect")
 
     def onclick_detector_connect_btn(self):
-        device = self.detector_dd.get_value()
-        file = File("configure", "detector", device)
-        file.save()
+        if self.detector_connect_btn.get_text() == "Connect":
+            self.configuration["detector"] = self.detector_dd.get_value()
+            file = File("shared_memory", "Configuration", self.configuration)
+            file.save()
+            self.detector_connect_btn.set_text("Connected")
+        else:
+            self.configuration["detector"] = ""
+            file = File("shared_memory", "Configuration", self.configuration)
+            file.save()
+            self.detector_connect_btn.set_text("Connect")
 
     def onclick_tec_connect_btn(self):
-        device = self.tec_dd.get_value()
-        file = File("configure", "tec", device)
-        file.save()
+        if self.tec_connect_btn.get_text() == "Connect":
+            self.configuration["tec"] = self.tec_dd.get_value()
+            file = File("shared_memory", "Configuration", self.configuration)
+            file.save()
+            self.tec_connect_btn.set_text("Connected")
+        else:
+            self.configuration["tec"] = ""
+            file = File("shared_memory", "Configuration", self.configuration)
+            file.save()
+            self.tec_connect_btn.set_text("Connect")
 
 
 

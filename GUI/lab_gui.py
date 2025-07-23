@@ -405,18 +405,22 @@ class File():
             "AreaS": {"x_count": 20, "x_step": 5.0, "y_count": 20, "y_step": 5.0, "plot": "New"},
             "Sweep": {"speed": 1.0, "power": 0.0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "on"},
             "ScanPos": {"x": 0, "y": 0},
-            "AutoSweep": {"start": 0, "stage": 0, "sensor": 0, "num": 0}
+            "StagePos": {"x": 0, "y": 0},
+            "AutoSweep": {"start": 0, "stage": 0, "sensor": 0, "num": 0},
+            "Configuration": {"stage": "", "laser": "", "detector": "", "tec": ""},
+            "DeviceNum": 1
         }
 
         self._safe_write(data, filepath)
 
 class plot():
-    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None):
+    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None, num=None):
         self.x = x
         self.y = y
         self.filename = filename
         self.fileTime = fileTime
         self.user = user
+        self.num = num
 
     def heat_map(self):
         data = np.loadtxt(self.filename, delimiter=',')
@@ -482,6 +486,7 @@ class plot():
         filename = self.filename
         fileTime = self.fileTime
         user = self.user
+        num = self.num
         try:
             plots = {"Wavelength [nm]": x_axis*1000000000}
             plotnames = []
@@ -494,8 +499,8 @@ class plot():
             for i in range(0, len(y_values)):
                 fig.data[i].name = str(i + 1)
             fig.update_layout(legend_title_text="Detector")
-            cwd = os.getcwd()
-            output_html = os.path.join(".", "UserData", user, "Spectrum", f"{filename}_{fileTime}.html")
+            output_html = os.path.join(".", "UserData", user, "Spectrum", f"Device_{num}", f"{filename}_{fileTime}.html")
+            os.makedirs(os.path.dirname(output_html), exist_ok=True)
             fig.write_html(output_html)
         except Exception as e:
             try:
@@ -511,10 +516,11 @@ class plot():
                 plt.plot(x_axis*1000000000, y_values[element], linewidth=0.2)
             plt.xlabel("Wavelength [nm]")
             plt.ylabel("Power [dBm]")
-            output_pdf = os.path.join(".", "UserData", user, "Spectrum", f"{filename}_{fileTime}.pdf")
+            output_pdf = os.path.join(".", "UserData", user, "Spectrum", f"Device_{num}", f"{filename}_{fileTime}.pdf")
+            os.makedirs(os.path.dirname(output_pdf), exist_ok=True)
             plt.savefig(output_pdf, dpi=image_dpi)
 
-            output_pdf2 = os.path.join(".", "res", "spectral_sweep",f"{filename}_{fileTime}.png")
+            output_pdf2 = os.path.join(".", "res", "spectral_sweep", f"{filename}_{fileTime}.png")
             plt.savefig(output_pdf2, dpi=300)
             self._cleanup_old_plots(keep=1)
 

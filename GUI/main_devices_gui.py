@@ -14,7 +14,18 @@ def fmt(val):
 
 class devices(App):
     def __init__(self, *args, **kwargs):
-        self.read_file()
+        self.gds = None
+        self.number = []
+        self.coordinate = []
+        self.polarization = []
+        self.wavelength = []
+        self.type = []
+        self.devicename = []
+        self.length = 0
+        self.checkbox_state = []
+        self.filtered_idx = []
+        self.page_size = 50
+        self.page_index = 0
         if "editing_mode" not in kwargs:
             super(devices, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -191,7 +202,7 @@ class devices(App):
         )
 
         self.page_input = StyledTextInput(
-            container=pg, variable_name="page_input", left=100, top=5, width=25, height=25
+            container=pg, variable_name="page_input", text="1", left=100, top=5, width=25, height=25
         )
 
         self.total_page_label = StyledLabel(
@@ -298,6 +309,7 @@ class devices(App):
     def onclick_load(self):
         self.read_file()
         self.build_table_rows()
+        self.load_count = 1
 
     def read_file(self):
         self.gds = lab_coordinates.coordinates(read_file=False, name="./database/coordinates.json")

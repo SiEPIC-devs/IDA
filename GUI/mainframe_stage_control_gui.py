@@ -30,6 +30,8 @@ class stage_control(App):
         self.auto_sweep = {}
         self.count = 0
         self.filter = {}
+        self.configuration = {}
+        self.configuration_count = 0
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -61,6 +63,7 @@ class stage_control(App):
                     self.fine_a = data.get("FineA", {})
                     self.auto_sweep = data.get("AutoSweep", {})
                     self.filter = data.get("Filtered", {})
+                    self.configuration = data.get("Configuration", {})
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -76,23 +79,49 @@ class stage_control(App):
             self.lock_all(0)
             self.count = 0
 
-        self.memory.reader_pos()
-        if self.memory.x_pos != float(self.x_position_lb.get_text()):
-            self.x_position_lb.set_text(str(self.memory.x_pos))
-        if self.memory.y_pos != float(self.y_position_lb.get_text()):
-            self.y_position_lb.set_text(str(self.memory.y_pos))
-        if self.memory.z_pos != float(self.z_position_lb.get_text()):
-            self.z_position_lb.set_text(str(self.memory.z_pos))
-        if self.memory.cp_pos != float(self.chip_position_lb.get_text()):
-            self.chip_position_lb.set_text(str(self.memory.cp_pos))
-        if self.memory.fr_pos != float(self.fiber_position_lb.get_text()):
-            self.fiber_position_lb.set_text(str(self.memory.fr_pos))
+        self.after_configuration()
 
     def main(self):
         return self.construct_ui()
 
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
+
+    def after_configuration(self):
+        if self.configuration["stage"] != "" and self.configuration_count == 0:
+            self.configuration_count = 1
+            self.memory = Memory()
+            self.configure = StageConfiguration()
+            self.configure.driver_types[AxisType.X] = self.configuration["stage"]
+            self.configure.driver_types[AxisType.Y] = self.configuration["stage"]
+            self.configure.driver_types[AxisType.Z] = self.configuration["stage"]
+            self.configure.driver_types[AxisType.ROTATION_CHIP] = self.configuration["stage"]
+            self.configure.driver_types[AxisType.ROTATION_FIBER] = self.configuration["stage"]
+            self.stage_manager = StageManager(self.configure, create_shm=True)
+            asyncio.run(self.stage_manager.initialize_all(
+                [AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER])
+            )
+            webview.create_window(
+                'Stage Control',
+                f'http://{local_ip}:8000',
+                width=672, height=407,
+                x=800, y=465,
+                resizable=True,
+                hidden=False
+            )
+        if self.configuration_count == 1:
+            self.memory.reader_pos()
+            if self.memory.x_pos != float(self.x_position_lb.get_text()):
+                self.x_position_lb.set_text(str(self.memory.x_pos))
+            if self.memory.y_pos != float(self.y_position_lb.get_text()):
+                self.y_position_lb.set_text(str(self.memory.y_pos))
+            if self.memory.z_pos != float(self.z_position_lb.get_text()):
+                self.z_position_lb.set_text(str(self.memory.z_pos))
+            if self.memory.cp_pos != float(self.chip_position_lb.get_text()):
+                self.chip_position_lb.set_text(str(self.memory.cp_pos))
+            if self.memory.fr_pos != float(self.fiber_position_lb.get_text()):
+                self.fiber_position_lb.set_text(str(self.memory.fr_pos))
+
 
     def do_auto_sweep(self):
         if self.auto_sweep["num"] < (len(self.filter)):
@@ -134,11 +163,6 @@ class stage_control(App):
                 widgets_to_check.extend(widget.children.values())
 
     def construct_ui(self):
-        self.memory = Memory()
-        self.configure = StageConfiguration()
-        self.stage_manager = StageManager(self.configure, create_shm=True)
-        asyncio.run(self.stage_manager.initialize_all([AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER]))
-
         stage_control_container = StyledContainer(
             container=None, variable_name="stage_control_container", left=0, top=0, height=350, width=650
         )
@@ -431,7 +455,8 @@ class stage_control(App):
         self.move_dd.empty()
         self.move_dd.append(self.devices)
         self.move_dd.attributes["title"] = self.devices[0]
-        self.move_btn.set_enabled(True)
+        if not self.move_dd.get_value() == "N/A":
+            self.move_btn.set_enabled(True)
 
     def onclick_move(self):
         selected_device = self.move_dd.get_value()
@@ -452,6 +477,9 @@ class stage_control(App):
             asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
             asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
 
+            file = File("shared_memory", "DeviceNum", index+1)
+            file.save()
+
             print(f"Successfully moved to device {selected_device}")
         except Exception as e:
             print(f"[Error] Failed to move to device {selected_device}: {e}")
@@ -470,6 +498,11 @@ class stage_control(App):
 
             if hasattr(widget, "children"):
                 widgets_to_check.extend(widget.children.values())
+
+            if self.move_dd.get_value() != "N/A" and enabled is True:
+                self.move_btn.set_enabled(True)
+            else:
+                self.move_btn.set_enabled(False)
 
         print("Unlocked" if enabled else "Locked")
 
@@ -670,7 +703,8 @@ if __name__ == '__main__':
         f'http://{local_ip}:8000',
         width=672, height=407,
         x=800, y=465,
-        resizable=True
+        resizable=True,
+        hidden=True
     )
 
     webview.create_window(

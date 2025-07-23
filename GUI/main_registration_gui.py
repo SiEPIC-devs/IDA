@@ -13,6 +13,7 @@ class registration(App):
         self.first_mark_position = [-100,-100,0]
         self.second_mark_position = [100, -100,0]
         self.third_mark_position = [100, 100,0]
+        self.memory = Memory()
 
         if "editing_mode" not in kwargs:
             super(registration, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -214,6 +215,9 @@ class registration(App):
         self.device_id_3.attributes["title"] = new_value
 
     def onchange_checkbox_1(self, emitter, value):
+        self.memory.reader_pos()
+        self.first_mark_position[0] = self.memory.x_pos
+        self.first_mark_position[1] = self.memory.y_pos
         if int(value) == 1:
             self.first_mark_set = 1
             self.stage_x_1.set_text(str(self.first_mark_position[0]))
@@ -224,6 +228,9 @@ class registration(App):
             self.stage_y_1.set_text("N/A")
 
     def onchange_checkbox_2(self, emitter, value):
+        self.memory.reader_pos()
+        self.second_mark_position[0] = self.memory.x_pos
+        self.second_mark_position[1] = self.memory.y_pos
         if int(value) == 1:
             self.second_mark_set = 1
             self.stage_x_2.set_text(str(self.second_mark_position[0]))
@@ -234,6 +241,9 @@ class registration(App):
             self.stage_y_2.set_text("N/A")
 
     def onchange_checkbox_3(self, emitter, value):
+        self.memory.reader_pos()
+        self.third_mark_position[0] = self.memory.x_pos
+        self.third_mark_position[1] = self.memory.y_pos
         if int(value) == 1:
             self.third_mark_set = 1
             self.stage_x_3.set_text(str(self.third_mark_position[0]))

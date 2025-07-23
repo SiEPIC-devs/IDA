@@ -16,6 +16,9 @@ class stage_control(App):
         self.sweep = {}
         self.auto_sweep = {}
         self.count = 0
+        self.configuration = {}
+        self.configuration_count = 0
+        self.num = 1
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -44,6 +47,8 @@ class stage_control(App):
                     self.user = data.get("User", "")
                     self.sweep = data.get("Sweep", {})
                     self.auto_sweep = data.get("AutoSweep", {})
+                    self.configuration = data.get("Configuration", {})
+                    self.num = data.get("DeviceNum", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -61,6 +66,8 @@ class stage_control(App):
         elif self.auto_sweep["start"] == 0:
             self.lock_all(0)
 
+        self.after_configuration()
+
 
     def main(self):
         return self.construct_ui()
@@ -68,12 +75,26 @@ class stage_control(App):
     def run_in_thread(self, target, *args) -> None:
         threading.Thread(target=target, args=args, daemon=True).start()
 
+    def after_configuration(self):
+        if self.configuration["laser"] != "" and self.configuration["detector"] != "" and self.configuration_count == 0:
+            self.configuration_count = 1
+            webview.create_window(
+                'Sensor Control',
+                f'http://{local_ip}:8001',
+                width=672,
+                height=197,
+                x=800,
+                y=255,
+                resizable=True,
+                hidden=False
+            )
+
     def do_auto_sweep(self):
         print("Do The Sweep")
         for i in range(3):
             time.sleep(1)
             print(f"Time: {i + 1}s")
-        self.onclick_sweep()
+        self.onclick_sweep(self.auto_sweep["num"] + 1)
         self.auto_sweep["sensor"] = 1
         file = File("shared_memory", "AutoSweep", self.auto_sweep)
         file.save()
@@ -250,15 +271,16 @@ class stage_control(App):
         file.save()
         print(f"Power: {value:.1f} dBm")
 
-    def onclick_sweep(self):
+    def onclick_sweep(self, num=None):
+        if num is None:
+            num = self.num
         filename = "res/spectral_sweep/spectral_sweep.csv"
         df = pd.read_csv(filename, header=None)
         x = df.iloc[:, 0].values
         y = df.iloc[:, 1:].values.T
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        diagram = plot(x, y, "spectral_sweep", fileTime, self.user)
+        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, num)
         Process(target=diagram.generate_plots).start()
-        #diagram.generate_plots()
 
     def onchange_wvl(self, emitter, value):
         print(f"Wavelength: {value:.1f} nm")
@@ -385,7 +407,8 @@ if __name__ == '__main__':
         height=197,
         x=800,
         y=255,
-        resizable=True
+        resizable=True,
+        hidden = True
     )
 
     webview.create_window(

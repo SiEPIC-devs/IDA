@@ -18,23 +18,49 @@ class add_btn(App):
         threading.Thread(target=target, args=args, daemon=True).start()
 
     def construct_ui(self):
-        add_btn_container = StyledContainer(variable_name="add_btn_container", left=0, top=0, height=50, width=225)
-        StyledLabel(container=add_btn_container, text="Name", variable_name="name",
-                                 left=0, top=0, width=50, height=50, font_size=100, color="#222", flex=True, justify_content="right")
-        self.name_input = StyledTextInput(container=add_btn_container, variable_name="name_input", left=60, top=12.5, height=25, width=70)
-        self.add = StyledButton(container=add_btn_container, text="Add", variable_name="add",
-                            left=160, top=12.5, height=25, width=50, normal_color="#007BFF", press_color="#0056B3")
+        add_btn_container = StyledContainer(
+            variable_name="add_btn_container", left=0, top=0, height=130, width=190
+        )
+
+        StyledLabel(
+            container=add_btn_container, text="User", variable_name="user",
+            left=5, top=0, width=50, height=50, font_size=100, color="#222", flex=True, justify_content="right"
+        )
+
+        self.user_input = StyledTextInput(
+            container=add_btn_container, variable_name="user_input", left=65, top=12.5, height=25, width=90
+        )
+
+        StyledLabel(
+            container=add_btn_container, text="Project", variable_name="project",
+            left=5, top=35, width=50, height=50, font_size=100, color="#222", flex=True, justify_content="right"
+        )
+
+        self.project_input = StyledTextInput(
+            container=add_btn_container, variable_name="project_input", left=65, top=47.5, height=25, width=90
+        )
+
+        self.add = StyledButton(
+            container=add_btn_container, text="Add", variable_name="add",
+            left=70, top=85, height=25, width=50, normal_color="#007BFF", press_color="#0056B3"
+        )
+
         self.add.do_onclick(self.onclick_add)
 
         self.add_btn_container = add_btn_container
         return add_btn_container
 
     def onclick_add(self):
-        folder_name = self.name_input.get_value().strip()
-        if not folder_name:
-            print("Please enter a valid name.")  # Empty input
+        user_name = self.user_input.get_value().strip()
+        project_name = self.project_input.get_value().strip()
+        if not user_name:
+            print("Please enter a valid user name.")  # Empty input
             return
-        target_path = os.path.join(DEFAULT_DIR, folder_name)
+        elif not project_name:
+            print("Please enter a valid project name.")
+            return
+        target_path = os.path.join(DEFAULT_DIR, user_name, project_name)
+
         try:
             os.makedirs(DEFAULT_DIR, exist_ok=True)  # Ensure root exists
             os.makedirs(target_path, exist_ok=False)  # Create sub-folder
