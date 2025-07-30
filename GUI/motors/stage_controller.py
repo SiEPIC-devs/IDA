@@ -28,7 +28,7 @@ Cameron Basara, 2025
 """
 
 # Configuration 
-_GLOBAL_COM_PORT = "/dev/ttyUSB0"
+_GLOBAL_COM_PORT = "COM8"
 _GLOBAL_BAUDRATE = 38400
 _GLOBAL_TIMEOUT = 0.3
 

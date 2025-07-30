@@ -4,6 +4,7 @@ from remi import start, App
 import lab_coordinates,threading, math, json
 from tinydb import TinyDB, Query
 
+command_path = os.path.join("database", "command.json")
 
 def fmt(val):
     try:
@@ -26,11 +27,27 @@ class devices(App):
         self.filtered_idx = []
         self.page_size = 50
         self.page_index = 0
+
+        self._user_mtime = None
+        self._first_command_check = True
         if "editing_mode" not in kwargs:
             super(devices, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
         self.terminal.terminal_refresh()
+
+        try:
+            mtime = os.path.getmtime(command_path)
+        except FileNotFoundError:
+            mtime = None
+
+        if self._first_command_check:
+            self._user_mtime = mtime
+            self._first_command_check = False
+            return
+        if mtime != self._user_mtime:
+            self._user_mtime = mtime
+            self.execute_command()
 
     def main(self):
         return devices.construct_ui(self)
@@ -120,7 +137,7 @@ class devices(App):
             left=10, top=10, height=320, width=625, overflow=True, border=True
         )
 
-        headers = ["Device ID", "Test", "Mode", "Wvl", "Type", "GDS x", "GDS y"]
+        headers = ["Device ID", "Test", "Mode", "Wvl", "Type", "x", "y"]
         self.col_widths = [180, 30, 30, 50, 50, 60, 60]
 
         self.table = StyledTable(
@@ -326,6 +343,84 @@ class devices(App):
         self.filtered_idx = list(range(self.length))
         self.page_size = 50
         self.page_index = 0
+
+    def execute_command(self, path=command_path):
+        device = 0
+        record = 0
+        new_command = {}
+
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                command = data.get("command", {})
+        except Exception as e:
+            print(f"[Error] Failed to load command: {e}")
+            return
+
+        for key, val in command.items():
+            if key.startswith("devices_control") and record == 0:
+                device = 1
+            elif key.startswith("testing_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("stage_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("tec_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sensor_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("lim_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("as_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("fa_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sweep_set") or record == 1:
+                record = 1
+                new_command[key] = val
+
+            elif key == "devices_load":
+                self.onclick_load()
+            elif key == "devices_all":
+                self.onclick_all()
+            elif key == "devices_clear":
+                self.onclick_clear()
+            elif key == "devices_filter":
+                self.onclick_filter()
+            elif key == "devices_id":
+                self.device_id.set_text(val)
+            elif key == "devices_mode":
+                self.device_mode.set_value(val)
+            elif key == "devices_wvl":
+                self.device_wvl.set_value(str(val))
+            elif key == "devices_type":
+                self.device_type.set_value(val)
+            elif key == "devices_sel":
+                for i in val:
+                    self.checkbox_state[i-1] = True
+                    cb = getattr(self, f"test_{i-1}", None)
+                    if cb is not None:
+                        cb.set_value(True)
+            elif key == "devices_del":
+                for i in val:
+                    self.checkbox_state[i-1] = False
+                    cb = getattr(self, f"test_{i-1}", None)
+                    if cb is not None:
+                        cb.set_value(False)
+            elif key == "devices_confirm":
+                self.onclick_confirm()
+
+        if device == 1:
+            print("device record")
+            time.sleep(1)
+            file = File("command", "command", new_command)
+            file.save()
 
 
 

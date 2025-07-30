@@ -5,6 +5,7 @@ import time
 from pathlib import Path
 import matplotlib.pyplot as plt
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
+import matplotlib
 
 
 class TSPSolver:
@@ -129,6 +130,7 @@ class TSPSolver:
         return xs, ys, total_dist
 
     def _plot_route(self, xs, ys, png_path: Path) -> None:
+        matplotlib.use("Agg")
         plt.figure(figsize=(8, 8))
         plt.plot(xs, ys, '-o', markersize=3, linewidth=1)
         plt.title("TSP Route")

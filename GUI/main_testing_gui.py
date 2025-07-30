@@ -3,8 +3,8 @@ from remi import start, App
 import lab_coordinates, threading, math, json, os, time, webview, wx, shutil
 from lab_tsp import TSPSolver
 
-
-json_path = os.path.join("database", "shared_memory.json")
+command_path = os.path.join("database", "command.json")
+shared_path = os.path.join("database", "shared_memory.json")
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 
 
@@ -21,11 +21,15 @@ class testing(App):
     def __init__(self, *args, **kwargs):
         # ------------------------------------------------------------------ LOAD DATA
         self._user_mtime = None
+        self._first_command_check = True
+        self._user_stime = None
         self.notopen = True
         self.running = False
         self.cur_user = ""
         self.image_path = ""
         self.serial_list = set()
+        self.device_num = 0
+        self.auto_sweep = 0
 
         self.gds = None
         self.number = None
@@ -41,6 +45,9 @@ class testing(App):
 
         self._last_user = ""
         self._last_user_paths = []
+        self.pre_num = 1
+
+        self.new_command = {}
 
         if "editing_mode" not in kwargs:
             super(testing, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -49,23 +56,42 @@ class testing(App):
     def idle(self):
         self.terminal.terminal_refresh()
         try:
-            mtime = os.path.getmtime(json_path)
+            mtime = os.path.getmtime(command_path)
+            stime = os.path.getmtime(shared_path)
         except FileNotFoundError:
             mtime = None
+            stime = None
+
+        if self._first_command_check:
+            self._user_mtime = mtime
+            self._first_command_check = False
+            return
 
         if mtime != self._user_mtime:
             self._user_mtime = mtime
+            self.run_in_thread(self.execute_command)
+
+        if stime != self._user_stime:
+            self._user_stime = stime
             self.cur_user = ""
-            if mtime is not None:
+            if stime is not None:
                 try:
-                    with open(json_path, "r", encoding="utf-8") as f:
+                    with open(shared_path, "r", encoding="utf-8") as f:
                         data = json.load(f)
                         self.cur_user = data.get("User", "").strip()
                         self.image_path = data.get("Image", "")
                         self.display_plot.set_image(f"my_res:{self.image_path}")
                         self.serial_list = set(data.get("Selection", []))
+                        self.device_num = data.get("DeviceNum", 0)
+                        self.auto_sweep = data.get("AutoSweep", 0)
+
                 except Exception as e:
                     print(f"[Warn] read json failed: {e}")
+
+            if self.auto_sweep == 1 and self.device_num != self.pre_num:
+                self.status[self.device_num - 1] = "1"
+                self.build_table_rows()
+                self.pre_num = self.device_num
 
             self.update_path_dropdown()
 
@@ -156,51 +182,6 @@ class testing(App):
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
 
-    # ------------------------------------------------------------------ TIME FORMATTING
-    @staticmethod
-    def _sec2hms(seconds: float) -> str:
-        seconds = max(0, int(seconds))
-        h = seconds // 3600
-        m = (seconds % 3600) // 60
-        s = seconds % 60
-        return f"{h:02d}:{m:02d}:{s:02d}"
-
-    def _update_time_labels(self, elapsed_s: float, remaining_s: float):
-        self.elapsed_time.set_text(self._sec2hms(elapsed_s))
-        self.remaining_time.set_text(self._sec2hms(remaining_s))
-
-    # ------------------------------------------------------------------ MEASUREMENT SEQUENCE
-    def _measure_sequence(self):
-        """Iterate over filtered devices, 5 s each, updating status and timers."""
-        total = len(self.filtered_idx)
-        if total == 0:
-            return
-
-        start_ts = time.time()
-        for local_idx, global_idx in enumerate(self.filtered_idx):
-            if not self.running:
-                break  # stopped by user
-
-            # wait 5 seconds in 1-second steps so labels refresh smoothly
-            for _ in range(5):
-                if not self.running:
-                    break
-                elapsed = time.time() - start_ts
-                remaining = max(0, total * 5 - elapsed)
-                self._update_time_labels(elapsed, remaining)
-                time.sleep(1)
-
-            if not self.running:
-                break
-
-            # mark device as done and refresh table
-            self.status[global_idx] = "1"
-            self.build_table_rows()
-
-        # sequence ended (completed or stopped)
-        self.running = False
-        self._update_time_labels(0, 0)
-
     # ------------------------------------------------------------------ NAVIGATION
     def goto_prev_page(self):
         if self.page_index > 0:
@@ -248,7 +229,7 @@ class testing(App):
         )
 
         StyledLabel(
-            container=path_container, text="Save format", variable_name="save_format",
+            container=path_container, text="Save file", variable_name="save_file",
             left=5, top=60, width=80, height=50, font_size=100, color="#222", align="left"
         )
 
@@ -258,7 +239,7 @@ class testing(App):
         )
 
         self.path_dd = StyledDropDown(
-            container=path_container, text=["All", "HeatMap", "Spectrum"], variable_name="save_format_dd",
+            container=path_container, text=["All", "HeatMap", "Spectrum"], variable_name="save_file_dd",
             left=90, top=55, width=180, height=30
         )
 
@@ -409,18 +390,15 @@ class testing(App):
 
     # ------------------------------------------------------------------ SEQUENCE CONTROL
     def start_sequence(self):
-        value = {"start": 1, "stage": 0, "sensor": 0, "num": 0, "id": 1}
-        file = File("shared_memory", "AutoSweep", value)
+        self.status = ["0"] * len(self.devicename)
+        self.pre_num = -1
+        self.build_table_rows()
+        file = File("shared_memory", "AutoSweep", 1, "DeviceNum", -1)
         file.save()
-        # if not self.running:
-        #     self.running = True
-        #     self.run_in_thread(self._measure_sequence)
 
     def stop_sequence(self):
-        value = {"start": 0, "stage": 0, "sensor": 0, "num":0, "id": 1}
-        file = File("shared_memory", "AutoSweep", value)
+        file = File("shared_memory", "AutoSweep", 0)
         file.save()
-        # self.running = False
 
     def tsp_solve(self):
         if self.filtered_idx:
@@ -513,6 +491,74 @@ class testing(App):
             print(f"✅ Files saved to: {dest_path}")
         except Exception as e:
             print(f"❌ Copy failed: {e}")
+
+    def execute_command(self, path=command_path):
+        test = 0
+        record = 0
+        new_command = {}
+
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                command = data.get("command", {})
+        except Exception as e:
+            print(f"[Error] Failed to load command: {e}")
+            return
+
+        for key, val in command.items():
+            if key.startswith("testing_control") and record == 0:
+                test = 1
+            elif key.startswith("devices_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("stage_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("tec_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sensor_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("lim_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("as_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("fa_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("sweep_set") or record == 1:
+                record = 1
+                new_command[key] = val
+
+            elif key == "testing_load":
+                self.load_file()
+            elif key == "testing_time":
+                self.solve_time.set_value(val)
+            elif key == "testing_solve":
+                self.tsp_solve()
+            elif key == "testing_save":
+                self.save_file()
+            elif key == "testing_file":
+                self.path_dd.set_value(val)
+            elif key == "testing_path":
+                self.save_path_input.set_text(val)
+            elif key == "testing_stop":
+                self.stop_sequence()
+            elif key == "testing_start":
+                self.start_sequence()
+                self.auto_sweep = 1
+                time.sleep(1)
+            while self.auto_sweep == 1:
+                time.sleep(1)
+
+        if test == 1:
+            print("testing record")
+            file = File("command", "command", new_command)
+            file.save()
+
 
 
     def laser_sweep_setting(self):

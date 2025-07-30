@@ -4,7 +4,7 @@ from remi import start, App
 import threading, webview, signal, lab_coordinates, asyncio, datetime
 from motors.stage_manager import StageManager
 from motors.config.stage_config import StageConfiguration
-
+import pandas as pd
 filename = "coordinates.json"
 
 command_path = os.path.join("database", "command.json")
@@ -27,7 +27,7 @@ class stage_control(App):
         self.limit = {}
         self.area_s = {}
         self.fine_a = {}
-        self.auto_sweep = {}
+        self.auto_sweep = 0
         self.count = 0
         self.filter = {}
         self.configuration = {}
@@ -37,6 +37,11 @@ class stage_control(App):
         self.stagepos = {}
         self.stage_x_pos = 0
         self.stage_y_pos = 0
+        self.sweep = {}
+        self.num = 0
+        self.sweep_count = 0
+        self.pre_x = None
+        self.pre_y = None
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -55,7 +60,7 @@ class stage_control(App):
 
         if mtime != self._user_mtime:
             self._user_mtime = mtime
-            self.execute_command()
+            self.run_in_thread(self.execute_command())
 
         if stime != self._user_stime:
             self._user_stime = stime
@@ -67,28 +72,31 @@ class stage_control(App):
                     self.limit = data.get("Limit", {})
                     self.area_s = data.get("AreaS", {})
                     self.fine_a = data.get("FineA", {})
-                    self.auto_sweep = data.get("AutoSweep", {})
+                    self.auto_sweep = data.get("AutoSweep", 0)
                     self.filter = data.get("Filtered", {})
                     self.configuration = data.get("Configuration", {})
                     self.scanpos = data.get("ScanPos", {})
+                    self.sweep = data.get("Sweep", {})
+                    self.num = data.get("DeviceNum", 0)
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
-        if self.auto_sweep["start"] == 1 and (self.auto_sweep["sensor"] == 1 or self.count == 0):
+        if self.auto_sweep == 1 and self.count == 0:
             self.lock_all(1)
             self.count = 1
-            self.auto_sweep["sensor"] = 0
-            file = File("shared_memory", "AutoSweep", self.auto_sweep)
-            file.save()
             self.run_in_thread(self.do_auto_sweep)
-
-        elif self.auto_sweep["start"] == 0 and self.count == 1:
+        elif self.auto_sweep == 0 and self.count == 1:
             self.lock_all(0)
             self.count = 0
 
-        if self.scanpos["move"] == 1:
-            self.scanpos["move"] = 0
+        if self.scanpos["move"] == 1 and (self.scanpos["x"] != self.pre_x or self.scanpos["y"] != self.pre_y):
             self.run_in_thread(self.scan_move)
+            self.pre_x = self.scanpos["x"]
+            self.pre_y = self.scanpos["y"]
+
+        if self.sweep["sweep"] == 1 and self.sweep_count == 0:
+            self.sweep_count = 1
+            self.run_in_thread(self.laser_sweep)
 
         self.after_configuration()
 
@@ -98,11 +106,35 @@ class stage_control(App):
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
 
+    def laser_sweep(self, num=None):
+        auto = 0
+        if num is None:
+            num = self.num
+        else:
+            auto = 1
+        filename = "res/spectral_sweep/spectral_sweep.csv"
+        df = pd.read_csv(filename, header=None)
+        x = df.iloc[:, 0].values
+        y = df.iloc[:, 1:].values.T
+        fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, num, self.project)
+        p = Process(target=diagram.generate_plots)
+        p.start()
+        p.join()
+
+        if auto == 0:
+            self.sweep_count = 0
+            self.sweep["sweep"] = 0
+            file = File("shared_memory", "Sweep", self.sweep)
+            file.save()
+
     def scan_move(self):
         x_pos = self.scanpos["x"] * self.area_s["x_step"] + self.stage_x_pos
         y_pos = self.scanpos["y"] * self.area_s["y_step"] + self.stage_y_pos
         asyncio.run(self.stage_manager.move_axis(AxisType.X, x_pos, False))
         asyncio.run(self.stage_manager.move_axis(AxisType.Y, y_pos, False))
+        print(f"Move to: {x_pos}, {y_pos}")
+        self.scanpos["move"] = 0
         file = File("shared_memory", "ScanPos", self.scanpos)
         file.save()
 
@@ -120,6 +152,7 @@ class stage_control(App):
             asyncio.run(self.stage_manager.initialize_all(
                 [AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER])
             )
+            #self.stage_manager.
             webview.create_window(
                 'Stage Control',
                 f'http://{local_ip}:8000',
@@ -143,31 +176,38 @@ class stage_control(App):
 
 
     def do_auto_sweep(self):
-        if self.auto_sweep["num"] < (len(self.filter)):
-            key = list(self.filter.keys())
-            x = float(self.filter[key[self.auto_sweep["num"]]][0])
-            y = float(self.filter[key[self.auto_sweep["num"]]][1])
+        i = 0
+        while i < (len(self.filter)):
+            if self.auto_sweep == 0:
+                break
 
-            print(f"Move to Device {self.auto_sweep['num'] + 1} [{x}, {y}]")
-            for i in range(3):
+            key = list(self.filter.keys())
+            x = float(self.filter[key[i]][0])
+            y = float(self.filter[key[i]][1])
+
+            print(f"Move to Device {i + 1} [{x}, {y}]")
+            for j in range(3):
                 time.sleep(1)
-                print(f"Time: {i+1}s")
+                print(f"Time: {j+1}s")
 
             asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
             asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
 
             self.onclick_start()
-            for i in range(3):
+            for j in range(3):
                 time.sleep(1)
-                print(f"Time: {i+1}s")
+                print(f"Time: {j+1}s")
 
-            self.auto_sweep["stage"] = 1
-            self.auto_sweep["id"] = int(key[self.auto_sweep["num"]])
-            self.auto_sweep["num"] += 1
-        else:
-            self.auto_sweep["start"] = 0
-            print("The Auto Sweep Is Finished")
-        file = File("shared_memory", "AutoSweep", self.auto_sweep)
+            self.laser_sweep(num=int(key[i]))
+
+            file = File("shared_memory", "DeviceNum", int(key[i]))
+            file.save()
+
+            i += 1
+
+        print("The Auto Sweep Is Finished")
+        time.sleep(1)
+        file = File("shared_memory", "AutoSweep", 0)
         file.save()
 
     def lock_all(self, value):
@@ -403,6 +443,8 @@ class stage_control(App):
         print("Start Fine Align")
 
     def onclick_scan(self):
+        self.scan_btn.set_enabled(False)
+        print("Start Scan")
         if self.area_s["plot"] == "New":
             self.stage_x_pos = self.memory.x_pos
             self.stage_y_pos = self.memory.y_pos
@@ -410,8 +452,11 @@ class stage_control(App):
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             data = np.array([[1,2,3,4,5,np.nan,7],[2,3,4,5,6,7,8],[3,4,5,6,7,8,9]])
             diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=data)
-            Process(target=diagram.heat_map).start()
-        print("Scan")
+            p = Process(target=diagram.heat_map)
+            p.start()
+            p.join()
+        print("Done Scan")
+        self.scan_btn.set_enabled(True)
 
     def onclick_x_left(self):
         value = float(self.x_input.get_value())
@@ -580,24 +625,30 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key.startswith("stage") and val == "control" and record == 0:
+            if key.startswith("stage_control") and record == 0:
                 stage = 1
-            elif key.startswith("tec") and val == "control" or record == 1:
+            elif key.startswith("tec_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor") and val == "control" or record == 1:
+            elif key.startswith("sensor_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim") and val == "set" or record == 1:
+            elif key.startswith("lim_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as") and val == "set" or record == 1:
+            elif key.startswith("as_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa") and val == "set" or record == 1:
+            elif key.startswith("fa_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep") and val == "set" or record == 1:
+            elif key.startswith("sweep_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("devices_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("testing_control") or record == 1:
                 record = 1
                 new_command[key] = val
 
@@ -650,24 +701,22 @@ class stage_control(App):
                 self.fiber_input.set_value(str(val))
                 self.onclick_fiber_left()
 
-            elif key == "stage" and val == "stop":
+            elif key == "stage_stop":
                 self.onclick_stop()
-            elif key == "stage" and val == "zero":
-                self.onclick_zero()
-            elif key == "stage" and val == "load":
+            elif key == "stage_load":
                 self.onclick_load()
-            elif key == "stage" and val == "home":
+            elif key == "stage_home":
                 self.onclick_home()
-            elif key == "stage" and val == "start":
+            elif key == "stage_start":
                 self.onclick_start()
-            elif key == "stage" and val == "scan":
+            elif key == "stage_scan":
                 self.onclick_scan()
-            elif key == "stage" and val == "move":
+            elif key == "stage_move":
                 self.onclick_move()
-            elif key == "stage" and val == "lock":
+            elif key == "stage_lock":
                 self.lock_box.set_value(1)
                 self.onchange_lock_box(val, 1)
-            elif key == "stage" and val == "unlock":
+            elif key == "stage_unlock":
                 self.lock_box.set_value(0)
                 self.onchange_lock_box(val, 0)
             elif key == "stage_device":

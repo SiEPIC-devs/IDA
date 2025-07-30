@@ -102,21 +102,21 @@ class Starts(App):
         user_folders = self.list_user_folders()
         self.user_dd = StyledDropDown(
             container=starts_container, text=user_folders, variable_name="set_user",
-            left=260, top=100, width=220, height=30,
+            left=210, top=100, width=220, height=30,
         )
 
         self.project_dd = StyledDropDown(
             container=starts_container, text="Project1", variable_name="set_mode",
-            left=260, top=140, width=220, height=30,
+            left=210, top=140, width=220, height=30,
         )
 
         StyledLabel(
             container=starts_container, text="User", variable_name="label_user",
-            left=100, top=105, width=150, height=20, font_size=100, color="#444", align="right",
+            left=50, top=105, width=150, height=20, font_size=100, color="#444", align="right",
         )
         StyledLabel(
             container=starts_container, text="Project", variable_name="label_mode",
-            left=100, top=145, width=150, height=20, font_size=100, color="#444", align="right",
+            left=50, top=145, width=150, height=20, font_size=100, color="#444", align="right",
         )
 
         StyledLabel(
@@ -126,12 +126,17 @@ class Starts(App):
 
         self.add_btn = StyledButton(
             container=starts_container, text="Add", variable_name="add",
-            left=260, top=180, normal_color="#007BFF", press_color="#0056B3",
+            left=270, top=180, normal_color="#007BFF", press_color="#0056B3",
         )
 
-        self.remove_btn = StyledButton(
-            container=starts_container, text="Remove", variable_name="remove",
-            left=380, top=180, normal_color="#dc3545", press_color="#c82333",
+        self.user_btn = StyledButton(
+            container=starts_container, text="Remove", variable_name="user_remove",
+            left=440, top=100, width=60, height=30, normal_color="#dc3545", press_color="#c82333",
+        )
+
+        self.project_btn = StyledButton(
+            container=starts_container, text="Remove", variable_name="project_remove",
+            left=440, top=140, width=60, height=30, normal_color="#dc3545", press_color="#c82333",
         )
 
         terminal_container = StyledContainer(
@@ -146,7 +151,8 @@ class Starts(App):
 
         # ── event bindings
         self.add_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_add))
-        self.remove_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_remove))
+        self.user_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_user_remove))
+        self.project_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_project_remove))
 
         self.starts_container = starts_container
         return starts_container
@@ -164,7 +170,7 @@ class Starts(App):
             on_top=True
         )
 
-    def onclick_remove(self):
+    def onclick_user_remove(self):
         folder = self.user_dd.get_value().replace(" ", "")
         path = os.path.join(ROOT_DIR, folder)
         if not os.path.isdir(path):
@@ -173,6 +179,19 @@ class Starts(App):
         try:
             shutil.rmtree(path)
             print(f"🗑️ Removed {folder}")
+        except Exception as exc:
+            print(f"❌ Failed to remove: {exc}")
+
+    def onclick_project_remove(self):
+        user = self.user_dd.get_value().replace(" ", "")
+        project = self.project_dd.get_value().replace(" ", "")
+        path = os.path.join(ROOT_DIR, user, project)
+        if not os.path.isdir(path):
+            print(f"⚠️ No such project: {project}")
+            return
+        try:
+            shutil.rmtree(path)
+            print(f"🗑️ Removed {project}")
         except Exception as exc:
             print(f"❌ Failed to remove: {exc}")
 

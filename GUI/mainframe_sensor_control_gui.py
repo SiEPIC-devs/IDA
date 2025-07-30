@@ -14,12 +14,13 @@ class stage_control(App):
         self._first_command_check = True
         self.user = "Guest"
         self.sweep = {}
-        self.auto_sweep = {}
+        self.auto_sweep = 0
         self.count = 0
         self.configuration = {}
         self.configuration_count = 0
         self.num = 1
         self.project = None
+        self.sensor = {}
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -38,7 +39,7 @@ class stage_control(App):
 
         if mtime != self._user_mtime:
             self._user_mtime = mtime
-            self.execute_command()
+            self.run_in_thread(self.execute_command)
 
         if stime != self._user_stime:
             self._user_stime = stime
@@ -48,25 +49,28 @@ class stage_control(App):
                     self.user = data.get("User", "")
                     self.project = data.get("Project", "")
                     self.sweep = data.get("Sweep", {})
-                    self.auto_sweep = data.get("AutoSweep", {})
+                    self.auto_sweep = data.get("AutoSweep", 0)
                     self.configuration = data.get("Configuration", {})
                     self.num = data.get("DeviceNum", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
             self.pwr.set_value(self.sweep["power"])
+            self.wvl.set_value(self.sweep["wvl"])
             self.range_start.set_value(self.sweep["start"])
             self.range_end.set_value(self.sweep["end"])
 
-        if self.auto_sweep["start"] == 1 and self.auto_sweep["stage"] == 0:
+        if self.auto_sweep == 1 and self.count == 0:
+            self.count = 1
             self.lock_all(1)
-        elif self.auto_sweep["start"] == 1 and self.auto_sweep["stage"] == 1:
-            self.auto_sweep["stage"] = 0
-            file = File("shared_memory", "AutoSweep", self.auto_sweep)
-            file.save()
-            self.run_in_thread(self.do_auto_sweep)
-        elif self.auto_sweep["start"] == 0:
+        elif self.auto_sweep == 0 and self.count == 1:
+            self.count = 0
             self.lock_all(0)
+
+        if self.sweep["sweep"] == 1 and self.auto_sweep == 0:
+            self.sweep_btn.set_enabled(False)
+        elif self.sweep["sweep"] == 0 and self.auto_sweep == 0:
+            self.sweep_btn.set_enabled(True)
 
         self.after_configuration()
 
@@ -90,16 +94,6 @@ class stage_control(App):
                 resizable=True,
                 hidden=False
             )
-
-    def do_auto_sweep(self):
-        print("Do The Sweep")
-        for i in range(3):
-            time.sleep(1)
-            print(f"Time: {i + 1}s")
-        self.onclick_sweep(self.auto_sweep["id"])
-        self.auto_sweep["sensor"] = 1
-        file = File("shared_memory", "AutoSweep", self.auto_sweep)
-        file.save()
 
     def lock_all(self, value):
         enabled = value == 0
@@ -151,7 +145,7 @@ class stage_control(App):
 
         self.wvl = StyledSpinBox(
             container=sensor_control_container, variable_name="wvl_input", left=185, top=40, min_value=0,
-            max_value=2000, value=10.0, step=0.1, width=65, height=24, position="absolute"
+            max_value=2000, value=1550.0, step=0.1, width=65, height=24, position="absolute"
         )
 
         self.pwr = StyledSpinBox(
@@ -174,7 +168,7 @@ class stage_control(App):
             height=100, width=300, border=True
         )
 
-        self.sweep = StyledButton(
+        self.sweep_btn = StyledButton(
             container=sweep_container, text="Sweep", variable_name="sweep_button", font_size=90,
             left=90, top=15, width=82, height=28, normal_color="#007BFF", press_color="#0056B3"
         )
@@ -209,12 +203,14 @@ class stage_control(App):
         self.minus_pwr.do_onclick(lambda *_: self.run_in_thread(self.onclick_minus_pwr))
         self.add_wvl.do_onclick(lambda *_: self.run_in_thread(self.onclick_add_wvl))
         self.add_pwr.do_onclick(lambda *_: self.run_in_thread(self.onclick_add_pwr))
-        self.sweep.do_onclick(lambda *_: self.run_in_thread(self.onclick_sweep))
+        self.sweep_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_sweep))
         self.wvl.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_wvl, emitter, value))
         self.pwr.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_pwr, emitter, value))
         self.range_start.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_range_start, emitter, value))
         self.range_end.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_range_end, emitter, value))
         self.on_box.onchange.do(lambda emitter, value: self.run_in_thread(self.onchange_box, emitter, value))
+
+        self.sensor = {"wvl": 1550.0, "pwr": 0.0, "sweep": 0}
 
         self.sensor_control_container = sensor_control_container
         return sensor_control_container
@@ -233,8 +229,14 @@ class stage_control(App):
 
     def onchange_box(self, emitter, value):
         if value:
+            self.sweep["on"] = value
+            file = File("shared_memory", "Sweep", self.sweep)
+            file.save()
             print("On")
         else:
+            self.sweep["on"] = value
+            file = File("shared_memory", "Sweep", self.sweep)
+            file.save()
             print("Off")
 
     def onclick_minus_wvl(self):
@@ -242,7 +244,9 @@ class stage_control(App):
         value = round(value - 0.1, 1)
         if value < 0: value = 0.0
         if value > 2000: value = 2000.0
-        self.wvl.set_value(value)
+        self.sweep["wvl"] = value
+        file = File("shared_memory", "Sweep", self.sweep)
+        file.save()
         print(f"Wavelength: {value:.1f} nm")
 
     def onclick_minus_pwr(self):
@@ -260,7 +264,9 @@ class stage_control(App):
         value = round(value + 0.1, 1)
         if value < 0: value = 0.0
         if value > 2000: value = 2000.0
-        self.wvl.set_value(value)
+        self.sweep["wvl"] = value
+        file = File("shared_memory", "Sweep", self.sweep)
+        file.save()
         print(f"Wavelength: {value:.1f} nm")
 
     def onclick_add_pwr(self):
@@ -273,23 +279,21 @@ class stage_control(App):
         file.save()
         print(f"Power: {value:.1f} dBm")
 
-    def onclick_sweep(self, num=None):
-        if num is None:
-            num = self.num
-        filename = "res/spectral_sweep/spectral_sweep.csv"
-        df = pd.read_csv(filename, header=None)
-        x = df.iloc[:, 0].values
-        y = df.iloc[:, 1:].values.T
-        fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, num, self.project)
-        Process(target=diagram.generate_plots).start()
+    def onclick_sweep(self):
+        print("Start Sweeping")
+        self.sweep["sweep"] = 1
+        file = File("shared_memory", "Sweep", self.sweep)
+        file.save()
+
 
     def onchange_wvl(self, emitter, value):
+        self.sweep["wvl"] = float(value)
+        file = File("shared_memory", "Sweep", self.sweep)
+        file.save()
         print(f"Wavelength: {value:.1f} nm")
 
     def onchange_pwr(self, emitter, value):
-        value = float(value)
-        self.sweep["power"] = value
+        self.sweep["power"] = float(value)
         file = File("shared_memory", "Sweep", self.sweep)
         file.save()
         print(f"Power: {value:.1f} dBm")
@@ -322,30 +326,36 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key.startswith("sensor") and val == "control" and record == 0:
+            if key.startswith("sensor_control") and record == 0:
                 sensor = 1
-            elif key.startswith("stage") and val == "control" or record == 1:
+            elif key.startswith("stage_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec") and val == "control" or record == 1:
+            elif key.startswith("tec_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim") and val == "set" or record == 1:
+            elif key.startswith("lim_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as") and val == "set" or record == 1:
+            elif key.startswith("as_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa") and val == "set" or record == 1:
+            elif key.startswith("fa_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep") and val == "set" or record == 1:
+            elif key.startswith("sweep_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("devices_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("testing_control") or record == 1:
                 record = 1
                 new_command[key] = val
 
-            elif key == "sensor" and val == "on":
+            elif key == "sensor_on":
                 self.on_box.set_value(1)
-            elif key == "sensor" and val == "off":
+            elif key == "sensor_off":
                 self.on_box.set_value(0)
             elif key == "sensor_wvl":
                 self.wvl.set_value(val)
@@ -359,8 +369,12 @@ class stage_control(App):
             elif key == "sensor_sweep_end":
                 self.range_end.set_value(val)
                 self.onchange_range_end(1, float(val))
-            elif key == "sensor" and val == "sweep":
+            elif key == "sensor_sweep":
                 self.onclick_sweep()
+                self.sweep["sweep"] = 1
+
+            while self.sweep["sweep"] == 1:
+                time.sleep(1)
 
         if sensor == 1:
             print("sensor record")

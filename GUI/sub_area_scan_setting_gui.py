@@ -137,24 +137,30 @@ class area_scan(App):
             return
 
         for key, val in command.items():
-            if key.startswith("as") and val == "set" and record == 0:
+            if key.startswith("as_set") and record == 0:
                 area = 1
-            elif key.startswith("stage") and val == "control" or record == 1:
+            elif key.startswith("stage_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec") and val == "control" or record == 1:
+            elif key.startswith("tec_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor") and val == "control" or record == 1:
+            elif key.startswith("sensor_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa") and val == "set" or record == 1:
+            elif key.startswith("fa_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim") and val == "set" or record == 1:
+            elif key.startswith("lim_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep") and val == "set" or record == 1:
+            elif key.startswith("sweep_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("devices_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("testing_control") or record == 1:
                 record = 1
                 new_command[key] = val
 

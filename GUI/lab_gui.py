@@ -405,12 +405,12 @@ class File():
             "Limit": {"x": "Yes", "y": "Yes", "z": "Yes", "chip": "Yes", "fiber": "Yes"},
             "FineA": {"x_count": 20, "x_step": 0.1, "y_count": 20, "y_step": 0.1},
             "AreaS": {"x_count": 20, "x_step": 5.0, "y_count": 20, "y_step": 5.0, "plot": "New"},
-            "Sweep": {"speed": 1.0, "power": 0.0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "on"},
+            "Sweep": {"wvl": 1550, "speed": 1.0, "power": 0.0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "on", "sweep": 0, "on": 0},
             "ScanPos": {"x": 0, "y": 0, "move": 0},
             "StagePos": {"x": 0, "y": 0},
-            "AutoSweep": {"start": 0, "stage": 0, "sensor": 0, "num": 0, "id": 1},
+            "AutoSweep": 0,
             "Configuration": {"stage": "", "laser": "", "detector": "", "tec": ""},
-            "DeviceNum": 1
+            "DeviceNum": 1,
         }
 
         self._safe_write(data, filepath)
@@ -432,7 +432,7 @@ class plot():
         max_value = np.nanmax(self.data)
         heatmap = ax.imshow(
             self.data,
-            origin='upper',
+            origin='lower',
             cmap='gist_heat_r',
             vmin=min_value - 3,
             vmax=max_value + 1,

@@ -104,6 +104,11 @@ class stage_control(App):
             for part in parts:
                 if "_" not in part:
                     continue
+
+                if part.count("_") == 1:
+                    command_data[part] = True
+                    continue
+
                 key_parts = part.rsplit("_", 1)
                 if len(key_parts) != 2:
                     continue
@@ -113,9 +118,17 @@ class stage_control(App):
                     val = True
                 elif val_lower == "false":
                     val = False
+                elif "/" in val:
+                    val_list = val.split("/")
+                    val = []
+                    for v in val_list:
+                        if v.replace(".", "", 1).isdigit():
+                            v = float(v) if "." in v else int(v)
+                        val.append(v)
                 elif val.replace(".", "", 1).isdigit():
                     val = float(val) if "." in val else int(val)
                 command_data[key] = val
+
         except Exception as e:
             print(f"[Error] Failed to parse command text: {e}")
             return

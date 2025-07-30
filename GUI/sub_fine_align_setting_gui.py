@@ -131,24 +131,30 @@ class fine_align(App):
             return
 
         for key, val in command.items():
-            if key.startswith("fa") and val == "set" and record == 0:
+            if key.startswith("fa_set") and record == 0:
                 fa = 1
-            elif key.startswith("stage") and val == "control" or record == 1:
+            elif key.startswith("stage_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec") and val == "control" or record == 1:
+            elif key.startswith("tec_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor") and val == "control" or record == 1:
+            elif key.startswith("sensor_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as") and val == "set" or record == 1:
+            elif key.startswith("as_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim") and val == "set" or record == 1:
+            elif key.startswith("lim_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep") and val == "set" or record == 1:
+            elif key.startswith("sweep_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("devices_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("testing_control") or record == 1:
                 record = 1
                 new_command[key] = val
 
@@ -160,7 +166,7 @@ class fine_align(App):
                 self.y_count.set_value(val)
             elif key == "fa_y_step":
                 self.y_step.set_value(val)
-            elif key == "fa" and val == "confirm":
+            elif key == "fa_confirm":
                 self.onclick_confirm()
 
         if fa == 1:

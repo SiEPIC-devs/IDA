@@ -152,12 +152,15 @@ class add_btn(App):
 
     def onclick_confirm(self):
         mem = {
+            "wvl": self.sweep["wvl"],
             "speed": float(self.speed.get_value()),
             "power": float(self.power.get_value()),
             "step": float(self.step_size.get_value()),
             "start": float(self.start_wvl.get_value()),
             "end": float(self.stop_wvl.get_value()),
-            "done": self.on_off.get_value()
+            "done": self.on_off.get_value(),
+            "sweep": self.sweep["sweep"],
+            "on": self.sweep["on"]
         }
         file = File("shared_memory", "Sweep", mem)
         file.save()
@@ -178,24 +181,30 @@ class add_btn(App):
             return
 
         for key, val in command.items():
-            if key.startswith("sweep") and val == "set" and record == 0:
+            if key.startswith("sweep_set") and record == 0:
                 sweep = 1
-            elif key.startswith("stage") and val == "control" or record == 1:
+            elif key.startswith("stage_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("tec") and val == "control" or record == 1:
+            elif key.startswith("tec_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor") and val == "control" or record == 1:
+            elif key.startswith("sensor_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa") and val == "set" or record == 1:
+            elif key.startswith("fa_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim") and val == "set" or record == 1:
+            elif key.startswith("lim_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as") and val == "set" or record == 1:
+            elif key.startswith("as_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("devices_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("testing_control") or record == 1:
                 record = 1
                 new_command[key] = val
 
@@ -214,7 +223,7 @@ class add_btn(App):
                     self.on_off.set_value("Laser On")
                 elif val == "off":
                     self.on_off.set_value("Laser Off")
-            elif key == "sweep" and val == "confirm":
+            elif key == "sweep_confirm":
                 self.onclick_confirm()
 
         if sweep == 1:

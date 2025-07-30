@@ -161,8 +161,7 @@ class coordinates:
             xy_gds1 = np.array(self.device_db.get(self.device.number == device_numbers[0])["coordinate"])
             xy_gds2 = np.array(self.device_db.get(self.device.number == device_numbers[1])["coordinate"])
             xy_gds3 = np.array(self.device_db.get(self.device.number == device_numbers[2])["coordinate"])
-            row1 = [
-             xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]
+            row1 = [xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]
             row2 = [0, 0, 0, xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 0, 0, 1, 0]
             row3 = [0, 0, 0, 0, 0, 0, xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 1]
             row4 = [xy_gds2[0], xy_gds2[1], xy_gds2[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]

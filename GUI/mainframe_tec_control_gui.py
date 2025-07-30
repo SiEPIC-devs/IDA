@@ -2,19 +2,23 @@ from lab_gui import *
 from remi.gui import *
 from remi import start, App
 import threading, webview, signal, socket
+from LDC.ldc_manager import LDCManager
+from LDC.config.ldc_config import LDCConfiguration
 
 command_path = os.path.join("database", "command.json")
 shared_path = os.path.join("database", "shared_memory.json")
 
-class stage_control(App):
+class tec_control(App):
     def __init__(self, *args, **kwargs):
         self._user_mtime = None
         self._user_stime = None
         self._first_command_check = True
         self.configuration = {}
         self.configuration_count = 0
+        self.configure = None
+        self.ldc_manager = None
         if "editing_mode" not in kwargs:
-            super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
+            super(tec_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
         try:
@@ -53,6 +57,10 @@ class stage_control(App):
     def after_configuration(self):
         if self.configuration["tec"] != "" and self.configuration_count == 0:
             self.configuration_count = 1
+            self.configure = LDCConfiguration()
+            self.ldc_manager = LDCManager(self.configure)
+            self.ldc_manager.initialize()
+            self.ldc_manager.set_temperature(25.0)
             webview.create_window(
                 'TEC Control',
                 f'http://{local_ip}:8002',
@@ -110,6 +118,7 @@ class stage_control(App):
         if value < 0: value = 0.0
         if value > 100: value = 100.0
         self.tem.set_value(value)
+        self.ldc_manager.set_temperature(value)
         print(f"TEC temperature: {value:.1f} °C")
 
     def onclick_plus_tem(self):
@@ -118,16 +127,21 @@ class stage_control(App):
         if value < 0: value = 0.0
         if value > 100: value = 100.0
         self.tem.set_value(value)
+        self.ldc_manager.set_temperature(value)
         print(f"TEC temperature: {value:.1f} °C")
 
     def onchange_tem(self, emitter, value):
-        print(f"TEC temperature: {value:.1f} °C")
+        value = round(float(value), 1)
+        self.ldc_manager.set_temperature(value)
+        print(f"TEC temperature: {value} °C")
 
     def onchange_box(self, emitter, value):
         if value:
-            print("on")
+            self.ldc_manager.tec_on()
+            print("TEC On")
         else:
-            print("off")
+            self.ldc_manager.tec_off()
+            print("TEC Off")
 
     def execute_command(self, path=command_path):
         tec = 0
@@ -143,31 +157,39 @@ class stage_control(App):
             return
 
         for key, val in command.items():
-            if key.startswith("tec") and val == "control" and record == 0:
+            if key.startswith("tec_control") and record == 0:
                 tec = 1
-            elif key.startswith("stage") and val == "control" or record == 1:
+            elif key.startswith("stage_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sensor") and val == "control" or record == 1:
+            elif key.startswith("sensor_control") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("lim") and val == "set" or record == 1:
+            elif key.startswith("lim_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("as") and val == "set" or record == 1:
+            elif key.startswith("as_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("fa") and val == "set" or record == 1:
+            elif key.startswith("fa_set") or record == 1:
                 record = 1
                 new_command[key] = val
-            elif key.startswith("sweep") and val == "set" or record == 1:
+            elif key.startswith("sweep_set") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("devices_control") or record == 1:
+                record = 1
+                new_command[key] = val
+            elif key.startswith("testing_control") or record == 1:
                 record = 1
                 new_command[key] = val
 
-            elif key == "tec" and val == "on":
+            elif key == "tec_on":
                 self.on_box.set_value(1)
-            elif key == "tec" and val == "off":
+                self.onchange_box(1, 1)
+            elif key == "tec_off":
                 self.on_box.set_value(0)
+                self.onchange_box(1, 0)
             elif key == "tec_tem":
                 self.tem.set_value(val)
                 self.onchange_tem(1, float(val))
@@ -192,7 +214,7 @@ def get_local_ip():
 
 def run_remi():
     start(
-        stage_control,
+        tec_control,
         address="0.0.0.0", port=8002,
         start_browser=False, multiple_instance=False
     )
