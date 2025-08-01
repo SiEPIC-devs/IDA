@@ -4,6 +4,8 @@ from remi import start, App
 import threading, webview, signal, lab_coordinates, asyncio, datetime
 from motors.stage_manager import StageManager
 from motors.config.stage_config import StageConfiguration
+#from motors.stage_controller import StageController
+from NIR.nir_controller_practical import Agilent8163Controller
 import pandas as pd
 filename = "coordinates.json"
 
@@ -149,9 +151,14 @@ class stage_control(App):
             self.configure.driver_types[AxisType.ROTATION_CHIP] = self.configuration["stage"]
             self.configure.driver_types[AxisType.ROTATION_FIBER] = self.configuration["stage"]
             self.stage_manager = StageManager(self.configure, create_shm=True)
+            asyncio.run_coroutine_threadsafe(
+                self.stage_manager.startup(),
+                main_loop
+            )
             asyncio.run(self.stage_manager.initialize_all(
                 [AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER])
             )
+            # asyncio.run(self.stage_manager.startup())
             #self.stage_manager.
             webview.create_window(
                 'Stage Control',
@@ -173,7 +180,6 @@ class stage_control(App):
                 self.chip_position_lb.set_text(str(self.memory.cp_pos))
             if self.memory.fr_pos != float(self.fiber_position_lb.get_text()):
                 self.fiber_position_lb.set_text(str(self.memory.fr_pos))
-
 
     def do_auto_sweep(self):
         i = 0
@@ -436,6 +442,31 @@ class stage_control(App):
             asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_CHIP))
         if fiber == "Yes":
             asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_FIBER))
+        # if x == "Yes":
+        #     asyncio.run_coroutine_threadsafe(
+        #         self.stage_manager.home_limits(AxisType.X),
+        #         main_loop
+        #     )
+        # if y == "Yes":
+        #     asyncio.run_coroutine_threadsafe(
+        #         self.stage_manager.home_limits(AxisType.Y),
+        #         main_loop
+        #     )
+        # if z == "Yes":
+        #     asyncio.run_coroutine_threadsafe(
+        #         self.stage_manager.home_limits(AxisType.Z),
+        #         main_loop
+        #     )
+        # if chip == "Yes":
+        #     asyncio.run_coroutine_threadsafe(
+        #         self.stage_manager.home_limits(AxisType.ROTATION_CHIP),
+        #         main_loop
+        #     )
+        # if fiber == "Yes":
+        #     asyncio.run_coroutine_threadsafe(
+        #         self.stage_manager.home_limits(AxisType.ROTATION_FIBER),
+        #         main_loop
+        #     )
 
         print("Home")
 
@@ -764,6 +795,10 @@ def disable_scroll():
 
 
 if __name__ == '__main__':
+    main_loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(main_loop)
+    threading.Thread(target=main_loop.run_forever, daemon=True).start()
+
     threading.Thread(target=run_remi, daemon=True).start()
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     local_ip = get_local_ip()

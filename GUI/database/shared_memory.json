@@ -45,10 +45,10 @@
   },
   "AutoSweep": 0,
   "Configuration": {
-    "stage": "347_stage_control",
-    "laser": "347_stage_control",
-    "detector": "347_stage_control",
-    "tec": "347_stage_control"
+    "stage": "stage_control",
+    "laser": "",
+    "detector": "",
+    "tec": ""
   },
   "DeviceNum": 1
 }

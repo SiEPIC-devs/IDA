@@ -46,10 +46,10 @@ class instruments(App):
             # DropDown
             setattr(self, f"{key}_dd", StyledDropDown(
                 container=instruments_container,
-                text={"stage": ["347_stage_control", "stage_B", "stage_C"],
-                      "laser": ["347_stage_control","laser_B","laser_C"],
-                      "detector": ["347_stage_control","detector_B","detector_C"],
-                      "tec": ["347_stage_control","TEC_B","TEC_C"]}[key],
+                text={"stage": ["stage_control", "stage_B", "stage_C"],
+                      "laser": ["stage_control","laser_B","laser_C"],
+                      "detector": ["stage_control","detector_B","detector_C"],
+                      "tec": ["stage_control","TEC_B","TEC_C"]}[key],
                 variable_name=f"set_{key}", left=160, top=10 + idx * 40, width=180, height=30))
 
             # Configure Button

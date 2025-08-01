@@ -289,7 +289,9 @@ class StageController(MotorHAL):
         """Get current position"""
         def _get_position():
             try:
+                print("Start get position")
                 response = self._query_command_sync(f"{self._axis_num}POS?")
+                print("get it")
                 
                 theoretical_mm = float(response[0])
                 actual_mm = float(response[1])
@@ -310,7 +312,7 @@ class StageController(MotorHAL):
                 if self.debug:
                     logger.error(f"Position error: {e}")
                 return Position(0.0, 0.0, "um", monotonic())
-        
+
         return await _queue_command(_get_position)
 
     async def get_state(self) -> MotorState:

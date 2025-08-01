@@ -336,10 +336,11 @@ class Memory():
 
     def writer_pos(self):
         shm, raw = open_shared_stage_position()
+        print(raw)
         sp = StagePosition(shared_struct=raw)
         # write into shared memory
         sp.set_positions(AxisType.X, 123.456)
-        sp.set_homed(AxisType.X)
+        #sp.set_homed(AxisType.X)
 
         # Clean - explicitly delete the object first
         del sp
@@ -351,11 +352,11 @@ class Memory():
         # sleep(0.1)
         shm, raw = open_shared_stage_position("stage_position")
         sp = StagePosition(shared_struct=raw)
-        self.x_pos = sp.x.position
-        self.y_pos = sp.y.position
-        self.z_pos = sp.z.position
-        self.fr_pos = sp.fr.position
-        self.cp_pos = sp.cp.position
+        self.x_pos = round(sp.x.position, 1)
+        self.y_pos = round(sp.y.position, 1)
+        self.z_pos = round(sp.z.position, 1)
+        self.fr_pos = round(sp.fr.position, 1)
+        self.cp_pos = round(sp.cp.position, 1)
 
         # Clean - explicitly delete the object first
         del sp

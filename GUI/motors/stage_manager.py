@@ -7,7 +7,8 @@ import time
 
 # Local imports
 from motors.hal.motors_hal import AxisType, MotorState, Position, MotorEvent, MotorEventType
-from motors.stage_controller import StageController
+#from motors.stage_controller import StageController
+from motors.modern_stage import StageControl as StageController
 from motors.hal.stage_factory import create_driver
 from motors.config.stage_config import StageConfiguration
 from motors.utils.shared_memory import *
@@ -455,6 +456,12 @@ class StageManager:
                             # Update shared memory position
                             if self.create_shm:
                                 setattr(self.position_struct, axis.name.lower(), pos.actual)
+                                shm, raw = open_shared_stage_position()
+                                sp = StagePosition(shared_struct=raw)
+                                sp.set_positions(axis, pos.actual)
+                                del sp
+                                del raw
+                                shm.close()
                     except Exception as e:
                         logger.debug(f"Position monitor error for {axis.name}: {e}")
                 
@@ -465,7 +472,6 @@ class StageManager:
             except Exception as e:
                 logger.error(f"Position monitor error: {e}")
                 await asyncio.sleep(1.0)
-        
         logger.info("Position monitor stopped")
 
     # === Status and Info ===
