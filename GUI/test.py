@@ -7,7 +7,6 @@ print("已识别的 VISA 资源：")
 for res in resources:
     print(res)
 
-# 可选：筛选出 GPIB 或串口设备
 serial_ports = [r for r in resources if "ASRL" in r]
 gpib_devices = [r for r in resources if "GPIB" in r]
 

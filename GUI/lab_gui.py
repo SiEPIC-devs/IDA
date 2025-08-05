@@ -410,24 +410,25 @@ class File():
             "ScanPos": {"x": 0, "y": 0, "move": 0},
             "StagePos": {"x": 0, "y": 0},
             "AutoSweep": 0,
-            "Configuration": {"stage": "", "laser": "", "detector": "", "tec": ""},
-            "DeviceNum": 1,
+            "Configuration": {"stage": "", "sensor": "", "tec": ""},
+            "DeviceName": "",
+            "DeviceNum": 0
         }
 
         self._safe_write(data, filepath)
 
 class plot():
-    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None, num=None, project=None, data=None):
+    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None, name=None, project=None, data=None):
         self.x = x
         self.y = y
         self.filename = filename
         self.fileTime = fileTime
         self.user = user
-        self.num = num
+        self.name = name
         self.project = project
         self.data = data
 
-    def heat_map(self):
+    def  heat_map(self):
         fig, ax = plt.subplots(figsize=(7, 7))
         min_value = np.nanmin(self.data)
         max_value = np.nanmax(self.data)
@@ -505,9 +506,9 @@ class plot():
         filename = self.filename
         fileTime = self.fileTime
         user = self.user
-        num = self.num
+        name = self.name
         project = self.project
-        path = os.path.join(".", "UserData", user, project, "Spectrum", f"Device_{num}")
+        path = os.path.join(".", "UserData", user, project, "Spectrum", name)
         try:
             plots = {"Wavelength [nm]": x_axis*1000000000}
             plotnames = []

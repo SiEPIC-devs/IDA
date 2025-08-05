@@ -40,10 +40,13 @@ class stage_control(App):
         self.stage_x_pos = 0
         self.stage_y_pos = 0
         self.sweep = {}
-        self.num = 0
+        self.name = None
         self.sweep_count = 0
         self.pre_x = None
         self.pre_y = None
+        self.stage_window = None
+        self.devices = None
+
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -79,7 +82,7 @@ class stage_control(App):
                     self.configuration = data.get("Configuration", {})
                     self.scanpos = data.get("ScanPos", {})
                     self.sweep = data.get("Sweep", {})
-                    self.num = data.get("DeviceNum", 0)
+                    self.name = data.get("DeviceName", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -108,10 +111,10 @@ class stage_control(App):
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
 
-    def laser_sweep(self, num=None):
+    def laser_sweep(self, name=None):
         auto = 0
-        if num is None:
-            num = self.num
+        if name is None:
+            name = self.name
         else:
             auto = 1
         filename = "res/spectral_sweep/spectral_sweep.csv"
@@ -119,7 +122,7 @@ class stage_control(App):
         x = df.iloc[:, 0].values
         y = df.iloc[:, 1:].values.T
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, num, self.project)
+        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, name, self.project)
         p = Process(target=diagram.generate_plots)
         p.start()
         p.join()
@@ -143,6 +146,16 @@ class stage_control(App):
     def after_configuration(self):
         if self.configuration["stage"] != "" and self.configuration_count == 0:
             self.configuration_count = 1
+
+            self.gds = lab_coordinates.coordinates(("./res/" + filename), read_file=False,
+                                                   name="./database/coordinates.json")
+            self.number = self.gds.listdeviceparam("number")
+            self.coordinate = self.gds.listdeviceparam("coordinate")
+            self.polarization = self.gds.listdeviceparam("polarization")
+            self.wavelength = self.gds.listdeviceparam("wavelength")
+            self.type = self.gds.listdeviceparam("type")
+            self.devices = [f"{name} ({num})" for name, num in zip(self.gds.listdeviceparam("devicename"), self.number)]
+
             self.memory = Memory()
             self.configure = StageConfiguration()
             self.configure.driver_types[AxisType.X] = self.configuration["stage"]
@@ -158,9 +171,7 @@ class stage_control(App):
             asyncio.run(self.stage_manager.initialize_all(
                 [AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER])
             )
-            # asyncio.run(self.stage_manager.startup())
-            #self.stage_manager.
-            webview.create_window(
+            self.stage_window = webview.create_window(
                 'Stage Control',
                 f'http://{local_ip}:8000',
                 width=672, height=407,
@@ -168,6 +179,12 @@ class stage_control(App):
                 resizable=True,
                 hidden=False
             )
+        elif self.configuration["stage"] == "" and self.configuration_count == 1:
+            self.configuration_count = 0
+            if self.stage_window:
+                self.stage_window.destroy()
+                self.stage_window = None
+
         if self.configuration_count == 1:
             self.memory.reader_pos()
             if self.memory.x_pos != float(self.x_position_lb.get_text()):
@@ -204,9 +221,9 @@ class stage_control(App):
                 time.sleep(1)
                 print(f"Time: {j+1}s")
 
-            self.laser_sweep(num=int(key[i]))
+            self.laser_sweep(name=self.devices[int(key[i])])
 
-            file = File("shared_memory", "DeviceNum", int(key[i]))
+            file = File("shared_memory", "DeviceName", self.devices[int(key[i])], "DeviceNum", int(key[i]))
             file.save()
 
             i += 1
@@ -552,6 +569,9 @@ class stage_control(App):
         self.move_dd.empty()
         self.move_dd.append(self.devices)
         self.move_dd.attributes["title"] = self.devices[0]
+        file = File("shared_memory", "DeviceName", self.devices[0])
+        file.save()
+        print(self.devices)
         if not self.move_dd.get_value() == "N/A":
             self.move_btn.set_enabled(True)
 
@@ -574,7 +594,7 @@ class stage_control(App):
             asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
             asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
 
-            file = File("shared_memory", "DeviceNum", index+1)
+            file = File("shared_memory", "DeviceName", selected_device, "DeviceNum", index+1)
             file.save()
 
             print(f"Successfully moved to device {selected_device}")

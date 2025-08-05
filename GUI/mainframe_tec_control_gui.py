@@ -17,6 +17,7 @@ class tec_control(App):
         self.configuration_count = 0
         self.configure = None
         self.ldc_manager = None
+        self.tec_window = None
         if "editing_mode" not in kwargs:
             super(tec_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -61,7 +62,7 @@ class tec_control(App):
             self.ldc_manager = LDCManager(self.configure)
             self.ldc_manager.initialize()
             self.ldc_manager.set_temperature(25.0)
-            webview.create_window(
+            self.tec_window = webview.create_window(
                 'TEC Control',
                 f'http://{local_ip}:8002',
                 width=322, height=157,
@@ -69,6 +70,11 @@ class tec_control(App):
                 resizable=True,
                 hidden=False
             )
+        elif self.configuration["tec"] == "" and self.configuration_count == 1:
+            self.configuration_count = 0
+            if self.tec_window:
+                self.tec_window.destroy()
+                self.tec_window = None
 
     def construct_ui(self):
         sensor_control_container = StyledContainer(

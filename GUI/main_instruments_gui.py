@@ -1,19 +1,20 @@
 from remi import start, App
-import os
+import os, threading, webview
 from lab_gui import *
 
 class instruments(App):
     def __init__(self, *args, **kwargs):
-        self.configuration = {"stage": "", "laser": "", "detector": "", "tec": ""}
+        self.configuration = {"stage": "", "sensor": "", "tec": ""}
         self.stage_connect_btn = None
-        self.laser_connect_btn = None
-        self.detector_connect_btn = None
+        self.sensor_connect_btn = None
         self.tec_connect_btn = None
         self.terminal = None
         self.stage_dd = None
-        self.laser_dd = None
-        self.detector_dd = None
+        self.sensor_dd = None
         self.tec_dd = None
+        self.stage_configure_btn = None
+        self.sensor_configure_btn = None
+        self.tec_configure_btn = None
         if "editing_mode" not in kwargs:
             super(instruments, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -32,13 +33,12 @@ class instruments(App):
             variable_name="instruments_container", left=0, top=0
         )
 
-        for idx, key in enumerate(("stage", "laser", "detector", "tec")):
+        for idx, key in enumerate(("stage", "sensor", "tec")):
             # Label
             StyledLabel(
                 container=instruments_container, variable_name=f"label_{key}",
                 text={"stage": "Stage:",
-                      "laser": "Laser:",
-                      "detector": "Detector:",
+                      "sensor": "Sensor:",
                       "tec": "TEC:"}[key],
                 left=0, top=15 + idx * 40, width=150, height=20, font_size=100, color="#444", align="right"
             )
@@ -47,8 +47,7 @@ class instruments(App):
             setattr(self, f"{key}_dd", StyledDropDown(
                 container=instruments_container,
                 text={"stage": ["stage_control", "stage_B", "stage_C"],
-                      "laser": ["stage_control","laser_B","laser_C"],
-                      "detector": ["stage_control","detector_B","detector_C"],
+                      "sensor": ["stage_control","laser_B","laser_C"],
                       "tec": ["stage_control","TEC_B","TEC_C"]}[key],
                 variable_name=f"set_{key}", left=160, top=10 + idx * 40, width=180, height=30))
 
@@ -75,9 +74,11 @@ class instruments(App):
         )
 
         self.stage_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_stage_connect_btn))
-        self.laser_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_laser_connect_btn))
-        self.detector_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_detector_connect_btn))
+        self.sensor_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_sensor_connect_btn))
         self.tec_connect_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_tec_connect_btn))
+        self.stage_configure_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_configure_btn))
+        self.sensor_configure_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_configure_btn))
+        self.tec_configure_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_configure_btn))
 
         self.instruments_container = instruments_container
         return instruments_container
@@ -94,29 +95,17 @@ class instruments(App):
             file.save()
             self.stage_connect_btn.set_text("Connect")
 
-    def onclick_laser_connect_btn(self):
-        if self.laser_connect_btn.get_text() == "Connect":
-            self.configuration["laser"] = self.laser_dd.get_value()
+    def onclick_sensor_connect_btn(self):
+        if self.sensor_connect_btn.get_text() == "Connect":
+            self.configuration["sensor"] = self.sensor_dd.get_value()
             file = File("shared_memory", "Configuration", self.configuration)
             file.save()
-            self.laser_connect_btn.set_text("Connected")
+            self.sensor_connect_btn.set_text("Connected")
         else:
-            self.configuration["laser"] = ""
+            self.configuration["sensor"] = ""
             file = File("shared_memory", "Configuration", self.configuration)
             file.save()
-            self.laser_connect_btn.set_text("Connect")
-
-    def onclick_detector_connect_btn(self):
-        if self.detector_connect_btn.get_text() == "Connect":
-            self.configuration["detector"] = self.detector_dd.get_value()
-            file = File("shared_memory", "Configuration", self.configuration)
-            file.save()
-            self.detector_connect_btn.set_text("Connected")
-        else:
-            self.configuration["detector"] = ""
-            file = File("shared_memory", "Configuration", self.configuration)
-            file.save()
-            self.detector_connect_btn.set_text("Connect")
+            self.sensor_connect_btn.set_text("Connect")
 
     def onclick_tec_connect_btn(self):
         if self.tec_connect_btn.get_text() == "Connect":
@@ -130,21 +119,46 @@ class instruments(App):
             file.save()
             self.tec_connect_btn.set_text("Connect")
 
+    def onclick_configure_btn(self):
+        local_ip = get_local_ip()
+        webview.create_window(
+            'Stage Control',
+            f'http://{local_ip}:7005',
+            width=222, height=236,
+            resizable=True
+        )
 
+def run_remi():
+    start(
+        instruments,
+        address="0.0.0.0",
+        port=9001,
+        start_browser=False,
+        multiple_instance=False,
+        enable_file_cache=False,
+    )
+
+def get_local_ip():
+    """Automatically detect local LAN IP address"""
+    try:
+        import socket
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))  # Fake connect to get route IP
+        ip = s.getsockname()[0]
+        s.close()
+        return ip
+    except Exception:
+        return "127.0.0.1"  # fallback
 
 if __name__ == "__main__":
-    configuration = {
-        "config_project_name": "instruments",
-        "config_address": "0.0.0.0",
-        "config_port": 9001,
-        "config_multiple_instance": False,
-        "config_enable_file_cache": False,
-        "config_start_browser": False,
-        "config_resourcepath": "./res/"
-    }
-    start(instruments,
-          address=configuration["config_address"],
-          port=configuration["config_port"],
-          multiple_instance=configuration["config_multiple_instance"],
-          enable_file_cache=configuration["config_enable_file_cache"],
-          start_browser=configuration["config_start_browser"])
+    threading.Thread(target=run_remi, daemon=True).start()
+    local_ip = get_local_ip()
+    webview.create_window(
+        "Main Window",
+        f"http://{local_ip}:9001",
+        width=0,
+        height=0,
+        resizable=True,
+        hidden=True,
+    )
+    webview.start()

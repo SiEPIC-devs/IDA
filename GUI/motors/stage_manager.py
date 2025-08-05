@@ -455,7 +455,6 @@ class StageManager:
                             self._last_positions[axis] = pos.actual
                             # Update shared memory position
                             if self.create_shm:
-                                setattr(self.position_struct, axis.name.lower(), pos.actual)
                                 shm, raw = open_shared_stage_position()
                                 sp = StagePosition(shared_struct=raw)
                                 sp.set_positions(axis, pos.actual)

@@ -49,6 +49,11 @@ class MotorConfig:
     max_acceleration: float
     position_limits: tuple  # (min, max)
     units: str
+    step_size_x: float
+    step_size_y: float
+    step_size_z: float
+    step_size_fr: float
+    step_size_cr: float
 
 
 class MotorEventType(Enum):

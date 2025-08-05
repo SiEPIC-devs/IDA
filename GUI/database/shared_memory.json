@@ -1,6 +1,6 @@
 {
   "User": "Guest",
-  "Project": "123",
+  "Project": "p1",
   "User_add": "Guest",
   "Image": "TSP/none.png",
   "Limit": {
@@ -45,10 +45,10 @@
   },
   "AutoSweep": 0,
   "Configuration": {
-    "stage": "stage_control",
-    "laser": "",
-    "detector": "",
+    "stage": "",
+    "sensor": "",
     "tec": ""
   },
-  "DeviceNum": 1
+  "DeviceName": "",
+  "DeviceNum": 0
 }

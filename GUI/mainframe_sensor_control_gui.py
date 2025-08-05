@@ -21,6 +21,7 @@ class stage_control(App):
         self.num = 1
         self.project = None
         self.sensor = {}
+        self.sensor_window = None
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -82,18 +83,21 @@ class stage_control(App):
         threading.Thread(target=target, args=args, daemon=True).start()
 
     def after_configuration(self):
-        if self.configuration["laser"] != "" and self.configuration["detector"] != "" and self.configuration_count == 0:
+        if self.configuration["sensor"] != "" and self.configuration_count == 0:
             self.configuration_count = 1
-            webview.create_window(
+            self.sensor_window = webview.create_window(
                 'Sensor Control',
                 f'http://{local_ip}:8001',
-                width=672,
-                height=197,
-                x=800,
-                y=255,
+                width=672, height=197,
+                x=800, y=255,
                 resizable=True,
                 hidden=False
             )
+        elif self.configuration["sensor"] == "" and self.configuration_count == 1:
+            self.configuration_count = 0
+            if self.sensor_window:
+                self.sensor_window.destroy()
+                self.sensor_window = None
 
     def lock_all(self, value):
         enabled = value == 0
