@@ -1,2 +1,1 @@
 Welcome To Probe Stage
-Error scanning ports: VI_ERROR_INV_OBJECT (-1073807346): The given session or object reference is invalid.

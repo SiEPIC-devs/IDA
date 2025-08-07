@@ -1,36 +1,31 @@
 import pyvisa
 import time
 
-# Configure VISA
 rm = pyvisa.ResourceManager()
-instr = rm.open_resource(
-    'ASRL5::INSTR',       # Change COM number as needed
-    baud_rate=9600,      
-    timeout=5000,
-    write_termination='\n',
-    read_termination=None  # Disable enforced termination
-)
+prologix = rm.open_resource("ASRL5::INSTR", 
+                            baud_rate=9600,
+                            timeout=5000,
+                            read_termination='\n',
+                            write_termination='\n')
 
-# Clear buffer
-instr.clear()
-time.sleep(0.2)
+# Configure Prologix
+prologix.write('++mode 1')  # Controller mode
+prologix.write(f'++addr {20}')  # Set GPIB address
+prologix.write('++auto 0')  # IMPORTANT: Disable auto-read
+prologix.write('++eos 2')  # Append LF
+prologix.write('++eoi 1')  # Assert EOF
+prologix.write('*IDN?')
+print(prologix.query("*IDN?"))
+prologix.close()
+time.sleep(0.5)
 
-# Configure Prologix GPIB-USB
-instr.write('++mode 1')         # Controller mode
-time.sleep(0.1)
-instr.write('++addr 20')        # Target GPIB address
-time.sleep(0.1)
-instr.write('++auto 1')         # Manual query mode
-time.sleep(0.1)
-instr.write('++eos 2')          # LF termination
-time.sleep(0.1)
-instr.write('++read_tmo_ms 3000')  # Timeout
-time.sleep(0.1)
+# For Prologix, use GPIB address format for the DLL
+# visa_address = f"GPIB0::{20}::INSTR"
+# print(visa_address)
 
-resp = instr.query('*IDN?')
-print(resp.strip())
+# instr = rm.open_resource(visa_address)
 
+# instr.query("*IDN?")
 
-
-instr.close()
+# instr.close()
 rm.close()

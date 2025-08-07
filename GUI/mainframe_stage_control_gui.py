@@ -5,7 +5,8 @@ import threading, webview, signal, lab_coordinates, asyncio, datetime
 from motors.stage_manager import StageManager
 from motors.config.stage_config import StageConfiguration
 #from motors.stage_controller import StageController
-from NIR.nir_controller_practical import Agilent8163Controller
+from NIR.nir_manager import NIRManager
+from NIR.config.nir_config import NIRConfiguration
 import pandas as pd
 filename = "coordinates.json"
 
@@ -47,6 +48,13 @@ class stage_control(App):
         self.stage_window = None
         self.devices = None
 
+        self.nir_configure = None
+        self.nir_manager = None
+
+        self.past_laser_on = 0
+        self.past_wvl = None
+        self.past_power = None
+
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -86,23 +94,6 @@ class stage_control(App):
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
-        if self.auto_sweep == 1 and self.count == 0:
-            self.lock_all(1)
-            self.count = 1
-            self.run_in_thread(self.do_auto_sweep)
-        elif self.auto_sweep == 0 and self.count == 1:
-            self.lock_all(0)
-            self.count = 0
-
-        if self.scanpos["move"] == 1 and (self.scanpos["x"] != self.pre_x or self.scanpos["y"] != self.pre_y):
-            self.run_in_thread(self.scan_move)
-            self.pre_x = self.scanpos["x"]
-            self.pre_y = self.scanpos["y"]
-
-        if self.sweep["sweep"] == 1 and self.sweep_count == 0:
-            self.sweep_count = 1
-            self.run_in_thread(self.laser_sweep)
-
         self.after_configuration()
 
     def main(self):
@@ -111,16 +102,31 @@ class stage_control(App):
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
 
+    def set_power(self):
+        self.nir_manager.set_power(self.sweep["power"])
+        self.sweep_count = 0
+
+    def set_wvl(self):
+        self.nir_manager.set_wavelength(self.sweep["wvl"])
+        self.sweep_count = 0
+
+    def laser_on(self):
+        self.nir_manager.enable_laser(self.sweep["on"])
+        self.sweep_count = 0
+
     def laser_sweep(self, name=None):
         auto = 0
         if name is None:
             name = self.name
         else:
             auto = 1
-        filename = "res/spectral_sweep/spectral_sweep.csv"
-        df = pd.read_csv(filename, header=None)
-        x = df.iloc[:, 0].values
-        y = df.iloc[:, 1:].values.T
+
+        wl, d1, d2 = self.nir_manager.sweep(start_nm=1545, stop_nm=1560, step_nm=0.1, laser_power_dbm=-3)
+
+        # filename = "res/spectral_sweep/spectral_sweep.csv"
+        # df = pd.read_csv(filename, header=None)
+        x = wl
+        y = np.vstack([d1, d2])
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         diagram = plot(x, y, "spectral_sweep", fileTime, self.user, name, self.project)
         p = Process(target=diagram.generate_plots)
@@ -171,6 +177,11 @@ class stage_control(App):
             asyncio.run(self.stage_manager.initialize_all(
                 [AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER])
             )
+
+            self.nir_configure = NIRConfiguration()
+            self.nir_manager = NIRManager(self.nir_configure)
+            self.nir_manager.connect()
+
             self.stage_window = webview.create_window(
                 'Stage Control',
                 f'http://{local_ip}:8000',
@@ -197,6 +208,38 @@ class stage_control(App):
                 self.chip_position_lb.set_text(str(self.memory.cp_pos))
             if self.memory.fr_pos != float(self.fiber_position_lb.get_text()):
                 self.fiber_position_lb.set_text(str(self.memory.fr_pos))
+
+            if self.auto_sweep == 1 and self.count == 0:
+                self.lock_all(1)
+                self.count = 1
+                self.run_in_thread(self.do_auto_sweep)
+            elif self.auto_sweep == 0 and self.count == 1:
+                self.lock_all(0)
+                self.count = 0
+
+            if self.scanpos["move"] == 1 and (self.scanpos["x"] != self.pre_x or self.scanpos["y"] != self.pre_y):
+                self.run_in_thread(self.scan_move)
+                self.pre_x = self.scanpos["x"]
+                self.pre_y = self.scanpos["y"]
+
+            if self.sweep["sweep"] == 1 and self.sweep_count == 0:
+                self.sweep_count = 1
+                self.run_in_thread(self.laser_sweep)
+
+            if self.sweep["on"] != self.past_laser_on and self.sweep_count == 0:
+                self.sweep_count = 1
+                self.past_laser_on = self.sweep["on"]
+                self.run_in_thread(self.laser_on)
+
+            if self.sweep["wvl"] != self.past_wvl and self.sweep_count == 0:
+                self.sweep_count = 1
+                self.past_wvl = self.sweep["wvl"]
+                self.run_in_thread(self.set_wvl)
+
+            if self.sweep["power"] != self.past_power and self.sweep_count == 0:
+                self.sweep_count = 1
+                self.past_power = self.sweep["power"]
+                self.run_in_thread(self.set_power)
 
     def do_auto_sweep(self):
         i = 0

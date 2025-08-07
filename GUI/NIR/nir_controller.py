@@ -1,7 +1,8 @@
-import asyncio
+import pyvisa
 import time
-import telnetlib
+import math
 import struct
+import asyncio
 from typing import Optional, Tuple, List, Dict, Any
 
 from NIR.hal.nir_hal import LaserHAL, LaserState, SweepState, PowerUnit, WavelengthRange, PowerReading, LaserEventType
@@ -15,69 +16,41 @@ logging.basicConfig(level=logging.DEBUG, format='%(levelname)s - %(name)s - %(me
 logger = logging.getLogger(__name__)
 
 """
-Agilent 8163A Hardware Abstraction Layer Implementation
+Agilent 8163A Hardware Abstraction Layer Implementation 
 
 Cameron Basara, 2025
-
-This implementation wraps the Agilent 8163A legacy driver to provide
-a unified HAL interface for multi-slot laser/detector control.
 """
 
-# Telnet window size constants (from legacy code)
-MAX_WINDOW_WIDTH = 65535
-MAX_WINDOW_HEIGHT = 5000
-from telnetlib import DO, DONT, IAC, WILL, WONT, NAWS, SB, SE
-
-def set_max_window_size(tsocket, command, option):
-    """Set Window size to resolve line width issue (from legacy code)"""
-    if option == NAWS:
-        width = struct.pack("H", MAX_WINDOW_WIDTH)
-        height = struct.pack("H", MAX_WINDOW_HEIGHT)
-        tsocket.send(IAC + WILL + NAWS)
-        tsocket.send(IAC + SB + NAWS + width + height + IAC + SE)
-    else:
-        if command in (DO, DONT):
-            tsocket.send(IAC + WONT + option)
-        elif command in (WILL, WONT):
-            tsocket.send(IAC + DONT + option)
-
 class Agilent8163Controller(LaserHAL):
-    """
-    HAL implementation for Agilent 8163A Multi-slot Optical System
-    
-    This instrument can contain multiple modules:
-        - Tunable laser sources (TLS)
-        - Power meter detector heads
-    """
-
     def __init__(self, 
-                ip_address: str,
-                ip_port: int = 5025,
+                com_port: int = 5,
                 laser_slot: int = 0,
                 detector_slots: List[int] = None,
                 safety_password: str = "1234",
-                instrument_id: str = None):
+                instrument_id: str = None,
+                timeout: int = 5000):
         """
-        Initialize Agilent 8163A with telnet communication
+        Initialize Agilent 8163A with GPIB communication via Prologix GPIB-USB
         
         Args:
-            ip_address: IP address of the instrument
-            ip_port: TCP port (usually 5025)
+            com_port: COM port number for Prologix GPIB-USB converter
             laser_slot: Slot number containing tunable laser
             detector_slots: List of slots containing power detectors
-            safety_password: 4-digit laser safety password
-            instrument_id: Optional instrument identifier
+            safety_password: 4-digit laser safety pwk
+            instrument_id: Optional instrument identifier, absolute path
+            timeout: Communication timeout in ms
         """
-        super().__init__(instrument_id or f"{ip_address}:{ip_port}")
+        super().__init__(instrument_id or f"ASRL{com_port}::INSTR")
         
-        self.ip_address = ip_address
-        self.ip_port = ip_port
+        self.com_port = com_port
         self.laser_slot = laser_slot
-        self.detector_slots = detector_slots or [2] # 347 specific
+        self.detector_slots = detector_slots or ["1"] # 347 specific
         self.safety_password = safety_password
+        self.timeout = timeout
 
-        # Telnet connection
-        self.telnet_connection: Optional[telnetlib.Telnet] = None
+        # GPIB connection via PyVISA
+        self.resource_manager: Optional[pyvisa.ResourceManager] = None
+        self.instrument: Optional[pyvisa.Resource] = None
         
         # Command generator 
         self.cmd = agilent_8163a_mainframe()
@@ -95,33 +68,53 @@ class Agilent8163Controller(LaserHAL):
         self._logged_data = {}
 
     # Connection management
-    async def connect(self) -> bool:
-        """Connect to agilent mainframe via TCP/IP (matching legacy pattern) TODO: implement GPIB"""
+    def connect(self) -> bool:
+        """Connect to agilent mainframe via GPIB using Prologix GPIB-USB converter"""
         try:
-            # Create telnet connection (blocking)
-            self.telnet_connection = telnetlib.Telnet(
-                 host = self.ip_address,
-                 port = self.ip_port,
-                 timeout = 5
+            # Initialize PyVISA resource manager
+            self.resource_manager = pyvisa.ResourceManager()
+            
+            # Use COM port for Prologix GPIB-USB converter
+            visa_address = f"ASRL{self.com_port}::INSTR"
+            
+            # Open instrument connection with serial parameters for Prologix
+            self.instrument = self.resource_manager.open_resource(
+                visa_address,
+                baud_rate=115200,
+                timeout=self.timeout,
+                write_termination='\n',
+                read_termination=None
             )
+            
+            # Clear buffer
+            self.instrument.clear()
+            time.sleep(0.2)
 
-            # window size callback
-            self.telnet_connection.set_option_negotiation_callback(set_max_window_size)
+            # Configure Prologix 
+            self.instrument.write('++mode 1') # Auto mode
+            time.sleep(0.1)
+            self.instrument.write('++addr 20') # Set gpib addr
+            time.sleep(0.1)
+            self.instrument.write('++auto 1') # Read resp after send
+            time.sleep(0.1)
+            self.instrument.write('++eos 2') # Append LF termination
+            time.sleep(0.1)
+            resp = self._send_command(self.cmd.identity()).strip() # *IDN?
 
-            # Test connection
-            self._send_command(self.cmd.clear_status())
-            resp = self._send_command(self.cmd.identity())
+            # Max binary block size that can be read from 1 block
+            self.instrument.chunk_size = 204050 * 2 + 8 # Represents 100k data points + header, EOF
 
-            if "8163" in resp:
+            if "8164" in resp:
                 self._is_connected = True
+                logger.info(f"Connected to {resp.strip()}")
 
-                # Instantiate instr
-                await self._send_command(self.cmd.clear_status())
+                # Clear status after successful connection
+                self._send_command(self.cmd.clear_status(), expect_response=False)
 
                 # Check and unlock laser if needed
-                await self._send_command(self.cmd.lock_laser("0", self.safety_password), expect_response=False)
-                if not await self._verify_slots():
-                    print("Warning: Some expected modules not found")
+                self._send_command(self.cmd.lock_laser("0", self.safety_password), expect_response=False)
+                if not self._verify_slots():
+                    logger.warning("Some expected modules not found")
                 
                 self._emit_event(LaserEventType.OUTPUT_ENABLED, {"connected": True})
                 return True
@@ -129,88 +122,70 @@ class Agilent8163Controller(LaserHAL):
             return False
         
         except Exception as e:
-            logger.error(f"[CONNECT] Telnet Connection error: {e}")
-            if self.telnet_connection:
-                self.telnet_connection.close()
-                self.telnet_connection = None
+            logger.error(f"[CONNECT] GPIB Connection error: {e}")
+            if self.instrument:
+                try:
+                    self.instrument.close()
+                except:
+                    pass
+                self.instrument = None
+            if self.resource_manager:
+                try:
+                    self.resource_manager.close()
+                except:
+                    pass
+                self.resource_manager = None
             return False
 
-    async def disconnect(self,) -> bool:
-        """Disconnect telnet connection"""
+    def disconnect(self) -> bool:
+        """Disconnect GPIB connection"""
         try:
-            if self._is_connected and self.telnet_connection:
+            if self._is_connected and self.instrument:
                 # Safe shutdown sequence
-                await self.enable_output(False)
-                await self.stop_sweep()
+                self.enable_output(False)
+                self.stop_sweep()
                 
-                self.telnet_connection.close()
-                self.telnet_connection = None
+                self.instrument.close()
+                self.instrument = None
+                
+                if self.resource_manager:
+                    self.resource_manager.close()
+                    self.resource_manager = None
+                    
                 self._is_connected = False
             return True
         except Exception as e:
             logger.error(f"Disconnect failed: {e}")
             return False
         
-    # Communication protocols
-    async def _send_command(self, command: str, expect_response: bool = True, timeout: float = 5.0) -> str:
-        """
-        Send cmd via telnet using an improved version of the legacy communication pattern
-        """
-        if not self.telnet_connection:
-            logger.error("[SEND_CMD] No telnet connection seen")
+    # Communication protocols 
+    def _send_command(self, command: str, expect_response: bool = True) -> str:
+        """Send SCPI cmds via GPIB"""
+        if not self.instrument:
+            logger.error("[SEND_CMD] No GPIB connection available")
             raise RuntimeError("Not connected to instrument")
         
         try:
-            # Send cmd, read response if expected
-            command_bytes = (command + "\n").encode(encoding="UTF-8")
-            self.telnet_connection.write(command_bytes)
-
+            # Daisy chained GPIBs, ensure correct port
+            self.instrument.write('++addr 20')
             if expect_response:
-                response_bytes = self.telnet_connection.read_until(
-                    str("\n").encode(encoding="UTF-8"), 
-                    timeout
-                )
-                response = response_bytes.decode("UTF-8", "ignore").strip()
-                
-                # Handle the terrible error checking from legacy code
-                await self._check_and_clear_errors()
-                
-                return response
+                self.instrument.write(command)
+                time.sleep(0.05)  # small delay
+                self.instrument.write('++read eoi')  # Prologix read trigger
+                return self.instrument.read().strip()
             else:
-                await self._check_and_clear_errors() # Just check for errors
+                self.instrument.write(command)
                 return ""
+                
         except Exception as e:
-            logger.error(f"Telnet command failed: {command}, Error: {e}")
+            logger.error(f"GPIB command failed: {command}, Error: {e}")
             raise
     
-    async def _check_and_clear_errors(self):
-        """Error checking pattern from legacy code (cleaned up)"""
-        try:
-            error_response = await self._send_command(self.cmd.check_error(), timeout=2.0)
-            
-            # Ignore the specific "Query UNTERMINATED" error that legacy code ignores
-            if '-420,"Query UNTERMINATED"' in error_response or '420,"Query UNTERMINATED"' in error_response:
-                await self._send_command(self.cmd.clear_status(), expect_response=False)
-                return
-            
-            # Log other errors but don't raise 
-            if error_response and "No error" not in error_response:
-                logger.error(f"Instrument error: {error_response}")
-            
-            # Always clear status 
-            await self._send_command(self.cmd.clear_status(), expect_response=False)
-            
-        except Exception as e:
-            logger.error(f"Error checking failed: {e}")
-    
-    async def _verify_slots(self) -> bool:
+    def _verify_slots(self) -> bool:
         """Verify that expected modules are installed"""
         try:
-            options_resp = await self._send_command(self.cmd.options())
+            options_resp = self._send_command(self.cmd.options())
             logger.info(f"Installed modules: {options_resp}")
-            
-            # Check for laser slot (legacy uses model name lookup)
-            # For now, just assume slot is correct if we get a response
             return True
             
         except Exception as e:
@@ -218,31 +193,44 @@ class Agilent8163Controller(LaserHAL):
             return False
     
     ############## LASER SOURCE METHODS ##############
-    async def set_wavelength(self, wavelength: float) -> bool:
+    def set_wavelength(self, wavelength: float) -> bool:
         """Set laser wavelength, in nm"""
         try:
-            await self._send_command(self.cmd.clear_status(), expect_response=False)
+            self._send_command(self.cmd.clear_status(), expect_response=False)
             
             cmd = self.cmd.set_laser_current_wavelength(self.laser_slot, wavelength)
-            await self._send_command(cmd, expect_response=False)
+            self._send_command(cmd, expect_response=False)
             
             self._current_wavelength = wavelength
             self._emit_event(LaserEventType.WAVELENGTH_CHANGED, {"wavelength": wavelength})
             return True
             
         except Exception as e:
-            print(f"Set wavelength failed: {e}")
+            logger.error(f"Set wavelength failed: {e}")
             return False
     
-    async def get_wavelength(self) -> float:
-        """Get current wavelength """
+    def get_wavelength(self) -> float:
+        """Get current wavelength with proper unit handling"""
         try:
             cmd = self.cmd.read_laser_wavelength(self.laser_slot)
-            resp = await self._send_command(cmd)
+            resp = self._send_command(cmd).strip()
             
-            # Parse response 
-            wavelength_str = resp.replace("nm", "").replace("NM", "").strip() # legacy
-            wavelength = float(wavelength_str)
+            # Check for unit indicators in response
+            if "nm" in resp.lower():
+                # Response includes nm unit
+                wavelength_str = resp.replace("nm", "").replace("NM", "").strip()
+                wavelength = float(wavelength_str)
+            elif "m" in resp.lower() and "nm" not in resp.lower():
+                # Response in meters, convert to nm
+                wavelength_str = resp.replace("m", "").replace("M", "").strip()
+                wavelength = float(wavelength_str) * 1e9
+            else:
+                # No unit, detect by magnitude
+                wavelength_raw = float(resp)
+                if wavelength_raw < 1e-3:  # Less than 0.001, probably meters
+                    wavelength = wavelength_raw * 1e9
+                else:
+                    wavelength = wavelength_raw
             
             self._current_wavelength = wavelength
             return wavelength
@@ -251,19 +239,19 @@ class Agilent8163Controller(LaserHAL):
             logger.error(f"Get wavelength failed: {e}")
             return self._current_wavelength
     
-    async def set_power(self, power: float, unit: PowerUnit = PowerUnit.DBM) -> bool:
+    def set_power(self, power: float, unit: PowerUnit = PowerUnit.DBM) -> bool:
         """Set laser power"""
         try:
-            await self._send_command(self.cmd.clear_status(), expect_response=False)
+            self._send_command(self.cmd.clear_status(), expect_response=False)
             
             # Set power unit, then power level 
             unit_value = "0" if unit == PowerUnit.DBM else "1"
             unit_cmd = self.cmd.laser_power_units(self.laser_slot, unit_value)
-            await self._send_command(unit_cmd, expect_response=False)
+            self._send_command(unit_cmd, expect_response=False)
             
             power_str = f"{power}dbm" if unit == PowerUnit.DBM else f"{power}W"
             power_cmd = self.cmd.set_laser_current_power(self.laser_slot, power_str)
-            await self._send_command(power_cmd, expect_response=False)
+            self._send_command(power_cmd, expect_response=False)
             
             self._current_power = power
             self._emit_event(LaserEventType.POWER_CHANGED, {"power": power, "unit": unit.value})
@@ -273,22 +261,13 @@ class Agilent8163Controller(LaserHAL):
             logger.error(f"Set power failed: {e}")
             return False
         
-    async def get_power(self) -> Tuple[float, PowerUnit]:
-        """Get current power"""
+    def get_power(self) -> Tuple[float, PowerUnit]:
+        """Get current power with proper unit handling"""
         try:
             cmd = self.cmd.read_laser_power(self.laser_slot)
-            response = await self._send_command(cmd)
-            
-            # Parse power and unit from response
-            if "DBM" in response.upper() or "dbm" in response:
-                power_str = response.replace("DBM", "").replace("dbm", "").strip()
-                power = float(power_str)
-                unit = PowerUnit.DBM
-            else:
-                power_str = response.replace("W", "").strip() # won't
-                power = float(power_str)
-                unit = PowerUnit.WATTS
-            
+            response = self._send_command(cmd).strip()
+            power = float(response)
+            unit = PowerUnit.DBM
             self._current_power = power
             return power, unit
             
@@ -296,17 +275,17 @@ class Agilent8163Controller(LaserHAL):
             logger.error(f"Get power failed: {e}")
             return self._current_power, PowerUnit.DBM
     
-    async def enable_output(self, enable: bool = True) -> bool:
+    def enable_output(self, enable: bool = True) -> bool:
         """Enable/disable laser output"""
         try:
-            await self._send_command(self.cmd.clear_status(), expect_response=False)
+            self._send_command(self.cmd.clear_status(), expect_response=False)
             
             # Legacy uses both laser_current and set_laser_power_state
             current_cmd = self.cmd.laser_current(self.laser_slot, "1" if enable else "0")
-            await self._send_command(current_cmd, expect_response=False)
+            self._send_command(current_cmd, expect_response=False)
             
             power_cmd = self.cmd.set_laser_power_state(self.laser_slot, "1" if enable else "0")
-            await self._send_command(power_cmd, expect_response=False)
+            self._send_command(power_cmd, expect_response=False)
             
             self._output_enabled = enable
             event_type = LaserEventType.OUTPUT_ENABLED if enable else LaserEventType.OUTPUT_DISABLED
@@ -317,11 +296,11 @@ class Agilent8163Controller(LaserHAL):
             logger.error(f"Enable output failed: {e}")
             return False
     
-    async def get_output_state(self) -> bool:
+    def get_output_state(self) -> bool:
         """Get output state"""
         try:
             cmd = self.cmd.read_laser_current(self.laser_slot)
-            response = await self._send_command(cmd)
+            response = self._send_command(cmd)
             
             self._output_enabled = "1" in response
             return self._output_enabled
@@ -331,59 +310,136 @@ class Agilent8163Controller(LaserHAL):
             return self._output_enabled
 
     ############## SWEEP UTILITY METHODS ##############
-    async def set_sweep_state(self, enable: bool) -> bool:
-        """Enable/disable sweep """
+    def set_sweep_range(self, start_nm: float, stop_nm: float) -> bool:
+        """Set sweep range"""
         try:
-            if enable:
-                # Legacy sweep setup sequence
-                await self._send_command(self.cmd.clear_status(), expect_response=False)
-                
-                # Configure sweep parameters first
-                await self.set_sweep_range(self._sweep_range.start, self._sweep_range.stop)
-                await self.set_sweep_speed(self._sweep_speed)
-                
-                # Set sweep mode and parameters 
-                await self._send_command(
-                    self.cmd.set_laser_sweep_mode(self.laser_slot, "CONT"), 
-                    expect_response=False
-                )
-                await self._send_command(
-                    self.cmd.set_laser_sweep_cycles(self.laser_slot, "1"), 
-                    expect_response=False
-                )
-                await self._send_command(
-                    self.cmd.set_laser_sweep_directionality(self.laser_slot, "ONEWay"), 
-                    expect_response=False
-                )
-                
-                # Arm and start sweep
-                await self._send_command(
-                    self.cmd.arm_laser_sweep(self.laser_slot), 
-                    expect_response=False
-                )
-                
-                # Start sweep
-                cmd = self.cmd.set_laser_sweep_state(self.laser_slot, "1", "STAR")
-                await self._send_command(cmd, expect_response=False)
-            else:
-                # Stop sweep
-                cmd = self.cmd.set_laser_sweep_state(self.laser_slot, "1", "STOP")
-                await self._send_command(cmd, expect_response=False)
+            # Set start wavelength
+            start_cmd = self.cmd.set_sweep_wavelength(self.laser_slot, "STAR", f"{start_nm}nm")
+            self._send_command(start_cmd, expect_response=False)
             
-            self._sweep_active = enable
-            event_type = LaserEventType.SWEEP_STARTED if enable else LaserEventType.SWEEP_STOPPED
-            self._emit_event(event_type, {"enabled": enable})
+            # Set stop wavelength  
+            stop_cmd = self.cmd.set_sweep_wavelength(self.laser_slot, "STOP", f"{stop_nm}nm")
+            self._send_command(stop_cmd, expect_response=False)
+            
+            self._sweep_range = WavelengthRange(start_nm, stop_nm)
             return True
             
         except Exception as e:
-            logger.error(f"Set sweep state failed: {e}")
+            logger.error(f"Set sweep range failed: {e}")
+            return False
+    
+    def get_sweep_range(self) -> WavelengthRange:
+        """Get sweep range"""
+        return self._sweep_range
+    
+    def set_sweep_speed(self, speed: float) -> bool:
+        """Set sweep speed"""
+        try:
+            cmd = self.cmd.set_continuous_sweep_speed(self.laser_slot, f"{speed}nm/s")
+            self._send_command(cmd, expect_response=False)
+            
+            self._sweep_speed = speed
+            return True
+            
+        except Exception as e:
+            logger.error(f"Set sweep speed failed: {e}")
+            return False
+    
+    def get_sweep_speed(self) -> float:
+        """Get sweep speed with proper unit handling"""
+        try:
+            cmd = self.cmd.read_continuous_sweep_speed(self.laser_slot)
+            response = self._send_command(cmd).strip()
+            
+            # Parse based on unit indicators
+            if "nm/s" in response.lower():
+                speed_str = response.replace("nm/s", "").replace("NM/S", "").strip()
+                speed = float(speed_str)
+            elif "m/s" in response.lower():
+                speed_str = response.replace("m/s", "").replace("M/S", "").strip()
+                speed_ms = float(speed_str)
+                speed = speed_ms * 1e9  # Convert m/s to nm/s
+            else:
+                # No clear unit, detect by magnitude
+                speed_raw = float(response)
+                if speed_raw < 1e-6:  # Very small, probably m/s
+                    speed = speed_raw * 1e9
+                else:
+                    speed = speed_raw  # Assume nm/s
+            
+            self._sweep_speed = speed
+            return speed
+        
+        except Exception as e:
+            logger.error(f"Get sweep speed failed: {e}")
+            return self._sweep_speed
+
+    # Sweep control - because sweeps take time
+    def set_sweep_state(self, enable: bool) -> bool:
+        """Enable/disable sweep state"""
+        if enable:
+            return self.start_sweep()
+        else:
+            return self.stop_sweep()
+
+    def start_sweep(self) -> bool:
+        """Start wavelength sweep - because it takes time"""
+        try:
+            # Configure sweep parameters first
+            self.set_sweep_range(self._sweep_range.start, self._sweep_range.stop)
+            self.set_sweep_speed(self._sweep_speed)
+            
+            # Set sweep mode and parameters 
+            self._send_command(
+                self.cmd.set_laser_sweep_mode(self.laser_slot, "CONT"), 
+                expect_response=False
+            )
+            self._send_command(
+                self.cmd.set_laser_sweep_cycles(self.laser_slot, "1"), 
+                expect_response=False
+            )
+            self._send_command(
+                self.cmd.set_laser_sweep_directionality(self.laser_slot, "ONEWay"), 
+                expect_response=False
+            )
+            
+            # Arm and start sweep
+            self._send_command(
+                self.cmd.arm_laser_sweep(self.laser_slot), 
+                expect_response=False
+            )
+            
+            # Start sweep
+            cmd = self.cmd.set_laser_sweep_state(self.laser_slot, "1", "STAR")
+            self._send_command(cmd, expect_response=False)
+            
+            self._sweep_active = True
+            self._emit_event(LaserEventType.SWEEP_STARTED, {"enabled": True})
+            return True
+            
+        except Exception as e:
+            logger.error(f"Start sweep failed: {e}")
+            return False
+
+    def stop_sweep(self) -> bool:
+        """Stop sweep"""
+        try:
+            cmd = self.cmd.set_laser_sweep_state(self.laser_slot, "1", "STOP")
+            self._send_command(cmd, expect_response=False)
+            
+            self._sweep_active = False
+            self._emit_event(LaserEventType.SWEEP_STOPPED, {"enabled": False})
+            return True
+            
+        except Exception as e:
+            logger.error(f"Stop sweep failed: {e}")
             return False
         
-    async def get_sweep_state(self) -> SweepState:
+    def get_sweep_state(self) -> SweepState:
         """Get sweep state"""
         try:
             cmd = self.cmd.read_laser_sweep_state(self.laser_slot, "1")
-            response = await self._send_command(cmd)
+            response = self._send_command(cmd)
             
             if "1" in response:
                 return SweepState.RUNNING
@@ -393,159 +449,40 @@ class Agilent8163Controller(LaserHAL):
         except Exception as e:
             logger.error(f"Get sweep state failed: {e}")
             return SweepState.STOPPED if not self._sweep_active else SweepState.RUNNING
-    
-    async def set_sweep_range(self, start_nm: float, stop_nm: float) -> bool:
-        """Set sweep range"""
-        try:
-            # Set start wavelength
-            start_cmd = self.cmd.set_sweep_wavelength(self.laser_slot, "STAR", f"{start_nm}nm")
-            await self._send_command(start_cmd, expect_response=False)
-            
-            # Set stop wavelength  
-            stop_cmd = self.cmd.set_sweep_wavelength(self.laser_slot, "STOP", f"{stop_nm}nm")
-            await self._send_command(stop_cmd, expect_response=False)
-            
-            self._sweep_range = WavelengthRange(start_nm, stop_nm)
-            return True
-            
-        except Exception as e:
-            logger.error(f"Set sweep range failed: {e}")
-            return False
-    
-    async def get_sweep_range(self) -> WavelengthRange:
-        """Get sweep range"""
-        return self._sweep_range
-    
-    async def set_sweep_speed(self, speed: float) -> bool:
-        """Set sweep speed, continous"""
-        try:
-            cmd = self.cmd.set_continuous_sweep_speed(self.laser_slot, f"{speed}nm/s")
-            await self._send_command(cmd, expect_response=False)
-            
-            self._sweep_speed = speed
-            return True
-            
-        except Exception as e:
-            print(f"Set sweep speed failed: {e}")
-            return False
-    
-    async def get_sweep_speed(self) -> float:
-        """Get sweep speed"""
-        try:
-            cmd = self.cmd.read_continuous_sweep_speed(self.laser_slot)
-            response = await self._send_command(cmd)
-            
-            speed_str = response.replace("nm/s", "").replace("NM/S", "").strip()
-            speed = float(speed_str)
-            
-            self._sweep_speed = speed
-            return speed
-            
-        except Exception as e:
-            logger.error(f"Get sweep speed failed: {e}")
-            return self._sweep_speed
-    
-    ############## HARDWARE TRIGGER METHODS ##############
-    async def configure_hardware_triggers(
-        self, 
-        trigger_mode: str = "DEF",  # DIS, DEF, PASS, LOOP
-        laser_output_trigger: str = "SWS",  # When laser generates trigger: SWS=sweep start
-        detector_input_trigger: str = "SME",  # How detector responds: SME=single measurement
-        configure_detector_outputs: bool = True  # Configure detector output triggers
-    ) -> bool:
-        """
-        Configure hardware triggering for precise laser/detector synchronization.
-        
-        Configures triggers for the actual detector slots in use (self.detector_slots).
-        This way it works regardless of stage configuration differences.
-        """
-        try:
-            logger.info(f"Configuring hardware triggers: mode={trigger_mode}")
-            logger.info(f"Laser slot: {self.laser_slot}, Detector slots: {self.detector_slots}")
-            
-            # Set global trigger configuration
-            await self._send_command(
-                self.cmd.set_hardware_trigger_config(trigger_mode),
-                expect_response=False
-            )
-            
-            # Configure laser output trigger timing (when laser generates triggers)
-            await self._send_command(
-                self.cmd.set_laser_output_trigger_timing(self.laser_slot, laser_output_trigger),
-                expect_response=False  
-            )
-            
-            # Configure each detector slot that's actually in use
-            for detector_slot in self.detector_slots:
-                # Set how detector responds to input triggers
-                await self._send_command(
-                    self.cmd.set_incoming_trigger_response(detector_slot, detector_input_trigger),
-                    expect_response=False
-                )
-                
-                # Configure detector output triggers (for chaining/advanced use)
-                if configure_detector_outputs:
-                    # Configure standard channels (1 and 2) for this detector slot
-                    for channel in [1, 2]:
-                        try:
-                            await self._send_command(
-                                self.cmd.set_detector_output_trigger_timing(detector_slot, channel, "AVG"),
-                                expect_response=False
-                            )
-                        except Exception as e:
-                            # Some slots may not have all channels - that's ok
-                            logger.debug(f"Channel {channel} not available on slot {detector_slot}: {e}")
-            
-            logger.info("Hardware triggering configured successfully")
-            return True
-            
-        except Exception as e:
-            logger.error(f"Hardware trigger configuration failed: {e}")
-            return False
-    
-    async def enable_internal_triggering(self) -> bool:
-        """
-        Enable internal triggering - laser automatically triggers detectors.
-        
-        Perfect for this stage: microsecond precision, no external hardware needed.
-        """
-        return await self.configure_hardware_triggers(
-            trigger_mode="DEF",           # Enable trigger connectors
-            laser_output_trigger="SWS",   # Trigger when sweep point is stable  
-            detector_input_trigger="SME"  # Take single measurement per trigger
-        )
-    
-    async def disable_triggering(self) -> bool:
-        """Disable hardware triggering (fallback to software timing)"""
-        return await self.configure_hardware_triggers(trigger_mode="DIS")
 
-    ############## DETECTOR METHODS, IMPLEMENTING DETECTOR FUCNTIONALITY ##############
-
-    async def read_power(self, channel: int = 1) -> PowerReading:
+    ############## DETECTOR METHODS ##############
+    def read_power(self, channel: int = 1):
         """Read power from detector"""
-        detector_slot = self._get_detector_slot(channel)
+        # detector_slot = self._get_detector_slot(channel)
+        # for now do it manually, read both slots
+        master_slot = 1
+        slave_slot = 2
         
         try:
-            # Legacy pattern includes averaging time delay
-            await self._send_command(self.cmd.clear_status(), expect_response=False)
+            self._send_command(self.cmd.clear_status(), expect_response=False)
             
-            # Small delay for averaging (from legacy code)
-            await asyncio.sleep(0.1)
+            # Small delay for averaging
+            time.sleep(0.1)
             
-            cmd = self.cmd.read_power(detector_slot, channel)
-            response = await self._send_command(cmd)
+            cmd_master = self.cmd.read_power(master_slot, channel) 
+            cmd_slave = self.cmd.read_power(slave_slot, channel)
+            response_master = self._send_command(cmd_master)
+            time.sleep(0.1)
+            response_slave = self._send_command(cmd_slave)
             
-            # Parse power value (legacy returns float directly)
-            power_value = float(response.strip())
+            # Parse power value
+            power_value_master = float(response_master.strip())
+            power_value_slave = float(response_slave.strip())
             
-            # Legacy code converts W to dBm: 10 * log10(W) + 30
-            # Assume response is already in correct units based on previous settings for now
-            
-            wavelength = await self.get_wavelength()
+            wavelength = self.get_wavelength()
             
             return PowerReading(
-                value=power_value,
-                unit=PowerUnit.DBM,  # dBm for now
+                value=power_value_master,
+                unit=PowerUnit.DBM,
+                wavelength=wavelength
+            ), PowerReading(
+                value=power_value_slave,
+                unit=PowerUnit.DBM,
                 wavelength=wavelength
             )
             
@@ -559,37 +496,80 @@ class Agilent8163Controller(LaserHAL):
             return self.detector_slots[channel - 1]
         return self.detector_slots[0]
     
-    async def set_power_unit(self, unit: PowerUnit, channel: int = 1) -> bool:
+    def set_power_unit(self, unit: PowerUnit, channel: int = 1) -> bool:
         """Set power unit"""
         detector_slot = self._get_detector_slot(channel)
         
         try:
             unit_str = "0" if unit == PowerUnit.DBM else "1"
             cmd = self.cmd.power_sensor_unit(detector_slot, channel, unit_str)
-            await self._send_command(cmd, expect_response=False)
+            self._send_command(cmd, expect_response=False)
             return True
             
         except Exception as e:
             logger.error(f"Set power unit failed: {e}")
             return False
-    
-    async def get_power_unit(self, channel: int = 1) -> PowerUnit:
+
+    def get_power_unit(self, channel: int = 1) -> PowerUnit:
         """Get power unit"""
-        # For now return default
+        # For now return default 
         return PowerUnit.DBM
     
-    async def set_power_range(self, range_dbm: float, channel: int = 1) -> bool:
+    def get_power_range(self, channel: int = 1) -> float:
+        """Get power range with proper unit handling"""
+        detector_slot = self._get_detector_slot(channel)
+        
+        try:
+            cmd = self.cmd.read_power_sensor_range(detector_slot, channel)
+            response = self._send_command(cmd).strip()
+            
+            # Parse power range based on units
+            if "dbm" in response.lower():
+                range_value = float(response.replace("DBM", "").replace("dbm", "").strip())
+            elif "w" in response.lower() and "mw" not in response.lower():
+                range_watts = float(response.replace("W", "").replace("w", "").strip())
+                range_value = 10 * math.log10(range_watts) + 30 if range_watts > 0 else -100.0
+            elif "mw" in response.lower():
+                range_mw = float(response.replace("MW", "").replace("mw", "").replace("mW", "").strip())
+                range_value = 10 * math.log10(range_mw) if range_mw > 0 else -100.0
+            else:
+                range_raw = float(response)
+                if range_raw < 1e-3:
+                    range_value = 10 * math.log10(range_raw) + 30 if range_raw > 0 else -100.0
+                else:
+                    range_value = range_raw
+            
+            return range_value
+        
+        except Exception as e:
+            logger.error(f"Get power range failed: {e}")
+            return 0.0
+    
+    def enable_autorange(self, enable: bool = True, channel: int = 1) -> bool:
+        """Enable/disable autorange """
+        detector_slot = self._get_detector_slot(channel)
+        
+        try:
+            cmd = self.cmd.power_sensor_autorange(detector_slot, "1" if enable else "0")
+            self._send_command(cmd, expect_response=False)
+            return True
+            
+        except Exception as e:
+            logger.error(f"Enable autorange failed: {e}")
+            return False
+
+    def set_power_range(self, range_dbm: float, channel: int = 1) -> bool:
         """Set power range """
         detector_slot = self._get_detector_slot(channel)
         
         try:
             # Disable autorange first 
             auto_cmd = self.cmd.power_sensor_autorange(detector_slot, "0")
-            await self._send_command(auto_cmd, expect_response=False)
+            self._send_command(auto_cmd, expect_response=False)
             
             # Set range
             range_cmd = self.cmd.set_power_sensor_range(detector_slot, channel, f"{range_dbm}dbm")
-            await self._send_command(range_cmd, expect_response=False)
+            self._send_command(range_cmd, expect_response=False)
             
             return True
             
@@ -597,36 +577,8 @@ class Agilent8163Controller(LaserHAL):
             logger.error(f"Set power range failed: {e}")
             return False
 
-    async def get_power_range(self, channel: int = 1) -> float:
-        """Get power range"""
-        detector_slot = self._get_detector_slot(channel)
-        
-        try:
-            cmd = self.cmd.read_power_sensor_range(detector_slot, channel)
-            response = await self._send_command(cmd)
-            
-            range_str = response.replace("DBM", "").replace("dbm", "").strip()
-            return float(range_str)
-            
-        except Exception as e:
-            logger.error(f"Get power range failed: {e}")
-            return 0.0
-    
-    async def enable_autorange(self, enable: bool = True, channel: int = 1) -> bool:
-        """Enable/disable autorange """
-        detector_slot = self._get_detector_slot(channel)
-        
-        try:
-            cmd = self.cmd.power_sensor_autorange(detector_slot, "1" if enable else "0")
-            await self._send_command(cmd, expect_response=False)
-            return True
-            
-        except Exception as e:
-            logger.error(f"Enable autorange failed: {e}")
-            return False
-    
     ############## DATA LOGGING ##############
-    async def start_logging(self, samples: int, averaging_time: float, channel: int = 1) -> bool:
+    def start_logging(self, samples: int, averaging_time: float, channel: int = 1) -> bool:
         """Start logging"""
         detector_slot = self._get_detector_slot(channel)
         
@@ -635,11 +587,11 @@ class Agilent8163Controller(LaserHAL):
             config_cmd = self.cmd.set_detector_sensor_logging(
                 detector_slot, samples, f"{averaging_time}ms"
             )
-            await self._send_command(config_cmd, expect_response=False)
+            self._send_command(config_cmd, expect_response=False)
             
             # Start logging
             start_cmd = self.cmd.set_detector_data_acquisition(detector_slot, "LOGG", "STAR")
-            await self._send_command(start_cmd, expect_response=False)
+            self._send_command(start_cmd, expect_response=False)
             
             self._logging_active[channel] = True
             return True
@@ -648,13 +600,13 @@ class Agilent8163Controller(LaserHAL):
             logger.error(f"Start logging failed: {e}")
             return False
     
-    async def stop_logging(self, channel: int = 1) -> bool:
+    def stop_logging(self, channel: int = 1) -> bool:
         """Stop logging"""
         detector_slot = self._get_detector_slot(channel)
         
         try:
             cmd = self.cmd.set_detector_data_acquisition(detector_slot, "LOGG", "STOP")
-            await self._send_command(cmd, expect_response=False)
+            self._send_command(cmd, expect_response=False)
             
             self._logging_active[channel] = False
             return True
@@ -664,47 +616,38 @@ class Agilent8163Controller(LaserHAL):
             return False
     
     async def get_logged_data(self, channel: int = 1) -> List[PowerReading]:
-        """Get logged data - clean IEEE 488.2 binary parsing (replaces 200+ line nightmare)"""
+        """Get logged data"""
         detector_slot = self._get_detector_slot(channel)
         
         try:
-            # Get data using clean IEEE 488.2 binary format
+            # Get data using binary format via GPIB
             cmd = self.cmd.read_data(detector_slot, channel)
-            response = await self._send_command(cmd)
             
-            # Parse IEEE 488.2 definite length binary block format: #<n><length><data>
-            if not response.startswith('#'):
-                logger.error(f"Invalid binary block format: {response[:20]}")
-                return []
+            # For binary data over GPIB, we need special handling
+            loop = asyncio.get_event_loop()
+            response = await loop.run_in_executor(
+                None,
+                lambda: self.instrument.query_binary_values(
+                    cmd, 
+                    datatype='f',  # 32-bit float
+                    is_big_endian=False  # Little-endian
+                )
+            )
             
-            # Extract length digits and data
-            length_digits = int(response[1])  # Number of digits in length field
-            if length_digits == 0:
-                logger.error("Indefinite length blocks not supported")
-                return []
-                
-            data_length = int(response[2:2+length_digits])  # Actual data length in bytes
-            binary_data = response[2+length_digits:2+length_digits+data_length].encode('latin1')
-            
-            # Convert binary data to float readings (each sample is 4 bytes, little-endian)
+            # Convert to PowerReading objects
             readings = []
-            current_wavelength = await self.get_wavelength()
+            current_wavelength = self.get_wavelength()
             
-            for i in range(0, len(binary_data), 4):
-                if i + 4 <= len(binary_data):
-                    # Unpack 4-byte IEEE 754 float
-                    power_bytes = binary_data[i:i+4]
-                    power_value = struct.unpack('<f', power_bytes)[0]  # Little-endian float
-                    
-                    # Filter out obvious bad values 
-                    if -100.0 <= power_value <= 50.0:  # Reasonable power range
-                        readings.append(PowerReading(
-                            value=power_value,
-                            unit=PowerUnit.DBM,
-                            wavelength=current_wavelength
-                        ))
-                    else:
-                        logger.warning(f"Filtered bad power reading: {power_value}")
+            for power_value in response:
+                # Filter out obvious bad values 
+                if -100.0 <= power_value <= 0.0:  
+                    readings.append(PowerReading(
+                        value=power_value,
+                        unit=PowerUnit.DBM,
+                        wavelength=current_wavelength
+                    ))
+                else:
+                    logger.warning(f"Filtered bad power reading: {power_value}")
             
             logger.info(f"Retrieved {len(readings)} power readings from channel {channel}")
             return readings
@@ -713,18 +656,18 @@ class Agilent8163Controller(LaserHAL):
             logger.error(f"Get logged data failed: {e}")
             return []
 
-    ############## STATUS METHODS FOR LASER + DETECTOR ##############
-    async def get_laser_state(self) -> LaserState:
+    ############## STATUS METHODS ##############
+    def get_laser_state(self) -> LaserState:
         """Get laser state"""
         try:
             if not self._is_connected:
                 return LaserState.ERROR
             
-            output_state = await self.get_output_state()
+            output_state = self.get_output_state()
             if not output_state:
                 return LaserState.IDLE
                 
-            sweep_state = await self.get_sweep_state()
+            sweep_state = self.get_sweep_state()
             if sweep_state == SweepState.RUNNING:
                 return LaserState.SWEEPING
                 
@@ -734,41 +677,87 @@ class Agilent8163Controller(LaserHAL):
             logger.error(f"Get laser state failed: {e}")
             return LaserState.ERROR
     
-    async def get_wavelength_limits(self) -> Tuple[float, float]:
-        """Get wavelength limits"""
+    def get_wavelength_limits(self) -> Tuple[float, float]:
+        """Get wavelength limits with proper unit handling"""
         try:
             min_cmd = self.cmd.read_laser_wavelength(self.laser_slot, "MIN")
             max_cmd = self.cmd.read_laser_wavelength(self.laser_slot, "MAX")
             
-            min_response = await self._send_command(min_cmd)
-            max_response = await self._send_command(max_cmd)
+            min_response = self._send_command(min_cmd).strip()
+            max_response = self._send_command(max_cmd).strip()
             
-            min_wl = float(min_response.replace("nm", "").strip())
-            max_wl = float(max_response.replace("nm", "").strip())
+            # Handle min wavelength
+            if "nm" in min_response.lower():
+                min_wl = float(min_response.replace("nm", "").replace("NM", "").strip())
+            elif "m" in min_response.lower():
+                min_wl_m = float(min_response.replace("m", "").replace("M", "").strip())
+                min_wl = min_wl_m * 1e9  # Convert m to nm
+            else:
+                min_wl_raw = float(min_response)
+                min_wl = min_wl_raw * 1e9 if min_wl_raw < 1e-3 else min_wl_raw
+            
+            # Handle max wavelength
+            if "nm" in max_response.lower():
+                max_wl = float(max_response.replace("nm", "").replace("NM", "").strip())
+            elif "m" in max_response.lower():
+                max_wl_m = float(max_response.replace("m", "").replace("M", "").strip())
+                max_wl = max_wl_m * 1e9  # Convert m to nm
+            else:
+                max_wl_raw = float(max_response)
+                max_wl = max_wl_raw * 1e9 if max_wl_raw < 1e-3 else max_wl_raw
             
             return min_wl, max_wl
             
         except Exception as e:
             logger.error(f"Get wavelength limits failed: {e}")
-            return 1460.0, 1580.0  # Default from legacy code
+            return 1460.0, 1580.0 # defailt from leg code
     
-    async def get_power_limits(self) -> Tuple[float, float]:
-        """Get power limits"""
+    def get_power_limits(self) -> Tuple[float, float]:
+        """Get power limits with proper unit handling"""
         try:
             min_cmd = self.cmd.read_laser_power(self.laser_slot, "MIN")
             max_cmd = self.cmd.read_laser_power(self.laser_slot, "MAX")
             
-            min_response = await self._send_command(min_cmd)
-            max_response = await self._send_command(max_cmd)
+            min_response = self._send_command(min_cmd).strip()
+            max_response = self._send_command(max_cmd).strip()
             
-            min_power = float(min_response.replace("DBM", "").replace("dbm", "").strip())
-            max_power = float(max_response.replace("DBM", "").replace("dbm", "").strip())
+            # Handle min power
+            if "dbm" in min_response.lower():
+                min_power = float(min_response.replace("DBM", "").replace("dbm", "").strip())
+            elif "w" in min_response.lower() and "mw" not in min_response.lower():
+                min_watts = float(min_response.replace("W", "").replace("w", "").strip())
+                min_power = 10 * math.log10(min_watts) + 30 if min_watts > 0 else -100.0
+            elif "mw" in min_response.lower():
+                min_mw = float(min_response.replace("MW", "").replace("mw", "").replace("mW", "").strip())
+                min_power = 10 * math.log10(min_mw) if min_mw > 0 else -100.0
+            else:
+                min_raw = float(min_response)
+                if min_raw < 1e-3:
+                    min_power = 10 * math.log10(min_raw) + 30 if min_raw > 0 else -100.0
+                else:
+                    min_power = min_raw
+            
+            # Handle max power
+            if "dbm" in max_response.lower():
+                max_power = float(max_response.replace("DBM", "").replace("dbm", "").strip())
+            elif "w" in max_response.lower() and "mw" not in max_response.lower():
+                max_watts = float(max_response.replace("W", "").replace("w", "").strip())
+                max_power = 10 * math.log10(max_watts) + 30 if max_watts > 0 else -100.0
+            elif "mw" in max_response.lower():
+                max_mw = float(max_response.replace("MW", "").replace("mw", "").replace("mW", "").strip())
+                max_power = 10 * math.log10(max_mw) if max_mw > 0 else -100.0
+            else:
+                max_raw = float(max_response)
+                if max_raw < 1e-3:
+                    max_power = 10 * math.log10(max_raw) + 30 if max_raw > 0 else -100.0
+                else:
+                    max_power = max_raw
             
             return min_power, max_power
             
         except Exception as e:
             logger.error(f"Get power limits failed: {e}")
-            return -40.0, 10.0  # Default range
+            return -40.0, 10.0
 
 # Register driver
 register_driver("347_NIR", Agilent8163Controller)

@@ -102,6 +102,9 @@ class connect_config(App):
         print("Stage COM:", selected_stage)
         print("Sensor COM:", selected_sensor)
         print("TEC COM:", selected_tec)
+        config = {"stage": selected_stage, "sensor": selected_sensor, "tec": selected_tec}
+        file = File("shared_memory", "Port", config)
+        file.save()
 
 if __name__ == "__main__":
     configuration = {

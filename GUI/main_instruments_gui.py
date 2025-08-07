@@ -125,7 +125,8 @@ class instruments(App):
             'Stage Control',
             f'http://{local_ip}:7005',
             width=222, height=236,
-            resizable=True
+            resizable=True,
+            on_top=True
         )
 
 def run_remi():
