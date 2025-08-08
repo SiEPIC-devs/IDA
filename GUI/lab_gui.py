@@ -404,14 +404,14 @@ class File():
             "User_add": "Guest",
             "Image": "TSP/none.png",
             "Limit": {"x": "Yes", "y": "Yes", "z": "Yes", "chip": "Yes", "fiber": "Yes"},
-            "FineA": {"x_count": 20, "x_length": 0.1, "y_count": 20, "y_length": 0.1},
-            "AreaS": {"x_count": 20, "x_length": 5.0, "y_count": 20, "y_length": 5.0, "plot": "New"},
-            "Sweep": {"wvl": 1550, "speed": 1.0, "power": 0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "on", "sweep": 0, "on": 0},
+            "FineA": {"window_size": 20, "step_size": 1, "max_iters": 10},
+            "AreaS": {"x_size": 20, "x_step": 1, "y_size": 20, "y_step": 1, "plot": "New"},
+            "Sweep": {"wvl": 1550, "speed": 1.0, "power": 0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "Laser On", "sweep": 0, "on": 0},
             "ScanPos": {"x": 0, "y": 0, "move": 0},
             "StagePos": {"x": 0, "y": 0},
             "AutoSweep": 0,
             "Configuration": {"stage": "", "sensor": "", "tec": ""},
-            "Port": {"stage": "", "sensor": "", "tec": ""},
+            "Port": {"stage": 8, "sensor": 11, "tec": 5},
             "DeviceName": "",
             "DeviceNum": 0
         }
@@ -511,7 +511,7 @@ class plot():
         project = self.project
         path = os.path.join(".", "UserData", user, project, "Spectrum", name)
         try:
-            plots = {"Wavelength [nm]": x_axis*1000000000}
+            plots = {"Wavelength [nm]": x_axis}
             plotnames = []
             for element in range(0, len(y_values)):
                 plotname = "Detector " + str(element + 1)
@@ -536,7 +536,7 @@ class plot():
             image_dpi = 20
             plt.figure(figsize=(100 / image_dpi, 100 / image_dpi), dpi=image_dpi)
             for element in range(0, len(y_values)):
-                plt.plot(x_axis*1000000000, y_values[element], linewidth=0.2)
+                plt.plot(x_axis, y_values[element], linewidth=0.2)
             plt.xlabel("Wavelength [nm]")
             plt.ylabel("Power [dBm]")
             output_pdf = os.path.join(path, f"{filename}_{fileTime}.pdf")

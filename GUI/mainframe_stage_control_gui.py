@@ -7,7 +7,11 @@ from motors.config.stage_config import StageConfiguration
 #from motors.stage_controller import StageController
 from NIR.nir_manager import NIRManager
 from NIR.config.nir_config import NIRConfiguration
-import pandas as pd
+from measure.area_sweep import AreaSweep
+from measure.fine_align import FineAlign
+from measure.config.area_sweep_config import AreaSweepConfiguration
+from measure.config.fine_align_config import FineAlignConfiguration
+
 filename = "coordinates.json"
 
 command_path = os.path.join("database", "command.json")
@@ -34,7 +38,10 @@ class stage_control(App):
         self.count = 0
         self.filter = {}
         self.configuration = {}
-        self.configuration_count = 0
+        self.port = {}
+
+        self.configuration_stage = 0
+        self.configuration_sensor = 0
         self.project = None
         self.scanpos = {}
         self.stagepos = {}
@@ -46,6 +53,7 @@ class stage_control(App):
         self.pre_x = None
         self.pre_y = None
         self.stage_window = None
+        self.sensor_window = None
         self.devices = None
 
         self.nir_configure = None
@@ -91,6 +99,7 @@ class stage_control(App):
                     self.scanpos = data.get("ScanPos", {})
                     self.sweep = data.get("Sweep", {})
                     self.name = data.get("DeviceName", "")
+                    self.port = data.get("Port", {})
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -121,10 +130,8 @@ class stage_control(App):
         else:
             auto = 1
 
-        wl, d1, d2 = self.nir_manager.sweep(start_nm=1545, stop_nm=1560, step_nm=0.1, laser_power_dbm=-3)
+        wl, d1, d2 = self.nir_manager.sweep(start_nm=self.sweep["start"], stop_nm=self.sweep["end"], step_nm=self.sweep["step"], laser_power_dbm=self.sweep["power"])
 
-        # filename = "res/spectral_sweep/spectral_sweep.csv"
-        # df = pd.read_csv(filename, header=None)
         x = wl
         y = np.vstack([d1, d2])
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -134,6 +141,11 @@ class stage_control(App):
         p.join()
 
         if auto == 0:
+            if self.sweep["done"] == "Laser On":
+                self.nir_manager.enable_laser(True)
+            else:
+                self.nir_manager.enable_laser(False)
+
             self.sweep_count = 0
             self.sweep["sweep"] = 0
             file = File("shared_memory", "Sweep", self.sweep)
@@ -150,8 +162,8 @@ class stage_control(App):
         file.save()
 
     def after_configuration(self):
-        if self.configuration["stage"] != "" and self.configuration_count == 0:
-            self.configuration_count = 1
+        if self.configuration["stage"] != "" and self.configuration_stage == 0:
+            self.configuration_stage = 1
 
             self.gds = lab_coordinates.coordinates(("./res/" + filename), read_file=False,
                                                    name="./database/coordinates.json")
@@ -169,7 +181,7 @@ class stage_control(App):
             self.configure.driver_types[AxisType.Z] = self.configuration["stage"]
             self.configure.driver_types[AxisType.ROTATION_CHIP] = self.configuration["stage"]
             self.configure.driver_types[AxisType.ROTATION_FIBER] = self.configuration["stage"]
-            self.stage_manager = StageManager(self.configure, create_shm=True)
+            self.stage_manager = StageManager(self.configure, create_shm=True, port=self.port["stage"])
             asyncio.run_coroutine_threadsafe(
                 self.stage_manager.startup(),
                 main_loop
@@ -177,11 +189,6 @@ class stage_control(App):
             asyncio.run(self.stage_manager.initialize_all(
                 [AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER])
             )
-
-            self.nir_configure = NIRConfiguration()
-            self.nir_manager = NIRManager(self.nir_configure)
-            self.nir_manager.connect()
-
             self.stage_window = webview.create_window(
                 'Stage Control',
                 f'http://{local_ip}:8000',
@@ -190,13 +197,41 @@ class stage_control(App):
                 resizable=True,
                 hidden=False
             )
-        elif self.configuration["stage"] == "" and self.configuration_count == 1:
-            self.configuration_count = 0
+            print("Stage Connected")
+
+        elif self.configuration["stage"] == "" and self.configuration_stage == 1:
+            self.configuration_stage = 0
             if self.stage_window:
                 self.stage_window.destroy()
                 self.stage_window = None
+            self.stage_manager.shutdown()
+            print("Stage Disconnected")
 
-        if self.configuration_count == 1:
+        if self.configuration["sensor"] != "" and self.configuration_sensor == 0:
+            self.nir_configure = NIRConfiguration()
+            self.nir_configure.port = self.port["sensor"]
+            self.nir_manager = NIRManager(self.nir_configure)
+            self.nir_manager.connect()
+            self.configuration_sensor = 1
+            self.sensor_window = webview.create_window(
+                'Sensor Control',
+                f'http://{local_ip}:8001',
+                width=672, height=197,
+                x=800, y=255,
+                resizable=True,
+                hidden=False
+            )
+            print("Sensor Connected")
+
+        elif self.configuration["sensor"] == "" and self.configuration_sensor == 1:
+            self.configuration_sensor = 0
+            if self.sensor_window:
+                self.sensor_window.destroy()
+                self.sensor_window = None
+            self.nir_manager.disconnect()
+            print("Sensor Disconnected")
+
+        if self.configuration_stage == 1:
             self.memory.reader_pos()
             if self.memory.x_pos != float(self.x_position_lb.get_text()):
                 self.x_position_lb.set_text(str(self.memory.x_pos))
@@ -209,19 +244,7 @@ class stage_control(App):
             if self.memory.fr_pos != float(self.fiber_position_lb.get_text()):
                 self.fiber_position_lb.set_text(str(self.memory.fr_pos))
 
-            if self.auto_sweep == 1 and self.count == 0:
-                self.lock_all(1)
-                self.count = 1
-                self.run_in_thread(self.do_auto_sweep)
-            elif self.auto_sweep == 0 and self.count == 1:
-                self.lock_all(0)
-                self.count = 0
-
-            if self.scanpos["move"] == 1 and (self.scanpos["x"] != self.pre_x or self.scanpos["y"] != self.pre_y):
-                self.run_in_thread(self.scan_move)
-                self.pre_x = self.scanpos["x"]
-                self.pre_y = self.scanpos["y"]
-
+        if self.configuration_sensor == 1:
             if self.sweep["sweep"] == 1 and self.sweep_count == 0:
                 self.sweep_count = 1
                 self.run_in_thread(self.laser_sweep)
@@ -240,6 +263,21 @@ class stage_control(App):
                 self.sweep_count = 1
                 self.past_power = self.sweep["power"]
                 self.run_in_thread(self.set_power)
+
+        if self.configuration_stage == 1 and self.configuration_sensor == 1:
+            if self.auto_sweep == 1 and self.count == 0:
+                self.lock_all(1)
+                self.count = 1
+                self.run_in_thread(self.do_auto_sweep)
+
+            elif self.auto_sweep == 0 and self.count == 1:
+                self.lock_all(0)
+                self.count = 0
+
+            if self.scanpos["move"] == 1 and (self.scanpos["x"] != self.pre_x or self.scanpos["y"] != self.pre_y):
+                self.run_in_thread(self.scan_move)
+                self.pre_x = self.scanpos["x"]
+                self.pre_y = self.scanpos["y"]
 
     def do_auto_sweep(self):
         i = 0
@@ -485,6 +523,7 @@ class stage_control(App):
         print("Stop")
 
     def onclick_home(self):
+        print("Start Home")
         home = self.limit
         x = home["x"]
         y = home["y"]
@@ -502,36 +541,17 @@ class stage_control(App):
             asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_CHIP))
         if fiber == "Yes":
             asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_FIBER))
-        # if x == "Yes":
-        #     asyncio.run_coroutine_threadsafe(
-        #         self.stage_manager.home_limits(AxisType.X),
-        #         main_loop
-        #     )
-        # if y == "Yes":
-        #     asyncio.run_coroutine_threadsafe(
-        #         self.stage_manager.home_limits(AxisType.Y),
-        #         main_loop
-        #     )
-        # if z == "Yes":
-        #     asyncio.run_coroutine_threadsafe(
-        #         self.stage_manager.home_limits(AxisType.Z),
-        #         main_loop
-        #     )
-        # if chip == "Yes":
-        #     asyncio.run_coroutine_threadsafe(
-        #         self.stage_manager.home_limits(AxisType.ROTATION_CHIP),
-        #         main_loop
-        #     )
-        # if fiber == "Yes":
-        #     asyncio.run_coroutine_threadsafe(
-        #         self.stage_manager.home_limits(AxisType.ROTATION_FIBER),
-        #         main_loop
-        #     )
-
-        print("Home")
+        print("Home Finished")
 
     def onclick_start(self):
         print("Start Fine Align")
+        config = FineAlignConfiguration()
+        config.scan_window = self.fine_a["window_size"]
+        config.step_size = self.fine_a["step_size"]
+        config.gradient_iters = self.fine_a["max_iters"]
+        fine_align = FineAlign(config.to_dict(), self.stage_manager, self.nir_manager)
+        asyncio.run(fine_align.begin_fine_align())
+        print("Fine Align Finished")
 
     def onclick_scan(self):
         self.scan_btn.set_enabled(False)
@@ -539,6 +559,20 @@ class stage_control(App):
         if self.area_s["plot"] == "New":
             self.stage_x_pos = self.memory.x_pos
             self.stage_y_pos = self.memory.y_pos
+            config = AreaSweepConfiguration()
+            config.x_size = int(self.area_s["x_size"])
+            config.x_step = int(self.area_s["x_step"])
+            config.y_size = int(self.area_s["y_size"])
+            config.y_step = int(self.area_s["y_step"])
+            area_sweep = AreaSweep(config, self.stage_manager, self.nir_manager)
+            data = asyncio.run(area_sweep.begin_sweep())
+            print(data)
+            fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=data)
+            p = Process(target=diagram.heat_map)
+            p.start()
+            p.join()
+            print("Done Scan")
         elif self.area_s["plot"] == "Previous":
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             data = np.array([[1,2,3,4,5,np.nan,7],[2,3,4,5,6,7,8],[3,4,5,6,7,8,9]])

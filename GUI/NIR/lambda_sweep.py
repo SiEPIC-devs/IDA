@@ -165,9 +165,9 @@ class LambdaScanProtocol:
             self.configure_and_start_lambda_sweep(start_nm, stop_nm, step_nm, laser_power_dbm, averaging_time_s)   
             self.execute_lambda_scan()
             wavelengths, power_ch1, power_ch2 = self.retrieve_scan_data()
-            # self.cleanup_scan()
             power_ch1 = np.where(power_ch1 > 0, np.nan, power_ch1)
             power_ch2 = np.where(power_ch2 > 0, np.nan, power_ch2)
+            self.cleanup_scan()
             return wavelengths, power_ch1, power_ch2
         except Exception as e:
             logging.error(f"Found error in optical sweep: {e}")

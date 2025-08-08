@@ -37,62 +37,47 @@ class fine_align(App):
         )
 
         StyledLabel(
-            container=fine_align_setting_container, text="X Count", variable_name="x_count_lb", left=0,
+            container=fine_align_setting_container, text="Window", variable_name="window_size_lb", left=0,
             top=10, width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.x_count = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="x_count_in", left=80, top=10, value=20,
+        self.window_size = StyledSpinBox(
+            container=fine_align_setting_container, variable_name="window_size_in", left=80, top=10, value=20,
             width=50, height=24, min_value=-1000, max_value=1000, step=1, position="absolute"
         )
 
         StyledLabel(
-            container=fine_align_setting_container, text=" ", variable_name="x_count_um", left=150, top=10,
+            container=fine_align_setting_container, text="um", variable_name="window_size_um", left=150, top=10,
             width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
         StyledLabel(
-            container=fine_align_setting_container, text="X Step", variable_name="x_length_lb", left=0, top=42,
+            container=fine_align_setting_container, text="Step Size", variable_name="step_size_lb", left=0, top=42,
             width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.x_length = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="x_length_in", left=80, top=42, value=0.1,
+        self.step_size = StyledSpinBox(
+            container=fine_align_setting_container, variable_name="step_size_in", left=80, top=42, value=1,
             width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
         )
 
         StyledLabel(
-            container=fine_align_setting_container, text="um", variable_name="x_length_um", left=150, top=42,
+            container=fine_align_setting_container, text="um", variable_name="step_size_um", left=150, top=42,
             width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
         StyledLabel(
-            container=fine_align_setting_container, text="Y Count", variable_name="y_count_lb", left=0,
+            container=fine_align_setting_container, text="Max Iters", variable_name="max_iters_lb", left=0,
             top=74,width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.y_count = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="y_count_in", left=80, top=74, value=20,
-            width=50, height=24, min_value=-1000, max_value=1000, step=1, position="absolute"
+        self.max_iters = StyledSpinBox(
+            container=fine_align_setting_container, variable_name="max_iters_in", left=80, top=74, value=10,
+            width=50, height=24, min_value=0, max_value=50, step=1, position="absolute"
         )
 
         StyledLabel(
-            container=fine_align_setting_container, text=" ", variable_name="y_count_um", left=150, top=74,
-            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
-        )
-
-        StyledLabel(
-            container=fine_align_setting_container, text="Y Step", variable_name="y_length_lb", left=0, top=106,
-            width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
-        )
-
-        self.y_length = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="y_length_in", left=80, top=106, value=0.1,
-            width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
-        )
-
-        StyledLabel(
-            container=fine_align_setting_container, text="um", variable_name="y_length_um", left=150, top=106,
+            container=fine_align_setting_container, text="um", variable_name="max_iters_um", left=150, top=74,
             width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
@@ -108,10 +93,9 @@ class fine_align(App):
 
     def onclick_confirm(self):
         value = {
-            "x_count": float(self.x_count.get_value()),
-            "x_length": float(self.x_length.get_value()),
-            "y_count": float(self.y_count.get_value()),
-            "y_length": float(self.y_length.get_value())
+            "window_size": float(self.window_size.get_value()),
+            "step_size": float(self.step_size.get_value()),
+            "max_iters": int(self.max_iters.get_value())
         }
         file = File("shared_memory", "FineA", value)
         file.save()
@@ -158,14 +142,12 @@ class fine_align(App):
                 record = 1
                 new_command[key] = val
 
-            elif key == "fa_x_count":
-                self.x_count.set_value(val)
-            elif key == "fa_x_length":
-                self.x_length.set_value(val)
-            elif key == "fa_y_count":
-                self.y_count.set_value(val)
-            elif key == "fa_y_length":
-                self.y_length.set_value(val)
+            elif key == "fa_window_size":
+                self.window_size.set_value(val)
+            elif key == "fa_step_size":
+                self.step_size.set_value(val)
+            elif key == "fa_max_iters":
+                self.max_iters.set_value(val)
             elif key == "fa_confirm":
                 self.onclick_confirm()
 

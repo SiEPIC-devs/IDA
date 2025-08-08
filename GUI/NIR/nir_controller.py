@@ -23,7 +23,7 @@ Cameron Basara, 2025
 
 class Agilent8163Controller(LaserHAL):
     def __init__(self, 
-                com_port: int = 5,
+                com_port: int = 11,
                 laser_slot: int = 0,
                 detector_slots: List[int] = None,
                 safety_password: str = "1234",

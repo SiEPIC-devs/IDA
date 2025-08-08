@@ -18,6 +18,7 @@ class tec_control(App):
         self.configure = None
         self.ldc_manager = None
         self.tec_window = None
+        self.port = {}
         if "editing_mode" not in kwargs:
             super(tec_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -44,6 +45,7 @@ class tec_control(App):
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     self.configuration = data.get("Configuration", {})
+                    self.port = data.get("Port", {})
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -59,6 +61,7 @@ class tec_control(App):
         if self.configuration["tec"] != "" and self.configuration_count == 0:
             self.configuration_count = 1
             self.configure = LDCConfiguration()
+            self.configure.visa_address = f"ASRL{self.port['tec']}::INSTR"
             self.ldc_manager = LDCManager(self.configure)
             self.ldc_manager.initialize()
             self.ldc_manager.set_temperature(25.0)
@@ -75,6 +78,7 @@ class tec_control(App):
             if self.tec_window:
                 self.tec_window.destroy()
                 self.tec_window = None
+            self.ldc_manager.shutdown()
 
     def construct_ui(self):
         sensor_control_container = StyledContainer(

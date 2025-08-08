@@ -77,7 +77,7 @@ class add_btn(App):
 
         self.power = StyledSpinBox(
             container=laser_sweep_container, variable_name="power_in", left=95, top=42, value=0.0,
-            width=65, height=24, min_value=0, max_value=1000, step=0.1, position="absolute"
+            width=65, height=24, min_value=-110, max_value=30, step=0.1, position="absolute"
         )
 
         StyledLabel(

@@ -13,7 +13,7 @@ class StageConfiguration:
         {ax:100.0 for ax in AxisType if ax.name!="ALL"}
     ) # field dict values
     position_limits: Dict[AxisType, Tuple[float,float]] = field(default_factory=lambda:
-        {ax:(-100.0,10000.0) for ax in AxisType if ax.name!="ALL"}
+        {ax:(-100.0,25000.0) for ax in AxisType if ax.name!="ALL"}
     ) # field dict values
 
     # Completion detection settings (placeholder)

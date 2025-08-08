@@ -3,7 +3,7 @@ from remi import start, App
 import serial.tools.list_ports
 import threading
 import os
-import pyvisa
+import pyvisa, re
 
 command_path = os.path.join("database", "command.json")
 
@@ -21,16 +21,16 @@ class connect_config(App):
             ports = list(serial.tools.list_ports.comports())
             com_names = [p.device for p in ports]
 
-            rm = pyvisa.ResourceManager()
-            visa_resources = rm.list_resources()
-            asrl_resources = [r for r in visa_resources if "ASRL" in r]
+            # rm = pyvisa.ResourceManager()
+            # visa_resources = rm.list_resources()
+            # asrl_resources = [r for r in visa_resources if "ASRL" in r]
 
             if com_names != self._last_ports:
                 self._last_ports = com_names
 
                 self.refresh_dropdown(self.stage_dd, com_names)
-                self.refresh_dropdown(self.sensor_dd, asrl_resources)
-                self.refresh_dropdown(self.tec_dd, asrl_resources)
+                self.refresh_dropdown(self.sensor_dd, com_names)
+                self.refresh_dropdown(self.tec_dd, com_names)
 
         except Exception as e:
             print("Error scanning ports:", e)
@@ -99,10 +99,13 @@ class connect_config(App):
         selected_stage = self.stage_dd.get_value()
         selected_sensor = self.sensor_dd.get_value()
         selected_tec = self.tec_dd.get_value()
-        print("Stage COM:", selected_stage)
-        print("Sensor COM:", selected_sensor)
-        print("TEC COM:", selected_tec)
-        config = {"stage": selected_stage, "sensor": selected_sensor, "tec": selected_tec}
+        stage_num = int(re.search(r'\d+', selected_stage).group()) if selected_stage else None
+        sensor_num = int(re.search(r'\d+', selected_sensor).group()) if selected_sensor else None
+        tec_num = int(re.search(r'\d+', selected_tec).group()) if selected_tec else None
+        print("Stage COM:", stage_num)
+        print("Sensor COM:", sensor_num)
+        print("TEC COM:", tec_num)
+        config = {"stage": stage_num, "sensor": sensor_num, "tec": tec_num}
         file = File("shared_memory", "Port", config)
         file.save()
 

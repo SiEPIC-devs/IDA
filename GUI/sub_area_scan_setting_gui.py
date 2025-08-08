@@ -37,57 +37,62 @@ class area_scan(App):
         )
 
         StyledLabel(
-            container=area_scan_setting_container, text="X Count", variable_name="x_count_lb", left=0,
+            container=area_scan_setting_container, text="X Size", variable_name="x_size_lb", left=0,
             top=10, width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.x_count = StyledSpinBox(
-            container=area_scan_setting_container, variable_name="x_count_in", left=80, top=10, value=20,
+        self.x_size = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="x_size_in", left=80, top=10, value=20,
             width=50, height=24, min_value=-1000, max_value=1000, step=1, position="absolute"
         )
 
         StyledLabel(
-            container=area_scan_setting_container, text=" ", variable_name="x_count_um", left=150, top=10,
+            container=area_scan_setting_container, text="um", variable_name="x_size_um", left=150, top=10,
             width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
         StyledLabel(
-            container=area_scan_setting_container, text="X Length", variable_name="x_length_lb", left=0, top=42,
+            container=area_scan_setting_container, text="X Step", variable_name="x_step_lb", left=0, top=42,
             width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.x_length = StyledSpinBox(
-            container=area_scan_setting_container, variable_name="x_length_in", left=80, top=42, value=5,
+        self.x_step = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="x_step_in", left=80, top=42, value=1,
             width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
         )
 
         StyledLabel(
-            container=area_scan_setting_container, text="um", variable_name="x_length_um", left=150, top=42,
+            container=area_scan_setting_container, text="um", variable_name="x_step_um", left=150, top=42,
             width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
         StyledLabel(
-            container=area_scan_setting_container, text="Y Count", variable_name="y_count_lb", left=0,
+            container=area_scan_setting_container, text="Y Size", variable_name="y_size_lb", left=0,
             top=74,width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.y_count = StyledSpinBox(
-            container=area_scan_setting_container, variable_name="y_count_in", left=80, top=74, value=20,
+        self.y_size = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="y_size_in", left=80, top=74, value=20,
             width=50, height=24, min_value=-1000, max_value=1000, step=1, position="absolute"
         )
 
         StyledLabel(
-            container=area_scan_setting_container, text="Y Length", variable_name="y_length_lb", left=0, top=106,
+            container=area_scan_setting_container, text="um", variable_name="y_size_um", left=150, top=74,
+            width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
+        )
+
+        StyledLabel(
+            container=area_scan_setting_container, text="Y Step", variable_name="y_step_lb", left=0, top=106,
             width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.y_length = StyledSpinBox(
-            container=area_scan_setting_container, variable_name="y_length_in", left=80, top=106, value=5,
+        self.y_step = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="y_step_in", left=80, top=106, value=1,
             width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
         )
 
         StyledLabel(
-            container=area_scan_setting_container, text="um", variable_name="y_length_um", left=150, top=106,
+            container=area_scan_setting_container, text="um", variable_name="y_step_um", left=150, top=106,
             width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
@@ -113,10 +118,10 @@ class area_scan(App):
 
     def onclick_confirm(self):
         value = {
-            "x_count": float(self.x_count.get_value()),
-            "x_length": float(self.x_length.get_value()),
-            "y_count": float(self.y_count.get_value()),
-            "y_length": float(self.y_length.get_value()),
+            "x_size": float(self.x_size.get_value()),
+            "x_step": float(self.x_step.get_value()),
+            "y_size": float(self.y_size.get_value()),
+            "y_step": float(self.y_step.get_value()),
             "plot": self.plot_dd.get_value()
         }
         file = File("shared_memory", "AreaS", value)
@@ -164,14 +169,14 @@ class area_scan(App):
                 record = 1
                 new_command[key] = val
 
-            elif key == "as_x_count":
-                self.x_count.set_value(val)
-            elif key == "as_x_length":
-                self.x_length.set_value(val)
-            elif key == "as_y_count":
-                self.y_count.set_value(val)
-            elif key == "as_y_length":
-                self.y_length.set_value(val)
+            elif key == "as_x_size":
+                self.x_size.set_value(val)
+            elif key == "as_x_step":
+                self.x_step.set_value(val)
+            elif key == "as_y_size":
+                self.y_size.set_value(val)
+            elif key == "as_y_step":
+                self.y_step.set_value(val)
             elif key == "as_plot":
                 if val.lower() == "new":
                     val = "New"

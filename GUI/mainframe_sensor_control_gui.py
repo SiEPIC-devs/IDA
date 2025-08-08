@@ -22,6 +22,7 @@ class stage_control(App):
         self.project = None
         self.sensor = {}
         self.sensor_window = None
+        self.sweep_check = 0
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -70,34 +71,21 @@ class stage_control(App):
 
         if self.sweep["sweep"] == 1 and self.auto_sweep == 0:
             self.sweep_btn.set_enabled(False)
+            self.sweep_check = 1
         elif self.sweep["sweep"] == 0 and self.auto_sweep == 0:
             self.sweep_btn.set_enabled(True)
-
-        self.after_configuration()
-
+            if self.sweep_check == 1:
+                if self.sweep["done"] == "Laser On":
+                    self.on_box.set_value(1)
+                else:
+                    self.on_box.set_value(0)
+                self.sweep_check = 0
 
     def main(self):
         return self.construct_ui()
 
     def run_in_thread(self, target, *args) -> None:
         threading.Thread(target=target, args=args, daemon=True).start()
-
-    def after_configuration(self):
-        if self.configuration["sensor"] != "" and self.configuration_count == 0:
-            self.configuration_count = 1
-            self.sensor_window = webview.create_window(
-                'Sensor Control',
-                f'http://{local_ip}:8001',
-                width=672, height=197,
-                x=800, y=255,
-                resizable=True,
-                hidden=False
-            )
-        elif self.configuration["sensor"] == "" and self.configuration_count == 1:
-            self.configuration_count = 0
-            if self.sensor_window:
-                self.sensor_window.destroy()
-                self.sensor_window = None
 
     def lock_all(self, value):
         enabled = value == 0
