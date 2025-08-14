@@ -550,7 +550,6 @@ class plot():
             plt.close()
             file = File("shared_memory", "Image", f"spectral_sweep/{filename}_{fileTime}.png")
             file.save()
-            print("Done the graphing")
         except Exception as e:
             try:
                 print("Exception generating pdf plot")

@@ -1,7 +1,7 @@
 # import cv2
 #
 # # 打开两个摄像头
-# cap0 = cv2.VideoCapture(0)
+# cap0 = cv2.VideoCapture(1)
 #
 # while True:
 #     ret0, frame0 = cap0.read()

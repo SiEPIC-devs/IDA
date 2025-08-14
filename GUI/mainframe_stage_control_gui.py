@@ -63,6 +63,8 @@ class stage_control(App):
         self.past_wvl = None
         self.past_power = None
 
+        self.data = None
+
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -124,6 +126,7 @@ class stage_control(App):
         self.sweep_count = 0
 
     def laser_sweep(self, name=None):
+        print("Sweep Start")
         auto = 0
         if name is None:
             name = self.name
@@ -150,6 +153,7 @@ class stage_control(App):
             self.sweep["sweep"] = 0
             file = File("shared_memory", "Sweep", self.sweep)
             file.save()
+        print("Sweep Done")
 
     def scan_move(self):
         x_pos = self.scanpos["x"] * self.area_s["x_step"] + self.stage_x_pos
@@ -209,7 +213,7 @@ class stage_control(App):
 
         if self.configuration["sensor"] != "" and self.configuration_sensor == 0:
             self.nir_configure = NIRConfiguration()
-            self.nir_configure.port = self.port["sensor"]
+            self.nir_configure.com_port = self.port["sensor"]
             self.nir_manager = NIRManager(self.nir_configure)
             self.nir_manager.connect()
             self.configuration_sensor = 1
@@ -290,17 +294,11 @@ class stage_control(App):
             y = float(self.filter[key[i]][1])
 
             print(f"Move to Device {i + 1} [{x}, {y}]")
-            for j in range(3):
-                time.sleep(1)
-                print(f"Time: {j+1}s")
 
             asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
             asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
 
             self.onclick_start()
-            for j in range(3):
-                time.sleep(1)
-                print(f"Time: {j+1}s")
 
             self.laser_sweep(name=self.devices[int(key[i])])
 
@@ -565,18 +563,16 @@ class stage_control(App):
             config.y_size = int(self.area_s["y_size"])
             config.y_step = int(self.area_s["y_step"])
             area_sweep = AreaSweep(config, self.stage_manager, self.nir_manager)
-            data = asyncio.run(area_sweep.begin_sweep())
-            print(data)
+            self.data = asyncio.run(area_sweep.begin_sweep())
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=data)
+            diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=self.data)
             p = Process(target=diagram.heat_map)
             p.start()
             p.join()
             print("Done Scan")
         elif self.area_s["plot"] == "Previous":
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            data = np.array([[1,2,3,4,5,np.nan,7],[2,3,4,5,6,7,8],[3,4,5,6,7,8,9]])
-            diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=data)
+            diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=self.data)
             p = Process(target=diagram.heat_map)
             p.start()
             p.join()
@@ -587,6 +583,7 @@ class stage_control(App):
         value = float(self.x_input.get_value())
         print(f"X Left {value} um")
         asyncio.run(self.stage_manager.move_axis(AxisType.X, -value, True))
+        #print(self.nir_manager.read_power())
 
     def onclick_x_right(self):
         value = float(self.x_input.get_value())

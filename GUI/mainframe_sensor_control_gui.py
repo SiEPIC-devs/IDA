@@ -272,7 +272,6 @@ class stage_control(App):
         print(f"Power: {value:.1f} dBm")
 
     def onclick_sweep(self):
-        print("Start Sweeping")
         self.sweep["sweep"] = 1
         file = File("shared_memory", "Sweep", self.sweep)
         file.save()

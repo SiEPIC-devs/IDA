@@ -33,7 +33,6 @@ class FineAlign:
         self.threshold = config.get("threshold", -50.0)
         self.max_gradient_iters = config.get("gradient_iters", 50)
         self.use_crosshair = config.get("use_crosshair", False)
-        print(config)
 
     async def begin_fine_align(self) -> bool:
         """

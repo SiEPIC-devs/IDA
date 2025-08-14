@@ -1,6 +1,6 @@
 {
   "User": "Guest",
-  "Project": "p1",
+  "Project": "MyTest",
   "User_add": "Guest",
   "Image": "TSP/none.png",
   "Limit": {
@@ -31,7 +31,7 @@
     "end": 1560.0,
     "done": "Laser On",
     "sweep": 0,
-    "on": 0
+    "on": true
   },
   "ScanPos": {
     "x": 0,
@@ -44,9 +44,9 @@
   },
   "AutoSweep": 0,
   "Configuration": {
-    "stage": "",
-    "sensor": "",
-    "tec": ""
+    "stage": "stage_control",
+    "sensor": "stage_control",
+    "tec": "stage_control"
   },
   "Port": {
     "stage": 8,
