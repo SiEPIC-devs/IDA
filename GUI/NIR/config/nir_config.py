@@ -11,7 +11,7 @@ class NIRConfiguration:
     """Simple configuration for NIR system"""
     
     # Connection settings
-    com_port: int = 11
+    com_port: int = 3
     laser_slot: int = 0
     detector_slots: List[int] = field(default_factory=lambda: [1])
     safety_password: str = "1234"

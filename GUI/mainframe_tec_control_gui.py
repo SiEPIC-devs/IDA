@@ -4,7 +4,8 @@ from remi import start, App
 import threading, webview, signal, socket
 from LDC.ldc_manager import LDCManager
 from LDC.config.ldc_config import LDCConfiguration
-
+w = 6
+h = 17
 command_path = os.path.join("database", "command.json")
 shared_path = os.path.join("database", "shared_memory.json")
 
@@ -68,7 +69,7 @@ class tec_control(App):
             self.tec_window = webview.create_window(
                 'TEC Control',
                 f'http://{local_ip}:8002',
-                width=322, height=157,
+                width=322-w, height=157-h,
                 x=800, y=100,
                 resizable=True,
                 hidden=False

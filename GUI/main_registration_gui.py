@@ -55,7 +55,7 @@ class registration(App):
         # ---------------- Coordinate Table Section ----------------
         coordinate_container = StyledContainer(
             container=registration_container, variable_name="coordinate_container",
-            left=10, top=80, height=185, width=625, border=True
+            left=10, top=80, height=188, width=625, border=True
         )
 
         StyledLabel(

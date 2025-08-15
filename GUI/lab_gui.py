@@ -411,7 +411,7 @@ class File():
             "StagePos": {"x": 0, "y": 0},
             "AutoSweep": 0,
             "Configuration": {"stage": "", "sensor": "", "tec": ""},
-            "Port": {"stage": 8, "sensor": 11, "tec": 5},
+            "Port": {"stage": 4, "sensor": 5, "tec": 3},
             "DeviceName": "",
             "DeviceNum": 0
         }

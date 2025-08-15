@@ -3,7 +3,8 @@ from remi import start, App
 import threading
 import webview
 import signal
-
+w = 6
+h = 17
 shared_path = os.path.join("database", "shared_memory.json")
 
 class stage_control(App):
@@ -46,7 +47,7 @@ class stage_control(App):
             webview.create_window(
                 "TEC Control",
                 f"http://{local_ip}:8003",
-                width=422, height=137,
+                width=422-w, height=137-h,
                 x=1150, y=100,
                 resizable=True,
                 hidden=False

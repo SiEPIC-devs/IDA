@@ -2,7 +2,8 @@ from lab_gui import *
 from remi import start, App
 import lab_coordinates, threading, math, json, os, time, webview, wx, shutil
 from lab_tsp import TSPSolver
-
+w = 6
+h = 16
 command_path = os.path.join("database", "command.json")
 shared_path = os.path.join("database", "shared_memory.json")
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
@@ -566,8 +567,8 @@ class testing(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7001",
-            width=262,
-            height=305,
+            width=262-w,
+            height=305-h,
             resizable=True,
             on_top=True,
         )

@@ -16,6 +16,8 @@ filename = "coordinates.json"
 
 command_path = os.path.join("database", "command.json")
 shared_path = os.path.join("database", "shared_memory.json")
+w = 6
+h = 17
 
 class stage_control(App):
     def __init__(self, *args, **kwargs):
@@ -196,7 +198,7 @@ class stage_control(App):
             self.stage_window = webview.create_window(
                 'Stage Control',
                 f'http://{local_ip}:8000',
-                width=672, height=407,
+                width=672-w, height=407-h,
                 x=800, y=465,
                 resizable=True,
                 hidden=False
@@ -220,7 +222,7 @@ class stage_control(App):
             self.sensor_window = webview.create_window(
                 'Sensor Control',
                 f'http://{local_ip}:8001',
-                width=672, height=197,
+                width=672-w, height=197-h,
                 x=800, y=255,
                 resizable=True,
                 hidden=False
@@ -582,53 +584,53 @@ class stage_control(App):
     def onclick_x_left(self):
         value = float(self.x_input.get_value())
         print(f"X Left {value} um")
-        asyncio.run(self.stage_manager.move_axis(AxisType.X, -value, True))
-        #print(self.nir_manager.read_power())
+        asyncio.run(self.stage_manager.move_axis(AxisType.X, -value, True, wait_for_completion = False))
+        print(self.nir_manager.read_power())
 
     def onclick_x_right(self):
         value = float(self.x_input.get_value())
         print(f"X Right {value} um")
-        asyncio.run(self.stage_manager.move_axis(AxisType.X, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.X, value, True, wait_for_completion = False))
 
     def onclick_y_left(self):
         value = float(self.y_input.get_value())
         print(f"Y Left {value} um")
-        asyncio.run(self.stage_manager.move_axis(AxisType.Y, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Y, -value, True, wait_for_completion = False))
 
     def onclick_y_right(self):
         value = float(self.y_input.get_value())
         print(f"Y Right {value} um")
-        asyncio.run(self.stage_manager.move_axis(AxisType.Y, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Y, value, True, wait_for_completion = False))
 
     def onclick_z_left(self):
         value = float(self.z_input.get_value())
         print(f"Z Down {value} um")
-        asyncio.run(self.stage_manager.move_axis(AxisType.Z, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Z, -value, True, wait_for_completion = False))
 
     def onclick_z_right(self):
         value = float(self.z_input.get_value())
         print(f"Z Up {value} um")
-        asyncio.run(self.stage_manager.move_axis(AxisType.Z, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.Z, value, True, wait_for_completion = False))
 
     def onclick_chip_left(self):
         value = float(self.chip_input.get_value())
         print(f"Chip Turn CW {value} deg")
-        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, -value, True, wait_for_completion = False))
 
     def onclick_chip_right(self):
         value = float(self.chip_input.get_value())
         print(f"Chip Turn CCW {value} deg")
-        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, value, True, wait_for_completion = False))
 
     def onclick_fiber_left(self):
         value = float(self.fiber_input.get_value())
         print(f"Fiber Turn CW {value} deg")
-        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, -value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, -value, True, wait_for_completion = False))
 
     def onclick_fiber_right(self):
         value = float(self.fiber_input.get_value())
         print(f"Fiber Turn CCW {value} deg")
-        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, value, True))
+        asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, value, True, wait_for_completion = False))
 
     def onclick_load(self):
         self.gds = lab_coordinates.coordinates(("./res/" + filename), read_file=False,
@@ -705,8 +707,8 @@ class stage_control(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7002",
-            width=222,
-            height=266,
+            width=222-w,
+            height=266-h,
             resizable=True,
             on_top=True,
             hidden=False
@@ -717,8 +719,8 @@ class stage_control(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7003",
-            width=222,
-            height=236,
+            width=222-w,
+            height=236-h,
             resizable=True,
             on_top=True,
             hidden=False
@@ -729,8 +731,8 @@ class stage_control(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7004",
-            width=222,
-            height=266,
+            width=222-w,
+            height=266-h,
             resizable=True,
             on_top=True,
             hidden=False

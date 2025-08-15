@@ -3,7 +3,8 @@ from remi.gui import *
 from remi import start, App
 import threading, webview, signal, datetime
 import pandas as pd
-
+w = 6
+h = 16
 command_path = os.path.join("database", "command.json")
 shared_path = os.path.join("database", "shared_memory.json")
 
@@ -212,8 +213,8 @@ class stage_control(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7001",
-            width=262,
-            height=305,
+            width=262-w,
+            height=305-h,
             resizable=True,
             on_top=True,
             hidden=False

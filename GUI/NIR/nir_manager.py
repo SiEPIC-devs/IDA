@@ -303,6 +303,7 @@ class NIRManager:
                 return -100.0
                 
             reading = self.controller.read_power(channel)
+            print(reading)
             return reading[0].value, reading[1].value
             
         except Exception as e:

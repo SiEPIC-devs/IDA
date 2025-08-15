@@ -23,7 +23,7 @@ Cameron Basara, 2025
 
 class Agilent8163Controller(LaserHAL):
     def __init__(self, 
-                com_port: int = 11,
+                com_port: int = 3,
                 laser_slot: int = 0,
                 detector_slots: List[int] = None,
                 safety_password: str = "1234",
@@ -90,16 +90,24 @@ class Agilent8163Controller(LaserHAL):
             self.instrument.clear()
             time.sleep(0.2)
 
-            # Configure Prologix 
+            # Configure Prologix
             self.instrument.write('++mode 1') # Auto mode
             time.sleep(0.1)
             self.instrument.write('++addr 20') # Set gpib addr
             time.sleep(0.1)
-            self.instrument.write('++auto 1') # Read resp after send
+            self.instrument.write('++auto 0') # Read resp after send
             time.sleep(0.1)
             self.instrument.write('++eos 2') # Append LF termination
             time.sleep(0.1)
+
+            aaa = self._send_command('FETC1:CHAN1:POW?')
+            time.sleep(0.5)
             resp = self._send_command(self.cmd.identity()).strip() # *IDN?
+            time.sleep(0.1)
+
+            #aaa = self._send_command(self.cmd.identity()).strip()
+            print(aaa)
+            print(resp)
 
             # Max binary block size that can be read from 1 block
             self.instrument.chunk_size = 204050 * 2 + 8 # Represents 100k data points + header, EOF
@@ -164,10 +172,10 @@ class Agilent8163Controller(LaserHAL):
         if not self.instrument:
             logger.error("[SEND_CMD] No GPIB connection available")
             raise RuntimeError("Not connected to instrument")
-        
+
         try:
             # Daisy chained GPIBs, ensure correct port
-            self.instrument.write('++addr 20')
+            # self.instrument.write('++addr 20')
             if expect_response:
                 self.instrument.write(command)
                 time.sleep(0.05)  # small delay
@@ -464,13 +472,15 @@ class Agilent8163Controller(LaserHAL):
             # Small delay for averaging
             time.sleep(0.1)
             
-            cmd_master = self.cmd.read_power(master_slot, channel) 
+            cmd_master = self.cmd.read_power(master_slot, channel)
             cmd_slave = self.cmd.read_power(slave_slot, channel)
             response_master = self._send_command(cmd_master)
             time.sleep(0.1)
             response_slave = self._send_command(cmd_slave)
             
             # Parse power value
+
+
             power_value_master = float(response_master.strip())
             power_value_slave = float(response_slave.strip())
             

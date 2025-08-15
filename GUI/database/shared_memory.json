@@ -31,7 +31,7 @@
     "end": 1560.0,
     "done": "Laser On",
     "sweep": 0,
-    "on": true
+    "on": 0
   },
   "ScanPos": {
     "x": 0,
@@ -45,13 +45,13 @@
   "AutoSweep": 0,
   "Configuration": {
     "stage": "stage_control",
-    "sensor": "stage_control",
+    "sensor": "",
     "tec": "stage_control"
   },
   "Port": {
-    "stage": 8,
-    "sensor": 11,
-    "tec": 5
+    "stage": 4,
+    "sensor": 5,
+    "tec": 3
   },
   "DeviceName": "",
   "DeviceNum": 0
