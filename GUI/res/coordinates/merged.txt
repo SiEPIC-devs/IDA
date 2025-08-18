@@ -1,0 +1,522 @@
+% X-coord, Y-coord, Polarization, wavelength, type, deviceID, params 
+-5346, 5234, TE, 1550, PCM, PCM, wglossWide, 77705um
+-4930, 5049, TE, 1550, PCM, PCM, wglossWide, 1014um
+-4577, 5049, TE, 1550, PCM, PCM, wglossWide, 60910um
+-5514, 4127, TE, 1550, PCM, PCM, contraDC, N3
+-5514, 3763, TE, 1550, PCM, PCM, contraDC, N1
+-5448, 3931, TE, 1550, PCM, PCM, contraDC, N5
+-2581, 2596, TE, 1550, PCM, PCM, wgloss, C, TE, spiral, 1umClad, 5772um
+-2506, 2822, TE, 1550, PCM, PCM, wgloss, C, TE, spiral, 1umClad, 16177um
+-2796, 2822, TE, 1550, PCM, PCM, wgloss, C, TE, spiral, 1umClad, 10371um
+-2736, 2596, TE, 1550, PCM, PCM, wgloss, C, TE, spiral, 1umClad, 2379um
+-2796, 2596, TE, 1550, PCM, PCM, wgloss, C, TE, spiral, 1umClad, 0um
+-4154, 3105, TE, 1310, PCM, PCM, wgloss, O, TE, straight, 1umClad, 5346um
+-4224, 3105, TE, 1310, PCM, PCM, wgloss, O, TE, straight, 1umClad, 0um
+-3396, 3105, TE, 1310, PCM, PCM, wgloss, O, TE, straight, 1umClad, 16506um
+-3843, 3105, TE, 1310, PCM, PCM, wgloss, O, TE, straight, 1umClad, 10616um
+-4224, 3285, TE, 1310, PCM, PCM, wgloss, O, TE, straight, 1umClad, 29526um
+-2902, 4773, TE, 1310, PCM, PCM, DCsweep, Length12p00um
+-2502, 4709, TE, 1310, PCM, PCM, DCsweep, Length5p00um
+-2302, 4709, TE, 1310, PCM, PCM, DCsweep, Length1p00um
+-2402, 4773, TE, 1310, PCM, PCM, DCsweep, Length2p00um
+-2402, 4709, TE, 1310, PCM, PCM, DCsweep, Length3p00um
+-2702, 4773, TE, 1310, PCM, PCM, DCsweep, Length8p00um
+-2302, 4773, TE, 1310, PCM, PCM, DCsweep, Length0p00um
+-2602, 4773, TE, 1310, PCM, PCM, DCsweep, Length6p00um
+-2702, 4709, TE, 1310, PCM, PCM, DCsweep, Length9p00um
+-2802, 4709, TE, 1310, PCM, PCM, DCsweep, Length11p00um
+-2802, 4773, TE, 1310, PCM, PCM, DCsweep, Length10p00um
+-2502, 4773, TE, 1310, PCM, PCM, DCsweep, Length4p00um
+-2902, 4709, TE, 1310, PCM, PCM, DCsweep, Length13p00um
+-2602, 4709, TE, 1310, PCM, PCM, DCsweep, Length7p00um
+-5481, 4535, TE, 1310, PCM, PCM, BraggPeriod, 300N286nmPeriod350nmW15nmdW0Apo0
+-5161, 4535, TE, 1310, PCM, PCM, BraggPeriod, 300N270nmPeriod350nmW15nmdW0Apo0
+-5401, 4535, TE, 1310, PCM, PCM, BraggPeriod, 300N282nmPeriod350nmW15nmdW0Apo0
+-5561, 4535, TE, 1310, PCM, PCM, BraggPeriod, 300N290nmPeriod350nmW15nmdW0Apo0
+-5401, 4472, TE, 1310, PCM, PCM, BraggPeriod, 300N284nmPeriod350nmW15nmdW0Apo0
+-5481, 4472, TE, 1310, PCM, PCM, BraggPeriod, 300N288nmPeriod350nmW15nmdW0Apo0
+-5241, 4472, TE, 1310, PCM, PCM, BraggPeriod, 300N276nmPeriod350nmW15nmdW0Apo0
+-5321, 4472, TE, 1310, PCM, PCM, BraggPeriod, 300N280nmPeriod350nmW15nmdW0Apo0
+-5161, 4472, TE, 1310, PCM, PCM, BraggPeriod, 300N272nmPeriod350nmW15nmdW0Apo0
+-5321, 4535, TE, 1310, PCM, PCM, BraggPeriod, 300N278nmPeriod350nmW15nmdW0Apo0
+-5241, 4535, TE, 1310, PCM, PCM, BraggPeriod, 300N274nmPeriod350nmW15nmdW0Apo0
+-4030, 2596, TE, 1310, PCM, PCM, wglossSpiral, 0um
+-3741, 2822, TE, 1310, PCM, PCM, wglossSpiral, 16177um
+-4030, 2822, TE, 1310, PCM, PCM, wglossSpiral, 10371um
+-3815, 2596, TE, 1310, PCM, PCM, wglossSpiral, 5772um
+-3970, 2596, TE, 1310, PCM, PCM, wglossSpiral, 2379um
+-2396, 4144, TE, 1310, PCM, PCM, MZI, swgassist, te1550nm
+-2306, 3952, TE, 1550, PCM, PCM, MZI, swgassist, te1550nm
+-1941, 4151, TE, 1550, PCM, PCM, MZI, BDC, te1550nm
+-4928, 4617, TE, 1550, PCM, PCM, YBranchAdibatic, N56
+-4928, 4452, TE, 1550, PCM, PCM, YBranchAdibatic, N112
+-4528, 4617, TE, 1550, PCM, PCM, YBranchAdibatic, N0
+-2724, 4134, TE, 1310, PCM, PCM, RingDoubler10g340
+-2800, 4134, TE, 1310, PCM, PCM, RingDoubler10g320
+-2876, 4134, TE, 1310, PCM, PCM, RingDoubler10g300
+-3028, 4134, TE, 1310, PCM, PCM, RingDoubler10g260
+-3483, 4134, TE, 1310, PCM, PCM, RingDoubler10g140
+-2495, 4134, TE, 1310, PCM, PCM, RingDoubler10g400
+-3559, 4134, TE, 1310, PCM, PCM, RingDoubler10g120
+-3634, 4134, TE, 1310, PCM, PCM, RingDoubler10g100
+-3407, 4134, TE, 1310, PCM, PCM, RingDoubler10g160
+-3256, 4134, TE, 1310, PCM, PCM, RingDoubler10g200
+-3710, 4134, TE, 1310, PCM, PCM, RingDoubler10g80
+-3104, 4134, TE, 1310, PCM, PCM, RingDoubler10g240
+-3180, 4134, TE, 1310, PCM, PCM, RingDoubler10g220
+-2952, 4134, TE, 1310, PCM, PCM, RingDoubler10g280
+-3331, 4134, TE, 1310, PCM, PCM, RingDoubler10g180
+-2648, 4134, TE, 1310, PCM, PCM, RingDoubler10g360
+-2571, 4134, TE, 1310, PCM, PCM, RingDoubler10g380
+-4057, 4773, TE, 1550, PCM, PCM, DCsweep, Length8p00um
+-3657, 4773, TE, 1550, PCM, PCM, DCsweep, Length0p00um
+-3757, 4773, TE, 1550, PCM, PCM, DCsweep, Length2p00um
+-3657, 4709, TE, 1550, PCM, PCM, DCsweep, Length1p00um
+-4257, 4709, TE, 1550, PCM, PCM, DCsweep, Length13p00um
+-4057, 4709, TE, 1550, PCM, PCM, DCsweep, Length9p00um
+-3957, 4709, TE, 1550, PCM, PCM, DCsweep, Length7p00um
+-3857, 4773, TE, 1550, PCM, PCM, DCsweep, Length4p00um
+-4157, 4709, TE, 1550, PCM, PCM, DCsweep, Length11p00um
+-4257, 4773, TE, 1550, PCM, PCM, DCsweep, Length12p00um
+-4157, 4773, TE, 1550, PCM, PCM, DCsweep, Length10p00um
+-3857, 4709, TE, 1550, PCM, PCM, DCsweep, Length5p00um
+-3757, 4709, TE, 1550, PCM, PCM, DCsweep, Length3p00um
+-3957, 4773, TE, 1550, PCM, PCM, DCsweep, Length6p00um
+-4546, 3777, TE, 1550, PCM, PCM, wglossBraggFP
+-4928, 4788, TE, 1310, PCM, PCM, YBranchAdibatic, N112
+-4496, 4953, TE, 1310, PCM, PCM, YBranchAdibatic, N0
+-4928, 4953, TE, 1550, PCM, PCM, YBranchAdibatic, N56
+-5172, 2905, TE, 1310, PCM, PCM, wglossStraight, 10616um
+-5553, 3085, TE, 1310, PCM, PCM, wglossStraight, 29526um
+-5483, 2905, TE, 1310, PCM, PCM, wglossStraight, 5346um
+-5553, 2905, TE, 1310, PCM, PCM, wglossStraight, 0um
+-4725, 2905, TE, 1310, PCM, PCM, wglossStraight, 16506um
+-2205, 3717, TE, 1550, PCM, PCM, YBranch, N60
+-1765, 3530, TE, 1550, PCM, PCM, YBranch, N0
+-2205, 3530, TE, 1550, PCM, PCM, YBranch, N120
+-1955, 3717, TE, 1550, PCM, PCM, YBranch, N36
+-1765, 3717, TE, 1550, PCM, PCM, YBranch, N12
+-4866, 3281, TE, 1550, PCM, PCM, StraightWGloss16506TE
+-5566, 3281, TE, 1550, PCM, PCM, StraightWGloss0TE
+-5496, 3281, TE, 1550, PCM, PCM, StraightWGloss5346TE
+-5566, 3441, TE, 1550, PCM, PCM, StraightWGloss29526TE
+-5268, 3281, TE, 1550, PCM, PCM, StraightWGloss10616TE
+-3958, 3708, TE, 1310, PCM, PCM, YBranch, N36
+-3766, 3521, TE, 1310, PCM, PCM, YBranch, N0
+-3747, 3708, TE, 1310, PCM, PCM, YBranch, N12
+-4244, 3708, TE, 1310, PCM, PCM, YBranch, N60
+-4244, 3521, TE, 1310, PCM, PCM, YBranch, N120
+-3413, 2596, TE, 1550, PCM, PCM, SpiralWG0TE
+-3197, 2596, TE, 1550, PCM, PCM, SpiralWG5772TE
+-3413, 2822, TE, 1550, PCM, PCM, SpiralWG10371TE
+-3123, 2822, TE, 1550, PCM, PCM, SpiralWG16177TE
+-3353, 2596, TE, 1550, PCM, PCM, SpiralWG2379TE
+-4068, 4146, TE, 1550, PCM, PCM, MZI, BDC, te1550nm, biasedPlus15nm
+-4879, 3948, TE, 1310, PCM, PCM, contraDC, N5
+-4948, 4119, TE, 1310, PCM, PCM, contraDC, N1
+-4948, 3750, TE, 1310, PCM, PCM, contraDC, N3
+-5481, 4913, TE, 1550, PCM, PCM, BraggPeriod, 300N332nmPeriod500nmW30nmdW0Apo0
+-5161, 4913, TE, 1550, PCM, PCM, BraggPeriod, 300N316nmPeriod500nmW30nmdW0Apo0
+-5481, 4976, TE, 1550, PCM, PCM, BraggPeriod, 300N330nmPeriod500nmW30nmdW0Apo0
+-5401, 4913, TE, 1550, PCM, PCM, BraggPeriod, 300N328nmPeriod500nmW30nmdW0Apo0
+-5321, 4913, TE, 1550, PCM, PCM, BraggPeriod, 300N324nmPeriod500nmW30nmdW0Apo0
+-5161, 4976, TE, 1550, PCM, PCM, BraggPeriod, 300N314nmPeriod500nmW30nmdW0Apo0
+-5241, 4913, TE, 1550, PCM, PCM, BraggPeriod, 300N320nmPeriod500nmW30nmdW0Apo0
+-5561, 4976, TE, 1550, PCM, PCM, BraggPeriod, 300N334nmPeriod500nmW30nmdW0Apo0
+-5401, 4976, TE, 1550, PCM, PCM, BraggPeriod, 300N326nmPeriod500nmW30nmdW0Apo0
+-5321, 4976, TE, 1550, PCM, PCM, BraggPeriod, 300N322nmPeriod500nmW30nmdW0Apo0
+-5241, 4976, TE, 1550, PCM, PCM, BraggPeriod, 300N318nmPeriod500nmW30nmdW0Apo0
+-5348, 2742, TE, 1550, PCM, PCM, wgloss, C, TE, straight, 1umClad, 29526um
+-5348, 2582, TE, 1550, PCM, PCM, wgloss, C, TE, straight, 1umClad, 0um
+-4648, 2582, TE, 1550, PCM, PCM, wgloss, C, TE, straight, 1umClad, 16506um
+-5278, 2582, TE, 1550, PCM, PCM, wgloss, C, TE, straight, 1umClad, 5346um
+-5049, 2582, TE, 1550, PCM, PCM, wgloss, C, TE, straight, 1umClad, 10616um
+-2475, 3282, TE, 1310, PCM, PCM, wgloss, O, TE, spiral, 1umClad, 16177um
+-2550, 3057, TE, 1310, PCM, PCM, wgloss, O, TE, spiral, 1umClad, 5772um
+-2765, 3282, TE, 1310, PCM, PCM, wgloss, O, TE, spiral, 1umClad, 10371um
+-2705, 3057, TE, 1310, PCM, PCM, wgloss, O, TE, spiral, 1umClad, 2379um
+-2765, 3057, TE, 1310, PCM, PCM, wgloss, O, TE, spiral, 1umClad, 0um
+-5494, 2704, TE, 1310, device, Alignment, comment
+-5563, 2704, TE, 1550, device, Alignment, comment
+-5494, 2577, TE, 1310, PCM, PCM, wglossStraight, 0um
+-1714, 2704, TE, 1310, device, Alignment, comment
+-1783, 2704, TE, 1550, device, Alignment, comment
+-1714, 2577, TE, 1310, PCM, PCM, wglossStraight, 0um
+-5494, 5365, TE, 1310, device, Alignment, comment
+-5563, 5365, TE, 1550, device, Alignment, comment
+-5494, 5238, TE, 1310, PCM, PCM, wglossStraight, 0um
+-4220, 3971, TE, 1550, PCM, PCM, strip2slot, N0
+-4392, 3971, TE, 1550, PCM, PCM, strip2slot, N8
+-4468, 4116, TE, 1550, PCM, PCM, strip2slot, N20
+-4468, 3929, TE, 1550, PCM, PCM, strip2slot, N40
+3103, 2263, TE, 1550, device, Mateo, ant, ebeam, ybranch, 6
+2801, 2263, TE, 1550, device, Mateo, ant, ebeam, ybranch, 4
+2460, 2263, TE, 1550, device, Mateo, ant, ebeam, ybranch, 1
+2559, 2263, TE, 1550, device, Mateo, ant, ebeam, ybranch, 2
+2673, 2263, TE, 1550, device, Mateo, ant, ebeam, ybranch, 3
+2945, 2263, TE, 1550, device, Mateo, ant, ebeam, ybranch, 5
+1632, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 13
+1895, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 14
+2170, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 15
+1384, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 12
+1472, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 15
+928, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 10
+1149, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 11
+527, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 8
+721, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 9
+642, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 12
+903, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 13
+1180, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 14
+181, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 6
+347, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 7
+28, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 5
+-235, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 3
+-445, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 1
+-347, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 2
+-110, 2263, TE, 1550, device, Mateo, thinzep, aircladded, ybranch, 4
+-54, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 9
+-445, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 7
+-257, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 8
+394, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 11
+162, 1983, TE, 1550, device, Mateo, ant, ebeam, ybranch, 10
+3418, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax65nm
+3638, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax100nm
+3858, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax85nm
+3748, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax105nm
+3748, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax80nm
+3528, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax70nm
+3638, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax75nm
+3967, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax90nm
+4077, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax95nm
+4846, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax70nm
+4187, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax100nm
+4297, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax105nm
+4407, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax110nm
+4516, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax115nm
+4626, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax120nm
+4736, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax125nm
+4846, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax130nm
+3418, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax90nm
+3528, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax95nm
+3858, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax110nm
+3967, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax115nm
+4516, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax140nm
+4077, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax120nm
+4297, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax130nm
+4187, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax125nm
+4626, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax60nm
+4407, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax135nm
+4736, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax65nm
+1881, 5199, TE, 1550, device, Mateo, bragg, 1000N328nmPeriod500nmW20nmdW0Apo, 1
+3199, 5199, TE, 1550, device, Mateo, bragg, 1000N340nmPeriod500nmW20nmdW0Apo, 1
+2979, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax70nm
+2430, 5199, TE, 1550, device, Mateo, bragg, 1000N333nmPeriod500nmW20nmdW0Apo, 1
+2650, 5199, TE, 1550, device, Mateo, bragg, 1000N335nmPeriod500nmW20nmdW0Apo, 1
+2979, 5199, TE, 1550, device, Mateo, bragg, 1000N338nmPeriod500nmW20nmdW0Apo, 1
+3308, 5072, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax60nm
+2101, 5199, TE, 1550, device, Mateo, bragg, 1000N330nmPeriod500nmW20nmdW0Apo, 1
+3089, 5199, TE, 1550, device, Mateo, bragg, 1000N339nmPeriod500nmW20nmdW0Apo, 1
+1881, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax105nm
+1991, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax110nm
+2869, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax65nm
+2101, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax115nm
+2210, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax120nm
+2320, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax125nm
+2430, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax130nm
+2759, 5199, TE, 1550, device, Mateo, bragg, 1000N336nmPeriod500nmW20nmdW0Apo, 1
+2540, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax135nm
+2650, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax140nm
+2210, 5199, TE, 1550, device, Mateo, bragg, 1000N331nmPeriod500nmW20nmdW0Apo, 1
+2759, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax60nm
+3089, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax75nm
+3199, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax80nm
+3308, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n25, n13, r, mmax85nm
+1991, 5199, TE, 1550, device, Mateo, bragg, 1000N329nmPeriod500nmW20nmdW0Apo, 1
+2320, 5199, TE, 1550, device, Mateo, bragg, 1000N332nmPeriod500nmW20nmdW0Apo, 1
+2540, 5199, TE, 1550, device, Mateo, bragg, 1000N334nmPeriod500nmW20nmdW0Apo, 1
+2869, 5199, TE, 1550, device, Mateo, bragg, 1000N337nmPeriod500nmW20nmdW0Apo, 1
+2210, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax60nm
+2979, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax95nm
+2430, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax70nm
+2101, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax140nm
+1991, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax135nm
+1881, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax130nm
+2320, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax65nm
+2540, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax75nm
+2650, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax80nm
+2759, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax85nm
+2869, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax90nm
+3089, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax100nm
+3199, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax105nm
+3308, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax110nm
+3967, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax140nm
+3418, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax115nm
+3528, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax120nm
+3638, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax125nm
+3748, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax130nm
+3858, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n28, n13, r, mmax135nm
+4077, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax60nm
+4187, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax65nm
+4297, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax70nm
+4407, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax75nm
+4516, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax80nm
+4626, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax85nm
+4736, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax90nm
+4846, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax95nm
+1442, 5199, TE, 1550, device, Mateo, bragg, 1000N324nmPeriod500nmW20nmdW0Apo, 1
+783, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax140nm
+563, 5199, TE, 1550, device, Mateo, bragg, 1000N316nmPeriod500nmW20nmdW0Apo, 1
+783, 5199, TE, 1550, device, Mateo, bragg, 1000N318nmPeriod500nmW20nmdW0Apo, 1
+893, 5199, TE, 1550, device, Mateo, bragg, 1000N319nmPeriod500nmW20nmdW0Apo, 1
+344, 5199, TE, 1550, device, Mateo, bragg, 1000N314nmPeriod500nmW20nmdW0Apo, 1
+453, 5199, TE, 1550, device, Mateo, bragg, 1000N315nmPeriod500nmW20nmdW0Apo, 1
+673, 5199, TE, 1550, device, Mateo, bragg, 1000N317nmPeriod500nmW20nmdW0Apo, 1
+1002, 5199, TE, 1550, device, Mateo, bragg, 1000N320nmPeriod500nmW20nmdW0Apo, 1
+1551, 5199, TE, 1550, device, Mateo, bragg, 1000N325nmPeriod500nmW20nmdW0Apo, 1
+1112, 5199, TE, 1550, device, Mateo, bragg, 1000N321nmPeriod500nmW20nmdW0Apo, 1
+1222, 5199, TE, 1550, device, Mateo, bragg, 1000N322nmPeriod500nmW20nmdW0Apo, 1
+1332, 5199, TE, 1550, device, Mateo, bragg, 1000N323nmPeriod500nmW20nmdW0Apo, 1
+1661, 5199, TE, 1550, device, Mateo, bragg, 1000N326nmPeriod500nmW20nmdW0Apo, 1
+1771, 5199, TE, 1550, device, Mateo, bragg, 1000N327nmPeriod500nmW20nmdW0Apo, 1
+1112, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax70nm
+344, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax120nm
+453, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax125nm
+563, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax130nm
+673, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax135nm
+893, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax60nm
+1002, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax65nm
+1222, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax75nm
+1442, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax85nm
+1332, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax80nm
+1551, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax90nm
+1661, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax95nm
+1771, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n24, n13, r, mmax100nm
+-95, 5199, TE, 1550, device, Mateo, bragg, 1000N310nmPeriod500nmW20nmdW0Apo, 1
+234, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax115nm
+-863, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax65nm
+-534, 5199, TE, 1550, device, Mateo, bragg, 1000N306nmPeriod500nmW20nmdW0Apo, 1
+-1193, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax135nm
+14, 5199, TE, 1550, device, Mateo, bragg, 1000N311nmPeriod500nmW20nmdW0Apo, 1
+124, 5199, TE, 1550, device, Mateo, bragg, 1000N312nmPeriod500nmW20nmdW0Apo, 1
+234, 5199, TE, 1550, device, Mateo, bragg, 1000N313nmPeriod500nmW20nmdW0Apo, 1
+-1083, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n22, n13, r, mmax140nm
+-973, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax60nm
+-754, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax70nm
+-644, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax75nm
+-534, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax80nm
+-424, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax85nm
+-314, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax90nm
+-205, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax95nm
+-95, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax100nm
+14, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax105nm
+124, 4652, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n23, n13, r, mmax110nm
+-1193, 5199, TE, 1550, device, Mateo, bragg, 1000N300nmPeriod500nmW20nmdW0Apo, 1
+-1083, 5199, TE, 1550, device, Mateo, bragg, 1000N301nmPeriod500nmW20nmdW0Apo, 1
+-973, 5199, TE, 1550, device, Mateo, bragg, 1000N302nmPeriod500nmW20nmdW0Apo, 1
+-863, 5199, TE, 1550, device, Mateo, bragg, 1000N303nmPeriod500nmW20nmdW0Apo, 1
+-754, 5199, TE, 1550, device, Mateo, bragg, 1000N304nmPeriod500nmW20nmdW0Apo, 1
+-644, 5199, TE, 1550, device, Mateo, bragg, 1000N305nmPeriod500nmW20nmdW0Apo, 1
+-424, 5199, TE, 1550, device, Mateo, bragg, 1000N307nmPeriod500nmW20nmdW0Apo, 1
+-314, 5199, TE, 1550, device, Mateo, bragg, 1000N308nmPeriod500nmW20nmdW0Apo, 1
+-205, 5199, TE, 1550, device, Mateo, bragg, 1000N309nmPeriod500nmW20nmdW0Apo, 1
+-95, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax125nm
+234, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax140nm
+-754, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax95nm
+-644, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax100nm
+-534, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax105nm
+-424, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax110nm
+-314, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax115nm
+-205, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax120nm
+14, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax130nm
+124, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax135nm
+-1193, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax75nm
+-1083, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax80nm
+-973, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax85nm
+-863, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n26, n13, r, mmax90nm
+1661, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax120nm
+1771, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax125nm
+1332, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax105nm
+1442, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax110nm
+1551, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax115nm
+344, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax60nm
+453, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax65nm
+563, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax70nm
+673, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax75nm
+783, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax80nm
+893, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax85nm
+1002, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax90nm
+1112, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax95nm
+1222, 4232, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n27, n13, r, mmax100nm
+344, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax85nm
+1661, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax60nm
+783, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax105nm
+453, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax90nm
+563, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax95nm
+673, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax100nm
+893, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax110nm
+1002, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax115nm
+1112, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax120nm
+1222, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax125nm
+1332, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax130nm
+1442, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax135nm
+1551, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax140nm
+1771, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax65nm
+-534, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax130nm
+-973, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax110nm
+234, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax80nm
+-863, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax115nm
+-1193, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax100nm
+-1083, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax105nm
+-754, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax120nm
+-644, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax125nm
+-424, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax135nm
+-314, 3813, TE, 1550, device, Mateo, symmetriccavity, lc5.5, n29, n13, r, mmax140nm
+-205, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax60nm
+-95, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax65nm
+14, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax70nm
+124, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n22, n13, r, mmax75nm
+-1083, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax130nm
+234, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax130nm
+-754, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax85nm
+-205, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax85nm
+-205, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax110nm
+-534, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax95nm
+234, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax105nm
+-973, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax75nm
+-1193, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax125nm
+-973, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax135nm
+-863, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax140nm
+-754, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax60nm
+-644, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax65nm
+-534, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax70nm
+-424, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax75nm
+-314, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax80nm
+-95, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax90nm
+14, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax95nm
+124, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax100nm
+-1193, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax65nm
+-1083, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax70nm
+-863, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax80nm
+-644, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax90nm
+-424, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax100nm
+-314, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax105nm
+-95, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax115nm
+14, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax120nm
+124, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax125nm
+1551, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax105nm
+1112, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax60nm
+783, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax130nm
+1112, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax85nm
+1771, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax90nm
+1442, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax100nm
+673, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax65nm
+563, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax60nm
+453, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax140nm
+344, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax110nm
+453, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax115nm
+563, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax120nm
+673, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax125nm
+893, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax135nm
+1002, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n25, n13, r, mmax140nm
+1222, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax65nm
+1332, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax70nm
+1442, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax75nm
+1551, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax80nm
+1661, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax85nm
+344, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax135nm
+783, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax70nm
+893, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax75nm
+1002, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax80nm
+1222, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax90nm
+1332, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax95nm
+1661, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax110nm
+1771, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax115nm
+3967, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax80nm
+4407, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax100nm
+4516, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax105nm
+4626, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax110nm
+3418, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax140nm
+3528, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax60nm
+3638, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax65nm
+3748, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax70nm
+3858, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax75nm
+4077, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax85nm
+4187, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax90nm
+4297, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax95nm
+4736, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax115nm
+4846, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n24, n13, r, mmax120nm
+2101, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax80nm
+2430, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax95nm
+2540, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax100nm
+3089, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax125nm
+1881, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax70nm
+1991, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax75nm
+2210, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax85nm
+2320, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax90nm
+2650, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax105nm
+2759, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax110nm
+2869, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax115nm
+2979, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax120nm
+3199, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax130nm
+3308, 3813, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n23, n13, r, mmax135nm
+2320, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax115nm
+1881, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax120nm
+2540, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax125nm
+1991, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax125nm
+2210, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax110nm
+2979, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax60nm
+2869, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax140nm
+1881, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax95nm
+1991, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax100nm
+2101, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax105nm
+2430, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax120nm
+2650, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax130nm
+2759, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n26, n13, r, mmax135nm
+3089, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax65nm
+3199, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax70nm
+3308, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax75nm
+2101, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax130nm
+2210, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax135nm
+2320, 2973, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n29, n13, r, mmax140nm
+3748, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax95nm
+3967, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax105nm
+4846, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n28, n13, r, mmax60nm
+4626, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax135nm
+3858, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax100nm
+3638, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax90nm
+4516, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax130nm
+4297, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax120nm
+4077, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax110nm
+4187, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax115nm
+4407, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax125nm
+4736, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax140nm
+3418, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax80nm
+3528, 3393, TE, 1550, device, Mateo, symmetriccavity, cw, lc5.5, n27, n13, r, mmax85nm
+-5855, -5858, TE, 1550, device, AlignmentYBranch, comment
+-5755, -5858, TE, 1310, device, Alignment, comment
+-5655, -5858, TE, 1310, device, AlignmentYBranch, comment
+-5955, -5858, TE, 1550, device, Alignment, comment
+5755, -5858, TE, 1550, device, AlignmentYBranch, comment
+5855, -5858, TE, 1310, device, Alignment, comment
+5955, -5858, TE, 1310, device, AlignmentYBranch, comment
+5655, -5858, TE, 1550, device, Alignment, comment
+-5855, 5852, TE, 1550, device, AlignmentYBranch, comment
+-5755, 5852, TE, 1310, device, Alignment, comment
+-5655, 5852, TE, 1310, device, AlignmentYBranch, comment
+-5955, 5852, TE, 1550, device, Alignment, comment
+5755, 5852, TE, 1550, device, AlignmentYBranch, comment
+5855, 5852, TE, 1310, device, Alignment, comment
+5955, 5852, TE, 1310, device, AlignmentYBranch, comment
+5655, 5852, TE, 1550, device, Alignment, comment
+-1166, 5557, TE, 1550, device, AlignmentYBranch, comment
+-1266, 5557, TE, 1550, device, Alignment, comment
+-1166, 1057, TE, 1550, device, AlignmentYBranch, comment
+-1266, 1057, TE, 1550, device, Alignment, comment
+5053, 5557, TE, 1550, device, AlignmentYBranch, comment
+4953, 5557, TE, 1550, device, Alignment, comment
+5053, 1057, TE, 1550, device, AlignmentYBranch, comment
+4953, 1057, TE, 1550, device, Alignment, comment
+
+% X-coord, Y-coord, deviceID, padName, params 
+
+% X-coord, Y-coord, recipeID, params 
