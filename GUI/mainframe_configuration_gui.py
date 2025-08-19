@@ -4,10 +4,11 @@
 # Embedded file name: /home/pi/Desktop/new GUI/main_gui.py
 # Compiled at: 2023-02-14 23:59:31
 # Size of source mod 2**32: 11801 bytes
+from IPython.lib.display import IFrame
 
 from lib_gui import *
 from remi.gui import *
-from remi import start, App
+from remi import start, App, gui
 import threading, webview, signal, socket, time
 
 def get_local_ip():
@@ -36,6 +37,56 @@ class NIR_Measurment_System(App):
     def construct_ui(self):
         ip_address = get_local_ip()
         main = StyledContainer(variable_name="main", left=0, top=0, height=715, width=650)
+
+        stage = StyledContainer(
+            container=main, variable_name="stage", left=700, top=365, height=350, width=650, border=True
+        )
+        iframe_stage = gui.Widget(_type='iframe')
+        iframe_stage.attributes['src'] = f'http://{ip_address}:8000'
+        iframe_stage.attributes['frameborder'] = '0'
+        iframe_stage.attributes['allowfullscreen'] = 'true'
+        iframe_stage.style['width'] = '100%'
+        iframe_stage.style['height'] = '100%'
+        iframe_stage.style['border'] = '0'
+        stage.append(iframe_stage, key='ext_site')
+
+        sensor = StyledContainer(
+            container=main, variable_name="sensor", left=700, top=205, height=140, width=650, border=True
+        )
+        iframe_sensor = gui.Widget(_type='iframe')
+        iframe_sensor.attributes['src'] = f'http://{ip_address}:8001'
+        iframe_sensor.attributes['frameborder'] = '0'
+        iframe_sensor.attributes['allowfullscreen'] = 'true'
+        iframe_sensor.style['width'] = '100%'
+        iframe_sensor.style['height'] = '100%'
+        iframe_sensor.style['border'] = '0'
+        sensor.append(iframe_sensor, key='ext_site')
+
+        tec = StyledContainer(
+            container=main, variable_name="tec", left=700, top=85, height=100, width=300, border=True
+        )
+        iframe_tec = gui.Widget(_type='iframe')
+        iframe_tec.attributes['src'] = f'http://{ip_address}:8002'
+        iframe_tec.attributes['frameborder'] = '0'
+        iframe_tec.attributes['allowfullscreen'] = 'true'
+        iframe_tec.style['width'] = '100%'
+        iframe_tec.style['height'] = '100%'
+        iframe_tec.style['border'] = '0'
+        tec.append(iframe_tec, key='ext_site')
+
+        command = StyledContainer(
+            container=main, variable_name="command", left=1020, top=105, height=80, width=400, border=True
+        )
+        iframe_command = gui.Widget(_type='iframe')
+        iframe_command.attributes['src'] = f'http://{ip_address}:8003'
+        iframe_command.attributes['frameborder'] = '0'
+        iframe_command.attributes['allowfullscreen'] = 'true'
+        iframe_command.style['width'] = '100%'
+        iframe_command.style['height'] = '100%'
+        iframe_command.style['border'] = '0'
+        command.append(iframe_command, key='ext_site')
+
+
         main_tab = TabBox()
         main_tab.attr_editor_newclass = False
         main_tab.css_align_content = "center"
@@ -79,7 +130,7 @@ class NIR_Measurment_System(App):
 
 def run_remi():
     start(NIR_Measurment_System,
-          address='0.0.0.0', port=8080,
+          address='0.0.0.0', port=80,
           start_browser=False,
           multiple_instance=False)
 
@@ -102,7 +153,7 @@ if __name__ == '__main__':
 
     webview.create_window(
         'Probe Stage',
-        f'http://{local_ip}:8080',
+        f'http://{local_ip}:80',
         width=672+web_w, height=771+web_h,
         x= 100, y= 100,
         resizable=False
