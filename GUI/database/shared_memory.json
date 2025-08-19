@@ -1,6 +1,6 @@
 {
   "User": "Guest",
-  "Project": "MyTest",
+  "Project": "MyProject",
   "User_add": "Guest",
   "Image": "TSP/none.png",
   "Limit": {
@@ -50,8 +50,8 @@
   },
   "Port": {
     "stage": 4,
-    "sensor": 6,
-    "tec": 5
+    "sensor": 5,
+    "tec": 3
   },
   "DeviceName": "",
   "DeviceNum": 0

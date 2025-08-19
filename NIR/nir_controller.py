@@ -264,7 +264,6 @@ class Agilent8164Controller(LaserHAL):
         try:
             cmd = self.cmd.read_laser_power(self.laser_slot)
             response = self._send_command(cmd).strip()
-            print(response)
             power = float(response)
             unit = PowerUnit.DBM
             self._current_power = power

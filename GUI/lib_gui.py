@@ -16,8 +16,8 @@ import shutil
 import numpy as np
 from scipy.ndimage import gaussian_filter
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-web_w = 0
-web_h = 0
+web_w = -6
+web_h = -16
 def apply_common_style(widget, left, top, width, height, position="absolute", percent=False):
     widget.css_position = position
     widget.css_left = f"{left}px"
@@ -412,7 +412,7 @@ class File():
             "StagePos": {"x": 0, "y": 0},
             "AutoSweep": 0,
             "Configuration": {"stage": "", "sensor": "", "tec": ""},
-            "Port": {"stage": 4, "sensor": 6, "tec": 5},
+            "Port": {"stage": 4, "sensor": 5, "tec": 3},
             "DeviceName": "",
             "DeviceNum": 0
         }

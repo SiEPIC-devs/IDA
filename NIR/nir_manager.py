@@ -2,7 +2,7 @@ import logging
 from typing import Dict, Any, Callable, List, Optional
 from dataclasses import dataclass, asdict
 
-from NIR.nir_controller import Agilent8164Controller
+from NIR.nir_controller_n import Agilent8164Controller
 from NIR.lambda_sweep import LambdaScanProtocol
 from NIR.hal.nir_hal import LaserEvent, LaserEventType
 from NIR.config.nir_config import NIRConfiguration  
@@ -95,10 +95,10 @@ class NIRManager:
             success = self.controller.connect()
             if success:
                 self._connected = True
+                self.controller._drain_all()
                 self._log("Connected to NIR device")
                 self.scan_module = LambdaScanProtocol(
                     config=self.config, laser=self.controller, com_port=self.config.com_port)
-                # Configure device with current settings
                 self._configure_device()
             else:
                 self._log("Failed to connect to NIR device", "error")
@@ -300,14 +300,14 @@ class NIRManager:
         try:
             if not self.controller or not self._connected:
                 self._log("Controller not connected", "error")
-                return -100.0
+                return -100.0, -100.0
                 
-            reading = self.controller.read_power(channel)
-            return reading[0].value, reading[1].value
+            reading1, reading2 = self.controller.read_power(channel)
+            return reading1.value, reading2.value
             
         except Exception as e:
             self._log(f"Read power error: {e}", "error")
-            return -100.0
+            return -100.0, -100.0
 
     def check_optical_connections(self) -> Dict[str, Any]:
         """Check optical connections"""
