@@ -37,10 +37,10 @@ class AreaSweep:
         """
         try:
             # Confirm managers are functional
-            ok = await self.stage_status
+            ok = await self.stage_status()
             if not ok:
                 raise Exception("Invalid stage manager status")
-            ok = await self.nir_status
+            ok = await self.nir_status()
             if not ok:
                 raise Exception("Invalid NIR instrument manager status")
             
@@ -59,13 +59,13 @@ class AreaSweep:
 
             # Initial measurement
             loss_master, loss_slave = self.nir_manager.read_power() 
-            x_data.append(max(loss_master, loss_slave))
+            x_data.append(loss_master)
             
             
-            parity = lambda step, n: step if (n%2) != 0 else -step  # helper for parity switchin
+            parity = lambda step, n: step if (n%2) == 0 else -step  # helper for parity switchin
 
-            for i in range(x_len // x_step):
-                for j in range(y_len // y_step):
+            for i in range(y_len // y_step):
+                for j in range(x_len // x_step):
                     step = parity(x_step, i)
                     await self.stage_manager.move_axis(
                         axis = AxisType.X,
@@ -74,7 +74,7 @@ class AreaSweep:
                         wait_for_completion = True)
                     
                     loss_master, loss_slave = self.nir_manager.read_power() 
-                    x_data.append(max(loss_master, loss_slave))
+                    x_data.append(loss_master)
                     x_pos += step
                 data.append(x_data)
                 x_data = []
@@ -86,7 +86,7 @@ class AreaSweep:
                         relative = True,
                         wait_for_completion = True)
                 loss_master, loss_slave = self.nir_manager.read_power() # some params
-                x_data.append(max(loss_master,loss_slave))
+                x_data.append(loss_master)
                 y_pos += y_step
             
             # Once area sweep is complete, return the data as np.array

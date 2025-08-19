@@ -4,7 +4,7 @@ from typing import Dict, Any, Tuple
 
 from motors.stage_manager import StageManager
 from motors.hal.motors_hal import AxisType
-from NIR.nir_manager import NirManager
+from NIR.nir_manager import NIRManager
 
 import logging
 
@@ -22,7 +22,7 @@ class FineAlign:
     Perform fine alignment by optimizing optical coupling using spiral, gradient, and optional crosshair search.
     """
 
-    def __init__(self, config: Dict[str, Any], stage_manager: StageManager, nir_manager: NirManager):
+    def __init__(self, config: Dict[str, Any], stage_manager: StageManager, nir_manager: NIRManager):
         self.config = config
         self.stage_manager = stage_manager
         self.nir_manager = nir_manager
@@ -86,8 +86,10 @@ class FineAlign:
             num_steps = 1
 
             loss_master, loss_slave = self.nir_manager.read_power()
-            best = {"loss": loss_master if loss_master.value > loss_slave.value else loss_slave,
-                     "position": (x_pos, y_pos)} # we will go to the best position when search is complete
+            # best = {"loss": loss_master if loss_master.value > loss_slave.value else loss_slave,
+            #          "position": (x_pos, y_pos)} # we will go to the best position when search is complete
+            best = {"loss": loss_master,
+                    "position": (x_pos, y_pos)}  # we will go to the best position when search is complete
 
             while num_steps < limit:
                 # X movement
@@ -95,8 +97,8 @@ class FineAlign:
                     await self.stage_manager.move_axis(AxisType.X, step * direction, relative=True, wait_for_completion=True)
                     x_pos += step * direction
                     loss_master, loss_slave = self.nir_manager.read_power()
-                    current_loss = loss_master if loss_master.value > loss_slave.value else loss_slave
-                    if current_loss.value > best["loss"].value:
+                    current_loss = loss_master
+                    if current_loss > best["loss"]:
                         best["loss"] = current_loss
                         best["position"] = (x_pos, y_pos)
 
@@ -105,8 +107,8 @@ class FineAlign:
                     await self.stage_manager.move_axis(AxisType.Y, step * direction, relative=True, wait_for_completion=True)
                     y_pos += step * direction
                     loss_master, loss_slave = self.nir_manager.read_power()
-                    current_loss = loss_master if loss_master.value > loss_slave.value else loss_slave
-                    if current_loss.value > best["loss"].value:
+                    current_loss = loss_master
+                    if current_loss > best["loss"]:
                         best["loss"] = current_loss
                         best["position"] = (x_pos, y_pos)
 
@@ -132,13 +134,13 @@ class FineAlign:
         try:
             for _ in range(self.max_gradient_iters):
                 loss_master, loss_slave = self.nir_manager.read_power()
-                best_loss = loss_master if loss_master.value > loss_slave.value else loss_slave
+                best_loss = loss_master
                 best_axis, best_dir = None, 0
 
                 # Test X+
                 await self.stage_manager.move_axis(AxisType.X, self.step_size, relative=True, wait_for_completion=True)
                 loss_xp_m, loss_xp_s = self.nir_manager.read_power()
-                loss_xp = loss_xp_m if loss_xp_m.value > loss_xp_s.value else loss_xp_s
+                loss_xp = loss_xp_m
                 if loss_xp > best_loss:
                     best_loss, best_axis, best_dir = loss_xp, AxisType.X, +1
                 await self.stage_manager.move_axis(AxisType.X, -self.step_size, relative=True, wait_for_completion=True)
@@ -146,7 +148,7 @@ class FineAlign:
                 # Test X-
                 await self.stage_manager.move_axis(AxisType.X, -self.step_size, relative=True, wait_for_completion=True)
                 loss_xn_m, loss_xn_s = self.nir_manager.read_power()
-                loss_xn = loss_xn_m if loss_xn_m.value > loss_xn_s.value else loss_xn_s
+                loss_xn = loss_xn_m
                 if loss_xn > best_loss:
                     best_loss, best_axis, best_dir = loss_xn, AxisType.X, -1
                 await self.stage_manager.move_axis(AxisType.X, self.step_size, relative=True, wait_for_completion=True)
@@ -154,7 +156,7 @@ class FineAlign:
                 # Test Y+
                 await self.stage_manager.move_axis(AxisType.Y, self.step_size, relative=True, wait_for_completion=True)
                 loss_yp_m, loss_yp_s = self.nir_manager.read_power()
-                loss_yp = loss_yp_m if loss_yp_m.value > loss_yp_s.value else loss_yp_s
+                loss_yp = loss_yp_m
                 if loss_yp > best_loss:
                     best_loss, best_axis, best_dir = loss_yp, AxisType.Y, +1
                 await self.stage_manager.move_axis(AxisType.Y, -self.step_size, relative=True, wait_for_completion=True)
@@ -162,7 +164,7 @@ class FineAlign:
                 # Test Y-
                 await self.stage_manager.move_axis(AxisType.Y, -self.step_size, relative=True, wait_for_completion=True)
                 loss_yn_m, loss_yn_s = self.nir_manager.read_power()
-                loss_yn = loss_yn_m if loss_yn_m.value > loss_yn_s.value else loss_yn_s
+                loss_yn = loss_yn_m
                 if loss_yn > best_loss:
                     best_loss, best_axis, best_dir = loss_yn, AxisType.Y, -1
                 await self.stage_manager.move_axis(AxisType.Y, self.step_size, relative=True, wait_for_completion=True)

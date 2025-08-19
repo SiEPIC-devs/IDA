@@ -1,3 +1,0 @@
-pyserial>=3.5
-pyserial-asyncio>=0.5,<1.0
-RPi.GPIO>=0.7 ; sys_platform == 'linux'
