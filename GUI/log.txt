@@ -1,3 +1,1 @@
-[INFO] Main GUI   : http://10.2.113.58:8080
-[INFO] Extra (8000 in container) : http://10.2.113.58:8085
 Welcome To Probe Stage
