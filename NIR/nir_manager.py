@@ -316,7 +316,8 @@ class NIRManager:
             results = self.controller.optical_sweep(
                 start_nm, stop_nm, step_nm, laser_power_dbm,
                 averaging_time_s=0.02)
-            
+            self.controller.cleanup_scan()
+
             if results is not None:
                 self._log("Lambda scan completed successfully")
                 return results[0], results[1], results[2] 

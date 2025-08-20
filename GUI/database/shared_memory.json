@@ -1,8 +1,8 @@
 {
   "User": "Guest",
-  "Project": "MyProject",
+  "Project": "MyTest",
   "User_add": "Guest",
-  "Image": "spectral_sweep/spectral_sweep_2025-08-20_16-23-32.png",
+  "Image": "TSP/none.png",
   "Limit": {
     "x": "Yes",
     "y": "Yes",
@@ -11,15 +11,15 @@
     "fiber": "Yes"
   },
   "FineA": {
-    "window_size": 10.0,
-    "step_size": 2.0,
-    "max_iters": 5
+    "window_size": 20,
+    "step_size": 1,
+    "max_iters": 10
   },
   "AreaS": {
-    "x_size": 20,
-    "x_step": 1,
-    "y_size": 20,
-    "y_step": 1,
+    "x_size": 1000.0,
+    "x_step": 100.0,
+    "y_size": 1000.0,
+    "y_step": 100.0,
     "plot": "New"
   },
   "Sweep": {
@@ -34,8 +34,8 @@
     "on": 0
   },
   "ScanPos": {
-    "x": 0,
-    "y": 0,
+    "x": 6,
+    "y": 2,
     "move": 0
   },
   "StagePos": {
@@ -50,33 +50,9 @@
   },
   "Port": {
     "stage": 4,
-    "sensor": 5,
-    "tec": 3
+    "sensor": 6,
+    "tec": 5
   },
-  "DeviceName": "PCM_DCsweep_Length0p00um (71)",
-  "DeviceNum": 70,
-  "Selection": [
-    1,
-    4,
-    70,
-    84
-  ],
-  "Filtered": {
-    "84": [
-      15710.847224594354,
-      11041.436448163444
-    ],
-    "4": [
-      16061.564560204937,
-      12006.311528756487
-    ],
-    "1": [
-      17170.83339026473,
-      11839.651645582095
-    ],
-    "70": [
-      16708.888556789072,
-      10554.81628406154
-    ]
-  }
+  "DeviceName": "",
+  "DeviceNum": 0
 }

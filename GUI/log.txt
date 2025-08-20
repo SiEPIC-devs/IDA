@@ -1,0 +1,14 @@
+Welcome To Probe Stage
+{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
+Stage Connected
+Sensor Connected
+Confirm Area Scan Setting
+Start Scan
+Clicked at (x=1, y=1), Value = -99.154 dBm
+Move to: 15746.7, 8558.4
+Clicked at (x=10, y=9), Value = 340282299999999994960115009090224128000.000 dBm
+Move to: 16646.7, 9358.4
+Clicked at (x=0, y=0), Value = 340282299999999994960115009090224128000.000 dBm
+Move to: 15646.7, 8458.4
+Clicked at (x=6, y=2), Value = -103.615 dBm
+Move to: 16246.7, 8658.4
