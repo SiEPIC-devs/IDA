@@ -21,7 +21,7 @@ Agilent 8163A Hardware Abstraction Layer Implementation
 Cameron Basara, 2025
 """
 
-class Agilent8163Controller(LaserHAL):
+class Agilent8164Controller(LaserHAL):
     def __init__(self, 
                 com_port: int = 5,
                 laser_slot: int = 0,
@@ -30,7 +30,7 @@ class Agilent8163Controller(LaserHAL):
                 instrument_id: str = None,
                 timeout: int = 5000):
         """
-        Initialize Agilent 8163A with GPIB communication via Prologix GPIB-USB
+        Initialize Agilent 8164B with GPIB communication via Prologix GPIB-USB
         
         Args:
             com_port: COM port number for Prologix GPIB-USB converter
@@ -80,7 +80,7 @@ class Agilent8163Controller(LaserHAL):
             # Open instrument connection with serial parameters for Prologix
             self.instrument = self.resource_manager.open_resource(
                 visa_address,
-                baud_rate=115200,
+                baud_rate=9600,
                 timeout=self.timeout,
                 write_termination='\n',
                 read_termination=None
@@ -166,8 +166,6 @@ class Agilent8163Controller(LaserHAL):
             raise RuntimeError("Not connected to instrument")
         
         try:
-            # Daisy chained GPIBs, ensure correct port
-            # self.instrument.write('++addr 20')
             if expect_response:
                 self.instrument.write(command)
                 time.sleep(0.05)  # small delay
@@ -760,4 +758,4 @@ class Agilent8163Controller(LaserHAL):
             return -40.0, 10.0
 
 # Register driver
-register_driver("347_NIR", Agilent8163Controller)
+register_driver("347_NIR", Agilent8164Controller)

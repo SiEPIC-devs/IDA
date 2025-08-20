@@ -10,7 +10,7 @@ pyvisa_logger = logging.getLogger('pyvisa')
 pyvisa_logger.setLevel(logging.WARNING)
 
 class LambdaScanProtocol:
-    def __init__(self, config = None, laser=None, com_port=5):
+    def __init__(self, config = None, laser=None, com_port=3):
         self.laser = laser
         self.com_port = com_port
         self.rm = None
@@ -27,6 +27,7 @@ class LambdaScanProtocol:
         self.num_points = None
         self.laser_power = None if not config else config.laser_power_dbm
         self.averaging_time = None
+        self.stitching = False
         
     def connect(self):
         """Connect using proven working method."""
@@ -255,7 +256,8 @@ class LambdaScanProtocol:
             self.stop_wavelength = stop_nm * 1e-9
             self.step_size = str(step_nm) + "NM" 
             self.laser_power = laser_power_dbm
-            self.averaging_time = avg_time_s
+            self.averaging_time = avg_time_s   
+
 
             # Calculate number of points
             self.num_points = int((stop_nm - start_nm) / step_nm) + 1

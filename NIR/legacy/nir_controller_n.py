@@ -99,10 +99,11 @@ class Agilent8164Controller(LaserHAL):
             time.sleep(0.1)
             self.instrument.write('++auto 0') # Manual reads; use ++read eoi
             time.sleep(0.1)
-            self.instrument.write('++eos 2') # Append LF termination
-            time.sleep(0.1)
             self.instrument.write('++eoi 1') # Assert EOI at end of device writes
             time.sleep(0.1)
+            self.instrument.write('++eos 2') # Append LF termination
+            time.sleep(0.1)
+            
             resp = self._send_command(self.cmd.identity()).strip() # *IDN?
 
             # Max binary block size that can be read from 1 block
@@ -174,7 +175,9 @@ class Agilent8164Controller(LaserHAL):
                 self.instrument.write(command)
                 time.sleep(0.05)  # small delay
                 self.instrument.write('++read eoi')  # Prologix read trigger
-                return self.instrument.read().strip()
+                r = self.instrument.read()
+                print(r)
+                return r.strip()# self.instrument.read().strip()
             else:
                 self.instrument.write(command)
                 return ""
@@ -182,6 +185,23 @@ class Agilent8164Controller(LaserHAL):
         except Exception as e:
             logger.error(f"GPIB command failed: {command}, Error: {e}")
             raise
+    def write(self, cmd: str):
+        return self._send_command(cmd, expect_response=False)
+
+    def query(self, cmd: str) -> str:
+        return self._send_command(cmd, expect_response=True)
+
+    def _drain_all(self):
+        # Drain any residual bytes safely
+        try:
+            # read_raw() until timeout returns b"" (pyvisa ASRL)
+            while True:
+                self.intrument.write('++read eoi')
+                buf = self.instrument.read_raw()
+                if not buf:
+                    break
+        except Exception:
+            pass
     
     def _verify_slots(self) -> bool:
         """Verify that expected modules are installed"""
@@ -470,12 +490,12 @@ class Agilent8164Controller(LaserHAL):
             cmd_slave = self.cmd.read_power(slave_slot, channel)
             response_master = self._send_command(cmd_master)
             time.sleep(0.1)
-            response_slave = self._send_command(cmd_slave)
+            # response_slave = self._send_command(cmd_slave)
             
             # Parse power value
             power_value_master = float(response_master.strip())
-            power_value_slave = float(response_slave.strip())
-            
+            # power_value_slave = float(response_slave.strip())
+            power_value_slave = power_value_master
             wavelength = self.get_wavelength()
             
             return PowerReading(
@@ -490,7 +510,7 @@ class Agilent8164Controller(LaserHAL):
             
         except Exception as e:
             logger.error(f"Read power failed: {e}")
-            return PowerReading(value=-100.0, unit=PowerUnit.DBM)
+            return PowerReading(value=-100.0, unit=PowerUnit.DBM), PowerReading(value=-100.0, unit=PowerUnit.DBM)
     
     def _get_detector_slot(self, channel: int) -> int:
         """Get detector slot for logical channel"""

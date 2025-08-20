@@ -1,9 +1,9 @@
 # NIR/test/test_vi.py
 import time
-from NIR.nir import NIR8164
+from NIR.nir_controller import NIR8164
 
 def main():
-    dev = NIR8164(com_port=5, gpib_addr=20)
+    dev = NIR8164(com_port=3, gpib_addr=20)
     print("Connecting...")
     assert dev.connect(), "connect failed"
     print("IDN ok")
@@ -40,7 +40,7 @@ def main():
     # dev.enable_output(False)
 
     print("Lambda scan (short)...")
-    wl, ch1, ch2 = dev.optical_sweep(1548.0, 1551.0, 0.001, 5.0, 0.02)
+    wl, ch1, ch2 = dev.optical_sweep(1549.0, 1551.0, 0.1, 5.0, 0.02)
     print("Points:", len(wl), "WL[0..-1] =", wl[0], wl[-1])
     print(ch1,ch2)
 

@@ -2,9 +2,8 @@ import logging
 from typing import Dict, Any, Callable, List, Optional
 from dataclasses import dataclass, asdict
 
-from NIR.nir_controller_n import Agilent8164Controller
-from NIR.lambda_sweep import LambdaScanProtocol
-from NIR.hal.nir_hal import LaserEvent, LaserEventType
+from NIR.nir_controller import NIR8164
+from NIR.hal.nir_hal import LaserEvent
 from NIR.config.nir_config import NIRConfiguration  
 
 """
@@ -21,28 +20,14 @@ class NIRManager:
         self._event_callbacks: List[Callable[[LaserEvent], None]] = []
         
         # Initialize controller
-        self.controller = Agilent8164Controller(
+        self.controller = NIR8164(
             com_port=config.com_port,
+            gpib_addr=config.gpib_addr,
             laser_slot=config.laser_slot,
             detector_slots=config.detector_slots,
             safety_password=config.safety_password,
-            timeout=config.timeout
+            timeout_ms=config.timeout
         )
-        
-        # # Initialize scan module
-        self.scan_module = None
-        # self.scan_module = LambdaScanProtocol(
-        #     laser=self.controller,
-        #     config=self.config,
-        #     com_port=config.com_port) 
-        
-        # Shared memory placeholder
-        self.use_shared_memory = use_shared_memory
-        if use_shared_memory:
-            logger.info("Shared memory support not yet implemented - placeholder")
-        
-        # Add controller event callback
-        self.controller.add_event_callback(self._handle_controller_event)
 
     def _log(self, message: str, level: str = "info"):
         """Simple logging that respects debug flag"""
@@ -51,7 +36,9 @@ class NIRManager:
         elif level == "error":
             logger.error(f"[NIR Manager] {message}")
 
-    # === Context Management ===
+######################################################################
+# Context manager
+######################################################################
     
     def __enter__(self):
         """Context manager entry"""
@@ -66,8 +53,9 @@ class NIRManager:
         self.disconnect()
         self._log("NIR manager shutdown complete")
 
-    # === Device Lifecycle ===
-    
+######################################################################
+# Device lifecycle 
+######################################################################
     def initialize(self) -> bool:
         """Initialize the NIR device"""
         try:
@@ -94,17 +82,12 @@ class NIRManager:
                 
             success = self.controller.connect()
             if success:
-                self._connected = True
-                self.controller._drain_all()
                 self._log("Connected to NIR device")
-                self.scan_module = LambdaScanProtocol(
-                    config=self.config, laser=self.controller, com_port=self.config.com_port)
+                self._connected = True
                 self._configure_device()
             else:
                 self._log("Failed to connect to NIR device", "error")
-                
             return success
-            
         except Exception as e:
             self._log(f"Connection error: {e}", "error")
             return False
@@ -115,21 +98,17 @@ class NIRManager:
             if self.controller:
                 success = self.controller.disconnect()
                 if success:
-                    scan = self.scan_module.disconnect()
-                    if scan:
-                        self._connected = False
-                        self._log("Disconnected from NIR device")
-                    raise
+                    self._connected = False
+                    self._log("Disconnected from NIR device")
                 return success
             return True
-            
         except Exception as e:
             self._log(f"Disconnect error: {e}", "error")
             return False
 
     def is_connected(self) -> bool:
         """Check if connected to the NIR device"""
-        return self._connected and self.controller.is_connected()
+        return self._connected and self.controller._is_connected()
 
     def _configure_device(self):
         """Configure device with current settings"""
@@ -138,20 +117,18 @@ class NIRManager:
                 return
             
             # Configure units
-            self.scan_module.configure_units()
-            
+            self.controller.configure_units()
             if hasattr(self.config, 'initial_wavelength_nm'):
                 self.controller.set_wavelength(self.config.initial_wavelength_nm)
-            
             if hasattr(self.config, 'initial_power_dbm'):
                 self.controller.set_power(self.config.initial_power_dbm)
-            
             self._log("Device configured with current settings")
-            
         except Exception as e:
             self._log(f"Device configuration error: {e}", "error")
 
-    # === Laser Control ===
+######################################################################
+# Laser control
+######################################################################
     def set_wavelength(self, wavelength_nm: float) -> bool:
         """Set laser wavelength"""
         try:
@@ -185,7 +162,7 @@ class NIRManager:
             return 0.0
 
     def set_power(self, power_dbm: float) -> bool:
-        """Set laser power"""
+        """Set laser power in dBm"""
         try:
             if not self.controller or not self._connected:
                 self._log("Controller not connected", "error")
@@ -207,14 +184,14 @@ class NIRManager:
         try:
             if not self.controller or not self._connected:
                 self._log("Controller not connected", "error")
-                return -100.0
+                return 0.0
                 
-            power, unit = self.controller.get_power()
+            power = self.controller.get_power()
             return power
             
         except Exception as e:
             self._log(f"Get power error: {e}", "error")
-            return -100.0
+            return 0.0
 
     def enable_laser(self, enable: bool = True) -> bool:
         """Enable/disable laser output"""
@@ -246,30 +223,89 @@ class NIRManager:
         except Exception as e:
             self._log(f"Laser status error: {e}", "error")
             return False
-    
-    # === Scanning Methods ===
-    def config_sweep(self):
+        
+######################################################################
+# Detector methods
+######################################################################
+    def read_power(self) -> tuple[float, float]:
+        """Read power from detector channel"""
         try:
             if not self.controller or not self._connected:
-                    self._log("Controller not connected", "error")
-                    return None
-            
-            # (wavelengths[nm], channel1[dBm], channel2[dBm])
-            results = self.scan_module.sweep()
-            if results is not None:
-                self._log("Lambda scan completed successfully")
-                return results[0], results[1], results[2] 
-            else:
-                self._log("Lambda scan failed", "error")
-                return None, None, None
+                self._log("Controller not connected", "error")
+                return (-100.0, -100.0)
+                
+            reading = self.controller.read_power()
+            return (reading[0], reading[1])
             
         except Exception as e:
-            self._log(f"Lambda scan error: {e}", "error")
-            return None, None, None
+            self._log(f"Read power error: {e}", "error")
+            return (-100.0, -100.0)
+    
+    def set_detector_units(self, units: int = 0) -> bool:
+        """Set Detector units"""
+        try:
+            if not self.controller or not self._connected:
+                self._log("Controller not connected", "error")
+                return False
+                
+            self.controller.set_detector_units(units=units)
+            return True 
+            
+        except Exception as e:
+            self._log(f"Set detector units error: {e}", "error")
+            return False
         
+
+    def get_detector_units(self) -> bool:
+        """Get Detector units"""
+        try:
+            if not self.controller or not self._connected:
+                self._log("Controller not connected", "error")
+                return False
+            self.controller.get_detector_units()
+            return True 
+        except Exception as e:
+            self._log(f"Get detector units error: {e}", "error")
+            return False
+    
+    def set_power_range(self, range_dbm: float, channel: int = 1) -> bool:
+        """Set power range"""
+        try:
+            if not self.controller or not self._connected:
+                self._log("Controller not connected", "error")
+                return False
+                
+            self.controller.set_power_range(range_dbm, channel)
+            return True 
+            
+        except Exception as e:
+            self._log(f"Set detector range error: {e}", "error")
+            return False
+        
+    def get_power_range(self) -> bool:
+        """Set power range"""
+        try:
+            if not self.controller or not self._connected:
+                self._log("Controller not connected", "error")
+                return False
+            self.controller.get_power_range()
+            return True 
+        except Exception as e:
+            self._log(f"Set detector range error: {e}", "error")
+            return False
+    
+######################################################################
+# Sweep methods
+######################################################################
     def sweep(self, start_nm, stop_nm, step_nm, laser_power_dbm, averaging_time_s=0.02):
         """
-        Execute a lambda scan
+        Execute a lambda scan, auto stitches longer measurements (>20,001 points)
+        params:
+            start_nm[nm]: start of sweep in nm
+            stop_nm[nm]: end of sweep in nm
+            step_nm[nm]: step size of sweep in nm
+            laser_power_dbm[dbm]: laser power in dBm
+            averaging_time_s[s]: Optional averaging time in s
         """
         try:
             if not self.controller or not self._connected:
@@ -277,10 +313,9 @@ class NIRManager:
                 return None
             
             # (wavelengths[nm], channel1[dBm], channel2[dBm])
-            results = self.scan_module.optical_sweep(
+            results = self.controller.optical_sweep(
                 start_nm, stop_nm, step_nm, laser_power_dbm,
                 averaging_time_s=0.02)
-
             
             if results is not None:
                 self._log("Lambda scan completed successfully")
@@ -292,36 +327,11 @@ class NIRManager:
         except Exception as e:
             self._log(f"Lambda scan error: {e}", "error")
             return None, None, None
-
-    # === Power Monitoring ===
     
-    def read_power(self, channel: int = 1) -> float:
-        """Read power from detector channel"""
-        try:
-            if not self.controller or not self._connected:
-                self._log("Controller not connected", "error")
-                return -100.0, -100.0
-                
-            reading1, reading2 = self.controller.read_power(channel)
-            return reading1.value, reading2.value
-            
-        except Exception as e:
-            self._log(f"Read power error: {e}", "error")
-            return -100.0, -100.0
 
-    def check_optical_connections(self) -> Dict[str, Any]:
-        """Check optical connections"""
-        try:
-            if not self.controller or not self._connected:
-                return {"error": "Controller not connected"}
-                
-            return self.controller.check_optical_connections()
-            
-        except Exception as e:
-            self._log(f"Connection check error: {e}", "error")
-            return {"error": str(e)}
-
-    # === Configuration ===
+######################################################################
+# Configuration
+######################################################################
     
     def get_config(self) -> Dict[str, Any]:
         """Get current configuration"""
@@ -357,7 +367,9 @@ class NIRManager:
             self._log(f"Config update error: {e}", "error")
             return False
 
-    # === Event Handling ===
+######################################################################
+# Event handling
+######################################################################
     
     def add_event_callback(self, callback: Callable[[LaserEvent], None]):
         """Register callback for laser events"""
