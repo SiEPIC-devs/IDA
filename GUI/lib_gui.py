@@ -16,10 +16,75 @@ import shutil
 import numpy as np
 from scipy.ndimage import gaussian_filter
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-import matplotlib
+import matplotlib, logging
 matplotlib.use("QtAgg")
 web_w = 0
 web_h = 0
+
+_ORIG_WSGI_LOG = None
+_ORIG_HTTP_LOG = None
+_SILENCED = False
+
+def _silence_remi_and_http_logs():
+    """静音 remi 相关 logger + HTTP 访问日志（GET / ...）。"""
+    global _ORIG_WSGI_LOG, _ORIG_HTTP_LOG, _SILENCED
+    if _SILENCED:
+        return
+
+    for name in ("remi", "remi.server", "remi.request", "remi.gui",
+                 "websocket", "websockets"):
+        lg = logging.getLogger(name)
+        lg.setLevel(logging.CRITICAL)
+        lg.propagate = False
+        if not lg.handlers:
+            lg.addHandler(logging.NullHandler())
+
+    try:
+        import wsgiref.simple_server as _wsgi
+        if not hasattr(_wsgi.WSGIRequestHandler, "_orig_log_message"):
+            _wsgi.WSGIRequestHandler._orig_log_message = _wsgi.WSGIRequestHandler.log_message
+        _wsgi.WSGIRequestHandler.log_message = lambda *a, **k: None
+        _ORIG_WSGI_LOG = _wsgi.WSGIRequestHandler._orig_log_message
+    except Exception:
+        pass
+
+    try:
+        import http.server as _http
+        if not hasattr(_http.BaseHTTPRequestHandler, "_orig_log_message"):
+            _http.BaseHTTPRequestHandler._orig_log_message = _http.BaseHTTPRequestHandler.log_message
+        _http.BaseHTTPRequestHandler.log_message = lambda *a, **k: None
+        _ORIG_HTTP_LOG = _http.BaseHTTPRequestHandler._orig_log_message
+    except Exception:
+        pass
+
+    _SILENCED = True
+
+def enable_remi_logs(level=logging.INFO):
+    global _SILENCED
+    try:
+        import wsgiref.simple_server as _wsgi
+        if hasattr(_wsgi.WSGIRequestHandler, "_orig_log_message"):
+            _wsgi.WSGIRequestHandler.log_message = _wsgi.WSGIRequestHandler._orig_log_message
+    except Exception:
+        pass
+    try:
+        import http.server as _http
+        if hasattr(_http.BaseHTTPRequestHandler, "_orig_log_message"):
+            _http.BaseHTTPRequestHandler.log_message = _http.BaseHTTPRequestHandler._orig_log_message
+    except Exception:
+        pass
+
+    for name in ("remi", "remi.server", "remi.request", "remi.gui",
+                 "websocket", "websockets"):
+        lg = logging.getLogger(name)
+        lg.setLevel(level)
+        lg.propagate = True
+
+    _SILENCED = False
+
+if os.environ.get("REMI_QUIET", "1") != "0":
+    _silence_remi_and_http_logs()
+
 def apply_common_style(widget, left, top, width, height, position="absolute", percent=False):
     widget.css_position = position
     widget.css_left = f"{left}px"
@@ -406,16 +471,18 @@ class File():
             "Project": "MyProject",
             "User_add": "Guest",
             "Image": "TSP/none.png",
+            "Web": "",
             "Limit": {"x": "Yes", "y": "Yes", "z": "Yes", "chip": "Yes", "fiber": "Yes"},
-            "FineA": {"window_size": 20, "step_size": 1, "max_iters": 10},
+            "FineA": {"window_size": 20, "step_size": 1, "max_iters": 10, "detector": 1},
             "AreaS": {"x_size": 20, "x_step": 1, "y_size": 20, "y_step": 1, "plot": "New"},
             "Sweep": {"wvl": 1550, "speed": 1.0, "power": 0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "Laser On", "sweep": 0, "on": 0},
             "ScanPos": {"x": 0, "y": 0, "move": 0},
             "StagePos": {"x": 0, "y": 0},
             "AutoSweep": 0,
             "Configuration": {"stage": "", "sensor": "", "tec": ""},
+            "Configuration_check": {"stage": 0, "sensor": 0, "tec": 0},
             "Port": {"stage": 4, "sensor": 6, "tec": 5},
-            "DeviceName": "",
+            "DeviceName": "Default",
             "DeviceNum": 0
         }
 
@@ -432,7 +499,7 @@ class plot():
         self.project = project
         self.data = data
 
-    def  heat_map(self):
+    def heat_map(self):
         fig, ax = plt.subplots(figsize=(7, 7))
         min_value = np.nanmin(self.data)
         max_value = np.nanmax(self.data)
@@ -539,9 +606,11 @@ class plot():
             image_dpi = 20
             plt.figure(figsize=(100 / image_dpi, 100 / image_dpi), dpi=image_dpi)
             for element in range(0, len(y_values)):
-                plt.plot(x_axis, y_values[element], linewidth=0.2)
+                plt.plot(x_axis, y_values[element], linewidth=0.2, label=f"{element+1}")
             plt.xlabel("Wavelength [nm]")
             plt.ylabel("Power [dBm]")
+            plt.legend(title="Detector", fontsize=8, title_fontsize=9, ncol=2, loc='upper right')
+            plt.tight_layout()
             output_pdf = os.path.join(path, f"{filename}_{fileTime}.pdf")
             os.makedirs(os.path.dirname(output_pdf), exist_ok=True)
             plt.savefig(output_pdf, dpi=image_dpi)
@@ -551,7 +620,7 @@ class plot():
             self._cleanup_old_plots(keep=1)
 
             plt.close()
-            file = File("shared_memory", "Image", f"spectral_sweep/{filename}_{fileTime}.png")
+            file = File("shared_memory", "Image", f"spectral_sweep/{filename}_{fileTime}.png", "Web", output_html)
             file.save()
         except Exception as e:
             try:
@@ -560,3 +629,58 @@ class plot():
             finally:
                 e = None
                 del e
+
+import sys
+from multiprocessing import Event, Value
+from ctypes import c_int
+from PyQt5.QtWidgets import QApplication, QProgressDialog, QProgressBar
+from PyQt5.QtCore import Qt, QTimer
+
+def run_busy_dialog(done_val: Value, cancel_evt: Event):
+    app = QApplication(sys.argv)
+
+    class CenteredBusyDialog(QProgressDialog):
+        def __init__(self):
+            super().__init__("In Progress…", "Cancel", 0, 0)  # 不定进度
+            self.setWindowTitle("In Progress")
+            self.setWindowModality(Qt.ApplicationModal)
+            self.setMinimumDuration(0)
+            self.setAutoClose(False)
+            self.setAutoReset(False)
+            self.resize(420, 160)
+
+            bar = self.findChild(QProgressBar)
+            if bar:
+                bar.setTextVisible(False)
+                bar.setFixedHeight(26)
+
+            # 轮询主进程写入的完成标志
+            self._poll = QTimer(self)
+            self._poll.timeout.connect(self._check_done)
+            self._poll.start(80)
+
+            self.canceled.connect(self._on_cancel)
+
+        def _on_cancel(self):
+            with done_val.get_lock():
+                done_val.value = -1
+            cancel_evt.set()
+            self._poll.stop()
+            self.close()
+
+        def _check_done(self):
+            if done_val.value == 1:
+                self._poll.stop()
+                self.close()
+
+        def showEvent(self, e):
+            super().showEvent(e)
+            screen = QApplication.primaryScreen()
+            if screen:
+                geo = self.frameGeometry()
+                geo.moveCenter(screen.availableGeometry().center())
+                self.move(geo.topLeft())
+
+    dlg = CenteredBusyDialog()
+    dlg.show()
+    sys.exit(app.exec_())

@@ -37,6 +37,7 @@ class stage_control(App):
         self.count = 0
         self.filter = {}
         self.configuration = {}
+        self.configuration_check = {}
         self.port = {}
 
         self.configuration_stage = 0
@@ -54,6 +55,7 @@ class stage_control(App):
         self.stage_window = None
         self.sensor_window = None
         self.devices = None
+        self.web = None
 
         self.nir_configure = None
         self.nir_manager = None
@@ -63,6 +65,12 @@ class stage_control(App):
         self.past_power = None
 
         self.data = None
+        self._scan_done = Value(c_int, 0)
+        self.ch_count = 0
+        self.ch_last_time = 0
+        self.ch_current_time = 0
+        self.task_start = 0
+        self._win_lock = threading.Lock()
 
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -82,7 +90,7 @@ class stage_control(App):
 
         if mtime != self._user_mtime:
             self._user_mtime = mtime
-            self.run_in_thread(self.execute_command())
+            self.run_in_thread(self.execute_command)
 
         if stime != self._user_stime:
             self._user_stime = stime
@@ -97,10 +105,12 @@ class stage_control(App):
                     self.auto_sweep = data.get("AutoSweep", 0)
                     self.filter = data.get("Filtered", {})
                     self.configuration = data.get("Configuration", {})
+                    self.configuration_check = data.get("Configuration_check", {})
                     self.scanpos = data.get("ScanPos", {})
                     self.sweep = data.get("Sweep", {})
                     self.name = data.get("DeviceName", "")
                     self.port = data.get("Port", {})
+                    self.web = data.get("Web", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -129,24 +139,55 @@ class stage_control(App):
         auto = 0
         if name is None:
             name = self.name
+            self.busy_dialog()
+            self.task_start = 1
+            self.lock_all(1)
         else:
+            self.task_start = 1
             auto = 1
 
-        wl, d1, d2 = self.nir_manager.sweep(start_nm=self.sweep["start"], stop_nm=self.sweep["end"], step_nm=self.sweep["step"], laser_power_dbm=self.sweep["power"])
+        try:
+            wl, d1, d2 = self.nir_manager.sweep(
+                start_nm=self.sweep["start"],
+                stop_nm=self.sweep["end"],
+                step_nm=self.sweep["step"],
+                laser_power_dbm=self.sweep["power"]
+            )
+        except Exception as e:
+            print(f"[Error] Sweep failed: {e}")
+            wl, d1, d2 = [], [], []
 
-        x = wl
-        y = np.vstack([d1, d2])
+        # x = wl
+        # y = np.vstack([d1, d2])
+        x = [1,2,3,4,5,6,7]
+        y = np.vstack([[1,2,3,4,5,6,7], [132,41,513,135,135,14,142]])
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, name, self.project)
+        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, name, self.project, auto)
         p = Process(target=diagram.generate_plots)
         p.start()
         p.join()
+
+        if self.web != "" and auto == 0:
+            file_uri = Path(self.web).resolve().as_uri()
+            print(file_uri)
+            webview.create_window(
+                'Stage Control',
+                file_uri,
+                width=700, height=500,
+                resizable=True,
+                hidden=False
+            )
 
         if auto == 0:
             if self.sweep["done"] == "Laser On":
                 self.nir_manager.enable_laser(True)
             else:
                 self.nir_manager.enable_laser(False)
+
+            with self._scan_done.get_lock():
+                self._scan_done.value = 1
+                self.task_start = 0
+                self.lock_all(0)
 
             self.sweep_count = 0
             self.sweep["sweep"] = 0
@@ -165,7 +206,7 @@ class stage_control(App):
         file.save()
 
     def after_configuration(self):
-        if self.configuration["stage"] != "" and self.configuration_stage == 0:
+        if self.configuration["stage"] != "" and self.configuration_stage == 0 and self.configuration_check["stage"] == 0:
             self.configuration_stage = 1
 
             self.gds = lib_coordinates.coordinates(("./res/" + filename), read_file=False,
@@ -189,18 +230,31 @@ class stage_control(App):
                 self.stage_manager.startup(),
                 main_loop
             )
-            asyncio.run(self.stage_manager.initialize_all(
+            success_stage = asyncio.run(self.stage_manager.initialize_all(
                 [AxisType.X, AxisType.Y, AxisType.Z, AxisType.ROTATION_CHIP, AxisType.ROTATION_FIBER])
             )
-            self.stage_window = webview.create_window(
-                'Stage Control',
-                f'http://{local_ip}:8000',
-                width=672+web_w, height=407+web_h,
-                x=800, y=465,
-                resizable=True,
-                hidden=False
-            )
-            print("Stage Connected")
+            if success_stage:
+                self.configuration_stage = 1
+                self.configuration_check["stage"] = 2
+                file = File(
+                    "shared_memory", "Configuration_check", self.configuration_check
+                )
+                file.save()
+                self.stage_window = webview.create_window(
+                    'Stage Control',
+                    f'http://{local_ip}:8000',
+                    width=772 + web_w, height=407 + web_h,
+                    x=800, y=465,
+                    resizable=True,
+                    hidden=False
+                )
+            else:
+                self.configuration_stage = 0
+                self.configuration_check["stage"] = 1
+                file = File(
+                    "shared_memory", "Configuration_check", self.configuration_check
+                )
+                file.save()
 
         elif self.configuration["stage"] == "" and self.configuration_stage == 1:
             self.configuration_stage = 0
@@ -210,21 +264,34 @@ class stage_control(App):
             self.stage_manager.shutdown()
             print("Stage Disconnected")
 
-        if self.configuration["sensor"] != "" and self.configuration_sensor == 0:
+        if self.configuration["sensor"] != "" and self.configuration_sensor == 0 and self.configuration_check["sensor"] == 0:
+            self.configuration_sensor = 1
             self.nir_configure = NIRConfiguration()
             self.nir_configure.com_port = self.port["sensor"]
             self.nir_manager = NIRManager(self.nir_configure)
-            self.nir_manager.connect()
-            self.configuration_sensor = 1
-            self.sensor_window = webview.create_window(
-                'Sensor Control',
-                f'http://{local_ip}:8001',
-                width=672+web_w, height=197+web_h,
-                x=800, y=255,
-                resizable=True,
-                hidden=False
-            )
-            print("Sensor Connected")
+            success_sensor = self.nir_manager.connect()
+            if success_sensor:
+                self.configuration_sensor = 1
+                self.configuration_check["sensor"] = 2
+                file = File(
+                    "shared_memory", "Configuration_check", self.configuration_check
+                )
+                file.save()
+                self.sensor_window = webview.create_window(
+                    'Sensor Control',
+                    f'http://{local_ip}:8001',
+                    width=672 + web_w, height=197 + web_h,
+                    x=800, y=255,
+                    resizable=True,
+                    hidden=False
+                )
+            else:
+                self.configuration_sensor = 0
+                self.configuration_check["sensor"] = 1
+                file = File(
+                    "shared_memory", "Configuration_check", self.configuration_check
+                )
+                file.save()
 
         elif self.configuration["sensor"] == "" and self.configuration_sensor == 1:
             self.configuration_sensor = 0
@@ -282,6 +349,22 @@ class stage_control(App):
                 self.pre_x = self.scanpos["x"]
                 self.pre_y = self.scanpos["y"]
 
+            if self.ch_count == 0:
+                self.ch_count = 1
+                self.run_in_thread(self.update_ch)
+
+
+    def update_ch(self):
+        while True:
+            if self.task_start == 0:
+                ch1, ch2 = self.nir_manager.read_power()
+                self.ch1_val.set_text(str(ch1))
+                self.ch2_val.set_text(str(ch2))
+                time.sleep(2)
+            else:
+                print("ssss")
+                time.sleep(2)
+
     def do_auto_sweep(self):
         i = 0
         while i < (len(self.filter)):
@@ -325,7 +408,7 @@ class stage_control(App):
 
     def construct_ui(self):
         stage_control_container = StyledContainer(
-            container=None, variable_name="stage_control_container", left=0, top=0, height=350, width=650
+            container=None, variable_name="stage_control_container", left=0, top=0, height=350, width=750
         )
 
         xyz_container = StyledContainer(
@@ -415,7 +498,7 @@ class stage_control(App):
 
         fine_align_container = StyledContainer(
             container=stage_control_container, variable_name="fine_align_container",
-            left=540, top=20, height=90, width=90, border=True
+            left=530, top=20, height=90, width=90, border=True
         )
 
         StyledLabel(
@@ -436,7 +519,7 @@ class stage_control(App):
 
         area_scan_container = StyledContainer(
             container=stage_control_container, variable_name="area_scan_container",
-            left=430, top=130, height=90, width=90, border=True
+            left=630, top=20, height=90, width=90, border=True
         )
 
         StyledLabel(
@@ -457,7 +540,7 @@ class stage_control(App):
 
         move_container = StyledContainer(
             container=stage_control_container, variable_name="move_container",
-            left=430, top=240, height=88, width=200, border=True
+            left=430, top=130, height=88, width=200, border=True
         )
 
         StyledLabel(
@@ -488,6 +571,36 @@ class stage_control(App):
             container=move_container, text="Move", variable_name="move_button", font_size=100,
             left=105, top=50, width=85, height=28, normal_color="#007BFF", press_color="#0056B3"
         )
+
+        # Table--------------------------------------------------------------------------
+        table_container = StyledContainer(
+            container=stage_control_container, variable_name="coordinate_container",
+            left=430, top=240, height=70, width=290, border=True
+        )
+        headers = ["CH1", "CH2"]
+        widths = [80, 80]
+
+        self.table = StyledTable(
+            container=table_container, variable_name="ch_table",
+            left=0, top=0, height=30, table_width=290, headers=headers, widths=widths, row=2
+        )
+        table = self.table
+        row = list(table.children.values())[1]
+        self.ch1_cell, self.ch2_cell = [list(row.children.values())[i] for i in range(2)]
+
+        self.ch1_val = StyledLabel(
+            container=None, text="N/A", variable_name="ch1_val", left=0, top=0,
+            width=100, height=100, font_size=100, color="#222", align="right", position="inherit",
+            percent=True, flex=True
+        )
+        self.ch2_val = StyledLabel(
+            container=None, text="N/A", variable_name="ch2_val", left=0, top=0,
+            width=100, height=100, font_size=100, color="#222", align="right", position="inherit",
+            percent=True, flex=True
+        )
+        self.ch1_cell.append(self.ch1_val)
+        self.ch2_cell.append(self.ch2_val)
+        # ----------------------------------------------------------------------------------
 
         self.stop_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_stop))
         self.home_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_home))
@@ -521,6 +634,9 @@ class stage_control(App):
 
     def onclick_home(self):
         print("Start Home")
+        self.busy_dialog()
+        self.lock_all(1)
+        self.task_start = 1
         home = self.limit
         x = home["x"]
         y = home["y"]
@@ -538,21 +654,47 @@ class stage_control(App):
             asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_CHIP))
         if fiber == "Yes":
             asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_FIBER))
+        with self._scan_done.get_lock():
+            self._scan_done.value = 1
+            self.task_start = 0
+            self.lock_all(0)
         print("Home Finished")
 
     def onclick_start(self):
         print("Start Fine Align")
+        self.busy_dialog()
+        self.task_start = 1
+        self.lock_all(1)
         config = FineAlignConfiguration()
         config.scan_window = self.fine_a["window_size"]
         config.step_size = self.fine_a["step_size"]
         config.gradient_iters = self.fine_a["max_iters"]
         fine_align = FineAlign(config.to_dict(), self.stage_manager, self.nir_manager)
         asyncio.run(fine_align.begin_fine_align())
+
+        with self._scan_done.get_lock():
+            self._scan_done.value = 1
+            self.task_start = 0
+            self.lock_all(0)
+
         print("Fine Align Finished")
+
+    def busy_dialog(self):
+        self._scan_done = Value(c_int, 0)
+        self._scan_cancel = Event()
+        self._busy_proc = Process(
+            target=run_busy_dialog,
+            args=(self._scan_done, self._scan_cancel),
+            daemon=True
+        )
+        self._busy_proc.start()
 
     def onclick_scan(self):
         self.scan_btn.set_enabled(False)
         print("Start Scan")
+        self.busy_dialog()
+        self.task_start = 1
+        self.lock_all(1)
         if self.area_s["plot"] == "New":
             self.stage_x_pos = self.memory.x_pos
             self.stage_y_pos = self.memory.y_pos
@@ -565,6 +707,12 @@ class stage_control(App):
             self.data = asyncio.run(area_sweep.begin_sweep())
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=self.data)
+
+            with self._scan_done.get_lock():
+                self._scan_done.value = 1
+                self.task_start = 0
+                self.lock_all(0)
+
             p = Process(target=diagram.heat_map)
             p.start()
             p.join()
@@ -572,62 +720,87 @@ class stage_control(App):
         elif self.area_s["plot"] == "Previous":
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=self.data)
+
+            with self._scan_done.get_lock():
+                self._scan_done.value = 1
+                self.task_start = 0
+
             p = Process(target=diagram.heat_map)
             p.start()
             p.join()
+
         print("Done Scan")
         self.scan_btn.set_enabled(True)
 
     def onclick_x_left(self):
         value = float(self.x_input.get_value())
         print(f"X Left {value} um")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.X, -value, True))
-        self.nir_manager.get_power()
+        self.lock_all(0)
 
     def onclick_x_right(self):
         value = float(self.x_input.get_value())
         print(f"X Right {value} um")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.X, value, True))
+        self.lock_all(0)
 
     def onclick_y_left(self):
         value = float(self.y_input.get_value())
         print(f"Y Left {value} um")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.Y, -value, True))
+        self.lock_all(0)
 
     def onclick_y_right(self):
         value = float(self.y_input.get_value())
         print(f"Y Right {value} um")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.Y, value, True))
+        self.lock_all(0)
 
     def onclick_z_left(self):
         value = float(self.z_input.get_value())
         print(f"Z Down {value} um")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.Z, -value, True))
+        self.lock_all(0)
 
     def onclick_z_right(self):
         value = float(self.z_input.get_value())
         print(f"Z Up {value} um")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.Z, value, True))
+        self.lock_all(0)
 
     def onclick_chip_left(self):
         value = float(self.chip_input.get_value())
         print(f"Chip Turn CW {value} deg")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, -value, True))
+        self.lock_all(0)
 
     def onclick_chip_right(self):
         value = float(self.chip_input.get_value())
         print(f"Chip Turn CCW {value} deg")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, value, True))
+        self.lock_all(0)
 
     def onclick_fiber_left(self):
         value = float(self.fiber_input.get_value())
         print(f"Fiber Turn CW {value} deg")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, -value, True))
+        self.lock_all(0)
 
     def onclick_fiber_right(self):
         value = float(self.fiber_input.get_value())
         print(f"Fiber Turn CCW {value} deg")
+        self.lock_all(1)
         asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, value, True))
+        self.lock_all(0)
 
     def onclick_load(self):
         self.gds = lib_coordinates.coordinates(("./res/" + filename), read_file=False,
@@ -897,15 +1070,6 @@ if __name__ == '__main__':
     local_ip = get_local_ip()
 
     webview.create_window(
-        'Stage Control',
-        f'http://{local_ip}:8000',
-        width=672, height=407,
-        x=800, y=465,
-        resizable=True,
-        hidden=True
-    )
-
-    webview.create_window(
         "Setting",
         f"http://{local_ip}:7002",
         width=222,
@@ -934,5 +1098,15 @@ if __name__ == '__main__':
         on_top=True,
         hidden=True
     )
+
+    webview.create_window(
+        'Stage Control',
+        f'http://{local_ip}:8000',
+        width=772 + web_w, height=407 + web_h,
+        x=800, y=465,
+        resizable=True,
+        hidden=True
+    )
+    print("Stage Connected")
 
     webview.start(func=disable_scroll)

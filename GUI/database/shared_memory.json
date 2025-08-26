@@ -3,6 +3,7 @@
   "Project": "MyTest",
   "User_add": "Guest",
   "Image": "TSP/none.png",
+  "Web": "",
   "Limit": {
     "x": "Yes",
     "y": "Yes",
@@ -13,13 +14,14 @@
   "FineA": {
     "window_size": 20,
     "step_size": 1,
-    "max_iters": 10
+    "max_iters": 10,
+    "detector": 1
   },
   "AreaS": {
-    "x_size": 1000.0,
-    "x_step": 100.0,
-    "y_size": 1000.0,
-    "y_step": 100.0,
+    "x_size": 20,
+    "x_step": 1,
+    "y_size": 20,
+    "y_step": 1,
     "plot": "New"
   },
   "Sweep": {
@@ -34,8 +36,8 @@
     "on": 0
   },
   "ScanPos": {
-    "x": 6,
-    "y": 2,
+    "x": 0,
+    "y": 0,
     "move": 0
   },
   "StagePos": {
@@ -44,15 +46,20 @@
   },
   "AutoSweep": 0,
   "Configuration": {
-    "stage": "stage_control",
-    "sensor": "stage_control",
-    "tec": "stage_control"
+    "stage": "",
+    "sensor": "",
+    "tec": ""
+  },
+  "Configuration_check": {
+    "stage": 0,
+    "sensor": 0,
+    "tec": 0
   },
   "Port": {
     "stage": 4,
     "sensor": 6,
     "tec": 5
   },
-  "DeviceName": "",
+  "DeviceName": "Default",
   "DeviceNum": 0
 }

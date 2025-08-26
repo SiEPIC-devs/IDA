@@ -2,9 +2,12 @@ from remi import start, App
 import os, threading, webview
 from lib_gui import *
 
+shared_path = os.path.join("database", "shared_memory.json")
+
 class instruments(App):
     def __init__(self, *args, **kwargs):
         self.configuration = {"stage": "", "sensor": "", "tec": ""}
+        self.configuration_check = {}
         self.stage_connect_btn = None
         self.sensor_connect_btn = None
         self.tec_connect_btn = None
@@ -15,11 +18,98 @@ class instruments(App):
         self.stage_configure_btn = None
         self.sensor_configure_btn = None
         self.tec_configure_btn = None
+        self._user_stime = None
         if "editing_mode" not in kwargs:
             super(instruments, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
     def idle(self):
         self.terminal.terminal_refresh()
+
+        try:
+            stime = os.path.getmtime(shared_path)
+        except FileNotFoundError:
+            stime = None
+
+        if stime != self._user_stime:
+            self._user_stime = stime
+            try:
+                with open(shared_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    self.configuration_check = data.get("Configuration_check", {})
+            except Exception as e:
+                print(f"[Warn] read json failed: {e}")
+
+        self.after_configuration()
+
+    def after_configuration(self):
+        if self.configuration_check["stage"] == 1:
+            self.stage_connect_btn.set_text("Connect")
+            self.configuration_check["stage"] = 0
+            self.configuration["stage"] = ""
+            file = File(
+                "shared_memory", "Configuration", self.configuration,
+                "Configuration_check", self.configuration_check)
+            file.save()
+            print("Fail To Connect Stage")
+            self.lock_all(0)
+        elif self.configuration_check["stage"] == 2:
+            self.stage_connect_btn.set_text("Disconnect")
+            self.configuration_check["stage"] = 0
+            file = File(
+                "shared_memory", "Configuration_check", self.configuration_check)
+            file.save()
+            print("Stage Connection Successful")
+            self.lock_all(0)
+
+        if self.configuration_check["sensor"] == 1:
+            self.sensor_connect_btn.set_text("Connect")
+            self.configuration_check["sensor"] = 0
+            self.configuration["sensor"] = ""
+            file = File(
+                "shared_memory", "Configuration", self.configuration,
+                "Configuration_check", self.configuration_check)
+            file.save()
+            print("Fail To Connect Sensor")
+            self.lock_all(0)
+        elif self.configuration_check["sensor"] == 2:
+            self.sensor_connect_btn.set_text("Disconnect")
+            self.configuration_check["sensor"] = 0
+            file = File(
+                "shared_memory", "Configuration_check", self.configuration_check)
+            file.save()
+            print("Sensor Connection Successful")
+            self.lock_all(0)
+
+        if self.configuration_check["tec"] == 1:
+            self.tec_connect_btn.set_text("Connect")
+            self.configuration_check["tec"] = 0
+            self.configuration["tec"] = ""
+            file = File(
+                "shared_memory", "Configuration", self.configuration,
+                "Configuration_check", self.configuration_check)
+            file.save()
+            print("Fail To Connect Tec")
+            self.lock_all(0)
+        elif self.configuration_check["tec"] == 2:
+            self.tec_connect_btn.set_text("Disconnect")
+            self.configuration_check["tec"] = 0
+            file = File(
+                "shared_memory", "Configuration_check", self.configuration_check)
+            file.save()
+            print("Tec Connection Successful")
+            self.lock_all(0)
+
+    def lock_all(self, value):
+        enabled = value == 0
+        widgets_to_check = [self.instruments_container]
+        while widgets_to_check:
+            widget = widgets_to_check.pop()
+
+            if isinstance(widget, (Button, DropDown)):
+                widget.set_enabled(enabled)
+
+            if hasattr(widget, "children"):
+                widgets_to_check.extend(widget.children.values())
 
     def main(self):
         return self.construct_ui()
@@ -88,7 +178,8 @@ class instruments(App):
             self.configuration["stage"] = self.stage_dd.get_value()
             file = File("shared_memory", "Configuration", self.configuration)
             file.save()
-            self.stage_connect_btn.set_text("Connected")
+            self.stage_connect_btn.set_text("Connecting")
+            self.lock_all(1)
         else:
             self.configuration["stage"] = ""
             file = File("shared_memory", "Configuration", self.configuration)
@@ -100,7 +191,8 @@ class instruments(App):
             self.configuration["sensor"] = self.sensor_dd.get_value()
             file = File("shared_memory", "Configuration", self.configuration)
             file.save()
-            self.sensor_connect_btn.set_text("Connected")
+            self.sensor_connect_btn.set_text("Connecting")
+            self.lock_all(1)
         else:
             self.configuration["sensor"] = ""
             file = File("shared_memory", "Configuration", self.configuration)
@@ -112,7 +204,8 @@ class instruments(App):
             self.configuration["tec"] = self.tec_dd.get_value()
             file = File("shared_memory", "Configuration", self.configuration)
             file.save()
-            self.tec_connect_btn.set_text("Connected")
+            self.tec_connect_btn.set_text("Connecting")
+            self.lock_all(1)
         else:
             self.configuration["tec"] = ""
             file = File("shared_memory", "Configuration", self.configuration)

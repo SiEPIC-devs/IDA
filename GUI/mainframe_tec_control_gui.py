@@ -14,6 +14,7 @@ class tec_control(App):
         self._user_stime = None
         self._first_command_check = True
         self.configuration = {}
+        self.configuration_check = {}
         self.configuration_count = 0
         self.configure = None
         self.ldc_manager = None
@@ -45,6 +46,7 @@ class tec_control(App):
                 with open(shared_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     self.configuration = data.get("Configuration", {})
+                    self.configuration_check = data.get("Configuration_check", {})
                     self.port = data.get("Port", {})
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
@@ -58,27 +60,40 @@ class tec_control(App):
         threading.Thread(target=target, args=args, daemon=True).start()
 
     def after_configuration(self):
-        if self.configuration["tec"] != "" and self.configuration_count == 0:
-            self.configuration_count = 1
+        if self.configuration["tec"] != "" and self.configuration_count == 0 and self.configuration_check["tec"] == 0:
             self.configure = LDCConfiguration()
             self.configure.visa_address = f"ASRL{self.port['tec']}::INSTR"
             self.ldc_manager = LDCManager(self.configure)
-            self.ldc_manager.initialize()
-            self.ldc_manager.set_temperature(25.0)
-            self.tec_window = webview.create_window(
-                'TEC Control',
-                f'http://{local_ip}:8002',
-                width=322+web_w, height=157+web_h,
-                x=800, y=100,
-                resizable=True,
-                hidden=False
-            )
+            success = self.ldc_manager.initialize()
+            if success:
+                self.configuration_count = 1
+                self.configuration_check["tec"] = 2
+                file = File(
+                    "shared_memory", "Configuration_check", self.configuration_check
+                )
+                file.save()
+                self.ldc_manager.set_temperature(25.0)
+                self.tec_window = webview.create_window(
+                    'TEC Control',
+                    f'http://{local_ip}:8002',
+                    width=322+web_w, height=157+web_h,
+                    x=800, y=100,
+                    resizable=True,
+                    hidden=False
+                )
+            else:
+                self.configuration_count = 0
+                self.configuration_check["tec"] = 1
+                file = File(
+                    "shared_memory", "Configuration_check", self.configuration_check
+                )
+                file.save()
         elif self.configuration["tec"] == "" and self.configuration_count == 1:
             self.configuration_count = 0
             if self.tec_window:
                 self.tec_window.destroy()
                 self.tec_window = None
-            self.ldc_manager.shutdown()
+                self.ldc_manager.shutdown()
 
     def construct_ui(self):
         sensor_control_container = StyledContainer(

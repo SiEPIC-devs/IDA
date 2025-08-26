@@ -81,6 +81,16 @@ class fine_align(App):
             width=20, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
+        StyledLabel(
+            container=fine_align_setting_container, text="Detector", variable_name="detector_lb",
+            left=0, top=106, width=70, height=25, font_size=100, flex=True, justify_content="right", color="#222"
+        )
+
+        self.detector = StyledDropDown(
+            container=fine_align_setting_container, variable_name="detector", text=["1","2"],
+            left=80, top=106, width=40, height=25, position="absolute"
+        )
+
         self.confirm_btn = StyledButton(
             container=fine_align_setting_container, text="Confirm", variable_name="confirm_btn",
             left=68, top=142, height=25, width=70, font_size=90
@@ -95,7 +105,8 @@ class fine_align(App):
         value = {
             "window_size": float(self.window_size.get_value()),
             "step_size": float(self.step_size.get_value()),
-            "max_iters": int(self.max_iters.get_value())
+            "max_iters": int(self.max_iters.get_value()),
+            "detector": int(self.detector.get_value())
         }
         file = File("shared_memory", "FineA", value)
         file.save()
@@ -148,6 +159,8 @@ class fine_align(App):
                 self.step_size.set_value(val)
             elif key == "fa_max_iters":
                 self.max_iters.set_value(val)
+            elif key == "fa_detector":
+                self.detector.set_value(str(val))
             elif key == "fa_confirm":
                 self.onclick_confirm()
 
