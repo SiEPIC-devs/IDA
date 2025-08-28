@@ -3,7 +3,7 @@ import time
 from NIR.nir_controller import NIR8164
 
 def main():
-    dev = NIR8164(com_port=3, gpib_addr=20)
+    dev = NIR8164(com_port=6, gpib_addr=20)
     print("Connecting...")
     assert dev.connect(), "connect failed"
     print("IDN ok")

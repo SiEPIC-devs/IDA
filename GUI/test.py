@@ -1,7 +1,7 @@
-import os
+from NIR.nir_manager import NIRManager
+from NIR.config.nir_config import NIRConfiguration
 
-# 打开一个新的 cmd 窗口
-os.system("start cmd")
-
-# 或者打开 PowerShell
-os.system("start powershell")
+if __name__ == "__main__":
+    config = NIRConfiguration()
+    a = NIRManager(config)
+    a.initialize()

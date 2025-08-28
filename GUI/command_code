@@ -41,6 +41,7 @@ lim_confirm                                      # confirm the change of limit s
 fa_window_size_{num}                             # setting the fine align window size
 fa_step_size_{num}                               # setting the fine align step size
 fa_max_iters_{num}                               # setting the fine align max iters
+fa_detector_{num}                                # setting the fine align detector number
 fa_confirm                                       # confirm the change of fine align setting
 
 ### Area Scan ###
