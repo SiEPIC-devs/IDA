@@ -481,7 +481,7 @@ class File():
             "AutoSweep": 0,
             "Configuration": {"stage": "", "sensor": "", "tec": ""},
             "Configuration_check": {"stage": 0, "sensor": 0, "tec": 0},
-            "Port": {"stage": 4, "sensor": 6, "tec": 5},
+            "Port": {"stage": 4, "sensor": 3, "tec": 5},
             "DeviceName": "Default",
             "DeviceNum": 0
         }

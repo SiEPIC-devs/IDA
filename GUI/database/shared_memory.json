@@ -57,7 +57,7 @@
   },
   "Port": {
     "stage": 4,
-    "sensor": 6,
+    "sensor": 3,
     "tec": 5
   },
   "DeviceName": "Default",
