@@ -51,8 +51,8 @@
     "tec": "stage_control"
   },
   "Configuration_check": {
-    "stage": 0,
-    "sensor": 0,
+    "stage": 1,
+    "sensor": 1,
     "tec": 0
   },
   "Port": {
