@@ -12,7 +12,8 @@ class FineAlignConfiguration:
     scan_window = 10 # microns
     threshold = -10.0 # not used
     max_gradient_iters = 10 # 
-    use_crosshair = False 
+    use_crosshair = False
+    primary_detector = None # None sets lowest loss, ch1->1.1;ch2->1.2   
     
     def to_dict(self) -> dict:
         """Convert to dictionary"""
@@ -21,7 +22,8 @@ class FineAlignConfiguration:
             'scan_window': self.scan_window,
             'threshold': self.threshold,
             'max_gradient_iters': self.max_gradient_iters,
-            'use_crosshair': self.use_crosshair
+            'use_crosshair': self.use_crosshair,
+            'primary_detector': self.use_crosshair
         }
     
     @classmethod

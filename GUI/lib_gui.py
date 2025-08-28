@@ -18,8 +18,8 @@ from scipy.ndimage import gaussian_filter
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import matplotlib, logging
 matplotlib.use("QtAgg")
-web_w = 0
-web_h = 0
+web_w = -6
+web_h = -17
 
 _ORIG_WSGI_LOG = None
 _ORIG_HTTP_LOG = None
@@ -473,15 +473,15 @@ class File():
             "Image": "TSP/none.png",
             "Web": "",
             "Limit": {"x": "Yes", "y": "Yes", "z": "Yes", "chip": "Yes", "fiber": "Yes"},
-            "FineA": {"window_size": 20, "step_size": 1, "max_iters": 10, "detector": 1},
-            "AreaS": {"x_size": 20, "x_step": 1, "y_size": 20, "y_step": 1, "plot": "New"},
-            "Sweep": {"wvl": 1550, "speed": 1.0, "power": 0, "step": 0.1, "start": 1540.0, "end": 1560.0, "done": "Laser On", "sweep": 0, "on": 0},
+            "FineA": {"window_size": 20, "step_size": 2, "max_iters": 5, "detector": 1},
+            "AreaS": {"x_size": 20.0, "x_step": 1.0, "y_size": 20.0, "y_step": 1.0, "plot": "New"},
+            "Sweep": {"wvl": 1550.0, "speed": 1.0, "power": 1.0, "step": 0.001, "start": 1540.0, "end": 1580.0, "done": "Laser On", "sweep": 0, "on": 0},
             "ScanPos": {"x": 0, "y": 0, "move": 0},
             "StagePos": {"x": 0, "y": 0},
             "AutoSweep": 0,
             "Configuration": {"stage": "", "sensor": "", "tec": ""},
             "Configuration_check": {"stage": 0, "sensor": 0, "tec": 0},
-            "Port": {"stage": 4, "sensor": 3, "tec": 5},
+            "Port": {"stage": 4, "sensor": 20, "tec": 3},
             "DeviceName": "Default",
             "DeviceNum": 0
         }

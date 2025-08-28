@@ -57,7 +57,7 @@ class fine_align(App):
         )
 
         self.step_size = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="step_size_in", left=80, top=42, value=1,
+            container=fine_align_setting_container, variable_name="step_size_in", left=80, top=42, value=2,
             width=50, height=24, min_value=-1000, max_value=1000, step=0.1, position="absolute"
         )
 
@@ -72,7 +72,7 @@ class fine_align(App):
         )
 
         self.max_iters = StyledSpinBox(
-            container=fine_align_setting_container, variable_name="max_iters_in", left=80, top=74, value=10,
+            container=fine_align_setting_container, variable_name="max_iters_in", left=80, top=74, value=5,
             width=50, height=24, min_value=0, max_value=50, step=1, position="absolute"
         )
 
@@ -87,8 +87,8 @@ class fine_align(App):
         )
 
         self.detector = StyledDropDown(
-            container=fine_align_setting_container, variable_name="detector", text=["1","2"],
-            left=80, top=106, width=40, height=25, position="absolute"
+            container=fine_align_setting_container, variable_name="detector", text=["ch1","ch2","None"],
+            left=80, top=106, width=60, height=25, position="absolute"
         )
 
         self.confirm_btn = StyledButton(
@@ -106,7 +106,7 @@ class fine_align(App):
             "window_size": float(self.window_size.get_value()),
             "step_size": float(self.step_size.get_value()),
             "max_iters": int(self.max_iters.get_value()),
-            "detector": int(self.detector.get_value())
+            "detector": str(self.detector.get_value())
         }
         file = File("shared_memory", "FineA", value)
         file.save()

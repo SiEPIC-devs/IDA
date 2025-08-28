@@ -77,8 +77,10 @@ class stage_control(App):
             if self.sweep_check == 1:
                 if self.sweep["done"] == "Laser On":
                     self.on_box.set_value(1)
+                    self.onchange_box(1,1)
                 else:
                     self.on_box.set_value(0)
+                    self.onchange_box(1, 0)
                 self.sweep_check = 0
 
     def main(self):

@@ -29,7 +29,6 @@ class connect_config(App):
                 self._last_ports = com_names
 
                 self.refresh_dropdown(self.stage_dd, com_names)
-                self.refresh_dropdown(self.sensor_dd, com_names)
                 self.refresh_dropdown(self.tec_dd, com_names)
 
         except Exception as e:
@@ -61,9 +60,9 @@ class connect_config(App):
             left=0, top=45, width=60, height=25, font_size=100, flex=True, justify_content="right", color="#222"
         )
 
-        self.sensor_dd = StyledDropDown(
-            container=connect_config_setting_container, variable_name="sensor_dd", text="N/A",
-            left=70, top=45, width=100, height=25, position="absolute"
+        self.sensor_dd = StyledSpinBox(
+            container=connect_config_setting_container, variable_name="sensor_dd", value=20, max_value=100, min_value=0,
+            step=1, left=70, top=45, width=83, height=25, position="absolute"
         )
 
         StyledLabel(

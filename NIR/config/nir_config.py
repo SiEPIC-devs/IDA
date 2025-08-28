@@ -14,9 +14,9 @@ class NIRConfiguration:
     com_port: int = 3
     gpib_addr: int = 20 
     laser_slot: int = 0
-    detector_slots: List[int] = field(default_factory=lambda: [1])
+    detector_slots: List[int] = field(default_factory=lambda: [1,2])
     safety_password: str = "1234"
-    timeout: int = 30000 # long for lambda sweep
+    timeout: int = 3000 # long for lambda sweep
     
     # Default settings
     initial_wavelength_nm: float = 1550.0
@@ -31,7 +31,7 @@ class NIRConfiguration:
     @property
     def visa_address(self) -> str:
         """Get VISA address"""
-        return f"ASRL{self.com_port}::INSTR"
+        return f"GPIB0::{self.gpib_addr}::INSTR"
     
     def to_dict(self) -> dict:
         """Convert to dictionary"""

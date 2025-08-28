@@ -80,8 +80,10 @@ class testing(App):
                     with open(shared_path, "r", encoding="utf-8") as f:
                         data = json.load(f)
                         self.cur_user = data.get("User", "").strip()
-                        self.image_path = data.get("Image", "")
-                        self.display_plot.set_image(f"my_res:{self.image_path}")
+                        image_path = data.get("Image", "")
+                        if image_path != self.image_path:
+                            self.image_path = image_path
+                            self.display_plot.set_image(f"my_res:{self.image_path}")
                         self.serial_list = set(data.get("Selection", []))
                         self.device_num = data.get("DeviceNum", 0)
                         self.auto_sweep = data.get("AutoSweep", 0)

@@ -52,7 +52,7 @@ class add_btn(App):
 
     def construct_ui(self):
         laser_sweep_container = StyledContainer(
-            variable_name="laser_sweep_container", left=0, top=0, height=250, width=240
+            variable_name="laser_sweep_container", left=0, top=0, height=249, width=240
         )
 
         StyledLabel(
@@ -76,7 +76,7 @@ class add_btn(App):
         )
 
         self.power = StyledSpinBox(
-            container=laser_sweep_container, variable_name="power_in", left=95, top=42, value=0.0,
+            container=laser_sweep_container, variable_name="power_in", left=95, top=42, value=1.0,
             width=65, height=24, min_value=-110, max_value=30, step=0.1, position="absolute"
         )
 
@@ -91,7 +91,7 @@ class add_btn(App):
         )
 
         self.step_size = StyledSpinBox(
-            container=laser_sweep_container, variable_name="step_size_in", left=95, top=74, value=0.1,
+            container=laser_sweep_container, variable_name="step_size_in", left=95, top=74, value=0.001,
             width=65, height=24, min_value=0, max_value=1000, step=0.1, position="absolute"
         )
 
@@ -121,7 +121,7 @@ class add_btn(App):
         )
 
         self.stop_wvl = StyledSpinBox(
-            container=laser_sweep_container, variable_name="stop_wvl_in", left=95, top=138, value=1560.0,
+            container=laser_sweep_container, variable_name="stop_wvl_in", left=95, top=138, value=1580.0,
             width=65, height=24, min_value=0, max_value=2000, step=0.1, position="absolute"
         )
 

@@ -72,6 +72,10 @@ class stage_control(App):
         self.task_start = 0
         self._win_lock = threading.Lock()
 
+        self.area_sweep = None
+        self.fine_align = None
+        self.task_laser = 0
+
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -141,6 +145,7 @@ class stage_control(App):
             name = self.name
             self.busy_dialog()
             self.task_start = 1
+            self.task_laser = 1
             self.lock_all(1)
         else:
             self.task_start = 1
@@ -157,10 +162,8 @@ class stage_control(App):
             print(f"[Error] Sweep failed: {e}")
             wl, d1, d2 = [], [], []
 
-        # x = wl
-        # y = np.vstack([d1, d2])
-        x = [1,2,3,4,5,6,7]
-        y = np.vstack([[1,2,3,4,5,6,7], [132,41,513,135,135,14,142]])
+        x = wl
+        y = np.vstack([d1, d2])
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         diagram = plot(x, y, "spectral_sweep", fileTime, self.user, name, self.project, auto)
         p = Process(target=diagram.generate_plots)
@@ -187,6 +190,7 @@ class stage_control(App):
             with self._scan_done.get_lock():
                 self._scan_done.value = 1
                 self.task_start = 0
+                self.task_laser = 0
                 self.lock_all(0)
 
             self.sweep_count = 0
@@ -207,8 +211,6 @@ class stage_control(App):
 
     def after_configuration(self):
         if self.configuration["stage"] != "" and self.configuration_stage == 0 and self.configuration_check["stage"] == 0:
-            self.configuration_stage = 1
-
             self.gds = lib_coordinates.coordinates(("./res/" + filename), read_file=False,
                                                    name="./database/coordinates.json")
             self.number = self.gds.listdeviceparam("number")
@@ -265,11 +267,10 @@ class stage_control(App):
             print("Stage Disconnected")
 
         if self.configuration["sensor"] != "" and self.configuration_sensor == 0 and self.configuration_check["sensor"] == 0:
-            self.configuration_sensor = 1
             self.nir_configure = NIRConfiguration()
-            self.nir_configure.com_port = self.port["sensor"]
+            self.nir_configure.gpib_addr = self.port["sensor"]
             self.nir_manager = NIRManager(self.nir_configure)
-            success_sensor = self.nir_manager.connect()
+            success_sensor = self.nir_manager.initialize()
             if success_sensor:
                 self.configuration_sensor = 1
                 self.configuration_check["sensor"] = 2
@@ -338,11 +339,16 @@ class stage_control(App):
             if self.auto_sweep == 1 and self.count == 0:
                 self.lock_all(1)
                 self.count = 1
+                self.busy_dialog()
+                self.task_start = 1
                 self.run_in_thread(self.do_auto_sweep)
 
             elif self.auto_sweep == 0 and self.count == 1:
                 self.lock_all(0)
                 self.count = 0
+                self.nir_manager.cancel_sweep()
+                if self.fine_align != None:
+                    self.fine_align.stop_alignment()
 
             if self.scanpos["move"] == 1 and (self.scanpos["x"] != self.pre_x or self.scanpos["y"] != self.pre_y):
                 self.run_in_thread(self.scan_move)
@@ -353,6 +359,28 @@ class stage_control(App):
                 self.ch_count = 1
                 self.run_in_thread(self.update_ch)
 
+            self.stop_task()
+
+    def stop_task(self):
+        if self._scan_done.value == -1:
+            self._scan_done.value = 0
+            self.task_start = 0
+            if self.area_sweep != None:
+                self.area_sweep.stop_sweep()
+            if self.fine_align != None:
+                self.fine_align.stop_alignment()
+            if self.task_laser == 1:
+                self.task_laser = 0
+                self.nir_manager.cancel_sweep()
+            if self.auto_sweep == 1 and self.count == 1:
+                self.auto_sweep = 0
+                file = File("shared_memory", "AutoSweep", 0)
+                file.save()
+                self.nir_manager.cancel_sweep()
+                if self.fine_align != None:
+                    self.fine_align.stop_alignment()
+
+            self.lock_all(0)
 
     def update_ch(self):
         while True:
@@ -380,15 +408,21 @@ class stage_control(App):
 
             asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
             asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
+            if self.auto_sweep == 0:
+                break
 
             self.onclick_start()
+            if self.auto_sweep == 0:
+                break
             self.laser_sweep(name=self.devices[int(key[i])])
 
             file = File("shared_memory", "DeviceName", self.devices[int(key[i])], "DeviceNum", int(key[i]))
             file.save()
 
             i += 1
-
+        with self._scan_done.get_lock():
+            self._scan_done.value = 1
+            self.task_start = 0
         print("The Auto Sweep Is Finished")
         time.sleep(1)
         file = File("shared_memory", "AutoSweep", 0)
@@ -629,6 +663,7 @@ class stage_control(App):
         return stage_control_container
 
     def onclick_stop(self):
+        print("Stopping stage control")
         asyncio.run(self.stage_manager.emergency_stop())
         print("Stop")
 
@@ -636,6 +671,7 @@ class stage_control(App):
         print("Start Home")
         self.busy_dialog()
         self.lock_all(1)
+        self.stop_btn.set_enabled(True)
         self.task_start = 1
         home = self.limit
         x = home["x"]
@@ -662,21 +698,23 @@ class stage_control(App):
 
     def onclick_start(self):
         print("Start Fine Align")
-        self.busy_dialog()
-        self.task_start = 1
-        self.lock_all(1)
+        if self.auto_sweep == 0:
+            self.busy_dialog()
+            self.task_start = 1
+            self.lock_all(1)
         config = FineAlignConfiguration()
         config.scan_window = self.fine_a["window_size"]
         config.step_size = self.fine_a["step_size"]
         config.gradient_iters = self.fine_a["max_iters"]
-        fine_align = FineAlign(config.to_dict(), self.stage_manager, self.nir_manager)
-        asyncio.run(fine_align.begin_fine_align())
+        self.fine_align = FineAlign(config.to_dict(), self.stage_manager, self.nir_manager)
+        asyncio.run(self.fine_align.begin_fine_align())
 
-        with self._scan_done.get_lock():
-            self._scan_done.value = 1
-            self.task_start = 0
-            self.lock_all(0)
-
+        if self.auto_sweep == 0:
+            with self._scan_done.get_lock():
+                self._scan_done.value = 1
+                self.task_start = 0
+                self.lock_all(0)
+        self.fine_align = None
         print("Fine Align Finished")
 
     def busy_dialog(self):
@@ -690,7 +728,6 @@ class stage_control(App):
         self._busy_proc.start()
 
     def onclick_scan(self):
-        self.scan_btn.set_enabled(False)
         print("Start Scan")
         self.busy_dialog()
         self.task_start = 1
@@ -703,8 +740,8 @@ class stage_control(App):
             config.x_step = int(self.area_s["x_step"])
             config.y_size = int(self.area_s["y_size"])
             config.y_step = int(self.area_s["y_step"])
-            area_sweep = AreaSweep(config, self.stage_manager, self.nir_manager)
-            self.data = asyncio.run(area_sweep.begin_sweep())
+            self.area_sweep = AreaSweep(config, self.stage_manager, self.nir_manager)
+            self.data = asyncio.run(self.area_sweep.begin_sweep())
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=self.data)
 
@@ -716,7 +753,9 @@ class stage_control(App):
             p = Process(target=diagram.heat_map)
             p.start()
             p.join()
+            self.area_sweep = None
             print("Done Scan")
+
         elif self.area_s["plot"] == "Previous":
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=self.data)
@@ -730,7 +769,6 @@ class stage_control(App):
             p.join()
 
         print("Done Scan")
-        self.scan_btn.set_enabled(True)
 
     def onclick_x_left(self):
         value = float(self.x_input.get_value())
@@ -1107,6 +1145,4 @@ if __name__ == '__main__':
         resizable=True,
         hidden=True
     )
-    print("Stage Connected")
-
     webview.start(func=disable_scroll)

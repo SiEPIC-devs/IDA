@@ -1,0 +1,133 @@
+
+VISA DATA TYPES
+The driver functions use VISA data types. VISA data types are identified by the ‘Vi’ prefix in the data type name (e.g. ViInt16, ViUInt16, ViChar). The visatype.h file contains a complete listing of the VISA data types, function call casts and some of the common constants. The following is a partial list of the type definitions and constant definitions in visatype.h.
+
+Completion and Error Codes
+
+VI_SUCCESS A long equal to zero
+
+VI_ERROR A long equal to hex 0x80000000
+
+Other VISA Definitions
+
+The size of the following three symbols is operating system dependent and is equal to the default integer size.
+
+VI_NULL An integer equal to 0
+
+VI_TRUE An integer equal to 1
+
+VI_FALSE An integer equal to 0
+
+Variable types
+
+ViUInt32 A 32-bit unsigned integer
+
+ViPUInt32 A pointer to a 32-bit unsigned integer
+
+ViAUInt32 An array of 32-bit unsigned integers
+
+ViInt32 A 32-bit signed integer
+
+ViPInt32 A pointer to a 32-bit signed integer
+
+ViAInt32  An array of 32-bit signed integers
+
+ViUInt16 A 16-bit unsigned integer
+
+ViPUInt16 A pointer to a 16-bit unsigned integer
+
+ViAUInt16 An array of 16-bit unsigned integers
+
+ViInt16 A 16-bit signed integer
+
+ViPInt16 A pointer to a 16-bit signed integer
+
+ViAInt16 An array of 16-bit signed integers
+
+ViUInt8 A unsigned byte
+
+ViPUInt8 A pointer to an unsigned byte
+
+ViAUInt8 An arrays of unsigned bytes
+
+ 
+
+ViInt8 A 8-bit signed integer
+
+ViPInt8 A pointer to a 8-bit signed integer
+
+ViAInt8 An array of 8-bit signed 
+
+ 
+
+ViChar A character
+
+ViPChar A pointer to a character
+
+ViAChar An array of characters
+
+ 
+
+ViByte A byte
+
+ViPByte A pointer to a byte
+
+ViAByte An array of bytes
+
+ 
+
+ViAddr A Void pointer
+
+ViPAddr A pointer to a void pointer
+
+ 
+
+ViAAddr An array of void pointers
+
+ 
+
+ViReal32 A 32-bit floating point
+
+ViPReal32 A pointer to a 32-bit floating point
+
+ViAReal32 An array of 32-bit floating points
+
+ 
+
+ViReal64 A 64-bit floating point
+
+ViPReal64 A pointer a 64-bit floating point
+
+ViAReal64 A pointer to an array of 64-bit floating points
+
+ 
+
+ViBuf A pointer to an array of bytes
+
+ViPBuf A pointer to an array of bytes
+
+ViABuf An array of byte pointers
+
+ 
+
+ViString An array of characters
+
+ViPString A pointer to an array of characters
+
+ViAString An array of ViStrings
+
+ 
+
+ViRsrc A ViString
+
+ViARsrc An array of ViStrings
+
+ 
+
+ViBoolean A 16-bit unsigned boolean value
+
+ViABoolean An array of 16-bit unsigned booleans
+
+ 
+
+ViPStatus A pointer to a 32-bit integer status value
