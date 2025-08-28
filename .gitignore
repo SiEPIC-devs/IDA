@@ -5,3 +5,5 @@ __pycache__/
 */__pycache__/
 *.pyc
 .vscode/
+GUI/UserData/
+GUI/res/spectral_sweep/
