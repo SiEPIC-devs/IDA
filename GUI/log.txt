@@ -1,21 +1,2381 @@
-[launcher] logging started @ 2025-08-26 15:46:50
-DEBUG - asyncio - Using proactor: IocpProactor
-Stage Connected
+[launcher] logging started @ 2025-08-27 17:09:18
 Welcome To Probe Stage
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 67, in initialize
+    self._log("Initializing NIR device...")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Initializing NIR device...'
+Arguments: ()
+NIRManager       INFO     Initializing NIR device...
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 90, in connect
+    self._log("Connected to NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Connected to NIR device'
+Arguments: ()
+NIRManager       INFO     Connected to NIR device
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 92, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 142, in _configure_device
+    self._log("Device configured with current settings")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Device configured with current settings'
+Arguments: ()
+NIRManager       INFO     Device configured with current settings
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
+    self._log("NIR initialized successfully")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'NIR initialized successfully'
+Arguments: ()
+NIRManager       INFO     NIR initialized successfully
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 130, in set_wvl
+    self.nir_manager.set_wavelength(self.sweep["wvl"])
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 158, in set_wavelength
+    self._log(f"Wavelength set to {wavelength_nm}nm")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Wavelength set to 1550nm'
+Arguments: ()
+NIRManager       INFO     Wavelength set to 1550nm
+Sensor Connection Successful
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 126, in set_power
+    self.nir_manager.set_power(self.sweep["power"])
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 192, in set_power
+    self._log(f"Power set to {power_dbm}dBm")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Power set to 0dBm'
+Arguments: ()
+NIRManager       INFO     Power set to 0dBm
+On
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 134, in laser_on
+    self.nir_manager.enable_laser(self.sweep["on"])
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 225, in enable_laser
+    self._log(f"Laser {state}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Laser enabled'
+Arguments: ()
+NIRManager       INFO     Laser enabled
+Off
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 134, in laser_on
+    self.nir_manager.enable_laser(self.sweep["on"])
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 225, in enable_laser
+    self._log(f"Laser {state}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Laser disabled'
+Arguments: ()
+NIRManager       INFO     Laser disabled
+On
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 134, in laser_on
+    self.nir_manager.enable_laser(self.sweep["on"])
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 225, in enable_laser
+    self._log(f"Laser {state}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Laser enabled'
+Arguments: ()
+NIRManager       INFO     Laser enabled
+Off
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 134, in laser_on
+    self.nir_manager.enable_laser(self.sweep["on"])
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 225, in enable_laser
+    self._log(f"Laser {state}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Laser disabled'
+Arguments: ()
+NIRManager       INFO     Laser disabled
+On
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 134, in laser_on
+    self.nir_manager.enable_laser(self.sweep["on"])
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 225, in enable_laser
+    self._log(f"Laser {state}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Laser enabled'
+Arguments: ()
+NIRManager       INFO     Laser enabled
+Off
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 134, in laser_on
+    self.nir_manager.enable_laser(self.sweep["on"])
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 225, in enable_laser
+    self._log(f"Laser {state}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Laser disabled'
+Arguments: ()
+NIRManager       INFO     Laser disabled
 {'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-INFO - motors.stage_manager - Shared memory initialized
-DEBUG - asyncio - Using proactor: IocpProactor
-INFO - motors.stage_manager - Stage manager started
-INFO - motors.stage_manager - Position monitor started
-Connection unsuccessful could not open port 'COM4': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-ERROR - motors.stage_manager - Failed to connect axis X
-Connection unsuccessful could not open port 'COM4': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-ERROR - motors.stage_manager - Failed to connect axis Y
-Connection unsuccessful could not open port 'COM4': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-ERROR - motors.stage_manager - Failed to connect axis Z
-Connection unsuccessful could not open port 'COM4': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-ERROR - motors.stage_manager - Failed to connect axis ROTATION_CHIP
-Connection unsuccessful could not open port 'COM4': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
-ERROR - motors.stage_manager - Failed to connect axis ROTATION_FIBER
-WARNING - motors.stage_manager - Some axes failed to initialize
-Fail To Connect Stage
+motors.stage_manager INFO     Shared memory initialized
+motors.stage_manager INFO     Stage manager started
+motors.stage_manager INFO     Position monitor started
+motors.stage_manager INFO     Axis X initialized successfully
+motors.stage_manager INFO     Axis Y initialized successfully
+motors.stage_manager INFO     Axis Z initialized successfully
+Position read error: No data received
+motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager INFO     All axes initialized successfully
+Stage Connection Successful
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+LDC.ldc_manager  INFO     LDC shared memory initialized
+Position read error: No data received
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 120, in connect
+    success = self.ldc.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 78, in connect
+    self._emit_event(LDCEventType.CONNECTION_CHANGED, {
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}"
+Arguments: ()
+LDCManager       INFO     Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 123, in connect
+    self._log("Connected to LDC device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: 'Connected to LDC device'
+Arguments: ()
+LDCManager       INFO     Connected to LDC device
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 162, in _configure_device
+    self.ldc.set_sensor_type(self.config.sensor_type)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 307, in set_sensor_type
+    self._emit_event(LDCEventType.CONFIG_CHANGED, {
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}"
+Arguments: ()
+LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}
+Position read error: No data received
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 165, in _configure_device
+    self.ldc.configure_sensor_coeffs(self.config.model_coeffs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 346, in configure_sensor_coeffs
+    self._emit_event(LDCEventType.CONFIG_CHANGED, {
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}"
+Arguments: ()
+LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}
+Position read error: No data received
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 168, in _configure_device
+    self.ldc.configure_PID_coeffs(self.config.pid_coeffs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 385, in configure_PID_coeffs
+    self._emit_event(LDCEventType.CONFIG_CHANGED, {
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}"
+Arguments: ()
+LDCManager       INFO     Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}
+Position read error: No data received
+LDC.ldc_controller ERROR    [LDC] Temperature read error: could not convert string to float: ''
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 237, in get_temp
+    temp = float(resp.strip())
+ValueError: could not convert string to float: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 171, in _configure_device
+    self.ldc.set_temp(self.config.setpoint)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 273, in set_temp
+    current_temp = self.get_temp()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 251, in get_temp
+    self._emit_event(LDCEventType.ERROR, {
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: 'Event: error - {\'operation\': \'get_temp\', \'error\': "could not convert string to float: \'\'"}'
+Arguments: ()
+LDCManager       INFO     Event: error - {'operation': 'get_temp', 'error': "could not convert string to float: ''"}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 171, in _configure_device
+    self.ldc.set_temp(self.config.setpoint)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 278, in set_temp
+    self._emit_event(LDCEventType.TEMP_SETPOINT_CHANGED, {
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}"
+Arguments: ()
+LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 173, in _configure_device
+    self._log("Device configured with current settings")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: 'Device configured with current settings'
+Arguments: ()
+LDCManager       INFO     Device configured with current settings
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 103, in initialize
+    self._log("LDC initialized successfully")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: 'LDC initialized successfully'
+Arguments: ()
+LDCManager       INFO     LDC initialized successfully
+Tec Connection Successful
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
+    self.ldc_manager.set_temperature(25.0)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 251, in set_temperature
+    success = self.ldc.set_temp(temperature)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 273, in set_temp
+    current_temp = self.get_temp()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 242, in get_temp
+    self._emit_event(LDCEventType.TEMP_CHANGED, {
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: temp_changed - {'temperature': 23.50032, 'units': 'celsius'}"
+Arguments: ()
+LDCManager       INFO     Event: temp_changed - {'temperature': 23.50032, 'units': 'celsius'}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
+    self.ldc_manager.set_temperature(25.0)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 251, in set_temperature
+    success = self.ldc.set_temp(temperature)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_controller.py", line 278, in set_temp
+    self._emit_event(LDCEventType.TEMP_SETPOINT_CHANGED, {
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 23.50032}"
+Arguments: ()
+LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 23.50032}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
+    self.ldc_manager.set_temperature(25.0)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 254, in set_temperature
+    self._log(f"Temperature setpoint set to {temperature}°C")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: 'Temperature setpoint set to 25.0°C'
+Arguments: ()
+LDCManager       INFO     Temperature setpoint set to 25.0°C
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 296, in after_configuration
+    self.nir_manager.disconnect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 107, in disconnect
+    self._log("Disconnected from NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Disconnected from NIR device'
+Arguments: ()
+NIRManager       INFO     Disconnected from NIR device
+Sensor Disconnected
+Position read error: No data received
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 67, in initialize
+    self._log("Initializing NIR device...")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Initializing NIR device...'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 67, in initialize
+    self._log("Initializing NIR device...")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Initializing NIR device...'
+Arguments: ()
+NIRManager       INFO     Initializing NIR device...
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 90, in connect
+    self._log("Connected to NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Connected to NIR device'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 90, in connect
+    self._log("Connected to NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Connected to NIR device'
+Arguments: ()
+NIRManager       INFO     Connected to NIR device
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 92, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 142, in _configure_device
+    self._log("Device configured with current settings")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Device configured with current settings'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 92, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 142, in _configure_device
+    self._log("Device configured with current settings")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Device configured with current settings'
+Arguments: ()
+NIRManager       INFO     Device configured with current settings
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
+    self._log("NIR initialized successfully")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'NIR initialized successfully'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
+    self._log("NIR initialized successfully")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'NIR initialized successfully'
+Arguments: ()
+NIRManager       INFO     NIR initialized successfully
+Sensor Connection Successful
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 296, in after_configuration
+    self.nir_manager.disconnect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 107, in disconnect
+    self._log("Disconnected from NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Disconnected from NIR device'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 296, in after_configuration
+    self.nir_manager.disconnect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 107, in disconnect
+    self._log("Disconnected from NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Disconnected from NIR device'
+Arguments: ()
+NIRManager       INFO     Disconnected from NIR device
+Sensor Disconnected
+Position read error: No data received
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 355, in update_ch
+    ch1, ch2 = self.nir_manager.read_power()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 253, in read_power
+    self._log("Controller not connected", "error")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+    self.logger.error(message)
+Message: 'Controller not connected'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 355, in update_ch
+    ch1, ch2 = self.nir_manager.read_power()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 253, in read_power
+    self._log("Controller not connected", "error")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+    self.logger.error(message)
+Message: 'Controller not connected'
+Arguments: ()
+NIRManager       ERROR    Controller not connected
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 67, in initialize
+    self._log("Initializing NIR device...")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Initializing NIR device...'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 67, in initialize
+    self._log("Initializing NIR device...")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Initializing NIR device...'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 67, in initialize
+    self._log("Initializing NIR device...")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Initializing NIR device...'
+Arguments: ()
+NIRManager       INFO     Initializing NIR device...
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 355, in update_ch
+    ch1, ch2 = self.nir_manager.read_power()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 253, in read_power
+    self._log("Controller not connected", "error")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+    self.logger.error(message)
+Message: 'Controller not connected'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 355, in update_ch
+    ch1, ch2 = self.nir_manager.read_power()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 253, in read_power
+    self._log("Controller not connected", "error")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+    self.logger.error(message)
+Message: 'Controller not connected'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 355, in update_ch
+    ch1, ch2 = self.nir_manager.read_power()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 253, in read_power
+    self._log("Controller not connected", "error")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+    self.logger.error(message)
+Message: 'Controller not connected'
+Arguments: ()
+NIRManager       ERROR    Controller not connected
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 90, in connect
+    self._log("Connected to NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Connected to NIR device'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 90, in connect
+    self._log("Connected to NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Connected to NIR device'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 90, in connect
+    self._log("Connected to NIR device")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Connected to NIR device'
+Arguments: ()
+NIRManager       INFO     Connected to NIR device
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 92, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 142, in _configure_device
+    self._log("Device configured with current settings")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Device configured with current settings'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 92, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 142, in _configure_device
+    self._log("Device configured with current settings")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Device configured with current settings'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 70, in initialize
+    success = self.connect()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 92, in connect
+    self._configure_device()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 142, in _configure_device
+    self._log("Device configured with current settings")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'Device configured with current settings'
+Arguments: ()
+NIRManager       INFO     Device configured with current settings
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
+    self._log("NIR initialized successfully")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'NIR initialized successfully'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
+    self._log("NIR initialized successfully")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'NIR initialized successfully'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\weiji\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\.venv\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 117, in idle
+    self.after_configuration()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 267, in after_configuration
+    success_sensor = self.nir_manager.initialize()
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
+    self._log("NIR initialized successfully")
+  File "C:\Users\weiji\Desktop\UBC\Porbe_Stage\347\NIR\nir_manager.py", line 40, in _log
+    self.logger.info(message)
+Message: 'NIR initialized successfully'
+Arguments: ()
+NIRManager       INFO     NIR initialized successfully
+Sensor Connection Successful
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received

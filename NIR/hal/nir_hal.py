@@ -128,37 +128,6 @@ class LaserHAL(ABC):
         """Get current laser output enable state"""
         pass
 
-    # SWEEP CONTROL
-    @abstractmethod
-    def set_sweep_state(self, enable: bool) -> bool:
-        """Enable or disable laser sweep mode"""
-        pass
-    
-    @abstractmethod
-    def get_sweep_state(self):
-        """Get current sweep state"""
-        pass
-    
-    @abstractmethod
-    def set_sweep_range(self, start_nm: float, stop_nm: float) -> bool:
-        """Set start/stop wavelength range for sweep"""
-        pass
-    
-    @abstractmethod
-    def get_sweep_range(self) -> WavelengthRange:
-        """Get configured sweep range"""
-        pass
-    
-    @abstractmethod
-    def set_sweep_speed(self, speed: float) -> bool:
-        """Set wavelength sweep speed in nm/s"""
-        pass
-    
-    @abstractmethod
-    def get_sweep_speed(self) -> float:
-        """Get current sweep speed in nm/s"""
-        pass
-
 ######################################################################
 # Detector functions 
 ######################################################################

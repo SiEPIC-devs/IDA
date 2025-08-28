@@ -157,10 +157,8 @@ class stage_control(App):
             print(f"[Error] Sweep failed: {e}")
             wl, d1, d2 = [], [], []
 
-        # x = wl
-        # y = np.vstack([d1, d2])
-        x = [1,2,3,4,5,6,7]
-        y = np.vstack([[1,2,3,4,5,6,7], [132,41,513,135,135,14,142]])
+        x = wl
+        y = np.vstack([d1, d2])
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         diagram = plot(x, y, "spectral_sweep", fileTime, self.user, name, self.project, auto)
         p = Process(target=diagram.generate_plots)
@@ -207,8 +205,6 @@ class stage_control(App):
 
     def after_configuration(self):
         if self.configuration["stage"] != "" and self.configuration_stage == 0 and self.configuration_check["stage"] == 0:
-            self.configuration_stage = 1
-
             self.gds = lib_coordinates.coordinates(("./res/" + filename), read_file=False,
                                                    name="./database/coordinates.json")
             self.number = self.gds.listdeviceparam("number")
@@ -265,11 +261,10 @@ class stage_control(App):
             print("Stage Disconnected")
 
         if self.configuration["sensor"] != "" and self.configuration_sensor == 0 and self.configuration_check["sensor"] == 0:
-            self.configuration_sensor = 1
             self.nir_configure = NIRConfiguration()
             self.nir_configure.com_port = self.port["sensor"]
             self.nir_manager = NIRManager(self.nir_configure)
-            success_sensor = self.nir_manager.connect()
+            success_sensor = self.nir_manager.initialize()
             if success_sensor:
                 self.configuration_sensor = 1
                 self.configuration_check["sensor"] = 2
@@ -690,7 +685,6 @@ class stage_control(App):
         self._busy_proc.start()
 
     def onclick_scan(self):
-        self.scan_btn.set_enabled(False)
         print("Start Scan")
         self.busy_dialog()
         self.task_start = 1
@@ -724,6 +718,7 @@ class stage_control(App):
             with self._scan_done.get_lock():
                 self._scan_done.value = 1
                 self.task_start = 0
+                self.lock_all(0)
 
             p = Process(target=diagram.heat_map)
             p.start()
@@ -1107,6 +1102,5 @@ if __name__ == '__main__':
         resizable=True,
         hidden=True
     )
-    print("Stage Connected")
 
     webview.start(func=disable_scroll)

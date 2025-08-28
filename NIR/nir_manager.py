@@ -5,6 +5,7 @@ from dataclasses import dataclass, asdict
 from NIR.nir_controller import NIR8164
 from NIR.hal.nir_hal import LaserEvent
 from NIR.config.nir_config import NIRConfiguration  
+from utils.logging_helper import setup_logger
 
 """
 Cameron Basara, 2025
@@ -19,6 +20,9 @@ class NIRManager:
         self._connected = False
         self._event_callbacks: List[Callable[[LaserEvent], None]] = []
         
+        # Setup logger
+        self.logger = setup_logger("NIRManager", "NIR", debug_mode=debug)
+        
         # Initialize controller
         self.controller = NIR8164(
             com_port=config.com_port,
@@ -26,15 +30,16 @@ class NIRManager:
             laser_slot=config.laser_slot,
             detector_slots=config.detector_slots,
             safety_password=config.safety_password,
-            timeout_ms=config.timeout
         )
 
     def _log(self, message: str, level: str = "info"):
         """Simple logging that respects debug flag"""
-        if self.debug:
-            print(f"[NIR Manager] {message}")
+        if level == "debug":
+            self.logger.debug(message)
+        elif level == "info":
+            self.logger.info(message)
         elif level == "error":
-            logger.error(f"[NIR Manager] {message}")
+            self.logger.error(message)
 
 ######################################################################
 # Context manager
@@ -117,11 +122,23 @@ class NIRManager:
                 return
             
             # Configure units
-            self.controller.configure_units()
+            ok = self.controller.configure_units()
+            if ok:
+                pass
+            else:
+                raise
             if hasattr(self.config, 'initial_wavelength_nm'):
-                self.controller.set_wavelength(self.config.initial_wavelength_nm)
+                aok = self.controller.set_wavelength(self.config.initial_wavelength_nm)
+                if aok:
+                    pass
+                else:
+                    raise
             if hasattr(self.config, 'initial_power_dbm'):
-                self.controller.set_power(self.config.initial_power_dbm)
+                bok = self.controller.set_power(self.config.initial_power_dbm)
+                if bok:
+                    pass
+                else:
+                    raise
             self._log("Device configured with current settings")
         except Exception as e:
             self._log(f"Device configuration error: {e}", "error")
@@ -155,6 +172,8 @@ class NIRManager:
                 return 0.0
                 
             wavelength = self.controller.get_wavelength()
+            if wavelength is None:
+                raise
             return wavelength
             
         except Exception as e:
@@ -317,7 +336,7 @@ class NIRManager:
                 start_nm, stop_nm, step_nm, laser_power_dbm,
                 averaging_time_s=0.02)
             self.controller.cleanup_scan()
-
+            
             if results is not None:
                 self._log("Lambda scan completed successfully")
                 return results[0], results[1], results[2] 

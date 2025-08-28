@@ -5,6 +5,7 @@ from LDC.hal.LDC_hal import LDCEvent, LDCEventType
 from LDC.hal.LDC_factory import create_driver
 from LDC.config.ldc_config import LDCConfiguration
 from LDC.utils.shared_memory import *
+from utils.logging_helper import setup_logger
 
 """
 LDC Manager - Simplified Implementation
@@ -21,6 +22,9 @@ class LDCManager:
         self._event_callbacks: List[Callable[[LDCEvent], None]] = []
         self.ldc = None
         
+        # Setup logger
+        self.logger = setup_logger("LDCManager", "TEC", debug_mode=debug)
+        
         # Shared memory setup
         self.use_shared_memory = use_shared_memory
         if use_shared_memory:
@@ -34,10 +38,12 @@ class LDCManager:
 
     def _log(self, message: str, level: str = "info"):
         """Simple logging that respects debug flag"""
-        if self.debug:
-            print(f"[LDC Manager] {message}")
+        if level == "debug":
+            self.logger.debug(message)
+        elif level == "info":
+            self.logger.info(message)
         elif level == "error":
-            logger.error(f"[LDC Manager] {message}")
+            self.logger.error(message)
 
     # === Context Management ===
     
@@ -264,7 +270,11 @@ class LDCManager:
 
     def get_temperature_setpoint(self) -> float:
         """Get current temperature setpoint"""
-        return self.config.setpoint
+        try:
+            return self.config.setpoint
+        except Exception as e:
+            self.logger.error(f"Failed to get temperature setpoint: {e}")
+            return 0.0
 
     # === Configuration ===
     
@@ -353,13 +363,19 @@ class LDCManager:
     
     def add_event_callback(self, callback: Callable[[LDCEvent], None]):
         """Register callback for LDC events."""
-        if callback not in self._event_callbacks:
-            self._event_callbacks.append(callback)
+        try:
+            if callback not in self._event_callbacks:
+                self._event_callbacks.append(callback)
+        except Exception as e:
+            self.logger.error(f"Failed to add event callback: {e}")
 
     def remove_event_callback(self, callback: Callable[[LDCEvent], None]):
         """Remove event callback."""
-        if callback in self._event_callbacks:
-            self._event_callbacks.remove(callback)
+        try:
+            if callback in self._event_callbacks:
+                self._event_callbacks.remove(callback)
+        except Exception as e:
+            self.logger.error(f"Failed to remove event callback: {e}")
 
     def _handle_ldc_event(self, event: LDCEvent) -> None:
         """Handle events from LDC controller and forward to callbacks"""

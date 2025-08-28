@@ -33,7 +33,7 @@
     "end": 1560.0,
     "done": "Laser On",
     "sweep": 0,
-    "on": 0
+    "on": false
   },
   "ScanPos": {
     "x": 0,
@@ -46,9 +46,9 @@
   },
   "AutoSweep": 0,
   "Configuration": {
-    "stage": "",
-    "sensor": "",
-    "tec": ""
+    "stage": "stage_control",
+    "sensor": "stage_control",
+    "tec": "stage_control"
   },
   "Configuration_check": {
     "stage": 0,

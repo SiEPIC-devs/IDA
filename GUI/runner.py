@@ -100,6 +100,3 @@ def main():
             log_fh.close()
         except Exception:
             pass
-
-if __name__ == "__main__":
-    main()
