@@ -97,7 +97,7 @@ def apply_common_style(widget, left, top, width, height, position="absolute", pe
         widget.css_height = f"{height}px"
 
 class StyledContainer(Container):
-    def __init__(self, variable_name, left, top, width=650, height=650, border=False, bg_color=False, color = "#DCDCDC",
+    def __init__(self, variable_name, left, top, width=650, height=650, border=False, bg_color=False, color = "#707070",
                  position="absolute", percent=False, overflow=False, container=None, line="1.5px solid #888"):
         super().__init__()
         apply_common_style(self, left, top, width, height, position, percent)
@@ -281,7 +281,7 @@ class StyledTable(Table):
                 "height": f"{height}px",
                 "font-weight": "bold",
                 "text-align": "center",
-                "background-color": "#e4e9f0",
+                "background-color": "#6f7a8a",
                 "color": "#1a1a1a",
                 "border-bottom": "2px solid #c8c8c8",
                 "padding": "1px 2px"
@@ -289,7 +289,7 @@ class StyledTable(Table):
         self.append(trh)
         for r in range(row - 1):
             tr = TableRow()
-            bg = "#ffffff" if r % 2 == 0 else "#f6f7f9"
+            bg = "#9aa3af" if r % 2 == 0 else "#7b8494"
             for w in widths:
                 tr.append(TableItem("", style={
                     "width": f"{w}px",

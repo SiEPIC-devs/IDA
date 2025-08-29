@@ -7,3 +7,4 @@ __pycache__/
 .vscode/
 GUI/UserData/
 GUI/res/spectral_sweep/
+GUI/log.txt

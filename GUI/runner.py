@@ -24,12 +24,28 @@ class LastNFileLogger:
         self.threshold = int(threshold)
         self.encoding = encoding
         self._lock = threading.Lock()
+        self._fh = None
         self._open()
         self._line_count = self._count_lines()
 
     def _open(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
+        # 行缓冲，文本模式
         self._fh = open(self.path, 'a', buffering=1, encoding=self.encoding, newline='')
+
+    def _ensure_open(self):
+        if self._fh is None or self._fh.closed:
+            # 防御性重开
+            self._open()
+
+    def close(self):
+        with self._lock:
+            try:
+                if self._fh and not self._fh.closed:
+                    self._fh.flush()
+                    self._fh.close()
+            except Exception:
+                pass
 
     def _count_lines(self) -> int:
         try:
@@ -54,7 +70,12 @@ class LastNFileLogger:
         if not s.endswith('\n'):
             s = s + '\n'
         with self._lock:
-            self._fh.write(s)
+            self._ensure_open()
+            try:
+                self._fh.write(s)
+            except ValueError:
+                self._open()
+                self._fh.write(s)
             self._fh.flush()
             self._line_count += 1
             if self._line_count >= self.threshold:
@@ -86,13 +107,34 @@ class LastNFileLogger:
 
     def _compact_locked(self):
         tail = self._read_last_lines(self.keep)
-        self._fh.close()
+
+        try:
+            if self._fh and not self._fh.closed:
+                self._fh.flush()
+                self._fh.close()
+        except Exception:
+            pass
+
         tmp = self.path.with_suffix(self.path.suffix + '.tmp')
         with open(tmp, 'w', encoding=self.encoding, newline='') as out:
             if tail:
                 out.write('\n'.join(tail))
                 out.write('\n')
-        os.replace(tmp, self.path)
+
+        import time as _t
+        for _ in range(10):
+            try:
+                os.replace(tmp, self.path)
+                break
+            except PermissionError:
+                _t.sleep(0.05)
+        else:
+            # 替换始终失败：回退为追加模式避免卡死
+            try:
+                os.remove(tmp)
+            except Exception:
+                pass
+
         self._open()
         self._line_count = len(tail)
 

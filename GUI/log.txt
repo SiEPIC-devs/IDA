@@ -1,3 +1,5 @@
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
   File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
     return self._fmt % record.__dict__
 KeyError: 'dev'
@@ -25,21 +27,386 @@ Call stack:
     self._target(*self._args, **self._kwargs)
   File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
     self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 121, in idle
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
     self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 273, in after_configuration
-    success_sensor = self.nir_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
     success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 94, in connect
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 120, in connect
+    success = self.ldc.connect()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 78, in connect
+    self._emit_event(LDCEventType.CONNECTION_CHANGED, {
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}"
+Arguments: ()
+LDCManager       INFO     Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 123, in connect
+    self._log("Connected to LDC device")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: 'Connected to LDC device'
+Arguments: ()
+LDCManager       INFO     Connected to LDC device
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
     self._configure_device()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 144, in _configure_device
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 162, in _configure_device
+    self.ldc.set_sensor_type(self.config.sensor_type)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 307, in set_sensor_type
+    self._emit_event(LDCEventType.CONFIG_CHANGED, {
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}"
+Arguments: ()
+LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 165, in _configure_device
+    self.ldc.configure_sensor_coeffs(self.config.model_coeffs)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 346, in configure_sensor_coeffs
+    self._emit_event(LDCEventType.CONFIG_CHANGED, {
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}"
+Arguments: ()
+LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 168, in _configure_device
+    self.ldc.configure_PID_coeffs(self.config.pid_coeffs)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 385, in configure_PID_coeffs
+    self._emit_event(LDCEventType.CONFIG_CHANGED, {
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}"
+Arguments: ()
+LDCManager       INFO     Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}
+
+LDC.ldc_controller ERROR    [LDC] Temperature read error: could not convert string to float: ''
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 237, in get_temp
+    temp = float(resp.strip())
+ValueError: could not convert string to float: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 171, in _configure_device
+    self.ldc.set_temp(self.config.setpoint)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 273, in set_temp
+    current_temp = self.get_temp()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 251, in get_temp
+    self._emit_event(LDCEventType.ERROR, {
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: 'Event: error - {\'operation\': \'get_temp\', \'error\': "could not convert string to float: \'\'"}'
+Arguments: ()
+LDCManager       INFO     Event: error - {'operation': 'get_temp', 'error': "could not convert string to float: ''"}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 171, in _configure_device
+    self.ldc.set_temp(self.config.setpoint)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 278, in set_temp
+    self._emit_event(LDCEventType.TEMP_SETPOINT_CHANGED, {
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+    self.logger.info(message)
+Message: "Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}"
+Arguments: ()
+LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
+    return self._format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
+    return self._fmt % record.__dict__
+KeyError: 'dev'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
+    return fmt.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
+    s = self.formatMessage(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
+    return self._style.format(record)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'dev'
+Call stack:
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
+    self._bootstrap_inner()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
+    self.idle()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+    self.after_configuration()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
+    success = self.connect()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
+    self._configure_device()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 173, in _configure_device
     self._log("Device configured with current settings")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
     self.logger.info(message)
 Message: 'Device configured with current settings'
 Arguments: ()
-NIRManager       INFO     Device configured with current settings
+LDCManager       INFO     Device configured with current settings
 --- Logging error ---
 Traceback (most recent call last):
   File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
@@ -71,134 +438,18 @@ Call stack:
     self._target(*self._args, **self._kwargs)
   File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
     self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 121, in idle
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
     self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 273, in after_configuration
-    success_sensor = self.nir_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 74, in initialize
-    self._log("NIR initialized successfully")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
+    success = self.ldc_manager.initialize()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 103, in initialize
+    self._log("LDC initialized successfully")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
     self.logger.info(message)
-Message: 'NIR initialized successfully'
+Message: 'LDC initialized successfully'
 Arguments: ()
-NIRManager       INFO     NIR initialized successfully
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 134, in set_wvl
-    self.nir_manager.set_wavelength(self.sweep["wvl"])
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 160, in set_wavelength
-    self._log(f"Wavelength set to {wavelength_nm}nm")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
-    self.logger.info(message)
-Message: 'Wavelength set to 1550.0nm'
-Arguments: ()
-NIRManager       INFO     Wavelength set to 1550.0nm
-Sensor Connection Successful
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 130, in set_power
-    self.nir_manager.set_power(self.sweep["power"])
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 194, in set_power
-    self._log(f"Power set to {power_dbm}dBm")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
-    self.logger.info(message)
-Message: 'Power set to 1.0dBm'
-Arguments: ()
-NIRManager       INFO     Power set to 1.0dBm
-LDC.ldc_manager  INFO     LDC shared memory initialized
-LDC.ldc_controller ERROR    [LDC] Temperature read error: could not convert string to float: ''
+LDCManager       INFO     LDC initialized successfully
 Tec Connection Successful
-Error scanning ports: 'StyledSpinBox' object has no attribute 'append'
-Confirm Sweep Setting
-▶ camera_gui.py started (pid=32020)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=19872)
-▶ lib_gui.py started (pid=19568)
-▶ main_devices_gui.py started (pid=17044)
-▶ main_instruments_gui.py started (pid=11660)
-⏹ init_gui.py exited (rc=0)
-▶ main_registration_gui.py started (pid=30100)
-⏹ lib_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=22640)
-▶ main_testing_gui.py started (pid=2432)
-▶ mainframe_command_gui.py started (pid=15544)
-▶ mainframe_configuration_gui.py started (pid=29616)
-▶ mainframe_sensor_control_gui.py started (pid=25112)
-▶ mainframe_stage_control_gui.py started (pid=14500)
-▶ mainframe_tec_control_gui.py started (pid=26116)
-▶ sub_add_btn_gui.py started (pid=6316)
-▶ sub_area_scan_setting_gui.py started (pid=23168)
-▶ sub_connect_config_gui.py started (pid=5192)
-▶ sub_fine_align_setting_gui.py started (pid=1968)
-▶ sub_laser_sweep_setting_gui.py started (pid=6792)
-▶ sub_limit_setting_gui.py started (pid=32292)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
 --- Logging error ---
 Traceback (most recent call last):
   File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
@@ -230,62 +481,26 @@ Call stack:
     self._target(*self._args, **self._kwargs)
   File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
     self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 121, in idle
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
     self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 273, in after_configuration
-    success_sensor = self.nir_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 69, in initialize
-    self._log("Initializing NIR device...")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
+    self.ldc_manager.set_temperature(25.0)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 251, in set_temperature
+    success = self.ldc.set_temp(temperature)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 273, in set_temp
+    current_temp = self.get_temp()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 242, in get_temp
+    self._emit_event(LDCEventType.TEMP_CHANGED, {
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
     self.logger.info(message)
-Message: 'Initializing NIR device...'
+
+Message: "Event: temp_changed - {'temperature': 24.49673, 'units': 'celsius'}"
 Arguments: ()
-NIRManager       INFO     Initializing NIR device...
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 121, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 273, in after_configuration
-    success_sensor = self.nir_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 92, in connect
-    self._log("Connected to NIR device")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
-    self.logger.info(message)
-Message: 'Connected to NIR device'
-Arguments: ()
-NIRManager       INFO     Connected to NIR device
+LDCManager       INFO     Event: temp_changed - {'temperature': 24.49673, 'units': 'celsius'}
 --- Logging error ---
 Traceback (most recent call last):
   File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
@@ -317,21 +532,23 @@ Call stack:
     self._target(*self._args, **self._kwargs)
   File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
     self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 121, in idle
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
     self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 273, in after_configuration
-    success_sensor = self.nir_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 72, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 94, in connect
-    self._configure_device()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 144, in _configure_device
-    self._log("Device configured with current settings")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
+    self.ldc_manager.set_temperature(25.0)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 251, in set_temperature
+    success = self.ldc.set_temp(temperature)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 278, in set_temp
+    self._emit_event(LDCEventType.TEMP_SETPOINT_CHANGED, {
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
+    callback(event)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
+    self._log(f"Event: {event.event_type.value} - {event.data}")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
     self.logger.info(message)
-Message: 'Device configured with current settings'
+Message: "Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 24.49673}"
 Arguments: ()
-NIRManager       INFO     Device configured with current settings
+LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 24.49673}
 --- Logging error ---
 Traceback (most recent call last):
   File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
@@ -363,154 +580,14 @@ Call stack:
     self._target(*self._args, **self._kwargs)
   File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
     self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 121, in idle
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
     self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 273, in after_configuration
-    success_sensor = self.nir_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 74, in initialize
-    self._log("NIR initialized successfully")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
+    self.ldc_manager.set_temperature(25.0)
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 254, in set_temperature
+    self._log(f"Temperature setpoint set to {temperature}°C")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
     self.logger.info(message)
-Message: 'NIR initialized successfully'
+Message: 'Temperature setpoint set to 25.0°C'
 Arguments: ()
-NIRManager       INFO     NIR initialized successfully
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 134, in set_wvl
-    self.nir_manager.set_wavelength(self.sweep["wvl"])
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 160, in set_wavelength
-    self._log(f"Wavelength set to {wavelength_nm}nm")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
-    self.logger.info(message)
-Message: 'Wavelength set to 1550.0nm'
-Arguments: ()
-NIRManager       INFO     Wavelength set to 1550.0nm
-Sensor Connection Successful
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 130, in set_power
-    self.nir_manager.set_power(self.sweep["power"])
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 194, in set_power
-    self._log(f"Power set to {power_dbm}dBm")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\NIR\nir_manager.py", line 42, in _log
-    self.logger.info(message)
-Message: 'Power set to 1.0dBm'
-Arguments: ()
-NIRManager       INFO     Power set to 1.0dBm
-LDC.ldc_manager  INFO     LDC shared memory initialized
-LDC.ldc_controller ERROR    [LDC] Temperature read error: could not convert string to float: ''
-Tec Connection Successful
-Error scanning ports: 'StyledSpinBox' object has no attribute 'append'
-▶ camera_gui.py started (pid=16832)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=21888)
-▶ lib_gui.py started (pid=4348)
-▶ main_devices_gui.py started (pid=31280)
-▶ main_instruments_gui.py started (pid=30836)
-⏹ init_gui.py exited (rc=0)
-▶ main_registration_gui.py started (pid=25612)
-⏹ lib_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=23328)
-▶ main_testing_gui.py started (pid=18212)
-▶ mainframe_command_gui.py started (pid=26216)
-▶ mainframe_configuration_gui.py started (pid=24040)
-▶ mainframe_sensor_control_gui.py started (pid=15076)
-▶ mainframe_stage_control_gui.py started (pid=17256)
-▶ mainframe_tec_control_gui.py started (pid=32284)
-▶ sub_add_btn_gui.py started (pid=32124)
-▶ sub_area_scan_setting_gui.py started (pid=32692)
-▶ sub_connect_config_gui.py started (pid=29776)
-▶ sub_fine_align_setting_gui.py started (pid=32500)
-▶ sub_laser_sweep_setting_gui.py started (pid=21464)
-▶ sub_limit_setting_gui.py started (pid=17924)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-▶ camera_gui.py started (pid=17144)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=28548)
-▶ lib_gui.py started (pid=7700)
-▶ main_devices_gui.py started (pid=31192)
-▶ main_instruments_gui.py started (pid=32508)
-⏹ init_gui.py exited (rc=0)
-
-▶ main_registration_gui.py started (pid=436)
-⏹ lib_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=13924)
-▶ main_testing_gui.py started (pid=13512)
-▶ mainframe_command_gui.py started (pid=25384)
-▶ mainframe_configuration_gui.py started (pid=4304)
-▶ mainframe_sensor_control_gui.py started (pid=21700)
-▶ mainframe_stage_control_gui.py started (pid=18580)
-▶ mainframe_tec_control_gui.py started (pid=20936)
-▶ sub_add_btn_gui.py started (pid=9888)
-▶ sub_area_scan_setting_gui.py started (pid=23488)
-▶ sub_connect_config_gui.py started (pid=26500)
-▶ sub_fine_align_setting_gui.py started (pid=25928)
-▶ sub_laser_sweep_setting_gui.py started (pid=32132)
-▶ sub_limit_setting_gui.py started (pid=23224)
-Welcome To Probe Stage
+LDCManager       INFO     Temperature setpoint set to 25.0°C
