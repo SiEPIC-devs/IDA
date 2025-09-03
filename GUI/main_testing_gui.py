@@ -26,6 +26,7 @@ class testing(App):
         self.running = False
         self.cur_user = ""
         self.image_path = ""
+        self.project = ""
         self.serial_list = set()
         self.device_num = 0
         self.auto_sweep = 0
@@ -49,6 +50,8 @@ class testing(App):
         self.new_command = {}
         self.elapsed = 0
         self.remaining = 0
+        self.file_format = ""
+        self.path = ""
 
         if "editing_mode" not in kwargs:
             super(testing, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -87,6 +90,7 @@ class testing(App):
                         self.serial_list = set(data.get("Selection", []))
                         self.device_num = data.get("DeviceNum", 0)
                         self.auto_sweep = data.get("AutoSweep", 0)
+                        self.project = data.get("Project", "")
 
                 except Exception as e:
                     print(f"[Warn] read json failed: {e}")
@@ -100,35 +104,60 @@ class testing(App):
                 self.elapsed += 1
                 self.elapsed_device.set_text(str(self.elapsed))
                 self.remaining_device.set_text(str(self.remaining))
-
-            self.update_path_dropdown()
+        self.update_file_format()
+        self.update_path()
 
     def main(self):
         return testing.construct_ui(self)
 
+    def update_file_format(self):
+        file_format = self.file_dd.get_value()
+        value = {"csv": 0, "mat": 0, "png": 0, "pdf": 0}
+        if self.file_format != file_format:
+            self.file_format = file_format
+            if file_format == "All":
+                value = {"csv": 1, "mat": 1, "png": 1, "pdf": 1}
+            elif file_format == ".csv + .png":
+                value = {"csv": 1, "mat": 0, "png": 1, "pdf": 0}
+            elif file_format == ".csv + .pdf":
+                value = {"csv": 1, "mat": 0, "png": 0, "pdf": 1}
+            elif file_format == ".mat + .png":
+                value = {"csv": 0, "mat": 1, "png": 1, "pdf": 0}
+            elif file_format == ".mat + .pdf":
+                value = {"csv": 0, "mat": 1, "png": 0, "pdf": 1}
+            file = File("shared_memory", "FileFormat", value)
+            file.save()
+
+    def update_path(self):
+        path = self.save_path_input.get_text().strip()
+        if path != self.path:
+            self.path = path
+            file = File("shared_memory", "FilePath", self.path)
+            file.save()
+
     # ------------------------------------------------------------------ UI BUILDERS
-    def update_path_dropdown(self):
-        """Update save format dropdown if user or contents change."""
-        if not self.cur_user:
-            return
-
-        user_dir = os.path.join("UserData", self.cur_user)
-        if not os.path.isdir(user_dir):
-            return
-
-        entries = [
-            name for name in os.listdir(user_dir)
-            if os.path.isdir(os.path.join(user_dir, name)) or name.endswith((".json", ".txt", ".csv"))
-        ]
-        entries_sorted = sorted(entries)
-
-        if self.cur_user != self._last_user or entries_sorted != self._last_user_paths:
-            self.path_dd.empty()
-            self.path_dd.append("All")
-            for name in entries_sorted:
-                self.path_dd.append(name)
-            self._last_user = self.cur_user
-            self._last_user_paths = entries_sorted
+    # def update_path_dropdown(self):
+    #     """Update save format dropdown if user or contents change."""
+    #     if not self.cur_user:
+    #         return
+    #
+    #     user_dir = os.path.join("UserData", self.cur_user)
+    #     if not os.path.isdir(user_dir):
+    #         return
+    #
+    #     entries = [
+    #         name for name in os.listdir(user_dir)
+    #         if os.path.isdir(os.path.join(user_dir, name)) or name.endswith((".json", ".txt", ".csv"))
+    #     ]
+    #     entries_sorted = sorted(entries)
+    #
+    #     if self.cur_user != self._last_user or entries_sorted != self._last_user_paths:
+    #         self.path_dd.empty()
+    #         self.path_dd.append("All")
+    #         for name in entries_sorted:
+    #             self.path_dd.append(name)
+    #         self._last_user = self.cur_user
+    #         self._last_user_paths = entries_sorted
 
     def total_pages(self):
         return max(1, math.ceil(len(self.filtered_idx) / self.page_size))
@@ -246,8 +275,8 @@ class testing(App):
             left=90, top=15, width=162, height=28, position="absolute", text=desktop_path
         )
 
-        self.path_dd = StyledDropDown(
-            container=path_container, text=["All", "HeatMap", "Spectrum"], variable_name="save_file_dd",
+        self.file_dd = StyledDropDown(
+            container=path_container, text=["All", ".csv + .png", ".csv + .pdf", ".mat + .png", ".mat + .pdf"], variable_name="save_file_dd",
             left=90, top=55, width=180, height=30
         )
 
@@ -467,7 +496,7 @@ class testing(App):
         app.Destroy()
 
     def save_file(self):
-        path = self.path_dd.get_value()
+        path = self.project
         dest_dir = self.save_path_input.get_text().strip()
 
         if path == "All":
@@ -554,7 +583,7 @@ class testing(App):
             elif key == "testing_save":
                 self.save_file()
             elif key == "testing_file":
-                self.path_dd.set_value(val)
+                self.file_dd.set_value(val)
             elif key == "testing_path":
                 self.save_path_input.set_text(val)
             elif key == "testing_stop":

@@ -1,51 +1,546 @@
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
 
-During handling of the above exception, another exception occurred:
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
 
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 120, in connect
-    success = self.ldc.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 78, in connect
-    self._emit_event(LDCEventType.CONNECTION_CHANGED, {
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
-    callback(event)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
-    self._log(f"Event: {event.event_type.value} - {event.data}")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: "Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}"
-Arguments: ()
-LDCManager       INFO     Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
 --- Logging error ---
 Traceback (most recent call last):
   File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
@@ -77,19 +572,18 @@ Call stack:
     self._target(*self._args, **self._kwargs)
   File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
     self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 125, in idle
     self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 123, in connect
-    self._log("Connected to LDC device")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 369, in after_configuration
+    self.stop_task()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 376, in stop_task
+    self.area_sweep.stop_sweep()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\measure\area_sweep.py", line 138, in stop_sweep
+    self._log("Area sweep stop requested")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\measure\area_sweep.py", line 132, in _log
     self.logger.info(message)
-Message: 'Connected to LDC device'
+Message: 'Area sweep stop requested'
 Arguments: ()
-LDCManager       INFO     Connected to LDC device
 --- Logging error ---
 Traceback (most recent call last):
   File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
@@ -121,473 +615,16 @@ Call stack:
     self._target(*self._args, **self._kwargs)
   File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
     self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 125, in idle
     self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
-    self._configure_device()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 162, in _configure_device
-    self.ldc.set_sensor_type(self.config.sensor_type)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 307, in set_sensor_type
-    self._emit_event(LDCEventType.CONFIG_CHANGED, {
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
-    callback(event)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
-    self._log(f"Event: {event.event_type.value} - {event.data}")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 369, in after_configuration
+    self.stop_task()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 376, in stop_task
+    self.area_sweep.stop_sweep()
+  File "C:\Users\347\Desktop\Porbe_Stage\347\measure\area_sweep.py", line 138, in stop_sweep
+    self._log("Area sweep stop requested")
+  File "C:\Users\347\Desktop\Porbe_Stage\347\measure\area_sweep.py", line 132, in _log
     self.logger.info(message)
-Message: "Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}"
+Message: 'Area sweep stop requested'
 Arguments: ()
-LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
-    self._configure_device()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 165, in _configure_device
-    self.ldc.configure_sensor_coeffs(self.config.model_coeffs)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 346, in configure_sensor_coeffs
-    self._emit_event(LDCEventType.CONFIG_CHANGED, {
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
-    callback(event)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
-    self._log(f"Event: {event.event_type.value} - {event.data}")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: "Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}"
-Arguments: ()
-LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
-    self._configure_device()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 168, in _configure_device
-    self.ldc.configure_PID_coeffs(self.config.pid_coeffs)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 385, in configure_PID_coeffs
-    self._emit_event(LDCEventType.CONFIG_CHANGED, {
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
-    callback(event)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
-    self._log(f"Event: {event.event_type.value} - {event.data}")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: "Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}"
-Arguments: ()
-LDCManager       INFO     Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}
-
-LDC.ldc_controller ERROR    [LDC] Temperature read error: could not convert string to float: ''
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 237, in get_temp
-    temp = float(resp.strip())
-ValueError: could not convert string to float: ''
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
-    self._configure_device()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 171, in _configure_device
-    self.ldc.set_temp(self.config.setpoint)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 273, in set_temp
-    current_temp = self.get_temp()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 251, in get_temp
-    self._emit_event(LDCEventType.ERROR, {
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
-    callback(event)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
-    self._log(f"Event: {event.event_type.value} - {event.data}")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: 'Event: error - {\'operation\': \'get_temp\', \'error\': "could not convert string to float: \'\'"}'
-Arguments: ()
-LDCManager       INFO     Event: error - {'operation': 'get_temp', 'error': "could not convert string to float: ''"}
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
-    self._configure_device()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 171, in _configure_device
-    self.ldc.set_temp(self.config.setpoint)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 278, in set_temp
-    self._emit_event(LDCEventType.TEMP_SETPOINT_CHANGED, {
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
-    callback(event)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
-    self._log(f"Event: {event.event_type.value} - {event.data}")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: "Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}"
-Arguments: ()
-LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 101, in initialize
-    success = self.connect()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 126, in connect
-    self._configure_device()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 173, in _configure_device
-    self._log("Device configured with current settings")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: 'Device configured with current settings'
-Arguments: ()
-LDCManager       INFO     Device configured with current settings
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 67, in after_configuration
-    success = self.ldc_manager.initialize()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 103, in initialize
-    self._log("LDC initialized successfully")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: 'LDC initialized successfully'
-Arguments: ()
-LDCManager       INFO     LDC initialized successfully
-Tec Connection Successful
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
-    self.ldc_manager.set_temperature(25.0)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 251, in set_temperature
-    success = self.ldc.set_temp(temperature)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 273, in set_temp
-    current_temp = self.get_temp()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 242, in get_temp
-    self._emit_event(LDCEventType.TEMP_CHANGED, {
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
-    callback(event)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
-    self._log(f"Event: {event.event_type.value} - {event.data}")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-
-Message: "Event: temp_changed - {'temperature': 24.49673, 'units': 'celsius'}"
-Arguments: ()
-LDCManager       INFO     Event: temp_changed - {'temperature': 24.49673, 'units': 'celsius'}
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
-    self.ldc_manager.set_temperature(25.0)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 251, in set_temperature
-    success = self.ldc.set_temp(temperature)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_controller.py", line 278, in set_temp
-    self._emit_event(LDCEventType.TEMP_SETPOINT_CHANGED, {
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\hal\LDC_hal.py", line 176, in _emit_event
-    callback(event)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 382, in _handle_ldc_event
-    self._log(f"Event: {event.event_type.value} - {event.data}")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: "Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 24.49673}"
-Arguments: ()
-LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 24.49673}
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 54, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_tec_control_gui.py", line 75, in after_configuration
-    self.ldc_manager.set_temperature(25.0)
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 254, in set_temperature
-    self._log(f"Temperature setpoint set to {temperature}°C")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\LDC\ldc_manager.py", line 44, in _log
-    self.logger.info(message)
-Message: 'Temperature setpoint set to 25.0°C'
-Arguments: ()
-LDCManager       INFO     Temperature setpoint set to 25.0°C
+AreaSweep        INFO     Area sweep stop requested

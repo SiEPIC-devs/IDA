@@ -1,9 +1,16 @@
 {
-  "User": "Guest",
-  "Project": "1234",
+  "User": "CameronB",
+  "Project": "test",
   "User_add": "Guest",
   "Image": "TSP/none.png",
   "Web": "",
+  "FileFormat": {
+    "csv": 1,
+    "mat": 1,
+    "png": 1,
+    "pdf": 1
+  },
+  "FilePath": "C:\\Users\\347\\Desktop",
   "Limit": {
     "x": "Yes",
     "y": "Yes",
@@ -18,10 +25,10 @@
     "detector": 1
   },
   "AreaS": {
-    "x_size": 20.0,
-    "x_step": 1.0,
-    "y_size": 20.0,
-    "y_step": 1.0,
+    "x_size": 10.0,
+    "x_step": 0.1,
+    "y_size": 10.0,
+    "y_step": 0.1,
     "plot": "New"
   },
   "Sweep": {
@@ -36,8 +43,8 @@
     "on": 0
   },
   "ScanPos": {
-    "x": 0,
-    "y": 0,
+    "x": 18,
+    "y": 8,
     "move": 0
   },
   "StagePos": {
@@ -48,7 +55,7 @@
   "Configuration": {
     "stage": "stage_control",
     "sensor": "stage_control",
-    "tec": "stage_control"
+    "tec": ""
   },
   "Configuration_check": {
     "stage": 0,

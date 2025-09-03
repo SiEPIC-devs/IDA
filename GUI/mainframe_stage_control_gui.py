@@ -56,6 +56,8 @@ class stage_control(App):
         self.sensor_window = None
         self.devices = None
         self.web = None
+        self.file_format = {}
+        self.file_path  = None
 
         self.nir_configure = None
         self.nir_manager = None
@@ -115,6 +117,8 @@ class stage_control(App):
                     self.name = data.get("DeviceName", "")
                     self.port = data.get("Port", {})
                     self.web = data.get("Web", "")
+                    self.file_format = data.get("FileFormat", {})
+                    self.file_path = data.get("FilePath", "")
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -165,7 +169,10 @@ class stage_control(App):
         x = wl
         y = np.vstack([d1, d2])
         fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        diagram = plot(x, y, "spectral_sweep", fileTime, self.user, name, self.project, auto)
+        diagram = plot(
+            x, y, "spectral_sweep", fileTime, self.user, name,
+            self.project, auto, self.file_format, self.file_path
+        )
         p = Process(target=diagram.generate_plots)
         p.start()
         p.join()
@@ -390,7 +397,7 @@ class stage_control(App):
                 self.ch2_val.set_text(str(ch2))
                 time.sleep(2)
             else:
-                print("ssss")
+                print("### Waiting ###")
                 time.sleep(2)
 
     def do_auto_sweep(self):

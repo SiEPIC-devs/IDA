@@ -9,11 +9,12 @@ from motors.utils.shared_memory import *
 from motors.hal.motors_hal import AxisType
 import gc
 import plotly.express as px
-import matplotlib
 from pathlib import Path
 import matplotlib.pyplot as plt
 import shutil
 import numpy as np
+import pandas as pd
+from scipy.io import savemat
 from scipy.ndimage import gaussian_filter
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import matplotlib, logging
@@ -472,6 +473,8 @@ class File():
             "User_add": "Guest",
             "Image": "TSP/none.png",
             "Web": "",
+            "FileFormat": {"csv": 1, "mat": 1, "png": 1, "pdf": 1},
+            "FilePath": "",
             "Limit": {"x": "Yes", "y": "Yes", "z": "Yes", "chip": "Yes", "fiber": "Yes"},
             "FineA": {"window_size": 20, "step_size": 2, "max_iters": 5, "detector": 1},
             "AreaS": {"x_size": 20.0, "x_step": 1.0, "y_size": 20.0, "y_step": 1.0, "plot": "New"},
@@ -489,7 +492,12 @@ class File():
         self._safe_write(data, filepath)
 
 class plot():
-    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None, name=None, project=None, data=None):
+    def __init__(self, x=None, y=None, filename=None, fileTime=None, user=None, name=None, project=None, data=None,
+                 file_format=None, file_path=""):
+        if file_format is None:
+            self.file_format = {"csv": 1, "mat": 1, "png": 1, "pdf": 1}
+        else:
+            self.file_format = file_format
         self.x = x
         self.y = y
         self.filename = filename
@@ -498,6 +506,7 @@ class plot():
         self.name = name
         self.project = project
         self.data = data
+        self.file_path = file_path
 
     def heat_map(self):
         fig, ax = plt.subplots(figsize=(7, 7))
@@ -580,6 +589,8 @@ class plot():
         name = self.name
         project = self.project
         path = os.path.join(".", "UserData", user, project, "Spectrum", name)
+        file_path = os.path.join(self.file_path, user, project, "Spectrum", name)
+
         try:
             plots = {"Wavelength [nm]": x_axis}
             plotnames = []
@@ -595,6 +606,10 @@ class plot():
             output_html = os.path.join(path, f"{filename}_{fileTime}.html")
             os.makedirs(os.path.dirname(output_html), exist_ok=True)
             fig.write_html(output_html)
+
+            output_html2 = os.path.join(file_path, f"{filename}_{fileTime}.html")
+            os.makedirs(os.path.dirname(output_html2), exist_ok=True)
+            fig.write_html(output_html2)
         except Exception as e:
             try:
                 print("Exception generating html plot")
@@ -602,6 +617,47 @@ class plot():
             finally:
                 e = None
                 del e
+        if self.file_format["csv"] == 1:
+            try:
+                df = pd.DataFrame({"Wavelength [nm]": x_axis})
+                for element in range(len(y_values)):
+                    df[f"Detector {element + 1}"] = y_values[element]
+                output_csv = os.path.join(path, f"{filename}_{fileTime}.csv")
+                os.makedirs(os.path.dirname(output_csv), exist_ok=True)
+                df.to_csv(output_csv, index=False)
+
+                output_csv2 = os.path.join(file_path, f"{filename}_{fileTime}.csv")
+                os.makedirs(os.path.dirname(output_csv2), exist_ok=True)
+                df.to_csv(output_csv2, index=False)
+            except Exception as e:
+                print("Exception saving csv")
+                print(e)
+
+        if self.file_format["mat"] == 1:
+            try:
+                detectors_matrix = np.column_stack(y_values) if len(y_values) > 0 else np.empty((len(x_axis), 0))
+                detector_names = [f"Detector {i + 1}" for i in range(len(y_values))]
+                mat_dict = {
+                    "wavelength_nm": np.asarray(x_axis),
+                    "detectors_dbm": np.asarray(detectors_matrix),
+                    "detector_names": np.array(detector_names, dtype=object),
+                    "filename": np.array(filename, dtype=object),
+                    "fileTime": np.array(fileTime, dtype=object),
+                    "user": np.array(user, dtype=object),
+                    "project": np.array(project, dtype=object),
+                    "name": np.array(name, dtype=object),
+                }
+                output_mat = os.path.join(path, f"{filename}_{fileTime}.mat")
+                os.makedirs(os.path.dirname(output_mat), exist_ok=True)
+                savemat(output_mat, mat_dict)
+
+                output_mat2 = os.path.join(file_path, f"{filename}_{fileTime}.mat")
+                os.makedirs(os.path.dirname(output_mat2), exist_ok=True)
+                savemat(output_mat2, mat_dict)
+            except Exception as e:
+                print("Exception saving mat")
+                print(e)
+
         try:
             image_dpi = 20
             plt.figure(figsize=(100 / image_dpi, 100 / image_dpi), dpi=image_dpi)
@@ -611,12 +667,28 @@ class plot():
             plt.ylabel("Power [dBm]")
             plt.legend(title="Detector", fontsize=8, title_fontsize=9, ncol=2, loc='upper right')
             plt.tight_layout()
-            output_pdf = os.path.join(path, f"{filename}_{fileTime}.pdf")
-            os.makedirs(os.path.dirname(output_pdf), exist_ok=True)
-            plt.savefig(output_pdf, dpi=image_dpi)
 
-            output_pdf2 = os.path.join(".", "res", "spectral_sweep", f"{filename}_{fileTime}.png")
-            plt.savefig(output_pdf2, dpi=300)
+            if self.file_format["pdf"] == 1:
+                output_pdf = os.path.join(path, f"{filename}_{fileTime}.pdf")
+                os.makedirs(os.path.dirname(output_pdf), exist_ok=True)
+                plt.savefig(output_pdf, dpi=image_dpi)
+
+                output_pdf2 = os.path.join(file_path, f"{filename}_{fileTime}.pdf")
+                os.makedirs(os.path.dirname(output_pdf2), exist_ok=True)
+                plt.savefig(output_pdf2, dpi=image_dpi)
+
+            if self.file_format["png"] == 1:
+                output_png2 = os.path.join(path, f"{filename}_{fileTime}.png")
+                os.makedirs(os.path.dirname(output_png2), exist_ok=True)
+                plt.savefig(output_png2, dpi=300)
+
+                output_png3= os.path.join(file_path, f"{filename}_{fileTime}.png")
+                os.makedirs(os.path.dirname(output_png3), exist_ok=True)
+                plt.savefig(output_png3, dpi=300)
+
+            output_png = os.path.join(".", "res", "spectral_sweep", f"{filename}_{fileTime}.png")
+            os.makedirs(os.path.dirname(output_png), exist_ok=True)
+            plt.savefig(output_png, dpi=300)
             self._cleanup_old_plots(keep=1)
 
             plt.close()

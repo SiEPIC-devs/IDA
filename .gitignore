@@ -1,6 +1,7 @@
 # Ignore cached and venv
 .venv/
 venv/
+.idea/
 __pycache__/
 */__pycache__/
 *.pyc

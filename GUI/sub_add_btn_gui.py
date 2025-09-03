@@ -37,7 +37,7 @@ class add_btn(App):
 
     def construct_ui(self):
         add_btn_container = StyledContainer(
-            variable_name="add_btn_container", left=0, top=0, height=130, width=190
+            variable_name="add_btn_container", left=0, top=0, height=129, width=190
         )
 
         StyledLabel(
