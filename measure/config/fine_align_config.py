@@ -8,12 +8,14 @@ Cameron Basara, 2025
 
 @dataclass
 class FineAlignConfiguration:
-    step_size = 0.1  # microns
-    scan_window = 10 # microns
-    threshold = -10.0 # not used
-    max_gradient_iters = 10 # 
-    use_crosshair = False 
-    ref_wl = 1550.0 # wavelength used to perform fine align
+    step_size: float = 0.1          # microns
+    scan_window: float = 10.0       # microns
+    threshold: float = -10.0        # dBm 
+    gradient_iters: int = 10        
+    min_gradient_ss: float = 0.2    # microns
+    primary_detector: str = "ch1"   # "ch1" or "ch2"
+    ref_wl: float = 1550.0          # nm
+    timeout_s: float = 60.0        # seconds
 
     def to_dict(self) -> dict:
         """Convert to dictionary"""
@@ -21,8 +23,11 @@ class FineAlignConfiguration:
             'step_size': self.step_size,
             'scan_window': self.scan_window,
             'threshold': self.threshold,
-            'max_gradient_iters': self.max_gradient_iters,
-            'use_crosshair': self.use_crosshair
+            'gradient_iters': self.gradient_iters,
+            'min_gradient_ss': self.min_gradient_ss,
+            'primary_detector': self.primary_detector,
+            'ref_wl': self.ref_wl,
+            'timeout_s': self.timeout_s,
         }
     
     @classmethod
