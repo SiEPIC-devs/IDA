@@ -256,6 +256,10 @@ class NIRManager:
                 return (-100.0, -100.0)
 
             reading = self.controller.read_power()
+            if reading[0] > 0.0:
+                reading = (-200.0, reading[1])
+            if reading[1] > 0.0:
+                reading = (reading[0], -200.0)
             return (reading[0], reading[1])
 
         except Exception as e:

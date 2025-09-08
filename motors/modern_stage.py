@@ -60,7 +60,7 @@ class StageControl(MotorHAL):
     
     def __init__(self, axis : AxisType, com_port: str = _GLOBAL_COM_PORT,
                  baudrate: int = _GLOBAL_BAUDRATE, timeout: float = _GLOBAL_TIMEOUT,
-                 velocity: float = 1000.0, acceleration: float = 5000.0,
+                 velocity: float = 3000.0, acceleration: float = 5000.0,
                  position_limits: Tuple[float, float] = (-50000.0, 50000.0),
                  step_size: Dict[str, float] = {'step_size_x': 1,
                                                 'step_size_y': 1,
@@ -227,7 +227,13 @@ class StageControl(MotorHAL):
                     lim = self._position_limits[1]
                     distance = (45 - position) * (lim / 45) 
                     position_mm = distance * 0.001
-                    print(position_mm)
+                    # print(position_mm)
+                elif self.axis == AxisType.ROTATION_CHIP:
+                    # Map from deg to mm
+                    lim = self._position_limits[1]
+                    distance = (3.6 - position) * (lim / 3.6)
+                    position_mm = distance * 0.001
+                    # print(position_mm)
                 else:
                     # Convert um to mm
                     position_mm = position * 0.001
@@ -281,14 +287,24 @@ class StageControl(MotorHAL):
             try:
                 if velocity:
                     self._send_command(f"{self.AXIS_MAP[self.axis]}VA{velocity:.6f}")
-                
-                
-                # Convert um to mm
-                distance_mm = distance * 0.001
+
+                lim = self._position_limits[1] if self._position_limits[1] > 0 else self._position_limits[0]
+                if self.axis == AxisType.ROTATION_FIBER:
+                    # Map from deg to mm
+                    distance_temp = distance * (lim / 45)
+                    distance_mm = distance_temp * 0.001
+                elif self.axis == AxisType.ROTATION_CHIP:
+                    # Map from deg to mm
+                    distance_temp =  distance * (lim / 3.6)
+                    distance_mm = distance_temp * 0.001
+
+                else:
+                    # Convert um to mm
+                    distance_mm = distance * 0.001
 
                 # Safety
                 lo, hi = self._position_limits
-                pos = self._last_position + distance  
+                pos = self._last_position + distance
 
                 # Event handling
                 self._emit_event(MotorEventType.MOVE_STARTED, {
@@ -315,7 +331,7 @@ class StageControl(MotorHAL):
                 self._last_position = pos
                 self._emit_event(MotorEventType.MOVE_COMPLETE, {
                     "target_position": pos,
-                    "distance": distance, # this isnt right
+                    "distance": distance,
                     "velocity": velocity or self._velocity,
                     "operation": "relative_move"
                 })
@@ -378,7 +394,18 @@ class StageControl(MotorHAL):
                 # Convert mm to um
                 theoretical_um = theoretical_mm * 1000
                 actual_um = actual_mm * 1000
-                
+
+                if self.axis == AxisType.ROTATION_FIBER:
+                    if self._is_homed:
+                        # 0-45 deg
+                        theoretical_um = (theoretical_um / self._position_limits[1]) * 45
+                        actual_um = (actual_um / self._position_limits[1]) * 45
+                elif self.axis == AxisType.ROTATION_CHIP:
+                    if self._is_homed:
+                        # 0-3.6 deg
+                        theoretical_um = (theoretical_um / self._position_limits[1]) * 3.6
+                        actual_um = (actual_um / self._position_limits[1]) * 3.6
+
                 # Update cached position
                 self._last_position = actual_um
                 
@@ -536,13 +563,12 @@ class StageControl(MotorHAL):
         """
         # Declare axis for each private method usage
         axis_num = self.AXIS_MAP[self.axis]
-
+        await self.set_velocity(3000.0)
         def _get_limits():
             """Get limit positions"""
             try:
                 # Homing is starting
                 self._emit_event(MotorEventType.MOVE_STARTED, {'operation': 'homing_limits'})
-
                 
                 # Send MLN to drive until negative limit is hit
                 self._send_command(f"{axis_num}MLN")
@@ -575,8 +601,14 @@ class StageControl(MotorHAL):
 
                 # Read position at positive end
                 pos_resp2 = self._query_command(f"{axis_num}POS?")
-                top_mm = float(pos_resp2[0])
-                top_um = top_mm * 1000.0 # Convert
+                theoretical_mm = float(pos_resp2[0])
+                actual_mm = float(pos_resp2[1])
+
+                # Convert mm to um
+                theoretical_um = theoretical_mm * 1000
+                actual_um = actual_mm * 1000
+
+                top_um = theoretical_um
                 self._last_position = top_um
 
                 # Software lims set
@@ -626,6 +658,7 @@ class StageControl(MotorHAL):
                     continue
                 while not _mid_point():
                     continue
+                self._is_homed = True
                 return True, self._position_limits
             
             except Exception as e:

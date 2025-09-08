@@ -476,7 +476,7 @@ class File():
             "FileFormat": {"csv": 1, "mat": 1, "png": 1, "pdf": 1},
             "FilePath": "",
             "Limit": {"x": "Yes", "y": "Yes", "z": "Yes", "chip": "Yes", "fiber": "Yes"},
-            "FineA": {"window_size": 20, "step_size": 2, "max_iters": 5, "detector": 1},
+            "FineA": {"window_size": 20, "step_size": 2, "max_iters": 10, "detector": 1, "timeout_s": 30},
             "AreaS": {"x_size": 20.0, "x_step": 1.0, "y_size": 20.0, "y_step": 1.0, "plot": "New"},
             "Sweep": {"wvl": 1550.0, "speed": 1.0, "power": 1.0, "step": 0.001, "start": 1540.0, "end": 1580.0, "done": "Laser On", "sweep": 0, "on": 0},
             "ScanPos": {"x": 0, "y": 0, "move": 0},

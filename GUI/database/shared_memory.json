@@ -1,5 +1,5 @@
 {
-  "User": "CameronB",
+  "User": "Mateo",
   "Project": "test",
   "User_add": "Guest",
   "Image": "TSP/none.png",
@@ -21,14 +21,15 @@
   "FineA": {
     "window_size": 20,
     "step_size": 2,
-    "max_iters": 5,
-    "detector": 1
+    "max_iters": 10,
+    "detector": 1,
+    "timeout_s": 30
   },
   "AreaS": {
-    "x_size": 10.0,
-    "x_step": 0.1,
-    "y_size": 10.0,
-    "y_step": 0.1,
+    "x_size": 20.0,
+    "x_step": 1.0,
+    "y_size": 20.0,
+    "y_step": 1.0,
     "plot": "New"
   },
   "Sweep": {
@@ -43,8 +44,8 @@
     "on": 0
   },
   "ScanPos": {
-    "x": 18,
-    "y": 8,
+    "x": 0,
+    "y": 0,
     "move": 0
   },
   "StagePos": {
@@ -54,7 +55,7 @@
   "AutoSweep": 0,
   "Configuration": {
     "stage": "stage_control",
-    "sensor": "stage_control",
+    "sensor": "",
     "tec": ""
   },
   "Configuration_check": {

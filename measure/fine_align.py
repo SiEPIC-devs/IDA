@@ -28,7 +28,7 @@ class FineAlign:
         self.debug = debug
 
         # Setup logger
-        self.logger = setup_logger("FineAlign", "ALIGN", debug_mode=debug)
+        self.logger = setup_logger("FineAlign", debug_mode=debug)
 
         # Extract config params
         self.step_size = config.get("step_size", 2.0)  # microns
@@ -57,25 +57,36 @@ class FineAlign:
             self.nir_manager.set_wavelength(self.ref_wl)
             self._start_time = time.monotonic()
 
-            ok = await self.gradient_search()
-            if not ok:
-                self.log("Gradient search failed; skipping spiral.", "error")
+            # Safety
+            if not self.best_position or len(self.best_position) != 2:
+                x = await self.stage_manager.get_position(AxisType.X)
+                y = await self.stage_manager.get_position(AxisType.Y)
+                self.best_position = [x.actual, y.actual]
+
+            aok = await self.spiral_search(self.best_position[0], self.best_position[1])
+            if not aok:
+                self.log("Spiral search failed.", "error")
                 return False
 
             if self.lowest_loss >= self.threshold:
                 self.log(f"Target met after gradient: {self.lowest_loss:.2f} dBm", "info")
                 return True
 
-            # Safety
-            if not self.best_position or len(self.best_position) != 2:
-                x = await self.stage_manager.get_position(AxisType.X)
-                y = await self.stage_manager.get_position(AxisType.Y)
-                self.best_position = [x, y]
+            await self.stage_manager.move_axis(AxisType.X, self.best_position[0], relative=False,
+                                               wait_for_completion=True)
+            await self.stage_manager.move_axis(AxisType.Y, self.best_position[1], relative=False,
+                                               wait_for_completion=True)
 
-            await self.stage_manager.move_axis(AxisType.X, self.best_position[0], relative=False, wait_for_completion=True)
-            await self.stage_manager.move_axis(AxisType.Y, self.best_position[1], relative=False, wait_for_completion=True)
+            bok = await self.gradient_search()
+            if not bok:
+                self.log("Gradient search failed; skipping spiral.", "error")
+                return False
 
-            return await self.spiral_search(self.best_position[0], self.best_position[1])
+            await self.stage_manager.move_axis(AxisType.X, self.best_position[0], relative=False,
+                                               wait_for_completion=True)
+            await self.stage_manager.move_axis(AxisType.Y, self.best_position[1], relative=False,
+                                               wait_for_completion=True)
+            return True
 
         except Exception as e:
             self.log(f"Fine alignment failed: {e}", "error")
@@ -103,10 +114,9 @@ class FineAlign:
 
             lm, ls = self.nir_manager.read_power()
             best_loss = self._select_detector_channel(lm, ls)
-            best_pos = [
-                await self.stage_manager.get_position(AxisType.X),
-                await self.stage_manager.get_position(AxisType.Y),
-            ]
+            x = await self.stage_manager.get_position(AxisType.X)
+            y = await self.stage_manager.get_position(AxisType.Y)
+            best_pos = [x.actual, y.actual]
             self.lowest_loss = max(self.lowest_loss, best_loss)
 
             self.log(f"Starting spiral at ({best_pos[0]:.3f}, {best_pos[1]:.3f})", "info")
@@ -125,8 +135,9 @@ class FineAlign:
                     val = self._select_detector_channel(lm, ls)
                     if val > best_loss:
                         best_loss = val
-                        best_pos[0] = await self.stage_manager.get_position(AxisType.X)
-                        best_pos[1] = await self.stage_manager.get_position(AxisType.Y)
+                        x = await self.stage_manager.get_position(AxisType.X)
+                        y = await self.stage_manager.get_position(AxisType.Y)
+                        best_pos = [x.actual, y.actual]
                         self.lowest_loss = best_loss
                         if best_loss >= self.threshold:
                             break
@@ -143,8 +154,9 @@ class FineAlign:
                     val = self._select_detector_channel(lm, ls)
                     if val > best_loss:
                         best_loss = val
-                        best_pos[0] = await self.stage_manager.get_position(AxisType.X)
-                        best_pos[1] = await self.stage_manager.get_position(AxisType.Y)
+                        x = await self.stage_manager.get_position(AxisType.X)
+                        y = await self.stage_manager.get_position(AxisType.Y)
+                        best_pos = [x.actual, y.actual]
                         self.lowest_loss = best_loss
                         if best_loss >= self.threshold:
                             break
@@ -172,10 +184,11 @@ class FineAlign:
             try:
                 self.log("Starting gradient search refinement", "info")
 
-                # Initial positions
-                x = await self.stage_manager.get_position(AxisType.X)
-                y = await self.stage_manager.get_position(AxisType.Y)
-                self.best_position = [x, y]
+                if self.best_position is None:
+                    # Initial positions
+                    x = await self.stage_manager.get_position(AxisType.X)
+                    y = await self.stage_manager.get_position(AxisType.Y)
+                    self.best_position = [x.actual, y.actual]
 
                 lm, ls = self.nir_manager.read_power()
                 current = self._select_detector_channel(lm, ls)
@@ -189,8 +202,6 @@ class FineAlign:
                 ss = self.step_size
                 # Probe order: +/-X then +/-Y
                 axes = [(AxisType.X, +1), (AxisType.X, -1), (AxisType.Y, +1), (AxisType.Y, -1)]
-
-                IMPROVE_EPS = 0.01  # avoid noise-sized gains
                 tried_min_step = False
 
                 while ss >= self.min_gradient_ss:
@@ -213,7 +224,7 @@ class FineAlign:
                         # Immediately move back
                         await self.stage_manager.move_axis(axis, -ss * direction, relative=True, wait_for_completion=True)
 
-                        if val > best_val + IMPROVE_EPS:
+                        if val > best_val:
                             best_axis, best_dir, best_val = axis, direction, val
                             improved = True
 
@@ -226,8 +237,9 @@ class FineAlign:
                         await self.stage_manager.move_axis(best_axis, ss * best_dir, relative=True, wait_for_completion=True)
 
                         # Update from controller
-                        self.best_position[0] = await self.stage_manager.get_position(AxisType.X)
-                        self.best_position[1] = await self.stage_manager.get_position(AxisType.Y)
+                        x = await self.stage_manager.get_position(AxisType.X)
+                        y = await self.stage_manager.get_position(AxisType.Y)
+                        self.best_position = [x.actual, y.actual]
 
                         self.lowest_loss = best_val
                         current = best_val

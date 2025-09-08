@@ -338,6 +338,10 @@ class StageManager:
             return False, None
         
         try:
+            # X y safety handling
+            if axis != AxisType.Z:
+                await self.move_axis(AxisType.Z, position=5000, relative=True, wait_for_completion=True)
+
             # Special handling for Z axis safety
             if axis == AxisType.Z and AxisType.Y in self.motors:
                 # Move Y to safe position before homing Z

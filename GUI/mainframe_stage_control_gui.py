@@ -510,6 +510,12 @@ class stage_control(App):
                 justify_content="right"
             ))
 
+            setattr(self, f"{prefix}_limit_lb", StyledLabel(
+                container=xyz_container, text="lim: N/A", variable_name=f"{prefix}_limit_lb",
+                left=280, top=top + 22, width=100, height=20, font_size=70, color="#666", flex=True,
+                justify_content="right"
+            ))
+
             setattr(self, f"{prefix}_position_unit", StyledLabel(
                 container=xyz_container, text=position_unit[i], variable_name=f"{prefix}_position_unit",
                 left=355, top=top, width=40, height=30, font_size=100, color="#222", flex=True, bold=True,
@@ -688,15 +694,25 @@ class stage_control(App):
         fiber = home["fiber"]
 
         if x == "Yes":
-            asyncio.run(self.stage_manager.home_limits(AxisType.X))
+            xok, xlim = asyncio.run(self.stage_manager.home_limits(AxisType.X))
+            if xok:
+                self.x_limit_lb.set_text(f"lim: {round(xlim[0], 2)}~{round(xlim[1], 2)}")
         if y == "Yes":
-            asyncio.run(self.stage_manager.home_limits(AxisType.Y))
+            yok, ylim = asyncio.run(self.stage_manager.home_limits(AxisType.Y))
+            if yok:
+                self.y_limit_lb.set_text(f"lim: {round(ylim[0], 2)}~{round(ylim[1], 2)}")
         if z == "Yes":
-            asyncio.run(self.stage_manager.home_limits(AxisType.Z))
+            zok, zlim = asyncio.run(self.stage_manager.home_limits(AxisType.Z))
+            if zok:
+                self.z_limit_lb.set_text(f"lim: {round(zlim[0], 2)}~{round(zlim[1], 2)}")
         if chip == "Yes":
-            asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_CHIP))
+            cok, clim = asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_CHIP))
+            if cok:
+                self.chip_limit_lb.set_text(f"lim: {round(clim[0], 2)}~{3.6}")
         if fiber == "Yes":
-            asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_FIBER))
+            fok, flim = asyncio.run(self.stage_manager.home_limits(AxisType.ROTATION_FIBER))
+            if fok:
+                self.fiber_limit_lb.set_text(f"lim: 0~45")
         with self._scan_done.get_lock():
             self._scan_done.value = 1
             self.task_start = 0

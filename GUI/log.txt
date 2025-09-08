@@ -1,252 +1,353 @@
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
+NIRManager       ERROR    Controller not connected
+### Waiting ###
+2025-09-05 16:29:28,164 - ERROR - Controller not connected
+2025-09-05 16:29:28,164 - ERROR - Controller not connected
+2025-09-05 16:29:28,164 - ERROR - Controller not connected
+2025-09-05 16:29:28,164 - ERROR - Controller not connected
+2025-09-05 16:29:28,164 - ERROR - Controller not connected
+2025-09-05 16:29:28,164 - ERROR - Controller not connected
+2025-09-05 16:29:28,164 - ERROR - Controller not connected
+2025-09-05 16:29:28,164 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:28,790 - ERROR - Controller not connected
+2025-09-05 16:29:28,790 - ERROR - Controller not connected
+2025-09-05 16:29:28,790 - ERROR - Controller not connected
+2025-09-05 16:29:28,790 - ERROR - Controller not connected
+2025-09-05 16:29:28,790 - ERROR - Controller not connected
+2025-09-05 16:29:28,790 - ERROR - Controller not connected
+2025-09-05 16:29:28,790 - ERROR - Controller not connected
+2025-09-05 16:29:28,790 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:29,664 - ERROR - Controller not connected
+2025-09-05 16:29:29,664 - ERROR - Controller not connected
+2025-09-05 16:29:29,664 - ERROR - Controller not connected
+2025-09-05 16:29:29,664 - ERROR - Controller not connected
+2025-09-05 16:29:29,664 - ERROR - Controller not connected
+2025-09-05 16:29:29,664 - ERROR - Controller not connected
+2025-09-05 16:29:29,664 - ERROR - Controller not connected
+2025-09-05 16:29:29,664 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+### Waiting ###
+2025-09-05 16:29:30,288 - ERROR - Controller not connected
+2025-09-05 16:29:30,288 - ERROR - Controller not connected
+2025-09-05 16:29:30,288 - ERROR - Controller not connected
+2025-09-05 16:29:30,288 - ERROR - Controller not connected
+2025-09-05 16:29:30,288 - ERROR - Controller not connected
+2025-09-05 16:29:30,288 - ERROR - Controller not connected
+2025-09-05 16:29:30,288 - ERROR - Controller not connected
+2025-09-05 16:29:30,288 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:31,164 - ERROR - Controller not connected
+2025-09-05 16:29:31,164 - ERROR - Controller not connected
+2025-09-05 16:29:31,164 - ERROR - Controller not connected
+2025-09-05 16:29:31,164 - ERROR - Controller not connected
+2025-09-05 16:29:31,164 - ERROR - Controller not connected
+2025-09-05 16:29:31,164 - ERROR - Controller not connected
+2025-09-05 16:29:31,164 - ERROR - Controller not connected
+2025-09-05 16:29:31,164 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+### Waiting ###
+2025-09-05 16:29:32,036 - ERROR - Controller not connected
+2025-09-05 16:29:32,036 - ERROR - Controller not connected
+2025-09-05 16:29:32,036 - ERROR - Controller not connected
+2025-09-05 16:29:32,036 - ERROR - Controller not connected
+2025-09-05 16:29:32,036 - ERROR - Controller not connected
+2025-09-05 16:29:32,036 - ERROR - Controller not connected
+2025-09-05 16:29:32,036 - ERROR - Controller not connected
+2025-09-05 16:29:32,036 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:32,656 - ERROR - Controller not connected
+2025-09-05 16:29:32,656 - ERROR - Controller not connected
+2025-09-05 16:29:32,656 - ERROR - Controller not connected
+2025-09-05 16:29:32,656 - ERROR - Controller not connected
+2025-09-05 16:29:32,656 - ERROR - Controller not connected
+2025-09-05 16:29:32,656 - ERROR - Controller not connected
+2025-09-05 16:29:32,656 - ERROR - Controller not connected
+2025-09-05 16:29:32,656 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+### Waiting ###
+2025-09-05 16:29:34,009 - ERROR - Controller not connected
+2025-09-05 16:29:34,009 - ERROR - Controller not connected
+2025-09-05 16:29:34,009 - ERROR - Controller not connected
+2025-09-05 16:29:34,009 - ERROR - Controller not connected
+2025-09-05 16:29:34,009 - ERROR - Controller not connected
+2025-09-05 16:29:34,009 - ERROR - Controller not connected
+2025-09-05 16:29:34,009 - ERROR - Controller not connected
+2025-09-05 16:29:34,009 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:29:34,445 - INFO - Gradient search stop requested or timeout
+FineAlign        INFO     Gradient search stop requested or timeout
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+2025-09-05 16:29:34,446 - INFO - Gradient descent converged
+FineAlign        INFO     Gradient descent converged
+Fine Align Finished
+2025-09-05 16:29:35,943 - ERROR - Controller not connected
+2025-09-05 16:29:35,943 - ERROR - Controller not connected
+2025-09-05 16:29:35,943 - ERROR - Controller not connected
+2025-09-05 16:29:35,943 - ERROR - Controller not connected
+2025-09-05 16:29:35,943 - ERROR - Controller not connected
+2025-09-05 16:29:35,943 - ERROR - Controller not connected
+2025-09-05 16:29:35,943 - ERROR - Controller not connected
+2025-09-05 16:29:35,943 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:37,953 - ERROR - Controller not connected
+2025-09-05 16:29:37,953 - ERROR - Controller not connected
+2025-09-05 16:29:37,953 - ERROR - Controller not connected
+2025-09-05 16:29:37,953 - ERROR - Controller not connected
+2025-09-05 16:29:37,953 - ERROR - Controller not connected
+2025-09-05 16:29:37,953 - ERROR - Controller not connected
+2025-09-05 16:29:37,953 - ERROR - Controller not connected
+2025-09-05 16:29:37,953 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:39,957 - ERROR - Controller not connected
+2025-09-05 16:29:39,957 - ERROR - Controller not connected
+2025-09-05 16:29:39,957 - ERROR - Controller not connected
+2025-09-05 16:29:39,957 - ERROR - Controller not connected
+2025-09-05 16:29:39,957 - ERROR - Controller not connected
+2025-09-05 16:29:39,957 - ERROR - Controller not connected
+2025-09-05 16:29:39,957 - ERROR - Controller not connected
+2025-09-05 16:29:39,957 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:41,966 - ERROR - Controller not connected
+2025-09-05 16:29:41,966 - ERROR - Controller not connected
+2025-09-05 16:29:41,966 - ERROR - Controller not connected
+2025-09-05 16:29:41,966 - ERROR - Controller not connected
+2025-09-05 16:29:41,966 - ERROR - Controller not connected
+2025-09-05 16:29:41,966 - ERROR - Controller not connected
+2025-09-05 16:29:41,966 - ERROR - Controller not connected
+2025-09-05 16:29:41,966 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:43,980 - ERROR - Controller not connected
+2025-09-05 16:29:43,980 - ERROR - Controller not connected
+2025-09-05 16:29:43,980 - ERROR - Controller not connected
+2025-09-05 16:29:43,980 - ERROR - Controller not connected
+2025-09-05 16:29:43,980 - ERROR - Controller not connected
+2025-09-05 16:29:43,980 - ERROR - Controller not connected
+2025-09-05 16:29:43,980 - ERROR - Controller not connected
+2025-09-05 16:29:43,980 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:45,987 - ERROR - Controller not connected
+2025-09-05 16:29:45,987 - ERROR - Controller not connected
+2025-09-05 16:29:45,987 - ERROR - Controller not connected
+2025-09-05 16:29:45,987 - ERROR - Controller not connected
+2025-09-05 16:29:45,987 - ERROR - Controller not connected
+2025-09-05 16:29:45,987 - ERROR - Controller not connected
+2025-09-05 16:29:45,987 - ERROR - Controller not connected
+2025-09-05 16:29:45,987 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:48,105 - ERROR - Controller not connected
+2025-09-05 16:29:48,105 - ERROR - Controller not connected
+2025-09-05 16:29:48,105 - ERROR - Controller not connected
+2025-09-05 16:29:48,105 - ERROR - Controller not connected
+2025-09-05 16:29:48,105 - ERROR - Controller not connected
+2025-09-05 16:29:48,105 - ERROR - Controller not connected
+2025-09-05 16:29:48,105 - ERROR - Controller not connected
+2025-09-05 16:29:48,105 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:50,119 - ERROR - Controller not connected
+2025-09-05 16:29:50,119 - ERROR - Controller not connected
+2025-09-05 16:29:50,119 - ERROR - Controller not connected
+2025-09-05 16:29:50,119 - ERROR - Controller not connected
+2025-09-05 16:29:50,119 - ERROR - Controller not connected
+2025-09-05 16:29:50,119 - ERROR - Controller not connected
+2025-09-05 16:29:50,119 - ERROR - Controller not connected
+2025-09-05 16:29:50,119 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:52,135 - ERROR - Controller not connected
+2025-09-05 16:29:52,135 - ERROR - Controller not connected
+2025-09-05 16:29:52,135 - ERROR - Controller not connected
+2025-09-05 16:29:52,135 - ERROR - Controller not connected
+2025-09-05 16:29:52,135 - ERROR - Controller not connected
+2025-09-05 16:29:52,135 - ERROR - Controller not connected
+2025-09-05 16:29:52,135 - ERROR - Controller not connected
+2025-09-05 16:29:52,135 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:54,147 - ERROR - Controller not connected
+2025-09-05 16:29:54,147 - ERROR - Controller not connected
+2025-09-05 16:29:54,147 - ERROR - Controller not connected
+2025-09-05 16:29:54,147 - ERROR - Controller not connected
+2025-09-05 16:29:54,147 - ERROR - Controller not connected
+2025-09-05 16:29:54,147 - ERROR - Controller not connected
+2025-09-05 16:29:54,147 - ERROR - Controller not connected
+2025-09-05 16:29:54,147 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:56,157 - ERROR - Controller not connected
+2025-09-05 16:29:56,157 - ERROR - Controller not connected
+2025-09-05 16:29:56,157 - ERROR - Controller not connected
+2025-09-05 16:29:56,157 - ERROR - Controller not connected
+2025-09-05 16:29:56,157 - ERROR - Controller not connected
+2025-09-05 16:29:56,157 - ERROR - Controller not connected
+2025-09-05 16:29:56,157 - ERROR - Controller not connected
+2025-09-05 16:29:56,157 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:29:58,161 - ERROR - Controller not connected
+2025-09-05 16:29:58,161 - ERROR - Controller not connected
+2025-09-05 16:29:58,161 - ERROR - Controller not connected
+2025-09-05 16:29:58,161 - ERROR - Controller not connected
+2025-09-05 16:29:58,161 - ERROR - Controller not connected
+2025-09-05 16:29:58,161 - ERROR - Controller not connected
+2025-09-05 16:29:58,161 - ERROR - Controller not connected
+2025-09-05 16:29:58,161 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:30:00,171 - ERROR - Controller not connected
+2025-09-05 16:30:00,171 - ERROR - Controller not connected
+2025-09-05 16:30:00,171 - ERROR - Controller not connected
+2025-09-05 16:30:00,171 - ERROR - Controller not connected
+2025-09-05 16:30:00,171 - ERROR - Controller not connected
+2025-09-05 16:30:00,171 - ERROR - Controller not connected
+2025-09-05 16:30:00,171 - ERROR - Controller not connected
+2025-09-05 16:30:00,171 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:30:02,178 - ERROR - Controller not connected
+2025-09-05 16:30:02,178 - ERROR - Controller not connected
+2025-09-05 16:30:02,178 - ERROR - Controller not connected
+2025-09-05 16:30:02,178 - ERROR - Controller not connected
+2025-09-05 16:30:02,178 - ERROR - Controller not connected
+2025-09-05 16:30:02,178 - ERROR - Controller not connected
+2025-09-05 16:30:02,178 - ERROR - Controller not connected
+2025-09-05 16:30:02,178 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:30:04,193 - ERROR - Controller not connected
+2025-09-05 16:30:04,193 - ERROR - Controller not connected
+2025-09-05 16:30:04,193 - ERROR - Controller not connected
+2025-09-05 16:30:04,193 - ERROR - Controller not connected
+2025-09-05 16:30:04,193 - ERROR - Controller not connected
+2025-09-05 16:30:04,193 - ERROR - Controller not connected
+2025-09-05 16:30:04,193 - ERROR - Controller not connected
+2025-09-05 16:30:04,193 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:30:06,206 - ERROR - Controller not connected
+2025-09-05 16:30:06,206 - ERROR - Controller not connected
+2025-09-05 16:30:06,206 - ERROR - Controller not connected
+2025-09-05 16:30:06,206 - ERROR - Controller not connected
+2025-09-05 16:30:06,206 - ERROR - Controller not connected
+2025-09-05 16:30:06,206 - ERROR - Controller not connected
+2025-09-05 16:30:06,206 - ERROR - Controller not connected
+2025-09-05 16:30:06,206 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
 
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
+2025-09-05 16:30:07,892 - INFO - Initializing NIR device...
+NIRManager       INFO     Initializing NIR device...
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+2025-09-05 16:30:07,929 - INFO - Connected to NIR device
+NIRManager       INFO     Connected to NIR device
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+2025-09-05 16:30:07,947 - INFO - Device configured with current settings
+NIRManager       INFO     Device configured with current settings
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+2025-09-05 16:30:07,948 - INFO - NIR initialized successfully
+NIRManager       INFO     NIR initialized successfully
+Sensor Connection Successful
+Off
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+2025-09-05 16:30:16,134 - INFO - Laser disabled
+NIRManager       INFO     Laser disabled
+On
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+2025-09-05 16:30:16,463 - INFO - Laser enabled
+NIRManager       INFO     Laser enabled
+Start Fine Align
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,797 - INFO - FineAlign initialized with detector: ch1
+FineAlign        INFO     FineAlign initialized with detector: ch1
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+2025-09-05 16:30:21,798 - INFO - Wavelength set to 1550.0nm
+NIRManager       INFO     Wavelength set to 1550.0nm
+### Waiting ###
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+2025-09-05 16:30:23,571 - INFO - Starting spiral at (13300.850, 4104.300)
+FineAlign        INFO     Starting spiral at (13300.850, 4104.300)
+### Waiting ###
+### Waiting ###
 ### Waiting ###
 ### Waiting ###
 ### Waiting ###
@@ -268,363 +369,313 @@
 ### Waiting ###
 ### Waiting ###
 ### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+2025-09-05 16:31:10,571 - INFO - Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+FineAlign        INFO     Spiral completed: best -29.05 dBm (threshold -10.00 dBm not met)
+### Waiting ###
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+2025-09-05 16:31:11,442 - INFO - Starting gradient search refinement
+FineAlign        INFO     Starting gradient search refinement
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+2025-09-05 16:31:25,245 - INFO - Gradient search stop requested or timeout
+FineAlign        INFO     Gradient search stop requested or timeout
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+2025-09-05 16:31:25,246 - INFO - Gradient descent converged
+FineAlign        INFO     Gradient descent converged
+Fine Align Finished
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+2025-09-05 16:49:58,863 - INFO - Disconnected from NIR device
+NIRManager       INFO     Disconnected from NIR device
+Sensor Disconnected
+C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py:273: RuntimeWarning: coroutine 'StageManager.shutdown' was never awaited
+  self.stage_manager.shutdown()
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+Stage Disconnected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+2025-09-05 16:50:00,083 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:01,048 - INFO - Event: tec_off - {'reason': 'disconnect'}
+LDCManager       INFO     Event: tec_off - {'reason': 'disconnect'}
+2025-09-05 16:50:01,175 - INFO - Event: connection_changed - {'connected': False, 'reason': 'user_disconnect'}
+LDCManager       INFO     Event: connection_changed - {'connected': False, 'reason': 'user_disconnect'}
+2025-09-05 16:50:01,175 - INFO - Disconnected from LDC device
+LDCManager       INFO     Disconnected from LDC device
+2025-09-05 16:50:01,176 - INFO - LDC manager shutdown complete
+LDCManager       INFO     LDC manager shutdown complete
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+2025-09-05 16:50:02,094 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+2025-09-05 16:50:04,103 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+2025-09-05 16:50:06,112 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
 
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 125, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 369, in after_configuration
-    self.stop_task()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 376, in stop_task
-    self.area_sweep.stop_sweep()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\measure\area_sweep.py", line 138, in stop_sweep
-    self._log("Area sweep stop requested")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\measure\area_sweep.py", line 132, in _log
-    self.logger.info(message)
-Message: 'Area sweep stop requested'
-Arguments: ()
---- Logging error ---
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 434, in format
-    return self._format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 430, in _format
-    return self._fmt % record.__dict__
-KeyError: 'dev'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 1083, in emit
-    msg = self.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 927, in format
-    return fmt.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 666, in format
-    s = self.formatMessage(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 635, in formatMessage
-    return self._style.format(record)
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\logging\__init__.py", line 436, in format
-    raise ValueError('Formatting field not found in record: %s' % e)
-ValueError: Formatting field not found in record: 'dev'
-Call stack:
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 937, in _bootstrap
-    self._bootstrap_inner()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "C:\Users\347\Desktop\Porbe_Stage\.venv1\lib\site-packages\remi\server.py", line 462, in _idle_loop
-    self.idle()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 125, in idle
-    self.after_configuration()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 369, in after_configuration
-    self.stop_task()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py", line 376, in stop_task
-    self.area_sweep.stop_sweep()
-  File "C:\Users\347\Desktop\Porbe_Stage\347\measure\area_sweep.py", line 138, in stop_sweep
-    self._log("Area sweep stop requested")
-  File "C:\Users\347\Desktop\Porbe_Stage\347\measure\area_sweep.py", line 132, in _log
-    self.logger.info(message)
-Message: 'Area sweep stop requested'
-Arguments: ()
-AreaSweep        INFO     Area sweep stop requested
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
+2025-09-05 16:50:08,124 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+2025-09-05 16:50:10,136 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+2025-09-05 16:50:12,150 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+2025-09-05 16:50:14,156 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+2025-09-05 16:50:16,158 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+2025-09-05 16:50:18,168 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+2025-09-05 16:50:20,183 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+2025-09-05 16:50:22,184 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+2025-09-05 16:50:24,188 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+2025-09-05 16:50:26,196 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+2025-09-05 16:50:28,207 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+2025-09-05 16:50:30,221 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+2025-09-05 16:50:32,223 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+▶ camera_gui.py started (pid=26492)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=25928)
+▶ lib_gui.py started (pid=24404)
+▶ main_devices_gui.py started (pid=23528)
+▶ main_instruments_gui.py started (pid=11604)
+▶ main_registration_gui.py started (pid=16196)
+⏹ init_gui.py exited (rc=0)
+▶ main_start_gui.py started (pid=25856)
+⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=19156)
+▶ mainframe_command_gui.py started (pid=16488)
+▶ mainframe_configuration_gui.py started (pid=8152)
+▶ mainframe_sensor_control_gui.py started (pid=19664)
+▶ mainframe_stage_control_gui.py started (pid=25472)
+▶ mainframe_tec_control_gui.py started (pid=18912)
+▶ sub_add_btn_gui.py started (pid=23276)
+▶ sub_area_scan_setting_gui.py started (pid=23156)
+▶ sub_connect_config_gui.py started (pid=25932)
+▶ sub_fine_align_setting_gui.py started (pid=2224)
+▶ sub_laser_sweep_setting_gui.py started (pid=15460)
+▶ sub_limit_setting_gui.py started (pid=17816)
+Welcome To Probe Stage
+{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
+motors.stage_manager INFO     Shared memory initialized
+motors.stage_manager INFO     Stage manager started
+motors.stage_manager INFO     Position monitor started
+motors.stage_manager INFO     Axis X initialized successfully
+motors.stage_manager INFO     Axis Y initialized successfully
+motors.stage_manager INFO     Axis Z initialized successfully
+motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager INFO     All axes initialized successfully
+Stage Connection Successful
+C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py:273: RuntimeWarning: coroutine 'StageManager.shutdown' was never awaited
+  self.stage_manager.shutdown()
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+Stage Disconnected
+motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
+motors.stage_manager INFO     Stage manager started
+motors.stage_manager INFO     Axis X initialized successfully
+motors.stage_manager INFO     Axis Y initialized successfully
+motors.stage_manager INFO     Axis Z initialized successfully
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager INFO     All axes initialized successfully
+Stage Connection Successful
+Locked
+Unlocked
+Z Up 1000.0 um
+Z Up 1000.0 um
+Z Up 1000.0 um
+Z Up 1000.0 um
+Z Up 1000.0 um
