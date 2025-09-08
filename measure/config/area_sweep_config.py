@@ -13,19 +13,18 @@ class AreaSweepConfiguration:
     step: size in microns of each step
     """
     x_size = 50 # microns
-    x_step = 1 # microns
+    x_step = 1  # microns
     y_size = 50 # microns
     y_step = 1 # microns
+    pattern = "spiral" # or "crosshair"
 
-    
     def to_dict(self) -> dict:
         """Convert to dictionary"""
         return {
+            'x_size': self.x_size,
+            'y_size': self.y_size,
             'step_size': self.step_size,
-            'scan_window': self.scan_window,
-            'threshold': self.threshold,
-            'max_gradient_iters': self.max_gradient_iters,
-            'use_crosshair': self.use_crosshair
+            'use_spiral': self.use_spiral
         }
     
     @classmethod

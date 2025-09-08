@@ -19,255 +19,104 @@ class AreaSweep:
     """
     Take an optical area sweep for alignement purposes
     """
-    def __init__(self, area_sweep_config: Dict[Any, Any], # place holder
-                 stage_manager: StageManager, nir_manager: NIRManager, debug: bool = False):
+    def __init__(
+            self, 
+            area_sweep_config: Dict[Any, Any],
+            stage_manager: StageManager,
+              nir_manager: NIRManager,
+                debug: bool = False
+        ):
+        # Init
         self.stage_manager = stage_manager
         self.nir_manager = nir_manager
         self.config = area_sweep_config
         self.debug = debug
-        self.primary_detector = None # placeholder
+        self.primary_detector = None # Max is fine for area sweeps
         self.spiral = None
-
+        self._stop_requested = False
+        
         # Setup logger
         self.logger = setup_logger("AreaSweep", "SWEEP", debug_mode=debug)
         self._log("AreaSweep initialized")
-        self._stop_requested = False
 
-    # async def begin_sweep(self) -> np.ndarray:
-    #     """
-    #     Take an area sweep
-    #
-    #     Returns:
-    #         np.ndarray: [[x, y, loss], ...] alignment path data
-    #     """
-    #     try:
-    #         # Confirm managers are functional
-    #         ok = await self.stage_status()
-    #         if not ok:
-    #             self._log("Stage manager not ready", "error")
-    #             raise Exception("Invalid stage manager status")
-    #         ok = await self.nir_status()
-    #         if not ok:
-    #             self._log("NIR manager not ready", "error")
-    #             raise Exception("Invalid NIR instrument manager status")
-    #         # Initiate config
-    #         cfg = self.config
-    #
-    #         # Initiate data
-    #         data = []
-    #         x_data = []
-    #         x_pos = await self.stage_manager.get_position(AxisType.X)
-    #         x_pos = x_pos.actual
-    #         y_pos = await self.stage_manager.get_position(AxisType.Y)
-    #         y_pos = y_pos.actual
-    #         x_len, x_step = cfg.x_size, cfg.x_step
-    #         y_len, y_step = cfg.y_size, cfg.y_step
-    #         self._log(f"Starting area sweep: {x_len}x{y_len} with steps ({x_step}, {y_step})")
-    #         initial_x = x_pos
-    #         initial_y = y_pos
-    #
-    #         # Ensure exact start
-    #         await self.stage_manager.move_axis(AxisType.X, x_pos, relative=False, wait_for_completion=True)
-    #         await self.stage_manager.move_axis(AxisType.Y, y_pos, relative=False, wait_for_completion=True)
-    #
-    #         step = x_step
-    #         scan_window = x_len*y_len
-    #         limit = max(1, int(scan_window / max(1e-9, step)))  # number of segments per arm
-    #         direction = 1
-    #         num_steps = 1
-    #
-    #         lm, ls = self.nir_manager.read_power()
-    #         best_loss = self._select_detector_channel(lm, ls)
-    #         x = await self.stage_manager.get_position(AxisType.X)
-    #         y = await self.stage_manager.get_position(AxisType.Y)
-    #         best_pos = [x.actual, y.actual]
-    #         self.lowest_loss = max(self.lowest_loss, best_loss)
-    #
-    #         self.log(f"Starting spiral at ({best_pos[0]:.3f}, {best_pos[1]:.3f})", "info")
-    #         if best_loss >= self.threshold:
-    #             self.best_position = best_pos
-    #             self.log("Spiral skipped: threshold already met.", "info")
-    #             return True
-    #
-    #         while num_steps <= limit and not self._stop_requested:
-    #             # X sweep
-    #             for _ in range(num_steps):
-    #                 if self._stop_requested:
-    #                     break
-    #                 await self.stage_manager.move_axis(AxisType.X, step * direction, relative=True,
-    #                                                    wait_for_completion=True)
-    #                 lm, ls = self.nir_manager.read_power()
-    #                 val = self._select_detector_channel(lm, ls)
-    #                 if val > best_loss:
-    #                     best_loss = val
-    #                     x = await self.stage_manager.get_position(AxisType.X)
-    #                     y = await self.stage_manager.get_position(AxisType.Y)
-    #                     best_pos = [x.actual, y.actual]
-    #                     self.lowest_loss = best_loss
-    #                     if best_loss >= self.threshold:
-    #                         break
-    #
-    #             if self._stop_requested or best_loss >= self.threshold:
-    #                 break
-    #
-    #             # Y sweep
-    #             for _ in range(num_steps):
-    #                 if self._stop_requested:
-    #                     break
-    #                 await self.stage_manager.move_axis(AxisType.Y, step * direction, relative=True,
-    #                                                    wait_for_completion=True)
-    #                 lm, ls = self.nir_manager.read_power()
-    #                 val = self._select_detector_channel(lm, ls)
-    #                 if val > best_loss:
-    #                     best_loss = val
-    #                     x = await self.stage_manager.get_position(AxisType.X)
-    #                     y = await self.stage_manager.get_position(AxisType.Y)
-    #                     best_pos = [x.actual, y.actual]
-    #                     self.lowest_loss = best_loss
-    #                     if best_loss >= self.threshold:
-    #                         break
-    #
-    #             # Expand one ring and flip direction
-    #             num_steps += 1
-    #             direction *= -1
-    #
-    #         # Snap to best
-    #         await self.stage_manager.move_axis(AxisType.X, best_pos[0], relative=False, wait_for_completion=True)
-    #         await self.stage_manager.move_axis(AxisType.Y, best_pos[1], relative=False, wait_for_completion=True)
-    #         self.best_position = best_pos
-    #
-    #         if best_loss >= self.threshold:
-    #             self.log(f"Spiral completed: reached {best_loss:.2f} dBm", "info")
-    #         else:
-    #             self.log(f"Spiral completed: best {best_loss:.2f} dBm (threshold {self.threshold:.2f} dBm not met)",
-    #                      "info")
-    #         return True
-    #     except Exception as e:
-    #         self.log(f"Spiral search error: {e}", "error")
-    #         return False
-    #
-    #         # Initial measurement
-    #         loss_master, loss_slave = self.nir_manager.read_power()
-    #         initial_power = max(loss_master, loss_slave)
-    #         x_data.append(initial_power)
-    #         self._log(f"Starting position: ({x_pos:.2f}, {y_pos:.2f}) with power: {initial_power:.2f}dBm")
-    #
-    #
-    #         parity = lambda step, n: step if (n%2) != 0 else -step  # helper for parity switchin
-    #
-    #         total_points = (x_len // x_step) * (y_len // y_step)
-    #         point_count = 1  # We already took initial measurement
-    #
-    #         for i in range(x_len // x_step):
-    #             if self._stop_requested:
-    #                 self._log("Area sweep stopped by user request")
-    #                 break
-    #
-    #             for j in range(y_len // y_step):
-    #                 if self._stop_requested:
-    #                     break
-    #
-    #                 step = parity(x_step, i)
-    #                 await self.stage_manager.move_axis(
-    #                     axis = AxisType.X,
-    #                     position = step,
-    #                     relative = True,
-    #                     wait_for_completion = True)
-    #
-    #                 loss_master, loss_slave = self.nir_manager.read_power()
-    #                 current_power = max(loss_master, loss_slave)
-    #                 x_data.append(current_power)
-    #                 x_pos += step
-    #
-    #             data.append(x_data)
-    #             x_data = []
-    #
-    #             # After a row has been measured, move y axis take the initial measurement
-    #             if not self._stop_requested:
-    #                 await self.stage_manager.move_axis(
-    #                     axis = AxisType.Y,
-    #                     position = y_step,
-    #                     relative = True,
-    #                     wait_for_completion = True)
-    #                 loss_master, loss_slave = self.nir_manager.read_power() # some params
-    #                 current_power = max(loss_master,loss_slave)
-    #                 x_data.append(current_power)
-    #                 y_pos += y_step
-    #                 point_count += 1
-    #
-    #         # Once area sweep is complete, return the data as np.array
-    #         # Return to starting position
-    #         await self.stage_manager.move_axis(
-    #             axis = AxisType.X,
-    #             position = initial_x,
-    #             relative = False,
-    #             wait_for_completion = True
-    #         )
-    #         await self.stage_manager.move_axis(
-    #             axis=AxisType.Y,
-    #             position=initial_y,
-    #             relative=False,
-    #             wait_for_completion=True
-    #         )
-    #         if self._stop_requested:
-    #             self._log(f"Area sweep stopped early.")
-    #         else:
-    #             self._log(f"Area sweep completed. Total points: {point_count}")
-    #         return np.array(data)
-    #     except Exception as e:
-    #         self._log(f"Area sweep error: {e}", "error")
-    #         raise
-    #
     async def begin_sweep(self) -> np.ndarray:
         """
-        Take an area sweep
+        Take an area sweep, entry point.
+        cfg:
+            - pattern[str]: "crosshair" or "spiral"
+            - x_size: number of columns (cells)
+            - y_size: number of rows (cells)
+            - x_step: step for crosshair serpentine (stage units)
+            - y_step: step for crosshair serpentine (stage units)
+            - step_size: step per cell for spiral (stage units)
 
         Returns:
-            np.ndarray: [[x, y, loss], ...] alignment path data
+            np.ndarray: (y_size, x_size) with measurement data at position 
+                        (DEPRACATED) [[x, y, loss], ...] alignment path data
+        """
+        # Confirm managers are functional
+        ok = await self.stage_status()
+        if not ok:
+            self._log("Stage manager not ready", "error")
+            raise Exception("Invalid stage manager status")
+        ok = await self.nir_status()
+        if not ok:
+            self._log("NIR manager not ready", "error")
+            raise Exception("Invalid NIR instrument manager status")
+        # Initiate config
+        cfg = self.config
+        pattern = getattr(cfg, "pattern", "crosshair")
+
+        if pattern == "crosshair":
+            return await self._begin_sweep_crosshair()
+        elif pattern == "spiral":
+            return await self._begin_sweep_spiral_grid()
+        else:
+            self._log(f"Unknown pattern '{pattern}', defaulting to crosshair.", "warning")
+            return await self._begin_sweep_crosshair()
+
+
+    
+    async def _begin_sweep_crosshair(self) -> np.ndarray:
+        """
+        Crosshair with serpentine pattern
         """
         try:
-            # Confirm managers are functional
-            ok = await self.stage_status()
-            if not ok:
-                self._log("Stage manager not ready", "error")
-                raise Exception("Invalid stage manager status")
-            ok = await self.nir_status()
-            if not ok:
-                self._log("NIR manager not ready", "error")
-                raise Exception("Invalid NIR instrument manager status")
-            # Initiate config
             cfg = self.config
 
-            # Initiate data
             data = []
             x_data = []
-            x_pos = await self.stage_manager.get_position(AxisType.X)
-            x_pos = x_pos.actual
-            y_pos = await self.stage_manager.get_position(AxisType.Y)
-            y_pos = y_pos.actual
+
+            # Read current absolute position and keep as the origin 
+            x_pos = (await self.stage_manager.get_position(AxisType.X)).actual
+            y_pos = (await self.stage_manager.get_position(AxisType.Y)).actual
+            initial_x, initial_y = x_pos, y_pos
+
             x_len, x_step = cfg.x_size, cfg.x_step
             y_len, y_step = cfg.y_size, cfg.y_step
             self._log(f"Starting area sweep: {x_len}x{y_len} with steps ({x_step}, {y_step})")
-            initial_x = x_pos
-            initial_y = y_pos
 
-            # Initial measurement
+            # Initial measurement at the starting cell
             loss_master, loss_slave = self.nir_manager.read_power()
-            initial_power = max(loss_master, loss_slave)
+            initial_power = self._select_detector_channel(loss_master, loss_slave)
             x_data.append(initial_power)
-            self._log(f"Starting position: ({x_pos:.2f}, {y_pos:.2f}) with power: {initial_power:.2f}dBm")
+            self._log(f"Starting position: ({x_pos:.3f}, {y_pos:.3f}) with power: {initial_power:.2f} dBm")
 
-            parity = lambda step, n: step if (n % 2) != 0 else -step  # helper for parity switchin
+            # Helper to alternate X direction per row 
+            parity = lambda step, n: step if (n % 2) != 0 else -step
 
-            total_points = (x_len // x_step) * (y_len // y_step)
-            point_count = 1  # We already took initial measurement
+            total_cols = int(x_len // x_step)
+            total_rows = int(y_len // y_step)
 
-            for i in range(x_len // x_step):
+            point_count = 1  # already sampled the first point
+
+            for i in range(total_cols):
                 if self._stop_requested:
                     self._log("Area sweep stopped by user request")
                     break
 
-                for j in range(y_len // y_step):
+                # Walk across a row (in X)
+                for _ in range(total_rows):
                     if self._stop_requested:
                         break
 
@@ -276,50 +125,133 @@ class AreaSweep:
                         axis=AxisType.X,
                         position=step,
                         relative=True,
-                        wait_for_completion=True)
+                        wait_for_completion=True,
+                    )
 
                     loss_master, loss_slave = self.nir_manager.read_power()
-                    current_power = max(loss_master, loss_slave)
+                    current_power = self._select_detector_channel(loss_master, loss_slave)
                     x_data.append(current_power)
                     x_pos += step
 
+                # End of a row -> store and reset row accumulator
                 data.append(x_data)
                 x_data = []
 
-                # After a row has been measured, move y axis take the initial measurement
-                if not self._stop_requested:
+                # Move one row in Y and sample the first point of the next row
+                if not self._stop_requested and (i + 1) < total_cols:
                     await self.stage_manager.move_axis(
                         axis=AxisType.Y,
                         position=y_step,
                         relative=True,
-                        wait_for_completion=True)
-                    loss_master, loss_slave = self.nir_manager.read_power()  # some params
-                    current_power = max(loss_master, loss_slave)
+                        wait_for_completion=True,
+                    )
+                    loss_master, loss_slave = self.nir_manager.read_power()
+                    current_power = self._select_detector_channel(loss_master, loss_slave)
                     x_data.append(current_power)
                     y_pos += y_step
                     point_count += 1
 
-            # Once area sweep is complete, return the data as np.array
-            # Return to starting position
+            # Return to starting absolute position
             await self.stage_manager.move_axis(
-                axis=AxisType.X,
-                position=initial_x,
-                relative=False,
-                wait_for_completion=True
+                axis=AxisType.X, position=initial_x, relative=False, wait_for_completion=True
             )
             await self.stage_manager.move_axis(
-                axis=AxisType.Y,
-                position=initial_y,
-                relative=False,
-                wait_for_completion=True
+                axis=AxisType.Y, position=initial_y, relative=False, wait_for_completion=True
             )
+
             if self._stop_requested:
-                self._log(f"Area sweep stopped early.")
+                self._log("Area sweep stopped early.")
             else:
                 self._log(f"Area sweep completed. Total points: {point_count}")
-            return np.array(data)
+
+            return np.array(data, dtype=float)
+
         except Exception as e:
-            self._log(f"Area sweep error: {e}", "error")
+            self._log(f"Area sweep (crosshair) error: {e}", "error")
+            raise
+    
+    async def _begin_sweep_spiral_grid(self) -> np.ndarray:
+        """
+        Fill a (y_size x x_size) grid by walking a spiral from the current position as cell (0,0),
+        turning whenever we hit a boundary or a visited cell.
+        We sample once per cell and write directly into the 2-D grid.
+
+        Returns:
+            np.ndarray: shape (y_size, x_size) of measured values.
+        """
+        try:
+            cfg = self.config
+
+            x_cells = int(cfg.x_size)     # columns
+            y_cells = int(cfg.y_size)     # rows
+            step = float(getattr(cfg, "step_size", getattr(cfg, "x_step", 1.0)))  # physical step per cell
+
+            # Preallocate output grid; NaN marks "unvisited"
+            data = np.full((y_cells, x_cells), np.nan, dtype=float)
+
+            # Ensure exact current position is the origin for this grid
+            x0 = (await self.stage_manager.get_position(AxisType.X)).actual
+            y0 = (await self.stage_manager.get_position(AxisType.Y)).actual
+            await self.stage_manager.move_axis(AxisType.X, x0, relative=False, wait_for_completion=True)
+            await self.stage_manager.move_axis(AxisType.Y, y0, relative=False, wait_for_completion=True)
+
+            # Logical cell indices
+            x_idx, y_idx = 0, 0
+
+            # Directions in cell units: right, down, left, up
+            dirs = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+            d = 0  # current direction index
+
+            def read_value() -> float:
+                lm, ls = self.nir_manager.read_power()
+                return float(self._select_detector_channel(lm, ls))
+
+            # Sample initial cell
+            data[y_idx, x_idx] = read_value()
+
+            total_cells = x_cells * y_cells
+            # Already sampled 1 cell; iterate remaining
+            for _ in range(total_cells - 1):
+                if self._stop_requested:
+                    self._log("Spiral grid sweep stopped by user request")
+                    break
+
+                # Proposed next index
+                nx = x_idx + dirs[d][0]
+                ny = y_idx + dirs[d][1]
+
+                # Turn on boundary or visited
+                if not (0 <= nx < x_cells and 0 <= ny < y_cells) or np.isfinite(data[ny, nx]):
+                    d = (d + 1) % 4
+                    nx = x_idx + dirs[d][0]
+                    ny = y_idx + dirs[d][1]
+
+                # Translate cell delta to physical move
+                dx_cells = nx - x_idx
+                dy_cells = ny - y_idx
+
+                if dx_cells:
+                    await self.stage_manager.move_axis(
+                        AxisType.X, dx_cells * step, relative=True, wait_for_completion=True
+                    )
+                if dy_cells:
+                    await self.stage_manager.move_axis(
+                        AxisType.Y, dy_cells * step, relative=True, wait_for_completion=True
+                    )
+
+                # Commit and sample
+                x_idx, y_idx = nx, ny
+                data[y_idx, x_idx] = read_value()
+
+            # Return to physical start
+            await self.stage_manager.move_axis(AxisType.X, x0, relative=False, wait_for_completion=True)
+            await self.stage_manager.move_axis(AxisType.Y, y0, relative=False, wait_for_completion=True)
+
+            self._log(f"Spiral grid completed ({x_cells}x{y_cells}) at step {step:g}")
+            return data
+
+        except Exception as e:
+            self._log(f"Spiral grid sweep error: {e}", "error")
             raise
 
     def _select_detector_channel(self, loss_master: float, loss_slave: float) -> float:
