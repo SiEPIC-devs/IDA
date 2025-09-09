@@ -346,7 +346,21 @@ class stage_control(App):
             if self.auto_sweep == 1 and self.count == 0:
                 self.lock_all(1)
                 self.count = 1
-                self.busy_dialog()
+                
+                # Calculate progress config for auto sweep
+                device_count = len(self.filter) if hasattr(self, 'filter') and self.filter else 0
+                if device_count > 0:
+                    estimated_total = self._estimate_total_time(device_count)
+                    estimated_per_device = estimated_total / device_count
+                    progress_config = {
+                        'total_devices': device_count,
+                        'estimated_total_time': estimated_total,
+                        'estimated_per_device': estimated_per_device
+                    }
+                    self.busy_dialog(progress_config)
+                else:
+                    self.busy_dialog()
+                    
                 self.task_start = 1
                 self.run_in_thread(self.do_auto_sweep)
 
@@ -401,32 +415,70 @@ class stage_control(App):
                 time.sleep(2)
 
     def do_auto_sweep(self):
+        device_count = len(self.filter)
+        estimated_total_time = self._estimate_total_time(device_count)
+        device_start_times = []
+        
+        print(f"Starting auto sweep of {device_count} devices (estimated {estimated_total_time:.0f}s total)")
+        
         i = 0
-        while i < (len(self.filter)):
+        while i < device_count:
             print("It's " + str(i))
             if self.auto_sweep == 0:
                 break
 
+            device_start_time = time.time()
+            device_start_times.append(device_start_time)
+            device_num = i + 1
+            
             key = list(self.filter.keys())
             x = float(self.filter[key[i]][0])
             y = float(self.filter[key[i]][1])
 
-            print(f"Move to Device {i + 1} [{x}, {y}]")
+            # Update progress: Moving to device
+            progress_percent = (i / device_count) * 100
+            activity = f"Moving to Device {device_num}/{device_count}"
+            self._write_progress_file(device_num, activity, progress_percent)
+            print(f"Move to Device {device_num} [{x}, {y}]")
 
             asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
             asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
             if self.auto_sweep == 0:
                 break
 
+            # Update progress: Fine alignment
+            progress_percent = (i / device_count) * 100 + (20 / device_count)  # Add 20% for alignment
+            activity = f"Device {device_num}/{device_count}: Fine alignment"
+            self._write_progress_file(device_num, activity, progress_percent)
+
             self.onclick_start()
             if self.auto_sweep == 0:
                 break
+                
+            # Update progress: Spectral sweep
+            progress_percent = (i / device_count) * 100 + (70 / device_count)  # Add 70% for sweep
+            activity = f"Device {device_num}/{device_count}: Spectral sweep"
+            self._write_progress_file(device_num, activity, progress_percent)
+            
             self.laser_sweep(name=self.devices[int(key[i])])
+
+            # Update progress: Device completed
+            progress_percent = ((i + 1) / device_count) * 100
+            activity = f"Device {device_num}/{device_count}: Completed"
+            self._write_progress_file(device_num, activity, progress_percent)
 
             file = File("shared_memory", "DeviceName", self.devices[int(key[i])], "DeviceNum", int(key[i]))
             file.save()
 
+            # Calculate actual device time for learning
+            device_time = time.time() - device_start_time
+            print(f"Device {device_num} completed in {device_time:.1f}s")
+
             i += 1
+            
+        # Final completion
+        self._write_progress_file(device_count, "All measurements completed", 100)
+        
         with self._scan_done.get_lock():
             self._scan_done.value = 1
             self.task_start = 0
@@ -740,12 +792,82 @@ class stage_control(App):
         self.fine_align = None
         print("Fine Align Finished")
 
-    def busy_dialog(self):
+    def _calculate_sweep_time(self):
+        """Calculate estimated sweep time based on configuration"""
+        try:
+            start_nm = self.sweep.get("start", 1540.0)
+            end_nm = self.sweep.get("end", 1580.0)
+            step_nm = self.sweep.get("step", 0.001)
+            
+            # Calculate number of data points
+            data_points = abs(end_nm - start_nm) / step_nm
+            
+            # Use provided formula: 11 seconds per 20k data points
+            sweep_time = (data_points / 20000) * 11
+            return max(sweep_time, 5)  # Minimum 5 seconds
+        except:
+            return 30  # Default fallback
+
+    def _calculate_area_sweep_time(self):
+        """Calculate estimated area sweep time based on configuration"""
+        try:
+            x_size = self.area_s.get("x_size", 20.0)
+            x_step = self.area_s.get("x_step", 1.0)
+            y_size = self.area_s.get("y_size", 20.0) 
+            y_step = self.area_s.get("y_step", 1.0)
+            
+            # Calculate grid points
+            x_points = int(x_size / x_step)
+            y_points = int(y_size / y_step)
+            total_points = x_points * y_points
+            
+            # Estimate ~0.5 seconds per point
+            return max(total_points * 0.5, 10)  # Minimum 10 seconds
+        except:
+            return 30  # Default fallback
+
+    def _calculate_fine_align_time(self):
+        """Calculate estimated fine alignment time based on configuration"""
+        try:
+            timeout = self.fine_a.get("timeout_s", 30)
+            return min(timeout, 180)  # Cap at 3 minutes
+        except:
+            return 45  # Default fallback
+
+    def _estimate_total_time(self, device_count):
+        """Estimate total time for all devices"""
+        sweep_time = self._calculate_sweep_time()
+        area_time = self._calculate_area_sweep_time()
+        align_time = self._calculate_fine_align_time()
+        overhead_time = 10  # Movement and overhead per device
+        
+        time_per_device = sweep_time + area_time + align_time + overhead_time
+        return device_count * time_per_device
+
+    def _write_progress_file(self, current_device, activity, progress_percent):
+        """Write progress information to file for dialog to read"""
+        try:
+            import os
+            os.makedirs("./database", exist_ok=True)
+            
+            progress_data = {
+                "current_device": current_device,
+                "activity": activity,
+                "progress_percent": progress_percent,
+                "timestamp": time.time()
+            }
+            
+            with open("./database/progress.json", 'w') as f:
+                json.dump(progress_data, f)
+        except Exception as e:
+            print(f"[Warning] Could not write progress file: {e}")
+
+    def busy_dialog(self, progress_config=None):
         self._scan_done = Value(c_int, 0)
         self._scan_cancel = Event()
         self._busy_proc = Process(
             target=run_busy_dialog,
-            args=(self._scan_done, self._scan_cancel),
+            args=(self._scan_done, self._scan_cancel, progress_config),
             daemon=True
         )
         self._busy_proc.start()

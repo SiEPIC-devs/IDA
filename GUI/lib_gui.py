@@ -705,33 +705,140 @@ class plot():
 import sys
 from multiprocessing import Event, Value
 from ctypes import c_int
-from PyQt5.QtWidgets import QApplication, QProgressDialog, QProgressBar
+from PyQt5.QtWidgets import QApplication, QProgressDialog, QProgressBar, QLabel, QVBoxLayout, QWidget
 from PyQt5.QtCore import Qt, QTimer
+import time
+import json
+from pathlib import Path
 
-def run_busy_dialog(done_val: Value, cancel_evt: Event):
+def run_busy_dialog(done_val: Value, cancel_evt: Event, progress_config: dict = None):
     app = QApplication(sys.argv)
 
-    class CenteredBusyDialog(QProgressDialog):
+    class EnhancedProgressDialog(QProgressDialog):
         def __init__(self):
-            super().__init__("In Progress…", "Cancel", 0, 0)  # 不定进度
-            self.setWindowTitle("In Progress")
+            super().__init__("Preparing...", "Cancel", 0, 100)  # Determinate progress
+            self.setWindowTitle("Automeasurement Progress")
             self.setWindowModality(Qt.ApplicationModal)
             self.setMinimumDuration(0)
             self.setAutoClose(False)
             self.setAutoReset(False)
-            self.resize(420, 160)
+            self.resize(500, 200)
 
+            # Progress tracking variables
+            self.start_time = time.time()
+            self.total_devices = 0
+            self.current_device = 0
+            self.estimated_total_time = 0
+            self.estimated_per_device = 120  # Default 2 minutes per device
+            self.actual_times = []  # Track actual device times for learning
+            
+            # Load progress config if provided
+            if progress_config:
+                self.total_devices = progress_config.get('total_devices', 0)
+                self.estimated_total_time = progress_config.get('estimated_total_time', 0)
+                self.estimated_per_device = progress_config.get('estimated_per_device', 120)
+
+            # Create custom labels for activity and time
+            self.activity_label = QLabel("Preparing automeasurement...")
+            self.activity_label.setAlignment(Qt.AlignCenter)
+            self.activity_label.setStyleSheet("font-weight: bold; margin: 5px; font-size: 12px;")
+            
+            self.time_label = QLabel("Estimating time...")
+            self.time_label.setAlignment(Qt.AlignCenter)
+            self.time_label.setStyleSheet("color: #666; font-size: 10px; margin: 2px;")
+
+            # Get and customize progress bar
             bar = self.findChild(QProgressBar)
             if bar:
-                bar.setTextVisible(False)
+                bar.setTextVisible(True)
                 bar.setFixedHeight(26)
+                bar.setFormat("%p% complete")
 
-            # 轮询主进程写入的完成标志
+            # Poll for updates and completion
             self._poll = QTimer(self)
-            self._poll.timeout.connect(self._check_done)
-            self._poll.start(80)
+            self._poll.timeout.connect(self._update_progress)
+            self._poll.start(500)  # Update every 500ms
 
             self.canceled.connect(self._on_cancel)
+
+        def _update_progress(self):
+            """Update progress display by reading progress file"""
+            if done_val.value == 1:
+                self._poll.stop()
+                self.close()
+                return
+                
+            # Try to read progress from file
+            try:
+                progress_file = Path("./database/progress.json")
+                if progress_file.exists():
+                    with open(progress_file, 'r') as f:
+                        progress_data = json.load(f)
+                    
+                    # Update progress display
+                    self.current_device = progress_data.get('current_device', 0)
+                    activity = progress_data.get('activity', 'In progress...')
+                    progress_percent = progress_data.get('progress_percent', 0)
+                    
+                    # Update labels and progress bar
+                    self.activity_label.setText(activity)
+                    self.setLabelText(activity)
+                    self.setValue(min(max(progress_percent, 0), 100))
+                    
+                    # Update time estimates
+                    self._update_time_display()
+                else:
+                    # Fallback to basic time estimate
+                    self._update_basic_progress()
+                    
+            except Exception:
+                # If file reading fails, show basic progress
+                self._update_basic_progress()
+
+        def _update_basic_progress(self):
+            """Basic progress update when no progress file is available"""
+            elapsed = time.time() - self.start_time
+            if self.total_devices > 0 and self.estimated_total_time > 0:
+                progress = min((elapsed / self.estimated_total_time) * 100, 99)
+                self.setValue(int(progress))
+                self.activity_label.setText(f"Processing devices...")
+                self.setLabelText("Processing devices...")
+            self._update_time_display()
+
+        def _update_time_display(self):
+            """Update the time estimation display"""
+            elapsed = time.time() - self.start_time
+            
+            if self.total_devices > 0:
+                if len(self.actual_times) > 0:
+                    # Use learned timing from completed devices
+                    avg_time = sum(self.actual_times) / len(self.actual_times)
+                    remaining_devices = max(0, self.total_devices - self.current_device)
+                    estimated_remaining = remaining_devices * avg_time
+                else:
+                    # Use initial estimate
+                    estimated_remaining = max(0, self.estimated_total_time - elapsed)
+                
+                time_text = f"Elapsed: {self._format_time(elapsed)}"
+                if estimated_remaining > 0:
+                    time_text += f" | Remaining: {self._format_time(estimated_remaining)}"
+                if self.total_devices > 0:
+                    time_text += f" | Device {self.current_device}/{self.total_devices}"
+                    
+                self.time_label.setText(time_text)
+            else:
+                self.time_label.setText(f"Elapsed: {self._format_time(elapsed)}")
+
+        def _format_time(self, seconds):
+            """Format time in seconds to readable string"""
+            if seconds < 60:
+                return f"{int(seconds)}s"
+            elif seconds < 3600:
+                return f"{int(seconds//60)}m {int(seconds%60)}s"
+            else:
+                hours = int(seconds // 3600)
+                minutes = int((seconds % 3600) // 60)
+                return f"{hours}h {minutes}m"
 
         def _on_cancel(self):
             with done_val.get_lock():
@@ -747,12 +854,26 @@ def run_busy_dialog(done_val: Value, cancel_evt: Event):
 
         def showEvent(self, e):
             super().showEvent(e)
+            
+            # Create custom widget layout for labels
+            widget = QWidget()
+            layout = QVBoxLayout(widget)
+            layout.addWidget(self.activity_label)
+            layout.addWidget(self.time_label)
+            layout.setContentsMargins(10, 10, 10, 5)
+            
+            # Insert the custom widget at the top of the dialog
+            dialog_layout = self.layout()
+            if dialog_layout:
+                dialog_layout.insertWidget(0, widget)
+            
+            # Center the dialog
             screen = QApplication.primaryScreen()
             if screen:
                 geo = self.frameGeometry()
                 geo.moveCenter(screen.availableGeometry().center())
                 self.move(geo.topLeft())
 
-    dlg = CenteredBusyDialog()
+    dlg = EnhancedProgressDialog()
     dlg.show()
     sys.exit(app.exec_())
