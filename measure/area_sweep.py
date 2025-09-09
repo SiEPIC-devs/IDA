@@ -182,77 +182,101 @@ class AreaSweep:
         try:
             cfg = self.config
 
+            # 1) Resolve cell counts and physical step per cell
+            # If x_size/y_size are *cell counts* (your current snippet), keep int(...).
+            # If they are extents in µm, replace with ceil(x_size/step) and ceil(y_size/step).
             x_cells = int(cfg.x_size)     # columns
             y_cells = int(cfg.y_size)     # rows
-            step = float(getattr(cfg, "step_size", getattr(cfg, "x_step", 1.0)))  # physical step per cell
+            step = float(getattr(cfg, "step_size", getattr(cfg, "x_step", 1.0)))
 
-            # Preallocate output grid; NaN marks "unvisited"
+            # 2) Preallocate output and visited mask
             data = np.full((y_cells, x_cells), np.nan, dtype=float)
+            visited = np.zeros((y_cells, x_cells), dtype=bool)
+            total_cells = x_cells * y_cells
 
-            # Ensure exact current position is the origin for this grid
+            # 3) Anchor: treat current physical position as logical (0,0),
+            #    then move to the *center cell* to start the search.
             x0 = (await self.stage_manager.get_position(AxisType.X)).actual
             y0 = (await self.stage_manager.get_position(AxisType.Y)).actual
             await self.stage_manager.move_axis(AxisType.X, x0, relative=False, wait_for_completion=True)
             await self.stage_manager.move_axis(AxisType.Y, y0, relative=False, wait_for_completion=True)
 
-            # Logical cell indices
-            x_idx, y_idx = 0, 0
+            cx = (x_cells - 1) // 2  # center index (column)
+            cy = (y_cells - 1) // 2  # center index (row)
 
-            # Directions in cell units: right, down, left, up
-            dirs = [(1, 0), (0, 1), (-1, 0), (0, -1)]
-            d = 0  # current direction index
+            # Move physically to the center cell
+            await self.stage_manager.move_axis(AxisType.X, x0 + cx * step, relative=False, wait_for_completion=True)
+            await self.stage_manager.move_axis(AxisType.Y, y0 + cy * step, relative=False, wait_for_completion=True)
+
+            # Logical position of last ACCEPTED (measured) cell
+            x_idx, y_idx = cx, cy
+            visited[y_idx, x_idx] = True
 
             def read_value() -> float:
                 lm, ls = self.nir_manager.read_power()
                 return float(self._select_detector_channel(lm, ls))
 
-            # Sample initial cell
+            # Sample initial center
             data[y_idx, x_idx] = read_value()
+            covered = 1
 
-            total_cells = x_cells * y_cells
-            # Already sampled 1 cell; iterate remaining
-            for _ in range(total_cells - 1):
-                if self._stop_requested:
-                    self._log("Spiral grid sweep stopped by user request")
-                    break
+            # 4) Spiral parameters
+            # Directions: Right, Down, Left, Up
+            dirs = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+            d = 0  # current direction index; starts moving Right
+            leg_len = 1  # number of *virtual* steps for this leg
 
-                # Proposed next index
-                nx = x_idx + dirs[d][0]
-                ny = y_idx + dirs[d][1]
+            # Virtual cursor (walks the ideal infinite spiral)
+            vx, vy = x_idx, y_idx
 
-                # Turn on boundary or visited
-                if not (0 <= nx < x_cells and 0 <= ny < y_cells) or np.isfinite(data[ny, nx]):
+            # 5) Walk until all cells visited or stop requested
+            while covered < total_cells and not self._stop_requested:
+                # Two legs per "ring" share the same leg_len, then leg_len++
+                for _repeat in range(2):
+                    for _ in range(leg_len):
+                        # Advance virtual cursor by one cell in current dir
+                        vx += dirs[d][0]
+                        vy += dirs[d][1]
+
+                        # If this virtual cell is inside the grid and not visited, accept it:
+                        if 0 <= vx < x_cells and 0 <= vy < y_cells and not visited[vy, vx]:
+                            # Compute relative physical move from last accepted cell
+                            dx_cells = vx - x_idx
+                            dy_cells = vy - y_idx
+                            if dx_cells:
+                                await self.stage_manager.move_axis(
+                                    AxisType.X, dx_cells * step, relative=True, wait_for_completion=True
+                                )
+                            if dy_cells:
+                                await self.stage_manager.move_axis(
+                                    AxisType.Y, dy_cells * step, relative=True, wait_for_completion=True
+                                )
+
+                            # Commit and sample
+                            x_idx, y_idx = vx, vy
+                            visited[y_idx, x_idx] = True
+                            data[y_idx, x_idx] = read_value()
+                            covered += 1
+
+                            if covered >= total_cells or self._stop_requested:
+                                break
+                    if covered >= total_cells or self._stop_requested:
+                        break
+                    # Turn right
                     d = (d + 1) % 4
-                    nx = x_idx + dirs[d][0]
-                    ny = y_idx + dirs[d][1]
+                # After two legs, expand the next ring
+                leg_len += 1
 
-                # Translate cell delta to physical move
-                dx_cells = nx - x_idx
-                dy_cells = ny - y_idx
-
-                if dx_cells:
-                    await self.stage_manager.move_axis(
-                        AxisType.X, dx_cells * step, relative=True, wait_for_completion=True
-                    )
-                if dy_cells:
-                    await self.stage_manager.move_axis(
-                        AxisType.Y, dy_cells * step, relative=True, wait_for_completion=True
-                    )
-
-                # Commit and sample
-                x_idx, y_idx = nx, ny
-                data[y_idx, x_idx] = read_value()
-
-            # Return to physical start
+            # 6) Return to physical start
             await self.stage_manager.move_axis(AxisType.X, x0, relative=False, wait_for_completion=True)
             await self.stage_manager.move_axis(AxisType.Y, y0, relative=False, wait_for_completion=True)
 
-            self._log(f"Spiral grid completed ({x_cells}x{y_cells}) at step {step:g}")
+            self._log(f"Centered spiral grid completed ({x_cells}x{y_cells}) at step {step:g}")
             return data
 
         except Exception as e:
             self._log(f"Spiral grid sweep error: {e}", "error")
-            raise
+            raise 
 
     def _select_detector_channel(self, loss_master: float, loss_slave: float) -> float:
         """Select detector channel based on config"""
