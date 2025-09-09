@@ -16,25 +16,24 @@ class area_scan(App):
             mtime = os.path.getmtime(command_path)
         except FileNotFoundError:
             mtime = None
-
         if self._first_command_check:
             self._user_mtime = mtime
             self._first_command_check = False
             return
-
         if mtime != self._user_mtime:
             self._user_mtime = mtime
             self.execute_command()
 
     def main(self):
+        # If anything blows up here, Remi can die before sending a response.
+        # Keep this lean & guarded.
         return self.construct_ui()
 
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
 
-    # ---------- UI ----------
     def construct_ui(self):
-        # Larger box so all controls fit comfortably
+        # Larger so everything fits
         area_scan_setting_container = StyledContainer(
             variable_name="area_scan_setting_container", left=0, top=0, height=310, width=260
         )
@@ -48,7 +47,7 @@ class area_scan(App):
         StyledLabel(container=area_scan_setting_container, text="um", variable_name="x_size_um",
                     left=180, top=10, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
 
-        # X Step (legacy crosshair)
+        # X Step (crosshair legacy)
         StyledLabel(container=area_scan_setting_container, text="X Step", variable_name="x_step_lb",
                     left=0, top=42, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
         self.x_step = StyledSpinBox(container=area_scan_setting_container, variable_name="x_step_in",
@@ -66,7 +65,7 @@ class area_scan(App):
         StyledLabel(container=area_scan_setting_container, text="um", variable_name="y_size_um",
                     left=180, top=74, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
 
-        # Y Step (legacy crosshair)
+        # Y Step (crosshair legacy)
         StyledLabel(container=area_scan_setting_container, text="Y Step", variable_name="y_step_lb",
                     left=0, top=106, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
         self.y_step = StyledSpinBox(container=area_scan_setting_container, variable_name="y_step_in",
@@ -75,7 +74,7 @@ class area_scan(App):
         StyledLabel(container=area_scan_setting_container, text="um", variable_name="y_step_um",
                     left=180, top=106, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
 
-        # Step Size (Spiral source-of-truth; we mirror into x_step/y_step when Spiral is selected)
+        # Step Size (used for Spiral; we mirror to x_step/y_step on Confirm)
         StyledLabel(container=area_scan_setting_container, text="Step Size", variable_name="step_size_lb",
                     left=0, top=138, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
         self.step_size = StyledSpinBox(container=area_scan_setting_container, variable_name="step_size_in",
@@ -84,7 +83,7 @@ class area_scan(App):
         StyledLabel(container=area_scan_setting_container, text="um", variable_name="step_size_um",
                     left=180, top=138, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
 
-        # Pattern selector
+        # Pattern
         StyledLabel(container=area_scan_setting_container, text="Pattern", variable_name="pattern_lb",
                     left=0, top=170, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
         self.pattern_dd = StyledDropDown(container=area_scan_setting_container, variable_name="pattern_dd",
@@ -92,9 +91,15 @@ class area_scan(App):
                                          position="absolute")
         self.pattern_dd.set_value("Crosshair")  # keep legacy default
 
-        # Hook up safe “value sync” events (no hiding/enable calls)
-        self.pattern_dd.do_onchange(lambda *_: self._sync_steps_from_pattern())
-        self.step_size.do_onchange(lambda *_: self._sync_steps_from_pattern())
+        # Try to attach onchange handlers — but don't crash if not supported
+        try:
+            self.pattern_dd.do_onchange(lambda *_: None)
+        except Exception:
+            pass
+        try:
+            self.step_size.do_onchange(lambda *_: None)
+        except Exception:
+            pass
 
         # Plot
         StyledLabel(container=area_scan_setting_container, text="Plot", variable_name="plot_lb",
@@ -108,14 +113,13 @@ class area_scan(App):
         self.confirm_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_confirm))
 
         self.area_scan_setting_container = area_scan_setting_container
-
-        # Initial value sync (in case default pattern is Spiral later)
-        self._sync_steps_from_pattern()
         return area_scan_setting_container
 
-    # ---------- Value sync only (no hiding/enable APIs needed) ----------
-    def _sync_steps_from_pattern(self):
-        """If Spiral is selected, mirror step_size into x_step and y_step so backend receives the right values."""
+    def onclick_confirm(self):
+        """
+        Wire protocol unchanged: we still write ONLY x_size, x_step, y_size, y_step, plot.
+        If Pattern == 'Spiral', we map step_size => x_step and y_step here.
+        """
         try:
             pat = self.pattern_dd.get_value()
             spiral = (isinstance(pat, str) and pat.lower() == "spiral")
@@ -127,40 +131,27 @@ class area_scan(App):
                 step_val = float(self.step_size.get_value())
             except Exception:
                 step_val = 1.0
-            # Mirror into legacy fields used by backend
-            try:
-                self.x_step.set_value(step_val)
-            except Exception:
-                pass
-            try:
-                self.y_step.set_value(step_val)
-            except Exception:
-                pass
-        # If Crosshair, leave whatever the operator put in x_step/y_step.
+            x_step_out = step_val
+            y_step_out = step_val
+        else:
+            x_step_out = float(self.x_step.get_value())
+            y_step_out = float(self.y_step.get_value())
 
-    # ---------- Confirm/save (wire protocol identical) ----------
-    def onclick_confirm(self):
-        """
-        We still write ONLY: x_size, x_step, y_size, y_step, plot.
-        Spiral: step_size has already been mirrored into x_step/y_step.
-        """
         value = {
             "x_size": float(self.x_size.get_value()),
-            "x_step": float(self.x_step.get_value()),
+            "x_step": float(x_step_out),
             "y_size": float(self.y_size.get_value()),
-            "y_step": float(self.y_step.get_value()),
-            "plot": self.plot_dd.get_value()
+            "y_step": float(y_step_out),
+            "plot": self.plot_dd.get_value(),
         }
         file = File("shared_memory", "AreaS", value)
         file.save()
-        print("Confirm Area Scan Setting")
+        print("Confirm Area Scan Setting:", value)
 
-    # ---------- Command ingestion (unchanged protocol) ----------
     def execute_command(self, path=command_path):
         area = 0
         record = 0
         new_command = {}
-
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -177,7 +168,6 @@ class area_scan(App):
                                  "devices_control", "testing_control")) or record == 1:
                 record = 1
                 new_command[key] = val
-
             elif key == "as_x_size":
                 self.x_size.set_value(val)
             elif key == "as_x_step":
