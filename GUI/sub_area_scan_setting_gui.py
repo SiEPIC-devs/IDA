@@ -25,100 +25,186 @@ class area_scan(App):
             self.execute_command()
 
     def main(self):
-        # If anything blows up here, Remi can die before sending a response.
-        # Keep this lean & guarded.
         return self.construct_ui()
 
     def run_in_thread(self, target, *args):
         threading.Thread(target=target, args=args, daemon=True).start()
 
+    # ---------------- UI ----------------
     def construct_ui(self):
-        # Larger so everything fits
+        # Layout constants for clean alignment
+        BOX_W, BOX_H = 320, 360
+        LBL_W, INP_W, UNIT_W = 120, 90, 50
+        LBL_X, INP_X, UNIT_X = 10, 10 + LBL_W + 8, 10 + LBL_W + 8 + INP_W + 6
+
+        y = 10
+        ROW = 30
+
         area_scan_setting_container = StyledContainer(
-            variable_name="area_scan_setting_container", left=0, top=0, height=310, width=260
+            variable_name="area_scan_setting_container",
+            left=0, top=0, width=BOX_W, height=BOX_H
         )
+        # Make long content scroll instead of overflow-cut
+        try:
+            area_scan_setting_container.style['overflow'] = 'auto'
+        except Exception:
+            pass
 
-        # X Size
-        StyledLabel(container=area_scan_setting_container, text="X Size", variable_name="x_size_lb",
-                    left=0, top=10, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        self.x_size = StyledSpinBox(container=area_scan_setting_container, variable_name="x_size_in",
-                                    left=100, top=10, value=20, width=70, height=24,
-                                    min_value=-1000, max_value=1000, step=1, position="absolute")
-        StyledLabel(container=area_scan_setting_container, text="um", variable_name="x_size_um",
-                    left=180, top=10, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
+        # Helper to attach a tooltip if supported
+        def tooltip(widget, text: str):
+            try:
+                widget.attributes['title'] = text
+            except Exception:
+                pass
 
-        # X Step (crosshair legacy)
-        StyledLabel(container=area_scan_setting_container, text="X Step", variable_name="x_step_lb",
-                    left=0, top=42, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        self.x_step = StyledSpinBox(container=area_scan_setting_container, variable_name="x_step_in",
-                                    left=100, top=42, value=1, width=70, height=24,
-                                    min_value=-1000, max_value=1000, step=0.1, position="absolute")
-        StyledLabel(container=area_scan_setting_container, text="um", variable_name="x_step_um",
-                    left=180, top=42, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
-
-        # Y Size
-        StyledLabel(container=area_scan_setting_container, text="Y Size", variable_name="y_size_lb",
-                    left=0, top=74, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        self.y_size = StyledSpinBox(container=area_scan_setting_container, variable_name="y_size_in",
-                                    left=100, top=74, value=20, width=70, height=24,
-                                    min_value=-1000, max_value=1000, step=1, position="absolute")
-        StyledLabel(container=area_scan_setting_container, text="um", variable_name="y_size_um",
-                    left=180, top=74, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
-
-        # Y Step (crosshair legacy)
-        StyledLabel(container=area_scan_setting_container, text="Y Step", variable_name="y_step_lb",
-                    left=0, top=106, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        self.y_step = StyledSpinBox(container=area_scan_setting_container, variable_name="y_step_in",
-                                    left=100, top=106, value=1, width=70, height=24,
-                                    min_value=-1000, max_value=1000, step=0.1, position="absolute")
-        StyledLabel(container=area_scan_setting_container, text="um", variable_name="y_step_um",
-                    left=180, top=106, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
-
-        # Step Size (used for Spiral; we mirror to x_step/y_step on Confirm)
-        StyledLabel(container=area_scan_setting_container, text="Step Size", variable_name="step_size_lb",
-                    left=0, top=138, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        self.step_size = StyledSpinBox(container=area_scan_setting_container, variable_name="step_size_in",
-                                       left=100, top=138, value=1, width=70, height=24,
-                                       min_value=0.001, max_value=1000, step=0.1, position="absolute")
-        StyledLabel(container=area_scan_setting_container, text="um", variable_name="step_size_um",
-                    left=180, top=138, width=40, height=25, font_size=100, flex=True, justify_content="left", color="#222")
+        # Title row
+        StyledLabel(
+            container=area_scan_setting_container, text="Area Scan Settings",
+            variable_name="title_lb", left=10, top=y, width=BOX_W-20, height=24,
+            font_size=110, flex=True, justify_content="left", color="#111"
+        )
+        y += ROW
 
         # Pattern
-        StyledLabel(container=area_scan_setting_container, text="Pattern", variable_name="pattern_lb",
-                    left=0, top=170, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        self.pattern_dd = StyledDropDown(container=area_scan_setting_container, variable_name="pattern_dd",
-                                         text=["Crosshair", "Spiral"], left=100, top=170, width=120, height=24,
-                                         position="absolute")
-        self.pattern_dd.set_value("Crosshair")  # keep legacy default
+        StyledLabel(container=area_scan_setting_container, text="Pattern",
+                    variable_name="pattern_lb", left=LBL_X, top=y, width=LBL_W, height=24,
+                    font_size=100, flex=True, justify_content="right", color="#222")
+        self.pattern_dd = StyledDropDown(
+            container=area_scan_setting_container, variable_name="pattern_dd",
+            text=["Crosshair", "Spiral"], left=INP_X, top=y, width=INP_W+UNIT_W, height=24, position="absolute"
+        )
+        self.pattern_dd.set_value("Crosshair")
+        y += ROW
 
-        # Try to attach onchange handlers — but don't crash if not supported
-        try:
-            self.pattern_dd.do_onchange(lambda *_: None)
-        except Exception:
-            pass
-        try:
-            self.step_size.do_onchange(lambda *_: None)
-        except Exception:
-            pass
+        # Pattern hint line (updates when Pattern changes)
+        self.pattern_hint = StyledLabel(
+            container=area_scan_setting_container, text="Crosshair: uses X Step and Y Step.",
+            variable_name="pattern_hint", left=LBL_X, top=y, width=BOX_W-2*LBL_X, height=22,
+            font_size=90, flex=True, justify_content="left", color="#666"
+        )
+        y += ROW
 
-        # Plot
-        StyledLabel(container=area_scan_setting_container, text="Plot", variable_name="plot_lb",
-                    left=0, top=202, width=90, height=25, font_size=100, flex=True, justify_content="right", color="#222")
-        self.plot_dd = StyledDropDown(container=area_scan_setting_container, variable_name="plot_dd",
-                                      text=["New", "Previous"], left=100, top=202, width=120, height=24, position="absolute")
+        # X Size
+        StyledLabel(container=area_scan_setting_container, text="X Size",
+                    variable_name="x_size_lb", left=LBL_X, top=y, width=LBL_W, height=24,
+                    font_size=100, flex=True, justify_content="right", color="#222")
+        self.x_size = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="x_size_in",
+            left=INP_X, top=y, value=20, width=INP_W, height=24,
+            min_value=-1000, max_value=1000, step=1, position="absolute"
+        )
+        StyledLabel(container=area_scan_setting_container, text="µm",  # nicer micro symbol
+                    variable_name="x_size_um", left=UNIT_X, top=y, width=UNIT_W, height=24,
+                    font_size=100, flex=True, justify_content="left", color="#222")
+        y += ROW
 
-        # Confirm
-        self.confirm_btn = StyledButton(container=area_scan_setting_container, text="Confirm",
-                                        variable_name="confirm_btn", left=92, top=240, height=28, width=80, font_size=90)
+        # Y Size
+        StyledLabel(container=area_scan_setting_container, text="Y Size",
+                    variable_name="y_size_lb", left=LBL_X, top=y, width=LBL_W, height=24,
+                    font_size=100, flex=True, justify_content="right", color="#222")
+        self.y_size = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="y_size_in",
+            left=INP_X, top=y, value=20, width=INP_W, height=24,
+            min_value=-1000, max_value=1000, step=1, position="absolute"
+        )
+        StyledLabel(container=area_scan_setting_container, text="µm",
+                    variable_name="y_size_um", left=UNIT_X, top=y, width=UNIT_W, height=24,
+                    font_size=100, flex=True, justify_content="left", color="#222")
+        y += ROW
+
+        # --- Crosshair controls ---
+        StyledLabel(container=area_scan_setting_container, text="X Step (Crosshair)",
+                    variable_name="x_step_lb", left=LBL_X, top=y, width=LBL_W, height=24,
+                    font_size=100, flex=True, justify_content="right", color="#222")
+        self.x_step = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="x_step_in",
+            left=INP_X, top=y, value=1, width=INP_W, height=24,
+            min_value=-1000, max_value=1000, step=0.1, position="absolute"
+        )
+        tooltip(self.x_step, "Used when Pattern = Crosshair. Saved as x_step.")
+        StyledLabel(container=area_scan_setting_container, text="µm",
+                    variable_name="x_step_um", left=UNIT_X, top=y, width=UNIT_W, height=24,
+                    font_size=100, flex=True, justify_content="left", color="#222")
+        y += ROW
+
+        StyledLabel(container=area_scan_setting_container, text="Y Step (Crosshair)",
+                    variable_name="y_step_lb", left=LBL_X, top=y, width=LBL_W, height=24,
+                    font_size=100, flex=True, justify_content="right", color="#222")
+        self.y_step = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="y_step_in",
+            left=INP_X, top=y, value=1, width=INP_W, height=24,
+            min_value=-1000, max_value=1000, step=0.1, position="absolute"
+        )
+        tooltip(self.y_step, "Used when Pattern = Crosshair. Saved as y_step.")
+        StyledLabel(container=area_scan_setting_container, text="µm",
+                    variable_name="y_step_um", left=UNIT_X, top=y, width=UNIT_W, height=24,
+                    font_size=100, flex=True, justify_content="left", color="#222")
+        y += ROW
+
+        # --- Spiral control ---
+        StyledLabel(container=area_scan_setting_container, text="Step Size (Spiral)",
+                    variable_name="step_size_lb", left=LBL_X, top=y, width=LBL_W, height=24,
+                    font_size=100, flex=True, justify_content="right", color="#222")
+        self.step_size = StyledSpinBox(
+            container=area_scan_setting_container, variable_name="step_size_in",
+            left=INP_X, top=y, value=1, width=INP_W, height=24,
+            min_value=0.001, max_value=1000, step=0.1, position="absolute"
+        )
+        tooltip(self.step_size, "Used when Pattern = Spiral. Mirrored to both x_step and y_step on save.")
+        StyledLabel(container=area_scan_setting_container, text="µm",
+                    variable_name="step_size_um", left=UNIT_X, top=y, width=UNIT_W, height=24,
+                    font_size=100, flex=True, justify_content="left", color="#222")
+        y += ROW
+
+        # Plot selector
+        StyledLabel(container=area_scan_setting_container, text="Plot",
+                    variable_name="plot_lb", left=LBL_X, top=y, width=LBL_W, height=24,
+                    font_size=100, flex=True, justify_content="right", color="#222")
+        self.plot_dd = StyledDropDown(
+            container=area_scan_setting_container, variable_name="plot_dd",
+            text=["New", "Previous"], left=INP_X, top=y, width=INP_W+UNIT_W, height=24, position="absolute"
+        )
+        y += ROW
+
+        # Confirm button
+        self.confirm_btn = StyledButton(
+            container=area_scan_setting_container, text="Confirm",
+            variable_name="confirm_btn", left=(BOX_W-80)//2, top=y+6, height=28, width=80, font_size=90
+        )
         self.confirm_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_confirm))
 
-        self.area_scan_setting_container = area_scan_setting_container
+        # Try to attach onchange for live hint updates (guarded)
+        try:
+            self.pattern_dd.do_onchange(lambda *_: self._update_pattern_hint())
+        except Exception:
+            pass
+
+        # Initial hint
+        self._update_pattern_hint()
         return area_scan_setting_container
 
+    # Clarifies which fields apply in each mode (no enabling/hiding; pure text)
+    def _update_pattern_hint(self):
+        try:
+            pat = self.pattern_dd.get_value()
+            spiral = (isinstance(pat, str) and pat.lower() == "spiral")
+        except Exception:
+            spiral = False
+        if spiral:
+            text = "Spiral: uses Step Size (mirrored to X/Y Step on save)."
+        else:
+            text = "Crosshair: uses X Step and Y Step."
+        try:
+            self.pattern_hint.set_text(text)
+        except Exception:
+            # fallback: ignore if StyledLabel doesn't expose set_text
+            pass
+
+    # ---------------- Save (protocol unchanged) ----------------
     def onclick_confirm(self):
         """
-        Wire protocol unchanged: we still write ONLY x_size, x_step, y_size, y_step, plot.
-        If Pattern == 'Spiral', we map step_size => x_step and y_step here.
+        We still write ONLY: x_size, x_step, y_size, y_step, plot.
+        If Pattern == 'Spiral', mirror step_size into x_step & y_step here.
         """
         try:
             pat = self.pattern_dd.get_value()
@@ -148,6 +234,7 @@ class area_scan(App):
         file.save()
         print("Confirm Area Scan Setting:", value)
 
+    # ---------------- Commands (unchanged) ----------------
     def execute_command(self, path=command_path):
         area = 0
         record = 0
@@ -168,6 +255,7 @@ class area_scan(App):
                                  "devices_control", "testing_control")) or record == 1:
                 record = 1
                 new_command[key] = val
+
             elif key == "as_x_size":
                 self.x_size.set_value(val)
             elif key == "as_x_step":
