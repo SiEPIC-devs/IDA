@@ -22,11 +22,12 @@ class AreaSweepConfiguration:
         """Convert to dictionary"""
         return {
             'x_size': self.x_size,
+            'x_step': self.x_step,
             'y_size': self.y_size,
-            'step_size': self.step_size,
-            'use_spiral': self.use_spiral
+            'y_step': self.y_step,
+            'pattern': self.pattern
         }
-    
+
     @classmethod
     def default(cls) -> 'AreaSweepConfiguration':
         """Create default configuration"""

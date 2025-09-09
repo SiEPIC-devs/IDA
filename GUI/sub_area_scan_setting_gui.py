@@ -33,9 +33,9 @@ class area_scan(App):
     # ---------------- UI ----------------
     def construct_ui(self):
         # Layout constants for clean alignment
-        BOX_W, BOX_H = 320, 360
+        BOX_W, BOX_H = 320, 350
         LBL_W, INP_W, UNIT_W = 120, 90, 50
-        LBL_X, INP_X, UNIT_X = 10, 10 + LBL_W + 8, 10 + LBL_W + 8 + INP_W + 6
+        LBL_X, INP_X, UNIT_X = 10, 10 + LBL_W + 8, 10 + LBL_W + 8 + INP_W + 6 + 20
 
         y = 10
         ROW = 30
@@ -224,6 +224,7 @@ class area_scan(App):
             y_step_out = float(self.y_step.get_value())
 
         value = {
+            "pattern": "spiral" if spiral else "crosshair",
             "x_size": float(self.x_size.get_value()),
             "x_step": float(x_step_out),
             "y_size": float(self.y_size.get_value()),

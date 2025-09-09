@@ -1,6 +1,6 @@
 {
-  "User": "Mateo",
-  "Project": "test",
+  "User": "Guest",
+  "Project": "152",
   "User_add": "Guest",
   "Image": "TSP/none.png",
   "Web": "",
@@ -26,6 +26,7 @@
     "timeout_s": 30
   },
   "AreaS": {
+    "pattern": "spiral",
     "x_size": 20.0,
     "x_step": 1.0,
     "y_size": 20.0,

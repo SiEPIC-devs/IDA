@@ -759,6 +759,7 @@ class stage_control(App):
             self.stage_x_pos = self.memory.x_pos
             self.stage_y_pos = self.memory.y_pos
             config = AreaSweepConfiguration()
+            config.pattern =str(self.area_s["pattern"])
             config.x_size = int(self.area_s["x_size"])
             config.x_step = int(self.area_s["x_step"])
             config.y_size = int(self.area_s["y_size"])
@@ -962,8 +963,8 @@ class stage_control(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7004",
-            width=222+web_w,
-            height=266+web_h,
+            width=340+web_w,
+            height=400+web_h,
             resizable=True,
             on_top=True,
             hidden=False
