@@ -396,6 +396,44 @@ class StageManager:
             logger.error(f"State read error for axis {axis.name}: {e}")
             return None
 
+    async def zero_axis(self, axis: AxisType) -> bool:
+        """Zero the current position of an axis (set current position as zero)"""
+        if axis not in self.motors:
+            logger.error(f"Axis {axis.name} not initialized")
+            return False
+        
+        try:
+            success = await self.motors[axis].set_zero()
+            if success:
+                # Update software position tracking
+                self._last_positions[axis] = 0.0
+                
+                # Update shared memory position to keep GUI in sync
+                if hasattr(self, '_position_struct') and self._position_struct:
+                    try:
+                        if axis == AxisType.X:
+                            self._position_struct.x_pos = 0.0
+                        elif axis == AxisType.Y:
+                            self._position_struct.y_pos = 0.0
+                        elif axis == AxisType.Z:
+                            self._position_struct.z_pos = 0.0
+                        elif axis == AxisType.ROTATION_CHIP:
+                            self._position_struct.cp_pos = 0.0
+                        elif axis == AxisType.ROTATION_FIBER:
+                            self._position_struct.fr_pos = 0.0
+                    except Exception as e:
+                        logger.warning(f"Could not update shared memory for axis {axis.name}: {e}")
+                
+                logger.info(f"Axis {axis.name} zeroed successfully")
+            else:
+                logger.error(f"Failed to zero axis {axis.name}")
+            
+            return success
+            
+        except Exception as e:
+            logger.error(f"Zeroing error for axis {axis.name}: {e}")
+            return False
+
     async def is_any_moving(self) -> bool:
         """Check if any axis is moving"""
         for motor in self.motors.values():
