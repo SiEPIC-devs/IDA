@@ -846,6 +846,22 @@ class stage_control(App):
                 self.task_start = 1
                 self.lock_all(1)
                 t0 = time.time()
+                
+                # CRITICAL TEST: Add artificial delay to see if dialog appears
+                print("[TEST] About to sleep 3 seconds to test dialog...")
+                
+                # Test progress updates during delay
+                for i in range(6):
+                    progress = i * 20  # 0, 20, 40, 60, 80, 100
+                    test_msg = f"Test progress update {i+1}/6"
+                    print(f"[TEST] Writing test progress: {progress}% - {test_msg}")
+                    try:
+                        self._write_progress_file(0, test_msg, progress)
+                    except Exception as e:
+                        print(f"[TEST] Error writing progress: {e}")
+                    time.sleep(0.5)
+                
+                print("[TEST] Sleep complete, starting fine alignment...")
 
             # Build config
             config = FineAlignConfiguration()
