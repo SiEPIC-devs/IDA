@@ -67,7 +67,10 @@ class FineAlign:
         """Report progress to GUI if a callback was provided."""
         if self._progress is not None:
             p = 0.0 if percent < 0.0 else (100.0 if percent > 100.0 else percent)
+            print(f"[FineAlign] Reporting progress: {p}% - {msg}")  # Debug output
             self._progress(p, msg)
+        else:
+            print(f"[FineAlign] No progress callback available for: {percent}% - {msg}")  # Debug output
 
     def _cancelled(self) -> bool:
         """True if stop() was requested or the external cancel_event is set."""

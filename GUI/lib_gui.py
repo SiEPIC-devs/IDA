@@ -757,10 +757,11 @@ def run_busy_dialog(done_val: Value, cancel_evt: Event, progress_config: dict = 
                 bar.setFixedHeight(26)
                 bar.setFormat("%p% complete")
 
-            # Poll for updates and completion
+            # Poll for updates and completion  
+            print(f"[Dialog] Monitoring progress file: {PROGRESS_PATH}")  # Debug output
             self._poll = QTimer(self)
             self._poll.timeout.connect(self._update_progress)
-            self._poll.start(200)  # Update every 500ms
+            self._poll.start(100)  # Update every 100ms (was 200ms)
 
             self.canceled.connect(self._on_cancel)
 
@@ -787,6 +788,8 @@ def run_busy_dialog(done_val: Value, cancel_evt: Event, progress_config: dict = 
                     activity = progress_data.get('activity', 'In progress...')
                     progress_percent = progress_data.get('progress_percent', 0)
                     
+                    print(f"[Dialog] Read progress: {progress_percent}% - {activity}")  # Debug output
+                    
                     # Update labels and progress bar
                     self.activity_label.setText(activity)
                     self.setLabelText(activity)
@@ -795,6 +798,7 @@ def run_busy_dialog(done_val: Value, cancel_evt: Event, progress_config: dict = 
                     # Update time estimates
                     self._update_time_display()
                 else:
+                    print(f"[Dialog] Progress file {progress_file} does not exist")  # Debug output
                     # Fallback to basic time estimate
                     self._update_basic_progress()
                     
