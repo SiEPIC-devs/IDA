@@ -1,565 +1,545 @@
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+[FineAlign] Reporting progress: 27.272727272727273% - Spiral: step 30/110
+[FA Progress] 27.272727272727273% - Spiral: step 30/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 30/110', 'progress_percent': 27.272727272727273, 'timestamp': 1757718660.0107381}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 28.181818181818183% - Spiral: step 31/110
+[FA Progress] 28.181818181818183% - Spiral: step 31/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 31/110', 'progress_percent': 28.181818181818183, 'timestamp': 1757718660.3209722}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 29.09090909090909% - Spiral: step 32/110
+[FA Progress] 29.09090909090909% - Spiral: step 32/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 32/110', 'progress_percent': 29.09090909090909, 'timestamp': 1757718660.7521026}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 30.0% - Spiral: step 33/110
+[FA Progress] 30.0% - Spiral: step 33/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 33/110', 'progress_percent': 30.0, 'timestamp': 1757718661.0653725}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 30.90909090909091% - Spiral: step 34/110
+[FA Progress] 30.90909090909091% - Spiral: step 34/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 34/110', 'progress_percent': 30.90909090909091, 'timestamp': 1757718661.43119}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 31.818181818181817% - Spiral: step 35/110
+[FA Progress] 31.818181818181817% - Spiral: step 35/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 35/110', 'progress_percent': 31.818181818181817, 'timestamp': 1757718661.9563115}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 32.72727272727273% - Spiral: step 36/110
+[FA Progress] 32.72727272727273% - Spiral: step 36/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 36/110', 'progress_percent': 32.72727272727273, 'timestamp': 1757718662.3998182}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 33.63636363636363% - Spiral: step 37/110
+[FA Progress] 33.63636363636363% - Spiral: step 37/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 37/110', 'progress_percent': 33.63636363636363, 'timestamp': 1757718662.7108533}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 34.54545454545455% - Spiral: step 38/110
+[FA Progress] 34.54545454545455% - Spiral: step 38/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 38/110', 'progress_percent': 34.54545454545455, 'timestamp': 1757718663.0322192}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 35.45454545454545% - Spiral: step 39/110
+[FA Progress] 35.45454545454545% - Spiral: step 39/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 39/110', 'progress_percent': 35.45454545454545, 'timestamp': 1757718663.4612336}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 36.36363636363637% - Spiral: step 40/110
+[FA Progress] 36.36363636363637% - Spiral: step 40/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 40/110', 'progress_percent': 36.36363636363637, 'timestamp': 1757718663.895027}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 37.27272727272727% - Spiral: step 41/110
+[FA Progress] 37.27272727272727% - Spiral: step 41/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 41/110', 'progress_percent': 37.27272727272727, 'timestamp': 1757718664.4354036}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 38.18181818181818% - Spiral: step 42/110
+[FA Progress] 38.18181818181818% - Spiral: step 42/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 42/110', 'progress_percent': 38.18181818181818, 'timestamp': 1757718664.7555566}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 39.09090909090909% - Spiral: step 43/110
+[FA Progress] 39.09090909090909% - Spiral: step 43/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 43/110', 'progress_percent': 39.09090909090909, 'timestamp': 1757718665.1867907}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 40.0% - Spiral: step 44/110
+[FA Progress] 40.0% - Spiral: step 44/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 44/110', 'progress_percent': 40.0, 'timestamp': 1757718665.5004883}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 40.90909090909091% - Spiral: step 45/110
+[FA Progress] 40.90909090909091% - Spiral: step 45/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 45/110', 'progress_percent': 40.90909090909091, 'timestamp': 1757718665.940404}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 41.81818181818182% - Spiral: step 46/110
+[FA Progress] 41.81818181818182% - Spiral: step 46/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 46/110', 'progress_percent': 41.81818181818182, 'timestamp': 1757718666.2506998}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 42.72727272727273% - Spiral: step 47/110
+[FA Progress] 42.72727272727273% - Spiral: step 47/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 47/110', 'progress_percent': 42.72727272727273, 'timestamp': 1757718666.684432}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 43.63636363636363% - Spiral: step 48/110
+[FA Progress] 43.63636363636363% - Spiral: step 48/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 48/110', 'progress_percent': 43.63636363636363, 'timestamp': 1757718667.1254056}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 44.54545454545455% - Spiral: step 49/110
+[FA Progress] 44.54545454545455% - Spiral: step 49/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 49/110', 'progress_percent': 44.54545454545455, 'timestamp': 1757718667.555345}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 45.45454545454545% - Spiral: step 50/110
+[FA Progress] 45.45454545454545% - Spiral: step 50/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 50/110', 'progress_percent': 45.45454545454545, 'timestamp': 1757718667.8665576}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 46.36363636363637% - Spiral: step 51/110
+[FA Progress] 46.36363636363637% - Spiral: step 51/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 51/110', 'progress_percent': 46.36363636363637, 'timestamp': 1757718668.4105062}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 47.27272727272727% - Spiral: step 52/110
+[FA Progress] 47.27272727272727% - Spiral: step 52/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 52/110', 'progress_percent': 47.27272727272727, 'timestamp': 1757718668.7201076}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 48.18181818181818% - Spiral: step 53/110
+[FA Progress] 48.18181818181818% - Spiral: step 53/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 53/110', 'progress_percent': 48.18181818181818, 'timestamp': 1757718669.1607854}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 49.09090909090909% - Spiral: step 54/110
+[FA Progress] 49.09090909090909% - Spiral: step 54/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 54/110', 'progress_percent': 49.09090909090909, 'timestamp': 1757718669.484086}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 50.0% - Spiral: step 55/110
+[FA Progress] 50.0% - Spiral: step 55/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 55/110', 'progress_percent': 50.0, 'timestamp': 1757718670.0249672}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 50.90909090909091% - Spiral: step 56/110
+[FA Progress] 50.90909090909091% - Spiral: step 56/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 56/110', 'progress_percent': 50.90909090909091, 'timestamp': 1757718670.4651525}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 51.81818181818182% - Spiral: step 57/110
+[FA Progress] 51.81818181818182% - Spiral: step 57/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 57/110', 'progress_percent': 51.81818181818182, 'timestamp': 1757718670.899082}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 52.72727272727273% - Spiral: step 58/110
+[FA Progress] 52.72727272727273% - Spiral: step 58/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 58/110', 'progress_percent': 52.72727272727273, 'timestamp': 1757718671.2101965}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 53.63636363636363% - Spiral: step 59/110
+[FA Progress] 53.63636363636363% - Spiral: step 59/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 59/110', 'progress_percent': 53.63636363636363, 'timestamp': 1757718671.6501896}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 54.54545454545455% - Spiral: step 60/110
+[FA Progress] 54.54545454545455% - Spiral: step 60/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 60/110', 'progress_percent': 54.54545454545455, 'timestamp': 1757718672.0807168}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 55.45454545454545% - Spiral: step 61/110
+[FA Progress] 55.45454545454545% - Spiral: step 61/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 61/110', 'progress_percent': 55.45454545454545, 'timestamp': 1757718672.5243447}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 56.36363636363637% - Spiral: step 62/110
+[FA Progress] 56.36363636363637% - Spiral: step 62/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 62/110', 'progress_percent': 56.36363636363637, 'timestamp': 1757718672.964742}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 57.27272727272727% - Spiral: step 63/110
+[FA Progress] 57.27272727272727% - Spiral: step 63/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 63/110', 'progress_percent': 57.27272727272727, 'timestamp': 1757718673.2749753}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 58.18181818181818% - Spiral: step 64/110
+[FA Progress] 58.18181818181818% - Spiral: step 64/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 64/110', 'progress_percent': 58.18181818181818, 'timestamp': 1757718673.7059329}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 59.09090909090909% - Spiral: step 65/110
+[FA Progress] 59.09090909090909% - Spiral: step 65/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 65/110', 'progress_percent': 59.09090909090909, 'timestamp': 1757718674.1500287}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 60.0% - Spiral: step 66/110
+[FA Progress] 60.0% - Spiral: step 66/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 66/110', 'progress_percent': 60.0, 'timestamp': 1757718674.4600716}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 60.90909090909091% - Spiral: step 67/110
+[FA Progress] 60.90909090909091% - Spiral: step 67/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 67/110', 'progress_percent': 60.90909090909091, 'timestamp': 1757718674.7699115}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 61.81818181818182% - Spiral: step 68/110
+[FA Progress] 61.81818181818182% - Spiral: step 68/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 68/110', 'progress_percent': 61.81818181818182, 'timestamp': 1757718675.204508}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 62.72727272727273% - Spiral: step 69/110
+[FA Progress] 62.72727272727273% - Spiral: step 69/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 69/110', 'progress_percent': 62.72727272727273, 'timestamp': 1757718675.6445503}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 63.63636363636363% - Spiral: step 70/110
+[FA Progress] 63.63636363636363% - Spiral: step 70/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 70/110', 'progress_percent': 63.63636363636363, 'timestamp': 1757718675.9548166}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 64.54545454545455% - Spiral: step 71/110
+[FA Progress] 64.54545454545455% - Spiral: step 71/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 71/110', 'progress_percent': 64.54545454545455, 'timestamp': 1757718676.720192}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 65.45454545454545% - Spiral: step 72/110
+[FA Progress] 65.45454545454545% - Spiral: step 72/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 72/110', 'progress_percent': 65.45454545454545, 'timestamp': 1757718677.0892959}
+[Debug] Progress file written successfully
+### Waiting ###
+[FineAlign] Reporting progress: 66.36363636363636% - Spiral: step 73/110
+[FA Progress] 66.36363636363636% - Spiral: step 73/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 73/110', 'progress_percent': 66.36363636363636, 'timestamp': 1757718677.4094055}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 67.27272727272727% - Spiral: step 74/110
+[FA Progress] 67.27272727272727% - Spiral: step 74/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 74/110', 'progress_percent': 67.27272727272727, 'timestamp': 1757718678.0936697}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 68.18181818181819% - Spiral: step 75/110
+[FA Progress] 68.18181818181819% - Spiral: step 75/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 75/110', 'progress_percent': 68.18181818181819, 'timestamp': 1757718678.5244482}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 69.0909090909091% - Spiral: step 76/110
+[FA Progress] 69.0909090909091% - Spiral: step 76/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 76/110', 'progress_percent': 69.0909090909091, 'timestamp': 1757718678.9645424}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 70.0% - Spiral: step 77/110
+[FA Progress] 70.0% - Spiral: step 77/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 77/110', 'progress_percent': 70.0, 'timestamp': 1757718679.2754824}
 
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-2025-09-09 19:05:30,131 - INFO - Initializing NIR device...
-NIRManager       INFO     Initializing NIR device...
-2025-09-09 19:05:30,284 - INFO - Connected to NIR device
-NIRManager       INFO     Connected to NIR device
-2025-09-09 19:05:30,303 - INFO - Device configured with current settings
-NIRManager       INFO     Device configured with current settings
-2025-09-09 19:05:30,303 - INFO - NIR initialized successfully
-NIRManager       INFO     NIR initialized successfully
-2025-09-09 19:05:30,316 - INFO - Wavelength set to 1550.0nm
-NIRManager       INFO     Wavelength set to 1550.0nm
-Sensor Connection Successful
-2025-09-09 19:05:30,431 - INFO - Power set to 1.0dBm
-NIRManager       INFO     Power set to 1.0dBm
-Start Fine Align
-2025-09-09 19:05:31,836 - INFO - FineAlign initialized with detector: ch1
-FineAlign        INFO     FineAlign initialized with detector: ch1
-2025-09-09 19:05:31,842 - INFO - Wavelength set to 1550.0nm
-NIRManager       INFO     Wavelength set to 1550.0nm
+[Debug] Progress file written successfully
 ### Waiting ###
-2025-09-09 19:05:33,506 - INFO - Starting spiral at (-17.660, -11.630)
-FineAlign        INFO     Starting spiral at (-17.660, -11.630)
+[FineAlign] Reporting progress: 70.9090909090909% - Spiral: step 78/110
+[FA Progress] 70.9090909090909% - Spiral: step 78/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 78/110', 'progress_percent': 70.9090909090909, 'timestamp': 1757718679.7092972}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 71.81818181818181% - Spiral: step 79/110
+[FA Progress] 71.81818181818181% - Spiral: step 79/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 79/110', 'progress_percent': 71.81818181818181, 'timestamp': 1757718680.1492014}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 72.72727272727273% - Spiral: step 80/110
+[FA Progress] 72.72727272727273% - Spiral: step 80/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 80/110', 'progress_percent': 72.72727272727273, 'timestamp': 1757718680.45921}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 73.63636363636364% - Spiral: step 81/110
+[FA Progress] 73.63636363636364% - Spiral: step 81/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 81/110', 'progress_percent': 73.63636363636364, 'timestamp': 1757718680.903318}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 74.54545454545455% - Spiral: step 82/110
+[FA Progress] 74.54545454545455% - Spiral: step 82/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 82/110', 'progress_percent': 74.54545454545455, 'timestamp': 1757718681.334283}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 75.45454545454545% - Spiral: step 83/110
+[FA Progress] 75.45454545454545% - Spiral: step 83/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 83/110', 'progress_percent': 75.45454545454545, 'timestamp': 1757718681.6441941}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 76.36363636363636% - Spiral: step 84/110
+[FA Progress] 76.36363636363636% - Spiral: step 84/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 84/110', 'progress_percent': 76.36363636363636, 'timestamp': 1757718681.9647324}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 77.27272727272727% - Spiral: step 85/110
+[FA Progress] 77.27272727272727% - Spiral: step 85/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 85/110', 'progress_percent': 77.27272727272727, 'timestamp': 1757718682.2763252}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 78.18181818181819% - Spiral: step 86/110
+[FA Progress] 78.18181818181819% - Spiral: step 86/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 86/110', 'progress_percent': 78.18181818181819, 'timestamp': 1757718682.588517}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 79.0909090909091% - Spiral: step 87/110
+[FA Progress] 79.0909090909091% - Spiral: step 87/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 87/110', 'progress_percent': 79.0909090909091, 'timestamp': 1757718683.0189588}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 80.0% - Spiral: step 88/110
+[FA Progress] 80.0% - Spiral: step 88/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 88/110', 'progress_percent': 80.0, 'timestamp': 1757718683.3705916}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 80.9090909090909% - Spiral: step 89/110
+[FA Progress] 80.9090909090909% - Spiral: step 89/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 89/110', 'progress_percent': 80.9090909090909, 'timestamp': 1757718683.7731524}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 81.81818181818181% - Spiral: step 90/110
+[FA Progress] 81.81818181818181% - Spiral: step 90/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 90/110', 'progress_percent': 81.81818181818181, 'timestamp': 1757718684.2143104}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 82.72727272727273% - Spiral: step 91/110
+[FA Progress] 82.72727272727273% - Spiral: step 91/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 91/110', 'progress_percent': 82.72727272727273, 'timestamp': 1757718684.6432326}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 83.63636363636364% - Spiral: step 92/110
+[FA Progress] 83.63636363636364% - Spiral: step 92/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 92/110', 'progress_percent': 83.63636363636364, 'timestamp': 1757718684.9545557}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 84.54545454545455% - Spiral: step 93/110
+[FA Progress] 84.54545454545455% - Spiral: step 93/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 93/110', 'progress_percent': 84.54545454545455, 'timestamp': 1757718685.388924}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 85.45454545454545% - Spiral: step 94/110
+[FA Progress] 85.45454545454545% - Spiral: step 94/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 94/110', 'progress_percent': 85.45454545454545, 'timestamp': 1757718685.8289595}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 86.36363636363636% - Spiral: step 95/110
+[FA Progress] 86.36363636363636% - Spiral: step 95/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 95/110', 'progress_percent': 86.36363636363636, 'timestamp': 1757718686.1389055}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 87.27272727272727% - Spiral: step 96/110
+[FA Progress] 87.27272727272727% - Spiral: step 96/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 96/110', 'progress_percent': 87.27272727272727, 'timestamp': 1757718686.4498198}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 88.18181818181819% - Spiral: step 97/110
+[FA Progress] 88.18181818181819% - Spiral: step 97/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 97/110', 'progress_percent': 88.18181818181819, 'timestamp': 1757718686.7737336}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 89.0909090909091% - Spiral: step 98/110
+[FA Progress] 89.0909090909091% - Spiral: step 98/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 98/110', 'progress_percent': 89.0909090909091, 'timestamp': 1757718687.203674}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 90.0% - Spiral: step 99/110
+[FA Progress] 90.0% - Spiral: step 99/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 99/110', 'progress_percent': 90.0, 'timestamp': 1757718687.644136}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 90.9090909090909% - Spiral: step 100/110
+[FA Progress] 90.9090909090909% - Spiral: step 100/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 100/110', 'progress_percent': 90.9090909090909, 'timestamp': 1757718687.9555652}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 91.81818181818181% - Spiral: step 101/110
+[FA Progress] 91.81818181818181% - Spiral: step 101/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 101/110', 'progress_percent': 91.81818181818181, 'timestamp': 1757718688.2674048}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 92.72727272727273% - Spiral: step 102/110
+[FA Progress] 92.72727272727273% - Spiral: step 102/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 102/110', 'progress_percent': 92.72727272727273, 'timestamp': 1757718688.6988266}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 93.63636363636364% - Spiral: step 103/110
+[FA Progress] 93.63636363636364% - Spiral: step 103/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 103/110', 'progress_percent': 93.63636363636364, 'timestamp': 1757718689.1382127}
+[Debug] Progress file written successfully
 ### Waiting ###
-2025-09-09 19:05:42,620 - INFO - Disconnected from NIR device
-NIRManager       INFO     Disconnected from NIR device
-Sensor Disconnected
-2025-09-09 19:05:42,632 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-2025-09-09 19:05:42,727 - INFO - Initializing NIR device...
-2025-09-09 19:05:42,727 - INFO - Initializing NIR device...
-NIRManager       INFO     Initializing NIR device...
-2025-09-09 19:05:42,765 - INFO - Connected to NIR device
-2025-09-09 19:05:42,765 - INFO - Connected to NIR device
-NIRManager       INFO     Connected to NIR device
-2025-09-09 19:05:42,783 - INFO - Device configured with current settings
-2025-09-09 19:05:42,783 - INFO - Device configured with current settings
-NIRManager       INFO     Device configured with current settings
-2025-09-09 19:05:42,783 - INFO - NIR initialized successfully
-2025-09-09 19:05:42,783 - INFO - NIR initialized successfully
-NIRManager       INFO     NIR initialized successfully
-Sensor Connection Successful
-2025-09-09 19:05:43,068 - ERROR - Controller not connected
-2025-09-09 19:05:43,068 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py:278: RuntimeWarning: coroutine 'StageManager.shutdown' was never awaited
-  self.stage_manager.shutdown()
-RuntimeWarning: Enable tracemalloc to get the object allocation traceback
-Stage Disconnected
-2025-09-09 19:05:43,503 - ERROR - Controller not connected
-2025-09-09 19:05:43,503 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
-motors.stage_manager INFO     Stage manager started
-2025-09-09 19:05:44,000 - ERROR - Controller not connected
-2025-09-09 19:05:44,000 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-motors.stage_manager INFO     Axis X initialized successfully
+[FineAlign] Reporting progress: 94.54545454545455% - Spiral: step 104/110
+[FA Progress] 94.54545454545455% - Spiral: step 104/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 104/110', 'progress_percent': 94.54545454545455, 'timestamp': 1757718689.4525137}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 95.45454545454545% - Spiral: step 105/110
+[FA Progress] 95.45454545454545% - Spiral: step 105/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 105/110', 'progress_percent': 95.45454545454545, 'timestamp': 1757718689.8834312}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 96.36363636363636% - Spiral: step 106/110
+[FA Progress] 96.36363636363636% - Spiral: step 106/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 106/110', 'progress_percent': 96.36363636363636, 'timestamp': 1757718690.5743845}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 97.27272727272727% - Spiral: step 107/110
+[FA Progress] 97.27272727272727% - Spiral: step 107/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 107/110', 'progress_percent': 97.27272727272727, 'timestamp': 1757718691.0179656}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 98.18181818181819% - Spiral: step 108/110
+[FA Progress] 98.18181818181819% - Spiral: step 108/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 108/110', 'progress_percent': 98.18181818181819, 'timestamp': 1757718691.389628}
+[Debug] Progress file written successfully
 ### Waiting ###
-2025-09-09 19:05:44,439 - ERROR - Controller not connected
-2025-09-09 19:05:44,439 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-motors.stage_manager INFO     Axis Y initialized successfully
-2025-09-09 19:05:44,873 - ERROR - Controller not connected
-2025-09-09 19:05:44,873 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-motors.stage_manager INFO     Axis Z initialized successfully
-2025-09-09 19:05:45,436 - ERROR - Controller not connected
-2025-09-09 19:05:45,436 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-2025-09-09 19:05:45,999 - ERROR - Controller not connected
-2025-09-09 19:05:45,999 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-2025-09-09 19:05:46,370 - ERROR - Controller not connected
-2025-09-09 19:05:46,370 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
+[FineAlign] Reporting progress: 99.0909090909091% - Spiral: step 109/110
+[FA Progress] 99.0909090909091% - Spiral: step 109/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 109/110', 'progress_percent': 99.0909090909091, 'timestamp': 1757718691.8789659}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 100.0% - Spiral: step 110/110
+[FA Progress] 100.0% - Spiral: step 110/110
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 110/110', 'progress_percent': 100.0, 'timestamp': 1757718692.1897874}
+[Debug] Progress file written successfully
+2025-09-12 16:11:33,043 - INFO - Spiral completed: best -61.74 dBm (threshold -10.00 dBm not met)
+FineAlign        INFO     Spiral completed: best -61.74 dBm (threshold -10.00 dBm not met)
+[FineAlign] Reporting progress: 99.0% - Spiral: best -61.74 dBm (threshold -10.00 dBm)
+[FA Progress] 99.0% - Spiral: best -61.74 dBm (threshold -10.00 dBm)
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: best -61.74 dBm (threshold -10.00 dBm)', 'progress_percent': 99.0, 'timestamp': 1757718693.044872}
+[Debug] Progress file written successfully
 ### Waiting ###
-2025-09-09 19:05:46,679 - ERROR - Controller not connected
-2025-09-09 19:05:46,679 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-2025-09-09 19:05:47,115 - ERROR - Controller not connected
-2025-09-09 19:05:47,115 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-2025-09-09 19:05:47,428 - ERROR - Controller not connected
-2025-09-09 19:05:47,428 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-Stage Disconnected
-2025-09-09 19:05:47,862 - ERROR - Controller not connected
-2025-09-09 19:05:47,862 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-2025-09-09 19:05:48,174 - ERROR - Controller not connected
-2025-09-09 19:05:48,174 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-### Waiting ###
-2025-09-09 19:05:48,610 - ERROR - Controller not connected
-2025-09-09 19:05:48,610 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-2025-09-09 19:05:49,046 - ERROR - Controller not connected
-2025-09-09 19:05:49,046 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-2025-09-09 19:05:49,481 - ERROR - Controller not connected
-2025-09-09 19:05:49,481 - ERROR - Controller not connected
-NIRManager       ERROR    Controller not connected
-▶ camera_gui.py started (pid=16792)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=18152)
-▶ lib_gui.py started (pid=13624)
-▶ main_devices_gui.py started (pid=24808)
-▶ main_instruments_gui.py started (pid=16960)
-▶ main_registration_gui.py started (pid=18144)
-⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=11580)
-⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=18544)
-▶ mainframe_command_gui.py started (pid=23884)
-▶ mainframe_configuration_gui.py started (pid=15000)
-▶ mainframe_sensor_control_gui.py started (pid=16536)
-▶ mainframe_stage_control_gui.py started (pid=8272)
-▶ mainframe_tec_control_gui.py started (pid=8400)
-▶ sub_add_btn_gui.py started (pid=13300)
-▶ sub_area_scan_setting_gui.py started (pid=19776)
-▶ sub_connect_config_gui.py started (pid=17360)
-▶ sub_fine_align_setting_gui.py started (pid=13924)
-▶ sub_laser_sweep_setting_gui.py started (pid=19996)
-▶ sub_limit_setting_gui.py started (pid=1552)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-Chip Turn CW 0.1 deg
-Chip Turn CCW 0.1 deg
-2025-09-10 15:03:29,111 - INFO - Initializing NIR device...
-NIRManager       INFO     Initializing NIR device...
-2025-09-10 15:03:30,101 - INFO - Connected to NIR device
-NIRManager       INFO     Connected to NIR device
-2025-09-10 15:03:30,121 - INFO - Device configured with current settings
-NIRManager       INFO     Device configured with current settings
-2025-09-10 15:03:30,121 - INFO - NIR initialized successfully
-NIRManager       INFO     NIR initialized successfully
-2025-09-10 15:03:30,136 - INFO - Wavelength set to 1550.0nm
-NIRManager       INFO     Wavelength set to 1550.0nm
-Sensor Connection Successful
-2025-09-10 15:03:30,247 - INFO - Power set to 1.0dBm
-NIRManager       INFO     Power set to 1.0dBm
-LDC.ldc_manager  INFO     LDC shared memory initialized
-2025-09-10 15:03:45,525 - INFO - Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}
-LDCManager       INFO     Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}
-2025-09-10 15:03:45,525 - INFO - Connected to LDC device
-LDCManager       INFO     Connected to LDC device
-2025-09-10 15:03:45,638 - INFO - Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}
-LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}
-2025-09-10 15:03:46,244 - INFO - Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}
-LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}
-2025-09-10 15:03:46,852 - INFO - Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}
-LDCManager       INFO     Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}
-LDC.ldc_controller ERROR    [LDC] Temperature read error: could not convert string to float: ''
-2025-09-10 15:03:47,069 - INFO - Event: error - {'operation': 'get_temp', 'error': "could not convert string to float: ''"}
-LDCManager       INFO     Event: error - {'operation': 'get_temp', 'error': "could not convert string to float: ''"}
-2025-09-10 15:03:47,069 - INFO - Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}
-LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}
-2025-09-10 15:03:47,069 - INFO - Device configured with current settings
-LDCManager       INFO     Device configured with current settings
-2025-09-10 15:03:47,069 - INFO - LDC initialized successfully
-LDCManager       INFO     LDC initialized successfully
-Tec Connection Successful
-2025-09-10 15:03:47,364 - INFO - Event: temp_changed - {'temperature': 22.39568, 'units': 'celsius'}
-LDCManager       INFO     Event: temp_changed - {'temperature': 22.39568, 'units': 'celsius'}
-2025-09-10 15:03:47,364 - INFO - Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 22.39568}
-LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 22.39568}
-2025-09-10 15:03:47,364 - INFO - Temperature setpoint set to 25.0°C
-LDCManager       INFO     Temperature setpoint set to 25.0°C
-On
-2025-09-10 15:03:52,030 - INFO - Laser enabled
-NIRManager       INFO     Laser enabled
-LDC.ldc_controller ERROR    [LDC] TEC on command failed
-2025-09-10 15:03:54,303 - INFO - Event: error - {'operation': 'tec_on', 'error': 'TEC failed to turn on'}
-LDCManager       INFO     Event: error - {'operation': 'tec_on', 'error': 'TEC failed to turn on'}
-2025-09-10 15:03:54,304 - ERROR - Failed to turn on TEC
-LDCManager       ERROR    Failed to turn on TEC
-TEC On
-Z Up 10.0 um
-Z Up 10.0 um
-Z Up 100.0 um
-Z Up 100.0 um
-Z Up 100.0 um
-C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py:278: RuntimeWarning: coroutine 'StageManager.shutdown' was never awaited
-  self.stage_manager.shutdown()
-RuntimeWarning: Enable tracemalloc to get the object allocation traceback
-Stage Disconnected
-motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-▶ camera_gui.py started (pid=14460)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=14268)
-▶ lib_gui.py started (pid=15308)
-▶ main_devices_gui.py started (pid=14912)
-▶ main_instruments_gui.py started (pid=15004)
-▶ main_registration_gui.py started (pid=14728)
-▶ main_start_gui.py started (pid=15048)
-▶ main_testing_gui.py started (pid=15212)
-▶ mainframe_command_gui.py started (pid=15340)
-▶ mainframe_configuration_gui.py started (pid=1144)
-▶ mainframe_sensor_control_gui.py started (pid=1308)
-▶ mainframe_stage_control_gui.py started (pid=15272)
-▶ mainframe_tec_control_gui.py started (pid=14952)
-▶ sub_add_btn_gui.py started (pid=15252)
-▶ sub_area_scan_setting_gui.py started (pid=4600)
-▶ sub_connect_config_gui.py started (pid=4780)
-▶ sub_fine_align_setting_gui.py started (pid=4944)
-▶ sub_laser_sweep_setting_gui.py started (pid=15400)
-▶ sub_limit_setting_gui.py started (pid=15572)
-⏹ lib_gui.py exited (rc=0)
-⏹ init_gui.py exited (rc=0)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-Z Down 10.0 um
-Z Down 10.0 um
-Z Down 10.0 um
-Z Down 10.0 um
-Z Down 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 1000.0 um
-Y Right 1000.0 um
-Y Right 1000.0 um
-Y Right 1000.0 um
-Y Right 1000.0 um
-Y Right 1000.0 um
-Y Right 1000.0 um
-Y Right 1000.0 um
-motors.stage_manager INFO     Axis Y zeroed successfully
-motors.stage_manager INFO     Axis Y zeroed successfully
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Y Right 100.0 um
-Start Home
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Stopping stage control
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Set velocity error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-StopEmergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-StopEmergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Stop
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-Stop
-
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
-
-StopStop
-
-Stopping stage control
-Stopping stage control
-▶ camera_gui.py started (pid=25544)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=23660)
-▶ lib_gui.py started (pid=11684)
-▶ main_devices_gui.py started (pid=15100)
-▶ main_instruments_gui.py started (pid=12844)
-▶ main_registration_gui.py started (pid=12680)
-▶ main_start_gui.py started (pid=22880)
-⏹ init_gui.py exited (rc=0)
-⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=20596)
-▶ mainframe_command_gui.py started (pid=12856)
-▶ mainframe_configuration_gui.py started (pid=22092)
-▶ mainframe_sensor_control_gui.py started (pid=15188)
-▶ mainframe_stage_control_gui.py started (pid=776)
-▶ mainframe_tec_control_gui.py started (pid=4808)
-▶ sub_add_btn_gui.py started (pid=5896)
-▶ sub_area_scan_setting_gui.py started (pid=7148)
-▶ sub_connect_config_gui.py started (pid=10496)
-▶ sub_fine_align_setting_gui.py started (pid=8924)
-▶ sub_laser_sweep_setting_gui.py started (pid=1948)
-▶ sub_limit_setting_gui.py started (pid=21476)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-2025-09-12 11:58:22,942 - INFO - Initializing NIR device...
-NIRManager       INFO     Initializing NIR device...
-2025-09-12 11:58:25,807 - INFO - Connected to NIR device
-NIRManager       INFO     Connected to NIR device
-2025-09-12 11:58:25,827 - INFO - Device configured with current settings
-NIRManager       INFO     Device configured with current settings
-2025-09-12 11:58:25,827 - INFO - NIR initialized successfully
-NIRManager       INFO     NIR initialized successfully
-2025-09-12 11:58:25,841 - INFO - Wavelength set to 1550.0nm
-NIRManager       INFO     Wavelength set to 1550.0nm
-Sensor Connection Successful
-2025-09-12 11:58:25,953 - INFO - Power set to 1.0dBm
-NIRManager       INFO     Power set to 1.0dBm
-[Axis Lock] x -> LOCKED
-[Axis Lock] x -> UNLOCKED
-[Axis Lock] x -> LOCKED
-[Axis Lock] x -> UNLOCKED
-Start Fine Align
-2025-09-12 11:59:06,687 - INFO - FineAlign initialized with detector: ch1
-FineAlign        INFO     FineAlign initialized with detector: ch1
-2025-09-12 11:59:06,771 - INFO - Wavelength set to 1550.0nm
-NIRManager       INFO     Wavelength set to 1550.0nm
-### Waiting ###
-2025-09-12 11:59:08,628 - INFO - Starting spiral at (0.000, 0.020)
-FineAlign        INFO     Starting spiral at (0.000, 0.020)
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-2025-09-12 11:59:51,548 - INFO - Spiral completed: best -62.36 dBm (threshold -10.00 dBm not met)
-FineAlign        INFO     Spiral completed: best -62.36 dBm (threshold -10.00 dBm not met)
-2025-09-12 11:59:52,175 - INFO - Starting gradient search refinement
+2025-09-12 16:11:33,919 - INFO - Starting gradient search refinement
 FineAlign        INFO     Starting gradient search refinement
+[FineAlign] Reporting progress: 20.0% - Gradient: starting
+[FA Progress] 20.0% - Gradient: starting
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient: starting', 'progress_percent': 20.0, 'timestamp': 1757718693.9191153}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 2.4390243902439024% - Gradient(ss=2): probing…
+[FA Progress] 2.4390243902439024% - Gradient(ss=2): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 2.4390243902439024, 'timestamp': 1757718694.6695344}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 4.878048780487805% - Gradient(ss=2): probing…
+[FA Progress] 4.878048780487805% - Gradient(ss=2): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 4.878048780487805, 'timestamp': 1757718695.4191442}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 7.317073170731708% - Gradient(ss=2): probing…
+[FA Progress] 7.317073170731708% - Gradient(ss=2): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 7.317073170731708, 'timestamp': 1757718696.1697397}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 9.75609756097561% - Gradient(ss=2): probing…
+[FA Progress] 9.75609756097561% - Gradient(ss=2): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 9.75609756097561, 'timestamp': 1757718696.9156537}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 9.75609756097561% - Gradient: improved → -62.36 dBm
+[FA Progress] 9.75609756097561% - Gradient: improved → -62.36 dBm
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient: improved → -62.36 dBm', 'progress_percent': 9.75609756097561, 'timestamp': 1757718697.852224}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 12.195121951219512% - Gradient(ss=2): probing…
+[FA Progress] 12.195121951219512% - Gradient(ss=2): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 12.195121951219512, 'timestamp': 1757718698.5973012}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 14.634146341463415% - Gradient(ss=2): probing…
+[FA Progress] 14.634146341463415% - Gradient(ss=2): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 14.634146341463415, 'timestamp': 1757718699.470244}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 17.073170731707318% - Gradient(ss=2): probing…
+[FA Progress] 17.073170731707318% - Gradient(ss=2): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 17.073170731707318, 'timestamp': 1757718700.2193377}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 19.51219512195122% - Gradient(ss=2): probing…
+[FA Progress] 19.51219512195122% - Gradient(ss=2): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 19.51219512195122, 'timestamp': 1757718700.8467033}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 21.951219512195124% - Gradient(ss=1.82): probing…
+[FA Progress] 21.951219512195124% - Gradient(ss=1.82): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.82): probing…', 'progress_percent': 21.951219512195124, 'timestamp': 1757718701.5940335}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 24.390243902439025% - Gradient(ss=1.82): probing…
+[FA Progress] 24.390243902439025% - Gradient(ss=1.82): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.82): probing…', 'progress_percent': 24.390243902439025, 'timestamp': 1757718702.4650426}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 26.829268292682926% - Gradient(ss=1.82): probing…
+[FA Progress] 26.829268292682926% - Gradient(ss=1.82): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.82): probing…', 'progress_percent': 26.829268292682926, 'timestamp': 1757718703.0929234}
+[Debug] Progress file written successfully
 ### Waiting ###
+[FineAlign] Reporting progress: 29.26829268292683% - Gradient(ss=1.82): probing…
+[FA Progress] 29.26829268292683% - Gradient(ss=1.82): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.82): probing…', 'progress_percent': 29.26829268292683, 'timestamp': 1757718704.0893621}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 31.70731707317073% - Gradient(ss=1.64): probing…
+[FA Progress] 31.70731707317073% - Gradient(ss=1.64): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.64): probing…', 'progress_percent': 31.70731707317073, 'timestamp': 1757718704.8341174}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 34.146341463414636% - Gradient(ss=1.64): probing…
+[FA Progress] 34.146341463414636% - Gradient(ss=1.64): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.64): probing…', 'progress_percent': 34.146341463414636, 'timestamp': 1757718705.4621682}
+[Debug] Progress file written successfully
 ### Waiting ###
-### Waiting ###
-### Waiting ###
-2025-09-12 12:00:07,637 - INFO - Gradient search stop requested or timeout
-FineAlign        INFO     Gradient search stop requested or timeout
-2025-09-12 12:00:07,637 - INFO - Gradient descent converged
-FineAlign        INFO     Gradient descent converged
+[FineAlign] Reporting progress: 36.58536585365854% - Gradient(ss=1.64): probing…
+[FA Progress] 36.58536585365854% - Gradient(ss=1.64): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.64): probing…', 'progress_percent': 36.58536585365854, 'timestamp': 1757718706.2108188}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 39.02439024390244% - Gradient(ss=1.64): probing…
+[FA Progress] 39.02439024390244% - Gradient(ss=1.64): probing…
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.64): probing…', 'progress_percent': 39.02439024390244, 'timestamp': 1757718707.2080314}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 39.02439024390244% - Gradient: canceled/timeout
+[FA Progress] 39.02439024390244% - Gradient: canceled/timeout
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient: canceled/timeout', 'progress_percent': 39.02439024390244, 'timestamp': 1757718707.216841}
+[Debug] Progress file written successfully
+[FineAlign] Reporting progress: 100.0% - Gradient: failed
+[FA Progress] 100.0% - Gradient: failed
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient: failed', 'progress_percent': 100.0, 'timestamp': 1757718707.220346}
+[Debug] Progress file written successfully
+2025-09-12 16:11:47,222 - ERROR - Gradient search failed; skipping spiral.
+FineAlign        ERROR    Gradient search failed; skipping spiral.
+[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+[Debug] Progress data: {'current_device': 0, 'activity': 'Fine alignment: completed', 'progress_percent': 100.0, 'timestamp': 1757718707.2233465}
+[Debug] Progress file written successfully
 Fine Align Finished
