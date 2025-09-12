@@ -56,7 +56,7 @@
   "AutoSweep": 0,
   "Configuration": {
     "stage": "stage_control",
-    "sensor": "",
+    "sensor": "stage_control",
     "tec": ""
   },
   "Configuration_check": {

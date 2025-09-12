@@ -257,14 +257,14 @@ class NIRManager:
 
             reading = self.controller.read_power()
             if reading[0] > 0.0:
-                reading = (-200.0, reading[1])
+                reading = (-80.0, reading[1])
             if reading[1] > 0.0:
-                reading = (reading[0], -200.0)
+                reading = (reading[0], -80.0)
             return (reading[0], reading[1])
 
         except Exception as e:
             self._log(f"Read power error: {e}", "error")
-            return (-100.0, -100.0)
+            return (-80.0, -80.0)
 
     def set_detector_units(self, units: int = 0) -> bool:
         """Set Detector units"""

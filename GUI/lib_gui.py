@@ -21,6 +21,9 @@ import matplotlib, logging
 matplotlib.use("QtAgg")
 web_w = -6
 web_h = -17
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent
+PROGRESS_PATH = BASE_DIR / "database" / "progress.json"
 
 _ORIG_WSGI_LOG = None
 _ORIG_HTTP_LOG = None
@@ -757,20 +760,24 @@ def run_busy_dialog(done_val: Value, cancel_evt: Event, progress_config: dict = 
             # Poll for updates and completion
             self._poll = QTimer(self)
             self._poll.timeout.connect(self._update_progress)
-            self._poll.start(500)  # Update every 500ms
+            self._poll.start(200)  # Update every 500ms
 
             self.canceled.connect(self._on_cancel)
 
         def _update_progress(self):
             """Update progress display by reading progress file"""
             if done_val.value == 1:
+                # show a finished state briefly instead of closing instantly
+                self.setValue(100)
+                self.activity_label.setText("All measurements completed.")
+                self.setLabelText("All measurements completed.")
                 self._poll.stop()
-                self.close()
+                QTimer.singleShot(800, self.close)  # close after a short delay
                 return
                 
             # Try to read progress from file
             try:
-                progress_file = Path("./database/progress.json")
+                progress_file = PROGRESS_PATH
                 if progress_file.exists():
                     with open(progress_file, 'r') as f:
                         progress_data = json.load(f)

@@ -1,91 +1,139 @@
-AreaSweep        INFO     Area sweep stop requested
-Clicked at (x=5, y=9), Value = -53.993 dBm
-Move to: 13310.9, 4122.3
-✅ Saved heatmap figure: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_14-20-59.png
-✅ Saved heatmap data: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_14-20-59.csv
-Done Scan
-Done Scan
-Confirm Area Scan Setting: {'x_size': 10.0, 'x_step': 1.0, 'y_size': 10.0, 'y_step': 1.0, 'plot': 'New'}
-Start Scan
-2025-09-09 14:23:03,920 - INFO - AreaSweep initialized
-2025-09-09 14:23:03,920 - INFO - AreaSweep initialized
-2025-09-09 14:23:03,920 - INFO - AreaSweep initialized
-AreaSweep        INFO     AreaSweep initialized
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager INFO     All axes initialized successfully
+Stage Connection Successful
+2025-09-09 19:05:30,131 - INFO - Initializing NIR device...
+NIRManager       INFO     Initializing NIR device...
+2025-09-09 19:05:30,284 - INFO - Connected to NIR device
+NIRManager       INFO     Connected to NIR device
+2025-09-09 19:05:30,303 - INFO - Device configured with current settings
+NIRManager       INFO     Device configured with current settings
+2025-09-09 19:05:30,303 - INFO - NIR initialized successfully
+NIRManager       INFO     NIR initialized successfully
+2025-09-09 19:05:30,316 - INFO - Wavelength set to 1550.0nm
+NIRManager       INFO     Wavelength set to 1550.0nm
+Sensor Connection Successful
+2025-09-09 19:05:30,431 - INFO - Power set to 1.0dBm
+NIRManager       INFO     Power set to 1.0dBm
+Start Fine Align
+2025-09-09 19:05:31,836 - INFO - FineAlign initialized with detector: ch1
+FineAlign        INFO     FineAlign initialized with detector: ch1
+2025-09-09 19:05:31,842 - INFO - Wavelength set to 1550.0nm
+NIRManager       INFO     Wavelength set to 1550.0nm
+### Waiting ###
+2025-09-09 19:05:33,506 - INFO - Starting spiral at (-17.660, -11.630)
+FineAlign        INFO     Starting spiral at (-17.660, -11.630)
 ### Waiting ###
 ### Waiting ###
 ### Waiting ###
 ### Waiting ###
 ### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-2025-09-09 14:23:46,628 - INFO - Spiral grid completed (10x10) at step 1
-2025-09-09 14:23:46,628 - INFO - Spiral grid completed (10x10) at step 1
-2025-09-09 14:23:46,628 - INFO - Spiral grid completed (10x10) at step 1
-AreaSweep        INFO     Spiral grid completed (10x10) at step 1
-2025-09-09 14:23:46,705 - INFO - Area sweep stop requested
-2025-09-09 14:23:46,705 - INFO - Area sweep stop requested
-2025-09-09 14:23:46,705 - INFO - Area sweep stop requested
-AreaSweep        INFO     Area sweep stop requested
-✅ Saved heatmap figure: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_14-23-46.png
-✅ Saved heatmap data: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_14-23-46.csv
-Done Scan
-Done Scan
-2025-09-09 14:25:39,056 - INFO - Disconnected from NIR device
+2025-09-09 19:05:42,620 - INFO - Disconnected from NIR device
 NIRManager       INFO     Disconnected from NIR device
 Sensor Disconnected
-C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py:273: RuntimeWarning: coroutine 'StageManager.shutdown' was never awaited
+2025-09-09 19:05:42,632 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-09 19:05:42,727 - INFO - Initializing NIR device...
+2025-09-09 19:05:42,727 - INFO - Initializing NIR device...
+NIRManager       INFO     Initializing NIR device...
+2025-09-09 19:05:42,765 - INFO - Connected to NIR device
+2025-09-09 19:05:42,765 - INFO - Connected to NIR device
+NIRManager       INFO     Connected to NIR device
+2025-09-09 19:05:42,783 - INFO - Device configured with current settings
+2025-09-09 19:05:42,783 - INFO - Device configured with current settings
+NIRManager       INFO     Device configured with current settings
+2025-09-09 19:05:42,783 - INFO - NIR initialized successfully
+2025-09-09 19:05:42,783 - INFO - NIR initialized successfully
+NIRManager       INFO     NIR initialized successfully
+Sensor Connection Successful
+2025-09-09 19:05:43,068 - ERROR - Controller not connected
+2025-09-09 19:05:43,068 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py:278: RuntimeWarning: coroutine 'StageManager.shutdown' was never awaited
   self.stage_manager.shutdown()
 RuntimeWarning: Enable tracemalloc to get the object allocation traceback
 Stage Disconnected
-2025-09-09 14:25:39,891 - ERROR - Controller not connected
+2025-09-09 19:05:43,503 - ERROR - Controller not connected
+2025-09-09 19:05:43,503 - ERROR - Controller not connected
 NIRManager       ERROR    Controller not connected
-2025-09-09 14:25:41,905 - ERROR - Controller not connected
+motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
+motors.stage_manager INFO     Stage manager started
+2025-09-09 19:05:44,000 - ERROR - Controller not connected
+2025-09-09 19:05:44,000 - ERROR - Controller not connected
 NIRManager       ERROR    Controller not connected
-2025-09-09 14:25:43,918 - ERROR - Controller not connected
+motors.stage_manager INFO     Axis X initialized successfully
+### Waiting ###
+2025-09-09 19:05:44,439 - ERROR - Controller not connected
+2025-09-09 19:05:44,439 - ERROR - Controller not connected
 NIRManager       ERROR    Controller not connected
-2025-09-09 14:25:45,930 - ERROR - Controller not connected
+motors.stage_manager INFO     Axis Y initialized successfully
+2025-09-09 19:05:44,873 - ERROR - Controller not connected
+2025-09-09 19:05:44,873 - ERROR - Controller not connected
 NIRManager       ERROR    Controller not connected
-2025-09-09 14:25:47,945 - ERROR - Controller not connected
+motors.stage_manager INFO     Axis Z initialized successfully
+2025-09-09 19:05:45,436 - ERROR - Controller not connected
+2025-09-09 19:05:45,436 - ERROR - Controller not connected
 NIRManager       ERROR    Controller not connected
-2025-09-09 14:25:49,959 - ERROR - Controller not connected
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+2025-09-09 19:05:45,999 - ERROR - Controller not connected
+2025-09-09 19:05:45,999 - ERROR - Controller not connected
 NIRManager       ERROR    Controller not connected
-▶ camera_gui.py started (pid=23824)
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager INFO     All axes initialized successfully
+Stage Connection Successful
+2025-09-09 19:05:46,370 - ERROR - Controller not connected
+2025-09-09 19:05:46,370 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+### Waiting ###
+2025-09-09 19:05:46,679 - ERROR - Controller not connected
+2025-09-09 19:05:46,679 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-09 19:05:47,115 - ERROR - Controller not connected
+2025-09-09 19:05:47,115 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-09 19:05:47,428 - ERROR - Controller not connected
+2025-09-09 19:05:47,428 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+Stage Disconnected
+2025-09-09 19:05:47,862 - ERROR - Controller not connected
+2025-09-09 19:05:47,862 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-09 19:05:48,174 - ERROR - Controller not connected
+2025-09-09 19:05:48,174 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+### Waiting ###
+2025-09-09 19:05:48,610 - ERROR - Controller not connected
+2025-09-09 19:05:48,610 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-09 19:05:49,046 - ERROR - Controller not connected
+2025-09-09 19:05:49,046 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-09 19:05:49,481 - ERROR - Controller not connected
+2025-09-09 19:05:49,481 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+▶ camera_gui.py started (pid=16792)
 ⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=21232)
-▶ lib_gui.py started (pid=22568)
-▶ main_devices_gui.py started (pid=20828)
-▶ main_instruments_gui.py started (pid=15884)
-▶ main_registration_gui.py started (pid=23072)
+▶ init_gui.py started (pid=18152)
+▶ lib_gui.py started (pid=13624)
+▶ main_devices_gui.py started (pid=24808)
+▶ main_instruments_gui.py started (pid=16960)
+▶ main_registration_gui.py started (pid=18144)
 ⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=22616)
+▶ main_start_gui.py started (pid=11580)
 ⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=21408)
-▶ mainframe_command_gui.py started (pid=15804)
-▶ mainframe_configuration_gui.py started (pid=12896)
-▶ mainframe_sensor_control_gui.py started (pid=13096)
-▶ mainframe_stage_control_gui.py started (pid=19148)
-▶ mainframe_tec_control_gui.py started (pid=13812)
-▶ sub_add_btn_gui.py started (pid=26376)
-▶ sub_area_scan_setting_gui.py started (pid=20544)
-▶ sub_connect_config_gui.py started (pid=24960)
-▶ sub_fine_align_setting_gui.py started (pid=17700)
-▶ sub_laser_sweep_setting_gui.py started (pid=5544)
-▶ sub_limit_setting_gui.py started (pid=23080)
+▶ main_testing_gui.py started (pid=18544)
+▶ mainframe_command_gui.py started (pid=23884)
+▶ mainframe_configuration_gui.py started (pid=15000)
+▶ mainframe_sensor_control_gui.py started (pid=16536)
+▶ mainframe_stage_control_gui.py started (pid=8272)
+▶ mainframe_tec_control_gui.py started (pid=8400)
+▶ sub_add_btn_gui.py started (pid=13300)
+▶ sub_area_scan_setting_gui.py started (pid=19776)
+▶ sub_connect_config_gui.py started (pid=17360)
+▶ sub_fine_align_setting_gui.py started (pid=13924)
+▶ sub_laser_sweep_setting_gui.py started (pid=19996)
+▶ sub_limit_setting_gui.py started (pid=1552)
 Welcome To Probe Stage
 {'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
 motors.stage_manager INFO     Shared memory initialized
@@ -99,134 +147,97 @@ motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
 motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
 motors.stage_manager INFO     All axes initialized successfully
 Stage Connection Successful
-2025-09-09 14:26:21,241 - INFO - Initializing NIR device...
+Chip Turn CW 0.1 deg
+Chip Turn CCW 0.1 deg
+2025-09-10 15:03:29,111 - INFO - Initializing NIR device...
 NIRManager       INFO     Initializing NIR device...
-2025-09-09 14:26:21,394 - INFO - Connected to NIR device
+2025-09-10 15:03:30,101 - INFO - Connected to NIR device
 NIRManager       INFO     Connected to NIR device
-2025-09-09 14:26:21,413 - INFO - Device configured with current settings
+2025-09-10 15:03:30,121 - INFO - Device configured with current settings
 NIRManager       INFO     Device configured with current settings
-2025-09-09 14:26:21,413 - INFO - NIR initialized successfully
+2025-09-10 15:03:30,121 - INFO - NIR initialized successfully
 NIRManager       INFO     NIR initialized successfully
-2025-09-09 14:26:21,424 - INFO - Wavelength set to 1550.0nm
+2025-09-10 15:03:30,136 - INFO - Wavelength set to 1550.0nm
 NIRManager       INFO     Wavelength set to 1550.0nm
 Sensor Connection Successful
-2025-09-09 14:26:21,539 - INFO - Power set to 1.0dBm
+2025-09-10 15:03:30,247 - INFO - Power set to 1.0dBm
 NIRManager       INFO     Power set to 1.0dBm
-Confirm Area Scan Setting: {'x_size': 20.0, 'x_step': 2.0, 'y_size': 20.0, 'y_step': 2.0, 'plot': 'New'}
-Start Scan
-2025-09-09 14:30:58,599 - INFO - AreaSweep initialized
-AreaSweep        INFO     AreaSweep initialized
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-2025-09-09 14:33:42,847 - INFO - Spiral grid completed (20x20) at step 2
-AreaSweep        INFO     Spiral grid completed (20x20) at step 2
-2025-09-09 14:33:43,003 - INFO - Area sweep stop requested
-AreaSweep        INFO     Area sweep stop requested
-Confirm Area Scan Setting: {'x_size': 50.0, 'x_step': 10.0, 'y_size': 50.0, 'y_step': 10.0, 'plot': 'New'}
-Confirm Area Scan Setting: {'x_size': 50.0, 'x_step': 1.0, 'y_size': 50.0, 'y_step': 1.0, 'plot': 'New'}
-Confirm Area Scan Setting: {'x_size': 50.0, 'x_step': 10.0, 'y_size': 50.0, 'y_step': 10.0, 'plot': 'New'}
-▶ camera_gui.py started (pid=25460)
+LDC.ldc_manager  INFO     LDC shared memory initialized
+2025-09-10 15:03:45,525 - INFO - Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}
+LDCManager       INFO     Event: connection_changed - {'connected': True, 'device_id': 'Stanford_Research_Systems,LDC502,s/n148226,ver2.46'}
+2025-09-10 15:03:45,525 - INFO - Connected to LDC device
+LDCManager       INFO     Connected to LDC device
+2025-09-10 15:03:45,638 - INFO - Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}
+LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_type', 'old_value': '1', 'new_value': '1'}
+2025-09-10 15:03:46,244 - INFO - Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}
+LDCManager       INFO     Event: config_changed - {'parameter': 'sensor_coeffs', 'old_value': [0.0012048, 0.0002417, 1.4827e-07], 'new_value': [0.0012048, 0.0002417, 1.4827e-07]}
+2025-09-10 15:03:46,852 - INFO - Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}
+LDCManager       INFO     Event: config_changed - {'parameter': 'pid_coeffs', 'old_value': [-1.669519, 0.231765, 1.078678], 'new_value': [-1.669519, 0.231765, 1.078678]}
+LDC.ldc_controller ERROR    [LDC] Temperature read error: could not convert string to float: ''
+2025-09-10 15:03:47,069 - INFO - Event: error - {'operation': 'get_temp', 'error': "could not convert string to float: ''"}
+LDCManager       INFO     Event: error - {'operation': 'get_temp', 'error': "could not convert string to float: ''"}
+2025-09-10 15:03:47,069 - INFO - Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}
+LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': None}
+2025-09-10 15:03:47,069 - INFO - Device configured with current settings
+LDCManager       INFO     Device configured with current settings
+2025-09-10 15:03:47,069 - INFO - LDC initialized successfully
+LDCManager       INFO     LDC initialized successfully
+Tec Connection Successful
+2025-09-10 15:03:47,364 - INFO - Event: temp_changed - {'temperature': 22.39568, 'units': 'celsius'}
+LDCManager       INFO     Event: temp_changed - {'temperature': 22.39568, 'units': 'celsius'}
+2025-09-10 15:03:47,364 - INFO - Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 22.39568}
+LDCManager       INFO     Event: temp_setpoint_changed - {'old_setpoint': 25.0, 'new_setpoint': 25.0, 'current_temp': 22.39568}
+2025-09-10 15:03:47,364 - INFO - Temperature setpoint set to 25.0°C
+LDCManager       INFO     Temperature setpoint set to 25.0°C
+On
+2025-09-10 15:03:52,030 - INFO - Laser enabled
+NIRManager       INFO     Laser enabled
+LDC.ldc_controller ERROR    [LDC] TEC on command failed
+2025-09-10 15:03:54,303 - INFO - Event: error - {'operation': 'tec_on', 'error': 'TEC failed to turn on'}
+LDCManager       INFO     Event: error - {'operation': 'tec_on', 'error': 'TEC failed to turn on'}
+2025-09-10 15:03:54,304 - ERROR - Failed to turn on TEC
+LDCManager       ERROR    Failed to turn on TEC
+TEC On
+Z Up 10.0 um
+Z Up 10.0 um
+Z Up 100.0 um
+Z Up 100.0 um
+Z Up 100.0 um
+C:\Users\347\Desktop\Porbe_Stage\347\GUI\mainframe_stage_control_gui.py:278: RuntimeWarning: coroutine 'StageManager.shutdown' was never awaited
+  self.stage_manager.shutdown()
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+Stage Disconnected
+motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
+motors.stage_manager INFO     Stage manager started
+motors.stage_manager INFO     Axis X initialized successfully
+motors.stage_manager INFO     Axis Y initialized successfully
+motors.stage_manager INFO     Axis Z initialized successfully
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager INFO     All axes initialized successfully
+Stage Connection Successful
+▶ camera_gui.py started (pid=14460)
 ⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=10372)
-▶ lib_gui.py started (pid=18588)
-▶ main_devices_gui.py started (pid=24148)
-▶ main_instruments_gui.py started (pid=21824)
-▶ main_registration_gui.py started (pid=6028)
-⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=4508)
+▶ init_gui.py started (pid=14268)
+▶ lib_gui.py started (pid=15308)
+▶ main_devices_gui.py started (pid=14912)
+▶ main_instruments_gui.py started (pid=15004)
+▶ main_registration_gui.py started (pid=14728)
+▶ main_start_gui.py started (pid=15048)
+▶ main_testing_gui.py started (pid=15212)
+▶ mainframe_command_gui.py started (pid=15340)
+▶ mainframe_configuration_gui.py started (pid=1144)
+▶ mainframe_sensor_control_gui.py started (pid=1308)
+▶ mainframe_stage_control_gui.py started (pid=15272)
+▶ mainframe_tec_control_gui.py started (pid=14952)
+▶ sub_add_btn_gui.py started (pid=15252)
+▶ sub_area_scan_setting_gui.py started (pid=4600)
+▶ sub_connect_config_gui.py started (pid=4780)
+▶ sub_fine_align_setting_gui.py started (pid=4944)
+▶ sub_laser_sweep_setting_gui.py started (pid=15400)
+▶ sub_limit_setting_gui.py started (pid=15572)
 ⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=12208)
-▶ mainframe_command_gui.py started (pid=8260)
-▶ mainframe_configuration_gui.py started (pid=4296)
-▶ mainframe_sensor_control_gui.py started (pid=15408)
-▶ mainframe_stage_control_gui.py started (pid=24096)
-▶ mainframe_tec_control_gui.py started (pid=26488)
-▶ sub_add_btn_gui.py started (pid=14208)
-▶ sub_area_scan_setting_gui.py started (pid=24828)
-▶ sub_connect_config_gui.py started (pid=7820)
-▶ sub_fine_align_setting_gui.py started (pid=15972)
-▶ sub_laser_sweep_setting_gui.py started (pid=2200)
-▶ sub_limit_setting_gui.py started (pid=24536)
+⏹ init_gui.py exited (rc=0)
 Welcome To Probe Stage
 {'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
 motors.stage_manager INFO     Shared memory initialized
@@ -235,330 +246,246 @@ motors.stage_manager INFO     Position monitor started
 motors.stage_manager INFO     Axis X initialized successfully
 motors.stage_manager INFO     Axis Y initialized successfully
 motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-2025-09-09 14:43:32,995 - INFO - Initializing NIR device...
-NIRManager       INFO     Initializing NIR device...
-2025-09-09 14:43:33,147 - INFO - Connected to NIR device
-NIRManager       INFO     Connected to NIR device
-2025-09-09 14:43:33,165 - INFO - Device configured with current settings
-NIRManager       INFO     Device configured with current settings
 
-2025-09-09 14:43:33,165 - INFO - NIR initialized successfully
-NIRManager       INFO     NIR initialized successfully
-2025-09-09 14:43:33,187 - INFO - Wavelength set to 1550.0nm
-NIRManager       INFO     Wavelength set to 1550.0nm
-Sensor Connection Successful
-2025-09-09 14:43:33,293 - INFO - Power set to 1.0dBm
-NIRManager       INFO     Power set to 1.0dBm
-Confirm Area Scan Setting: {'pattern': 'spiral', 'x_size': 20.0, 'x_step': 4.0, 'y_size': 20.0, 'y_step': 4.0, 'plot': 'New'}
-Start Scan
-2025-09-09 14:43:57,509 - INFO - AreaSweep initialized
-AreaSweep        INFO     AreaSweep initialized
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-2025-09-09 14:46:43,599 - INFO - Spiral grid completed (20x20) at step 4
-AreaSweep        INFO     Spiral grid completed (20x20) at step 4
-2025-09-09 14:46:43,753 - INFO - Area sweep stop requested
-AreaSweep        INFO     Area sweep stop requested
-✅ Saved heatmap figure: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_14-46-43.png
-✅ Saved heatmap data: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_14-46-43.csv
-Done Scan
-Done Scan
-▶ camera_gui.py started (pid=11884)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=7872)
-▶ lib_gui.py started (pid=19544)
-▶ main_devices_gui.py started (pid=19872)
-▶ main_instruments_gui.py started (pid=13264)
-▶ main_registration_gui.py started (pid=23272)
-⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=17812)
-⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=7096)
-▶ mainframe_command_gui.py started (pid=24924)
-▶ mainframe_configuration_gui.py started (pid=17252)
-▶ mainframe_sensor_control_gui.py started (pid=24788)
-▶ mainframe_stage_control_gui.py started (pid=17820)
-▶ mainframe_tec_control_gui.py started (pid=23732)
-▶ sub_add_btn_gui.py started (pid=7120)
-▶ sub_area_scan_setting_gui.py started (pid=21600)
-▶ sub_connect_config_gui.py started (pid=24664)
-▶ sub_fine_align_setting_gui.py started (pid=18976)
-▶ sub_laser_sweep_setting_gui.py started (pid=17176)
-▶ sub_limit_setting_gui.py started (pid=19868)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
 motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
 motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
 motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
 motors.stage_manager INFO     All axes initialized successfully
 Stage Connection Successful
-2025-09-09 14:52:12,628 - INFO - Initializing NIR device...
-NIRManager       INFO     Initializing NIR device...
-2025-09-09 14:52:12,781 - INFO - Connected to NIR device
-NIRManager       INFO     Connected to NIR device
-2025-09-09 14:52:12,800 - INFO - Device configured with current settings
-NIRManager       INFO     Device configured with current settings
-2025-09-09 14:52:12,800 - INFO - NIR initialized successfully
-NIRManager       INFO     NIR initialized successfully
-2025-09-09 14:52:12,811 - INFO - Wavelength set to 1550.0nm
-NIRManager       INFO     Wavelength set to 1550.0nm
-Sensor Connection Successful
-2025-09-09 14:52:12,925 - INFO - Power set to 1.0dBm
-NIRManager       INFO     Power set to 1.0dBm
-Confirm Area Scan Setting: {'pattern': 'crosshair', 'x_size': 1000.0, 'x_step': 1.0, 'y_size': 1000.0, 'y_step': 1.0, 'plot': 'New'}
-Confirm Area Scan Setting: {'pattern': 'spiral', 'x_size': 1000.0, 'x_step': 200.0, 'y_size': 1000.0, 'y_step': 200.0, 'plot': 'New'}
-Start Scan
-2025-09-09 14:52:58,623 - INFO - AreaSweep initialized
-AreaSweep        INFO     AreaSweep initialized
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-2025-09-09 14:53:45,428 - INFO - Area sweep stop requested
-AreaSweep        INFO     Area sweep stop requested
-2025-09-09 14:53:45,439 - INFO - Spiral grid sweep stopped by user request
-AreaSweep        INFO     Spiral grid sweep stopped by user request
-2025-09-09 14:53:51,988 - INFO - Spiral grid completed (1000x1000) at step 200
-AreaSweep        INFO     Spiral grid completed (1000x1000) at step 200
-✅ Saved heatmap figure: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_14-53-51.png
-✅ Saved heatmap data: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_14-53-51.csv
-Done Scan
-Done Scan
-▶ camera_gui.py started (pid=13320)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=23908)
-▶ lib_gui.py started (pid=6360)
-▶ main_devices_gui.py started (pid=16852)
-▶ main_instruments_gui.py started (pid=24420)
-▶ main_registration_gui.py started (pid=4496)
-▶ main_start_gui.py started (pid=20840)
-⏹ init_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=25564)
-⏹ lib_gui.py exited (rc=0)
-▶ mainframe_command_gui.py started (pid=23132)
-▶ mainframe_configuration_gui.py started (pid=22460)
-▶ mainframe_sensor_control_gui.py started (pid=7876)
-▶ mainframe_stage_control_gui.py started (pid=17952)
-▶ mainframe_tec_control_gui.py started (pid=8696)
-▶ sub_add_btn_gui.py started (pid=25220)
-▶ sub_area_scan_setting_gui.py started (pid=20952)
-▶ sub_connect_config_gui.py started (pid=13460)
-▶ sub_fine_align_setting_gui.py started (pid=18948)
-▶ sub_laser_sweep_setting_gui.py started (pid=2128)
-▶ sub_limit_setting_gui.py started (pid=13456)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-2025-09-09 15:33:13,753 - INFO - Initializing NIR device...
-NIRManager       INFO     Initializing NIR device...
-2025-09-09 15:33:13,905 - INFO - Connected to NIR device
-NIRManager       INFO     Connected to NIR device
-2025-09-09 15:33:13,925 - INFO - Device configured with current settings
-NIRManager       INFO     Device configured with current settings
-2025-09-09 15:33:13,925 - INFO - NIR initialized successfully
-NIRManager       INFO     NIR initialized successfully
-2025-09-09 15:33:13,938 - INFO - Wavelength set to 1550.0nm
-NIRManager       INFO     Wavelength set to 1550.0nm
-Sensor Connection Successful
-2025-09-09 15:33:14,051 - INFO - Power set to 1.0dBm
-NIRManager       INFO     Power set to 1.0dBm
-Confirm Area Scan Setting: {'pattern': 'crosshair', 'x_size': 1000.0, 'x_step': 1.0, 'y_size': 1000.0, 'y_step': 1.0, 'plot': 'New'}
-Confirm Area Scan Setting: {'pattern': 'spiral', 'x_size': 1000.0, 'x_step': 100.0, 'y_size': 1000.0, 'y_step': 100.0, 'plot': 'New'}
-Start Scan
-2025-09-09 15:33:55,134 - INFO - AreaSweep initialized
-AreaSweep        INFO     AreaSweep initialized
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
+Z Down 10.0 um
+Z Down 10.0 um
+Z Down 10.0 um
+Z Down 10.0 um
+Z Down 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 1000.0 um
+Y Right 1000.0 um
+Y Right 1000.0 um
+Y Right 1000.0 um
+Y Right 1000.0 um
+Y Right 1000.0 um
+Y Right 1000.0 um
+Y Right 1000.0 um
+motors.stage_manager INFO     Axis Y zeroed successfully
+motors.stage_manager INFO     Axis Y zeroed successfully
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Y Right 100.0 um
+Start Home
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Stopping stage control
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Set velocity error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
 
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-### Waiting ###
-2025-09-09 15:34:55,518 - INFO - Centered spiral completed 11x11 at 100 µm pitch
-AreaSweep        INFO     Centered spiral completed 11x11 at 100 µm pitch
-2025-09-09 15:34:55,581 - INFO - Area sweep stop requested
-AreaSweep        INFO     Area sweep stop requested
-Clicked at (x=5, y=0), Value = -61.311 dBm
-Move to: 13810.9, 4122.3
-Clicked at (x=6, y=0), Value = -200.000 dBm
-Move to: 13910.9, 4122.3
-Clicked at (x=7, y=0), Value = -57.869 dBm
-Move to: 14010.9, 4122.3
-Clicked at (x=7, y=1), Value = -55.973 dBm
-Move to: 14010.9, 4222.3
-Clicked at (x=7, y=2), Value = -58.845 dBm
-Move to: 14010.9, 4322.3
-✅ Saved heatmap figure: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_15-34-55.png
-✅ Saved heatmap data: .\UserData\Guest\152\HeatMap\heat_map_2025-09-09_15-34-55.csv
-Done Scan
-Done Scan
-▶ camera_gui.py started (pid=5500)
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+StopEmergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+StopEmergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+
+Stop
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+Stop
+
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Emergency stop error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))Stop
+
+StopStop
+
+Stopping stage control
+Stopping stage control
+▶ camera_gui.py started (pid=25544)
 ⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=18016)
-▶ lib_gui.py started (pid=9792)
-▶ main_devices_gui.py started (pid=16280)
-▶ main_instruments_gui.py started (pid=468)
-▶ main_registration_gui.py started (pid=12808)
+▶ init_gui.py started (pid=23660)
+▶ lib_gui.py started (pid=11684)
+▶ main_devices_gui.py started (pid=15100)
+▶ main_instruments_gui.py started (pid=12844)
+▶ main_registration_gui.py started (pid=12680)
+▶ main_start_gui.py started (pid=22880)
 ⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=23932)
-▶ main_testing_gui.py started (pid=3648)
 ⏹ lib_gui.py exited (rc=0)
-▶ mainframe_command_gui.py started (pid=18376)
-▶ mainframe_configuration_gui.py started (pid=24600)
-▶ mainframe_sensor_control_gui.py started (pid=11668)
-▶ mainframe_stage_control_gui.py started (pid=15424)
-▶ mainframe_tec_control_gui.py started (pid=3220)
-▶ sub_add_btn_gui.py started (pid=26292)
-▶ sub_area_scan_setting_gui.py started (pid=9848)
-▶ sub_connect_config_gui.py started (pid=19156)
-▶ sub_fine_align_setting_gui.py started (pid=3132)
-▶ sub_laser_sweep_setting_gui.py started (pid=1960)
-▶ sub_limit_setting_gui.py started (pid=25540)
+▶ main_testing_gui.py started (pid=20596)
+▶ mainframe_command_gui.py started (pid=12856)
+▶ mainframe_configuration_gui.py started (pid=22092)
+▶ mainframe_sensor_control_gui.py started (pid=15188)
+▶ mainframe_stage_control_gui.py started (pid=776)
+▶ mainframe_tec_control_gui.py started (pid=4808)
+▶ sub_add_btn_gui.py started (pid=5896)
+▶ sub_area_scan_setting_gui.py started (pid=7148)
+▶ sub_connect_config_gui.py started (pid=10496)
+▶ sub_fine_align_setting_gui.py started (pid=8924)
+▶ sub_laser_sweep_setting_gui.py started (pid=1948)
+▶ sub_limit_setting_gui.py started (pid=21476)
 Welcome To Probe Stage
 {'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
 motors.stage_manager INFO     Shared memory initialized
@@ -570,75 +497,69 @@ motors.stage_manager INFO     Axis Z initialized successfully
 motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
 motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
 motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+
 motors.stage_manager INFO     All axes initialized successfully
 Stage Connection Successful
-▶ camera_gui.py started (pid=9512)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=15644)
-▶ lib_gui.py started (pid=10716)
-▶ main_devices_gui.py started (pid=23340)
-▶ main_instruments_gui.py started (pid=13336)
-▶ main_registration_gui.py started (pid=18632)
-⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=22956)
-⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=19728)
-▶ mainframe_command_gui.py started (pid=7708)
-▶ mainframe_configuration_gui.py started (pid=13456)
-▶ mainframe_sensor_control_gui.py started (pid=22628)
-▶ mainframe_stage_control_gui.py started (pid=16476)
-▶ mainframe_tec_control_gui.py started (pid=17300)
-▶ sub_add_btn_gui.py started (pid=26348)
-▶ sub_area_scan_setting_gui.py started (pid=25220)
-▶ sub_connect_config_gui.py started (pid=12792)
-▶ sub_fine_align_setting_gui.py started (pid=18964)
-▶ sub_laser_sweep_setting_gui.py started (pid=16944)
-▶ sub_limit_setting_gui.py started (pid=12752)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
-▶ camera_gui.py started (pid=21288)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=15664)
-▶ lib_gui.py started (pid=23840)
-▶ main_devices_gui.py started (pid=23128)
-▶ main_instruments_gui.py started (pid=20488)
-▶ main_registration_gui.py started (pid=2820)
-⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=3884)
-⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=17140)
-▶ mainframe_command_gui.py started (pid=4940)
-▶ mainframe_configuration_gui.py started (pid=19664)
-▶ mainframe_sensor_control_gui.py started (pid=23476)
-▶ mainframe_stage_control_gui.py started (pid=23108)
-▶ mainframe_tec_control_gui.py started (pid=7884)
-▶ sub_add_btn_gui.py started (pid=7516)
-▶ sub_area_scan_setting_gui.py started (pid=17704)
-▶ sub_connect_config_gui.py started (pid=12692)
-▶ sub_fine_align_setting_gui.py started (pid=10672)
-▶ sub_laser_sweep_setting_gui.py started (pid=20552)
-▶ sub_limit_setting_gui.py started (pid=18452)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-motors.stage_manager INFO     Axis Z initialized successfully
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager INFO     All axes initialized successfully
-Stage Connection Successful
+2025-09-12 11:58:22,942 - INFO - Initializing NIR device...
+NIRManager       INFO     Initializing NIR device...
+2025-09-12 11:58:25,807 - INFO - Connected to NIR device
+NIRManager       INFO     Connected to NIR device
+2025-09-12 11:58:25,827 - INFO - Device configured with current settings
+NIRManager       INFO     Device configured with current settings
+2025-09-12 11:58:25,827 - INFO - NIR initialized successfully
+NIRManager       INFO     NIR initialized successfully
+2025-09-12 11:58:25,841 - INFO - Wavelength set to 1550.0nm
+NIRManager       INFO     Wavelength set to 1550.0nm
+Sensor Connection Successful
+2025-09-12 11:58:25,953 - INFO - Power set to 1.0dBm
+NIRManager       INFO     Power set to 1.0dBm
+[Axis Lock] x -> LOCKED
+[Axis Lock] x -> UNLOCKED
+[Axis Lock] x -> LOCKED
+[Axis Lock] x -> UNLOCKED
+Start Fine Align
+2025-09-12 11:59:06,687 - INFO - FineAlign initialized with detector: ch1
+FineAlign        INFO     FineAlign initialized with detector: ch1
+2025-09-12 11:59:06,771 - INFO - Wavelength set to 1550.0nm
+NIRManager       INFO     Wavelength set to 1550.0nm
+### Waiting ###
+2025-09-12 11:59:08,628 - INFO - Starting spiral at (0.000, 0.020)
+FineAlign        INFO     Starting spiral at (0.000, 0.020)
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+2025-09-12 11:59:51,548 - INFO - Spiral completed: best -62.36 dBm (threshold -10.00 dBm not met)
+FineAlign        INFO     Spiral completed: best -62.36 dBm (threshold -10.00 dBm not met)
+2025-09-12 11:59:52,175 - INFO - Starting gradient search refinement
+FineAlign        INFO     Starting gradient search refinement
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+### Waiting ###
+2025-09-12 12:00:07,637 - INFO - Gradient search stop requested or timeout
+FineAlign        INFO     Gradient search stop requested or timeout
+2025-09-12 12:00:07,637 - INFO - Gradient descent converged
+FineAlign        INFO     Gradient descent converged
+Fine Align Finished
