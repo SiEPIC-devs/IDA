@@ -978,7 +978,6 @@ class stage_control(App):
             # Fallback to a sane default if import fails
             PROGRESS_PATH = Path(__file__).resolve().parent / "database" / "progress.json"
 
-        print(f"[Debug] Writing progress to: {PROGRESS_PATH}")  # Debug output
         PROGRESS_PATH.parent.mkdir(parents=True, exist_ok=True)
 
         progress_data = {
@@ -988,20 +987,16 @@ class stage_control(App):
             "timestamp": time.time(),
         }
 
-        print(f"[Debug] Progress data: {progress_data}")  # Debug output
-
         tmp_path = PROGRESS_PATH.with_suffix(PROGRESS_PATH.suffix + ".tmp")
         with open(tmp_path, "w", encoding="utf-8") as f:
             json.dump(progress_data, f)
             f.flush()
             os.fsync(f.fileno())  # ensure contents hit disk on some platforms
         os.replace(tmp_path, PROGRESS_PATH)  # atomic swap
-        print(f"[Debug] Progress file written successfully")  # Debug output
 
     def _fa_progress(self, percent: float, msg: str):
         """Bridge FineAlign -> progress dialog (file the dialog is polling)."""
         try:
-            print(f"[FA Progress] {percent}% - {msg}")  # Debug output
             self._write_progress_file(0, msg, float(percent))
         except Exception as e:
             print(f"[FA Progress] Error writing progress: {e}")
@@ -1015,16 +1010,17 @@ class stage_control(App):
             pass
         
     def busy_dialog(self, progress_config=None):
-        print("[Debug] Creating busy dialog...")  # Debug output
         self._scan_done = Value(c_int, 0)
         self._scan_cancel = Event()
+        
+        from lib_gui import run_busy_dialog
+        
         self._busy_proc = Process(
             target=run_busy_dialog,
             args=(self._scan_done, self._scan_cancel, progress_config),
             daemon=True
         )
         self._busy_proc.start()
-        print(f"[Debug] Busy dialog started, PID: {self._busy_proc.pid}")  # Debug output
 
     def onclick_scan(self):
         print("Start Scan")
