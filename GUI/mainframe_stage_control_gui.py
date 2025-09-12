@@ -10,6 +10,7 @@ from measure.area_sweep import AreaSweep
 from measure.fine_align import FineAlign
 from measure.config.area_sweep_config import AreaSweepConfiguration
 from measure.config.fine_align_config import FineAlignConfiguration
+import time
 
 filename = "coordinates.json"
 
@@ -853,7 +854,14 @@ class stage_control(App):
             config.gradient_iters = self.fine_a["max_iters"]
 
             # Create aligner
-            self.fine_align = FineAlign(config.to_dict(), self.stage_manager, self.nir_manager)
+            self.fine_align = FineAlign(
+                config.to_dict(),
+                self.stage_manager, 
+                self.nir_manager,
+                progress=self._fa_progress,
+                cancel_event=self._scan_cancel,
+                debug=getattr(self,"debug",False),
+                )
 
             # (Optional) tell the dialog we started
             try:
@@ -984,6 +992,13 @@ class stage_control(App):
             os.fsync(f.fileno())  # ensure contents hit disk on some platforms
         os.replace(tmp_path, PROGRESS_PATH)  # atomic swap
 
+    def _fa_progress(self, percent: float, msg: str):
+        """Bridge FineAlign -> progress dialog (file the dialog is polling)."""
+        try:
+            self._write_progress_file(0, msg, float(percent))
+        except Exception:
+            pass
+        
     def busy_dialog(self, progress_config=None):
         self._scan_done = Value(c_int, 0)
         self._scan_cancel = Event()
@@ -1008,7 +1023,10 @@ class stage_control(App):
             config.x_step = int(self.area_s["x_step"])
             config.y_size = int(self.area_s["y_size"])
             config.y_step = int(self.area_s["y_step"])
-            self.area_sweep = AreaSweep(config, self.stage_manager, self.nir_manager)
+            self.area_sweep = AreaSweep(
+                config, self.stage_manager, self.nir_manager,
+                cancel_event=self._scan_cancel
+            )
             self.data = asyncio.run(self.area_sweep.begin_sweep())
             fileTime = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             diagram = plot(filename="heat_map", fileTime=fileTime, user=self.user, project=self.project, data=self.data)
@@ -1181,6 +1199,9 @@ class stage_control(App):
             print(f"[Zero] Error handling zero for '{prefix}': {e}")
         finally:
             # Always re-enable the UI
+            with self._scan_done.get_lock():
+                self._scan_done.value = 1       # only after begin_fine_align() returns
+                self.task_start = 0
             self.lock_all(0)
     def onclick_move(self):
         selected_device = self.move_dd.get_value()
