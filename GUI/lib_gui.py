@@ -712,10 +712,20 @@ from PyQt5.QtWidgets import QApplication, QProgressDialog, QProgressBar, QLabel,
 from PyQt5.QtCore import Qt, QTimer
 import time
 import json
+import os
 from pathlib import Path
 
 def run_busy_dialog(done_val: Value, cancel_evt: Event, progress_config: dict = None):
-    app = QApplication(sys.argv)
+    print(f"[Dialog Process] Starting with PID {os.getpid()}")
+    
+    # Check if PyQt5 is available and display is working
+    try:
+        app = QApplication(sys.argv)
+        print("[Dialog Process] QApplication created successfully")
+    except Exception as e:
+        print(f"[Dialog Process] Failed to create QApplication: {e}")
+        print("[Dialog Process] Falling back to console-based progress display...")
+        return _run_console_progress(done_val, cancel_evt, progress_config)
 
     class EnhancedProgressDialog(QProgressDialog):
         def __init__(self):
@@ -886,5 +896,41 @@ def run_busy_dialog(done_val: Value, cancel_evt: Event, progress_config: dict = 
                 self.move(geo.topLeft())
 
     dlg = EnhancedProgressDialog()
+    print("[Dialog Process] Dialog created, about to show")
     dlg.show()
-    sys.exit(app.exec_())
+    print("[Dialog Process] Dialog shown, entering event loop")
+    result = app.exec_()
+    print(f"[Dialog Process] Event loop exited with code: {result}")
+    sys.exit(result)
+
+def _run_console_progress(done_val: Value, cancel_evt: Event, progress_config: dict = None):
+    """Console-based progress display when PyQt5 is not available"""
+    print("[Console Progress] Starting console progress monitor...")
+    start_time = time.time()
+    last_progress = -1
+    
+    while done_val.value != 1:
+        try:
+            # Read progress file
+            if PROGRESS_PATH.exists():
+                with open(PROGRESS_PATH, 'r') as f:
+                    progress_data = json.load(f)
+                
+                progress = progress_data.get('progress_percent', 0)
+                activity = progress_data.get('activity', 'In progress...')
+                
+                # Only print updates when progress changes significantly
+                if abs(progress - last_progress) > 5 or time.time() - start_time > 10:
+                    elapsed = time.time() - start_time
+                    print(f"[Progress] {progress:.1f}% - {activity} (elapsed: {elapsed:.1f}s)")
+                    last_progress = progress
+                    start_time = time.time()  # Reset timer after printing
+            
+            time.sleep(0.5)  # Check every 500ms
+            
+        except Exception as e:
+            print(f"[Console Progress] Error reading progress: {e}")
+            time.sleep(1.0)
+    
+    print("[Console Progress] Process completed!")
+    time.sleep(2.0)  # Keep visible for 2 seconds after completion
