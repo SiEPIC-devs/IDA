@@ -26,6 +26,7 @@ class AreaSweep:
             area_sweep_config: Dict[Any, Any],
             stage_manager: StageManager,
               nir_manager: NIRManager,
+                progress: Optional[Callable[[float, str], None]] = None,
                 cancel_event: Optional[Any] = None,
                 debug: bool = False
         ):
@@ -38,11 +39,18 @@ class AreaSweep:
         self.spiral = None
         self._stop_requested = False
         self._cancel_event = cancel_event  # external cancel (multiprocessing.Event)
+        self._progress = progress
         
         # Setup logger
         self.logger = setup_logger("AreaSweep", "SWEEP", debug_mode=debug)
 
         self._log("AreaSweep initialized")
+
+    def _report(self, percent: float, msg: str) -> None:
+        """Report progress to GUI if a callback was provided."""
+        if self._progress is not None:
+            p = 0.0 if percent < 0.0 else (100.0 if percent > 100.0 else percent)
+            self._progress(p, msg)
 
     def _log(self, message: str, level: str = "info"):
         """Log Helper function"""
@@ -65,16 +73,21 @@ class AreaSweep:
         Entry point to sweeps, given config, this will call
         the correct type of sweep.
         """
+        self._report(0.0, "Area sweep: starting...")
+        
         # Confirm managers are functional
         ok = await self.stage_status()
         if not ok:
             self._log("Stage manager not ready", "error")
+            self._report(100.0, "Area sweep: error (stage manager not ready)")
             raise Exception("Invalid stage manager status")
 
         ok = await self.nir_status()
         if not ok:
             self._log("NIR manager not ready", "error")
+            self._report(100.0, "Area sweep: error (NIR manager not ready)")
             raise Exception("Invalid NIR instrument manager status")
+            
         # Initiate config
         cfg = self.config
         pattern = getattr(cfg, "pattern", "crosshair")
@@ -106,8 +119,10 @@ class AreaSweep:
             # (e.g., 0..100 step 50 => col indices 0,1,2 => 3 cols)
             total_cols = max(1, int(x_len // x_step))
             total_rows = max(1, int(y_len // y_step))
+            total_points = total_cols * total_rows
 
             self._log(f"Crosshair sweep: cols={total_cols}, rows={total_rows}, step=({x_step},{y_step})")
+            self._report(5.0, f"Area sweep: scanning {total_points} points...")
 
             # anchor origin pose
             x_pos = (await self.stage_manager.get_position(AxisType.X)).actual
@@ -132,11 +147,13 @@ class AreaSweep:
             for i in range(total_cols):
                 if self._cancelled():
                     self._log("Area sweep canceled")
+                    self._report(100.0, "Area sweep: canceled")
                     break
 
                 # Walk across a row (in X)
                 for _ in range(total_rows):
                     if self._cancelled():
+                        self._report(100.0, "Area sweep: canceled")
                         break
 
                     step = parity(x_step, i)
@@ -151,6 +168,11 @@ class AreaSweep:
                     current_power = self._select_detector_channel(loss_master, loss_slave)
                     x_data.append(current_power)
                     x_pos += step
+                    point_count += 1
+                    
+                    # Report progress
+                    progress = min(95.0, 10.0 + (point_count / total_points) * 85.0)
+                    self._report(progress, f"Area sweep: point {point_count}/{total_points}")
 
                 # End of a row -> store and reset row accumulator
                 data.append(x_data)
@@ -169,9 +191,11 @@ class AreaSweep:
                     y_pos += y_step
 
             # Return to origin pose
+            self._report(98.0, "Area sweep: returning to start position...")
             await self.stage_manager.move_axis(AxisType.X, initial_x, relative=False, wait_for_completion=True)
             await self.stage_manager.move_axis(AxisType.Y, initial_y, relative=False, wait_for_completion=True)
 
+            self._report(100.0, "Area sweep: completed")
             self._log(f"Crosshair sweep completed. Total rows stored: {len(data)}")
             return np.array(data, dtype=float)
 
@@ -199,6 +223,8 @@ class AreaSweep:
             y_cells = samples_along(float(cfg.y_size), step)   # rows
             total_cells = x_cells * y_cells
 
+            self._report(5.0, f"Area sweep (spiral): scanning {total_cells} points...")
+
             #  buffers 
             data = np.full((y_cells, x_cells), np.nan, dtype=float)
             visited = np.zeros((y_cells, x_cells), dtype=bool)
@@ -222,6 +248,7 @@ class AreaSweep:
             visited[y_idx, x_idx] = True
             data[y_idx, x_idx] = read_value()
             covered = 1
+            self._report(10.0, f"Area sweep (spiral): point {covered}/{total_cells}")
 
             # right, up, left, down (clockwise)
             dirs = [(1, 0), (0, 1), (-1, 0), (0, -1)]
@@ -259,6 +286,10 @@ class AreaSweep:
                             visited[y_idx, x_idx] = True
                             data[y_idx, x_idx] = read_value()
                             covered += 1
+                            
+                            # Report progress
+                            progress = min(95.0, 10.0 + (covered / total_cells) * 85.0)
+                            self._report(progress, f"Area sweep (spiral): point {covered}/{total_cells}")
 
                         if covered >= total_cells or self._cancelled():
                             break
@@ -269,9 +300,11 @@ class AreaSweep:
                 leg_len += 1
 
             # return to start
+            self._report(98.0, "Area sweep (spiral): returning to start position...")
             await self.stage_manager.move_axis(AxisType.X, x0, relative=False, wait_for_completion=True)
             await self.stage_manager.move_axis(AxisType.Y, y0, relative=False, wait_for_completion=True)
 
+            self._report(100.0, "Area sweep (spiral): completed")
             self._log(f"Centered spiral completed {x_cells}x{y_cells} at {step:g} µm pitch")
             return data
 

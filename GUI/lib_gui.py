@@ -769,10 +769,10 @@ def run_busy_dialog(done_val: Value, cancel_evt: Event, progress_config: dict = 
             if done_val.value == 1:
                 # show a finished state briefly instead of closing instantly
                 self.setValue(100)
-                self.activity_label.setText("All measurements completed.")
-                self.setLabelText("All measurements completed.")
+                self.activity_label.setText("Process completed.")
+                self.setLabelText("Process completed.")
                 self._poll.stop()
-                QTimer.singleShot(800, self.close)  # close after a short delay
+                QTimer.singleShot(1500, self.close)  # close after 1.5 second delay
                 return
                 
             # Try to read progress from file

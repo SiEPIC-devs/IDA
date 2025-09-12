@@ -895,7 +895,7 @@ class stage_control(App):
         finally:
             if manual:
                 # Prevent instant flicker: ensure the dialog stayed visible a moment
-                min_visible = 0.8  # seconds
+                min_visible = 1.5  # seconds (increased from 0.8)
                 try:
                     elapsed = time.time() - t0
                 except Exception:
@@ -998,6 +998,13 @@ class stage_control(App):
             self._write_progress_file(0, msg, float(percent))
         except Exception:
             pass
+            
+    def _as_progress(self, percent: float, msg: str):
+        """Bridge AreaSweep -> progress dialog (file the dialog is polling)."""
+        try:
+            self._write_progress_file(0, msg, float(percent))
+        except Exception:
+            pass
         
     def busy_dialog(self, progress_config=None):
         self._scan_done = Value(c_int, 0)
@@ -1025,6 +1032,7 @@ class stage_control(App):
             config.y_step = int(self.area_s["y_step"])
             self.area_sweep = AreaSweep(
                 config, self.stage_manager, self.nir_manager,
+                progress=self._as_progress,
                 cancel_event=self._scan_cancel
             )
             self.data = asyncio.run(self.area_sweep.begin_sweep())
