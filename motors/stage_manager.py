@@ -15,29 +15,13 @@ from motors.config.stage_config import StageConfiguration
 from motors.utils.shared_memory import *
 
 """
-Simplified Stage Manager - Fixed Implementation
 Cameron Basara, 2025
-
-Key simplifications:
-- Removed complex decorators and mixed responsibilities  
-- Clear separation of concerns
-- Simple event handling
-- Reliable shared memory management
-- Easy to understand control flow
 """
 
 logger = logging.getLogger(__name__)
 
 class StageManager:
-    """
-    Simplified stage manager with clear responsibilities:
-    1. Motor lifecycle management (connect/disconnect)
-    2. High-level movement coordination  
-    3. Position monitoring and shared memory updates
-    4. Event handling and forwarding
-    """
-    
-    def __init__(self, config: StageConfiguration, create_shm: bool = True, port: int = 8):
+    def __init__(self, config: StageConfiguration, create_shm: bool = True, port: int = 4):
         # Core components
         self.config = config
         motors.modern_stage._GLOBAL_COM_PORT = f"COM{port}"

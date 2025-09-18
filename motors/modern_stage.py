@@ -17,7 +17,7 @@ Prototype implementation of Stage control at 347 using more modern Python featur
 """
 
 # CONSTANTS
-_GLOBAL_COM_PORT = "COM8"
+_GLOBAL_COM_PORT = "COM4"
 _GLOBAL_BAUDRATE = 38400
 _GLOBAL_TIMEOUT = 0.3  # seconds
 

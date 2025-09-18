@@ -1,8 +1,8 @@
 import asyncio
 import time
 
-from motor_stage_manager_w_debug import StageManager, StageConfiguration
-from motors_hal import AxisType, MotorEvent, MotorEventType
+from motors.stage_manager import StageManager, StageConfiguration
+from motors.hal.motors_hal import AxisType, MotorEvent, MotorEventType
 
 # Define a simple event callback that just prints everything it sees
 def print_event(event: MotorEvent):
@@ -17,12 +17,7 @@ def print_event(event: MotorEvent):
 
 async def stop():
     # 2) Build a config & the manager
-    cfg = StageConfiguration(
-        com_port="/dev/ttyUSB0",       
-        baudrate=38400,
-        timeout=0.3,
-        # (all other fields use their defaults)
-    )
+    cfg = StageConfiguration()
     mgr = StageManager(cfg)
 
     # Initialize just the X axis
@@ -34,7 +29,7 @@ async def stop():
     all = [x,y,z,fr,cp]
 
     print(">>> Initializing X …")
-    ok = await mgr.initialize(axes=all)
+    ok = await mgr.initialize_all()
     if not ok:
         print(f"init failed")
         await mgr.disconnect_all()

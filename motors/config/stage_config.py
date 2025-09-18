@@ -23,11 +23,11 @@ class StageConfiguration:
 
     # factory config 
     driver_types: Dict[AxisType, str] = field(default_factory=lambda: {
-        AxisType.X: "347_stage_control", 
-        AxisType.Y: "347_stage_control",
-        AxisType.Z: "347_stage_control",
-        AxisType.ROTATION_FIBER: "347_stage_control",
-        AxisType.ROTATION_CHIP: "347_stage_control"
+        AxisType.X: "stage_control",
+        AxisType.Y: "stage_control",
+        AxisType.Z: "stage_control",
+        AxisType.ROTATION_FIBER: "stage_control",
+        AxisType.ROTATION_CHIP: "stage_control"
     })
 
     def to_dict(self) -> Dict[str, Any]:

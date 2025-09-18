@@ -1,545 +1,666 @@
-[FineAlign] Reporting progress: 27.272727272727273% - Spiral: step 30/110
-[FA Progress] 27.272727272727273% - Spiral: step 30/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 30/110', 'progress_percent': 27.272727272727273, 'timestamp': 1757718660.0107381}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 28.181818181818183% - Spiral: step 31/110
-[FA Progress] 28.181818181818183% - Spiral: step 31/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 31/110', 'progress_percent': 28.181818181818183, 'timestamp': 1757718660.3209722}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 29.09090909090909% - Spiral: step 32/110
-[FA Progress] 29.09090909090909% - Spiral: step 32/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 32/110', 'progress_percent': 29.09090909090909, 'timestamp': 1757718660.7521026}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 30.0% - Spiral: step 33/110
-[FA Progress] 30.0% - Spiral: step 33/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 33/110', 'progress_percent': 30.0, 'timestamp': 1757718661.0653725}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 30.90909090909091% - Spiral: step 34/110
-[FA Progress] 30.90909090909091% - Spiral: step 34/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 34/110', 'progress_percent': 30.90909090909091, 'timestamp': 1757718661.43119}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 31.818181818181817% - Spiral: step 35/110
-[FA Progress] 31.818181818181817% - Spiral: step 35/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 35/110', 'progress_percent': 31.818181818181817, 'timestamp': 1757718661.9563115}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 32.72727272727273% - Spiral: step 36/110
-[FA Progress] 32.72727272727273% - Spiral: step 36/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 36/110', 'progress_percent': 32.72727272727273, 'timestamp': 1757718662.3998182}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 33.63636363636363% - Spiral: step 37/110
-[FA Progress] 33.63636363636363% - Spiral: step 37/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 37/110', 'progress_percent': 33.63636363636363, 'timestamp': 1757718662.7108533}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 34.54545454545455% - Spiral: step 38/110
-[FA Progress] 34.54545454545455% - Spiral: step 38/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 38/110', 'progress_percent': 34.54545454545455, 'timestamp': 1757718663.0322192}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 35.45454545454545% - Spiral: step 39/110
-[FA Progress] 35.45454545454545% - Spiral: step 39/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 39/110', 'progress_percent': 35.45454545454545, 'timestamp': 1757718663.4612336}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 36.36363636363637% - Spiral: step 40/110
-[FA Progress] 36.36363636363637% - Spiral: step 40/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 40/110', 'progress_percent': 36.36363636363637, 'timestamp': 1757718663.895027}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 37.27272727272727% - Spiral: step 41/110
-[FA Progress] 37.27272727272727% - Spiral: step 41/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 41/110', 'progress_percent': 37.27272727272727, 'timestamp': 1757718664.4354036}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 38.18181818181818% - Spiral: step 42/110
-[FA Progress] 38.18181818181818% - Spiral: step 42/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 42/110', 'progress_percent': 38.18181818181818, 'timestamp': 1757718664.7555566}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 39.09090909090909% - Spiral: step 43/110
-[FA Progress] 39.09090909090909% - Spiral: step 43/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 43/110', 'progress_percent': 39.09090909090909, 'timestamp': 1757718665.1867907}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 40.0% - Spiral: step 44/110
-[FA Progress] 40.0% - Spiral: step 44/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 44/110', 'progress_percent': 40.0, 'timestamp': 1757718665.5004883}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 40.90909090909091% - Spiral: step 45/110
-[FA Progress] 40.90909090909091% - Spiral: step 45/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 45/110', 'progress_percent': 40.90909090909091, 'timestamp': 1757718665.940404}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 41.81818181818182% - Spiral: step 46/110
-[FA Progress] 41.81818181818182% - Spiral: step 46/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 46/110', 'progress_percent': 41.81818181818182, 'timestamp': 1757718666.2506998}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 42.72727272727273% - Spiral: step 47/110
-[FA Progress] 42.72727272727273% - Spiral: step 47/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 47/110', 'progress_percent': 42.72727272727273, 'timestamp': 1757718666.684432}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 43.63636363636363% - Spiral: step 48/110
-[FA Progress] 43.63636363636363% - Spiral: step 48/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 48/110', 'progress_percent': 43.63636363636363, 'timestamp': 1757718667.1254056}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 44.54545454545455% - Spiral: step 49/110
-[FA Progress] 44.54545454545455% - Spiral: step 49/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 49/110', 'progress_percent': 44.54545454545455, 'timestamp': 1757718667.555345}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 45.45454545454545% - Spiral: step 50/110
-[FA Progress] 45.45454545454545% - Spiral: step 50/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 50/110', 'progress_percent': 45.45454545454545, 'timestamp': 1757718667.8665576}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 46.36363636363637% - Spiral: step 51/110
-[FA Progress] 46.36363636363637% - Spiral: step 51/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 51/110', 'progress_percent': 46.36363636363637, 'timestamp': 1757718668.4105062}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 47.27272727272727% - Spiral: step 52/110
-[FA Progress] 47.27272727272727% - Spiral: step 52/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 52/110', 'progress_percent': 47.27272727272727, 'timestamp': 1757718668.7201076}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 48.18181818181818% - Spiral: step 53/110
-[FA Progress] 48.18181818181818% - Spiral: step 53/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 53/110', 'progress_percent': 48.18181818181818, 'timestamp': 1757718669.1607854}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 49.09090909090909% - Spiral: step 54/110
-[FA Progress] 49.09090909090909% - Spiral: step 54/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 54/110', 'progress_percent': 49.09090909090909, 'timestamp': 1757718669.484086}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 50.0% - Spiral: step 55/110
-[FA Progress] 50.0% - Spiral: step 55/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 55/110', 'progress_percent': 50.0, 'timestamp': 1757718670.0249672}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 50.90909090909091% - Spiral: step 56/110
-[FA Progress] 50.90909090909091% - Spiral: step 56/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 56/110', 'progress_percent': 50.90909090909091, 'timestamp': 1757718670.4651525}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 51.81818181818182% - Spiral: step 57/110
-[FA Progress] 51.81818181818182% - Spiral: step 57/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 57/110', 'progress_percent': 51.81818181818182, 'timestamp': 1757718670.899082}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 52.72727272727273% - Spiral: step 58/110
-[FA Progress] 52.72727272727273% - Spiral: step 58/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 58/110', 'progress_percent': 52.72727272727273, 'timestamp': 1757718671.2101965}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 53.63636363636363% - Spiral: step 59/110
-[FA Progress] 53.63636363636363% - Spiral: step 59/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 59/110', 'progress_percent': 53.63636363636363, 'timestamp': 1757718671.6501896}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 54.54545454545455% - Spiral: step 60/110
-[FA Progress] 54.54545454545455% - Spiral: step 60/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 60/110', 'progress_percent': 54.54545454545455, 'timestamp': 1757718672.0807168}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 55.45454545454545% - Spiral: step 61/110
-[FA Progress] 55.45454545454545% - Spiral: step 61/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 61/110', 'progress_percent': 55.45454545454545, 'timestamp': 1757718672.5243447}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 56.36363636363637% - Spiral: step 62/110
-[FA Progress] 56.36363636363637% - Spiral: step 62/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 62/110', 'progress_percent': 56.36363636363637, 'timestamp': 1757718672.964742}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 57.27272727272727% - Spiral: step 63/110
-[FA Progress] 57.27272727272727% - Spiral: step 63/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 63/110', 'progress_percent': 57.27272727272727, 'timestamp': 1757718673.2749753}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 58.18181818181818% - Spiral: step 64/110
-[FA Progress] 58.18181818181818% - Spiral: step 64/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 64/110', 'progress_percent': 58.18181818181818, 'timestamp': 1757718673.7059329}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 59.09090909090909% - Spiral: step 65/110
-[FA Progress] 59.09090909090909% - Spiral: step 65/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 65/110', 'progress_percent': 59.09090909090909, 'timestamp': 1757718674.1500287}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 60.0% - Spiral: step 66/110
-[FA Progress] 60.0% - Spiral: step 66/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 66/110', 'progress_percent': 60.0, 'timestamp': 1757718674.4600716}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 60.90909090909091% - Spiral: step 67/110
-[FA Progress] 60.90909090909091% - Spiral: step 67/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 67/110', 'progress_percent': 60.90909090909091, 'timestamp': 1757718674.7699115}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 61.81818181818182% - Spiral: step 68/110
-[FA Progress] 61.81818181818182% - Spiral: step 68/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 68/110', 'progress_percent': 61.81818181818182, 'timestamp': 1757718675.204508}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 62.72727272727273% - Spiral: step 69/110
-[FA Progress] 62.72727272727273% - Spiral: step 69/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 69/110', 'progress_percent': 62.72727272727273, 'timestamp': 1757718675.6445503}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 63.63636363636363% - Spiral: step 70/110
-[FA Progress] 63.63636363636363% - Spiral: step 70/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 70/110', 'progress_percent': 63.63636363636363, 'timestamp': 1757718675.9548166}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 64.54545454545455% - Spiral: step 71/110
-[FA Progress] 64.54545454545455% - Spiral: step 71/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 71/110', 'progress_percent': 64.54545454545455, 'timestamp': 1757718676.720192}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 65.45454545454545% - Spiral: step 72/110
-[FA Progress] 65.45454545454545% - Spiral: step 72/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 72/110', 'progress_percent': 65.45454545454545, 'timestamp': 1757718677.0892959}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 66.36363636363636% - Spiral: step 73/110
-[FA Progress] 66.36363636363636% - Spiral: step 73/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 73/110', 'progress_percent': 66.36363636363636, 'timestamp': 1757718677.4094055}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 67.27272727272727% - Spiral: step 74/110
-[FA Progress] 67.27272727272727% - Spiral: step 74/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 74/110', 'progress_percent': 67.27272727272727, 'timestamp': 1757718678.0936697}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 68.18181818181819% - Spiral: step 75/110
-[FA Progress] 68.18181818181819% - Spiral: step 75/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 75/110', 'progress_percent': 68.18181818181819, 'timestamp': 1757718678.5244482}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 69.0909090909091% - Spiral: step 76/110
-[FA Progress] 69.0909090909091% - Spiral: step 76/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 76/110', 'progress_percent': 69.0909090909091, 'timestamp': 1757718678.9645424}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 70.0% - Spiral: step 77/110
-[FA Progress] 70.0% - Spiral: step 77/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 77/110', 'progress_percent': 70.0, 'timestamp': 1757718679.2754824}
+motors.stage_manager INFO     Axis Y initialized successfully
+Position read error: 'ascii' codec can't decode byte 0xd3 in position 0: ordinal not in range(128)
+motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
+motors.stage_manager INFO     Axis Z initialized successfully
+Connection unsuccessful 'ascii' codec can't decode byte 0x80 in position 12: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis ROTATION_CHIP
+Position read error: No data received
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager WARNING  Some axes failed to initialize
+Fail To Connect Stage
+Position read error: No data received
+motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x80 in position 7: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x88 in position 6: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x81 in position 21: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: could not convert string to float: '0"      \x10 \x14      \x10\x121050'
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Stage COM: 3
+Sensor COM: 20
+TEC COM: 4
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Stage COM: 3
+Sensor COM: 20
+TEC COM: 4
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc2 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Stage COM: 3
+Sensor COM: 20
+TEC COM: 4
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
+motors.stage_manager INFO     Stage manager started
+Position read error: No data received
+Connection unsuccessful 'ascii' codec can't decode byte 0xa6 in position 0: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis X
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Connection unsuccessful 'ascii' codec can't decode byte 0xc0 in position 18: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis Y
+Position read error: No data received
+motors.stage_manager INFO     Axis Z initialized successfully
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager WARNING  Some axes failed to initialize
+Fail To Connect Stage
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x9b in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x82 in position 8: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xd3 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0xfc in position 24: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Stage COM: 4
+Sensor COM: 20
+TEC COM: 3
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xd3 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
+motors.stage_manager INFO     Stage manager started
+Position read error: No data received
+Connection unsuccessful 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis X
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+motors.stage_manager INFO     Axis Y initialized successfully
+Position read error: No data received
+motors.stage_manager INFO     Axis Z initialized successfully
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+Position read error: No data received
+Position read error: No data received
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager WARNING  Some axes failed to initialize
+Fail To Connect Stage
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xfc in position 24: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x80 in position 12: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x90 in position 13: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0xc0 in position 18: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x90 in position 13: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
 
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 70.9090909090909% - Spiral: step 78/110
-[FA Progress] 70.9090909090909% - Spiral: step 78/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 78/110', 'progress_percent': 70.9090909090909, 'timestamp': 1757718679.7092972}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 71.81818181818181% - Spiral: step 79/110
-[FA Progress] 71.81818181818181% - Spiral: step 79/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 79/110', 'progress_percent': 71.81818181818181, 'timestamp': 1757718680.1492014}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 72.72727272727273% - Spiral: step 80/110
-[FA Progress] 72.72727272727273% - Spiral: step 80/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 80/110', 'progress_percent': 72.72727272727273, 'timestamp': 1757718680.45921}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 73.63636363636364% - Spiral: step 81/110
-[FA Progress] 73.63636363636364% - Spiral: step 81/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 81/110', 'progress_percent': 73.63636363636364, 'timestamp': 1757718680.903318}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 74.54545454545455% - Spiral: step 82/110
-[FA Progress] 74.54545454545455% - Spiral: step 82/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 82/110', 'progress_percent': 74.54545454545455, 'timestamp': 1757718681.334283}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 75.45454545454545% - Spiral: step 83/110
-[FA Progress] 75.45454545454545% - Spiral: step 83/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 83/110', 'progress_percent': 75.45454545454545, 'timestamp': 1757718681.6441941}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 76.36363636363636% - Spiral: step 84/110
-[FA Progress] 76.36363636363636% - Spiral: step 84/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 84/110', 'progress_percent': 76.36363636363636, 'timestamp': 1757718681.9647324}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 77.27272727272727% - Spiral: step 85/110
-[FA Progress] 77.27272727272727% - Spiral: step 85/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 85/110', 'progress_percent': 77.27272727272727, 'timestamp': 1757718682.2763252}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 78.18181818181819% - Spiral: step 86/110
-[FA Progress] 78.18181818181819% - Spiral: step 86/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 86/110', 'progress_percent': 78.18181818181819, 'timestamp': 1757718682.588517}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 79.0909090909091% - Spiral: step 87/110
-[FA Progress] 79.0909090909091% - Spiral: step 87/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 87/110', 'progress_percent': 79.0909090909091, 'timestamp': 1757718683.0189588}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 80.0% - Spiral: step 88/110
-[FA Progress] 80.0% - Spiral: step 88/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 88/110', 'progress_percent': 80.0, 'timestamp': 1757718683.3705916}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 80.9090909090909% - Spiral: step 89/110
-[FA Progress] 80.9090909090909% - Spiral: step 89/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 89/110', 'progress_percent': 80.9090909090909, 'timestamp': 1757718683.7731524}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 81.81818181818181% - Spiral: step 90/110
-[FA Progress] 81.81818181818181% - Spiral: step 90/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 90/110', 'progress_percent': 81.81818181818181, 'timestamp': 1757718684.2143104}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 82.72727272727273% - Spiral: step 91/110
-[FA Progress] 82.72727272727273% - Spiral: step 91/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 91/110', 'progress_percent': 82.72727272727273, 'timestamp': 1757718684.6432326}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 83.63636363636364% - Spiral: step 92/110
-[FA Progress] 83.63636363636364% - Spiral: step 92/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 92/110', 'progress_percent': 83.63636363636364, 'timestamp': 1757718684.9545557}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 84.54545454545455% - Spiral: step 93/110
-[FA Progress] 84.54545454545455% - Spiral: step 93/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 93/110', 'progress_percent': 84.54545454545455, 'timestamp': 1757718685.388924}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 85.45454545454545% - Spiral: step 94/110
-[FA Progress] 85.45454545454545% - Spiral: step 94/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 94/110', 'progress_percent': 85.45454545454545, 'timestamp': 1757718685.8289595}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 86.36363636363636% - Spiral: step 95/110
-[FA Progress] 86.36363636363636% - Spiral: step 95/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 95/110', 'progress_percent': 86.36363636363636, 'timestamp': 1757718686.1389055}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 87.27272727272727% - Spiral: step 96/110
-[FA Progress] 87.27272727272727% - Spiral: step 96/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 96/110', 'progress_percent': 87.27272727272727, 'timestamp': 1757718686.4498198}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 88.18181818181819% - Spiral: step 97/110
-[FA Progress] 88.18181818181819% - Spiral: step 97/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 97/110', 'progress_percent': 88.18181818181819, 'timestamp': 1757718686.7737336}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 89.0909090909091% - Spiral: step 98/110
-[FA Progress] 89.0909090909091% - Spiral: step 98/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 98/110', 'progress_percent': 89.0909090909091, 'timestamp': 1757718687.203674}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 90.0% - Spiral: step 99/110
-[FA Progress] 90.0% - Spiral: step 99/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 99/110', 'progress_percent': 90.0, 'timestamp': 1757718687.644136}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 90.9090909090909% - Spiral: step 100/110
-[FA Progress] 90.9090909090909% - Spiral: step 100/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 100/110', 'progress_percent': 90.9090909090909, 'timestamp': 1757718687.9555652}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 91.81818181818181% - Spiral: step 101/110
-[FA Progress] 91.81818181818181% - Spiral: step 101/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 101/110', 'progress_percent': 91.81818181818181, 'timestamp': 1757718688.2674048}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 92.72727272727273% - Spiral: step 102/110
-[FA Progress] 92.72727272727273% - Spiral: step 102/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 102/110', 'progress_percent': 92.72727272727273, 'timestamp': 1757718688.6988266}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 93.63636363636364% - Spiral: step 103/110
-[FA Progress] 93.63636363636364% - Spiral: step 103/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 103/110', 'progress_percent': 93.63636363636364, 'timestamp': 1757718689.1382127}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 94.54545454545455% - Spiral: step 104/110
-[FA Progress] 94.54545454545455% - Spiral: step 104/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 104/110', 'progress_percent': 94.54545454545455, 'timestamp': 1757718689.4525137}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 95.45454545454545% - Spiral: step 105/110
-[FA Progress] 95.45454545454545% - Spiral: step 105/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 105/110', 'progress_percent': 95.45454545454545, 'timestamp': 1757718689.8834312}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 96.36363636363636% - Spiral: step 106/110
-[FA Progress] 96.36363636363636% - Spiral: step 106/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 106/110', 'progress_percent': 96.36363636363636, 'timestamp': 1757718690.5743845}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 97.27272727272727% - Spiral: step 107/110
-[FA Progress] 97.27272727272727% - Spiral: step 107/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 107/110', 'progress_percent': 97.27272727272727, 'timestamp': 1757718691.0179656}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 98.18181818181819% - Spiral: step 108/110
-[FA Progress] 98.18181818181819% - Spiral: step 108/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 108/110', 'progress_percent': 98.18181818181819, 'timestamp': 1757718691.389628}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 99.0909090909091% - Spiral: step 109/110
-[FA Progress] 99.0909090909091% - Spiral: step 109/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 109/110', 'progress_percent': 99.0909090909091, 'timestamp': 1757718691.8789659}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 100.0% - Spiral: step 110/110
-[FA Progress] 100.0% - Spiral: step 110/110
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: step 110/110', 'progress_percent': 100.0, 'timestamp': 1757718692.1897874}
-[Debug] Progress file written successfully
-2025-09-12 16:11:33,043 - INFO - Spiral completed: best -61.74 dBm (threshold -10.00 dBm not met)
-FineAlign        INFO     Spiral completed: best -61.74 dBm (threshold -10.00 dBm not met)
-[FineAlign] Reporting progress: 99.0% - Spiral: best -61.74 dBm (threshold -10.00 dBm)
-[FA Progress] 99.0% - Spiral: best -61.74 dBm (threshold -10.00 dBm)
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Spiral: best -61.74 dBm (threshold -10.00 dBm)', 'progress_percent': 99.0, 'timestamp': 1757718693.044872}
-[Debug] Progress file written successfully
-### Waiting ###
-2025-09-12 16:11:33,919 - INFO - Starting gradient search refinement
-FineAlign        INFO     Starting gradient search refinement
-[FineAlign] Reporting progress: 20.0% - Gradient: starting
-[FA Progress] 20.0% - Gradient: starting
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient: starting', 'progress_percent': 20.0, 'timestamp': 1757718693.9191153}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 2.4390243902439024% - Gradient(ss=2): probing…
-[FA Progress] 2.4390243902439024% - Gradient(ss=2): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 2.4390243902439024, 'timestamp': 1757718694.6695344}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 4.878048780487805% - Gradient(ss=2): probing…
-[FA Progress] 4.878048780487805% - Gradient(ss=2): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 4.878048780487805, 'timestamp': 1757718695.4191442}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 7.317073170731708% - Gradient(ss=2): probing…
-[FA Progress] 7.317073170731708% - Gradient(ss=2): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 7.317073170731708, 'timestamp': 1757718696.1697397}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 9.75609756097561% - Gradient(ss=2): probing…
-[FA Progress] 9.75609756097561% - Gradient(ss=2): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 9.75609756097561, 'timestamp': 1757718696.9156537}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 9.75609756097561% - Gradient: improved → -62.36 dBm
-[FA Progress] 9.75609756097561% - Gradient: improved → -62.36 dBm
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient: improved → -62.36 dBm', 'progress_percent': 9.75609756097561, 'timestamp': 1757718697.852224}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 12.195121951219512% - Gradient(ss=2): probing…
-[FA Progress] 12.195121951219512% - Gradient(ss=2): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 12.195121951219512, 'timestamp': 1757718698.5973012}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 14.634146341463415% - Gradient(ss=2): probing…
-[FA Progress] 14.634146341463415% - Gradient(ss=2): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 14.634146341463415, 'timestamp': 1757718699.470244}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 17.073170731707318% - Gradient(ss=2): probing…
-[FA Progress] 17.073170731707318% - Gradient(ss=2): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 17.073170731707318, 'timestamp': 1757718700.2193377}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 19.51219512195122% - Gradient(ss=2): probing…
-[FA Progress] 19.51219512195122% - Gradient(ss=2): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=2): probing…', 'progress_percent': 19.51219512195122, 'timestamp': 1757718700.8467033}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 21.951219512195124% - Gradient(ss=1.82): probing…
-[FA Progress] 21.951219512195124% - Gradient(ss=1.82): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.82): probing…', 'progress_percent': 21.951219512195124, 'timestamp': 1757718701.5940335}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 24.390243902439025% - Gradient(ss=1.82): probing…
-[FA Progress] 24.390243902439025% - Gradient(ss=1.82): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.82): probing…', 'progress_percent': 24.390243902439025, 'timestamp': 1757718702.4650426}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 26.829268292682926% - Gradient(ss=1.82): probing…
-[FA Progress] 26.829268292682926% - Gradient(ss=1.82): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
+Position read error: No data received
+Error scanning ports: 'list' object has no attribute 'value'
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x81 in position 6: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x93 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x81 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xa6 in position 4: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x81 in position 10: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xbf in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb5 in position 1: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Stage COM: 4
+Sensor COM: 20
+TEC COM: 3
+Position read error: No data received
+Stage COM: 4
+Sensor COM: 20
+TEC COM: 3
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
+motors.stage_manager INFO     Stage manager started
+Position read error: No data received
+Position read error: No data received
+motors.stage_manager INFO     Axis X initialized successfully
+Position read error: No data received
+Connection unsuccessful 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis Y
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Connection unsuccessful 'ascii' codec can't decode byte 0xa1 in position 23: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis Z
+Position read error: No data received
+Position read error: No data received
+Connection unsuccessful 'ascii' codec can't decode byte 0x98 in position 4: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis ROTATION_CHIP
+Position read error: No data received
+Connection unsuccessful 'ascii' codec can't decode byte 0x84 in position 5: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis ROTATION_FIBER
+motors.stage_manager WARNING  Some axes failed to initialize
+Fail To Connect Stage
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xbf in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x90 in position 13: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+▶ camera_gui.py started (pid=3956)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=18236)
+▶ lib_gui.py started (pid=2620)
+▶ main_devices_gui.py started (pid=20656)
+▶ main_instruments_gui.py started (pid=21672)
+▶ main_registration_gui.py started (pid=20444)
+▶ main_start_gui.py started (pid=8148)
+⏹ init_gui.py exited (rc=0)
+⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=17364)
+▶ mainframe_command_gui.py started (pid=10544)
+▶ mainframe_configuration_gui.py started (pid=8064)
+▶ mainframe_sensor_control_gui.py started (pid=5060)
+▶ mainframe_stage_control_gui.py started (pid=12628)
+▶ mainframe_tec_control_gui.py started (pid=22696)
+▶ sub_add_btn_gui.py started (pid=436)
+▶ sub_area_scan_setting_gui.py started (pid=8888)
+▶ sub_connect_config_gui.py started (pid=23780)
+▶ sub_fine_align_setting_gui.py started (pid=16876)
+▶ sub_laser_sweep_setting_gui.py started (pid=15540)
+▶ sub_limit_setting_gui.py started (pid=21220)
+Welcome To Probe Stage
+{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
+motors.stage_manager INFO     Shared memory initialized
+motors.stage_manager INFO     Stage manager started
+motors.stage_manager INFO     Position monitor started
+motors.stage_manager INFO     Axis X initialized successfully
+motors.stage_manager INFO     Axis Y initialized successfully
+Position read error: No data received
+motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
+motors.stage_manager INFO     Axis Z initialized successfully
+Connection unsuccessful 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis ROTATION_CHIP
+Position read error: No data received
+Position read error: No data received
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager WARNING  Some axes failed to initialize
+Fail To Connect Stage
+Position read error: No data received
+motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x9b in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x93 in position 16: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: No data received
+motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
+motors.stage_manager INFO     Stage manager started
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+motors.stage_manager INFO     Axis X initialized successfully
+Position read error: No data received
+Position read error: No data received
+Connection unsuccessful 'ascii' codec can't decode byte 0xa6 in position 0: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis Y
+Position read error: No data received
+Position read error: No data received
+motors.stage_manager INFO     Axis Z initialized successfully
+Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
+Position read error: No data received
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
 
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.82): probing…', 'progress_percent': 26.829268292682926, 'timestamp': 1757718703.0929234}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 29.26829268292683% - Gradient(ss=1.82): probing…
-[FA Progress] 29.26829268292683% - Gradient(ss=1.82): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.82): probing…', 'progress_percent': 29.26829268292683, 'timestamp': 1757718704.0893621}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 31.70731707317073% - Gradient(ss=1.64): probing…
-[FA Progress] 31.70731707317073% - Gradient(ss=1.64): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.64): probing…', 'progress_percent': 31.70731707317073, 'timestamp': 1757718704.8341174}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 34.146341463414636% - Gradient(ss=1.64): probing…
-[FA Progress] 34.146341463414636% - Gradient(ss=1.64): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.64): probing…', 'progress_percent': 34.146341463414636, 'timestamp': 1757718705.4621682}
-[Debug] Progress file written successfully
-### Waiting ###
-[FineAlign] Reporting progress: 36.58536585365854% - Gradient(ss=1.64): probing…
-[FA Progress] 36.58536585365854% - Gradient(ss=1.64): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.64): probing…', 'progress_percent': 36.58536585365854, 'timestamp': 1757718706.2108188}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 39.02439024390244% - Gradient(ss=1.64): probing…
-[FA Progress] 39.02439024390244% - Gradient(ss=1.64): probing…
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient(ss=1.64): probing…', 'progress_percent': 39.02439024390244, 'timestamp': 1757718707.2080314}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 39.02439024390244% - Gradient: canceled/timeout
-[FA Progress] 39.02439024390244% - Gradient: canceled/timeout
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient: canceled/timeout', 'progress_percent': 39.02439024390244, 'timestamp': 1757718707.216841}
-[Debug] Progress file written successfully
-[FineAlign] Reporting progress: 100.0% - Gradient: failed
-[FA Progress] 100.0% - Gradient: failed
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Gradient: failed', 'progress_percent': 100.0, 'timestamp': 1757718707.220346}
-[Debug] Progress file written successfully
-2025-09-12 16:11:47,222 - ERROR - Gradient search failed; skipping spiral.
-FineAlign        ERROR    Gradient search failed; skipping spiral.
-[Debug] Writing progress to: C:\Users\347\Desktop\Porbe_Stage\347\GUI\database\progress.json
-[Debug] Progress data: {'current_device': 0, 'activity': 'Fine alignment: completed', 'progress_percent': 100.0, 'timestamp': 1757718707.2233465}
-[Debug] Progress file written successfully
-Fine Align Finished
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager WARNING  Some axes failed to initialize
+Fail To Connect Stage
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+▶ camera_gui.py started (pid=7832)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=17568)
+▶ lib_gui.py started (pid=18708)
+▶ main_devices_gui.py started (pid=22452)
+▶ main_instruments_gui.py started (pid=7328)
+▶ main_registration_gui.py started (pid=15796)
+⏹ init_gui.py exited (rc=0)
+▶ main_start_gui.py started (pid=17528)
+⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=4196)
+▶ mainframe_command_gui.py started (pid=10112)
+▶ mainframe_configuration_gui.py started (pid=21436)
+▶ mainframe_sensor_control_gui.py started (pid=12164)
+▶ mainframe_stage_control_gui.py started (pid=3948)
+▶ mainframe_tec_control_gui.py started (pid=10272)
+▶ sub_add_btn_gui.py started (pid=1724)
+▶ sub_area_scan_setting_gui.py started (pid=1020)
+▶ sub_connect_config_gui.py started (pid=20848)
+▶ sub_fine_align_setting_gui.py started (pid=14168)
+▶ sub_laser_sweep_setting_gui.py started (pid=15728)
+▶ sub_limit_setting_gui.py started (pid=21668)
+Welcome To Probe Stage
+▶ camera_gui.py started (pid=3096)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=14544)
+▶ lib_gui.py started (pid=25460)
+▶ main_devices_gui.py started (pid=16740)
+▶ main_instruments_gui.py started (pid=26336)
+▶ main_registration_gui.py started (pid=9840)
+⏹ init_gui.py exited (rc=0)
+▶ main_start_gui.py started (pid=23436)
+⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=1368)
+▶ mainframe_command_gui.py started (pid=18224)
+▶ mainframe_configuration_gui.py started (pid=3032)
+▶ mainframe_sensor_control_gui.py started (pid=13968)
+▶ mainframe_stage_control_gui.py started (pid=17504)
+▶ mainframe_tec_control_gui.py started (pid=16760)
+▶ sub_add_btn_gui.py started (pid=1964)
+▶ sub_area_scan_setting_gui.py started (pid=12428)
+▶ sub_connect_config_gui.py started (pid=12440)
+▶ sub_fine_align_setting_gui.py started (pid=14208)
+▶ sub_laser_sweep_setting_gui.py started (pid=14756)
+▶ sub_limit_setting_gui.py started (pid=12956)
+Welcome To Probe Stage
+{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
+motors.stage_manager INFO     Shared memory initialized
+motors.stage_manager INFO     Stage manager started
+motors.stage_manager INFO     Position monitor started
+motors.stage_manager INFO     Axis X initialized successfully
+Connection unsuccessful 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis Y
+motors.stage_manager INFO     Axis Z initialized successfully
+Position read error: No data received
+motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
+Connection unsuccessful 'ascii' codec can't decode byte 0x82 in position 0: ordinal not in range(128)
+motors.stage_manager ERROR    Failed to connect axis ROTATION_CHIP
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager WARNING  Some axes failed to initialize
+Fail To Connect Stage
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x9b in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x80 in position 8: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0xb9 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+Position read error: No data received
+▶ camera_gui.py started (pid=22448)
+▶ init_gui.py started (pid=25860)
+▶ lib_gui.py started (pid=11060)
+▶ main_devices_gui.py started (pid=22940)
+▶ main_instruments_gui.py started (pid=19700)
+▶ main_registration_gui.py started (pid=14092)
+▶ main_start_gui.py started (pid=10824)
+⏹ camera_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=1848)
+▶ mainframe_command_gui.py started (pid=9748)
