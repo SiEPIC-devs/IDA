@@ -4,6 +4,8 @@
 
 The 347 Probe system implements a three-layer hardware abstraction layer designed to provide a unified interface for controlling diverse laboratory instruments found in our labs. The goal of the architecture is modularity and extensibility while providing multiprocessing communication between GUI components and hardware controllers.
 
+![Hardware Abstraction Layer diagram](./images/hal_architecture.png)
+
 ## Core Architecture Principles
 
 The HAL follows several key design principles that enable seamless integration of new hardware while maintaining clean separation of concerns:
