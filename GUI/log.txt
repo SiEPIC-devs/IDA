@@ -1,666 +1,510 @@
-motors.stage_manager INFO     Axis Y initialized successfully
-Position read error: 'ascii' codec can't decode byte 0xd3 in position 0: ordinal not in range(128)
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis Z initialized successfully
-Connection unsuccessful 'ascii' codec can't decode byte 0x80 in position 12: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis ROTATION_CHIP
-Position read error: No data received
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager WARNING  Some axes failed to initialize
-Fail To Connect Stage
-Position read error: No data received
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x80 in position 7: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x88 in position 6: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x81 in position 21: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: could not convert string to float: '0"      \x10 \x14      \x10\x121050'
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Stage COM: 3
-Sensor COM: 20
-TEC COM: 4
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Stage COM: 3
-Sensor COM: 20
-TEC COM: 4
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc2 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Stage COM: 3
-Sensor COM: 20
-TEC COM: 4
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
-motors.stage_manager INFO     Stage manager started
-Position read error: No data received
-Connection unsuccessful 'ascii' codec can't decode byte 0xa6 in position 0: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis X
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Connection unsuccessful 'ascii' codec can't decode byte 0xc0 in position 18: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis Y
-Position read error: No data received
-motors.stage_manager INFO     Axis Z initialized successfully
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager WARNING  Some axes failed to initialize
-Fail To Connect Stage
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x9b in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x82 in position 8: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xd3 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0xfc in position 24: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Stage COM: 4
-Sensor COM: 20
-TEC COM: 3
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xd3 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
-motors.stage_manager INFO     Stage manager started
-Position read error: No data received
-Connection unsuccessful 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis X
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-motors.stage_manager INFO     Axis Y initialized successfully
-Position read error: No data received
-motors.stage_manager INFO     Axis Z initialized successfully
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-Position read error: No data received
-Position read error: No data received
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager WARNING  Some axes failed to initialize
-Fail To Connect Stage
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xfc in position 24: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x80 in position 12: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x90 in position 13: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0xc0 in position 18: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x90 in position 13: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
+⏹ main_start_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_testing_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ mainframe_command_gui.py started (pid=14304)
+⏹ main_testing_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_command_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ mainframe_configuration_gui.py started (pid=2392)
+⏹ mainframe_command_gui.py exited (rc=1)
+▶ mainframe_sensor_control_gui.py started (pid=11740)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_sensor_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ mainframe_stage_control_gui.py started (pid=3984)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_configuration_gui.py", line 9, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ mainframe_sensor_control_gui.py exited (rc=1)
+⏹ mainframe_configuration_gui.py exited (rc=1)
+▶ mainframe_tec_control_gui.py started (pid=10676)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_stage_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ mainframe_stage_control_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_tec_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_add_btn_gui.py started (pid=5612)
+⏹ mainframe_tec_control_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_add_btn_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_area_scan_setting_gui.py started (pid=5468)
+⏹ sub_add_btn_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_area_scan_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_connect_config_gui.py started (pid=1856)
+⏹ sub_area_scan_setting_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_connect_config_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_fine_align_setting_gui.py started (pid=2816)
+⏹ sub_connect_config_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_fine_align_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_laser_sweep_setting_gui.py started (pid=9380)
+⏹ sub_fine_align_setting_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_laser_sweep_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_limit_setting_gui.py started (pid=13840)
+⏹ sub_laser_sweep_setting_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_limit_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ sub_limit_setting_gui.py exited (rc=1)
+▶ camera_gui.py started (pid=6340)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=13324)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\init_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ init_gui.py exited (rc=1)
+▶ lib_gui.py started (pid=5188)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ lib_gui.py exited (rc=1)
+▶ main_devices_gui.py started (pid=9004)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_devices_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ main_devices_gui.py exited (rc=1)
+▶ main_instruments_gui.py started (pid=3720)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_instruments_gui.py", line 1, in <module>
+    from remi import start, App
+ModuleNotFoundError: No module named 'remi'
+⏹ main_instruments_gui.py exited (rc=1)
+▶ main_registration_gui.py started (pid=12648)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_registration_gui.py", line 1, in <module>
+    from remi import start, App
+ModuleNotFoundError: No module named 'remi'
+⏹ main_registration_gui.py exited (rc=1)
+▶ main_start_gui.py started (pid=11080)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_start_gui.py", line 9, in <module>
+    import json, os, shutil, threading, webview
+ModuleNotFoundError: No module named 'webview'
+⏹ main_start_gui.py exited (rc=1)
+▶ main_testing_gui.py started (pid=10804)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_testing_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ main_testing_gui.py exited (rc=1)
+▶ mainframe_command_gui.py started (pid=12104)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_command_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ mainframe_command_gui.py exited (rc=1)
+▶ mainframe_configuration_gui.py started (pid=1564)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_configuration_gui.py", line 7, in <module>
+    from IPython.lib.display import IFrame
+ModuleNotFoundError: No module named 'IPython'
+⏹ mainframe_configuration_gui.py exited (rc=1)
+▶ mainframe_sensor_control_gui.py started (pid=9060)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_sensor_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ mainframe_sensor_control_gui.py exited (rc=1)
+▶ mainframe_stage_control_gui.py started (pid=9656)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_stage_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ mainframe_stage_control_gui.py exited (rc=1)
+▶ mainframe_tec_control_gui.py started (pid=14004)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_tec_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ mainframe_tec_control_gui.py exited (rc=1)
+▶ sub_add_btn_gui.py started (pid=10708)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_add_btn_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_add_btn_gui.py exited (rc=1)
+▶ sub_area_scan_setting_gui.py started (pid=12016)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_area_scan_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_area_scan_setting_gui.py exited (rc=1)
+▶ sub_connect_config_gui.py started (pid=12144)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_connect_config_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_connect_config_gui.py exited (rc=1)
+▶ sub_fine_align_setting_gui.py started (pid=776)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_fine_align_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_fine_align_setting_gui.py exited (rc=1)
+▶ sub_laser_sweep_setting_gui.py started (pid=13568)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_laser_sweep_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_laser_sweep_setting_gui.py exited (rc=1)
+▶ sub_limit_setting_gui.py started (pid=13220)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_limit_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_limit_setting_gui.py exited (rc=1)
+▶ camera_gui.py started (pid=6808)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=2904)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\init_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ init_gui.py exited (rc=1)
+▶ lib_gui.py started (pid=14192)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ lib_gui.py exited (rc=1)
+▶ main_devices_gui.py started (pid=7852)
+Traceback (most recent call last):
 
-Position read error: No data received
-Error scanning ports: 'list' object has no attribute 'value'
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x81 in position 6: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x93 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x81 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xa6 in position 4: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x81 in position 10: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xbf in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb5 in position 1: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Stage COM: 4
-Sensor COM: 20
-TEC COM: 3
-Position read error: No data received
-Stage COM: 4
-Sensor COM: 20
-TEC COM: 3
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
-motors.stage_manager INFO     Stage manager started
-Position read error: No data received
-Position read error: No data received
-motors.stage_manager INFO     Axis X initialized successfully
-Position read error: No data received
-Connection unsuccessful 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis Y
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Connection unsuccessful 'ascii' codec can't decode byte 0xa1 in position 23: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis Z
-Position read error: No data received
-Position read error: No data received
-Connection unsuccessful 'ascii' codec can't decode byte 0x98 in position 4: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis ROTATION_CHIP
-Position read error: No data received
-Connection unsuccessful 'ascii' codec can't decode byte 0x84 in position 5: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis ROTATION_FIBER
-motors.stage_manager WARNING  Some axes failed to initialize
-Fail To Connect Stage
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xbf in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x90 in position 13: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-▶ camera_gui.py started (pid=3956)
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_devices_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ main_devices_gui.py exited (rc=1)
+▶ main_instruments_gui.py started (pid=13116)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_instruments_gui.py", line 1, in <module>
+    from remi import start, App
+ModuleNotFoundError: No module named 'remi'
+⏹ main_instruments_gui.py exited (rc=1)
+▶ main_registration_gui.py started (pid=8020)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_registration_gui.py", line 1, in <module>
+    from remi import start, App
+ModuleNotFoundError: No module named 'remi'
+⏹ main_registration_gui.py exited (rc=1)
+▶ main_start_gui.py started (pid=3888)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_start_gui.py", line 9, in <module>
+    import json, os, shutil, threading, webview
+ModuleNotFoundError: No module named 'webview'
+⏹ main_start_gui.py exited (rc=1)
+▶ main_testing_gui.py started (pid=7464)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_testing_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ main_testing_gui.py exited (rc=1)
+▶ mainframe_command_gui.py started (pid=4880)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_command_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ mainframe_command_gui.py exited (rc=1)
+▶ mainframe_configuration_gui.py started (pid=12040)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_configuration_gui.py", line 7, in <module>
+    from IPython.lib.display import IFrame
+ModuleNotFoundError: No module named 'IPython'
+⏹ mainframe_configuration_gui.py exited (rc=1)
+▶ mainframe_sensor_control_gui.py started (pid=12748)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_sensor_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ mainframe_sensor_control_gui.py exited (rc=1)
+▶ mainframe_stage_control_gui.py started (pid=12724)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_stage_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ mainframe_stage_control_gui.py exited (rc=1)
+▶ mainframe_tec_control_gui.py started (pid=7660)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_tec_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ mainframe_tec_control_gui.py exited (rc=1)
+▶ sub_add_btn_gui.py started (pid=8300)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_add_btn_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_add_btn_gui.py exited (rc=1)
+▶ sub_area_scan_setting_gui.py started (pid=10400)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_area_scan_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_area_scan_setting_gui.py exited (rc=1)
+▶ sub_connect_config_gui.py started (pid=10800)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_connect_config_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_connect_config_gui.py exited (rc=1)
+▶ sub_fine_align_setting_gui.py started (pid=13396)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_fine_align_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_fine_align_setting_gui.py exited (rc=1)
+▶ sub_laser_sweep_setting_gui.py started (pid=5312)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_laser_sweep_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_laser_sweep_setting_gui.py exited (rc=1)
+▶ sub_limit_setting_gui.py started (pid=11024)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_limit_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
+    from remi.gui import *
+ModuleNotFoundError: No module named 'remi'
+⏹ sub_limit_setting_gui.py exited (rc=1)
+▶ camera_gui.py started (pid=6208)
 ⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=18236)
-▶ lib_gui.py started (pid=2620)
-▶ main_devices_gui.py started (pid=20656)
-▶ main_instruments_gui.py started (pid=21672)
-▶ main_registration_gui.py started (pid=20444)
-▶ main_start_gui.py started (pid=8148)
-⏹ init_gui.py exited (rc=0)
-⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=17364)
-▶ mainframe_command_gui.py started (pid=10544)
-▶ mainframe_configuration_gui.py started (pid=8064)
-▶ mainframe_sensor_control_gui.py started (pid=5060)
-▶ mainframe_stage_control_gui.py started (pid=12628)
-▶ mainframe_tec_control_gui.py started (pid=22696)
-▶ sub_add_btn_gui.py started (pid=436)
-▶ sub_area_scan_setting_gui.py started (pid=8888)
-▶ sub_connect_config_gui.py started (pid=23780)
-▶ sub_fine_align_setting_gui.py started (pid=16876)
-▶ sub_laser_sweep_setting_gui.py started (pid=15540)
-▶ sub_limit_setting_gui.py started (pid=21220)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-motors.stage_manager INFO     Axis Y initialized successfully
-Position read error: No data received
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-motors.stage_manager INFO     Axis Z initialized successfully
-Connection unsuccessful 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis ROTATION_CHIP
-Position read error: No data received
-Position read error: No data received
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager WARNING  Some axes failed to initialize
-Fail To Connect Stage
-Position read error: No data received
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x9b in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x93 in position 16: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: No data received
-motors.stage_manager WARNING  Shared memory initialization failed: [WinError 183] File exists: 'stage_position'
-motors.stage_manager INFO     Stage manager started
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-motors.stage_manager INFO     Axis X initialized successfully
-Position read error: No data received
-Position read error: No data received
-Connection unsuccessful 'ascii' codec can't decode byte 0xa6 in position 0: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis Y
-Position read error: No data received
-Position read error: No data received
-motors.stage_manager INFO     Axis Z initialized successfully
-Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
-Position read error: No data received
-motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
+▶ init_gui.py started (pid=10812)
+▶ lib_gui.py started (pid=2972)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\init_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ init_gui.py exited (rc=1)
+▶ main_devices_gui.py started (pid=11880)
+⏹ lib_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_devices_gui.py", line 2, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ main_instruments_gui.py started (pid=12640)
+⏹ main_devices_gui.py exited (rc=1)
+▶ main_registration_gui.py started (pid=1356)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_instruments_gui.py", line 3, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ main_instruments_gui.py exited (rc=1)
+▶ main_start_gui.py started (pid=7584)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_registration_gui.py", line 3, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ main_registration_gui.py exited (rc=1)
+▶ main_testing_gui.py started (pid=3508)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_start_gui.py", line 12, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_testing_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ mainframe_command_gui.py started (pid=7764)
+⏹ main_start_gui.py exited (rc=1)
+⏹ main_testing_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_command_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ mainframe_configuration_gui.py started (pid=3692)
+⏹ mainframe_command_gui.py exited (rc=1)
+▶ mainframe_sensor_control_gui.py started (pid=3584)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_sensor_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ mainframe_stage_control_gui.py started (pid=13604)
+⏹ mainframe_sensor_control_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_stage_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ mainframe_tec_control_gui.py started (pid=3716)
+⏹ mainframe_stage_control_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_tec_control_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_add_btn_gui.py started (pid=5312)
+⏹ mainframe_tec_control_gui.py exited (rc=1)
+▶ sub_area_scan_setting_gui.py started (pid=6168)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_add_btn_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ sub_add_btn_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_area_scan_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_connect_config_gui.py started (pid=9608)
+⏹ sub_area_scan_setting_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_connect_config_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_fine_align_setting_gui.py started (pid=11508)
+⏹ sub_connect_config_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_fine_align_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+▶ sub_laser_sweep_setting_gui.py started (pid=3960)
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ sub_fine_align_setting_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_laser_sweep_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+▶ sub_limit_setting_gui.py started (pid=848)
+⏹ sub_laser_sweep_setting_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_limit_setting_gui.py", line 1, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
 
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager WARNING  Some axes failed to initialize
-Fail To Connect Stage
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xd9 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-▶ camera_gui.py started (pid=7832)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=17568)
-▶ lib_gui.py started (pid=18708)
-▶ main_devices_gui.py started (pid=22452)
-▶ main_instruments_gui.py started (pid=7328)
-▶ main_registration_gui.py started (pid=15796)
-⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=17528)
-⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=4196)
-▶ mainframe_command_gui.py started (pid=10112)
-▶ mainframe_configuration_gui.py started (pid=21436)
-▶ mainframe_sensor_control_gui.py started (pid=12164)
-▶ mainframe_stage_control_gui.py started (pid=3948)
-▶ mainframe_tec_control_gui.py started (pid=10272)
-▶ sub_add_btn_gui.py started (pid=1724)
-▶ sub_area_scan_setting_gui.py started (pid=1020)
-▶ sub_connect_config_gui.py started (pid=20848)
-▶ sub_fine_align_setting_gui.py started (pid=14168)
-▶ sub_laser_sweep_setting_gui.py started (pid=15728)
-▶ sub_limit_setting_gui.py started (pid=21668)
-Welcome To Probe Stage
-▶ camera_gui.py started (pid=3096)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=14544)
-▶ lib_gui.py started (pid=25460)
-▶ main_devices_gui.py started (pid=16740)
-▶ main_instruments_gui.py started (pid=26336)
-▶ main_registration_gui.py started (pid=9840)
-⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=23436)
-⏹ lib_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=1368)
-▶ mainframe_command_gui.py started (pid=18224)
-▶ mainframe_configuration_gui.py started (pid=3032)
-▶ mainframe_sensor_control_gui.py started (pid=13968)
-▶ mainframe_stage_control_gui.py started (pid=17504)
-▶ mainframe_tec_control_gui.py started (pid=16760)
-▶ sub_add_btn_gui.py started (pid=1964)
-▶ sub_area_scan_setting_gui.py started (pid=12428)
-▶ sub_connect_config_gui.py started (pid=12440)
-▶ sub_fine_align_setting_gui.py started (pid=14208)
-▶ sub_laser_sweep_setting_gui.py started (pid=14756)
-▶ sub_limit_setting_gui.py started (pid=12956)
-Welcome To Probe Stage
-{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
-motors.stage_manager INFO     Shared memory initialized
-motors.stage_manager INFO     Stage manager started
-motors.stage_manager INFO     Position monitor started
-motors.stage_manager INFO     Axis X initialized successfully
-Connection unsuccessful 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis Y
-motors.stage_manager INFO     Axis Z initialized successfully
-Position read error: No data received
-motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
-Connection unsuccessful 'ascii' codec can't decode byte 0x82 in position 0: ordinal not in range(128)
-motors.stage_manager ERROR    Failed to connect axis ROTATION_CHIP
-motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
-motors.stage_manager WARNING  Some axes failed to initialize
-Fail To Connect Stage
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xc9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb2 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x92 in position 1: ordinal not in range(128)
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x9b in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x80 in position 8: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0xb9 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: 'ascii' codec can't decode byte 0x97 in position 0: ordinal not in range(128)
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-Position read error: No data received
-▶ camera_gui.py started (pid=22448)
-▶ init_gui.py started (pid=25860)
-▶ lib_gui.py started (pid=11060)
-▶ main_devices_gui.py started (pid=22940)
-▶ main_instruments_gui.py started (pid=19700)
-▶ main_registration_gui.py started (pid=14092)
-▶ main_start_gui.py started (pid=10824)
-⏹ camera_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=1848)
-▶ mainframe_command_gui.py started (pid=9748)
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ sub_limit_setting_gui.py exited (rc=1)
+Traceback (most recent call last):
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_configuration_gui.py", line 9, in <module>
+    from lib_gui import *
+  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+    from motors.config.stage_position import *
+ModuleNotFoundError: No module named 'motors'
+⏹ mainframe_configuration_gui.py exited (rc=1)
