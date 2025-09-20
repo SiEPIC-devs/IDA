@@ -219,6 +219,26 @@ class NIR8164(LaserHAL):
         except Exception as e:
             return False
 
+    def set_power_reference(self, ref_dbm: float, channel: int = 1) -> bool:
+        """Set power reference (noise floor) for detector channel"""
+        try:
+            # Based on Keysight 8164B programmer's guide
+            # Set reference level for the specified channel
+            self.write(f"SENS{channel}:POW:REF {ref_dbm}")
+            time.sleep(0.05)
+            return True
+        except Exception as e:
+            return False
+
+    def get_power_reference(self, channel: int = 1) -> float:
+        """Get current power reference (noise floor) for detector channel"""
+        try:
+            # Query reference level for the specified channel
+            response = self.query(f"SENS{channel}:POW:REF?")
+            return float(response.strip()) if response else 0.0
+        except Exception as e:
+            return 0.0
+
     ######################################################################
     # Sweep functions
     ######################################################################

@@ -159,7 +159,7 @@ class stage_control(App):
 
         sweep_container = StyledContainer(
             container=sensor_control_container, variable_name="sweep_container", left=330, top=20,
-            height=100, width=300, border=True
+            height=100, width=320, border=True
         )
 
         self.sweep_btn = StyledButton(
@@ -169,7 +169,12 @@ class stage_control(App):
 
         self.configure = StyledButton(
             container=sweep_container, text="Configure", variable_name="configure_button", font_size=90,
-            left=200, top=15, width=82, height=28, normal_color="#007BFF", press_color="#0056B3"
+            left=180, top=15, width=62, height=28, normal_color="#007BFF", press_color="#0056B3"
+        )
+
+        self.data_window_btn = StyledButton(
+            container=sweep_container, text="Data Window", variable_name="data_window_button", font_size=85,
+            left=248, top=15, width=65, height=28, normal_color="#28a745", press_color="#1e7e34"
         )
 
         StyledLabel(
@@ -193,6 +198,7 @@ class stage_control(App):
         )
 
         self.configure.do_onclick(lambda *_: self.run_in_thread(self.onclick_configure))
+        self.data_window_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_data_window))
         self.minus_wvl.do_onclick(lambda *_: self.run_in_thread(self.onclick_minus_wvl))
         self.minus_pwr.do_onclick(lambda *_: self.run_in_thread(self.onclick_minus_pwr))
         self.add_wvl.do_onclick(lambda *_: self.run_in_thread(self.onclick_add_wvl))
@@ -216,6 +222,18 @@ class stage_control(App):
             f"http://{local_ip}:7001",
             width=262+web_w,
             height=305+web_h,
+            resizable=True,
+            on_top=True,
+            hidden=False
+        )
+
+    def onclick_data_window(self):
+        local_ip = get_local_ip()
+        webview.create_window(
+            "Data Window Settings",
+            f"http://{local_ip}:7005",
+            width=300+web_w,
+            height=270+web_h,
             resizable=True,
             on_top=True,
             hidden=False

@@ -307,7 +307,7 @@ class NIRManager:
             return False
 
     def get_power_range(self) -> bool:
-        """Set power range"""
+        """Get power range"""
         try:
             if not self.controller or not self._connected:
                 self._log("Controller not connected", "error")
@@ -315,8 +315,40 @@ class NIRManager:
             self.controller.get_power_range()
             return True
         except Exception as e:
-            self._log(f"Set detector range error: {e}", "error")
+            self._log(f"Get detector range error: {e}", "error")
             return False
+
+    def set_power_reference(self, ref_dbm: float, channel: int = 1) -> bool:
+        """Set power reference (noise floor)"""
+        try:
+            if not self.controller or not self._connected:
+                self._log("Controller not connected", "error")
+                return False
+
+            success = self.controller.set_power_reference(ref_dbm, channel)
+            if success:
+                self._log(f"Power reference set to {ref_dbm}dBm for channel {channel}")
+            else:
+                self._log(f"Failed to set power reference to {ref_dbm}dBm for channel {channel}", "error")
+            return success
+
+        except Exception as e:
+            self._log(f"Set power reference error: {e}", "error")
+            return False
+
+    def get_power_reference(self, channel: int = 1) -> float:
+        """Get current power reference (noise floor)"""
+        try:
+            if not self.controller or not self._connected:
+                self._log("Controller not connected", "error")
+                return 0.0
+
+            reference = self.controller.get_power_reference(channel)
+            return reference if reference is not None else 0.0
+
+        except Exception as e:
+            self._log(f"Get power reference error: {e}", "error")
+            return 0.0
 
     ######################################################################
     # Sweep methods

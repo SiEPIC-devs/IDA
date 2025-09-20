@@ -41,6 +41,7 @@ class stage_control(App):
         self.configuration = {}
         self.configuration_check = {}
         self.port = {}
+        self.data_window = {}
 
         self.configuration_stage = 0
         self.configuration_sensor = 0
@@ -117,6 +118,7 @@ class stage_control(App):
                     self.scanpos = data.get("ScanPos", {})
                     self.sweep = data.get("Sweep", {})
                     self.name = data.get("DeviceName", "")
+                    self.data_window = data.get("DataWindow", {})
                     self.port = data.get("Port", {})
                     self.web = data.get("Web", "")
                     self.file_format = data.get("FileFormat", {})
@@ -1431,6 +1433,16 @@ class stage_control(App):
                     val = 1
                 device = self.devices[int(val - 1)]
                 self.move_dd.set_value(device)
+                
+            # Data Window Commands
+            elif key == "data_apply_ch1_range":
+                self.apply_detector_range(val, 1)
+            elif key == "data_apply_ch1_ref":
+                self.apply_detector_reference(val, 1)
+            elif key == "data_apply_ch2_range":
+                self.apply_detector_range(val, 2)
+            elif key == "data_apply_ch2_ref":
+                self.apply_detector_reference(val, 2)
 
         if stage == 1:
             print("stage record")
