@@ -9,7 +9,7 @@ Remi GUI — User/Mode selector with dynamic dropdown + JSON sync
 import json, os, shutil, threading, webview
 from typing import List, Union
 from remi import App, start
-from lib_gui import *
+from GUI.lib_gui import *
 
 # ──────────────────────────────────────────
 ROOT_DIR = "./UserData"

@@ -1,7 +1,8 @@
-from lib_gui import *
+from GUI.lib_gui import *
 from remi import start, App
-import lib_coordinates, threading, math, json, os, time, webview, wx, shutil
-from lib_tsp import TSPSolver
+from GUI import lib_coordinates
+import threading, math, json, os, time, webview, wx, shutil
+from GUI.lib_tsp import TSPSolver
 
 command_path = os.path.join("database", "command.json")
 shared_path = os.path.join("database", "shared_memory.json")

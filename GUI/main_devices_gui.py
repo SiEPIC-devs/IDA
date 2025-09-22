@@ -1,7 +1,8 @@
 from remi.gui import *
-from lib_gui import *
+from GUI.lib_gui import *
 from remi import start, App
-import lib_coordinates,threading, math, json
+from GUI import lib_coordinates
+import threading, math, json
 from tinydb import TinyDB, Query
 
 command_path = os.path.join("database", "command.json")

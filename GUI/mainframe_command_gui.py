@@ -1,4 +1,4 @@
-from lib_gui import *
+from GUI.lib_gui import *
 from remi import start, App
 import threading
 import webview

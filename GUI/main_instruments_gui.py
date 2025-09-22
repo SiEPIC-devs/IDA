@@ -1,6 +1,6 @@
 from remi import start, App
 import os, threading, webview
-from lib_gui import *
+from GUI.lib_gui import *
 
 shared_path = os.path.join("database", "shared_memory.json")
 

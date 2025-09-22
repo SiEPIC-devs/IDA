@@ -1,7 +1,9 @@
-from lib_gui import *
+from GUI.lib_gui import *
 from remi.gui import *
 from remi import start, App
-import threading, webview, signal, lib_coordinates, asyncio, datetime
+import threading, webview, signal
+from GUI import lib_coordinates
+import asyncio, datetime
 from motors.stage_manager import StageManager
 from motors.config.stage_config import StageConfiguration
 from NIR.nir_manager import NIRManager

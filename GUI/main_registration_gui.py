@@ -1,6 +1,6 @@
 from remi import start, App
 import os, lib_coordinates, threading, glob
-from lib_gui import *
+from GUI.lib_gui import *
 
 class registration(App):
     def __init__(self, *args, **kwargs):

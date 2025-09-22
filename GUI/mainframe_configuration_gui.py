@@ -6,7 +6,7 @@
 # Size of source mod 2**32: 11801 bytes
 from IPython.lib.display import IFrame
 
-from lib_gui import *
+from GUI.lib_gui import *
 from remi.gui import *
 from remi import start, App, gui
 import threading, webview, signal, socket, time
