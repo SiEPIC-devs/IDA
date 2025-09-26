@@ -1,6 +1,6 @@
 {
   "User": "Guest",
-  "Project": "152",
+  "Project": "MyProject",
   "User_add": "Guest",
   "Image": "TSP/none.png",
   "Web": "",
@@ -10,7 +10,7 @@
     "png": 1,
     "pdf": 1
   },
-  "FilePath": "C:\\Users\\347\\Desktop",
+  "FilePath": "",
   "Limit": {
     "x": "Yes",
     "y": "Yes",
@@ -55,8 +55,8 @@
   },
   "AutoSweep": 0,
   "Configuration": {
-    "stage": "stage_control",
-    "sensor": "stage_control",
+    "stage": "",
+    "sensor": "",
     "tec": ""
   },
   "Configuration_check": {

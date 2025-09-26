@@ -46,7 +46,7 @@ class Agilent8164Controller(LaserHAL):
         self.com_port = com_port
         self.gpib_addr = gpib_addr
         self.laser_slot = laser_slot
-        self.detector_slots = detector_slots or ["1"] # 347 specific
+        self.detector_slots = detector_slots or ["1"] # Probe_Stage specific
         self.safety_password = safety_password
         self.timeout = timeout
 

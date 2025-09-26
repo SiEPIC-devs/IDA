@@ -53,7 +53,7 @@ class data_window(App):
         )
 
         StyledLabel(
-            container=data_window_container, text="dBm", variable_name="ch1_range_unit", left=150, top=45,
+            container=data_window_container, text="dBm", variable_name="ch1_range_unit", left=160, top=45,
             width=30, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
@@ -68,7 +68,7 @@ class data_window(App):
         )
 
         StyledLabel(
-            container=data_window_container, text="dBm", variable_name="ch1_ref_unit", left=150, top=75,
+            container=data_window_container, text="dBm", variable_name="ch1_ref_unit", left=160, top=75,
             width=30, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
@@ -89,7 +89,7 @@ class data_window(App):
         )
 
         StyledLabel(
-            container=data_window_container, text="dBm", variable_name="ch2_range_unit", left=150, top=145,
+            container=data_window_container, text="dBm", variable_name="ch2_range_unit", left=160, top=145,
             width=30, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
@@ -104,29 +104,29 @@ class data_window(App):
         )
 
         StyledLabel(
-            container=data_window_container, text="dBm", variable_name="ch2_ref_unit", left=150, top=175,
+            container=data_window_container, text="dBm", variable_name="ch2_ref_unit", left=160, top=175,
             width=30, height=25, font_size=100, flex=True, justify_content="left", color="#222"
         )
 
         # Apply buttons
         self.apply_range_btn = StyledButton(
             container=data_window_container, text="Apply Range", variable_name="apply_range_btn",
-            left=190, top=45, height=24, width=80, font_size=85, normal_color="#28a745", press_color="#1e7e34"
+            left=190, top=45, height=24, width=80, font_size=85, normal_color="#007BFF", press_color="#0056B3"
         )
 
         self.apply_ref_btn = StyledButton(
             container=data_window_container, text="Apply Ref", variable_name="apply_ref_btn",
-            left=190, top=75, height=24, width=80, font_size=85, normal_color="#28a745", press_color="#1e7e34"
+            left=190, top=75, height=24, width=80, font_size=85, normal_color="#007BFF", press_color="#0056B3"
         )
 
         self.apply_range_btn2 = StyledButton(
             container=data_window_container, text="Apply Range", variable_name="apply_range_btn2",
-            left=190, top=145, height=24, width=80, font_size=85, normal_color="#28a745", press_color="#1e7e34"
+            left=190, top=145, height=24, width=80, font_size=85, normal_color="#007BFF", press_color="#0056B3"
         )
 
         self.apply_ref_btn2 = StyledButton(
             container=data_window_container, text="Apply Ref", variable_name="apply_ref_btn2",
-            left=190, top=175, height=24, width=80, font_size=85, normal_color="#28a745", press_color="#1e7e34"
+            left=190, top=175, height=24, width=80, font_size=85, normal_color="#007BFF", press_color="#0056B3"
         )
 
         # Confirm button
@@ -147,31 +147,24 @@ class data_window(App):
 
     def onclick_apply_ch1_range(self):
         range_val = float(self.ch1_range.get_value())
-        command = {"data_apply_ch1_range": range_val}
-        file = File("command", "command", command)
-        file.save()
-        print(f"Applied CH1 Range: {range_val} dBm")
+        # Write a sensor-scoped command so the sensor controller can consume it
+        File("command", "command", {"sensor_set_range_ch1": range_val}).save()
+        print(f"Applied CH1 Range (queued): {range_val} dBm")
 
     def onclick_apply_ch1_ref(self):
         ref_val = float(self.ch1_ref.get_value())
-        command = {"data_apply_ch1_ref": ref_val}
-        file = File("command", "command", command)
-        file.save()
-        print(f"Applied CH1 Reference: {ref_val} dBm")
+        File("command", "command", {"sensor_set_ref_ch1": ref_val}).save()
+        print(f"Applied CH1 Reference (queued): {ref_val} dBm")
 
     def onclick_apply_ch2_range(self):
         range_val = float(self.ch2_range.get_value())
-        command = {"data_apply_ch2_range": range_val}
-        file = File("command", "command", command)
-        file.save()
-        print(f"Applied CH2 Range: {range_val} dBm")
+        File("command", "command", {"sensor_set_range_ch2": range_val}).save()
+        print(f"Applied CH2 Range (queued): {range_val} dBm")
 
     def onclick_apply_ch2_ref(self):
         ref_val = float(self.ch2_ref.get_value())
-        command = {"data_apply_ch2_ref": ref_val}
-        file = File("command", "command", command)
-        file.save()
-        print(f"Applied CH2 Reference: {ref_val} dBm")
+        File("command", "command", {"sensor_set_ref_ch2": ref_val}).save()
+        print(f"Applied CH2 Reference (queued): {ref_val} dBm")
 
     def onclick_confirm(self):
         value = {
@@ -248,7 +241,7 @@ if __name__ == "__main__":
     configuration = {
         "config_project_name": "data_window",
         "config_address": "0.0.0.0",
-        "config_port": 7005,
+        "config_port": 7006,
         "config_multiple_instance": False,
         "config_enable_file_cache": False,
         "config_start_browser": False,

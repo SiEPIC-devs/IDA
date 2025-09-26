@@ -400,52 +400,52 @@ class SrsLdc502(LdcHAL):
             return False
      
     # === LD Controller (Stubs) ===
-    # These are not implemented for the 347 stage but required by the HAL
+    # These are not implemented for the Probe_Stage stage but required by the HAL
     
     def ldc_on(self) -> bool:
-        """Turn LDC on - Not implemented for 347 stage"""
+        """Turn LDC on - Not implemented for Probe_Stage stage"""
         self._log("LDC control not implemented for this stage", "error")
         return False
     
     def ldc_off(self) -> bool:
-        """Turn LDC off - Not implemented for 347 stage"""
+        """Turn LDC off - Not implemented for Probe_Stage stage"""
         self._log("LDC control not implemented for this stage", "error")
         return False
     
     def ldc_state(self) -> str:
-        """Check state of LDC - Not implemented for 347 stage"""
+        """Check state of LDC - Not implemented for Probe_Stage stage"""
         return "not_implemented"
     
     def set_voltage_limit(self, limit: float) -> bool:
-        """Set voltage limit - Not implemented for 347 stage"""
+        """Set voltage limit - Not implemented for Probe_Stage stage"""
         return False
     
     def get_voltage_limit(self) -> float:
-        """Get voltage limit - Not implemented for 347 stage"""
+        """Get voltage limit - Not implemented for Probe_Stage stage"""
         return 0.0
     
     def set_current_limit(self, limit: float) -> bool:
-        """Set current limit - Not implemented for 347 stage"""
+        """Set current limit - Not implemented for Probe_Stage stage"""
         return False
     
     def get_current_limit(self) -> float:
-        """Get current limit - Not implemented for 347 stage"""
+        """Get current limit - Not implemented for Probe_Stage stage"""
         return 0.0
     
     def set_current(self, current: float) -> bool:
-        """Configure current setpoints - Not implemented for 347 stage"""
+        """Configure current setpoints - Not implemented for Probe_Stage stage"""
         return False
     
     def get_current(self) -> float:
-        """Read current - Not implemented for 347 stage"""
+        """Read current - Not implemented for Probe_Stage stage"""
         return 0.0
     
     def get_voltage(self) -> float:
-        """Read voltage - Not implemented for 347 stage"""
+        """Read voltage - Not implemented for Probe_Stage stage"""
         return 0.0
     
     def set_current_range(self, toggle: int) -> bool:
-        """Set range to be either High or Low - Not implemented for 347 stage"""
+        """Set range to be either High or Low - Not implemented for Probe_Stage stage"""
         return False
 
 # Register the fixed driver

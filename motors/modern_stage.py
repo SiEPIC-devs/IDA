@@ -13,7 +13,7 @@ import serial
 """
 Made by: Cameron Basara, 5/30/2025
 
-Prototype implementation of Stage control at 347 using more modern Python features and the motor hardward abstraction layer
+Prototype implementation of Stage control at Probe_Stage using more modern Python features and the motor hardward abstraction layer
 """
 
 # CONSTANTS
@@ -714,5 +714,5 @@ class StageControl(MotorHAL):
 
 from motors.hal.stage_factory import register_driver
 
-# Register 347 motor stage
+# Register Probe_Stage motor stage
 register_driver("stage_control", StageControl)

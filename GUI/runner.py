@@ -1,9 +1,36 @@
 import sys, pathlib, subprocess, threading, os, time, platform, signal
 
+# # ────────── Configuration ───────────
+# PROJECT_ROOT = pathlib.Path(__file__).resolve().parent
+# PY = sys.executable
+# LOG_FILE = PROJECT_ROOT / "log.txt"
+# OPEN_LOG_TERMINAL = True
+# LOG_TAIL_LINES = 200
+#
+# KEEP_LINES = 500
+# TRIM_THRESHOLD = 750
+# # ───────────────────────────────────
+def find_project_root(start: pathlib.Path) -> pathlib.Path:
+    """
+    Walk upward until we find a directory that contains 'GUI' and 'motors'.
+    This works whether the runner is in GUI/ or elsewhere.
+    """
+    cur = start if start.is_dir() else start.parent
+    for parent in [cur] + list(cur.parents):
+        if (parent / "GUI").is_dir() and (parent / "motors").is_dir():
+            return parent
+    raise RuntimeError(
+        f"Could not locate project root above {start}; "
+        f"expected sibling folders 'GUI' and 'motors'."
+    )
+
 # ────────── Configuration ───────────
-BASE_DIR = pathlib.Path(__file__).resolve().parent
+THIS_FILE = pathlib.Path(__file__).resolve()
+PROJECT_ROOT = find_project_root(THIS_FILE)
+GUI_DIR = PROJECT_ROOT / "GUI"
+EXCLUDE_DIRS = {PROJECT_ROOT / "venv", PROJECT_ROOT / ".venv", PROJECT_ROOT / "build", PROJECT_ROOT / "dist"}
 PY = sys.executable
-LOG_FILE = BASE_DIR / "log.txt"
+LOG_FILE = PROJECT_ROOT / "GUI" / "log.txt"
 OPEN_LOG_TERMINAL = True
 LOG_TAIL_LINES = 200
 
@@ -11,11 +38,44 @@ KEEP_LINES = 500
 TRIM_THRESHOLD = 750
 # ───────────────────────────────────
 
-def is_target(p: pathlib.Path) -> bool:
-    s = p.stem.lower()
-    return s.endswith("gui") or s.endswith("setup") or s.endswith("init")
 
-BASE_DIR.mkdir(parents=True, exist_ok=True)
+assert (PROJECT_ROOT / "GUI").is_dir()
+assert (PROJECT_ROOT / "motors").is_dir()
+
+# import warnings
+# warnings.filterwarnings(
+#     "ignore",
+#     category=UserWarning,
+#     message=r"pkg_resources is deprecated as an API\.",
+#     module=r"remi(\.|$)",
+# )
+
+def is_target(p: pathlib.Path) -> bool:
+    if any(ex in p.parents for ex in EXCLUDE_DIRS):
+        return False
+    s = p.stem.lower()
+    if s.endswith("gui"):
+        return True
+    return s in {
+        "main_start_gui",
+        "main_instruments_gui",
+        "main_devices_gui",
+        "main_registration_gui",
+        "mainframe_command_gui",
+        "mainframe_configuration_gui",
+        "mainframe_sensor_control_gui",
+        "mainframe_stage_control_gui",
+        "mainframe_tec_control_gui",
+        "sub_add_btn_gui",
+        "sub_area_scan_setting_gui",
+        "sub_connect_config_gui",
+        "sub_data_window_setting_gui",
+        "sub_fine_align_setting_gui",
+        "sub_laser_sweep_setting_gui",
+        "sub_limit_setting_gui",
+    }
+
+PROJECT_ROOT.mkdir(parents=True, exist_ok=True)
 
 class LastNFileLogger:
     def __init__(self, path: pathlib.Path, keep_lines=500, threshold=750, encoding='utf-8'):
@@ -170,11 +230,14 @@ def _pump_output(proc: subprocess.Popen):
         FILE_LOG.write_line(f"[launcher] output reader error: {e!r}")
 
 def start_gui(path: pathlib.Path):
+    # Esnure proj root is found as sys.path as child
+    # Then make the child see its parent as top-folder package
     env = {**os.environ, "REM_MULTI_INST": "1", "PYTHONUNBUFFERED": "1"}
+    env["PYTHONPATH"] = str(PROJECT_ROOT) + (os.pathsep + os.environ.get("PYTHONPATH", "")) if os.environ.get("PYTHONPATH") else str(PROJECT_ROOT)
     creation = subprocess.CREATE_NEW_PROCESS_GROUP if platform.system() == "Windows" else 0
     proc = subprocess.Popen(
-        [PY, "-u", str(path)],
-        cwd=path.parent,
+        [PY,"-u", str(path)],
+        cwd=GUI_DIR,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         env=env,
@@ -205,7 +268,7 @@ def terminate_all():
 def main():
     if platform.system() != "Windows":
         print("It's Windows Version")
-    targets = sorted(p for p in BASE_DIR.rglob("*.py") if is_target(p))
+    targets = sorted(p for p in GUI_DIR.rglob("*.py") if is_target(p))
     if not targets:
         print("⚠️  No *gui.py / *setup.py found"); return
 

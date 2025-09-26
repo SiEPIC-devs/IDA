@@ -1,32 +1,28 @@
-# setup_venv.ps1
-# PowerShell: create/refresh a venv using pyenv-win if available, else fallback.
-#   Set-ExecutionPolicy -Scope Process RemoteSigned   # if activation is blocked
+
+[CmdletBinding()]
+param(
+  [switch]$Rebuild,
+  [string]$PythonVersion = "3.9.23",      # exact version for pyenv-win
+  [string]$PyMM          = "3.9"          # major.minor for Windows launcher
+)
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-$TargetPy = "3.9.23"          # exact version if using pyenv
-$TargetMM = "3.9"             # major.minor for the Python launcher
-Write-Host "Setting up venv for Python $TargetMM ..."
+Write-Host "Setting up venv for Python $PyMM ..."
 
-# --- Locate & enable pyenv-win if present ------------------------------------
 function Ensure-PyenvWin {
-  # If pyenv already on PATH, we're done.
-  if (Get-Command pyenv -ErrorAction SilentlyContinue) { return $true }
-
-  # Candidate roots from env + common installers.
+  if (Get-Command pyenv -EA SilentlyContinue) { return $true }
   $candidates = @(
     $env:PYENV, $env:PYENV_HOME, $env:PYENV_ROOT,
     "$HOME\.pyenv\pyenv-win",
     "$env:USERPROFILE\scoop\apps\pyenv-win\current",
     "C:\ProgramData\pyenv\pyenv-win"
   ) | Where-Object { $_ -and (Test-Path $_) }
-
   foreach ($root in $candidates) {
     $bin   = Join-Path $root "bin"
     $shims = Join-Path $root "shims"
     if (Test-Path (Join-Path $bin "pyenv.cmd")) {
-      # Avoid duplicating PATH entries
       $paths = $env:Path -split ';'
       if ($paths -notcontains $bin)   { $env:Path = "$bin;$env:Path" }
       if ($paths -notcontains $shims) { $env:Path = "$shims;$env:Path" }
@@ -41,61 +37,85 @@ function Ensure-PyenvWin {
 
 $hasPyenv = Ensure-PyenvWin
 if ($hasPyenv) {
-  Write-Host "pyenv-win detected. Ensuring Python $TargetPy ..."
-  pyenv install -s $TargetPy | Out-Host
-  # Use for this PowerShell session (doesn't write .python-version)
-  pyenv shell $TargetPy | Out-Host
+  Write-Host "pyenv-win detected. Ensuring Python $PythonVersion ..."
+  pyenv install -s $PythonVersion | Out-Host
+  pyenv shell $PythonVersion     | Out-Host   # session-scoped
 } else {
   Write-Host "pyenv-win not found; will try the Windows Python launcher or system Python."
 }
 
-# --- Resolve the python command safely (exe + args array) --------------------
 function Resolve-Python {
   param([string]$mm = "3.9")
-  # If pyenv-shims are active, just use 'python'
-  if (Get-Command pyenv -EA SilentlyContinue -and (Get-Command python -EA SilentlyContinue)) {
+  if ($hasPyenv -and (Get-Command python -EA SilentlyContinue)) {
     return @{ Exe = "python"; Args = @() }
   }
-  # Try the Windows launcher with a version selector
   if (Get-Command py -EA SilentlyContinue) {
-    # Validate that 'py -3.9' exists
-    $ok = $false
-    try {
-      & py "-$mm" -V *> $null
-      $ok = ($LASTEXITCODE -eq 0)
-    } catch { $ok = $false }
-    if ($ok) { return @{ Exe = "py"; Args = @("-$mm") } }
+    try { & py "-$mm" -V *> $null; if ($LASTEXITCODE -eq 0) { return @{ Exe = "py"; Args = @("-$mm") } } } catch {}
   }
-  # Try direct commands
-  foreach ($name in @("python$mm".Replace(".",""), "python$mm", "python3", "python")) {
+  foreach ($name in @("python$($mm.Replace('.',''))","python$mm","python3","python")) {
     if (Get-Command $name -EA SilentlyContinue) { return @{ Exe = $name; Args = @() } }
   }
   throw "No suitable Python $mm found. Install pyenv-win or the Python $mm runtime."
 }
 
-$py = Resolve-Python -mm $TargetMM
+$py = Resolve-Python -mm $PyMM
 $pyExe  = $py.Exe
 $pyArgs = $py.Args
 
-# --- (Re)create venv ---------------------------------------------------------
-if (Test-Path .\venv) {
+# Recreate venv if requested or missing
+if ($Rebuild -and (Test-Path .\venv)) {
   Write-Host "Removing existing venv ..."
   Remove-Item -Recurse -Force .\venv
 }
-Write-Host "Creating venv with $pyExe $($pyArgs -join ' ') ..."
-& $pyExe @($pyArgs + @("-m","venv","venv"))
+if (-not (Test-Path .\venv)) {
+  Write-Host "Creating venv with $pyExe $($pyArgs -join ' ') ..."
+  & $pyExe @($pyArgs + @("-m","venv","venv"))
+}
 
-# --- Activate ---------------------------------------------------------------
+# Activate
 $activate = ".\venv\Scripts\Activate.ps1"
 if (-not (Test-Path $activate)) { throw "Activation script not found at $activate" }
 . $activate
 
-# --- pip bootstrap -----------------------------------------------------------
-python -m pip install --upgrade pip
+# Robust pip bootstrap (handle interrupted upgrades)
+Write-Host "Bootstrapping pip and build tools ..."
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip setuptools wheel
+
+# Install/upgrade pip-tools (for compile & sync)
+python -m pip install --upgrade pip-tools
+
+# If you want to suppress that pkg_resources deprecation in all children, uncomment:
+# $env:PYTHONWARNINGS = "ignore::UserWarning:pkg_resources"
+
+# Compile from .in files if present; otherwise, just sync from .txt
+$compiledAny = $false
+
+if (Test-Path .\requirements.in) {
+  Write-Host "Compiling requirements.in → requirements.txt ..."
+  pip-compile --upgrade --generate-hashes requirements.in
+  $compiledAny = $true
+}
+if (Test-Path .\requirements-build.in) {
+  Write-Host "Compiling requirements-build.in → requirements-build.txt ..."
+  pip-compile --upgrade --generate-hashes requirements-build.in
+  $compiledAny = $true
+}
+
+# Now sync the environment exactly (this solved your earlier inconsistency)
 if (Test-Path .\requirements.txt) {
-  pip install -r .\requirements.txt
+  if (Test-Path .\requirements-build.txt) {
+    Write-Host "Syncing venv to requirements.txt + requirements-build.txt ..."
+    pip-sync requirements.txt requirements-build.txt
+  } else {
+    Write-Host "Syncing venv to requirements.txt ..."
+    pip-sync requirements.txt
+  }
+} elseif ($compiledAny) {
+  # Shouldn't happen, but just in case compilation created files in a different path
+  throw "Compilation ran but requirements.txt not found."
 } else {
-  Write-Host "requirements.txt not found; skipping dependency install."
+  Write-Host "No requirements(.in|.txt) found; venv created with base tools only."
 }
 
 Write-Host "Done! Using $(python --version)"

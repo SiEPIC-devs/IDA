@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Main entry point for the 347 Probe application.
+Main entry point for the Probe_Stage Probe application.
 This file serves as the entry point for PyInstaller.
 """
 
@@ -12,7 +12,7 @@ from pathlib import Path
 
 def main():
     """Main application entry point"""
-    print("Starting 347 Probe Application...")
+    print("Starting Probe_Stage Probe Application...")
     
     # Import the main GUI launcher
     from GUI.runner import main as gui_main

@@ -97,7 +97,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='Probe347',
+    name='ProbeStage',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

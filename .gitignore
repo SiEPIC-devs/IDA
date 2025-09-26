@@ -1,6 +1,8 @@
 # Ignore cached and venv
 .venv/
 venv/
+build/
+dist/
 .idea/
 __pycache__/
 */__pycache__/

@@ -120,7 +120,7 @@ class Starts(App):
         )
 
         StyledLabel(
-            container=starts_container, text="Welcome to 347 Probe Stage", variable_name="label_configuration",
+            container=starts_container, text="Welcome to Probe_Stage Probe Stage", variable_name="label_configuration",
             left=180, top=20, width=300, height=20, font_size=150, color="#222", align="left",
         )
 

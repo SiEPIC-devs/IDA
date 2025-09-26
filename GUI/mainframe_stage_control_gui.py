@@ -1436,15 +1436,7 @@ class stage_control(App):
                 device = self.devices[int(val - 1)]
                 self.move_dd.set_value(device)
                 
-            # Data Window Commands
-            elif key == "data_apply_ch1_range":
-                self.apply_detector_range(val, 1)
-            elif key == "data_apply_ch1_ref":
-                self.apply_detector_reference(val, 1)
-            elif key == "data_apply_ch2_range":
-                self.apply_detector_range(val, 2)
-            elif key == "data_apply_ch2_ref":
-                self.apply_detector_reference(val, 2)
+
 
         if stage == 1:
             print("stage record")

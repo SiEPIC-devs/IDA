@@ -173,8 +173,8 @@ class stage_control(App):
         )
 
         self.data_window_btn = StyledButton(
-            container=sweep_container, text="Data Window", variable_name="data_window_button", font_size=85,
-            left=248, top=15, width=65, height=28, normal_color="#28a745", press_color="#1e7e34"
+            container=sweep_container, text="Detector Window", variable_name="data_window_button", font_size=85,
+            left=248, top=15, width=65, height=28, normal_color="#007BFF", press_color="#0056B3"
         )
 
         StyledLabel(
@@ -230,8 +230,8 @@ class stage_control(App):
     def onclick_data_window(self):
         local_ip = get_local_ip()
         webview.create_window(
-            "Data Window Settings",
-            f"http://{local_ip}:7005",
+            "Detector Window Settings",
+            f"http://{local_ip}:7006",
             width=300+web_w,
             height=270+web_h,
             resizable=True,
@@ -295,7 +295,6 @@ class stage_control(App):
         self.sweep["sweep"] = 1
         file = File("shared_memory", "Sweep", self.sweep)
         file.save()
-
 
     def onchange_wvl(self, emitter, value):
         self.sweep["wvl"] = float(value)
@@ -383,6 +382,16 @@ class stage_control(App):
             elif key == "sensor_sweep":
                 self.onclick_sweep()
                 self.sweep["sweep"] = 1
+
+            # Data Window Commands
+            elif key == "data_apply_ch1_range":
+                self.apply_detector_range(val, 1)
+            elif key == "data_apply_ch1_ref":
+                self.apply_detector_reference(val, 1)
+            elif key == "data_apply_ch2_range":
+                self.apply_detector_range(val, 2)
+            elif key == "data_apply_ch2_ref":
+                self.apply_detector_reference(val, 2)
 
             while self.sweep["sweep"] == 1:
                 time.sleep(1)

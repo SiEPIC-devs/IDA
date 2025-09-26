@@ -1,510 +1,727 @@
-⏹ main_start_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_testing_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ mainframe_command_gui.py started (pid=14304)
-⏹ main_testing_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_command_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ mainframe_configuration_gui.py started (pid=2392)
-⏹ mainframe_command_gui.py exited (rc=1)
-▶ mainframe_sensor_control_gui.py started (pid=11740)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_sensor_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ mainframe_stage_control_gui.py started (pid=3984)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_configuration_gui.py", line 9, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ mainframe_sensor_control_gui.py exited (rc=1)
-⏹ mainframe_configuration_gui.py exited (rc=1)
-▶ mainframe_tec_control_gui.py started (pid=10676)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_stage_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ mainframe_stage_control_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_tec_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_add_btn_gui.py started (pid=5612)
-⏹ mainframe_tec_control_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_add_btn_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_area_scan_setting_gui.py started (pid=5468)
-⏹ sub_add_btn_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_area_scan_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_connect_config_gui.py started (pid=1856)
-⏹ sub_area_scan_setting_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_connect_config_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_fine_align_setting_gui.py started (pid=2816)
-⏹ sub_connect_config_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_fine_align_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_laser_sweep_setting_gui.py started (pid=9380)
-⏹ sub_fine_align_setting_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_laser_sweep_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_limit_setting_gui.py started (pid=13840)
-⏹ sub_laser_sweep_setting_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_limit_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ sub_limit_setting_gui.py exited (rc=1)
-▶ camera_gui.py started (pid=6340)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=13324)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\init_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ init_gui.py exited (rc=1)
-▶ lib_gui.py started (pid=5188)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ lib_gui.py exited (rc=1)
-▶ main_devices_gui.py started (pid=9004)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_devices_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ main_devices_gui.py exited (rc=1)
-▶ main_instruments_gui.py started (pid=3720)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_instruments_gui.py", line 1, in <module>
-    from remi import start, App
-ModuleNotFoundError: No module named 'remi'
-⏹ main_instruments_gui.py exited (rc=1)
-▶ main_registration_gui.py started (pid=12648)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_registration_gui.py", line 1, in <module>
-    from remi import start, App
-ModuleNotFoundError: No module named 'remi'
-⏹ main_registration_gui.py exited (rc=1)
-▶ main_start_gui.py started (pid=11080)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_start_gui.py", line 9, in <module>
-    import json, os, shutil, threading, webview
-ModuleNotFoundError: No module named 'webview'
-⏹ main_start_gui.py exited (rc=1)
-▶ main_testing_gui.py started (pid=10804)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_testing_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ main_testing_gui.py exited (rc=1)
-▶ mainframe_command_gui.py started (pid=12104)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_command_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ mainframe_command_gui.py exited (rc=1)
-▶ mainframe_configuration_gui.py started (pid=1564)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_configuration_gui.py", line 7, in <module>
-    from IPython.lib.display import IFrame
-ModuleNotFoundError: No module named 'IPython'
-⏹ mainframe_configuration_gui.py exited (rc=1)
-▶ mainframe_sensor_control_gui.py started (pid=9060)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_sensor_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ mainframe_sensor_control_gui.py exited (rc=1)
-▶ mainframe_stage_control_gui.py started (pid=9656)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_stage_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ mainframe_stage_control_gui.py exited (rc=1)
-▶ mainframe_tec_control_gui.py started (pid=14004)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_tec_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ mainframe_tec_control_gui.py exited (rc=1)
-▶ sub_add_btn_gui.py started (pid=10708)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_add_btn_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_add_btn_gui.py exited (rc=1)
-▶ sub_area_scan_setting_gui.py started (pid=12016)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_area_scan_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_area_scan_setting_gui.py exited (rc=1)
-▶ sub_connect_config_gui.py started (pid=12144)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_connect_config_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_connect_config_gui.py exited (rc=1)
-▶ sub_fine_align_setting_gui.py started (pid=776)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_fine_align_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_fine_align_setting_gui.py exited (rc=1)
-▶ sub_laser_sweep_setting_gui.py started (pid=13568)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_laser_sweep_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_laser_sweep_setting_gui.py exited (rc=1)
-▶ sub_limit_setting_gui.py started (pid=13220)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_limit_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_limit_setting_gui.py exited (rc=1)
-▶ camera_gui.py started (pid=6808)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=2904)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\init_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ init_gui.py exited (rc=1)
-▶ lib_gui.py started (pid=14192)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ lib_gui.py exited (rc=1)
-▶ main_devices_gui.py started (pid=7852)
-Traceback (most recent call last):
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
 
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_devices_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ main_devices_gui.py exited (rc=1)
-▶ main_instruments_gui.py started (pid=13116)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_instruments_gui.py", line 1, in <module>
-    from remi import start, App
-ModuleNotFoundError: No module named 'remi'
-⏹ main_instruments_gui.py exited (rc=1)
-▶ main_registration_gui.py started (pid=8020)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_registration_gui.py", line 1, in <module>
-    from remi import start, App
-ModuleNotFoundError: No module named 'remi'
-⏹ main_registration_gui.py exited (rc=1)
-▶ main_start_gui.py started (pid=3888)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_start_gui.py", line 9, in <module>
-    import json, os, shutil, threading, webview
-ModuleNotFoundError: No module named 'webview'
-⏹ main_start_gui.py exited (rc=1)
-▶ main_testing_gui.py started (pid=7464)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_testing_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ main_testing_gui.py exited (rc=1)
-▶ mainframe_command_gui.py started (pid=4880)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_command_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ mainframe_command_gui.py exited (rc=1)
-▶ mainframe_configuration_gui.py started (pid=12040)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_configuration_gui.py", line 7, in <module>
-    from IPython.lib.display import IFrame
-ModuleNotFoundError: No module named 'IPython'
-⏹ mainframe_configuration_gui.py exited (rc=1)
-▶ mainframe_sensor_control_gui.py started (pid=12748)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_sensor_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ mainframe_sensor_control_gui.py exited (rc=1)
-▶ mainframe_stage_control_gui.py started (pid=12724)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_stage_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ mainframe_stage_control_gui.py exited (rc=1)
-▶ mainframe_tec_control_gui.py started (pid=7660)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_tec_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ mainframe_tec_control_gui.py exited (rc=1)
-▶ sub_add_btn_gui.py started (pid=8300)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_add_btn_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_add_btn_gui.py exited (rc=1)
-▶ sub_area_scan_setting_gui.py started (pid=10400)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_area_scan_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_area_scan_setting_gui.py exited (rc=1)
-▶ sub_connect_config_gui.py started (pid=10800)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_connect_config_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_connect_config_gui.py exited (rc=1)
-▶ sub_fine_align_setting_gui.py started (pid=13396)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_fine_align_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_fine_align_setting_gui.py exited (rc=1)
-▶ sub_laser_sweep_setting_gui.py started (pid=5312)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_laser_sweep_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_laser_sweep_setting_gui.py exited (rc=1)
-▶ sub_limit_setting_gui.py started (pid=11024)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_limit_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 1, in <module>
-    from remi.gui import *
-ModuleNotFoundError: No module named 'remi'
-⏹ sub_limit_setting_gui.py exited (rc=1)
-▶ camera_gui.py started (pid=6208)
-⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=10812)
-▶ lib_gui.py started (pid=2972)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\init_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ init_gui.py exited (rc=1)
-▶ main_devices_gui.py started (pid=11880)
-⏹ lib_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_devices_gui.py", line 2, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ main_instruments_gui.py started (pid=12640)
-⏹ main_devices_gui.py exited (rc=1)
-▶ main_registration_gui.py started (pid=1356)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_instruments_gui.py", line 3, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ main_instruments_gui.py exited (rc=1)
-▶ main_start_gui.py started (pid=7584)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_registration_gui.py", line 3, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ main_registration_gui.py exited (rc=1)
-▶ main_testing_gui.py started (pid=3508)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_start_gui.py", line 12, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\main_testing_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ mainframe_command_gui.py started (pid=7764)
-⏹ main_start_gui.py exited (rc=1)
-⏹ main_testing_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_command_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ mainframe_configuration_gui.py started (pid=3692)
-⏹ mainframe_command_gui.py exited (rc=1)
-▶ mainframe_sensor_control_gui.py started (pid=3584)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_sensor_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ mainframe_stage_control_gui.py started (pid=13604)
-⏹ mainframe_sensor_control_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_stage_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ mainframe_tec_control_gui.py started (pid=3716)
-⏹ mainframe_stage_control_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_tec_control_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_add_btn_gui.py started (pid=5312)
-⏹ mainframe_tec_control_gui.py exited (rc=1)
-▶ sub_area_scan_setting_gui.py started (pid=6168)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_add_btn_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ sub_add_btn_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_area_scan_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_connect_config_gui.py started (pid=9608)
-⏹ sub_area_scan_setting_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_connect_config_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_fine_align_setting_gui.py started (pid=11508)
-⏹ sub_connect_config_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_fine_align_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-▶ sub_laser_sweep_setting_gui.py started (pid=3960)
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ sub_fine_align_setting_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_laser_sweep_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-▶ sub_limit_setting_gui.py started (pid=848)
-⏹ sub_laser_sweep_setting_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\sub_limit_setting_gui.py", line 1, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
 
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ sub_limit_setting_gui.py exited (rc=1)
-Traceback (most recent call last):
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\mainframe_configuration_gui.py", line 9, in <module>
-    from lib_gui import *
-  File "C:\Users\347\Desktop\Probe_Stage\347\GUI\lib_gui.py", line 6, in <module>
-    from motors.config.stage_position import *
-ModuleNotFoundError: No module named 'motors'
-⏹ mainframe_configuration_gui.py exited (rc=1)
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
+▶ camera_gui.py started (pid=748)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=3036)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ lib_gui.py started (pid=8492)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_devices_gui.py started (pid=5344)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_instruments_gui.py started (pid=400)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_registration_gui.py started (pid=5460)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_start_gui.py started (pid=15444)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_testing_gui.py started (pid=9424)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_command_gui.py started (pid=9712)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_configuration_gui.py started (pid=16196)
+▶ mainframe_sensor_control_gui.py started (pid=10272)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_stage_control_gui.py started (pid=10676)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_tec_control_gui.py started (pid=6368)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_add_btn_gui.py started (pid=12600)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_area_scan_setting_gui.py started (pid=10960)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_connect_config_gui.py started (pid=3960)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_data_window_setting_gui.py started (pid=1920)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=2676)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_laser_sweep_setting_gui.py started (pid=3648)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_limit_setting_gui.py started (pid=2736)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+⏹ init_gui.py exited (rc=0)
+⏹ lib_gui.py exited (rc=0)
+Welcome To Probe Stage
+{'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
+motors.stage_manager INFO     Shared memory initialized
+motors.stage_manager INFO     Stage manager started
+motors.stage_manager INFO     Position monitor started
+motors.stage_manager INFO     Axis X initialized successfully
+motors.stage_manager INFO     Axis Y initialized successfully
+motors.stage_manager INFO     Axis Z initialized successfully
+motors.stage_manager ERROR    Position monitor error: dictionary changed size during iteration
+motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
+motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
+motors.stage_manager INFO     All axes initialized successfully
+Locked
+Unlocked
+▶ camera_gui.py started (pid=16280)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=4080)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ lib_gui.py started (pid=18284)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_devices_gui.py started (pid=4904)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_instruments_gui.py started (pid=19348)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_registration_gui.py started (pid=19308)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+⏹ init_gui.py exited (rc=0)
+▶ main_start_gui.py started (pid=21764)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_testing_gui.py started (pid=17380)
+⏹ lib_gui.py exited (rc=0)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_command_gui.py started (pid=17424)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_configuration_gui.py started (pid=11912)
+▶ mainframe_sensor_control_gui.py started (pid=2924)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_stage_control_gui.py started (pid=23220)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_tec_control_gui.py started (pid=17736)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_add_btn_gui.py started (pid=18468)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_area_scan_setting_gui.py started (pid=23148)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_connect_config_gui.py started (pid=23952)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_data_window_setting_gui.py started (pid=24424)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=23604)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_laser_sweep_setting_gui.py started (pid=24752)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_limit_setting_gui.py started (pid=25344)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ camera_gui.py started (pid=20440)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=9468)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ lib_gui.py started (pid=30452)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_devices_gui.py started (pid=12992)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_instruments_gui.py started (pid=10728)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_registration_gui.py started (pid=30672)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_start_gui.py started (pid=30752)
+⏹ init_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=30940)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+⏹ lib_gui.py exited (rc=0)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_command_gui.py started (pid=31136)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_configuration_gui.py started (pid=31332)
+▶ mainframe_sensor_control_gui.py started (pid=31612)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_stage_control_gui.py started (pid=31736)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_tec_control_gui.py started (pid=30880)
+▶ sub_add_btn_gui.py started (pid=31960)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_area_scan_setting_gui.py started (pid=32252)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_connect_config_gui.py started (pid=32640)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_data_window_setting_gui.py started (pid=32576)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=33156)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_laser_sweep_setting_gui.py started (pid=33460)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_limit_setting_gui.py started (pid=33784)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound

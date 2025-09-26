@@ -6,7 +6,7 @@ from LDC.ldc_controller import SrsLdc502
 @dataclass
 class LDCConfiguration:
     """
-    Configuration for SRS LDC502 controller at 347. Does not support LD control
+    Configuration for SRS LDC502 controller at Probe_Stage. Does not support LD control
    
     TODO:
         For other stages, the additional configuration needs to be done to support LD control

@@ -182,7 +182,7 @@ class LaserHAL(ABC):
 ######################################################################
 # Sweep functions 
 # Keysight devices require arming and configuring the
-# Trigger as well, see nir.py in 347 for an example of
+# Trigger as well, see nir.py in Probe_Stage for an example of
 # How to do internal triggering for a continous lambda 
 # Sweep
 ######################################################################
