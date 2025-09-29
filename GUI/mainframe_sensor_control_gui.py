@@ -401,6 +401,40 @@ class stage_control(App):
             file = File("command", "command", new_command)
             file.save()
 
+    def apply_detector_range(self, range_dbm, channel):
+        """Apply detector range setting via shared memory"""
+        try:
+            # Store range setting in shared memory for stage control to read
+            range_data = {
+                "channel": channel,
+                "range_dbm": range_dbm,
+                "timestamp": datetime.datetime.now().isoformat()
+            }
+            file = File("shared_memory", f"DetectorRange_Ch{channel}", range_data)
+            file.save()
+            print(f"Saved detector range {range_dbm} dBm for channel {channel} to shared memory")
+            return True
+        except Exception as e:
+            print(f"Error saving detector range: {e}")
+            return False
+
+    def apply_detector_reference(self, ref_dbm, channel):
+        """Apply detector reference setting via shared memory"""
+        try:
+            # Store reference setting in shared memory for stage control to read
+            ref_data = {
+                "channel": channel,
+                "ref_dbm": ref_dbm,
+                "timestamp": datetime.datetime.now().isoformat()
+            }
+            file = File("shared_memory", f"DetectorReference_Ch{channel}", ref_data)
+            file.save()
+            print(f"Saved detector reference {ref_dbm} dBm for channel {channel} to shared memory")
+            return True
+        except Exception as e:
+            print(f"Error saving detector reference: {e}")
+            return False
+
     def on_close(self):
         # Signal closing with the e"x"it button
         self.configuration["sensor"] = "" # clear hardware instance

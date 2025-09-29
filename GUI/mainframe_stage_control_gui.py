@@ -125,6 +125,24 @@ class stage_control(App):
                     self.web = data.get("Web", "")
                     self.file_format = data.get("FileFormat", {})
                     self.file_path = data.get("FilePath", "")
+                    
+                    # Read detector range and reference settings
+                    detector_range_ch1 = data.get("DetectorRange_Ch1", {})
+                    detector_range_ch2 = data.get("DetectorRange_Ch2", {})
+                    detector_ref_ch1 = data.get("DetectorReference_Ch1", {})
+                    detector_ref_ch2 = data.get("DetectorReference_Ch2", {})
+                    
+                    # Apply detector settings if NIR manager is available
+                    if hasattr(self, 'nir_manager') and self.nir_manager and self.configuration_sensor == 1:
+                        if detector_range_ch1.get("range_dbm") is not None:
+                            self.nir_manager.set_power_range(detector_range_ch1["range_dbm"], 1)
+                        if detector_range_ch2.get("range_dbm") is not None:
+                            self.nir_manager.set_power_range(detector_range_ch2["range_dbm"], 2)
+                        if detector_ref_ch1.get("ref_dbm") is not None:
+                            self.nir_manager.set_power_reference(detector_ref_ch1["ref_dbm"], 1)
+                        if detector_ref_ch2.get("ref_dbm") is not None:
+                            self.nir_manager.set_power_reference(detector_ref_ch2["ref_dbm"], 2)
+                            
             except Exception as e:
                 print(f"[Warn] read json failed: {e}")
 
@@ -1442,6 +1460,40 @@ class stage_control(App):
             print("stage record")
             file = File("command", "command", new_command)
             file.save()
+
+    def apply_detector_range(self, range_dbm, channel):
+        """Apply detector range setting via NIR manager"""
+        try:
+            if self.nir_manager and self.configuration_sensor == 1:
+                success = self.nir_manager.set_power_range(range_dbm, channel)
+                if success:
+                    print(f"Applied detector range {range_dbm} dBm to channel {channel}")
+                else:
+                    print(f"Failed to apply detector range {range_dbm} dBm to channel {channel}")
+                return success
+            else:
+                print("NIR manager not available")
+                return False
+        except Exception as e:
+            print(f"Error applying detector range: {e}")
+            return False
+
+    def apply_detector_reference(self, ref_dbm, channel):
+        """Apply detector reference setting via NIR manager"""
+        try:
+            if self.nir_manager and self.configuration_sensor == 1:
+                success = self.nir_manager.set_power_reference(ref_dbm, channel)
+                if success:
+                    print(f"Applied detector reference {ref_dbm} dBm to channel {channel}")
+                else:
+                    print(f"Failed to apply detector reference {ref_dbm} dBm to channel {channel}")
+                return success
+            else:
+                print("NIR manager not available")
+                return False
+        except Exception as e:
+            print(f"Error applying detector reference: {e}")
+            return False
 
 
 def get_local_ip():
