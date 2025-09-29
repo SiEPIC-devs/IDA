@@ -1,6 +1,6 @@
 {
   "User": "Guest",
-  "Project": "MyProject",
+  "Project": "MyTest",
   "User_add": "Guest",
   "Image": "TSP/none.png",
   "Web": "",
@@ -10,7 +10,7 @@
     "png": 1,
     "pdf": 1
   },
-  "FilePath": "",
+  "FilePath": "C:\\Users\\347\\Desktop",
   "Limit": {
     "x": "Yes",
     "y": "Yes",

@@ -1,594 +1,106 @@
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-Position read error: WriteFile failed (PermissionError(13, 'Access is denied.', None, 5))
-▶ camera_gui.py started (pid=748)
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:38,059 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:39,074 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:40,088 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:41,103 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:42,113 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:43,120 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:44,132 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:45,145 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:46,149 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:47,160 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:48,161 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:49,169 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:50,171 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:51,178 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:52,190 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:53,202 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:54,204 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:55,212 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:06:56,225 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+▶ camera_gui.py started (pid=4184)
 ⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=3036)
+▶ init_gui.py started (pid=17668)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ lib_gui.py started (pid=8492)
+▶ lib_gui.py started (pid=24644)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_devices_gui.py started (pid=5344)
+▶ main_devices_gui.py started (pid=42344)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_instruments_gui.py started (pid=400)
+▶ main_instruments_gui.py started (pid=19116)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_registration_gui.py started (pid=5460)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ main_start_gui.py started (pid=15444)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ main_testing_gui.py started (pid=9424)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_command_gui.py started (pid=9712)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_configuration_gui.py started (pid=16196)
-▶ mainframe_sensor_control_gui.py started (pid=10272)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_stage_control_gui.py started (pid=10676)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_tec_control_gui.py started (pid=6368)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_add_btn_gui.py started (pid=12600)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_area_scan_setting_gui.py started (pid=10960)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_connect_config_gui.py started (pid=3960)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_data_window_setting_gui.py started (pid=1920)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_fine_align_setting_gui.py started (pid=2676)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_laser_sweep_setting_gui.py started (pid=3648)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_limit_setting_gui.py started (pid=2736)
+▶ main_registration_gui.py started (pid=19696)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
 ⏹ init_gui.py exited (rc=0)
+▶ main_start_gui.py started (pid=28188)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
 ⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=11312)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_command_gui.py started (pid=19936)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_configuration_gui.py started (pid=29952)
+▶ mainframe_sensor_control_gui.py started (pid=33392)
+  File "C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_sensor_control_gui.py", line 426
+    global app_instance = stage_control()
+                        ^
+SyntaxError: invalid syntax
+⏹ mainframe_sensor_control_gui.py exited (rc=1)
+▶ mainframe_stage_control_gui.py started (pid=35320)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_tec_control_gui.py started (pid=15212)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_add_btn_gui.py started (pid=40608)
+▶ sub_area_scan_setting_gui.py started (pid=24688)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_connect_config_gui.py started (pid=41424)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_data_window_setting_gui.py started (pid=31832)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=1972)
+▶ sub_laser_sweep_setting_gui.py started (pid=18756)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_limit_setting_gui.py started (pid=28488)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
 Welcome To Probe Stage
 {'velocities': {'X': 2000.0, 'Y': 2000.0, 'Z': 2000.0, 'ROTATION_FIBER': 2000.0, 'ROTATION_CHIP': 2000.0}, 'accelerations': {'X': 100.0, 'Y': 100.0, 'Z': 100.0, 'ROTATION_FIBER': 100.0, 'ROTATION_CHIP': 100.0}, 'position_limits': {'X': (-100.0, 25000.0), 'Y': (-100.0, 25000.0), 'Z': (-100.0, 25000.0), 'ROTATION_FIBER': (-100.0, 25000.0), 'ROTATION_CHIP': (-100.0, 25000.0)}, 'position_tolerance': 1.0, 'status_poll_interval': 0.05, 'move_timeout': 30.0, 'driver_types': {'X': 'stage_control', 'Y': 'stage_control', 'Z': 'stage_control', 'ROTATION_FIBER': 'stage_control', 'ROTATION_CHIP': 'stage_control'}}
 motors.stage_manager INFO     Shared memory initialized
@@ -601,127 +113,475 @@ motors.stage_manager ERROR    Position monitor error: dictionary changed size du
 motors.stage_manager INFO     Axis ROTATION_CHIP initialized successfully
 motors.stage_manager INFO     Axis ROTATION_FIBER initialized successfully
 motors.stage_manager INFO     All axes initialized successfully
-Locked
-Unlocked
-▶ camera_gui.py started (pid=16280)
+Stage Connection Successful
+2025-09-29 14:07:26,182 - INFO - Initializing NIR device...
+NIRManager       INFO     Initializing NIR device...
+2025-09-29 14:07:26,318 - INFO - Connected to NIR device
+NIRManager       INFO     Connected to NIR device
+2025-09-29 14:07:26,337 - INFO - Device configured with current settings
+NIRManager       INFO     Device configured with current settings
+2025-09-29 14:07:26,337 - INFO - NIR initialized successfully
+NIRManager       INFO     NIR initialized successfully
+2025-09-29 14:07:26,349 - INFO - Wavelength set to 1550.0nm
+NIRManager       INFO     Wavelength set to 1550.0nm
+Sensor Connection Successful
+2025-09-29 14:07:26,462 - INFO - Power set to 1.0dBm
+NIRManager       INFO     Power set to 1.0dBm
+C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_stage_control_gui.py:283: RuntimeWarning: coroutine 'StageManager.shutdown' was never awaited
+  self.stage_manager.shutdown()
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+Stage Disconnected
+2025-09-29 14:07:43,838 - INFO - Disconnected from NIR device
+NIRManager       INFO     Disconnected from NIR device
+Sensor Disconnected
+2025-09-29 14:07:43,928 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:44,938 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:45,948 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:46,956 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:47,964 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:48,969 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:49,971 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:50,979 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:51,984 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:52,998 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:54,010 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:55,019 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:56,026 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:57,031 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:58,032 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:07:59,046 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:08:00,049 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:08:01,052 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+2025-09-29 14:08:02,068 - ERROR - Controller not connected
+NIRManager       ERROR    Controller not connected
+▶ camera_gui.py started (pid=18820)
 ⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=4080)
+▶ init_gui.py started (pid=31380)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ lib_gui.py started (pid=18284)
+▶ lib_gui.py started (pid=31876)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_devices_gui.py started (pid=4904)
+▶ main_devices_gui.py started (pid=18932)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_instruments_gui.py started (pid=19348)
+▶ main_instruments_gui.py started (pid=8560)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_registration_gui.py started (pid=19308)
+▶ main_registration_gui.py started (pid=24816)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
 ⏹ init_gui.py exited (rc=0)
-▶ main_start_gui.py started (pid=21764)
+▶ main_start_gui.py started (pid=32352)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_testing_gui.py started (pid=17380)
 ⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=21268)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_command_gui.py started (pid=17424)
+▶ mainframe_command_gui.py started (pid=1492)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_configuration_gui.py started (pid=11912)
-▶ mainframe_sensor_control_gui.py started (pid=2924)
+▶ mainframe_configuration_gui.py started (pid=9012)
+▶ mainframe_sensor_control_gui.py started (pid=29272)
+  File "C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_sensor_control_gui.py", line 429
+    global app_instance = stage_control()
+                        ^
+SyntaxError: invalid syntax
+⏹ mainframe_sensor_control_gui.py exited (rc=1)
+▶ mainframe_stage_control_gui.py started (pid=13092)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_stage_control_gui.py started (pid=23220)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_tec_control_gui.py started (pid=17736)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_add_btn_gui.py started (pid=18468)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_area_scan_setting_gui.py started (pid=23148)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_connect_config_gui.py started (pid=23952)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_data_window_setting_gui.py started (pid=24424)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_fine_align_setting_gui.py started (pid=23604)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_laser_sweep_setting_gui.py started (pid=24752)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_limit_setting_gui.py started (pid=25344)
+▶ mainframe_tec_control_gui.py started (pid=16664)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ camera_gui.py started (pid=20440)
+▶ sub_add_btn_gui.py started (pid=11624)
+▶ sub_area_scan_setting_gui.py started (pid=27372)
+▶ sub_connect_config_gui.py started (pid=31928)
+▶ sub_data_window_setting_gui.py started (pid=27808)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=32824)
+▶ sub_laser_sweep_setting_gui.py started (pid=6796)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_limit_setting_gui.py started (pid=16224)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+Welcome To Probe Stage
+2025-09-29 14:10:50,811 - INFO - Initializing NIR device...
+NIRManager       INFO     Initializing NIR device...
+2025-09-29 14:10:50,979 - INFO - Connected to NIR device
+NIRManager       INFO     Connected to NIR device
+2025-09-29 14:10:50,998 - INFO - Device configured with current settings
+NIRManager       INFO     Device configured with current settings
+2025-09-29 14:10:50,998 - INFO - NIR initialized successfully
+NIRManager       INFO     NIR initialized successfully
+2025-09-29 14:10:51,013 - INFO - Wavelength set to 1550.0nm
+
+NIRManager       INFO     Wavelength set to 1550.0nm
+Sensor Connection Successful
+2025-09-29 14:10:51,125 - INFO - Power set to 1.0dBm
+NIRManager       INFO     Power set to 1.0dBm
+2025-09-29 14:10:57,047 - INFO - Disconnected from NIR device
+NIRManager       INFO     Disconnected from NIR device
+Sensor Disconnected
+▶ camera_gui.py started (pid=38932)
 ⏹ camera_gui.py exited (rc=0)
-▶ init_gui.py started (pid=9468)
+▶ init_gui.py started (pid=28548)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ lib_gui.py started (pid=30452)
+▶ lib_gui.py started (pid=11652)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_devices_gui.py started (pid=12992)
+▶ main_devices_gui.py started (pid=10516)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_instruments_gui.py started (pid=10728)
+▶ main_instruments_gui.py started (pid=3680)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_registration_gui.py started (pid=30672)
+▶ main_registration_gui.py started (pid=16876)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ main_start_gui.py started (pid=30752)
 ⏹ init_gui.py exited (rc=0)
-▶ main_testing_gui.py started (pid=30940)
+▶ main_start_gui.py started (pid=10736)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
 ⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=17968)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_command_gui.py started (pid=31136)
+▶ mainframe_command_gui.py started (pid=35408)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_configuration_gui.py started (pid=31332)
-▶ mainframe_sensor_control_gui.py started (pid=31612)
+▶ mainframe_configuration_gui.py started (pid=30884)
+▶ mainframe_sensor_control_gui.py started (pid=26368)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_stage_control_gui.py started (pid=31736)
+▶ mainframe_stage_control_gui.py started (pid=10352)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_tec_control_gui.py started (pid=32956)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ mainframe_tec_control_gui.py started (pid=30880)
-▶ sub_add_btn_gui.py started (pid=31960)
+▶ sub_add_btn_gui.py started (pid=30508)
+▶ sub_area_scan_setting_gui.py started (pid=36472)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_area_scan_setting_gui.py started (pid=32252)
+▶ sub_connect_config_gui.py started (pid=16916)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_connect_config_gui.py started (pid=32640)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_data_window_setting_gui.py started (pid=32576)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_fine_align_setting_gui.py started (pid=33156)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_laser_sweep_setting_gui.py started (pid=33460)
-C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import get_distribution, DistributionNotFound
-▶ sub_limit_setting_gui.py started (pid=33784)
+▶ sub_data_window_setting_gui.py started (pid=28208)
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
 C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=39928)
+▶ sub_laser_sweep_setting_gui.py started (pid=18324)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_limit_setting_gui.py started (pid=35004)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+----------------------------------------
+Exception occurred during processing of request from ('10.2.113.57', 57163)
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_sensor_control_gui.py", line 12, in __init__
+    super().__init__()
+TypeError: __init__() missing 3 required positional arguments: 'request', 'client_address', and 'server'
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('10.2.113.57', 57165)
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_sensor_control_gui.py", line 12, in __init__
+    super().__init__()
+TypeError: __init__() missing 3 required positional arguments: 'request', 'client_address', and 'server'
+----------------------------------------
+Welcome To Probe Stage
+2025-09-29 14:13:01,888 - INFO - Initializing NIR device...
+NIRManager       INFO     Initializing NIR device...
+2025-09-29 14:13:02,024 - INFO - Connected to NIR device
+NIRManager       INFO     Connected to NIR device
+2025-09-29 14:13:02,044 - INFO - Device configured with current settings
+NIRManager       INFO     Device configured with current settings
+2025-09-29 14:13:02,044 - INFO - NIR initialized successfully
+NIRManager       INFO     NIR initialized successfully
+2025-09-29 14:13:02,062 - INFO - Wavelength set to 1550.0nm
+NIRManager       INFO     Wavelength set to 1550.0nm
+Sensor Connection Successful
+----------------------------------------
+Exception occurred during processing of request from ('10.2.113.57', 57246)
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_sensor_control_gui.py", line 12, in __init__
+    super().__init__()
+TypeError: __init__() missing 3 required positional arguments: 'request', 'client_address', and 'server'
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('10.2.113.57', 57247)
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_sensor_control_gui.py", line 12, in __init__
+    super().__init__()
+TypeError: __init__() missing 3 required positional arguments: 'request', 'client_address', and 'server'
+----------------------------------------
+2025-09-29 14:13:02,171 - INFO - Power set to 1.0dBm
+NIRManager       INFO     Power set to 1.0dBm
+----------------------------------------
+Exception occurred during processing of request from ('10.2.113.57', 57248)
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_sensor_control_gui.py", line 12, in __init__
+    super().__init__()
+TypeError: __init__() missing 3 required positional arguments: 'request', 'client_address', and 'server'
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('10.2.113.57', 57249)
+Traceback (most recent call last):
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\347\AppData\Local\Programs\Python\Python39\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\347\Desktop\Probe_Stage\Probe_Stage\GUI\mainframe_sensor_control_gui.py", line 12, in __init__
+    super().__init__()
+TypeError: __init__() missing 3 required positional arguments: 'request', 'client_address', and 'server'
+----------------------------------------
+2025-09-29 14:13:09,614 - INFO - Disconnected from NIR device
+NIRManager       INFO     Disconnected from NIR device
+Sensor Disconnected
+▶ camera_gui.py started (pid=18248)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=30228)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ lib_gui.py started (pid=42080)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_devices_gui.py started (pid=42136)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_instruments_gui.py started (pid=23676)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_registration_gui.py started (pid=20088)
+⏹ init_gui.py exited (rc=0)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_start_gui.py started (pid=22176)
+⏹ lib_gui.py exited (rc=0)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_testing_gui.py started (pid=27264)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_command_gui.py started (pid=27824)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_configuration_gui.py started (pid=11816)
+▶ mainframe_sensor_control_gui.py started (pid=21936)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_stage_control_gui.py started (pid=428)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_tec_control_gui.py started (pid=25668)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_add_btn_gui.py started (pid=34144)
+▶ sub_area_scan_setting_gui.py started (pid=35144)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_connect_config_gui.py started (pid=36316)
+▶ sub_data_window_setting_gui.py started (pid=5660)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=27928)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_laser_sweep_setting_gui.py started (pid=36784)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_limit_setting_gui.py started (pid=23036)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+Welcome To Probe Stage
+▶ camera_gui.py started (pid=20540)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=39116)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ lib_gui.py started (pid=34440)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_devices_gui.py started (pid=21964)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_instruments_gui.py started (pid=22744)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_registration_gui.py started (pid=36592)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+⏹ init_gui.py exited (rc=0)
+▶ main_start_gui.py started (pid=38204)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=13044)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_command_gui.py started (pid=23388)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_configuration_gui.py started (pid=16676)
+▶ mainframe_sensor_control_gui.py started (pid=18580)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_stage_control_gui.py started (pid=16824)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_tec_control_gui.py started (pid=41428)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_add_btn_gui.py started (pid=31044)
+▶ sub_area_scan_setting_gui.py started (pid=21668)
+▶ sub_connect_config_gui.py started (pid=30944)
+▶ sub_data_window_setting_gui.py started (pid=36624)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=38140)
+▶ sub_laser_sweep_setting_gui.py started (pid=15012)
+▶ sub_limit_setting_gui.py started (pid=25332)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+Welcome To Probe Stage
+▶ camera_gui.py started (pid=27340)
+⏹ camera_gui.py exited (rc=0)
+▶ init_gui.py started (pid=31200)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ lib_gui.py started (pid=11684)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_devices_gui.py started (pid=32732)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_instruments_gui.py started (pid=41028)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ main_registration_gui.py started (pid=19648)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+⏹ init_gui.py exited (rc=0)
+▶ main_start_gui.py started (pid=26424)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+⏹ lib_gui.py exited (rc=0)
+▶ main_testing_gui.py started (pid=32368)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_command_gui.py started (pid=26228)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_configuration_gui.py started (pid=26448)
+▶ mainframe_sensor_control_gui.py started (pid=15176)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_stage_control_gui.py started (pid=25628)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ mainframe_tec_control_gui.py started (pid=35748)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_add_btn_gui.py started (pid=41996)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_area_scan_setting_gui.py started (pid=42948)
+▶ sub_connect_config_gui.py started (pid=28252)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_data_window_setting_gui.py started (pid=9400)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_fine_align_setting_gui.py started (pid=40712)
+▶ sub_laser_sweep_setting_gui.py started (pid=37960)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+▶ sub_limit_setting_gui.py started (pid=6080)
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+C:\Users\347\Desktop\Probe_Stage\.venv\lib\site-packages\remi\__init__.py:34: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import get_distribution, DistributionNotFound
+Welcome To Probe Stage

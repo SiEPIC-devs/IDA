@@ -1,4 +1,5 @@
 import sys, pathlib, subprocess, threading, os, time, platform, signal
+import atexit
 
 # # ────────── Configuration ───────────
 # PROJECT_ROOT = pathlib.Path(__file__).resolve().parent
@@ -257,13 +258,22 @@ def terminate_all():
     FILE_LOG.write_line("⏹ Terminating all subprocesses...")
     for proc in processes:
         try:
+            print("Pre windows check")
             if platform.system() == "Windows":
                 proc.send_signal(signal.CTRL_BREAK_EVENT)
                 time.sleep(0.2)
+            print("Pre termination:", proc.returncode)
             proc.terminate()
+            print("Post termination:", proc.returncode if proc is not None else None)
+            if proc.poll() is None:
+                proc.kill()
+            print("Post force:", proc.returncode if proc is not None else None)
             FILE_LOG.write_line(f"✔ Terminated PID {proc.pid}")
         except Exception as e:
             FILE_LOG.write_line(f"⚠️ Failed to terminate PID {proc.pid}: {e}")
+        # Log file cleanup
+        time.sleep(1)
+        FILE_LOG.close()
 
 def main():
     if platform.system() != "Windows":
@@ -289,7 +299,13 @@ def main():
         for th in threads:
             th.join()
     except KeyboardInterrupt:
+        print("DEBUG: THIS IS A INTERRUPT")
+        terminate_all()
+    except Exception as e:
+        print(f"DEBUG: EXCPETION: {e!r}")
         terminate_all()
 
 if __name__ == "__main__":
+    # atexit.register(terminate_all)
+    # signal.signal(signal.SIGTERM, lambda sig, frame: terminate_all())
     main()

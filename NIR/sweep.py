@@ -296,7 +296,6 @@ class HP816xLambdaScan:
         bottom = float(start_nm)
         for seg in tqdm(range(segments), desc="Lambda Scan Stitching", unit="seg"):
             if self._cancel:
-                print("SHOULD BE CANCELLLL !!!!!!!!!!!!!")
                 raise RuntimeError("Cancelling Lambda Scan Stitching")
             planned_top = bottom + (eff_points_budget - 1) * step_nm
             top = min(planned_top, float(stop_nm))
@@ -398,7 +397,9 @@ class HP816xLambdaScan:
             bottom = top + step_nm
 
         # Fill last sample if instrument left it NaN after stitching
+        DBM_FLOOR = -80 # dBm
         for ch in channels:
+            np.clip(out_by_ch[ch], a_min=DBM_FLOOR, a_max=None, out=out_by_ch[ch])
             if n_target >= 2 and np.isnan(out_by_ch[ch][-1]):
                 nz = np.where(~np.isnan(out_by_ch[ch]))[0]
                 if nz.size:
@@ -413,7 +414,6 @@ class HP816xLambdaScan:
         }
 
     def cancel(self):
-        print("AJHHHHHHHHHHHHHHHHHHHHHH CANCEL")
         self._cancel = True
         self.disconnect()
     def disconnect(self):

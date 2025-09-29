@@ -401,6 +401,13 @@ class stage_control(App):
             file = File("command", "command", new_command)
             file.save()
 
+    def on_close(self):
+        # Signal closing with the e"x"it button
+        self.configuration["sensor"] = "" # clear hardware instance
+        file = File("shared_memory", "Configuration", self.configuration)
+        file.save()
+        sys.exit(0) # closes this process
+
 def get_local_ip():
     """Automatically detect local LAN IP address"""
     try:
@@ -458,3 +465,4 @@ if __name__ == '__main__':
     )
 
     webview.start(func=disable_scroll)
+    sys.exit(0)

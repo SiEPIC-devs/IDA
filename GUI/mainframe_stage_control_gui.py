@@ -420,10 +420,10 @@ class stage_control(App):
                 ch1, ch2 = self.nir_manager.read_power()
                 self.ch1_val.set_text(str(ch1))
                 self.ch2_val.set_text(str(ch2))
-                time.sleep(2)
+                time.sleep(1)
             else:
                 print("### Waiting ###")
-                time.sleep(2)
+                time.sleep(1)
 
     def do_auto_sweep(self):
         device_count = len(self.filter)
