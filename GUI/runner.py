@@ -1,5 +1,6 @@
 import sys, pathlib, subprocess, threading, os, time, platform, signal
 import atexit
+import ctypes, ctypes.wintypes as wt
 
 # # ────────── Configuration ───────────
 # PROJECT_ROOT = pathlib.Path(__file__).resolve().parent
@@ -39,6 +40,65 @@ KEEP_LINES = 500
 TRIM_THRESHOLD = 750
 # ───────────────────────────────────
 
+# --- Windows job object to kill whole process trees on exit ---
+if platform.system() == "Windows":
+    _kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+
+    # Structs for JOBOBJECT_EXTENDED_LIMIT_INFORMATION (subset we need)
+    class JOBOBJECT_BASIC_LIMIT_INFORMATION(ctypes.Structure):
+        _fields_ = [
+            ("PerProcessUserTimeLimit", wt.LARGE_INTEGER),
+            ("PerJobUserTimeLimit", wt.LARGE_INTEGER),
+            ("LimitFlags", wt.DWORD),
+            ("MinimumWorkingSetSize", ctypes.c_size_t),
+            ("MaximumWorkingSetSize", ctypes.c_size_t),
+            ("ActiveProcessLimit", wt.DWORD),
+            ("Affinity", ctypes.c_size_t),
+            ("PriorityClass", wt.DWORD),
+            ("SchedulingClass", wt.DWORD),
+        ]
+
+    class IO_COUNTERS(ctypes.Structure):
+        _fields_ = [("ReadOperationCount", ctypes.c_ulonglong),
+                    ("WriteOperationCount", ctypes.c_ulonglong),
+                    ("OtherOperationCount", ctypes.c_ulonglong),
+                    ("ReadTransferCount", ctypes.c_ulonglong),
+                    ("WriteTransferCount", ctypes.c_ulonglong),
+                    ("OtherTransferCount", ctypes.c_ulonglong)]
+
+    class JOBOBJECT_EXTENDED_LIMIT_INFORMATION(ctypes.Structure):
+        _fields_ = [
+            ("BasicLimitInformation", JOBOBJECT_BASIC_LIMIT_INFORMATION),
+            ("IoInfo", IO_COUNTERS),
+            ("ProcessMemoryLimit", ctypes.c_size_t),
+            ("JobMemoryLimit", ctypes.c_size_t),
+            ("PeakProcessMemoryUsed", ctypes.c_size_t),
+            ("PeakJobMemoryUsed", ctypes.c_size_t),
+        ]
+
+    JobObjectExtendedLimitInformation = 9
+    JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE = 0x00002000
+
+    def _create_kill_on_close_job():
+        hJob = _kernel32.CreateJobObjectW(None, None)
+        if not hJob:
+            raise OSError("CreateJobObjectW failed")
+
+        info = JOBOBJECT_EXTENDED_LIMIT_INFORMATION()
+        info.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+
+        res = _kernel32.SetInformationJobObject(
+            hJob, JobObjectExtendedLimitInformation,
+            ctypes.byref(info), ctypes.sizeof(info)
+        )
+        if not res:
+            raise OSError("SetInformationJobObject failed")
+
+        return hJob
+
+    def _assign_to_job(proc_handle, hJob):
+        if not _kernel32.AssignProcessToJobObject(hJob, proc_handle):
+            raise OSError("AssignProcessToJobObject failed")
 
 assert (PROJECT_ROOT / "GUI").is_dir()
 assert (PROJECT_ROOT / "motors").is_dir()
@@ -204,6 +264,17 @@ FILE_LOG = LastNFileLogger(LOG_FILE, keep_lines=KEEP_LINES, threshold=TRIM_THRES
 # Track subprocesses globally
 processes = []
 
+# Create job object on Windows for automatic process tree cleanup
+if platform.system() == "Windows":
+    try:
+        _hJob = _create_kill_on_close_job()
+        FILE_LOG.write_line("✓ Windows Job Object created for process tree management")
+    except Exception as e:
+        _hJob = None
+        FILE_LOG.write_line(f"⚠️ Failed to create Job Object: {e}")
+else:
+    _hJob = None
+
 def _quote(p: pathlib.Path) -> str:
     s = str(p)
     return f'"{s}"' if any(ch in s for ch in (' ', '(', ')')) else s
@@ -244,6 +315,15 @@ def start_gui(path: pathlib.Path):
         env=env,
         creationflags=creation
     )
+    
+    # Assign process to job object on Windows
+    if platform.system() == "Windows" and _hJob:
+        try:
+            _assign_to_job(proc._handle, _hJob)
+            FILE_LOG.write_line(f"✓ Process {proc.pid} assigned to job object")
+        except Exception as e:
+            FILE_LOG.write_line(f"⚠️ Failed to assign process {proc.pid} to job: {e}")
+    
     processes.append(proc)
     FILE_LOG.write_line(f"▶ {path.name} started (pid={proc.pid})")
 
@@ -255,25 +335,65 @@ def start_gui(path: pathlib.Path):
     FILE_LOG.write_line(f"⏹ {path.name} exited (rc={rc})")
 
 def terminate_all():
+    """Enhanced termination with escalating strategies"""
     FILE_LOG.write_line("⏹ Terminating all subprocesses...")
-    for proc in processes:
-        try:
-            print("Pre windows check")
-            if platform.system() == "Windows":
-                proc.send_signal(signal.CTRL_BREAK_EVENT)
-                time.sleep(0.2)
-            print("Pre termination:", proc.returncode)
-            proc.terminate()
-            print("Post termination:", proc.returncode if proc is not None else None)
-            if proc.poll() is None:
-                proc.kill()
-            print("Post force:", proc.returncode if proc is not None else None)
-            FILE_LOG.write_line(f"✔ Terminated PID {proc.pid}")
-        except Exception as e:
-            FILE_LOG.write_line(f"⚠️ Failed to terminate PID {proc.pid}: {e}")
-        # Log file cleanup
-        time.sleep(1)
+    
+    if not processes:
+        FILE_LOG.write_line("No processes to terminate")
         FILE_LOG.close()
+        return
+    
+    # Strategy 1: Graceful termination
+    FILE_LOG.write_line("Step 1: Attempting graceful termination...")
+    for proc in processes[:]:
+        if proc.poll() is None:  # Still running
+            try:
+                if platform.system() == "Windows":
+                    proc.send_signal(signal.CTRL_BREAK_EVENT)
+                else:
+                    proc.terminate()
+                FILE_LOG.write_line(f"✓ Sent termination signal to PID {proc.pid}")
+            except Exception as e:
+                FILE_LOG.write_line(f"⚠️ Failed to send termination to PID {proc.pid}: {e}")
+    
+    # Wait for graceful shutdown
+    time.sleep(2.0)
+    
+    # Strategy 2: Force termination for stubborn processes
+    remaining = [p for p in processes if p.poll() is None]
+    if remaining:
+        FILE_LOG.write_line(f"Step 2: Force terminating {len(remaining)} remaining processes...")
+        for proc in remaining:
+            try:
+                proc.terminate()
+                FILE_LOG.write_line(f"✓ Force terminated PID {proc.pid}")
+            except Exception as e:
+                FILE_LOG.write_line(f"⚠️ Failed to force terminate PID {proc.pid}: {e}")
+        
+        time.sleep(1.0)
+    
+    # Strategy 3: Kill remaining processes
+    still_remaining = [p for p in processes if p.poll() is None]
+    if still_remaining:
+        FILE_LOG.write_line(f"Step 3: Killing {len(still_remaining)} stubborn processes...")
+        for proc in still_remaining:
+            try:
+                proc.kill()
+                FILE_LOG.write_line(f"✓ Killed PID {proc.pid}")
+            except Exception as e:
+                FILE_LOG.write_line(f"⚠️ Failed to kill PID {proc.pid}: {e}")
+    
+    # Final status report
+    final_remaining = [p for p in processes if p.poll() is None]
+    if final_remaining:
+        FILE_LOG.write_line(f"⚠️ {len(final_remaining)} processes still running after all termination attempts")
+        for proc in final_remaining:
+            FILE_LOG.write_line(f"   - PID {proc.pid} still running")
+    else:
+        FILE_LOG.write_line("✅ All processes terminated successfully")
+    
+    # Close log
+    FILE_LOG.close()
 
 def main():
     if platform.system() != "Windows":
@@ -305,7 +425,27 @@ def main():
         print(f"DEBUG: EXCPETION: {e!r}")
         terminate_all()
 
+# Windows console close handler
+if platform.system() == "Windows":
+    def _console_ctrl_handler(ctrl_type):
+        """Handle console close events on Windows"""
+        if ctrl_type in (0, 2, 5, 6):  # CTRL_C, CTRL_CLOSE, CTRL_LOGOFF, CTRL_SHUTDOWN
+            FILE_LOG.write_line(f"Console close event detected (type={ctrl_type})")
+            terminate_all()
+            return True
+        return False
+    
+    try:
+        import ctypes.wintypes
+        _kernel32.SetConsoleCtrlHandler(
+            ctypes.WINFUNCTYPE(ctypes.wintypes.BOOL, ctypes.wintypes.DWORD)(_console_ctrl_handler),
+            True
+        )
+        FILE_LOG.write_line("✓ Console close handler registered")
+    except Exception as e:
+        FILE_LOG.write_line(f"⚠️ Failed to register console handler: {e}")
+
 if __name__ == "__main__":
-    # atexit.register(terminate_all)
-    # signal.signal(signal.SIGTERM, lambda sig, frame: terminate_all())
+    atexit.register(terminate_all)
+    signal.signal(signal.SIGTERM, lambda sig, frame: terminate_all())
     main()
