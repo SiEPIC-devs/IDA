@@ -1,0 +1,20 @@
+# Ignore cached and venv
+.venv/
+venv/
+build/
+dist/
+.idea/
+__pycache__/
+*/__pycache__/
+*.pyc
+.vscode/
+GUI/UserData/
+GUI/database/
+GUI/res/TSP/
+GUI/res/spectral_sweep/
+GUI/res/ova_sweep/
+GUI/res/
+GUI/log.txt
+GUI/database/shared_memory.json
+NIR/Luna/output.txt
+
