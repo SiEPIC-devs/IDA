@@ -66,7 +66,7 @@ class FineAlign:
         #         head_i = 1 
         #     self.slots = [[0, slot_i, head_i]]
         self.primary_detector = config.get("primary_detector", "Max")
-        raw_slots = config.get("slot", [[0, 1, 0]])  # mf, slot, head
+        raw_slots = config.get("slots", config.get("slot", [[0, 1, 0]]))  # mf, slot, head
 
         if isinstance(raw_slots, int):
             slots = [[0, raw_slots, 0]]
@@ -87,13 +87,15 @@ class FineAlign:
             if not m:
                 raise ValueError(f'primary_detector looks like "chX" but no number found: {self.primary_detector!r}')
             num = int(m[0])
-            # Convert ch number to slot/head
-            # ch1->ch2 are slot=1, ch3->ch4 are slot=2, etc.
             ch_index = num - 1  # Convert to 0-based index
-            slot_i = (ch_index // 2) + 1  # slot number (1-based)
-            head_i = ch_index % 2  # head 0 or 1
 
-            self.slots = [[1, slot_i, head_i]]  # mf=1 for this hardware
+            # Direct lookup from slot_info: CH1=slots[0], CH2=slots[1], etc.
+            if ch_index < len(slots):
+                self.slots = [slots[ch_index]]
+            else:
+                self.log(f"WARNING: ch{num} requested but only {len(slots)} slots available; "
+                         f"using first slot", "error")
+                self.slots = [slots[0]]
 
         self.ref_wl = config.get("ref_wl", 1550.0)
         self.secondary_wl = config.get("secondary_wl", 1540)
@@ -101,7 +103,7 @@ class FineAlign:
         self.timeout_s = float(config.get("timeout_s", 180.0))
         self._start_time = 0.0
 
-        self.log(f"FineAlign initialized with detector: {self.primary_detector}", "info")
+        self.log(f"FineAlign initialized with detector: {self.primary_detector}, slots: {self.slots}", "info")
         self._stop_requested = False
 
         # Tracking
@@ -189,6 +191,11 @@ class FineAlign:
                                                wait_for_completion=True)
             await self.stage_manager.move_axis(AxisType.Y, self.best_position[1], relative=False,
                                                wait_for_completion=True)
+
+            final_check = self.get_power()
+            self.log(f"Fine align complete: {final_check:.2f} dBm at "
+                     f"({self.best_position[0]:.3f}, {self.best_position[1]:.3f})", "info")
+
             self._report(100.0, "Fine alignment: completed")
             return True
 
@@ -256,24 +263,22 @@ class FineAlign:
                         best_pos = [x.actual, y.actual]
                         self.lowest_loss = best_loss
                         if best_loss >= self.threshold:
-                            # self.log(f"Threshold {self.threshold} met, skipping spiral")
                             self.log(f"Threshold {self.threshold} met, skipping spiral", "info")
+                            self.best_position = best_pos
                             self.spiral_threshold_met = True
                             return True
-                        
+
                     covered += 1
                     self._report(100.0 * covered / total_moves, f"Spiral: step {covered}/{total_moves}")
 
                 if self._cancelled():
                     break
-                
+
                 # Y sweep
                 for _ in range(num_steps):
                     if self._cancelled():
                         break
                     await self.stage_manager.move_axis(AxisType.Y, step * direction, relative=True, wait_for_completion=True)
-                    # lm, ls = self.nir_manager.read_power(slot=self.slot)
-                    # val = self._select_detector_channel(lm, ls)
                     val = self.get_power()
                     if val > best_loss:
                         best_loss = val
@@ -283,6 +288,7 @@ class FineAlign:
                         self.lowest_loss = best_loss
                         if best_loss >= self.threshold:
                             self.log(f"Threshold {self.threshold} met, skipping spiral", "info")
+                            self.best_position = best_pos
                             self.spiral_threshold_met = True
                             return True
                     covered += 1
@@ -336,20 +342,22 @@ class FineAlign:
                 self.best_position = [x.actual, y.actual]
 
             current = self.get_power()
-            self.lowest_loss = current
+            # Preserve spiral's proven best — noise can make re-read worse
+            self.lowest_loss = max(self.lowest_loss, current)
 
             # Step schedule
             total_shrink = max(0.0, self.step_size - self.min_gradient_ss)
             grad_step = self.grad_step if self.grad_step > 0 else (total_shrink / iters)
 
             if self.spiral_threshold_met:
-                # If threshold is met during spiral search
-                # Limit step size for faster convergence
-                ss = self.step_size if self.step_size < 3.0 else 3.0 
+                # Threshold met: spiral was close; start at half step for refinement
+                ss = min(self.step_size, 3.0) / 2.0
             else:
-                # Otherwise, we are too far away from 
-                # Convergence
-                ss = self.step_size
+                # Spiral already searched at full step; refine at half
+                ss = self.step_size / 2.0
+
+            # Recompute grad_step based on actual starting step size
+            grad_step = max(0.01, (ss - self.min_gradient_ss) / max(1, iters))
             
             # Probe order: +/-X then +/-Y
             axes = [(AxisType.X, +1), (AxisType.X, -1), (AxisType.Y, +1), (AxisType.Y, -1)]
@@ -397,18 +405,38 @@ class FineAlign:
                     y = await self.stage_manager.get_position(AxisType.Y)
                     self.best_position = [x.actual, y.actual]
 
-                    # If the delta between the best val and lowest loss is too
-                    # Small, then exit. 
-                    if abs(self.lowest_loss - best_val) <= 0.1:
-                        self.log("Gradient descent converged early "
-                        f"(delta:{abs(self.lowest_loss - best_val)})",
-                                  "info")
-                        return True
+                    # Line search: continue in winning direction while improving
+                    for _ls in range(3):
+                        await self.stage_manager.move_axis(
+                            best_axis, ss * best_dir, relative=True, wait_for_completion=True)
+                        ls_val = self.get_power()
+                        if ls_val > best_val:
+                            best_val = ls_val
+                            x = await self.stage_manager.get_position(AxisType.X)
+                            y = await self.stage_manager.get_position(AxisType.Y)
+                            self.best_position = [x.actual, y.actual]
+                        else:
+                            # Undo last step that didn't improve
+                            await self.stage_manager.move_axis(
+                                best_axis, -ss * best_dir, relative=True, wait_for_completion=True)
+                            break
+
+                    improvement = best_val - self.lowest_loss
                     self.lowest_loss = best_val
                     current = best_val
 
                     self._report(min(99.0, 100.0 * probes_done / total_probes),
                                  f"Gradient: improved -> {self.lowest_loss:.2f} dBm")
+
+                    # Marginal improvement -> shrink step to probe finer, don't exit
+                    if improvement <= 0.05:
+                        self.log(f"Gradient: marginal gain ({improvement:.3f} dB) at ss={ss:.3f}, "
+                                 f"shrinking step", "info")
+                        if ss <= self.min_gradient_ss:
+                            if tried_min_step:
+                                break
+                            tried_min_step = True
+                        ss = max(self.min_gradient_ss, ss - grad_step)
 
 
                 else:

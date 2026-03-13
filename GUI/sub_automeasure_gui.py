@@ -23,18 +23,24 @@ class AutoSweepConfig(App):
         # Cached sweep block
         self.sweep = {}
 
-        # Widgets
-        self.power = None
-        self.step_size = None
-        self.start_wvl = None
-        self.stop_wvl = None
-        self.range_mode_dd = None
-        self.manual_range = None
-        self.ref_value = None
-        self.detector = None
-        self.confirm_btn = None
+        # EO settings widgets
+        self.eo_bias_voltage = None
+        self.eo_step_down = None
+        self.eo_force_contact = None
+        self.eo_min_current = None
+        self.eo_current_stable = None
+        self.eo_stable_count = None
+        self.eo_max_force = None
+        self.eo_retract_step = None
+        self.eo_retract_final = None
+        self.eo_max_descent = None
+        self.eo_max_retract = None
+
+        # Button widgets
         self.detector_window_btn = None
-        self.fine_align_btn = None  # NEW
+        self.fine_align_btn = None
+        self.laser_sweep_btn = None
+        self.confirm_btn = None
 
         # REMI init (support editing_mode)
         editing_mode = kwargs.pop("editing_mode", False)
@@ -81,7 +87,8 @@ class AutoSweepConfig(App):
         return ui
 
     def idle(self):
-        """Reload when shared_memory.json changes on disk."""
+        """Track shared_memory changes but do NOT reload user-editable fields.
+        Fields are loaded once in main() and refreshed after onclick_confirm()."""
         stime = get_shared_memory_mtime()
 
         if self._first_check:
@@ -91,7 +98,7 @@ class AutoSweepConfig(App):
 
         if stime != self._user_stime:
             self._user_stime = stime
-            self._load_from_shared()
+            # Only track mtime; do not overwrite user edits
 
     # ---------------- UTIL ----------------
 
@@ -119,246 +126,125 @@ class AutoSweepConfig(App):
             variable_name="auto_sweep_container",
             left=0,
             top=0,
-            width=280,
-            height=260,
+            width=330,
+            height=520,
         )
 
+        btn_w = 120
+        btn_h = 28
+        btn_left = 105
         y = 10
+        btn_row_h = 32
         row_h = 28
 
-        # Detector window launch settings
+        # --- Buttons row ---
+        # Detector Window button
         self.detector_window_btn = StyledButton(
             container=root,
             text="Detector Window",
             variable_name="detector_window_btn",
-            left=105,
+            left=btn_left,
             top=y,
-            width=100,
-            height=24,
+            width=btn_w,
+            height=btn_h,
             font_size=90,
         )
         self.detector_window_btn.do_onclick(
             lambda *_: self.run_in_thread(self.onclick_detector_window)
         )
 
-        # Fine Align button (directly below Detector Window)  # NEW
-        y += row_h
+        # Fine Align button
+        y += btn_row_h
         self.fine_align_btn = StyledButton(
             container=root,
             text="Fine Align",
             variable_name="fine_align_btn",
-            left=105,
+            left=btn_left,
             top=y,
-            width=100,
-            height=24,
+            width=btn_w,
+            height=btn_h,
             font_size=90,
         )
         self.fine_align_btn.do_onclick(
             lambda *_: self.run_in_thread(self.onclick_fine_align)
         )
-        # Power
-        y += row_h
 
-        StyledLabel(
+        # Laser Sweep button
+        y += btn_row_h
+        self.laser_sweep_btn = StyledButton(
             container=root,
-            text="Power",
-            variable_name="power_lb",
-            left=5,
+            text="Laser Sweep",
+            variable_name="laser_sweep_btn",
+            left=btn_left,
             top=y,
-            width=95,
-            height=row_h,
-            font_size=100,
-            flex=True,
-            justify_content="right",
-            color="#222",
+            width=btn_w,
+            height=btn_h,
+            font_size=90,
         )
-        self.power = StyledSpinBox(
-            container=root,
-            variable_name="power_in",
-            left=105,
-            top=y,
-            width=70,
-            height=24,
-            value=0.0,
-            min_value=-110,
-            max_value=30,
-            step=0.1,
-        )
-        StyledLabel(
-            container=root,
-            text="dBm",
-            variable_name="power_unit",
-            left=195,
-            top=y,
-            width=40,
-            height=row_h,
-            font_size=100,
-            flex=True,
-            justify_content="left",
-            color="#222",
+        self.laser_sweep_btn.do_onclick(
+            lambda *_: self.run_in_thread(self.onclick_laser_sweep)
         )
 
-        # Step size
-        y += row_h
+        # --- Separator label ---
+        y += btn_row_h + 4
         StyledLabel(
             container=root,
-            text="Step",
-            variable_name="step_lb",
-            left=5,
-            top=y,
-            width=95,
-            height=row_h,
-            font_size=100,
-            flex=True,
-            justify_content="right",
-            color="#222",
-        )
-        self.step_size = StyledSpinBox(
-            container=root,
-            variable_name="step_in",
-            left=105,
-            top=y,
-            width=70,
-            height=24,
-            value=0.001,
-            min_value=0,
-            max_value=1000,
-            step=0.001,
-        )
-        StyledLabel(
-            container=root,
-            text="nm",
-            variable_name="step_unit",
-            left=195,
-            top=y,
-            width=40,
-            height=row_h,
-            font_size=100,
-            flex=True,
-            justify_content="left",
-            color="#222",
+            text="─── EO Probe Settings ───",
+            variable_name="eo_sep_lb",
+            left=5, top=y, width=320, height=20,
+            font_size=85, flex=True, justify_content="center", color="#555",
         )
 
-        # Start wavelength
-        y += row_h
-        StyledLabel(
-            container=root,
-            text="Start Wvl",
-            variable_name="start_lb",
-            left=5,
-            top=y,
-            width=95,
-            height=row_h,
-            font_size=100,
-            flex=True,
-            justify_content="right",
-            color="#222",
-        )
-        self.start_wvl = StyledSpinBox(
-            container=root,
-            variable_name="start_in",
-            left=105,
-            top=y,
-            width=70,
-            height=24,
-            value=1500.0,
-            min_value=1456,
-            max_value=1583,
-            step=0.1,
-        )
-        StyledLabel(
-            container=root,
-            text="nm",
-            variable_name="start_unit",
-            left=195,
-            top=y,
-            width=40,
-            height=row_h,
-            font_size=100,
-            flex=True,
-            justify_content="left",
-            color="#222",
-        )
+        # --- EO parameter rows ---
+        y += 24
+        label_w = 140
+        spin_w = 65
+        unit_w = 50
+        spin_left = 150
+        unit_left = 238
 
-        # Stop wavelength
-        y += row_h
-        StyledLabel(
-            container=root,
-            text="Stop Wvl",
-            variable_name="stop_lb",
-            left=5,
-            top=y,
-            width=95,
-            height=row_h,
-            font_size=100,
-            flex=True,
-            justify_content="right",
-            color="#222",
-        )
-        self.stop_wvl = StyledSpinBox(
-            container=root,
-            variable_name="stop_in",
-            left=105,
-            top=y,
-            width=70,
-            height=24,
-            value=1580.0,
-            min_value=1456,
-            max_value=1583,
-            step=0.1,
-        )
-        StyledLabel(
-            container=root,
-            text="nm",
-            variable_name="stop_unit",
-            left=195,
-            top=y,
-            width=40,
-            height=row_h,
-            font_size=100,
-            flex=True,
-            justify_content="left",
-            color="#222",
-        )
+        def _add_row(label_text, var_name, unit_text, value, min_v, max_v, step):
+            nonlocal y
+            StyledLabel(
+                container=root, text=label_text, variable_name=f"{var_name}_lb",
+                left=5, top=y, width=label_w, height=row_h,
+                font_size=90, flex=True, justify_content="right", color="#222",
+            )
+            spin = StyledSpinBox(
+                container=root, variable_name=f"{var_name}_in",
+                left=spin_left, top=y, width=spin_w, height=24,
+                value=value, min_value=min_v, max_value=max_v, step=step,
+            )
+            StyledLabel(
+                container=root, text=unit_text, variable_name=f"{var_name}_unit",
+                left=unit_left, top=y, width=unit_w, height=row_h,
+                font_size=90, flex=True, justify_content="left", color="#222",
+            )
+            y += row_h
+            return spin
 
+        self.eo_bias_voltage   = _add_row("Bias Voltage",      "eo_bias",       "V",   0.8,   0, 10,    0.1)
+        self.eo_step_down      = _add_row("Step Down",          "eo_step",       "µm",  10,    1, 500,   1)
+        self.eo_force_contact  = _add_row("Force Contact",      "eo_fcontact",   "g",   0.5,   0.01, 10, 0.01)
+        self.eo_min_current    = _add_row("Min Current",        "eo_mincur",     "µA",  10.0,  0, 1000,  1)
+        self.eo_current_stable = _add_row("Current Stable",     "eo_curstable",  "µA",  3.0,   0, 100,   0.1)
+        self.eo_stable_count   = _add_row("Stable Count",       "eo_stblcnt",    "",    3,     1, 20,    1)
+        self.eo_max_force      = _add_row("Max Force",          "eo_maxforce",   "g",   50.0,  1, 500,   1)
+        self.eo_retract_step   = _add_row("Retract Step",       "eo_retstep",    "µm",  50,    1, 1000,  10)
+        self.eo_retract_final  = _add_row("Retract Final",      "eo_retfinal",   "µm",  200,   10, 5000, 10)
+        self.eo_max_descent    = _add_row("Max Descent",        "eo_maxdesc",    "µm",  5000,  100, 50000, 100)
+        self.eo_max_retract    = _add_row("Max Retract",        "eo_maxret",     "µm",  5000,  100, 50000, 100)
 
-        # FA detector selection (FineA.detector)
-        # y += row_h
-        # StyledLabel(
-        #     container=root,
-        #     text="FA Detector",
-        #     variable_name="detector_lb",
-        #     left=5,
-        #     top=y,
-        #     width=95,
-        #     height=25,
-        #     font_size=100,
-        #     flex=True,
-        #     justify_content="right",
-        #     color="#222",
-        # )
-
-        # self.detector = StyledDropDown(
-        #     container=root,
-        #     variable_name="detector",
-        #     text=["ch1", "ch2", "Max"],
-        #     left=105,
-        #     top=y,
-        #     width=70,
-        #     height=25,
-        #     position="absolute",
-        # )
-
-        # Confirm button
-        y += row_h
+        # --- Confirm button ---
+        y += 6
         self.confirm_btn = StyledButton(
             container=root,
             text="Confirm",
             variable_name="confirm_btn",
-            left=105,
+            left=btn_left,
             top=y,
-            width=80,
-            height=24,
+            width=btn_w,
+            height=btn_h,
             font_size=90,
         )
         self.confirm_btn.do_onclick(
@@ -374,89 +260,47 @@ class AutoSweepConfig(App):
         data = SharedMemory.read({})
         if not data:
             return
-
-        # Sweep
         self.sweep = data.get("Sweep", {}) or {}
-        self._set_spin_safely(self.power, self.sweep.get("power"))
-        self._set_spin_safely(self.step_size, self.sweep.get("step"))
-        self._set_spin_safely(self.start_wvl, self.sweep.get("start"))
-        self._set_spin_safely(self.stop_wvl, self.sweep.get("end"))
 
-        # # FineA.detector -> FA Detector dropdown (read-only / non-destructive)
-        # finea = data.get("FineA")
-        # if isinstance(finea, dict) and self.detector is not None:
-        #     det = str(finea.get("detector", "")).lower()
-        #     if det == "ch1":
-        #         target = "ch1"
-        #     elif det == "ch2":
-        #         target = "ch2"
-        #     elif det == "max":
-        #         target = "Max"
-        #     else:
-        #         target = None
-
-        #     if target:
-        #         try:
-        #             self.detector.set_value(target)
-        #         except Exception:
-        #             pass
+        # Load EO settings
+        eo = data.get("EO_Settings", {})
+        if eo:
+            self._set_spin_safely(self.eo_bias_voltage,   eo.get("bias_voltage"))
+            self._set_spin_safely(self.eo_step_down,      eo.get("step_down_um"))
+            self._set_spin_safely(self.eo_force_contact,  eo.get("force_contact_g"))
+            self._set_spin_safely(self.eo_min_current,    eo.get("min_current_ua"))
+            self._set_spin_safely(self.eo_current_stable, eo.get("current_stable_ua"))
+            self._set_spin_safely(self.eo_stable_count,   eo.get("stable_count"))
+            self._set_spin_safely(self.eo_max_force,      eo.get("max_force_g"))
+            self._set_spin_safely(self.eo_retract_step,   eo.get("retract_step_um"))
+            self._set_spin_safely(self.eo_retract_final,  eo.get("retract_final_um"))
+            self._set_spin_safely(self.eo_max_descent,    eo.get("max_descent_um"))
+            self._set_spin_safely(self.eo_max_retract,    eo.get("max_retract_um"))
 
     # ---------------- CONFIRM: WRITE BACK ----------------
 
     def onclick_confirm(self):
-        # Load current shared_memory
-        data = SharedMemory.read({})
-
-        if not isinstance(data, dict):
-            data = {}
-
-        # ---- Sweep (merge) ----
-        existing_sweep = data.get("Sweep", {})
-        if not isinstance(existing_sweep, dict):
-            existing_sweep = {}
-
+        """Save all EO settings to shared_memory."""
         try:
-            existing_sweep.update(
-                {
-                    "power": float(self.power.get_value()),
-                    "step": float(self.step_size.get_value()),
-                    "start": float(self.start_wvl.get_value()),
-                    "end": float(self.stop_wvl.get_value()),
-                }
-            )
+            eo_settings = {
+                "bias_voltage":     float(self.eo_bias_voltage.get_value()),
+                "step_down_um":     float(self.eo_step_down.get_value()),
+                "force_contact_g":  float(self.eo_force_contact.get_value()),
+                "min_current_ua":   float(self.eo_min_current.get_value()),
+                "current_stable_ua":float(self.eo_current_stable.get_value()),
+                "stable_count":     int(float(self.eo_stable_count.get_value())),
+                "max_force_g":      float(self.eo_max_force.get_value()),
+                "retract_step_um":  float(self.eo_retract_step.get_value()),
+                "retract_final_um": float(self.eo_retract_final.get_value()),
+                "max_descent_um":   float(self.eo_max_descent.get_value()),
+                "max_retract_um":   float(self.eo_max_retract.get_value()),
+            }
         except Exception as exc:
-            print(f"[AutoSweepConfig] Invalid sweep input: {exc}")
+            print(f"[AutoSweepConfig] Invalid EO input: {exc}")
             return
 
-        File("shared_memory", "Sweep", existing_sweep).save()
-
-        # ---- FineA.detector ----
-        finea = data.get("FineA")
-        if isinstance(finea, dict) and self.detector is not None:
-            try:
-                det_ui = str(self.detector.get_value())
-            except Exception:
-                det_ui = ""
-
-            det_norm = det_ui.lower()
-            if det_norm == "max":
-                det_norm = "max"
-            elif det_norm in ("ch1", "ch2"):
-                pass
-            else:
-                # If invalid choice, keep existing detector
-                current = str(finea.get("detector", "")).lower()
-                if current in ("ch1", "ch2", "max"):
-                    det_norm = current
-                else:
-                    det_norm = "max"
-
-            finea["detector"] = det_norm
-            File("shared_memory", "FineA", finea).save()
-
-        print("[AutoSweepConfig] Updated Sweep and FineA.detector")
-        # NOTE: removed the hidden webview.create_window here.
-        # This app just writes config; windows are managed by pywebview main.
+        SharedMemory.update({"EO_Settings": eo_settings})
+        print(f"[AutoSweepConfig] EO Settings saved: {eo_settings}")
 
     def onclick_detector_window(self):
         """Launch detector window settings."""
@@ -473,7 +317,7 @@ class AutoSweepConfig(App):
         )
         print("[AutoSweepConfig] Detector Window Settings requested")
 
-    def onclick_fine_align(self):  # NEW
+    def onclick_fine_align(self):
         """Launch Fine Alignment window."""
         local_ip = "127.0.0.1"
         webview.create_window(
@@ -483,9 +327,23 @@ class AutoSweepConfig(App):
             height=426 + web_h,
             resizable=True,
             on_top=True,
-            hidden=False,   # set False so it actually shows when button is clicked
+            hidden=False,
         )
         print("[AutoSweepConfig] Fine Align window requested")
+
+    def onclick_laser_sweep(self):
+        """Launch Laser Sweep configure window (same as sensor Configure)."""
+        local_ip = "127.0.0.1"
+        webview.create_window(
+            "Setting",
+            f"http://{local_ip}:7101",
+            width=262 + web_w,
+            height=416 + web_h,
+            resizable=True,
+            on_top=True,
+            hidden=False,
+        )
+        print("[AutoSweepConfig] Laser Sweep config window requested")
 
 def run_remi():
     start(
@@ -521,8 +379,8 @@ if __name__ == "__main__":
     webview.create_window(
         "Auto Sweep Config",
         f"http://{local_ip}:7109",
-        width=280 + web_w,
-        height=260 + web_h,
+        width=340 + web_w,
+        height=560 + web_h,
         resizable=True,
         hidden=True,
     )

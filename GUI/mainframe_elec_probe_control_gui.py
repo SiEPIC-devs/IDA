@@ -65,6 +65,13 @@ class elecprobe(App):
         
         # Flag to prevent recursive checkbox updates
         self._updating_plot_type = False
+        self._sweep_locked = False  # True when stage sweep locks entire UI
+        self._bsc_locked = False    # True during manual BSC203 jog moves
+        self._bsc_move_lock = threading.Lock()  # Atomic guard for _bsc_locked
+        self._bsc_locked_since = 0  # timestamp when _bsc_locked was set True
+        self._BSC_LOCK_TIMEOUT = 90.0  # Max seconds a move can hold the lock
+        self._smu_poll_backoff = 0  # Skip N idle cycles after GPIB timeout
+        self.bsc_axis_locked = {"x": False, "y": False, "z": False}
 
     def idle(self):
         stime = get_shared_memory_mtime()
@@ -73,14 +80,40 @@ class elecprobe(App):
             self._user_stime = stime
             data = SharedMemory.read({})
             if data:
-                self.configuration = data.get("Configuration", {})
-                self.configuration_check = data.get("Configuration_check", {})
+                # Only update configuration if the read contains it —
+                # a corrupted / partial read missing "Configuration" must not
+                # overwrite a known-good self.configuration with {}.
+                cfg = data.get("Configuration")
+                if isinstance(cfg, dict) and cfg:
+                    self.configuration = cfg
+                cfg_chk = data.get("Configuration_check")
+                if isinstance(cfg_chk, dict) and cfg_chk:
+                    self.configuration_check = cfg_chk
                 self.port = data.get("Port", {})
                 
                 # Read user/project info for file saving
                 self.user = data.get("User", "Guest")
                 self.project = data.get("Project", "")
                 self.file_format = data.get("FileFormat", {"csv": 1, "mat": 1, "png": 1, "pdf": 1})
+
+                # Handle BiasCommand from stage_control for bias sweep
+                self._handle_bias_command(data)
+
+                # Handle MotorCommand from stage_control for BSC203 moves
+                self._handle_motor_command(data)
+
+                # Handle CurrentRead from stage_control
+                self._handle_current_read(data)
+
+                # Handle SweepLock from stage_control
+                # Only act on SweepLock if the key is actually present —
+                # a partial/corrupted read missing SweepLock must not unlock.
+                if "SweepLock" in data:
+                    sweep_lock = data["SweepLock"]
+                    if sweep_lock == 1 and not self._sweep_locked:
+                        self._lock_all_controls()
+                    elif sweep_lock == 0 and self._sweep_locked:
+                        self._unlock_all_controls()
         
         # Check for motor configuration and create window
         self.after_configuration()
@@ -90,6 +123,9 @@ class elecprobe(App):
         
         # Update BSC203 positions if connected
         self._update_bsc_display()
+        
+        # Update Force System display from shared memory
+        self._update_force_display()
     
     def after_configuration(self):
         """Handle SMU configuration changes"""
@@ -118,7 +154,7 @@ class elecprobe(App):
                             'Elec Probe Control',
                             f'http://{local_ip}:8011',
                             width=1123+web_w,
-                            height=647+web_h,
+                            height=646+web_h,
                             resizable=True,
                             hidden=False
                         )
@@ -127,7 +163,14 @@ class elecprobe(App):
                     File("shared_memory", "Configuration_check", self.configuration_check).save()
                     
             # Disconnect when config is cleared
-            elif smu_config == "" and (self.smu_connected or self.bsc_connected):
+            # SAFETY: never disconnect while a sweep/motor command is in progress.
+            # Also require smu_check==0 to confirm this is an intentional disconnect,
+            # not a transient SharedMemory overwrite from another process.
+            elif smu_config == "" and smu_check == 0 and (self.smu_connected or self.bsc_connected):
+                if self._bsc_locked or self._sweep_locked:
+                    # A move or sweep is active — suppress disconnect to avoid crash
+                    print("[ElecProbe] Disconnect suppressed: sweep/move in progress")
+                    return
                 if self.smu_connected:
                     self.disconnect_smu()
                 if self.bsc_connected:
@@ -142,9 +185,302 @@ class elecprobe(App):
         except Exception as e:
             print(f"[Elec Probe] Configuration error: {e}")
     
+    # ------------------------------------------------------------------
+    # UI lock during sweep (entire elec_probe UI)
+    # ------------------------------------------------------------------
+    def _lock_all_controls(self):
+        """Disable entire elec_probe UI during stage sweep."""
+        self._sweep_locked = True
+        self._set_all_enabled(False)
+        print("[ElecProbe] All controls locked (sweep in progress)")
+
+    def _unlock_all_controls(self):
+        """Re-enable entire elec_probe UI after stage sweep."""
+        self._sweep_locked = False
+        self._set_all_enabled(True)
+        print("[ElecProbe] All controls unlocked")
+
+    def _set_all_enabled(self, enabled):
+        """Recursively enable/disable all interactive widgets in elecprobe_container.
+        Keeps per-axis lock checkboxes always enabled. After unlock, reapplies per-axis locks."""
+        if not hasattr(self, 'elecprobe_container'):
+            return
+        widgets = [self.elecprobe_container]
+        while widgets:
+            w = widgets.pop()
+            if hasattr(w, 'variable_name'):
+                vn = w.variable_name
+                if isinstance(vn, str) and vn.endswith('_lock'):
+                    w.set_enabled(True)
+                    continue
+            if isinstance(w, (Button, SpinBox, CheckBox, DropDown)):
+                w.set_enabled(enabled)
+            if hasattr(w, 'children'):
+                widgets.extend(w.children.values())
+        # After unlock, reapply per-axis lock disables
+        if enabled:
+            for pfx, is_locked in self.bsc_axis_locked.items():
+                if is_locked:
+                    self.set_bsc_axis_enabled(pfx, False)
+
+    def _lock_smu_controls(self):
+        """Disable all SMU controls while bias sweep is in progress."""
+        self._bias_locked = True
+        self._set_smu_enabled(False)
+        print("[Bias] SMU controls locked")
+
+    def _unlock_smu_controls(self):
+        """Re-enable all SMU controls after bias sweep."""
+        self._bias_locked = False
+        self._set_smu_enabled(True)
+        print("[Bias] SMU controls unlocked")
+
+    def _set_smu_enabled(self, enabled):
+        """Recursively enable/disable all interactive widgets in smu_container."""
+        if not hasattr(self, 'smu_container'):
+            return
+        widgets = [self.smu_container]
+        while widgets:
+            w = widgets.pop()
+            if isinstance(w, (Button, SpinBox, CheckBox, DropDown)):
+                w.set_enabled(enabled)
+            if hasattr(w, 'children'):
+                widgets.extend(w.children.values())
+
+    # ------------------------------------------------------------------
+    # BSC203 per-axis lock (checkbox driven, like stage control)
+    # ------------------------------------------------------------------
+    def set_bsc_axis_enabled(self, prefix: str, enabled: bool):
+        """Enable/disable jog buttons and step input for a single BSC203 axis."""
+        getattr(self, f"{prefix}_left_btn").set_enabled(enabled)
+        getattr(self, f"{prefix}_right_btn").set_enabled(enabled)
+        getattr(self, f"{prefix}_input").set_enabled(enabled)
+
+    def onchange_bsc_axis_lock(self, prefix: str, value):
+        """Handle BSC203 per-axis lock checkbox toggle."""
+        self.bsc_axis_locked[prefix] = bool(value)
+        self.set_bsc_axis_enabled(prefix, not self.bsc_axis_locked[prefix])
+        print(f"[BSC203 Axis Lock] {prefix} -> {'LOCKED' if self.bsc_axis_locked[prefix] else 'UNLOCKED'}")
+
+    # ------------------------------------------------------------------
+    # BSC203 local lock for manual jog moves (no SweepLock broadcast)
+    # ------------------------------------------------------------------
+    def _lock_bsc_controls(self):
+        """Disable BSC203 controls only during manual jog movement."""
+        self._bsc_locked = True
+        self._set_bsc_enabled(False)
+        print("[BSC203] Controls locked (manual move)")
+
+    def _unlock_bsc_controls(self):
+        """Re-enable BSC203 controls after manual jog movement."""
+        self._bsc_locked = False
+        self._set_bsc_enabled(True)
+        print("[BSC203] Controls unlocked")
+
+    def _set_bsc_enabled(self, enabled):
+        """Recursively enable/disable all interactive widgets in xyz_container.
+        Keeps lock checkboxes always enabled. After unlock, reapplies per-axis locks."""
+        if not hasattr(self, 'xyz_container'):
+            return
+        widgets = [self.xyz_container]
+        while widgets:
+            w = widgets.pop()
+            if hasattr(w, 'variable_name'):
+                vn = w.variable_name
+                # Keep per-axis lock checkboxes always enabled
+                if isinstance(vn, str) and vn.endswith('_lock'):
+                    w.set_enabled(True)
+                    continue
+            if isinstance(w, (Button, SpinBox, CheckBox, DropDown)):
+                w.set_enabled(enabled)
+            if hasattr(w, 'children'):
+                widgets.extend(w.children.values())
+        # After unlock, reapply per-axis lock disables
+        if enabled:
+            for pfx, is_locked in self.bsc_axis_locked.items():
+                if is_locked:
+                    self.set_bsc_axis_enabled(pfx, False)
+
+    # ------------------------------------------------------------------
+    # BiasCommand handler: stage_control sends commands via shared_memory
+    # ------------------------------------------------------------------
+    def _handle_bias_command(self, data=None):
+        """Check shared_memory for BiasCommand from stage_control and execute."""
+        if data is None:
+            data = SharedMemory.read({})
+        bc = data.get("BiasCommand", {})
+        action = bc.get("action", "")
+
+        if action in ("", "done"):
+            return  # Nothing to do or already completed
+
+        channel = "A"  # Bias always uses channel A
+
+        if not self.smu_connected:
+            print("[Bias] SMU not connected, cannot execute bias command")
+            SharedMemory.update({"BiasCommand": {"action": "done", "error": "smu_not_connected"}})
+            return
+
+        try:
+            mode = bc.get("mode", "V")
+            value = float(bc.get("value", 0.0))
+
+            if action == "init":
+                # Lock SMU controls during bias sweep
+                self._lock_smu_controls()
+                # Set source mode and turn on output
+                if mode == "V":
+                    self.smu_manager.set_source_mode("voltage", channel)
+                    self.smu_manager.set_voltage(value, channel)
+                else:
+                    self.smu_manager.set_source_mode("current", channel)
+                    self.smu_manager.set_current(value / 1e6, channel)  # uA -> A
+                self.smu_manager.output_on(channel)
+                print(f"[Bias] Initialized: mode={mode}, output ON")
+
+            elif action == "set":
+                # Set bias value (source mode already configured by init)
+                if mode == "V":
+                    self.smu_manager.set_voltage(value, channel)
+                else:
+                    self.smu_manager.set_current(value / 1e6, channel)  # uA -> A
+                print(f"[Bias] Set {value} {mode}")
+
+            elif action == "off":
+                # Turn off output
+                self.smu_manager.output_off(channel)
+                # Unlock SMU controls
+                self._unlock_smu_controls()
+                print("[Bias] Output OFF")
+
+            else:
+                print(f"[Bias] Unknown action: {action}")
+
+            SharedMemory.update({"BiasCommand": {"action": "done"}})
+
+        except Exception as e:
+            print(f"[Bias] Command error: {e}")
+            # Unlock on error too
+            if self._bias_locked:
+                self._unlock_smu_controls()
+            SharedMemory.update({"BiasCommand": {"action": "done", "error": str(e)}})
+
+    # ------------------------------------------------------------------
+    # MotorCommand handler: stage_control asks to move BSC203
+    # ------------------------------------------------------------------
+    def _handle_motor_command(self, data=None):
+        """Move BSC203 axis on request from stage_control.
+        Dispatches to a background thread to avoid blocking idle()."""
+        if data is None:
+            data = SharedMemory.read({})
+        mc = data.get("MotorCommand", {})
+        action = mc.get("action", "")
+        if action in ("", "done"):
+            return
+
+        # Atomic check-and-set to prevent race with manual jog
+        if not self._bsc_move_lock.acquire(blocking=False):
+            return
+        if self._bsc_locked:
+            # Watchdog: if locked for too long, force-release (thread likely hung)
+            if time.time() - self._bsc_locked_since > self._BSC_LOCK_TIMEOUT:
+                print(f"[BSC203] WATCHDOG: _bsc_locked stuck for >{self._BSC_LOCK_TIMEOUT}s — force-releasing")
+                self._bsc_locked = False
+                self._bsc_locked_since = 0
+            else:
+                self._bsc_move_lock.release()
+                return
+        self._bsc_locked = True
+        self._bsc_locked_since = time.time()
+        self._bsc_move_lock.release()
+
+        axis = str(mc.get("axis", "Z")).upper()
+        if axis not in ("X", "Y", "Z"):
+            self._bsc_locked = False
+            SharedMemory.update({"MotorCommand": {"action": "done", "error": f"invalid_axis:{axis}"}})
+            return
+
+        try:
+            distance_um = float(mc.get("distance_um", 0))
+        except (TypeError, ValueError):
+            self._bsc_locked = False
+            SharedMemory.update({"MotorCommand": {"action": "done", "error": "invalid_distance"}})
+            return
+
+        if not self.bsc_connected:
+            self._bsc_locked = False
+            print("[MotorCmd] BSC203 not connected")
+            SharedMemory.update({"MotorCommand": {"action": "done", "error": "bsc_not_connected"}})
+            return
+
+        self.run_in_thread(self._do_motor_command, axis, distance_um)
+
+    def _do_motor_command(self, axis, distance_um):
+        """Execute motor command in background thread."""
+        try:
+            distance_mm = distance_um / 1000.0
+            success = self.bsc_controller.move_relative(axis, distance_mm, wait=True)
+            # Brief cooldown to let DLL/USB settle before next command
+            time.sleep(0.1)
+            if success:
+                pos = self.bsc_controller.get_position(axis)
+                print(f"[MotorCmd] {axis} moved {distance_um} um -> pos {pos*1000:.1f} um")
+                SharedMemory.update({"MotorCommand": {"action": "done"}})
+            else:
+                SharedMemory.update({"MotorCommand": {"action": "done", "error": "move_failed"}})
+        except Exception as e:
+            print(f"[MotorCmd] Error: {e}")
+            # Attempt reconnect before giving up
+            try:
+                self.bsc_controller.get_position(axis)
+            except Exception:
+                print("[MotorCmd] BSC203 connection lost, attempting reconnect...")
+                if self.bsc_controller.reconnect():
+                    print("[MotorCmd] BSC203 reconnected successfully")
+                    self.bsc_connected = True
+                else:
+                    print("[MotorCmd] BSC203 reconnect failed")
+                    self.bsc_connected = False
+                    self.bsc_controller.is_connected = False
+            SharedMemory.update({"MotorCommand": {"action": "done", "error": str(e)}})
+        finally:
+            self._bsc_locked = False
+
+    # ------------------------------------------------------------------
+    # CurrentRead handler: stage_control asks for SMU current
+    # ------------------------------------------------------------------
+    def _handle_current_read(self, data=None):
+        """Read SMU current on request from stage_control."""
+        if data is None:
+            data = SharedMemory.read({})
+        cr = data.get("CurrentRead", {})
+        action = cr.get("action", "")
+        if action in ("", "done"):
+            return
+
+        channel = cr.get("channel", "A")
+
+        if not self.smu_connected:
+            SharedMemory.update({"CurrentRead": {"action": "done", "error": "smu_not_connected"}})
+            return
+
+        try:
+            currents = self.smu_manager.get_current()
+            val = currents.get(channel, 0.0) if currents else 0.0
+            SharedMemory.update({"CurrentRead": {"action": "done", "value": val}})
+            print(f"[CurrentRead] Ch {channel}: {val*1e6:.4f} uA")
+        except Exception as e:
+            print(f"[CurrentRead] Error: {e}")
+            SharedMemory.update({"CurrentRead": {"action": "done", "error": str(e)}})
+
     def _update_smu_display(self):
         """Update SMU measurement display"""
         if not self.smu_connected:
+            return
+        
+        # Backoff after GPIB timeout to avoid hammering a busy bus
+        if self._smu_poll_backoff > 0:
+            self._smu_poll_backoff -= 1
             return
         
         try:
@@ -165,9 +501,9 @@ class elecprobe(App):
                     self.chl_b_v.set_text(f"{voltages['B']:.4f}")
                     self.chl_b_i.set_text(f"{currents['B']*1e6:.4f}")  # Convert to µA
                     self.chl_b_o.set_text(f"{resistances['B']:.3e}")  # Scientific notation in Ω
-        except Exception as e:
-            # Silently ignore errors to avoid spamming console during normal operation
-            pass
+        except Exception:
+            # GPIB bus contention (e.g. NIR laser toggling) — back off 5 cycles
+            self._smu_poll_backoff = 5
     
     def _init_smu(self):
         """Initialize SMU Manager (singleton pattern)"""
@@ -254,32 +590,73 @@ class elecprobe(App):
         """Update BSC203 position display"""
         if not self.bsc_connected:
             return
-        
-        try:
-            positions = self.bsc_controller.get_all_positions()
-            
-            if positions:
-                # Update X axis (convert mm to um)
+
+        # Skip display update while a move is in progress to avoid DLL contention
+        if self._bsc_locked:
+            # Watchdog: detect permanently stuck lock
+            if self._bsc_locked_since and time.time() - self._bsc_locked_since > self._BSC_LOCK_TIMEOUT:
+                print(f"[BSC203] WATCHDOG: _bsc_locked stuck for >{self._BSC_LOCK_TIMEOUT}s — force-releasing")
+                self._bsc_locked = False
+                self._bsc_locked_since = 0
+            return
+
+        # Throttle: only update every ~500ms to reduce USB/DLL contention
+        now = time.time()
+        if now - getattr(self, '_bsc_display_last', 0) < 0.5:
+            return
+        self._bsc_display_last = now
+
+        # Use cached result from background thread to avoid blocking Remi main thread
+        positions = getattr(self, '_bsc_cached_positions', None)
+        if positions:
+            try:
                 if 'X' in positions:
                     self.x_position_lb.set_text(f"{positions['X']*1000:.1f}")
-                    limits = self.bsc_controller.get_limits('X')
-                    self.x_limit_lb.set_text(f"lim: [0, {limits[1]*1000:.0f}]")
-                
-                # Update Y axis (convert mm to um)
                 if 'Y' in positions:
                     self.y_position_lb.set_text(f"{positions['Y']*1000:.1f}")
-                    limits = self.bsc_controller.get_limits('Y')
-                    self.y_limit_lb.set_text(f"lim: [0, {limits[1]*1000:.0f}]")
-                
-                # Update Z axis (convert mm to um)
                 if 'Z' in positions:
                     self.z_position_lb.set_text(f"{positions['Z']*1000:.1f}")
-                    limits = self.bsc_controller.get_limits('Z')
-                    self.z_limit_lb.set_text(f"lim: [0, {limits[1]*1000:.0f}]")
+            except Exception as e:
+                print(f"[BSC203] Display update error: {e}")
+
+        # Dispatch non-blocking position read if not already running
+        if not getattr(self, '_bsc_pos_reading', False):
+            self._bsc_pos_reading = True
+            self.run_in_thread(self._read_bsc_positions_bg)
+
+    def _read_bsc_positions_bg(self):
+        """Background thread: read BSC203 positions with timeout protection."""
+        try:
+            positions = self.bsc_controller.get_all_positions()
+            if positions:
+                self._bsc_cached_positions = positions
         except Exception as e:
-            # Silently ignore errors
-            pass
+            print(f"[BSC203] Background position read error: {e}")
+            try:
+                self.bsc_controller.get_position('X')
+            except Exception:
+                print("[BSC203] Connection lost during position read")
+                self.bsc_connected = False
+                self.bsc_controller.is_connected = False
+        finally:
+            self._bsc_pos_reading = False
     
+    def _update_force_display(self):
+        """Update Force System display from shared_memory ForceWeight data."""
+        try:
+            data = SharedMemory.read({})
+            fw = data.get("ForceWeight") if data else None
+            if fw:
+                self.force_ch1_val.set_text(f"{fw['ch1']:.1f} g")
+                self.force_ch2_val.set_text(f"{fw['ch2']:.1f} g")
+                self.force_total_val.set_text(f"{fw['total']:.1f} g")
+            else:
+                self.force_ch1_val.set_text("N/A")
+                self.force_ch2_val.set_text("N/A")
+                self.force_total_val.set_text("N/A")
+        except Exception:
+            pass
+
     def connect_smu(self):
         """Connect to SMU device"""
         if self.smu_manager is None:
@@ -320,10 +697,12 @@ class elecprobe(App):
         if self.smu_manager and self.smu_connected:
             try:
                 self.smu_manager.disconnect()
-                self.smu_connected = False
-                print("[SMU] SMU disconnected")
             except Exception as e:
                 print(f"[SMU] Disconnect error: {e}")
+            finally:
+                # Always mark disconnected so _update_smu_display stops polling
+                self.smu_connected = False
+                print("[SMU] SMU disconnected")
 
     def main(self):
         return self.construct_ui()
@@ -337,7 +716,7 @@ class elecprobe(App):
         LEFT_PANEL_W = 490  # wider left box so rows + Zero buttons fit cleanly
         LOCK_COL_LEFT = 18 + DELTA  # per-axis lock column (aligns with top lock icon)
         ICON_LEFT = 18  # big lock icon
-        LABEL_LEFT = 38 + DELTA  # axis text column (left of readouts)
+        LABEL_LEFT = 42 + DELTA  # axis text column (left of readouts)
         POS_LEFT = 35 + DELTA  # position numeric readout
         UNIT_LEFT = 150 + DELTA  # unit next to readout
         BTN_L_LEFT = 185 + DELTA  # left jog button
@@ -349,6 +728,7 @@ class elecprobe(App):
         elecprobe_container = StyledContainer(
             variable_name="instruments_container", left=0, top=0, height=590, width=1100, bg_color=True, color="#F5F5F5"
         )
+        self.elecprobe_container = elecprobe_container
 
         # ========== Left-Upper: IV Sweep Chart ==========
         chart_container = StyledContainer(
@@ -367,7 +747,7 @@ class elecprobe(App):
             'object-fit': 'contain'
         })
 
-        xyz_container = StyledContainer(
+        self.xyz_container = xyz_container = StyledContainer(
             container=elecprobe_container, variable_name="xyz_container", border=0,
             left=0, top=400, height=190, width=490
         )
@@ -395,6 +775,8 @@ class elecprobe(App):
             container=elecprobe_container, variable_name="smu_container",
             left=500, top=0, height=590, width=600
         )
+        self.smu_container = smu_container
+        self._bias_locked = False  # True while bias sweep is controlling SMU
 
         smu_control_container = StyledContainer(
             container=smu_container, variable_name="smu_control_container", border=True,
@@ -522,9 +904,61 @@ class elecprobe(App):
             flex=True, justify_content="left"
         )
 
+        # ========== Force System + Sweep Button Row ==========
+        force_sweep_container = StyledContainer(
+            container=smu_container, variable_name="force_sweep_container",
+            left=8, top=475, height=80, width=584, bg_color=False
+        )
+
+        # --- Force System table (3 columns: CH1, CH2, Total — same style as stage detector table) ---
+        FORCE_TABLE_W = 340
+        FORCE_COLS = 3
+        FORCE_COL_W = FORCE_TABLE_W // FORCE_COLS
+        FORCE_HDR_H = 28
+        FORCE_DATA_H = 28
+        FORCE_V_PAD = 4
+        FORCE_CONTENT_TOP = 16  # space for title
+
+        force_container = StyledContainer(
+            container=force_sweep_container, variable_name="force_container", border=True,
+            left=0, top=0, height=FORCE_CONTENT_TOP + FORCE_HDR_H + FORCE_DATA_H + FORCE_V_PAD, width=FORCE_TABLE_W
+        )
+
+        StyledLabel(
+            container=force_container, text="Force System", variable_name="force_title_lb",
+            left=30, top=-12, width=105, height=20, font_size=120, color="#222", position="absolute",
+            flex=True, on_line=True
+        )
+
+        force_cols = [("CH1", "ch1"), ("CH2", "ch2"), ("Total", "total")]
+        for col_idx, (hdr_text, var_key) in enumerate(force_cols):
+            col_left = col_idx * FORCE_COL_W
+            header_top = FORCE_CONTENT_TOP
+            data_top = header_top + FORCE_HDR_H
+
+            # Header label
+            hdr = StyledLabel(
+                container=force_container, text=hdr_text, variable_name=f"force_{var_key}_hdr",
+                left=col_left, top=header_top, width=FORCE_COL_W, height=FORCE_HDR_H,
+                font_size=100, color="#222", flex=True, bold=True, justify_content="center"
+            )
+            hdr.style["background-color"] = "#eae8df"
+            hdr.style["border-right"] = "1px solid #d0cec4"
+            hdr.style["border-bottom"] = "1px solid #d0cec4"
+
+            # Value label
+            val = StyledLabel(
+                container=force_container, text="N/A", variable_name=f"force_{var_key}_val",
+                left=col_left, top=data_top, width=FORCE_COL_W, height=FORCE_DATA_H,
+                font_size=100, color="#222", flex=True, justify_content="center"
+            )
+            val.style["border-right"] = "1px solid #d0cec4"
+            setattr(self, f"force_{var_key}_val", val)
+
+        # --- Sweep button (centered in the empty right area) ---
         self.sweep_btn = StyledButton(
-            container=smu_container, variable_name="sweep_btn", text="Sweep",
-            left=245, top=500, width=100, height=40, font_size=120
+            container=force_sweep_container, variable_name="sweep_btn", text="Sweep",
+            left=420, top=20, width=90, height=35, font_size=110
         )
 
         # Display --------------------------------------------------------------------------------------------------------------
@@ -668,7 +1102,7 @@ class elecprobe(App):
             # axis label (left column)
             StyledLabel(
                 container=xyz_container, text=labels[i], variable_name=f"{prefix}_label",
-                left=LABEL_LEFT, top=top, width=55, height=ROW_H,
+                left=LABEL_LEFT, top=top, width=51, height=ROW_H,
                 font_size=100, color="#222", flex=True, bold=True, justify_content="center"
             )
 
@@ -725,6 +1159,11 @@ class elecprobe(App):
         self.y_right_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_move_axis, 'Y', 1))
         self.z_left_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_move_axis, 'Z', -1))
         self.z_right_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_move_axis, 'Z', 1))
+        
+        # Bind BSC203 per-axis lock checkboxes
+        self.x_lock.onchange.do(lambda w, v: self.run_in_thread(self.onchange_bsc_axis_lock, 'x', v))
+        self.y_lock.onchange.do(lambda w, v: self.run_in_thread(self.onchange_bsc_axis_lock, 'y', v))
+        self.z_lock.onchange.do(lambda w, v: self.run_in_thread(self.onchange_bsc_axis_lock, 'z', v))
         
         # Bind Sweep button
         self.sweep_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_sweep))
@@ -1277,7 +1716,7 @@ class elecprobe(App):
                 self.smu_manager.output_off(channel)
                 print(f"[SMU] Output turned OFF for channel {channel}")
             
-            print("[SMU] Sweep complete - data saved to Manual DC folder")
+            print("[SMU] Sweep complete - data saved to Manual_Sweep_Electrical folder")
             
         except Exception as e:
             print(f"[SMU] Sweep error: {e}")
@@ -1307,12 +1746,13 @@ class elecprobe(App):
             dict: Paths to saved files (html, png, csv, mat, res_png)
         """
         # Create timestamp and output directory
-        file_time = time.strftime("%Y%m%d_%H%M%S")
-        filename = f"dc_sweep_ch{channel}_{plot_type}"
+        file_time = time.strftime("%Y-%m-%d_%H-%M-%S")
+        session_name = f"dc_sweep_Electrical_{file_time}"
+        filename = f"dc_sweep_Electrical_ch{channel}_{plot_type}"
         
-        # Output paths - use user/project structure like laser sweep
-        # Path: UserData/{user}/{project}/Manual DC/
-        base_dir = os.path.join(".", "UserData", self.user, self.project, "Manual DC")
+        # Output paths: UserData/{user}/{project}/Spectrum/Manual_Sweep_Electrical/{session}/
+        base_dir = os.path.join(".", "UserData", self.user, self.project,
+                                "Spectrum", "Manual_Sweep_Electrical", session_name)
         os.makedirs(base_dir, exist_ok=True)
         
         # Also save to res folder for GUI display
@@ -1471,6 +1911,10 @@ class elecprobe(App):
     def onclick_bsc_connect_toggle(self):
         """Toggle BSC203 connection"""
         if self.bsc_connected:
+            # Don't disconnect while a move is in progress
+            if self._bsc_locked:
+                print("[BSC203] Cannot disconnect: move in progress")
+                return
             # Disconnect
             self.disconnect_bsc()
             self.bsc_connect_btn.set_text("Connect")
@@ -1504,23 +1948,35 @@ class elecprobe(App):
             print(f"[BSC203] Cannot move {axis}: Not connected")
             return
         
+        # Prevent re-entry: if a move is already in progress, ignore click
+        with self._bsc_move_lock:
+            if self._bsc_locked:
+                print(f"[BSC203] Ignored {axis} click: move already in progress")
+                return
+            self._bsc_locked = True
+            self._bsc_locked_since = time.time()
+        
         # Check if axis is locked
         axis_lower = axis.lower()
         lock_widget = getattr(self, f"{axis_lower}_lock", None)
         if lock_widget and lock_widget.get_value():
             print(f"[BSC203] Cannot move {axis}: Axis is locked")
+            self._bsc_locked = False
             return
-        
+
         # Get step size from spinbox (in um, convert to mm)
         step_widget = getattr(self, f"{axis_lower}_input", None)
         if not step_widget:
             print(f"[BSC203] Cannot get step size for {axis}")
+            self._bsc_locked = False
             return
         
         step_um = float(step_widget.get_value())
         step_mm = step_um / 1000.0  # Convert um to mm
         distance = step_mm * direction
         
+        # Lock only local BSC203 controls during movement (no SweepLock broadcast)
+        self._lock_bsc_controls()
         try:
             print(f"[BSC203] Moving {axis} by {step_um * direction:.1f} um...")
             success = self.bsc_controller.move_relative(axis, distance, wait=True)
@@ -1534,6 +1990,8 @@ class elecprobe(App):
                 
         except Exception as e:
             print(f"[BSC203] Error moving {axis}: {e}")
+        finally:
+            self._unlock_bsc_controls()
 
 def run_remi():
     start(
@@ -1565,7 +2023,7 @@ if __name__ == "__main__":
         "Main Window",
         f"http://{local_ip}:8011",
         width=1123+web_w,
-        height=647+web_h,
+        height=677+web_h,
         resizable=True,
         hidden=True,
     )

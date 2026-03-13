@@ -16,7 +16,7 @@ class StageConfiguration:
         {
             AxisType.X: (-35000,35000),
             AxisType.Y: (-35000,35000),
-            AxisType.Z: (-16000,16000),
+            AxisType.Z: (-18000,18000),
             AxisType.ROTATION_FIBER: (5000,5000),
             AxisType.ROTATION_CHIP: (5000, 5000)
         }

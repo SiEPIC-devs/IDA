@@ -48,15 +48,28 @@ class Keithley2600BController(SMUHal):
 
     def disconnect(self) -> bool:
         try:
-            for ch in ("A", "B"):
-                c = _chname(ch)
-                self.inst.write(f"{c}.source.output = {c}.OUTPUT_OFF")
-            if self.inst: self.inst.close()
-            if self.rm: self.rm.close()
+            if self.inst:
+                # Try to turn off outputs first, but don't let failures prevent cleanup
+                try:
+                    for ch in ("A", "B"):
+                        c = _chname(ch)
+                        self.inst.write(f"{c}.source.output = {c}.OUTPUT_OFF")
+                except Exception:
+                    pass  # Instrument may already be unreachable
+                self.inst.close()
+            # Do NOT call self.rm.close() — NI-VISA shares the default
+            # ResourceManager handle across the entire process.  Closing it
+            # would invalidate every other VISA session (LDC, NIR, etc.).
+            self.inst = None
+            self.rm = None
             self.connected = False
             self._emit_event(SMUEventType.SMU_OFF, {"all": True})
             return True
         except Exception as e:
+            # Even on error, mark as disconnected and clear references
+            self.inst = None
+            self.rm = None
+            self.connected = False
             self._emit_event(SMUEventType.ERROR, {"where":"disconnect", "error": str(e)})
             return False
     

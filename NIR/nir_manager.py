@@ -103,13 +103,12 @@ class NIRManager:
         try:
             if self.controller:
                 success = self.controller.disconnect()
-                if success:
-                    self._connected = False
-                    self._log("Disconnected from NIR device")
+                self._connected = False  # Always mark disconnected
                 return success
             return True
         except Exception as e:
             self._log(f"Disconnect error: {e}", "error")
+            self._connected = False  # Mark disconnected even on exception
             return False
 
     def is_connected(self) -> bool:

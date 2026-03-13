@@ -30,7 +30,7 @@ from scipy.io import savemat
 from scipy.ndimage import gaussian_filter
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import matplotlib, logging
-matplotlib.use("QtAgg")
+matplotlib.use("Agg")  # Non-interactive backend: no Qt init per plot subprocess
 
 # ===========================================================================
 # Configure root logger ONCE to prevent duplicate log messages
@@ -193,24 +193,29 @@ class SharedMemory:
     
     @classmethod
     def _write_with_retry(cls, data: dict) -> bool:
-        """Internal write with retry logic."""
+        """Internal write with retry logic.
+        Uses per-process unique temp file + os.replace() for atomic swap."""
         last_error = None
-        temp_path = SHARED_MEMORY_PATH + ".tmp"
+        dir_name = os.path.dirname(SHARED_MEMORY_PATH) or "."
         for attempt in range(_SM_MAX_RETRIES):
             try:
-                with open(temp_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, indent=2)
-                if os.path.exists(SHARED_MEMORY_PATH):
-                    os.remove(SHARED_MEMORY_PATH)
-                os.rename(temp_path, SHARED_MEMORY_PATH)
-                return True
+                fd, temp_path = tempfile.mkstemp(
+                    dir=dir_name, suffix=".tmp", prefix="sm_"
+                )
+                try:
+                    with os.fdopen(fd, "w", encoding="utf-8") as f:
+                        json.dump(data, f, indent=2)
+                    os.replace(temp_path, SHARED_MEMORY_PATH)  # atomic on Windows & POSIX
+                    return True
+                except:
+                    # clean up temp file on inner failure
+                    try:
+                        os.unlink(temp_path)
+                    except OSError:
+                        pass
+                    raise
             except (PermissionError, OSError) as e:
                 last_error = e
-                try:
-                    if os.path.exists(temp_path):
-                        os.remove(temp_path)
-                except:
-                    pass
                 if attempt < _SM_MAX_RETRIES - 1:
                     time.sleep(_SM_RETRY_DELAY * (attempt + 1))
         print(f"[SharedMemory] Write failed after {_SM_MAX_RETRIES} attempts: {last_error}")
@@ -995,13 +1000,24 @@ class File():
             self._safe_write(data, filepath)
     
     def _save_shared_memory(self):
-        """Save to shared_memory.json using SharedMemory class for thread-safety."""
+        """Save to shared_memory.json using SharedMemory class for thread-safety.
+        For dict values, merges into existing data instead of replacing,
+        so other processes' keys are not destroyed."""
         with _shared_memory_lock:
             data = SharedMemory._read_with_retry({})
-            data[self.data_name] = self.data_info
+            self._merge_key(data, self.data_name, self.data_info)
             if self.data_info2 != "":
-                data[self.data_name2] = self.data_info2
+                self._merge_key(data, self.data_name2, self.data_info2)
             SharedMemory._write_with_retry(data)
+
+    @staticmethod
+    def _merge_key(data, key, value):
+        """Merge value into data[key]. If both are dicts, update existing;
+        otherwise replace entirely (scalars, lists, etc.)."""
+        if isinstance(value, dict) and isinstance(data.get(key), dict):
+            data[key].update(value)
+        else:
+            data[key] = value
     
     def _save_other_file(self, filepath):
         """Save to other JSON files with retry mechanism."""
@@ -1060,12 +1076,12 @@ class File():
                 "secondary_loss": -50.0
             },
             "AreaS": {"pattern": "spiral", "x_size": 20.0, "x_step": 1.0, "y_size": 20.0, "y_step": 1.0, "plot": "New"},
-            "Sweep": {"wvl": 1550.0, "speed": 1.0, "power": 0.0, "step": 0.001, "start": 1500.0, "end": 1580.0, "done": "Laser On", "sweep": 0, "on": 0},
+            "Sweep": {"wvl": 1550.0, "speed": 1.0, "power": 0.0, "step": 0.001, "start": 1500.0, "end": 1580.0, "done": "Laser On", "sweep": 0, "on": 0, "bias_voltage": {"enabled": False, "mode": "V", "start": 0.0, "stop": 1.0, "step": 0.1}},
             "ScanPos": {"x": 0, "y": 0, "move": 0},
             "StagePos": {"x": 0, "y": 0},
             "AutoSweep": 0,
             "Configuration": {"stage": "", "sensor": "", "tec": "", "smu": ""},
-            "Configuration_check": {"stage": 0, "sensor": 0, "tec": 0},
+            "Configuration_check": {"stage": 0, "sensor": 0, "tec": 0, "smu": 0},
             "Port": {
                 "stage": "COM7",
                 "sensor": 20,
@@ -1075,7 +1091,20 @@ class File():
                 "detector_gpib": ["USB0::0x0957::0x3718::MY48102149::INSTR"]
             },
             "DeviceName": "Default",
-            "DeviceNum": 0
+            "DeviceNum": 0,
+            "EO_Settings": {
+                "bias_voltage": 0.8,
+                "step_down_um": 10,
+                "force_contact_g": 0.5,
+                "min_current_ua": 10.0,
+                "current_stable_ua": 3.0,
+                "stable_count": 3,
+                "max_force_g": 50.0,
+                "retract_step_um": 50,
+                "retract_final_um": 200,
+                "max_descent_um": 5000,
+                "max_retract_um": 5000
+            }
         }
 
         self._safe_write(data, filepath)
@@ -1114,7 +1143,14 @@ class UserConfigManager:
                 "step": 0.001,
                 "power": 0.0,
                 "on": False,
-                "done": "Laser On"
+                "done": "Laser On",
+                "bias_voltage": {
+                    "enabled": False,
+                    "mode": "V",
+                    "start": 0.0,
+                    "stop": 1.0,
+                    "step": 0.1
+                }
             },
             "DetectorWindowSettings": {},
             "AreaS": {
@@ -1137,8 +1173,23 @@ class UserConfigManager:
             },
             "InitialPositions": {},  # Applies no defaults
             "Configuration": {
-                "stage": "",  # No config stored by default
-                "sensor": ""  # No config stored by default
+                "stage": "",   # No config stored by default
+                "sensor": "",  # No config stored by default
+                "tec": "",
+                "smu": ""
+            },
+            "EO_Settings": {
+                "bias_voltage": 0.8,
+                "step_down_um": 10,
+                "force_contact_g": 0.5,
+                "min_current_ua": 10.0,
+                "current_stable_ua": 3.0,
+                "stable_count": 3,
+                "max_force_g": 50.0,
+                "retract_step_um": 50,
+                "retract_final_um": 200,
+                "max_descent_um": 5000,
+                "max_retract_um": 5000
             }
         }
     

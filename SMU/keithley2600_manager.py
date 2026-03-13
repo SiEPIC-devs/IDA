@@ -75,6 +75,14 @@ class Keithley2600Manager:
     def initialize(self) -> bool:
         """Initialize the SMU device"""
         try:
+            # Disconnect old controller first to avoid leaking VISA sessions
+            if self.smu is not None:
+                try:
+                    self.smu.disconnect()
+                except Exception:
+                    pass
+                self.smu = None
+
             # Create controller instance using config
             self.smu = Keithley2600BController(
                 visa_address=self.config.visa_address,
@@ -123,14 +131,13 @@ class Keithley2600Manager:
         try:
             if self.smu:
                 success = self.smu.disconnect()
-                if success:
-                    self._connected = False
-                    self._log("Disconnected from Keithley 2600 device")
+                self._connected = False  # Always mark disconnected
                 return success
             return True
 
         except Exception as e:
             self._log(f"Disconnect error: {e}", "error")
+            self._connected = False  # Mark disconnected even on exception
             return False
 
     def is_connected(self) -> bool:
@@ -289,42 +296,39 @@ class Keithley2600Manager:
         """Get voltage measurements from all channels"""
         try:
             if not self.smu or not self._connected:
-                self._log("SMU not connected", "error")
                 return None
 
             voltages = self.smu.get_voltage()
             return voltages
 
         except Exception as e:
-            self._log(f"Get voltage error: {e}", "error")
+            self._log(f"Get voltage error: {e}", "debug")
             return None
 
     def get_current(self) -> Optional[Dict[str, float]]:
         """Get current measurements from all channels"""
         try:
             if not self.smu or not self._connected:
-                self._log("SMU not connected", "error")
                 return None
 
             currents = self.smu.get_current()
             return currents
 
         except Exception as e:
-            self._log(f"Get current error: {e}", "error")
+            self._log(f"Get current error: {e}", "debug")
             return None
 
     def get_resistance(self) -> Optional[Dict[str, float]]:
         """Get resistance measurements from all channels"""
         try:
             if not self.smu or not self._connected:
-                self._log("SMU not connected", "error")
                 return None
 
             resistances = self.smu.get_resistance()
             return resistances
 
         except Exception as e:
-            self._log(f"Get resistance error: {e}", "error")
+            self._log(f"Get resistance error: {e}", "debug")
             return None
 
     # === Ranging ===

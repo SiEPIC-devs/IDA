@@ -23,6 +23,7 @@ class stage_control(App):
         self.sensor = {}
         self.sensor_window = None
         self.sweep_check = 0
+        self._sweep_locked = False
         if "editing_mode" not in kwargs:
             super(stage_control, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
 
@@ -51,25 +52,45 @@ class stage_control(App):
                 self.project = data.get("Project", "")
                 self.sweep = data.get("Sweep", {})
                 self.auto_sweep = data.get("AutoSweep", 0)
-                self.configuration = data.get("Configuration", {})
+                cfg = data.get("Configuration")
+                if isinstance(cfg, dict) and cfg:
+                    self.configuration = cfg
                 self.num = data.get("DeviceNum", "")
 
-            self.pwr.set_value(self.sweep["power"])
-            self.wvl.set_value(self.sweep["wvl"])
-            self.range_start.set_value(self.sweep["start"])
-            self.range_end.set_value(self.sweep["end"])
+                # ---------------- SweepLock ----------------
+                # Only act on SweepLock if actually present in data
+                if "SweepLock" in data:
+                    sweep_lock_val = data["SweepLock"]
+                    if sweep_lock_val and not self._sweep_locked:
+                        self._sweep_locked = True
+                        self.lock_all(1)
+                        print("[SensorControl] All controls locked (sweep in progress)")
+                    elif not sweep_lock_val and self._sweep_locked:
+                        self._sweep_locked = False
+                        self.lock_all(0)
+                        print("[SensorControl] All controls unlocked")
+
+                # Update display spinboxes from Sweep (live sync)
+                try:
+                    self.pwr.set_value(self.sweep["power"])
+                    self.wvl.set_value(self.sweep["wvl"])
+                    self.range_start.set_value(self.sweep["start"])
+                    self.range_end.set_value(self.sweep["end"])
+                except (KeyError, TypeError):
+                    pass
 
         if self.auto_sweep == 1 and self.count == 0:
             self.count = 1
             self.lock_all(1)
         elif self.auto_sweep == 0 and self.count == 1:
             self.count = 0
-            self.lock_all(0)
+            if not self._sweep_locked:
+                self.lock_all(0)
 
         if self.sweep["sweep"] == 1 and self.auto_sweep == 0:
             self.sweep_btn.set_enabled(False)
             self.sweep_check = 1
-        elif self.sweep["sweep"] == 0 and self.auto_sweep == 0:
+        elif self.sweep["sweep"] == 0 and self.auto_sweep == 0 and not self._sweep_locked:
             self.sweep_btn.set_enabled(True)
             if self.sweep_check == 1:
                 if self.sweep["done"] == "Laser On":
@@ -219,7 +240,7 @@ class stage_control(App):
             "Setting",
             f"http://{local_ip}:7101",
             width=262 + web_w,
-            height=280 + web_h,
+            height=416 + web_h,
             resizable=True,
             on_top=True,
             hidden=False

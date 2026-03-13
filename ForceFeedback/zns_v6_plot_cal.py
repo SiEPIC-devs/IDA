@@ -1,15 +1,54 @@
 import time
-from collections import deque
+import json
+import os
+import tempfile
+import datetime
 
-import matplotlib.pyplot as plt
 from pymodbus.client import ModbusSerialClient
 
-PORT = "COM12"       
+PORT = "COM12"
 BAUDRATE = 115200
-DEVICE_ID = 1       
-POLL_HZ = 20         
-WINDOW_SEC = 15     
-PRINT_ENABLE = False  
+DEVICE_ID = 1
+POLL_HZ = 1          # 1 Hz is enough for shared_memory updates
+
+# Path to shared_memory.json (relative to project root)
+_SHARED_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "GUI", "database", "shared_memory.json")
+# Dedicated file for force data — avoids cross-process race on shared_memory.json
+_FORCE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "GUI", "database", "force_weight.json")
+
+def _update_shared_memory(ch1_g: float, ch2_g: float, total_g: float):
+    """Write ForceWeight to a dedicated file AND merge into shared_memory.json."""
+    payload = {
+        "ch1": round(ch1_g, 1),
+        "ch2": round(ch2_g, 1),
+        "total": round(total_g, 1),
+        "timestamp": datetime.datetime.now().isoformat(),
+    }
+    # 1. Always write dedicated file (fast, no contention)
+    try:
+        dir_name = os.path.dirname(_FORCE_PATH)
+        fd, tmp = tempfile.mkstemp(dir=dir_name, suffix=".tmp")
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                json.dump(payload, f)
+            os.replace(tmp, _FORCE_PATH)
+        except Exception:
+            if os.path.exists(tmp):
+                os.remove(tmp)
+    except Exception:
+        pass
+    # 2. Merge only ForceWeight into shared_memory.json using
+    #    SharedMemory.update() to avoid overwriting other keys.
+    #    Import here to avoid circular imports at module level.
+    try:
+        import sys
+        project_root = os.path.dirname(os.path.dirname(__file__))
+        if project_root not in sys.path:
+            sys.path.insert(0, project_root)
+        from GUI.lib_gui import SharedMemory
+        SharedMemory.update({"ForceWeight": payload})
+    except Exception:
+        pass
 
 def regs_to_int32(low16: int, high16: int) -> int:
     raw = (high16 << 16) | low16
@@ -29,50 +68,11 @@ def main():
     if not client.connect():
         raise RuntimeError(f"unable to open {PORT}")
 
-    # plot init
-    plt.ion()
-    fig = plt.figure(figsize=(12, 7))
-    
-    # 添加窗口关闭事件处理
-    window_closed = [False]  # 使用列表以便在闭包中修改
-    def on_close(event):
-        window_closed[0] = True
-    fig.canvas.mpl_connect('close_event', on_close)
-    
-    # 创建主图表区域（占据大部分空间）
-    ax = fig.add_axes([0.08, 0.1, 0.65, 0.8])  # [left, bottom, width, height]
-    ax.set_title("ZNSV6 Realtime Weight (CH1 & CH2)")
-    ax.set_xlabel("Time (s)")
-    ax.set_ylabel("Weight raw")
-
-    maxlen = int(WINDOW_SEC * POLL_HZ) + 5
-    tbuf = deque(maxlen=maxlen)
-    y1 = deque(maxlen=maxlen)
-    y2 = deque(maxlen=maxlen)
-
-    (ln1,) = ax.plot([], [], label="CH1", linewidth=2, color='blue')
-    (ln2,) = ax.plot([], [], label="CH2", linewidth=2, color='orange')
-    ax.legend(loc='upper left')
-    
-    # 在右侧创建文本显示区域（完全在图表外）
-    text_str = "Time:    0.00s\n\nCH1:        0\n\nCH2:        0"
-    text_box = fig.text(0.78, 0.5, text_str, 
-                       fontsize=13, verticalalignment='center',
-                       bbox=dict(boxstyle='round,pad=0.6', facecolor='lightblue', 
-                                edgecolor='black', linewidth=1.5, alpha=0.95),
-                       family='monospace', weight='bold')
-
-    t0 = time.time()
     period = 1.0 / max(POLL_HZ, 1)
+    print(f"Force sensor polling started ({POLL_HZ} Hz), writing to shared_memory...")
 
     try:
         while True:
-            # 检查窗口是否已关闭
-            if window_closed[0] or not plt.fignum_exists(fig.number):
-                print("Window closed, exiting...")
-                break
-                
-            # 一次读 0x0000~0x0003：CH1(0,1) + CH2(2,3)
             rr = client.read_holding_registers(address=0x0000, count=4, device_id=DEVICE_ID)
             if rr.isError():
                 print("read error:", rr)
@@ -83,21 +83,11 @@ def main():
             ch1 = regs_to_int32(r[0], r[1])
             ch2 = regs_to_int32(r[2], r[3])
 
-            t = time.time() - t0
-            tbuf.append(t)
-            y1.append(ch1)
-            y2.append(ch2)
+            ch1_g = ch1 / 10.0
+            ch2_g = ch2 / 10.0
+            total_g = ch1_g + ch2_g
 
-            ln1.set_data(list(tbuf), list(y1))
-            ln2.set_data(list(tbuf), list(y2))
-
-            # 更新实时数据显示
-            text_str = f"Time: {t:7.2f}s\n\nCH1: {ch1:8d}\n\nCH2: {ch2:8d}"
-            text_box.set_text(text_str)
-
-            ax.relim()
-            ax.autoscale_view()
-            plt.pause(0.001)
+            _update_shared_memory(ch1_g, ch2_g, total_g)
 
             time.sleep(period)
 
@@ -105,7 +95,6 @@ def main():
         print("Stopped.")
     finally:
         client.close()
-        plt.close(fig)
         print("Program terminated.")
 
 if __name__ == "__main__":

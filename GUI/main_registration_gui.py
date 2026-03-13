@@ -1,5 +1,5 @@
 from remi import start, App
-import os, lib_coordinates, threading, glob
+import os, json, lib_coordinates, threading, glob
 from GUI.lib_gui import *
 
 class registration(App):
@@ -14,6 +14,9 @@ class registration(App):
         self.second_mark_position = [100, -100, 0]
         self.third_mark_position = [100, 100, 0]
         self.memory = Memory()
+        self.pad_device_number = 1
+        self.pad_pad_number = 1
+        self.transformed = False
 
         if "editing_mode" not in kwargs:
             super(registration, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -60,7 +63,7 @@ class registration(App):
         # ---------------- Coordinate Table Section ----------------
         coordinate_container = StyledContainer(
             container=registration_container, variable_name="coordinate_container",
-            left=10, top=80, height=188, width=625, border=True
+            left=10, top=80, height=187, width=625, border=True
         )
 
         StyledLabel(
@@ -132,6 +135,60 @@ class registration(App):
             cell4.append(getattr(self, f"stage_y_{row_index}"))
             cell5.append(getattr(self, f"checkbox_{row_index}"))
 
+        # ---------------- Pad Coordinate Section ----------------
+        pad_container = StyledContainer(
+            container=registration_container, variable_name="pad_container",
+            left=10, top=293, height=118, width=625, border=True
+        )
+
+        StyledLabel(
+            container=pad_container, text="Pad Coordinate", variable_name="pad_coord_lb",
+            left=475, top=-12, width=120, height=20, font_size=120, color="#222", position="absolute",
+            flex=True, on_line=True
+        )
+
+        self.set_as_ref_button = StyledButton(
+            container=pad_container, text="Set as Ref", variable_name="set_as_ref",
+            left=10, top=10, font_size=90, normal_color="#007BFF", press_color="#0056B3"
+        )
+
+        pad_headers = ["Device ID", "Pad ID", "Relative X", "Relative Y"]
+        pad_widths = [150, 150, 105, 105]
+
+        StyledTable(
+            container=pad_container, variable_name="pad_table",
+            left=0, top=50, height=30, table_width=625, headers=pad_headers, widths=pad_widths, row=2
+        )
+
+        pad_table = registration_container.children["pad_container"].children["pad_table"]
+        pad_row = list(pad_table.children.values())[1]
+        pad_cell0, pad_cell1, pad_cell2, pad_cell3 = [list(pad_row.children.values())[i] for i in range(4)]
+
+        self.pad_device_id = StyledDropDown(
+            container=None, text="N/A", variable_name="pad_device_id",
+            bg_color="#ffffff", border="0px", border_radius="0px", left=0, top=0,
+            width=100, height=100, position="inherit", percent=True)
+
+        self.pad_pad_id = StyledDropDown(
+            container=None, text="N/A", variable_name="pad_pad_id",
+            bg_color="#ffffff", border="0px", border_radius="0px", left=0, top=0,
+            width=100, height=100, position="inherit", percent=True)
+
+        self.pad_relative_x = StyledLabel(
+            container=None, text="N/A", variable_name="pad_relative_x", left=0, top=0,
+            width=100, height=100, font_size=100, color="#222", align="right", position="inherit",
+            percent=True, flex=True)
+
+        self.pad_relative_y = StyledLabel(
+            container=None, text="N/A", variable_name="pad_relative_y", left=0, top=0,
+            width=100, height=100, font_size=100, color="#222", align="right", position="inherit",
+            percent=True, flex=True)
+
+        pad_cell0.append(self.pad_device_id)
+        pad_cell1.append(self.pad_pad_id)
+        pad_cell2.append(self.pad_relative_x)
+        pad_cell3.append(self.pad_relative_y)
+
         # ---------------- Terminal Display ----------------
         terminal_container = StyledContainer(
             container=registration_container, variable_name="terminal_container",
@@ -166,6 +223,13 @@ class registration(App):
         )
         self.reset_button.do_onclick(lambda *_: self.run_in_thread(self.onclick_reset))
         self.transform_button.do_onclick(lambda *_: self.run_in_thread(self.onclick_transform))
+        self.pad_device_id.onchange.do(
+            lambda emitter, value: self.run_in_thread(self.onchange_pad_device, emitter, value)
+        )
+        self.pad_pad_id.onchange.do(
+            lambda emitter, value: self.run_in_thread(self.onchange_pad_pad, emitter, value)
+        )
+        self.set_as_ref_button.do_onclick(lambda *_: self.run_in_thread(self.onclick_set_as_ref))
 
         self.registration_container = registration_container
         return registration_container
@@ -192,23 +256,51 @@ class registration(App):
         self.polarization = self.gds.listdeviceparam("polarization")
         self.wavelength = self.gds.listdeviceparam("wavelength")
         self.type = self.gds.listdeviceparam("type")
-        self.devices = [f"{name} ({num})" for name, num in zip(self.gds.listdeviceparam("devicename"), self.number)]
+        devicenames = self.gds.listdeviceparam("devicename")
+        self.devices = [f"{name} ({num})" for name, num in zip(devicenames, self.number)]
 
+        # Build filtered lists by type
+        self.non_pad_devices = []
+        self.pad_only_devices = []
+        for i, t in enumerate(self.type):
+            label = self.devices[i]
+            if t.lower() == "pad":
+                self.pad_only_devices.append(label)
+            else:
+                self.non_pad_devices.append(label)
+
+        # Populate coordinate table dropdowns with non-pad devices
         self.device_id_1.empty()
         self.device_id_2.empty()
         self.device_id_3.empty()
-        self.device_id_1.append(self.devices)
-        self.device_id_2.append(self.devices)
-        self.device_id_3.append(self.devices)
-        self.device_id_1.attributes["title"] = self.devices[0]
-        self.device_id_2.attributes["title"] = self.devices[0]
-        self.device_id_3.attributes["title"] = self.devices[0]
-        self.gds_x_1.set_text(str(self.coordinate[0][0]))
-        self.gds_y_1.set_text(str(self.coordinate[0][1]))
-        self.gds_x_2.set_text(str(self.coordinate[0][0]))
-        self.gds_y_2.set_text(str(self.coordinate[0][1]))
-        self.gds_x_3.set_text(str(self.coordinate[0][0]))
-        self.gds_y_3.set_text(str(self.coordinate[0][1]))
+        self.device_id_1.append(self.non_pad_devices)
+        self.device_id_2.append(self.non_pad_devices)
+        self.device_id_3.append(self.non_pad_devices)
+        self.device_id_1.attributes["title"] = self.non_pad_devices[0]
+        self.device_id_2.attributes["title"] = self.non_pad_devices[0]
+        self.device_id_3.attributes["title"] = self.non_pad_devices[0]
+        first_non_pad_num = int(self.non_pad_devices[0].split("(")[-1].split(")")[0])
+        self.number_1 = first_non_pad_num
+        self.number_2 = first_non_pad_num
+        self.number_3 = first_non_pad_num
+        self.gds_x_1.set_text(str(self.coordinate[first_non_pad_num - 1][0]))
+        self.gds_y_1.set_text(str(self.coordinate[first_non_pad_num - 1][1]))
+        self.gds_x_2.set_text(str(self.coordinate[first_non_pad_num - 1][0]))
+        self.gds_y_2.set_text(str(self.coordinate[first_non_pad_num - 1][1]))
+        self.gds_x_3.set_text(str(self.coordinate[first_non_pad_num - 1][0]))
+        self.gds_y_3.set_text(str(self.coordinate[first_non_pad_num - 1][1]))
+
+        # Populate pad coordinate dropdowns
+        self.pad_device_id.empty()
+        self.pad_pad_id.empty()
+        self.pad_device_id.append(self.non_pad_devices)
+        self.pad_pad_id.append(self.pad_only_devices)
+        self.pad_device_id.attributes["title"] = self.non_pad_devices[0]
+        self.pad_pad_id.attributes["title"] = self.pad_only_devices[0]
+        self.pad_device_number = first_non_pad_num
+        first_pad_num = int(self.pad_only_devices[0].split("(")[-1].split(")")[0])
+        self.pad_pad_number = first_pad_num
+        self.update_pad_relative()
 
         # ----- condition 1: file upload triggers devices reload -----
         self.send_devices_load_command()
@@ -279,6 +371,105 @@ class registration(App):
             self.stage_x_3.set_text("N/A")
             self.stage_y_3.set_text("N/A")
 
+    def onchange_pad_device(self, emitter, new_value):
+        number_str = new_value.split("(")[-1].split(")")[0]
+        self.pad_device_number = int(number_str)
+        self.pad_device_id.attributes["title"] = new_value
+        self.update_pad_relative()
+
+    def onchange_pad_pad(self, emitter, new_value):
+        number_str = new_value.split("(")[-1].split(")")[0]
+        self.pad_pad_number = int(number_str)
+        self.pad_pad_id.attributes["title"] = new_value
+        self.update_pad_relative()
+
+    def update_pad_relative(self):
+        try:
+            dev_coord = self.coordinate[self.pad_device_number - 1]
+            pad_coord = self.coordinate[self.pad_pad_number - 1]
+            rel_x = dev_coord[0] - pad_coord[0]
+            rel_y = dev_coord[1] - pad_coord[1]
+            self.pad_relative_x.set_text(f"{rel_x:.2f}")
+            self.pad_relative_y.set_text(f"{rel_y:.2f}")
+        except Exception:
+            self.pad_relative_x.set_text("N/A")
+            self.pad_relative_y.set_text("N/A")
+
+    def onclick_set_as_ref(self):
+        try:
+            if not self.transformed:
+                print("Please transform coordinates first")
+                return
+
+            all_entries = self.gds.device_db.all()
+
+            # Look up the selected device and pad entries
+            ref_dev = None
+            ref_pad = None
+            for entry in all_entries:
+                if entry["number"] == self.pad_device_number:
+                    ref_dev = entry
+                if entry["number"] == self.pad_pad_number:
+                    ref_pad = entry
+
+            if ref_dev is None or ref_pad is None:
+                print("Reference device or pad not found")
+                return
+
+            # Validate: must match on devicename, polarization, wavelength
+            if (ref_dev["devicename"] != ref_pad["devicename"] or
+                    ref_dev["polarization"] != ref_pad["polarization"] or
+                    ref_dev["wavelength"] != ref_pad["wavelength"]):
+                print("Device and Pad do not match (devicename/polarization/wavelength differ)")
+                return
+
+            # Build a lookup: (devicename, polarization, wavelength) -> pad coordinate
+            pad_lookup = {}
+            for entry in all_entries:
+                if entry["type"].lower() == "pad":
+                    key = (entry["devicename"], entry["polarization"], entry["wavelength"])
+                    pad_lookup[key] = entry["coordinate"]
+
+            # Reference offset = ref_device_coord - ref_pad_coord
+            ref_dev_coord = ref_dev["coordinate"]
+            ref_pad_coord = ref_pad["coordinate"]
+            ref_offset = [
+                ref_dev_coord[0] - ref_pad_coord[0],
+                ref_dev_coord[1] - ref_pad_coord[1],
+                ref_dev_coord[2] - ref_pad_coord[2] if len(ref_dev_coord) > 2 else 0
+            ]
+
+            # Build output: only non-pad devices that have a matching pad, preserve original number and order
+            output = {"_default": {}}
+            for entry in all_entries:
+                if entry["type"].lower() == "pad":
+                    continue
+                key = (entry["devicename"], entry["polarization"], entry["wavelength"])
+                if key not in pad_lookup:
+                    continue
+                dev_coord = entry["coordinate"]
+                matched_pad_coord = pad_lookup[key]
+                rel_x = (dev_coord[0] - matched_pad_coord[0]) - ref_offset[0]
+                rel_y = (dev_coord[1] - matched_pad_coord[1]) - ref_offset[1]
+                rel_z = (dev_coord[2] - matched_pad_coord[2] if len(dev_coord) > 2 else 0) - ref_offset[2]
+                new_entry = {
+                    "number": entry["number"],
+                    "coordinate": [rel_x, rel_y, rel_z],
+                    "polarization": entry["polarization"],
+                    "wavelength": entry["wavelength"],
+                    "type": entry["type"],
+                    "devicename": entry["devicename"]
+                }
+                output["_default"][str(entry["number"])] = new_entry
+
+            output_path = "./database/coordinates_relative.json"
+            with open(output_path, "w") as f:
+                json.dump(output, f, indent=2)
+
+            print(f"coordinates_relative.json saved with {len(output['_default'])} devices")
+        except Exception as e:
+            print(f"Set as Ref failed: {e}")
+
     def onclick_reset(self):
         self.checkbox_1.set_value(False)
         self.checkbox_2.set_value(False)
@@ -297,6 +488,11 @@ class registration(App):
                 self.third_mark_position
             )
             print(return_value)
+
+            # Refresh coordinates from the transformed data
+            self.coordinate = self.gds.listdeviceparam("coordinate")
+            self.transformed = True
+            self.update_pad_relative()
 
             # ----- condition 2: successful transform triggers devices reload -----
             self.send_devices_load_command()

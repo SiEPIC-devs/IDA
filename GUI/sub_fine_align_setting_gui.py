@@ -96,7 +96,11 @@ class fine_align(App):
                 self._cmd_mtime = cmd_mtime
                 self.execute_command()
 
-        # --- shared_memory.json watcher for FineA ---
+        # --- shared_memory.json: only track mtime (for SlotInfo updates) ---
+        # We do NOT auto-reload FineA fields here because other processes
+        # write shared_memory frequently, which would overwrite the user's
+        # uncommitted edits (e.g. changing the Detector dropdown).
+        # Fields are loaded once in main() and refreshed after onclick_confirm().
         shared_mtime = get_shared_memory_mtime()
 
         if self._first_shared_check:
@@ -105,7 +109,9 @@ class fine_align(App):
         else:
             if shared_mtime != self._shared_mtime:
                 self._shared_mtime = shared_mtime
-                self._load_from_shared()
+                # Only update the dynamic detector list from SlotInfo,
+                # do NOT overwrite user-editable fields.
+                self._refresh_detector_options()
 
     def main(self):
         ui = self.construct_ui()
@@ -470,6 +476,55 @@ class fine_align(App):
                 pass
 
     # ---------------- Save to shared_memory.json (FineA) ----------------
+
+    def _refresh_detector_options(self):
+        """Update detector dropdown OPTIONS from SlotInfo without changing the selected value."""
+        data = SharedMemory.read({})
+        if not data:
+            return
+
+        slot_info = data.get("SlotInfo") or []
+        channel_labels = []
+
+        for entry in slot_info:
+            if not isinstance(entry, (list, tuple)) or len(entry) != 2:
+                continue
+            slot, head = entry
+            try:
+                slot_i = int(slot)
+                head_i = int(head)
+            except Exception:
+                continue
+            ch_num = 2 * (slot_i - 1) + head_i + 1
+            channel_labels.append(f"ch{ch_num}")
+
+        if channel_labels:
+            channel_labels.append("Max")
+        else:
+            channel_labels = ["ch1", "ch2", "ch3", "ch4",
+                              "ch5", "ch6", "ch7", "ch8", "Max"]
+
+        # Preserve the user's current selection
+        try:
+            current = self.detector.get_value()
+        except Exception:
+            current = None
+
+        try:
+            if hasattr(self.detector, "set_options"):
+                self.detector.set_options(channel_labels)
+            elif hasattr(self.detector, "update_options"):
+                self.detector.update_options(channel_labels)
+        except Exception:
+            pass
+
+        # Restore selection if still valid
+        if current and current in channel_labels:
+            try:
+                self.detector.set_value(current)
+            except Exception:
+                pass
+
     def onclick_confirm(self):
         value = {
             "window_size":       self._safe_float(self.window_size, 10.0),

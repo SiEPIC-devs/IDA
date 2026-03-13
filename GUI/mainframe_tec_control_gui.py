@@ -24,6 +24,10 @@ class tec_control(App):
         self.configure = None
         self.tec_window = None
         self.port = {}
+        self.user = ""
+        self.project = ""
+        self.name = ""
+        self._sweep_locked = False
 
         self.ld_sweep = {
             "start": 1.0,
@@ -68,12 +72,22 @@ class tec_control(App):
             self._user_stime = stime
             data = SharedMemory.read({})
             if data:
-                self.configuration = data.get("Configuration", {})
-                self.configuration_check = data.get("Configuration_check", {})
+                # Guard: never overwrite with empty — protects against partial reads
+                cfg = data.get("Configuration")
+                if isinstance(cfg, dict) and cfg:
+                    self.configuration = cfg
+                cfg_chk = data.get("Configuration_check")
+                if isinstance(cfg_chk, dict) and cfg_chk:
+                    self.configuration_check = cfg_chk
                 self.port = data.get("Port", {})
                 self.user = data.get("User", "")
                 self.project = data.get("Project", "")
                 self.name = data.get("DeviceName", "")
+
+                # Track SweepLock to prevent disconnect during automation
+                # Only update if key is present — missing key means partial read
+                if "SweepLock" in data:
+                    self._sweep_locked = bool(data["SweepLock"])
 
         self.after_configuration()
 
@@ -122,13 +136,18 @@ class tec_control(App):
                         File("shared_memory", "Configuration_check", self.configuration_check).save()
 
                 # Disconnect when config is cleared
+                # SAFETY: never disconnect while a sweep is in progress
                 elif tec_config == "" and tec_control._ldc_manager is not None:
+                    if self._sweep_locked:
+                        return
                     if tec_control._ldc_manager:
                         tec_control._ldc_manager.shutdown()
                         tec_control._ldc_manager = None
                     if hasattr(self, 'tec_window') and self.tec_window:
                         self.tec_window.destroy()
                         self.tec_window = None
+                    self.configuration_check["tec"] = 0
+                    File("shared_memory", "Configuration_check", self.configuration_check).save()
         except Exception as e:
             print(f"[TEC] Exception: {e}")
             import traceback

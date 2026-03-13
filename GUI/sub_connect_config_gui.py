@@ -64,10 +64,10 @@ class connect_config(App):
     # ------------------ REMI lifecycle ------------------
 
     def main(self):
-        # Do NOT auto-enable VISA scanning here — the hidden webview connects
-        # at startup and would put GPIB instruments into REMOTE mode.
-        # Scanning is enabled explicitly via enable_scanning() when the user
-        # clicks "Configure VISA" in main_instruments_gui.
+        # Enable VISA scanning when the config UI is shown.
+        # list_resources() does NOT put GPIB instruments into REMOTE mode
+        # (only open_resource to a specific address does), so this is safe.
+        self._scanning_enabled = True
         return self.construct_ui()
     
     def enable_scanning(self):

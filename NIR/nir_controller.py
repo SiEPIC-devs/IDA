@@ -136,6 +136,9 @@ class NIR8164(LaserHAL):
                     except Exception:
                         pass
                     # Do not query IDN
+                self._is_connected = True
+                self.get_mainframe_slot_info()
+                self.configure_units()
                 return True     
         except Exception as e:
             raise ConnectionError(f"{e}")
@@ -172,24 +175,46 @@ class NIR8164(LaserHAL):
         self.rm = None
         self._is_connected = False
 
-        # 4. Deassert REN in a FRESH subprocess so there is zero inherited
-        #    NI-VISA state.  This is the only reliable way because NI-VISA
-        #    tracks REN per-process and any leftover session can re-assert it.
+        # 4. Deassert REN — but ONLY if no other GPIB device is still connected.
+        #    REN deassert affects the entire GPIB0 bus, which would kick SMU/TEC
+        #    out of remote mode and cause VI_ERROR_TMO on their next command.
+        other_gpib_active = False
         try:
-            import subprocess, sys
-            subprocess.Popen(
-                [sys.executable, "-c",
-                 "import pyvisa,pyvisa.constants as vc;"
-                 "rm=pyvisa.ResourceManager();"
-                 "i=rm.open_resource('GPIB0::INTFC');"
-                 "i.control_ren(vc.VI_GPIB_REN_DEASSERT);"
-                 "i.close();rm.close();"
-                 "print('[NIR-GTL] REN deasserted (subprocess)',flush=True)"],
-                stdout=None, stderr=None
-            )
-            print("[NIR] Launched REN-deassert subprocess", flush=True)
-        except Exception as e:
-            print(f"[NIR-GTL] Subprocess launch failed: {e}", flush=True)
+            import json, os
+            sm_path = os.path.join(os.path.dirname(__file__), "..", "GUI",
+                                   "database", "shared_memory.json")
+            sm_path = os.path.normpath(sm_path)
+            with open(sm_path, "r", encoding="utf-8") as f:
+                sm = json.load(f)
+            cfg = sm.get("Configuration", {})
+            # Check if SMU or TEC (also on GPIB0) are still connected
+            for key in ("smu", "tec"):
+                if cfg.get(key, "") != "":
+                    other_gpib_active = True
+                    break
+        except Exception:
+            # If we can't read shared memory, be safe and skip deassert
+            other_gpib_active = True
+
+        if not other_gpib_active:
+            try:
+                import subprocess, sys
+                proc = subprocess.Popen(
+                    [sys.executable, "-c",
+                     "import pyvisa,pyvisa.constants as vc;"
+                     "rm=pyvisa.ResourceManager();"
+                     "i=rm.open_resource('GPIB0::INTFC');"
+                     "i.control_ren(vc.VI_GPIB_REN_DEASSERT);"
+                     "i.close();rm.close();"
+                     "print('[NIR-GTL] REN deasserted (subprocess)',flush=True)"],
+                    stdout=None, stderr=None
+                )
+                proc.wait(timeout=5)
+                print("[NIR] REN-deassert subprocess completed", flush=True)
+            except Exception as e:
+                print(f"[NIR-GTL] Subprocess launch/wait failed: {e}", flush=True)
+        else:
+            print("[NIR] Skipping REN deassert — other GPIB devices still active", flush=True)
 
         print("[NIR] === DISCONNECT COMPLETE ===", flush=True)
         return True
@@ -368,22 +393,23 @@ class NIR8164(LaserHAL):
 
     def read_power(self, slot, head, mf: int = 0) -> Optional[Tuple[float]]:
         """
-        Read power from each chan with unit configured
-        Uses READ instead of FETCH to get real-time measurement
+        Read power from detector channel.
+        Note: head is 0-based from slot_info, but SCPI CHAN is 1-based.
+        READ triggers a new measurement and waits for completion.
         """
+        chan = head + 1  # Convert 0-based head to 1-based SCPI CHAN
         try:
             if mf == 0:
-                # READ triggers a new measurement and returns the value
-                p = self.query(f"READ{slot}:CHAN{head}:POW?")
+                p = self.query(f"READ{slot}:CHAN{chan}:POW?")
                 return float(p)
             else:
                 p = self.query_detector(
-                    f"READ{slot}:CHAN{head}:POW?",
+                    f"READ{slot}:CHAN{chan}:POW?",
                     mf-1
                 )
                 return float(p)
         except:
-            return False
+            return -80.0
 
     def enable_autorange(self, enable: bool = True, slot: int = 1, mf: int = 0) -> bool:
         """Enable/disable autorange """
@@ -598,8 +624,11 @@ class NIR8164(LaserHAL):
 
     def _preflight_cleanup(self) -> None:
         try:
-            for slot, _ in self.slot_info:
-                self.write(f"SENS{slot}:CHAN1:FUNC:STAT LOGG,STOP")
+            for mf, slot, _ in self.slot_info:
+                if mf > 0:
+                    self.write_detector(f"SENS{slot}:CHAN1:FUNC:STAT LOGG,STOP", mf-1)
+                else:
+                    self.write(f"SENS{slot}:CHAN1:FUNC:STAT LOGG,STOP")
         except:
             pass
         try:

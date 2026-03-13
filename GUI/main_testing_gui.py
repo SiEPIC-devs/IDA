@@ -51,6 +51,8 @@ class testing(App):
         self.remaining = 0
         self.file_format = ""
         self.path = ""
+        self._bias_enabled = False  # Track bias state from shared_memory
+        self._devices_ready = False  # True after TSP solve / file load
 
         if "editing_mode" not in kwargs:
             super(testing, self).__init__(*args, **{"static_file_path": {"my_res": "./res/"}})
@@ -90,6 +92,11 @@ class testing(App):
                     self.auto_sweep = data.get("AutoSweep", 0)
                     self.project = data.get("Project", "")
 
+                    # Track bias enabled state for start button validation
+                    sweep_data = data.get("Sweep", {})
+                    bias_cfg = sweep_data.get("bias_voltage", {})
+                    self._bias_enabled = bias_cfg.get("enabled", False)
+
             if self.auto_sweep == 1 and self.device_num != self.pre_num:
                 self.status[self.device_num - 1] = "1"
                 self.build_table_rows()
@@ -101,6 +108,7 @@ class testing(App):
                 self.remaining_device.set_text(str(self.remaining))
         self.update_file_format()
         self.update_path()
+        self._update_start_button_state()
 
     def main(self):
         return testing.construct_ui(self)
@@ -240,8 +248,8 @@ class testing(App):
             left=400, top=10, height=475, width=240
         )
 
-        StyledDropDown(
-            container=setting_container, text=["Laser Sweep", "...."], variable_name="laser_sweep",
+        self.sweep_type_dd = StyledDropDown(
+            container=setting_container, text=["Laser Sweep", "EO"], variable_name="laser_sweep",
             left=0, top=0, width=120, height=30
         )
 
@@ -346,12 +354,30 @@ class testing(App):
         self.remaining = len(filtered)
         self.elapsed_device.set_text(str(self.elapsed))
         self.remaining_device.set_text(str(self.remaining))
-        file = File("shared_memory", "AutoSweep", 1, "DeviceNum", -1)
-        file.save()
+        sweep_type = self.sweep_type_dd.get_value()  # "Laser Sweep" or "EO"
+        SharedMemory.update({"AutoSweep": 1, "DeviceNum": -1, "AutoSweepType": sweep_type})
 
     def stop_sequence(self):
         file = File("shared_memory", "AutoSweep", 0)
         file.save()
+
+    def _update_start_button_state(self):
+        """
+        Enable Start only when sweep type and bias setting are consistent:
+        - Laser Sweep: bias must NOT be enabled
+        - EO:          bias MUST be enabled
+        Also requires devices to be loaded (_devices_ready).
+        """
+        if not self._devices_ready:
+            return  # Don't touch the button before devices are loaded
+        sweep_type = self.sweep_type_dd.get_value()
+        bias_on = self._bias_enabled
+        if sweep_type == "EO" and not bias_on:
+            self.start_btn.set_enabled(False)
+        elif sweep_type == "Laser Sweep" and bias_on:
+            self.start_btn.set_enabled(False)
+        else:
+            self.start_btn.set_enabled(True)
 
     def tsp_solve(self):
         if self.filtered_idx:
@@ -373,6 +399,8 @@ class testing(App):
             self.tsp_btn.set_enabled(True)
             self.start_btn.set_enabled(True)
             self.stop_btn.set_enabled(True)
+            self._devices_ready = True
+            self._update_start_button_state()
 
             filtered = {str(i + 1): self.coordinate[i][0:2] for i in self.filtered_idx}
             self.remaining = len(filtered)
@@ -545,8 +573,8 @@ class testing(App):
         webview.create_window(
             "Setting",
             f"http://{local_ip}:7109",
-            width=302 + web_w,
-            height=316 + web_h,
+            width=352 + web_w,
+            height=576 + web_h,
             resizable=True,
             on_top=True,
             hidden=False

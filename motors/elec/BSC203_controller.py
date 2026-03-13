@@ -31,6 +31,7 @@ Usage Example:
 
 import clr
 import time
+import threading
 from typing import Optional, Dict, Tuple, List
 from enum import Enum
 from dataclasses import dataclass
@@ -127,6 +128,7 @@ class BSC203Controller:
         }
         self.is_connected = False
         self._enable_limit_check = True
+        self._lock = threading.RLock()  # RLock allows same-thread reentrance
         
     def connect(self, timeout: int = 10000) -> bool:
         """
@@ -201,28 +203,64 @@ class BSC203Controller:
         """
         try:
             if self.is_connected and self.device:
-                # Stop polling for all channels
+                # Stop any active moves first (no lock — must interrupt blocking moves)
                 for channel in self.channels.values():
                     try:
-                        channel.StopPolling()
+                        channel.Stop(0)
                     except:
                         pass
-                
-                # Disconnect device
-                self.device.Disconnect()
-                self.device = None
-                self.channels.clear()
-                self.is_connected = False
+                time.sleep(0.3)
+
+                # Acquire lock so no other thread is mid-DLL-call
+                with self._lock:
+                    # Stop polling for all channels
+                    for channel in self.channels.values():
+                        try:
+                            channel.StopPolling()
+                        except:
+                            pass
+                    
+                    # Disconnect device
+                    self.device.Disconnect()
+                    self.device = None
+                    self.channels.clear()
+                    self.is_connected = False
                 
             return True
             
         except Exception as e:
+            self.is_connected = False
             raise BSC203Exception(f"Disconnection failed: {e}")
     
     def _check_connected(self):
         """Check if device is connected"""
         if not self.is_connected:
             raise BSC203Exception("Device not connected, please call connect() first")
+
+    def reconnect(self, timeout: int = 10000) -> bool:
+        """
+        Attempt to disconnect and reconnect to the device.
+        Used for recovery after DLL errors.
+
+        Returns:
+            bool: Whether reconnection succeeded
+        """
+        print("[BSC203] Attempting reconnect...")
+        try:
+            self.disconnect()
+        except Exception:
+            # Force cleanup even if disconnect fails
+            self.device = None
+            self.channels.clear()
+            self.is_connected = False
+
+        time.sleep(1.0)
+
+        try:
+            return self.connect(timeout)
+        except Exception as e:
+            print(f"[BSC203] Reconnect failed: {e}")
+            return False
     
     def _validate_axis(self, axis: str) -> str:
         """Validate axis name"""
@@ -263,21 +301,27 @@ class BSC203Controller:
         self._check_connected()
         axis = self._validate_axis(axis)
         
+        with self._lock:
+            try:
+                channel = self.channels[axis]
+                current_pos = Decimal.ToDouble(channel.Position)
+                target_pos = current_pos + distance
+
+                # Check limits
+                self._check_limits(axis, target_pos)
+
+                # Prepare movement params while holding the lock
+                direction = MotorDirection.Forward if distance >= 0 else MotorDirection.Backward
+                dec_distance = Decimal(abs(distance))
+
+            except Exception as e:
+                raise BSC203Exception(f"{axis}-axis relative move failed: {e}")
+
+        # Execute blocking move OUTSIDE the lock so position reads aren't blocked
         try:
-            channel = self.channels[axis]
-            current_pos = Decimal.ToDouble(channel.Position)
-            target_pos = current_pos + distance
-            
-            # Check limits
-            self._check_limits(axis, target_pos)
-            
-            # Execute movement
-            direction = MotorDirection.Forward if distance >= 0 else MotorDirection.Backward
             timeout = 60000 if wait else 0
-            channel.MoveRelative(direction, Decimal(abs(distance)), timeout)
-            
+            channel.MoveRelative(direction, dec_distance, timeout)
             return True
-            
         except Exception as e:
             raise BSC203Exception(f"{axis}-axis relative move failed: {e}")
     
@@ -296,17 +340,23 @@ class BSC203Controller:
         self._check_connected()
         axis = self._validate_axis(axis)
         
+        with self._lock:
+            try:
+                # Check limits
+                self._check_limits(axis, position)
+
+                # Get channel ref while holding the lock
+                channel = self.channels[axis]
+                dec_position = Decimal(position)
+
+            except Exception as e:
+                raise BSC203Exception(f"{axis}-axis absolute move failed: {e}")
+
+        # Execute blocking move OUTSIDE the lock
         try:
-            # Check limits
-            self._check_limits(axis, position)
-            
-            # Execute movement
-            channel = self.channels[axis]
             timeout = 60000 if wait else 0
-            channel.MoveTo(Decimal(position), timeout)
-            
+            channel.MoveTo(dec_position, timeout)
             return True
-            
         except Exception as e:
             raise BSC203Exception(f"{axis}-axis absolute move failed: {e}")
     
@@ -352,13 +402,14 @@ class BSC203Controller:
         self._check_connected()
         axis = self._validate_axis(axis)
         
-        try:
-            channel = self.channels[axis]
-            channel.Home(timeout)
-            return True
-            
-        except Exception as e:
-            raise BSC203Exception(f"{axis}-axis homing failed: {e}")
+        with self._lock:
+            try:
+                channel = self.channels[axis]
+                channel.Home(timeout)
+                return True
+                
+            except Exception as e:
+                raise BSC203Exception(f"{axis}-axis homing failed: {e}")
     
     def set_zero(self, axis: str) -> bool:
         """
@@ -373,14 +424,15 @@ class BSC203Controller:
         self._check_connected()
         axis = self._validate_axis(axis)
         
-        try:
-            channel = self.channels[axis]
-            channel.SetPositionCounter(0)
-            time.sleep(0.2)
-            return True
-            
-        except Exception as e:
-            raise BSC203Exception(f"{axis}-axis set zero failed: {e}")
+        with self._lock:
+            try:
+                channel = self.channels[axis]
+                channel.SetPositionCounter(0)
+                time.sleep(0.2)
+                return True
+                
+            except Exception as e:
+                raise BSC203Exception(f"{axis}-axis set zero failed: {e}")
     
     # ==================== Position Query ====================
     
@@ -397,10 +449,14 @@ class BSC203Controller:
         self._check_connected()
         axis = self._validate_axis(axis)
         
+        with self._lock:
+            return self._get_position_unlocked(axis)
+    
+    def _get_position_unlocked(self, axis: str) -> float:
+        """Get position without acquiring lock (caller must hold self._lock)."""
         try:
             channel = self.channels[axis]
             return Decimal.ToDouble(channel.Position)
-            
         except Exception as e:
             raise BSC203Exception(f"{axis}-axis get position failed: {e}")
     
@@ -411,10 +467,11 @@ class BSC203Controller:
         Returns:
             dict: {'X': pos_x, 'Y': pos_y, 'Z': pos_z}
         """
-        return {
-            axis: self.get_position(axis)
-            for axis in ['X', 'Y', 'Z']
-        }
+        with self._lock:
+            return {
+                axis: self._get_position_unlocked(axis)
+                for axis in ['X', 'Y', 'Z']
+            }
     
     # ==================== Velocity Control ====================
     
@@ -433,25 +490,26 @@ class BSC203Controller:
         self._check_connected()
         axis = self._validate_axis(axis)
         
-        try:
-            channel = self.channels[axis]
-            vel_params = channel.GetVelocityParams()
-            vel_params.MaxVelocity = Decimal(velocity)
-            
-            if acceleration is not None:
-                vel_params.Acceleration = Decimal(acceleration)
-            
-            channel.SetVelocityParams(vel_params)
-            
-            # Update configuration
-            self.configs[axis].max_velocity = velocity
-            if acceleration is not None:
-                self.configs[axis].acceleration = acceleration
-            
-            return True
-            
-        except Exception as e:
-            raise BSC203Exception(f"{axis}-axis set velocity failed: {e}")
+        with self._lock:
+            try:
+                channel = self.channels[axis]
+                vel_params = channel.GetVelocityParams()
+                vel_params.MaxVelocity = Decimal(velocity)
+                
+                if acceleration is not None:
+                    vel_params.Acceleration = Decimal(acceleration)
+                
+                channel.SetVelocityParams(vel_params)
+                
+                # Update configuration
+                self.configs[axis].max_velocity = velocity
+                if acceleration is not None:
+                    self.configs[axis].acceleration = acceleration
+                
+                return True
+                
+            except Exception as e:
+                raise BSC203Exception(f"{axis}-axis set velocity failed: {e}")
     
     def get_velocity(self, axis: str) -> Tuple[float, float]:
         """
@@ -466,13 +524,14 @@ class BSC203Controller:
         self._check_connected()
         axis = self._validate_axis(axis)
         
-        try:
-            channel = self.channels[axis]
-            vel_params = channel.GetVelocityParams()
-            return (Decimal.ToDouble(vel_params.MaxVelocity), Decimal.ToDouble(vel_params.Acceleration))
-            
-        except Exception as e:
-            raise BSC203Exception(f"{axis}-axis get velocity failed: {e}")
+        with self._lock:
+            try:
+                channel = self.channels[axis]
+                vel_params = channel.GetVelocityParams()
+                return (Decimal.ToDouble(vel_params.MaxVelocity), Decimal.ToDouble(vel_params.Acceleration))
+                
+            except Exception as e:
+                raise BSC203Exception(f"{axis}-axis get velocity failed: {e}")
     
     # ==================== Limit Settings ====================
     
@@ -535,23 +594,24 @@ class BSC203Controller:
         self._check_connected()
         axis = self._validate_axis(axis)
         
-        try:
-            channel = self.channels[axis]
-            vel_params = channel.GetVelocityParams()
-            
-            # Note: Some states may require different API calls
-            status = MotorStatus(
-                position=Decimal.ToDouble(channel.Position),
-                velocity=Decimal.ToDouble(vel_params.MaxVelocity),
-                is_homed=True,  # Simplified handling
-                is_moving=False,  # Requires additional API
-                is_enabled=True
-            )
-            
-            return status
-            
-        except Exception as e:
-            raise BSC203Exception(f"{axis}-axis get status failed: {e}")
+        with self._lock:
+            try:
+                channel = self.channels[axis]
+                vel_params = channel.GetVelocityParams()
+                
+                # Note: Some states may require different API calls
+                status = MotorStatus(
+                    position=Decimal.ToDouble(channel.Position),
+                    velocity=Decimal.ToDouble(vel_params.MaxVelocity),
+                    is_homed=True,  # Simplified handling
+                    is_moving=False,  # Requires additional API
+                    is_enabled=True
+                )
+                
+                return status
+                
+            except Exception as e:
+                raise BSC203Exception(f"{axis}-axis get status failed: {e}")
     
     def is_moving(self, axis: str) -> bool:
         """

@@ -73,6 +73,9 @@ class area_scan(App):
             self.execute_command()
 
         # --- shared_memory.json ---
+        # Only refresh dynamic detector list from SlotInfo;
+        # do NOT reload user-editable fields (window, step, etc.).
+        # Fields are loaded once in main() and after onclick_confirm().
         shared_mtime = get_shared_memory_mtime()
 
         if self._first_shared_check:
@@ -80,7 +83,7 @@ class area_scan(App):
             self._first_shared_check = False
         elif shared_mtime != self._shared_mtime:
             self._shared_mtime = shared_mtime
-            self._load_from_shared()
+            self._refresh_detector_options()
 
     def main(self):
         ui = self.construct_ui()
@@ -330,6 +333,48 @@ class area_scan(App):
             self.plot_dd.set_value(plot)
         except Exception:
             pass
+
+    # ----------------------------------------------------------------------
+    # Refresh detector options only (no field overwrite)
+    # ----------------------------------------------------------------------
+    def _refresh_detector_options(self):
+        """Update detector dropdown OPTIONS from SlotInfo without changing user edits."""
+        data = SharedMemory.read({})
+        if not data:
+            return
+
+        slot_info = data.get("SlotInfo", [])
+        channels = []
+        for entry in slot_info:
+            if not isinstance(entry, (list, tuple)) or len(entry) != 2:
+                continue
+            slot, head = entry
+            try:
+                ch = 2 * (int(slot) - 1) + int(head) + 1
+                channels.append(f"CH{ch}")
+            except Exception:
+                pass
+
+        if channels:
+            channels = sorted(set(channels), key=lambda x: int(x[2:]))
+        channels.append("MAX")
+
+        # Preserve the user's current selection
+        try:
+            current = self.primary_detector_dd.get_value()
+        except Exception:
+            current = None
+
+        try:
+            self.primary_detector_dd.set_options(channels)
+        except Exception:
+            pass
+
+        if current and current in channels:
+            try:
+                self.primary_detector_dd.set_value(current)
+            except Exception:
+                pass
 
     # ----------------------------------------------------------------------
     # Save

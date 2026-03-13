@@ -22,6 +22,7 @@ class instruments(App):
         self.camera_btn = None
         self.calibration_btn = None
         self.force_btn = None
+        self._force_proc = None  # Track force sensor subprocess for toggle
         self._user_stime = None
         
         # Track last processed states to avoid duplicate prints
@@ -40,10 +41,16 @@ class instruments(App):
             self._user_stime = stime
             data = SharedMemory.read({})
             if data:
-                config_check = data.get("Configuration_check", {})
-                if isinstance(config_check, dict):
+                config_check = data.get("Configuration_check")
+                if isinstance(config_check, dict) and config_check:
                     self.configuration_check = config_check
-                
+
+                # Sync Configuration from SharedMemory so connect buttons
+                # don't write stale data that wipes other instruments' config
+                config = data.get("Configuration")
+                if isinstance(config, dict) and config:
+                    self.configuration = config
+
                 # Update NIR configuration display
                 self._update_nir_config_display(data)
 
@@ -362,7 +369,9 @@ class instruments(App):
             # self.lock_all(1)
         else:
             self.configuration["tec"] = ""
-            file = File("shared_memory", "Configuration", self.configuration)
+            self.configuration_check["tec"] = 0  # Reset for reconnection
+            file = File("shared_memory", "Configuration", self.configuration,
+                       "Configuration_check", self.configuration_check)
             file.save()
             self.tec_connect_btn.set_text("Connect")
 
@@ -376,7 +385,9 @@ class instruments(App):
             self.smu_connect_btn.set_text("Connecting")
         else:
             self.configuration["smu"] = ""
-            file = File("shared_memory", "Configuration", self.configuration)
+            self.configuration_check["smu"] = 0  # Reset for reconnection
+            file = File("shared_memory", "Configuration", self.configuration,
+                       "Configuration_check", self.configuration_check)
             file.save()
             self.smu_connect_btn.set_text("Connect")
 
@@ -455,7 +466,33 @@ class instruments(App):
     def onclick_force_btn(self):
         import subprocess
         import sys
-        import threading
+
+        # Toggle: if already running, stop it
+        if self._force_proc is not None and self._force_proc.poll() is None:
+            self._force_proc.terminate()
+            try:
+                self._force_proc.wait(timeout=3)
+            except Exception:
+                self._force_proc.kill()
+            self._force_proc = None
+            # Clear ForceWeight from shared memory so display shows N/A
+            try:
+                from GUI.lib_gui import SharedMemory
+                with SharedMemory.lock():
+                    data = SharedMemory.read_unsafe()
+                    if "ForceWeight" in data:
+                        del data["ForceWeight"]
+                    SharedMemory.write_unsafe(data)
+            except Exception:
+                pass
+            if hasattr(self, "force_btn"):
+                self.force_btn.set_text("Force")
+                self.force_btn.normal_color = "#28A745"
+                self.force_btn.press_color = "#1E7E34"
+                self.force_btn.style.update({"background-color": "#28A745"})
+            print("[Info] Force sensor stopped.")
+            return
+
         script_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "ForceFeedback", "zns_v6_plot_cal.py")
         if not os.path.isfile(script_path):
             print(f"[Warn] Force feedback script not found: {script_path}")
@@ -467,20 +504,16 @@ class instruments(App):
                 candidate = os.path.join(os.path.dirname(python_exec), "pythonw.exe")
                 if os.path.isfile(candidate):
                     python_exec = candidate
-            self.force_btn.set_enabled(False)
-            proc = subprocess.Popen([python_exec, script_path], creationflags=subprocess.CREATE_NO_WINDOW)
+            self._force_proc = subprocess.Popen([python_exec, script_path], creationflags=subprocess.CREATE_NO_WINDOW)
         else:
-            self.force_btn.set_enabled(False)
-            proc = subprocess.Popen([python_exec, script_path])
+            self._force_proc = subprocess.Popen([python_exec, script_path])
 
-        def _wait_and_restore():
-            try:
-                proc.wait()
-            finally:
-                if hasattr(self, "force_btn"):
-                    self.force_btn.set_enabled(True)
-
-        threading.Thread(target=_wait_and_restore, daemon=True).start()
+        if hasattr(self, "force_btn"):
+            self.force_btn.set_text("Force ●")
+            self.force_btn.normal_color = "#DC3545"
+            self.force_btn.press_color = "#A71D2A"
+            self.force_btn.style.update({"background-color": "#DC3545"})
+        print("[Info] Force sensor started.")
 
     def _update_nir_config_display(self, data):
         """Update NIR configuration display from shared memory data."""

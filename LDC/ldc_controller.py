@@ -104,11 +104,13 @@ class SrsLdc502(LdcHAL):
                     sleep(0.1)
                 except Exception:
                     pass
-                # Do NOT close _inst separately; _rm.close() closes all its resources
-            
-            if self._rm:
+                pass
+            # Do NOT call self._rm.close() — NI-VISA shares the default
+            # ResourceManager handle across the entire process.  Closing it
+            # would invalidate every other VISA session (SMU, NIR, etc.).
+            if self._inst:
                 try:
-                    self._rm.close()
+                    self._inst.close()
                 except Exception:
                     pass
             

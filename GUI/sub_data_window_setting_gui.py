@@ -61,6 +61,8 @@ class data_window(App):
             self._cmd_mtime = cmd_mtime
             self.execute_command()
 
+        # Only track mtime; do NOT reload user-editable fields.
+        # Fields are loaded once in main() and after onclick_confirm().
         shared_mtime = get_shared_memory_mtime()
 
         if self._first_shared_check:
@@ -68,7 +70,6 @@ class data_window(App):
             self._first_shared_check = False
         elif shared_mtime != self._shared_mtime:
             self._shared_mtime = shared_mtime
-            self._load_from_shared()
 
     def main(self):
         try:

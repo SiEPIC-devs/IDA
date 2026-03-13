@@ -108,7 +108,10 @@ class stage_control(App):
         self.task_laser = 0
         self._progress_lock = threading.Lock()  # For progress.json 'w'
         self.pause_power_reading = False  # Pause update_ch during fine_align/sweep
-        
+        self._bias_sweep_active = False     # True while _do_bias_sweep is running
+        self._sweep_locked = False              # True when external SweepLock detected
+        self._self_locking = False              # True when this GUI wrote SweepLock
+
         # User config settings 
         self.load_user_settings = False  # False until loaded
         self.apply_initial_positions = True
@@ -145,9 +148,15 @@ class stage_control(App):
                 self.area_s = data.get("AreaS", {})
                 self.fine_a = data.get("FineA", {})
                 self.auto_sweep = data.get("AutoSweep", 0)
+                self.auto_sweep_type = data.get("AutoSweepType", "Laser Sweep")
                 self.filter = data.get("Filtered", {})
-                self.configuration = data.get("Configuration", {})
-                self.configuration_check = data.get("Configuration_check", {})
+                # Guard: never overwrite with empty — protects against partial reads
+                cfg = data.get("Configuration")
+                if isinstance(cfg, dict) and cfg:
+                    self.configuration = cfg
+                cfg_chk = data.get("Configuration_check")
+                if isinstance(cfg_chk, dict) and cfg_chk:
+                    self.configuration_check = cfg_chk
                 self.scanpos = data.get("ScanPos", {})
                 self.sweep = data.get("Sweep", {})
                 self.name = data.get("DeviceName", "")
@@ -189,7 +198,7 @@ class stage_control(App):
                             self.apply_detector_window(slot, mf)
                     
                         data["DetectorWindowSettings"]["Detector_Change"] = "0"   # reset flag
-                        SharedMemory.write(data)
+                        SharedMemory.update({"DetectorWindowSettings": data["DetectorWindowSettings"]})
                     
                     else:
                         # Otw, wait until enumeration
@@ -231,7 +240,19 @@ class stage_control(App):
                         self.apply_initial_positions = True  # Should reapply on a new config
 
                     data["LoadConfig"] = False   # reset flag
-                    SharedMemory.write(data)
+                    SharedMemory.update({"LoadConfig": False})
+
+                # ---------------- SweepLock from external (elec_probe) ----------------
+                sweep_lock_val = data.get("SweepLock", 0)
+                if sweep_lock_val and not self._sweep_locked and not self._self_locking:
+                    self._sweep_locked = True
+                    self.lock_all(sweep_lock_val, write_shared=False)
+                    print("[StageControl] Locked by external SweepLock")
+                elif not sweep_lock_val and self._sweep_locked:
+                    self._sweep_locked = False
+                    self._self_locking = False
+                    self.lock_all(0, write_shared=False)
+                    print("[StageControl] Unlocked (external SweepLock cleared)")
 
         # For slot enum
         if self.nir_manager is not None and not self.slot_info_flag:
@@ -313,23 +334,280 @@ class stage_control(App):
         print("Sweep Start")
         auto = 0
         if name is None:
-            # This is for manual measurements
-            # Name is None if not auto
-            # Assign a name and compute a single sweep
-            name = "Manual_Sweep"
+            session_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+            # Check if bias sweep is enabled
+            bias_cfg = self.sweep.get("bias_voltage", {})
+            bias_enabled = bias_cfg.get("enabled", False)
+
+            if bias_enabled:
+                session_name = f"spectral_sweep_EO_{session_time}"
+                name = f"Manual_Sweep_EO/{session_name}"
+            else:
+                session_name = f"spectral_sweep_Optical_{session_time}"
+                name = f"Manual_Sweep_Optical/{session_name}"
+
             self.busy_dialog()
             self.task_start = 1
             self.task_laser = 1
             self.lock_all(1)
         else:
-            # Auto measuremnets, so already locked
             self.task_start = 1
             auto = 1
+            bias_cfg = self.sweep.get("bias_voltage", {})
+            bias_enabled = bias_cfg.get("enabled", False)
+
+        if bias_enabled:
+            self._do_bias_sweep(name, auto, bias_cfg)
+        else:
+            self._do_single_sweep(name, auto, filename_prefix="spectral_sweep_Optical")
+
+        if auto == 0:
+            if self.sweep.get("done", "Laser On") == "Laser On":
+                self.nir_manager.enable_laser(True)
+            else:
+                self.nir_manager.enable_laser(False)
+
+            with self._scan_done.get_lock():
+                self._scan_done.value = 1
+                self.task_start = 0
+                self.task_laser = 0
+                self.lock_all(0)
+
+            self.sweep_count = 0
+            self.sweep["sweep"] = 0
+            file = File("shared_memory", "Sweep", self.sweep)
+            file.save()
+        if auto == 1:
+            # Always have the laser on during an auto 
+            self.nir_manager.enable_laser(True)
+            
+        print("Sweep Done")
+
+    # ------------------------------------------------------------------
+    # Bias sweep via shared_memory (stage <-> elec_probe)
+    # ------------------------------------------------------------------
+    def _send_bias_command(self, action, mode="V", value=0.0):
+        """
+        Write a BiasCommand to shared_memory.json for elec_probe to execute.
+        action: 'set' | 'off' | 'init'
+        Waits until elec_probe sets action='done' (with timeout).
+        """
+        try:
+            # Clear any stale 'done' from previous command
+            SharedMemory.update({"BiasCommand": {"action": ""}})
+            time.sleep(0.05)
+
+            cmd = {"action": action, "mode": mode, "value": value}
+            SharedMemory.update({"BiasCommand": cmd})
+            print(f"[Bias] Sent command: {cmd}")
+
+            # Poll for completion
+            timeout = 10.0  # seconds
+            poll_interval = 0.05
+            elapsed = 0.0
+            while elapsed < timeout:
+                time.sleep(poll_interval)
+                elapsed += poll_interval
+                data = SharedMemory.read({})
+                bc = data.get("BiasCommand", {})
+                if bc.get("action") == "done":
+                    print(f"[Bias] Command completed: {action} {value}{mode}")
+                    return True
+            print(f"[Bias] Timeout waiting for elec_probe to execute: {action}")
+            return False
+        except Exception as e:
+            print(f"[Bias] Error sending bias command: {e}")
+            return False
+
+    def _turn_off_bias(self):
+        """Send bias off command via shared_memory."""
+        self._send_bias_command("off")
+
+    # ------------------------------------------------------------------
+    # MotorCommand IPC: move BSC203 axis via elec_probe
+    # ------------------------------------------------------------------
+    def _send_motor_command(self, axis, distance_um):
+        """
+        Ask elec_probe to move BSC203 'axis' by 'distance_um' micrometres.
+        Clears previous result, writes MotorCommand, waits for action='done'.
+        Returns True on success, False on timeout/error.
+        """
+        # Clear any stale 'done' from previous command before sending new one
+        SharedMemory.update({"MotorCommand": {"action": ""}})
+        time.sleep(0.05)  # Let elec_probe idle() see the clear
+
+        cmd = {"action": "move", "axis": axis, "distance_um": distance_um}
+        SharedMemory.update({"MotorCommand": cmd})
+        print(f"[Motor] Sent: move {axis} {distance_um} um")
+
+        timeout, poll = 65.0, 0.05
+        elapsed = 0.0
+        while elapsed < timeout:
+            time.sleep(poll)
+            elapsed += poll
+            data = SharedMemory.read({})
+            mc = data.get("MotorCommand", {})
+            if mc.get("action") == "done":
+                err = mc.get("error")
+                if err:
+                    print(f"[Motor] Error: {err}")
+                    return False
+                print(f"[Motor] Move complete: {axis} {distance_um} um")
+                return True
+        print(f"[Motor] Timeout moving {axis}")
+        return False
+
+    # ------------------------------------------------------------------
+    # CurrentRead IPC: read SMU current via elec_probe
+    # ------------------------------------------------------------------
+    def _request_current_read(self, channel="A"):
+        """
+        Ask elec_probe to measure current on SMU channel.
+        Returns current in Amps (float), or None on failure.
+        """
+        cmd = {"action": "read", "channel": channel}
+        SharedMemory.update({"CurrentRead": cmd})
+
+        timeout, poll = 10.0, 0.05
+        elapsed = 0.0
+        while elapsed < timeout:
+            time.sleep(poll)
+            elapsed += poll
+            data = SharedMemory.read({})
+            cr = data.get("CurrentRead", {})
+            if cr.get("action") == "done":
+                err = cr.get("error")
+                if err:
+                    print(f"[CurrentRead] Error: {err}")
+                    return None
+                val = cr.get("value")
+                if val is not None:
+                    return float(val)
+                return None
+        print("[CurrentRead] Timeout")
+        return None
+
+    def _read_force_weight(self, max_age_s=5.0):
+        """
+        Read total force weight from shared_memory (written by zns_v6_plot_cal.py).
+        Returns (total_g, is_fresh).  is_fresh=False if data is stale or missing.
+        """
+        data = SharedMemory.read({})
+        fw = data.get("ForceWeight", {})
+        total = fw.get("total", 0.0)
+        ts = fw.get("timestamp")
+        is_fresh = False
+        if ts:
+            try:
+                import datetime
+                age = (datetime.datetime.now() - datetime.datetime.fromisoformat(ts)).total_seconds()
+                is_fresh = age <= max_age_s
+            except Exception:
+                pass
+        return total, is_fresh
+
+    def _average_force(self, duration=5.0, interval=1.0):
+        """Read force weight repeatedly over 'duration' seconds, return average."""
+        readings = []
+        t0 = time.time()
+        while time.time() - t0 < duration:
+            val, fresh = self._read_force_weight()
+            if fresh:
+                readings.append(val)
+            time.sleep(interval)
+        if readings:
+            return sum(readings) / len(readings)
+        return 0.0
+
+    def _do_bias_sweep(self, name, auto, bias_cfg):
+        """Loop over bias values: send bias command -> sweep -> save with bias-aware name."""
+        mode = bias_cfg.get("mode", "V")
+        b_start = float(bias_cfg.get("start", 0.0))
+        b_stop = float(bias_cfg.get("stop", 1.0))
+        b_step = float(bias_cfg.get("step", 0.1))
+
+        if b_step <= 0:
+            print("[Bias] Invalid step size, skipping bias sweep")
+            self._do_single_sweep(name, auto)
+            return
+
+        import numpy as np
+        bias_values = np.arange(b_start, b_stop + b_step / 2, b_step)
+        unit = "V" if mode == "V" else "uA"
+
+        # Ask elec_probe to init SMU source mode and output on
+        if not self._send_bias_command("init", mode=mode, value=b_start):
+            print("[Bias] Elec probe did not respond, falling back to single sweep")
+            self._do_single_sweep(name, auto, filename_prefix="spectral_sweep_EO")
+            return
+
+        print(f"[Bias] Starting bias sweep: {b_start}{unit} -> {b_stop}{unit}, step {b_step}{unit} ({len(bias_values)} points)")
+
+        # Pause power reading for the entire bias sweep
+        self.pause_power_reading = True
+        self._bias_sweep_active = True
+
+        cancel_flag = getattr(self, "_scan_cancel", None)
+        total_points = len(bias_values)
+
+        try:
+            for idx, bias_val in enumerate(bias_values):
+                # Check for cancel
+                if cancel_flag and cancel_flag.is_set():
+                    print("[Bias] Sweep cancelled by user")
+                    break
+
+                bias_val_rounded = round(bias_val, 6)
+                print(f"[Bias] Point {idx+1}/{total_points}: {bias_val_rounded} {unit}")
+
+                # Update progress
+                pct = (idx / total_points) * 100.0
+                write_progress_file(
+                    activity=f"Bias {bias_val_rounded} {unit} ({idx+1}/{total_points})",
+                    percent=pct,
+                    n=idx+1, total=total_points
+                )
+
+                if not self._send_bias_command("set", mode=mode, value=bias_val_rounded):
+                    print(f"[Bias] Failed to set bias {bias_val_rounded} {unit}, skipping")
+                    continue
+
+                # Settle time
+                time.sleep(0.2)
+
+                bias_label = f"{bias_val_rounded}{unit}"
+                sweep_subdir = f"{name}/{bias_label}"
+
+                self._do_single_sweep(
+                    sweep_subdir, auto,
+                    skip_webview=True,
+                    filename_prefix=f"spectral_sweep_EO_{bias_label}"
+                )
+        finally:
+            self._turn_off_bias()
+            self._bias_sweep_active = False
+            self.pause_power_reading = False
+
+        print("[Bias] Bias sweep completed")
+
+    # ------------------------------------------------------------------
+    # Single sweep (original logic, extracted)
+    # ------------------------------------------------------------------
+    def _do_single_sweep(self, name, auto, skip_webview=False,
+                          filename_prefix="spectral_sweep"):
+
+        saved_pause = self.pause_power_reading
+
+        # Update progress for manual single sweep (non-bias)
+        if not self._bias_sweep_active:
+            write_progress_file(activity="Laser sweep in progress...", percent=10.0)
 
         try:
             # Pause power reading to avoid GPIB conflicts
             self.pause_power_reading = True
-            
+            time.sleep(0.5)  # Wait for update_ch to finish current GPIB cycle
+
             # --- LUNA CONTROLLER PATH ---
             if self.configuration.get("sensor") == "luna_controller":
                 print("[Stage Control] Using Luna OVA sweep")
@@ -411,8 +689,12 @@ class stage_control(App):
             print(f"[Error] Sweep failed: {e}")
             wl, detectors, luna_data = [], [], None
         finally:
-            # Resume power reading
-            self.pause_power_reading = False
+            # Restore previous pause state (important for bias sweep)
+            self.pause_power_reading = saved_pause
+
+        # Update progress for manual single sweep (non-bias)
+        if not self._bias_sweep_active:
+            write_progress_file(activity="Saving data...", percent=80.0)
         
         # Plotting the data
         x = wl
@@ -431,8 +713,9 @@ class stage_control(App):
                     if luna_data is None or len(luna_data) == 0:
                         raise ValueError("No Luna data to plot.")
                     
+                    luna_fname = filename_prefix.replace("spectral_sweep", "ova_sweep")
                     diagram = plot_luna(
-                        luna_data, "ova_sweep", fileTime,
+                        luna_data, luna_fname, fileTime,
                         self.user, name, self.project,
                         auto, self.file_format,
                         destination_dir=self.file_path,
@@ -452,7 +735,7 @@ class stage_control(App):
                     y = np.vstack(active_detectors)
 
                     diagram = plot(
-                        x, y, "spectral_sweep", fileTime, 
+                        x, y, filename_prefix, fileTime, 
                         self.user, name, self.project,
                         auto, self.file_format, self.slot_info,
                         destination_dir=self.file_path,
@@ -461,9 +744,13 @@ class stage_control(App):
                 
                 p = Process(target=diagram.generate_plots)
                 p.start()
-                p.join()
+                p.join(timeout=60)  # 60s max for plot generation
+                if p.is_alive():
+                    print("[Plot] Plot process timed out after 60s, terminating")
+                    p.terminate()
+                    p.join(timeout=5)
 
-                if self.web != "" and auto == 0:
+                if self.web != "" and auto == 0 and not skip_webview:
                     file_uri = Path(self.web).resolve().as_uri()
                     webview.create_window(
                         'Stage Control',
@@ -475,28 +762,6 @@ class stage_control(App):
 
             except Exception as e:
                 print(f"[Plot] Skipping plot due to error: {e}")
-        
-        if auto == 0:
-            if self.sweep.get("done", "Laser On") == "Laser On":
-                self.nir_manager.enable_laser(True)
-            else:
-                self.nir_manager.enable_laser(False)
-
-            with self._scan_done.get_lock():
-                self._scan_done.value = 1
-                self.task_start = 0
-                self.task_laser = 0
-                self.lock_all(0)
-
-            self.sweep_count = 0
-            self.sweep["sweep"] = 0
-            file = File("shared_memory", "Sweep", self.sweep)
-            file.save()
-        if auto == 1:
-            # Always have the laser on during an auto 
-            self.nir_manager.enable_laser(True)
-            
-        print("Sweep Done")
 
     def scan_move(self):
         import asyncio
@@ -640,6 +905,8 @@ class stage_control(App):
                 # Don't set to None to avoid triggering Python GC and shm.close()
                 # Just mark as disconnected
                 self._stage_disconnected = True
+            self.configuration_check["stage"] = 0
+            File("shared_memory", "Configuration_check", self.configuration_check).save()
             print("Stage Disconnected")
 
         if self.configuration.get("sensor", "") != "" and self.configuration_sensor == 0 and self.configuration_check.get(
@@ -708,6 +975,8 @@ class stage_control(App):
             if self.nir_manager:
                 self.nir_manager.disconnect()
                 self.nir_manager = None
+            self.configuration_check["sensor"] = 0
+            File("shared_memory", "Configuration_check", self.configuration_check).save()
             print("Sensor Disconnected")
 
         if self.configuration_stage == 1:
@@ -779,7 +1048,10 @@ class stage_control(App):
                     self.busy_dialog()
 
                 self.task_start = 1
-                self.run_in_thread(self.do_auto_sweep)
+                if getattr(self, 'auto_sweep_type', 'Laser Sweep') == 'EO':
+                    self.run_in_thread(self._safe_do_auto_eo_sweep)
+                else:
+                    self.run_in_thread(self.do_auto_sweep)
 
             elif self.auto_sweep == 0 and self.count == 1:
                 self.lock_all(0)
@@ -832,6 +1104,13 @@ class stage_control(App):
                 except Exception as e:
                     print(f"[StopTask] Error cancelling laser sweep: {e}")
 
+                # Turn off bias SMU if it was active
+                if self._bias_sweep_active:
+                    try:
+                        self._turn_off_bias()
+                    except Exception as e:
+                        print(f"[StopTask] Error turning off bias: {e}")
+
                 try:
                     self.sweep["sweep"] = 0
                     file = File("shared_memory", "Sweep", self.sweep)
@@ -873,26 +1152,30 @@ class stage_control(App):
                     time.sleep(1.0)
                     continue
 
-                if self.slot_info is not None and self.nir_manager is not None:
-                    for mf, slot, head in self.slot_info:
-                        i = (slot-1)*2 + head
+                if self.configuration_sensor == 1 and self.slot_info is not None and self.nir_manager is not None:
+                    # Batch read all channels first, then update UI together for sync display
+                    readings = []
+                    for idx, (mf, slot, head) in enumerate(self.slot_info):
                         try:
                             power = self.nir_manager.read_power(slot=slot, head=head, mf=mf)
-                            if i < len(self.ch_vals):
-                                self.ch_vals[i].set_text(str(round(power, 3)))
+                            readings.append((idx, str(round(power, 3))))
                         except Exception:
-                            if i < len(self.ch_vals):
-                                self.ch_vals[i].set_text("N/A")
+                            readings.append((idx, "N/A"))
+
+                    # Update all channel labels at once
+                    for i, text in readings:
+                        if i < len(self.ch_vals):
+                            self.ch_vals[i].set_text(text)
                 else:
                     if getattr(self, "ch_vals", None):
                         for v in self.ch_vals:
                             v.set_text("N/A")
-                
-                time.sleep(1.0)
-                
+
+                time.sleep(0.3)
+
             except Exception as e:
                 print(f"[UpdateCH] Error: {e}")
-                time.sleep(1.0)
+                time.sleep(0.3)
 
     def do_auto_sweep(self):
         device_count = len(self.filter)
@@ -943,7 +1226,9 @@ class stage_control(App):
             activity = f"Device {device_num}/{device_count}: Spectral sweep"
             self._write_progress_file(device_num, activity, progress_percent)
 
-            self.laser_sweep(name=self.devices[int(key[i])-1])
+            device_name = self.devices[int(key[i])-1]
+            session_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            self.laser_sweep(name=f"Auto_Sweep_Optical/{device_name}/spectral_sweep_Optical_{session_time}")
 
             # Update progress: Device completed
             progress_percent = ((i + 1) / device_count) * 100
@@ -977,6 +1262,411 @@ class stage_control(App):
         file = File("shared_memory", "AutoSweep", 0)
         file.save()
 
+    # ------------------------------------------------------------------
+    # EO Auto Sweep: fine align -> probe down -> EO sweep -> retract
+    # ------------------------------------------------------------------
+    # Default EO parameters (overridden by EO_Settings in shared_memory)
+    EO_BIAS_VOLTAGE       = 0.8    # V – SMU bias voltage
+    EO_STEP_DOWN_UM       = -10    # um – each descent step (negative = down)
+    EO_FORCE_CONTACT_G    = 0.5    # g  – force change threshold to detect contact
+    EO_MIN_CURRENT_UA     = 10.0   # uA – minimum current to consider "in contact"
+    EO_CURRENT_STABLE_UA  = 3.0    # uA – current-change threshold for stability
+    EO_STABLE_COUNT       = 3      # consecutive stable readings to stop
+    EO_MAX_FORCE_G        = 50.0   # g  – absolute max force change safety limit
+    EO_RETRACT_STEP_UM    = 50     # um – retract step size
+    EO_RETRACT_FINAL_UM   = 200    # um – final extra retract after force returns to baseline
+    EO_MAX_DESCENT_UM     = 5000   # um – max total descent before aborting (safety)
+    EO_MAX_RETRACT_UM     = 5000   # um – max total retract distance (safety)
+
+    def _load_eo_settings(self):
+        """Load EO parameters from shared_memory, falling back to class defaults."""
+        def _safe_float(value, default):
+            try:
+                return float(value)
+            except (TypeError, ValueError):
+                return float(default)
+
+        def _safe_int(value, default):
+            try:
+                return int(float(value))
+            except (TypeError, ValueError):
+                return int(default)
+
+        eo = SharedMemory.get("EO_Settings", {})
+        if not isinstance(eo, dict):
+            eo = {}
+        self.EO_BIAS_VOLTAGE      = _safe_float(eo.get("bias_voltage"), self.__class__.EO_BIAS_VOLTAGE)
+        self.EO_STEP_DOWN_UM      = -abs(_safe_float(eo.get("step_down_um"), abs(self.__class__.EO_STEP_DOWN_UM)))
+        self.EO_FORCE_CONTACT_G   = _safe_float(eo.get("force_contact_g"), self.__class__.EO_FORCE_CONTACT_G)
+        self.EO_MIN_CURRENT_UA    = _safe_float(eo.get("min_current_ua"), self.__class__.EO_MIN_CURRENT_UA)
+        self.EO_CURRENT_STABLE_UA = _safe_float(eo.get("current_stable_ua"), self.__class__.EO_CURRENT_STABLE_UA)
+        self.EO_STABLE_COUNT      = max(1, _safe_int(eo.get("stable_count"), self.__class__.EO_STABLE_COUNT))
+        self.EO_MAX_FORCE_G       = _safe_float(eo.get("max_force_g"), self.__class__.EO_MAX_FORCE_G)
+        self.EO_RETRACT_STEP_UM   = abs(_safe_float(eo.get("retract_step_um"), self.__class__.EO_RETRACT_STEP_UM))
+        self.EO_RETRACT_FINAL_UM  = abs(_safe_float(eo.get("retract_final_um"), self.__class__.EO_RETRACT_FINAL_UM))
+        self.EO_MAX_DESCENT_UM    = abs(_safe_float(eo.get("max_descent_um"), self.__class__.EO_MAX_DESCENT_UM))
+        self.EO_MAX_RETRACT_UM    = abs(_safe_float(eo.get("max_retract_um"), self.__class__.EO_MAX_RETRACT_UM))
+        print(f"[EO] Settings loaded: bias={self.EO_BIAS_VOLTAGE}V, step={self.EO_STEP_DOWN_UM}um, "
+              f"force_contact={self.EO_FORCE_CONTACT_G}g, min_current={self.EO_MIN_CURRENT_UA}uA, "
+              f"current_stable={self.EO_CURRENT_STABLE_UA}uA, stable_count={self.EO_STABLE_COUNT}, "
+              f"max_force={self.EO_MAX_FORCE_G}g, retract_step={self.EO_RETRACT_STEP_UM}um, "
+              f"retract_final={self.EO_RETRACT_FINAL_UM}um, max_descent={self.EO_MAX_DESCENT_UM}um, "
+              f"max_retract={self.EO_MAX_RETRACT_UM}um")
+
+    def _safe_do_auto_eo_sweep(self):
+        """Run EO autosweep with top-level exception guard and cleanup."""
+        try:
+            self.do_auto_eo_sweep()
+        except Exception as e:
+            print(f"[EO] FATAL: Unhandled exception in EO auto sweep: {e}")
+            try:
+                import traceback
+                traceback.print_exc()
+            except Exception:
+                pass
+
+            # Best-effort cleanup so UI does not remain stuck in running state.
+            try:
+                self._send_bias_command("off")
+            except Exception:
+                pass
+            # Best-effort probe retract so probe is not left in contact
+            try:
+                print("[EO] FATAL cleanup: attempting emergency probe retract...")
+                ok = self._send_motor_command("Z", self.EO_RETRACT_FINAL_UM)
+                if ok:
+                    print("[EO] FATAL cleanup: emergency retract succeeded")
+                else:
+                    print("[EO] FATAL cleanup: emergency retract failed — probe may still be in contact!")
+            except Exception:
+                print("[EO] FATAL cleanup: emergency retract exception — probe may still be in contact!")
+            try:
+                self._write_progress_file(0, f"ABORTED: EO exception ({e})", 0)
+            except Exception:
+                pass
+            try:
+                with self._scan_done.get_lock():
+                    self._scan_done.value = 1
+                    self.task_start = 0
+            except Exception:
+                pass
+            try:
+                self.use_destination_dir = {}
+                SharedMemory.update({"ExportRequest": {}})
+                self.nir_manager.enable_laser(False)
+            except Exception:
+                pass
+            try:
+                file = File("shared_memory", "AutoSweep", 0)
+                file.save()
+            except Exception:
+                pass
+
+    def do_auto_eo_sweep(self):
+        """
+        EO automated measurement per device:
+        1. Fine align (optical)
+        2. Turn on SMU voltage (0.8 V)
+        3. Record baseline force (5 s average)
+        4. Lower BSC203-Z in 10 um steps:
+           - Once |force change| > 0.5g, check current (>10 uA)
+           - Track current change; if < 3 uA for 3 consecutive readings -> stop
+           - Safety: stop if |force change| > 50g
+        5. Perform EO laser sweep (bias enabled)
+        6. Turn off voltage
+        7. Retract 50 um steps until |force change| < 0.5g of baseline
+        8. Extra retract
+        """
+        # ---- Load EO settings from shared_memory ----
+        self._load_eo_settings()
+
+        # ---- Pre-flight check: Force sensor must be running ----
+        data = SharedMemory.read({})
+        fw = data.get("ForceWeight")
+        if not fw or not isinstance(fw, dict):
+            print("[EO] ERROR: Force sensor is not running! Please start Force before running EO Auto Sweep.")
+            self._write_progress_file(0, "ABORTED: Force sensor not running", 0)
+            with self._scan_done.get_lock():
+                self._scan_done.value = 1
+                self.task_start = 0
+            file = File("shared_memory", "AutoSweep", 0)
+            file.save()
+            return
+
+        device_count = len(self.filter)
+        print(f"[EO Auto] Starting EO sweep of {device_count} devices")
+
+        i = 0
+        while i < device_count:
+            if self.auto_sweep == 0:
+                break
+
+            device_num = i + 1
+            device_start = time.time()
+            key = list(self.filter.keys())
+            x = float(self.filter[key[i]][0])
+            y = float(self.filter[key[i]][1])
+            device_name = self.devices[int(key[i]) - 1]
+
+            # ---- 1. Move to device ----
+            pct = (i / device_count) * 100
+            self._write_progress_file(device_num, f"Moving to Device {device_num}/{device_count}", pct)
+            print(f"[EO] Move to Device {device_num} [{x}, {y}]")
+            if not self.axis_locked["x"]:
+                asyncio.run(self.stage_manager.move_axis(AxisType.X, x, False))
+            if not self.axis_locked["y"]:
+                asyncio.run(self.stage_manager.move_axis(AxisType.Y, y, False))
+            if self.auto_sweep == 0:
+                break
+
+            # ---- 2. Fine alignment ----
+            pct = (i / device_count) * 100 + (10 / device_count)
+            self._write_progress_file(device_num, f"Device {device_num}: Fine alignment", pct)
+            self.onclick_fine_align()
+            if self.auto_sweep == 0:
+                break
+
+            # ---- 3. Turn on SMU voltage ----
+            pct = (i / device_count) * 100 + (20 / device_count)
+            self._write_progress_file(device_num, f"Device {device_num}: Setting bias {self.EO_BIAS_VOLTAGE}V", pct)
+            bias_ok = self._send_bias_command("init", mode="V", value=self.EO_BIAS_VOLTAGE)
+            if not bias_ok:
+                print("[EO] ERROR: SMU bias command failed/timeout — skipping device")
+                self._send_bias_command("off")
+                pct = ((i + 1) / device_count) * 100
+                self._write_progress_file(device_num, f"Device {device_num}: SKIPPED (SMU timeout)", pct)
+                file = File("shared_memory", "DeviceName", device_name, "DeviceNum", int(key[i]))
+                file.save()
+                i += 1
+                continue
+            if self.auto_sweep == 0:
+                self._send_bias_command("off")
+                break
+
+            # ---- 4. Record baseline force (5 s average) ----
+            pct = (i / device_count) * 100 + (22 / device_count)
+            self._write_progress_file(device_num, f"Device {device_num}: Recording baseline force", pct)
+            print("[EO] Recording baseline force (5 s)...")
+            time.sleep(1)  # Let force sensor settle
+            baseline_force = self._average_force(duration=5.0)
+            print(f"[EO] Baseline force: {baseline_force:.1f} g")
+
+            # ---- 5. Descent loop ----
+            prev_current_ua = None
+            stable_count = 0
+            contact_detected = False
+            force_exceeded = False
+            motor_failed = False
+            total_descent_um = 0
+            step_num = 0
+
+            while self.auto_sweep != 0:
+                step_num += 1
+                pct = (i / device_count) * 100 + (25 / device_count)
+                self._write_progress_file(
+                    device_num,
+                    f"Device {device_num}: Lowering probe (step {step_num}, {abs(total_descent_um)} um)",
+                    pct
+                )
+
+                # Move Z down 10 um
+                ok = self._send_motor_command("Z", self.EO_STEP_DOWN_UM)
+                if not ok:
+                    print("[EO] Motor move failed, aborting descent")
+                    motor_failed = True
+                    break
+                total_descent_um += abs(self.EO_STEP_DOWN_UM)
+                time.sleep(1.2)  # Wait >1s so force sensor (1 Hz) has fresh data
+
+                # Safety: max descent distance
+                if total_descent_um >= self.EO_MAX_DESCENT_UM:
+                    print(f"[EO] SAFETY: Max descent {self.EO_MAX_DESCENT_UM} um reached without stable contact!")
+                    force_exceeded = True
+                    break
+
+                # Check force (with freshness)
+                current_force, force_fresh = self._read_force_weight()
+                if not force_fresh:
+                    print("[EO] WARNING: Force sensor data is stale — sensor may have crashed!")
+                    force_exceeded = True  # Treat as safety event
+                    break
+                force_delta = current_force - baseline_force
+                abs_delta = abs(force_delta)
+                print(f"[EO] Step {step_num}: force={current_force:.1f}g (delta={force_delta:+.1f}g, |delta|={abs_delta:.1f}g)")
+
+                # Safety: max force exceeded (either direction)
+                if abs_delta > self.EO_MAX_FORCE_G:
+                    print(f"[EO] SAFETY: |Force delta| {abs_delta:.1f}g > {self.EO_MAX_FORCE_G}g limit, stopping!")
+                    force_exceeded = True
+                    break
+
+                # Check if we have contact (force change > threshold in either direction)
+                if abs_delta >= self.EO_FORCE_CONTACT_G:
+                    if not contact_detected:
+                        print(f"[EO] Contact detected at step {step_num} (force delta={force_delta:.1f}g)")
+                        contact_detected = True
+
+                    # Read current
+                    current_a = self._request_current_read("A")
+                    if current_a is None:
+                        print("[EO] Current read failed, retrying next step")
+                        continue
+                    current_ua = abs(current_a) * 1e6
+                    print(f"[EO] Current: {current_ua:.2f} uA")
+
+                    # Need minimum 10 uA
+                    if current_ua < self.EO_MIN_CURRENT_UA:
+                        print(f"[EO] Current {current_ua:.2f} uA < {self.EO_MIN_CURRENT_UA} uA, continuing descent")
+                        prev_current_ua = current_ua
+                        continue
+
+                    # Check current stability
+                    if prev_current_ua is not None:
+                        current_change = abs(current_ua - prev_current_ua)
+                        print(f"[EO] Current change: {current_change:.2f} uA (threshold={self.EO_CURRENT_STABLE_UA})")
+                        if current_change < self.EO_CURRENT_STABLE_UA:
+                            stable_count += 1
+                            print(f"[EO] Stable count: {stable_count}/{self.EO_STABLE_COUNT}")
+                            if stable_count >= self.EO_STABLE_COUNT:
+                                print(f"[EO] Current stable for {self.EO_STABLE_COUNT} consecutive readings, stopping descent")
+                                break
+                        else:
+                            stable_count = 0  # Reset if current changed significantly
+
+                    prev_current_ua = current_ua
+
+            if self.auto_sweep == 0:
+                self._send_bias_command("off")
+                break
+
+            # Safety: if force exceeded limit, retract immediately and skip sweep
+            if force_exceeded or motor_failed:
+                reason = "force safety" if force_exceeded else "motor failure"
+                print(f"[EO] SAFETY: {reason} — skipping sweep, retracting")
+                self._send_bias_command("off")
+
+                if motor_failed:
+                    # BSC203 already dead — retract attempts would each timeout 65s
+                    print("[EO] SAFETY: Motor already failed — skipping retract (probe may still be in contact!)")
+                else:
+                    retract_total = 0
+                    consecutive_failures = 0
+                    while self.auto_sweep != 0:
+                        ok = self._send_motor_command("Z", self.EO_RETRACT_STEP_UM)
+                        if not ok:
+                            consecutive_failures += 1
+                            print(f"[EO] Safety retract motor failure #{consecutive_failures}")
+                            if consecutive_failures >= 2:
+                                print("[EO] SAFETY: 2 consecutive motor failures during retract — giving up")
+                                break
+                            continue
+                        consecutive_failures = 0
+                        retract_total += self.EO_RETRACT_STEP_UM
+                        if retract_total >= self.EO_MAX_RETRACT_UM:
+                            print(f"[EO] Max retract {self.EO_MAX_RETRACT_UM} um reached")
+                            break
+                        time.sleep(1.2)  # Wait >1s so force sensor (1 Hz) has fresh data
+                        current_force, _ = self._read_force_weight()
+                        force_delta = current_force - baseline_force
+                        if abs(force_delta) < self.EO_FORCE_CONTACT_G:
+                            break
+                    if self.auto_sweep != 0 and consecutive_failures < 2:
+                        self._send_motor_command("Z", self.EO_RETRACT_FINAL_UM)
+
+                pct = ((i + 1) / device_count) * 100
+                self._write_progress_file(device_num, f"Device {device_num}: SKIPPED ({reason})", pct)
+                file = File("shared_memory", "DeviceName", device_name, "DeviceNum", int(key[i]))
+                file.save()
+                i += 1
+                continue
+
+            # ---- 6. EO laser sweep (bias-enabled) ----
+            pct = (i / device_count) * 100 + (50 / device_count)
+            self._write_progress_file(device_num, f"Device {device_num}: EO spectral sweep", pct)
+            print("[EO] Starting EO laser sweep...")
+
+            session_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            sweep_name = f"Auto_Sweep_EO/{device_name}/spectral_sweep_EO_{session_time}"
+
+            # Perform bias sweep using existing machinery
+            bias_cfg = self.sweep.get("bias_voltage", {})
+            bias_enabled = bias_cfg.get("enabled", False)
+            if bias_enabled:
+                self._do_bias_sweep(sweep_name, auto=1, bias_cfg=bias_cfg)
+            else:
+                # Even without explicit bias config, do a single sweep since SMU is already on
+                self._do_single_sweep(sweep_name, auto=1, filename_prefix=f"spectral_sweep_EO")
+
+            if self.auto_sweep == 0:
+                self._send_bias_command("off")
+                break
+
+            # ---- 7. Turn off voltage ----
+            pct = (i / device_count) * 100 + (80 / device_count)
+            self._write_progress_file(device_num, f"Device {device_num}: Turning off bias", pct)
+            self._send_bias_command("off")
+
+            # ---- 8. Retract probe ----
+            pct = (i / device_count) * 100 + (85 / device_count)
+            self._write_progress_file(device_num, f"Device {device_num}: Retracting probe", pct)
+            print("[EO] Retracting probe...")
+
+            retract_total = 0
+            consecutive_failures = 0
+            while self.auto_sweep != 0:
+                ok = self._send_motor_command("Z", self.EO_RETRACT_STEP_UM)
+                if not ok:
+                    consecutive_failures += 1
+                    print(f"[EO] Retract motor failure #{consecutive_failures}")
+                    if consecutive_failures >= 2:
+                        print("[EO] 2 consecutive motor failures during retract — giving up")
+                        break
+                    continue
+                consecutive_failures = 0
+                retract_total += self.EO_RETRACT_STEP_UM
+                if retract_total >= self.EO_MAX_RETRACT_UM:
+                    print(f"[EO] Max retract {self.EO_MAX_RETRACT_UM} um reached, forcing final retract")
+                    break
+                time.sleep(1.2)  # Wait >1s so force sensor (1 Hz) has fresh data
+
+                current_force, _ = self._read_force_weight()
+                force_delta = current_force - baseline_force
+                print(f"[EO] Retracting: force delta={force_delta:.1f}g (retracted {retract_total} um)")
+
+                if abs(force_delta) < self.EO_FORCE_CONTACT_G:
+                    print("[EO] Force returned to baseline range")
+                    break
+
+            # Final extra retract 200 um
+            if self.auto_sweep != 0 and consecutive_failures < 2:
+                print(f"[EO] Final retract {self.EO_RETRACT_FINAL_UM} um")
+                self._send_motor_command("Z", self.EO_RETRACT_FINAL_UM)
+
+            # ---- Done with this device ----
+            pct = ((i + 1) / device_count) * 100
+            self._write_progress_file(device_num, f"Device {device_num}/{device_count}: Completed", pct)
+
+            file = File("shared_memory", "DeviceName", device_name, "DeviceNum", int(key[i]))
+            file.save()
+
+            device_time = time.time() - device_start
+            print(f"[EO] Device {device_num} completed in {device_time:.1f}s")
+
+            i += 1
+
+        # ---- Finalize ----
+        self._write_progress_file(device_count, "All EO measurements completed", 100)
+        with self._scan_done.get_lock():
+            self._scan_done.value = 1
+            self.task_start = 0
+        self.use_destination_dir = {}
+        SharedMemory.update({"ExportRequest": {}})
+        self.nir_manager.enable_laser(False)
+        print("[EO] Auto EO Sweep Finished")
+        time.sleep(1)
+        file = File("shared_memory", "AutoSweep", 0)
+        file.save()
+
     def set_axis_enabled(self, prefix: str, enabled: bool):
         getattr(self, f"{prefix}_left_btn").set_enabled(enabled)
         getattr(self, f"{prefix}_right_btn").set_enabled(enabled)
@@ -988,8 +1678,15 @@ class stage_control(App):
         self.set_axis_enabled(prefix, not self.axis_locked[prefix])
         print(f"[Axis Lock] {prefix} -> {'LOCKED' if self.axis_locked[prefix] else 'UNLOCKED'}")
 
-    def lock_all(self, value):
+    def lock_all(self, value, write_shared=True):
         enabled = value == 0
+
+        # Mark that we are the source of this lock
+        if write_shared:
+            self._self_locking = (value != 0)
+            # Notify other GUIs via shared_memory
+            SharedMemory.update({"SweepLock": value})
+
         widgets_to_check = [self.stage_control_container]
         while widgets_to_check:
             widget = widgets_to_check.pop()
@@ -1018,7 +1715,7 @@ class stage_control(App):
         LEFT_PANEL_W = 490  # wider left box so rows + Zero buttons fit cleanly
         LOCK_COL_LEFT = 18  # per-axis lock column (aligns with top lock icon)
         ICON_LEFT = 21      # big lock icon
-        LABEL_LEFT = 38     # axis text column (left of readouts)
+        LABEL_LEFT = 42     # axis text column (left of readouts)
         POS_LEFT = 35       # position numeric readout (limit label uses this too)
         UNIT_LEFT = 150     # unit next to readout
         BTN_L_LEFT = 185    # left jog button
@@ -1099,7 +1796,7 @@ class stage_control(App):
             # axis label (left column)
             StyledLabel(
                 container=xyz_container, text=labels[i], variable_name=f"{prefix}_label",
-                left=LABEL_LEFT, top=top, width=55, height=ROW_H,
+                left=LABEL_LEFT, top=top, width=51, height=ROW_H,
                 font_size=100, color="#222", flex=True, bold=True,
                 justify_content="center"
             )
@@ -1295,7 +1992,7 @@ class stage_control(App):
                 variable_name=f"ch{ch_idx}_header",
                 left=left,
                 top=header_top,
-                width=COL_W,
+                width=COL_W-1,
                 height=HEADER_H,
                 font_size=100,
                 color="#222",
@@ -1315,7 +2012,7 @@ class stage_control(App):
                 variable_name=f"ch{ch_idx}_val",
                 left=left,
                 top=data_top,
-                width=COL_W,
+                width=COL_W-1,
                 height=DATA_H,
                 font_size=100,
                 color="#222",
@@ -1514,10 +2211,12 @@ class stage_control(App):
     def onclick_fine_align(self):
         print("Start Fine Align")
         manual = (self.auto_sweep == 0)
-        
+
         try:
             # Pause power reading to avoid GPIB conflicts
             self.pause_power_reading = True
+            # Wait for update_ch to finish its current GPIB read cycle
+            time.sleep(0.5)
             
             if manual:
                 # Show dialog
@@ -1538,7 +2237,7 @@ class stage_control(App):
             config.ref_wl = self.fine_a.get("ref_wl", 1550.0) or 1550.0
             config.threshold = self.fine_a.get("threshold", -10.0)
             config.secondary_wl = self.fine_a.get("secondary_wl", 1540.0)
-            config.secondary_loss = self.fine_a.get("secondary_loss", 50.0)
+            config.secondary_loss = self.fine_a.get("secondary_loss", -50.0)
             if self.slot_info is not None:
                 s_temp = self.slot_info
             else:
@@ -1839,9 +2538,9 @@ class stage_control(App):
         else:
             # Relative mode: left moves negative
             value = -value
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.X, value, self.use_relative_movement))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_x_right(self):
         if self.axis_locked["x"]:
@@ -1852,9 +2551,9 @@ class stage_control(App):
         if not self.use_relative_movement:
             # Absolute mode: right goes to positive position
             value = abs(value)
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.X, value, self.use_relative_movement))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_y_left(self):
         if self.axis_locked["y"]:
@@ -1865,9 +2564,9 @@ class stage_control(App):
         if not self.use_relative_movement:
             # Absolute mode: left goes to negative position
             value = -abs(value)
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.Y, value, self.use_relative_movement))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_y_right(self):
         if self.axis_locked["y"]:
@@ -1881,9 +2580,9 @@ class stage_control(App):
         else:
             # Relative mode: right moves negative (direction reversed)
             value = -value
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.Y, value, self.use_relative_movement))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_z_left(self):
         if self.axis_locked["z"]:
@@ -1891,9 +2590,9 @@ class stage_control(App):
             return
         value = float(self.z_input.get_value())
         print(f"Z Down {value} um")
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.Z, -value, True))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_z_right(self):
         if self.axis_locked["z"]:
@@ -1901,9 +2600,9 @@ class stage_control(App):
             return
         value = float(self.z_input.get_value())
         print(f"Z Up {value} um")
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.Z, value, True))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_chip_left(self):
         if self.axis_locked["chip"]:
@@ -1911,9 +2610,9 @@ class stage_control(App):
             return
         value = float(self.chip_input.get_value())
         print(f"Chip Turn CW {value} deg")
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, -value, True))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_chip_right(self):
         if self.axis_locked["chip"]:
@@ -1921,9 +2620,9 @@ class stage_control(App):
             return
         value = float(self.chip_input.get_value())
         print(f"Chip Turn CCW {value} deg")
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_CHIP, value, True))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_fiber_left(self):
         if self.axis_locked["fiber"]:
@@ -1933,9 +2632,9 @@ class stage_control(App):
         print(f"Fiber Turn CW {value} deg")
         if not self.use_relative_movement:
             value = -value  # Fixes (-)abs movement issue
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, -value, self.use_relative_movement))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_fiber_right(self):
         if self.axis_locked["fiber"]:
@@ -1943,9 +2642,9 @@ class stage_control(App):
             return
         value = float(self.fiber_input.get_value())
         print(f"Fiber Turn CCW {value} deg")
-        self.lock_all(1)
+        self.lock_all(1, write_shared=False)
         asyncio.run(self.stage_manager.move_axis(AxisType.ROTATION_FIBER, value, self.use_relative_movement))
-        self.lock_all(0)
+        self.lock_all(0, write_shared=False)
 
     def onclick_load(self):
         self.gds = lib_coordinates.coordinates(("./res/" + FILENAME), read_file=False,
