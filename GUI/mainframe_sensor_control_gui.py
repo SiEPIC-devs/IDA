@@ -461,7 +461,7 @@ if __name__ == '__main__':
         x=800,
         y=255,
         resizable=True,
-        hidden=True
+        hidden=True,
     )
 
     webview.create_window(
@@ -471,8 +471,8 @@ if __name__ == '__main__':
         height=280 + web_h,
         resizable=True,
         on_top=True,
-        hidden=True
+        hidden=True,
     )
 
-    webview.start(func=disable_scroll)
+    webview.start(func=disable_scroll, private_mode=True)
     sys.exit(0)

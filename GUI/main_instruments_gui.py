@@ -499,12 +499,13 @@ class instruments(App):
             return
 
         python_exec = sys.executable
+        # Use python.exe (not pythonw.exe) so the matplotlib window can display
         if sys.platform.startswith("win"):
-            if python_exec.lower().endswith("python.exe"):
-                candidate = os.path.join(os.path.dirname(python_exec), "pythonw.exe")
+            if python_exec.lower().endswith("pythonw.exe"):
+                candidate = os.path.join(os.path.dirname(python_exec), "python.exe")
                 if os.path.isfile(candidate):
                     python_exec = candidate
-            self._force_proc = subprocess.Popen([python_exec, script_path], creationflags=subprocess.CREATE_NO_WINDOW)
+            self._force_proc = subprocess.Popen([python_exec, script_path])
         else:
             self._force_proc = subprocess.Popen([python_exec, script_path])
 

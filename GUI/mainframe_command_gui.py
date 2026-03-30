@@ -42,7 +42,7 @@ class stage_control(App):
                 width=422+web_w, height=137+web_h,
                 x=1150, y=100,
                 resizable=True,
-                hidden=False
+                hidden=False,
             )
 
 
@@ -182,6 +182,6 @@ if __name__ == "__main__":
         width=422, height=137,
         x=1150, y=100,
         resizable=True,
-        hidden=True
+        hidden=True,
     )
-    webview.start(func=disable_scroll)
+    webview.start(func=disable_scroll, private_mode=True)

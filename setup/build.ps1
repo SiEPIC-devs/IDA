@@ -1,51 +1,63 @@
-# Build script for creating executable with PyInstaller
-# Run this from the project root directory
+# Build script for creating SiEPIC Probe Stage launcher executable
+# Run from the project root OR from setup/ — both work.
 
-Write-Host "Building 347 Probe executable with PyInstaller..." -ForegroundColor Green
+param(
+    [switch]$NoCopy   # Skip auto-copy to project root
+)
 
-# Activate virtual environment if it exists
-if (Test-Path ".\venv\Scripts\Activate.ps1") {
-    Write-Host "Activating virtual environment..." -ForegroundColor Yellow
-    . .\venv\Scripts\Activate.ps1
-} else {
-    Write-Host "No virtual environment found at .\venv" -ForegroundColor Yellow
-}
+$ErrorActionPreference = "Stop"
 
-# Check if PyInstaller is installed
+# ── Resolve paths ─────────────────────────────────────────────────
+$ScriptDir   = $PSScriptRoot                          # …/setup
+$ProjectRoot = (Resolve-Path (Join-Path $ScriptDir "..")).Path
+$SpecFile    = Join-Path $ScriptDir "probe347.spec"
+$BuildDir    = Join-Path $ProjectRoot "build"
+$DistDir     = Join-Path $ProjectRoot "dist"
+
+Write-Host "Project root : $ProjectRoot" -ForegroundColor Cyan
+Write-Host "Spec file    : $SpecFile"    -ForegroundColor Cyan
+
+# ── Ensure PyInstaller ────────────────────────────────────────────
 try {
-    pyinstaller --version | Out-Null
+    $null = & python -m PyInstaller --version 2>&1
 } catch {
-    Write-Host "PyInstaller not found. Installing..." -ForegroundColor Yellow
+    Write-Host "PyInstaller not found — installing..." -ForegroundColor Yellow
     pip install pyinstaller
 }
 
-# Clean previous builds
-if (Test-Path ".\build") {
-    Write-Host "Cleaning previous build..." -ForegroundColor Yellow
-    Remove-Item -Recurse -Force ".\build"
-}
-if (Test-Path ".\dist") {
-    Write-Host "Cleaning previous dist..." -ForegroundColor Yellow
-    Remove-Item -Recurse -Force ".\dist"
+# ── Clean previous artefacts ──────────────────────────────────────
+foreach ($dir in @($BuildDir, $DistDir)) {
+    if (Test-Path $dir) {
+        Write-Host "Cleaning $dir ..." -ForegroundColor Yellow
+        Remove-Item -Recurse -Force $dir
+    }
 }
 
-# Run PyInstaller
-Write-Host "Running PyInstaller..." -ForegroundColor Yellow
-pyinstaller probe347.spec
+# ── Build ─────────────────────────────────────────────────────────
+Write-Host "`nRunning PyInstaller..." -ForegroundColor Green
+Push-Location $ProjectRoot
+try {
+    python -m PyInstaller $SpecFile --distpath $DistDir --workpath $BuildDir
+    if ($LASTEXITCODE -ne 0) { throw "PyInstaller exited with code $LASTEXITCODE" }
+} finally {
+    Pop-Location
+}
 
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "Build completed successfully!" -ForegroundColor Green
-    Write-Host "Executable location: .\dist\Probe347.exe" -ForegroundColor Cyan
-    
-    # Test the executable
-    Write-Host "Testing executable..." -ForegroundColor Yellow
-    if (Test-Path ".\dist\Probe347.exe") {
-        Write-Host "Executable created successfully!" -ForegroundColor Green
-        Write-Host "You can now run: .\dist\Probe347.exe" -ForegroundColor Cyan
-    } else {
-        Write-Host "Warning: Executable not found!" -ForegroundColor Red
+# ── Copy exe to project root ─────────────────────────────────────
+$ExeName = "SiEPIC_ProbeStage.exe"
+$ExeSrc  = Join-Path $DistDir $ExeName
+
+if (Test-Path $ExeSrc) {
+    Write-Host "`nBuild succeeded!" -ForegroundColor Green
+    Write-Host "  -> $ExeSrc" -ForegroundColor Cyan
+
+    if (-not $NoCopy) {
+        $ExeDst = Join-Path $ProjectRoot $ExeName
+        Copy-Item $ExeSrc $ExeDst -Force
+        Write-Host "  -> Copied to $ExeDst" -ForegroundColor Cyan
+        Write-Host "`nDouble-click  $ExeName  in the project folder to launch." -ForegroundColor Green
     }
 } else {
-    Write-Host "Build failed!" -ForegroundColor Red
+    Write-Host "Build failed — executable not found!" -ForegroundColor Red
     exit 1
 }

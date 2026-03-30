@@ -35,6 +35,7 @@ class AutoSweepConfig(App):
         self.eo_retract_final = None
         self.eo_max_descent = None
         self.eo_max_retract = None
+        self.eo_bsc_xy_dd = None
 
         # Button widgets
         self.detector_window_btn = None
@@ -127,7 +128,7 @@ class AutoSweepConfig(App):
             left=0,
             top=0,
             width=330,
-            height=520,
+            height=550,
         )
 
         btn_w = 120
@@ -235,6 +236,20 @@ class AutoSweepConfig(App):
         self.eo_max_descent    = _add_row("Max Descent",        "eo_maxdesc",    "µm",  5000,  100, 50000, 100)
         self.eo_max_retract    = _add_row("Max Retract",        "eo_maxret",     "µm",  5000,  100, 50000, 100)
 
+        # --- BSC203 XY Move dropdown ---
+        StyledLabel(
+            container=root, text="BSC203 XY Move",
+            variable_name="eo_bsc_xy_lb",
+            left=5, top=y, width=label_w, height=row_h,
+            font_size=90, flex=True, justify_content="right", color="#222",
+        )
+        self.eo_bsc_xy_dd = StyledDropDown(
+            container=root, variable_name="eo_bsc_xy_dd",
+            text=["False", "True"],
+            left=spin_left, top=y, width=spin_w + 17, height=26,
+        )
+        y += row_h
+
         # --- Confirm button ---
         y += 6
         self.confirm_btn = StyledButton(
@@ -276,6 +291,8 @@ class AutoSweepConfig(App):
             self._set_spin_safely(self.eo_retract_final,  eo.get("retract_final_um"))
             self._set_spin_safely(self.eo_max_descent,    eo.get("max_descent_um"))
             self._set_spin_safely(self.eo_max_retract,    eo.get("max_retract_um"))
+            if self.eo_bsc_xy_dd is not None:
+                self.eo_bsc_xy_dd.set_value("True" if eo.get("bsc_xy_move", False) else "False")
 
     # ---------------- CONFIRM: WRITE BACK ----------------
 
@@ -294,6 +311,7 @@ class AutoSweepConfig(App):
                 "retract_final_um": float(self.eo_retract_final.get_value()),
                 "max_descent_um":   float(self.eo_max_descent.get_value()),
                 "max_retract_um":   float(self.eo_max_retract.get_value()),
+                "bsc_xy_move":      self.eo_bsc_xy_dd.get_value() == "True",
             }
         except Exception as exc:
             print(f"[AutoSweepConfig] Invalid EO input: {exc}")
@@ -380,7 +398,7 @@ if __name__ == "__main__":
         "Auto Sweep Config",
         f"http://{local_ip}:7109",
         width=340 + web_w,
-        height=560 + web_h,
+        height=590 + web_h,
         resizable=True,
         hidden=True,
     )

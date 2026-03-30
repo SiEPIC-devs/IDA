@@ -253,6 +253,7 @@ class registration(App):
         )
         self.number = self.gds.listdeviceparam("number")
         self.coordinate = self.gds.listdeviceparam("coordinate")
+        self.original_coordinate = [coord[:] for coord in self.coordinate]
         self.polarization = self.gds.listdeviceparam("polarization")
         self.wavelength = self.gds.listdeviceparam("wavelength")
         self.type = self.gds.listdeviceparam("type")
@@ -260,11 +261,12 @@ class registration(App):
         self.devices = [f"{name} ({num})" for name, num in zip(devicenames, self.number)]
 
         # Build filtered lists by type
+        PAD_TYPES = {"pad", "pada", "padb", "padab"}
         self.non_pad_devices = []
         self.pad_only_devices = []
         for i, t in enumerate(self.type):
             label = self.devices[i]
-            if t.lower() == "pad":
+            if t.lower() in PAD_TYPES:
                 self.pad_only_devices.append(label)
             else:
                 self.non_pad_devices.append(label)
@@ -308,8 +310,8 @@ class registration(App):
     def onchange_device_1(self, emitter, new_value):
         number_str = new_value.split("(")[-1].split(")")[0]
         self.number_1 = int(number_str)
-        x = self.coordinate[self.number_1 - 1][0]
-        y = self.coordinate[self.number_1 - 1][1]
+        x = self.original_coordinate[self.number_1 - 1][0]
+        y = self.original_coordinate[self.number_1 - 1][1]
         self.gds_x_1.set_text(str(x))
         self.gds_y_1.set_text(str(y))
         self.device_id_1.attributes["title"] = new_value
@@ -317,8 +319,8 @@ class registration(App):
     def onchange_device_2(self, emitter, new_value):
         number_str = new_value.split("(")[-1].split(")")[0]
         self.number_2 = int(number_str)
-        x = self.coordinate[self.number_2 - 1][0]
-        y = self.coordinate[self.number_2 - 1][1]
+        x = self.original_coordinate[self.number_2 - 1][0]
+        y = self.original_coordinate[self.number_2 - 1][1]
         self.gds_x_2.set_text(str(x))
         self.gds_y_2.set_text(str(y))
         self.device_id_2.attributes["title"] = new_value
@@ -326,8 +328,8 @@ class registration(App):
     def onchange_device_3(self, emitter, new_value):
         number_str = new_value.split("(")[-1].split(")")[0]
         self.number_3 = int(number_str)
-        x = self.coordinate[self.number_3 - 1][0]
-        y = self.coordinate[self.number_3 - 1][1]
+        x = self.original_coordinate[self.number_3 - 1][0]
+        y = self.original_coordinate[self.number_3 - 1][1]
         self.gds_x_3.set_text(str(x))
         self.gds_y_3.set_text(str(y))
         self.device_id_3.attributes["title"] = new_value
@@ -423,12 +425,24 @@ class registration(App):
                 print("Device and Pad do not match (devicename/polarization/wavelength differ)")
                 return
 
-            # Build a lookup: (devicename, polarization, wavelength) -> pad coordinate
-            pad_lookup = {}
+            # Build lookups to check one-to-one mapping
+            # key = (devicename, polarization, wavelength)
+            PAD_TYPES = {"pad", "pada", "padb", "padab"}
+            PAD_CHANNEL_MAP = {"pad": "A", "pada": "A", "padb": "B", "padab": "AB"}
+            pad_by_key = {}   # key -> list of pad entries
+            dev_by_key = {}   # key -> list of non-pad device entries
             for entry in all_entries:
-                if entry["type"].lower() == "pad":
-                    key = (entry["devicename"], entry["polarization"], entry["wavelength"])
-                    pad_lookup[key] = entry["coordinate"]
+                key = (entry["devicename"], entry["polarization"], entry["wavelength"])
+                if entry["type"].lower() in PAD_TYPES:
+                    pad_by_key.setdefault(key, []).append(entry)
+                else:
+                    dev_by_key.setdefault(key, []).append(entry)
+
+            # Validate reference pair is one-to-one
+            ref_key = (ref_dev["devicename"], ref_dev["polarization"], ref_dev["wavelength"])
+            if len(dev_by_key.get(ref_key, [])) != 1 or len(pad_by_key.get(ref_key, [])) != 1:
+                print("Reference device/pad key is not a one-to-one mapping. Aborted.")
+                return
 
             # Reference offset = ref_device_coord - ref_pad_coord
             ref_dev_coord = ref_dev["coordinate"]
@@ -439,26 +453,43 @@ class registration(App):
                 ref_dev_coord[2] - ref_pad_coord[2] if len(ref_dev_coord) > 2 else 0
             ]
 
-            # Build output: only non-pad devices that have a matching pad, preserve original number and order
+            # Build output: only one-to-one matched pairs with coordinates in valid range
             output = {"_default": {}}
+            skipped_multi = 0
+            skipped_range = 0
             for entry in all_entries:
-                if entry["type"].lower() == "pad":
+                if entry["type"].lower() in PAD_TYPES:
                     continue
                 key = (entry["devicename"], entry["polarization"], entry["wavelength"])
-                if key not in pad_lookup:
+                # Skip if no matching pad
+                if key not in pad_by_key:
+                    continue
+                # Skip if not one-to-one (multiple devices or multiple pads for this key)
+                if len(dev_by_key.get(key, [])) != 1 or len(pad_by_key[key]) != 1:
+                    skipped_multi += 1
                     continue
                 dev_coord = entry["coordinate"]
-                matched_pad_coord = pad_lookup[key]
-                rel_x = (dev_coord[0] - matched_pad_coord[0]) - ref_offset[0]
-                rel_y = (dev_coord[1] - matched_pad_coord[1]) - ref_offset[1]
+                matched_pad_coord = pad_by_key[key][0]["coordinate"]
+                raw_dx = dev_coord[0] - matched_pad_coord[0]
+                raw_dy = dev_coord[1] - matched_pad_coord[1]
+                # Validate range on raw device-pad difference: X must be in [150, 1000], Y must be in [-750, 750]
+                if not (150 <= raw_dx <= 1000) or not (-750 <= raw_dy <= 750):
+                    skipped_range += 1
+                    print(f"Skipped {entry['devicename']} ({entry['number']}): dx={raw_dx:.2f}, dy={raw_dy:.2f} out of range")
+                    continue
+                rel_x = raw_dx - ref_offset[0]
+                rel_y = raw_dy - ref_offset[1]
                 rel_z = (dev_coord[2] - matched_pad_coord[2] if len(dev_coord) > 2 else 0) - ref_offset[2]
+                matched_pad_type = pad_by_key[key][0]["type"].lower()
+                channel = PAD_CHANNEL_MAP.get(matched_pad_type, "A")
                 new_entry = {
                     "number": entry["number"],
                     "coordinate": [rel_x, rel_y, rel_z],
                     "polarization": entry["polarization"],
                     "wavelength": entry["wavelength"],
                     "type": entry["type"],
-                    "devicename": entry["devicename"]
+                    "devicename": entry["devicename"],
+                    "channel": channel
                 }
                 output["_default"][str(entry["number"])] = new_entry
 
@@ -466,7 +497,12 @@ class registration(App):
             with open(output_path, "w") as f:
                 json.dump(output, f, indent=2)
 
-            print(f"coordinates_relative.json saved with {len(output['_default'])} devices")
+            saved_count = len(output['_default'])
+            print(f"coordinates_relative.json saved with {saved_count} devices")
+            if skipped_multi > 0:
+                print(f"Skipped {skipped_multi} device(s) due to non-one-to-one mapping")
+            if skipped_range > 0:
+                print(f"Skipped {skipped_range} device(s) due to coordinates out of range")
         except Exception as e:
             print(f"Set as Ref failed: {e}")
 
@@ -487,7 +523,9 @@ class registration(App):
                 self.second_mark_position,
                 self.third_mark_position
             )
-            print(return_value)
+
+            if return_value == 1:
+                print("WARNING: Transform completed with large error. Consider re-checking alignment marks.")
 
             # Refresh coordinates from the transformed data
             self.coordinate = self.gds.listdeviceparam("coordinate")

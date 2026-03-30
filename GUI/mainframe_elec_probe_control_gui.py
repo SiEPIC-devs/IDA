@@ -105,6 +105,9 @@ class elecprobe(App):
                 # Handle CurrentRead from stage_control
                 self._handle_current_read(data)
 
+                # Handle PositionQuery from stage_control
+                self._handle_position_query(data)
+
                 # Handle SweepLock from stage_control
                 # Only act on SweepLock if the key is actually present —
                 # a partial/corrupted read missing SweepLock must not unlock.
@@ -156,7 +159,7 @@ class elecprobe(App):
                             width=1123+web_w,
                             height=646+web_h,
                             resizable=True,
-                            hidden=False
+                            hidden=False,
                         )
                 else:
                     self.configuration_check["smu"] = 1
@@ -314,11 +317,11 @@ class elecprobe(App):
         if action in ("", "done"):
             return  # Nothing to do or already completed
 
-        channel = "A"  # Bias always uses channel A
+        channel = bc.get("channel", "A")  # Read channel from command
 
         if not self.smu_connected:
             print("[Bias] SMU not connected, cannot execute bias command")
-            SharedMemory.update({"BiasCommand": {"action": "done", "error": "smu_not_connected"}})
+            SharedMemory.set("BiasCommand", {"action": "done", "error": "smu_not_connected"})
             return
 
         try:
@@ -356,14 +359,14 @@ class elecprobe(App):
             else:
                 print(f"[Bias] Unknown action: {action}")
 
-            SharedMemory.update({"BiasCommand": {"action": "done"}})
+            SharedMemory.set("BiasCommand", {"action": "done"})
 
         except Exception as e:
             print(f"[Bias] Command error: {e}")
             # Unlock on error too
             if self._bias_locked:
                 self._unlock_smu_controls()
-            SharedMemory.update({"BiasCommand": {"action": "done", "error": str(e)}})
+            SharedMemory.set("BiasCommand", {"action": "done", "error": str(e)})
 
     # ------------------------------------------------------------------
     # MotorCommand handler: stage_control asks to move BSC203
@@ -397,20 +400,20 @@ class elecprobe(App):
         axis = str(mc.get("axis", "Z")).upper()
         if axis not in ("X", "Y", "Z"):
             self._bsc_locked = False
-            SharedMemory.update({"MotorCommand": {"action": "done", "error": f"invalid_axis:{axis}"}})
+            SharedMemory.set("MotorCommand", {"action": "done", "error": f"invalid_axis:{axis}"})
             return
 
         try:
             distance_um = float(mc.get("distance_um", 0))
         except (TypeError, ValueError):
             self._bsc_locked = False
-            SharedMemory.update({"MotorCommand": {"action": "done", "error": "invalid_distance"}})
+            SharedMemory.set("MotorCommand", {"action": "done", "error": "invalid_distance"})
             return
 
         if not self.bsc_connected:
             self._bsc_locked = False
             print("[MotorCmd] BSC203 not connected")
-            SharedMemory.update({"MotorCommand": {"action": "done", "error": "bsc_not_connected"}})
+            SharedMemory.set("MotorCommand", {"action": "done", "error": "bsc_not_connected"})
             return
 
         self.run_in_thread(self._do_motor_command, axis, distance_um)
@@ -425,9 +428,9 @@ class elecprobe(App):
             if success:
                 pos = self.bsc_controller.get_position(axis)
                 print(f"[MotorCmd] {axis} moved {distance_um} um -> pos {pos*1000:.1f} um")
-                SharedMemory.update({"MotorCommand": {"action": "done"}})
+                SharedMemory.set("MotorCommand", {"action": "done"})
             else:
-                SharedMemory.update({"MotorCommand": {"action": "done", "error": "move_failed"}})
+                SharedMemory.set("MotorCommand", {"action": "done", "error": "move_failed"})
         except Exception as e:
             print(f"[MotorCmd] Error: {e}")
             # Attempt reconnect before giving up
@@ -442,9 +445,43 @@ class elecprobe(App):
                     print("[MotorCmd] BSC203 reconnect failed")
                     self.bsc_connected = False
                     self.bsc_controller.is_connected = False
-            SharedMemory.update({"MotorCommand": {"action": "done", "error": str(e)}})
+            SharedMemory.set("MotorCommand", {"action": "done", "error": str(e)})
         finally:
             self._bsc_locked = False
+
+    # ------------------------------------------------------------------
+    # PositionQuery handler: stage_control asks for BSC203 position
+    # ------------------------------------------------------------------
+    def _handle_position_query(self, data=None):
+        """Return BSC203 axis position on request from stage_control."""
+        if data is None:
+            data = SharedMemory.read({})
+        pq = data.get("PositionQuery", {})
+        action = pq.get("action", "")
+        if action in ("", "done"):
+            return
+
+        # Skip while a motor command is in progress to avoid DLL contention
+        if self._bsc_locked:
+            return
+
+        axis = str(pq.get("axis", "Z")).upper()
+        if axis not in ("X", "Y", "Z"):
+            SharedMemory.set("PositionQuery", {"action": "done", "error": f"invalid_axis:{axis}"})
+            return
+
+        if not self.bsc_connected:
+            SharedMemory.set("PositionQuery", {"action": "done", "error": "bsc_not_connected"})
+            return
+
+        try:
+            pos_mm = self.bsc_controller.get_position(axis)
+            pos_um = pos_mm * 1000.0
+            SharedMemory.set("PositionQuery", {"action": "done", "value": pos_um})
+            print(f"[PositionQuery] {axis}: {pos_um:.1f} um")
+        except Exception as e:
+            print(f"[PositionQuery] Error: {e}")
+            SharedMemory.set("PositionQuery", {"action": "done", "error": str(e)})
 
     # ------------------------------------------------------------------
     # CurrentRead handler: stage_control asks for SMU current
@@ -461,17 +498,17 @@ class elecprobe(App):
         channel = cr.get("channel", "A")
 
         if not self.smu_connected:
-            SharedMemory.update({"CurrentRead": {"action": "done", "error": "smu_not_connected"}})
+            SharedMemory.set("CurrentRead", {"action": "done", "error": "smu_not_connected"})
             return
 
         try:
             currents = self.smu_manager.get_current()
             val = currents.get(channel, 0.0) if currents else 0.0
-            SharedMemory.update({"CurrentRead": {"action": "done", "value": val}})
+            SharedMemory.set("CurrentRead", {"action": "done", "value": val})
             print(f"[CurrentRead] Ch {channel}: {val*1e6:.4f} uA")
         except Exception as e:
             print(f"[CurrentRead] Error: {e}")
-            SharedMemory.update({"CurrentRead": {"action": "done", "error": str(e)}})
+            SharedMemory.set("CurrentRead", {"action": "done", "error": str(e)})
 
     def _update_smu_display(self):
         """Update SMU measurement display"""
@@ -565,6 +602,10 @@ class elecprobe(App):
                     self.bsc_controller.set_limits('Y', 0, 3)
                     self.bsc_controller.set_limits('Z', 0, 3)
                     print("[BSC203] Safety limits set (X/Y/Z: 0-3mm)")
+                    # Update limit labels on UI
+                    for axis in ['x', 'y', 'z']:
+                        lo, hi = self.bsc_controller.get_limits(axis.upper())
+                        getattr(self, f"{axis}_limit_lb").set_text(f"lim: [{lo*1000:.0f}, {hi*1000:.0f}] um")
                 except Exception as e:
                     print(f"[BSC203] Warning: Could not set limits: {e}")
             else:
@@ -583,6 +624,8 @@ class elecprobe(App):
                 self.bsc_controller.disconnect()
                 self.bsc_connected = False
                 print("[BSC203] BSC203 disconnected")
+                for axis in ['x', 'y', 'z']:
+                    getattr(self, f"{axis}_limit_lb").set_text("lim: N/A")
             except Exception as e:
                 print(f"[BSC203] Disconnect error: {e}")
     
@@ -1688,12 +1731,19 @@ class elecprobe(App):
             # Open interactive chart in webview window
             if 'html' in paths:
                 html_uri = Path(paths['html']).resolve().as_uri()
-                webview.create_window(
+                # Destroy previous popup to prevent unbounded window accumulation
+                prev = getattr(self, '_dc_sweep_popup_wnd', None)
+                if prev is not None:
+                    try:
+                        prev.destroy()
+                    except Exception:
+                        pass
+                self._dc_sweep_popup_wnd = webview.create_window(
                     'DC Sweep Result',
                     html_uri,
                     width=800, height=600,
                     resizable=True,
-                    hidden=False
+                    hidden=False,
                 )
                 print(f"[SMU] Chart opened in webview: {paths['html']}")
             
@@ -2027,4 +2077,4 @@ if __name__ == "__main__":
         resizable=True,
         hidden=True,
     )
-    webview.start()
+    webview.start(private_mode=True)

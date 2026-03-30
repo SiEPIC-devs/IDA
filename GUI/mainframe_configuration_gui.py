@@ -158,7 +158,7 @@ if __name__ == '__main__':
         f'http://{local_ip}:80',
         width=672+web_w, height=771+web_h,
         x= 100, y= 100,
-        resizable=True
+        resizable=True,
     )
 
-    webview.start(func=disable_scroll)
+    webview.start(func=disable_scroll, private_mode=True)

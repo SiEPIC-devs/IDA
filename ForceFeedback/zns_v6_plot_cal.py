@@ -1,8 +1,10 @@
 import time
-import json
-import os
-import tempfile
 import datetime
+import collections
+
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
 
 from pymodbus.client import ModbusSerialClient
 
@@ -10,38 +12,20 @@ PORT = "COM12"
 BAUDRATE = 115200
 DEVICE_ID = 1
 POLL_HZ = 1          # 1 Hz is enough for shared_memory updates
+PLOT_HZ = 10         # Plot refresh rate (Hz) — faster for smooth visuals
 
-# Path to shared_memory.json (relative to project root)
-_SHARED_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "GUI", "database", "shared_memory.json")
-# Dedicated file for force data — avoids cross-process race on shared_memory.json
-_FORCE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "GUI", "database", "force_weight.json")
+HISTORY_MAX = 120     # rolling window size (samples, at PLOT_HZ rate)
 
 def _update_shared_memory(ch1_g: float, ch2_g: float, total_g: float):
-    """Write ForceWeight to a dedicated file AND merge into shared_memory.json."""
+    """Write ForceWeight into shared_memory.json."""
     payload = {
         "ch1": round(ch1_g, 1),
         "ch2": round(ch2_g, 1),
         "total": round(total_g, 1),
         "timestamp": datetime.datetime.now().isoformat(),
     }
-    # 1. Always write dedicated file (fast, no contention)
     try:
-        dir_name = os.path.dirname(_FORCE_PATH)
-        fd, tmp = tempfile.mkstemp(dir=dir_name, suffix=".tmp")
-        try:
-            with os.fdopen(fd, "w", encoding="utf-8") as f:
-                json.dump(payload, f)
-            os.replace(tmp, _FORCE_PATH)
-        except Exception:
-            if os.path.exists(tmp):
-                os.remove(tmp)
-    except Exception:
-        pass
-    # 2. Merge only ForceWeight into shared_memory.json using
-    #    SharedMemory.update() to avoid overwriting other keys.
-    #    Import here to avoid circular imports at module level.
-    try:
-        import sys
+        import sys, os
         project_root = os.path.dirname(os.path.dirname(__file__))
         if project_root not in sys.path:
             sys.path.insert(0, project_root)
@@ -69,14 +53,33 @@ def main():
         raise RuntimeError(f"unable to open {PORT}")
 
     period = 1.0 / max(POLL_HZ, 1)
+    plot_period = 1.0 / max(PLOT_HZ, 1)
     print(f"Force sensor polling started ({POLL_HZ} Hz), writing to shared_memory...")
+
+    # --- Live plot setup ---
+    history = collections.deque(maxlen=HISTORY_MAX)
+    plt.ion()
+    fig, ax = plt.subplots(figsize=(6, 2.5))
+    fig.canvas.manager.set_window_title("Force Monitor")
+    line, = ax.plot([], [], color="#2196F3", linewidth=1.2)
+    annotation = ax.text(
+        0.98, 0.95, "", transform=ax.transAxes, fontsize=11, fontweight='bold',
+        ha='right', va='top', color="#2196F3",
+        bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor='#2196F3', alpha=0.8)
+    )
+    ax.set_ylabel("Force (g)", fontsize=9)
+    ax.tick_params(axis='x', labelbottom=False)
+    ax.grid(True, alpha=0.3)
+    fig.tight_layout(pad=0.5)
+
+    last_sm_write = 0.0  # timestamp of last shared_memory write
 
     try:
         while True:
             rr = client.read_holding_registers(address=0x0000, count=4, device_id=DEVICE_ID)
             if rr.isError():
                 print("read error:", rr)
-                time.sleep(period)
+                time.sleep(plot_period)
                 continue
 
             r = rr.registers
@@ -87,13 +90,28 @@ def main():
             ch2_g = ch2 / 10.0
             total_g = ch1_g + ch2_g
 
-            _update_shared_memory(ch1_g, ch2_g, total_g)
+            # Write to shared_memory at original 1 Hz rate
+            now = time.monotonic()
+            if now - last_sm_write >= period:
+                _update_shared_memory(ch1_g, ch2_g, total_g)
+                last_sm_write = now
 
-            time.sleep(period)
+            # --- Update live plot (at PLOT_HZ rate) ---
+            history.append(total_g)
+            xs = list(range(len(history)))
+            line.set_data(xs, list(history))
+            ax.set_xlim(0, max(len(history) - 1, 1))
+            ax.set_ylim(total_g - 20, total_g + 20)
+            annotation.set_text(f"{total_g:.1f} g")
+            fig.canvas.draw_idle()
+            fig.canvas.flush_events()
+
+            time.sleep(plot_period)
 
     except KeyboardInterrupt:
         print("Stopped.")
     finally:
+        plt.close(fig)
         client.close()
         print("Program terminated.")
 

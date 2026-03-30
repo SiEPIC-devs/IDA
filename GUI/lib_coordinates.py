@@ -156,96 +156,75 @@ class coordinates:
         param: device_numbers --> int respresenting 3 alignement devices, as stored in the mini db
         param: xy_motorN --> 3 lists containing the coordinates of the motor at 3 positions
         """
-        transform_tries = 0
-        while 1:
-            xy_gds1 = np.array(self.device_db.get(self.device.number == device_numbers[0])["coordinate"])
-            xy_gds2 = np.array(self.device_db.get(self.device.number == device_numbers[1])["coordinate"])
-            xy_gds3 = np.array(self.device_db.get(self.device.number == device_numbers[2])["coordinate"])
-            row1 = [xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]
-            row2 = [0, 0, 0, xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 0, 0, 1, 0]
-            row3 = [0, 0, 0, 0, 0, 0, xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 1]
-            row4 = [xy_gds2[0], xy_gds2[1], xy_gds2[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]
-            row5 = [0, 0, 0, xy_gds2[0], xy_gds2[1], xy_gds2[2], 0, 0, 0, 0, 1, 0]
-            row6 = [0, 0, 0, 0, 0, 0, xy_gds2[0], xy_gds2[1], xy_gds2[2], 0, 0, 1]
-            row7 = [xy_gds3[0], xy_gds3[1], xy_gds3[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]
-            row8 = [0, 0, 0, xy_gds3[0], xy_gds3[1], xy_gds3[2], 0, 0, 0, 0, 1, 0]
-            row9 = [0, 0, 0, 0, 0, 0, xy_gds3[0], xy_gds3[1], xy_gds3[2], 0, 0, 1]
-            A = np.array([row1, row2, row3, row4, row5, row6, row7, row8, row9])
-            aug = np.array([xy_motor1[0], xy_motor1[1], xy_motor1[2], xy_motor2[0], xy_motor2[1], xy_motor2[2], xy_motor3[0], xy_motor3[1], xy_motor3[2]])
-            solution = np.linalg.lstsq(A, aug, rcond=None)[0]
-            transformation_matrix = solution[:9]
-            transformation_matrix = transformation_matrix.reshape([3, 3])
-            displacement_vector = solution[9:]
-            large_error = 0
-            xy_motor1_calculted = (np.matmul(transformation_matrix, xy_gds1) + displacement_vector).tolist()
-            xy_motor2_calculted = (np.matmul(transformation_matrix, xy_gds2) + displacement_vector).tolist()
-            xy_motor3_calculted = (np.matmul(transformation_matrix, xy_gds3) + displacement_vector).tolist()
-            if abs(xy_motor1[0] - xy_motor1_calculted[0]) > 5:
-                large_error = 1
-            if abs(xy_motor1[1] - xy_motor1_calculted[1]) > 5:
-                large_error = 1
-            if abs(xy_motor1[2] - xy_motor1_calculted[2]) > 15:
-                large_error = 1
-            if abs(xy_motor2[0] - xy_motor2_calculted[0]) > 5:
-                large_error = 1
-            if abs(xy_motor2[1] - xy_motor2_calculted[1]) > 5:
-                large_error = 1
-            if abs(xy_motor2[2] - xy_motor2_calculted[2]) > 15:
-                large_error = 1
-            if abs(xy_motor3[0] - xy_motor3_calculted[0]) > 5:
-                large_error = 1
-            if abs(xy_motor3[1] - xy_motor3_calculted[1]) > 5:
-                large_error = 1
-            if abs(xy_motor3[2] - xy_motor3_calculted[2]) > 15:
-                large_error = 1
-            if large_error == 0:
-                print("Transform matrix" + str(transformation_matrix))
-                print("Displacement vector" + str(displacement_vector))
-                print("Original and transformed alignment marks")
-                print("mark 1: " + str(xy_motor1))
-                print("mark 1 calculated: " + str(xy_motor1_calculted))
-                print("mark 1 error: [" + str(xy_motor1[0] - xy_motor1_calculted[0]) + "," + str(xy_motor1[1] - xy_motor1_calculted[1]) + "," + str(xy_motor1[2] - xy_motor1_calculted[2]) + "]")
-                print("mark 2: " + str(xy_motor2))
-                print("mark 2 calculated: " + str(xy_motor2_calculted))
-                print("mark 2 error: [" + str(xy_motor2[0] - xy_motor2_calculted[0]) + "," + str(xy_motor2[1] - xy_motor2_calculted[1]) + "," + str(xy_motor2[2] - xy_motor2_calculted[2]) + "]")
-                print("mark 3: " + str(xy_motor3))
-                print("mark 3 calculated: " + str(xy_motor3_calculted))
-                print("mark 3 error: [" + str(xy_motor3[0] - xy_motor3_calculted[0]) + "," + str(xy_motor3[1] - xy_motor3_calculted[1]) + "," + str(xy_motor3[2] - xy_motor3_calculted[2]) + "]")
-            else:
-                if transform_tries > 40:
-                    print("out of retries")
-                    print("Transform matrix" + str(transformation_matrix))
-                    print("Displacement vector" + str(displacement_vector))
-                    print("Original and transformed alignment marks")
-                    print("mark 1: " + str(xy_motor1))
-                    print("mark 1 calculated: " + str(xy_motor1_calculted))
-                    print("mark 1 error: [" + str(xy_motor1[0] - xy_motor1_calculted[0]) + "," + str(xy_motor1[1] - xy_motor1_calculted[1]) + "," + str(xy_motor1[2] - xy_motor1_calculted[2]) + "]")
-                    print("mark 2: " + str(xy_motor2))
-                    print("mark 2 calculated: " + str(xy_motor2_calculted))
-                    print("mark 2 error: [" + str(xy_motor2[0] - xy_motor2_calculted[0]) + "," + str(xy_motor2[1] - xy_motor2_calculted[1]) + "," + str(xy_motor2[2] - xy_motor2_calculted[2]) + "]")
-                    print("mark 3: " + str(xy_motor3))
-                    print("mark 3 calculated: " + str(xy_motor3_calculted))
-                    print("mark 3 error: [" + str(xy_motor3[0] - xy_motor3_calculted[0]) + "," + str(xy_motor3[1] - xy_motor3_calculted[1]) + "," + str(xy_motor3[2] - xy_motor3_calculted[2]) + "]")
-                    return 1
-                transform_tries = transform_tries + 1
-                continue
-            data = self.device_db.all()
-            print("Transforming devices this might take awhile")
-            total_length = len(data)
-            bracket = 0
-            current_complete = 0
-            updated = []
-            for item in data:
-                item["coordinate"] = (np.matmul(transformation_matrix, np.array(item["coordinate"])) + displacement_vector).tolist()
-                updated.append(item)
+        xy_gds1 = np.array(self.device_db.get(self.device.number == device_numbers[0])["coordinate"])
+        xy_gds2 = np.array(self.device_db.get(self.device.number == device_numbers[1])["coordinate"])
+        xy_gds3 = np.array(self.device_db.get(self.device.number == device_numbers[2])["coordinate"])
+        row1 = [xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]
+        row2 = [0, 0, 0, xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 0, 0, 1, 0]
+        row3 = [0, 0, 0, 0, 0, 0, xy_gds1[0], xy_gds1[1], xy_gds1[2], 0, 0, 1]
+        row4 = [xy_gds2[0], xy_gds2[1], xy_gds2[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]
+        row5 = [0, 0, 0, xy_gds2[0], xy_gds2[1], xy_gds2[2], 0, 0, 0, 0, 1, 0]
+        row6 = [0, 0, 0, 0, 0, 0, xy_gds2[0], xy_gds2[1], xy_gds2[2], 0, 0, 1]
+        row7 = [xy_gds3[0], xy_gds3[1], xy_gds3[2], 0, 0, 0, 0, 0, 0, 1, 0, 0]
+        row8 = [0, 0, 0, xy_gds3[0], xy_gds3[1], xy_gds3[2], 0, 0, 0, 0, 1, 0]
+        row9 = [0, 0, 0, 0, 0, 0, xy_gds3[0], xy_gds3[1], xy_gds3[2], 0, 0, 1]
+        A = np.array([row1, row2, row3, row4, row5, row6, row7, row8, row9])
+        aug = np.array([xy_motor1[0], xy_motor1[1], xy_motor1[2], xy_motor2[0], xy_motor2[1], xy_motor2[2], xy_motor3[0], xy_motor3[1], xy_motor3[2]])
+        solution = np.linalg.lstsq(A, aug, rcond=None)[0]
+        transformation_matrix = solution[:9]
+        transformation_matrix = transformation_matrix.reshape([3, 3])
+        displacement_vector = solution[9:]
+        xy_motor1_calculted = (np.matmul(transformation_matrix, xy_gds1) + displacement_vector).tolist()
+        xy_motor2_calculted = (np.matmul(transformation_matrix, xy_gds2) + displacement_vector).tolist()
+        xy_motor3_calculted = (np.matmul(transformation_matrix, xy_gds3) + displacement_vector).tolist()
 
-            self.device_db.truncate()
-            for item in updated:
-                self.device_db.insert(item)
-                current_complete += 1
-                percent = current_complete / total_length * 100
-                if percent > bracket:
-                    bracket += 10
-                    print(str(round(percent, 0)) + "%")
+        # Check transform error for each mark
+        large_error = (
+            abs(xy_motor1[0] - xy_motor1_calculted[0]) > 5 or
+            abs(xy_motor1[1] - xy_motor1_calculted[1]) > 5 or
+            abs(xy_motor1[2] - xy_motor1_calculted[2]) > 15 or
+            abs(xy_motor2[0] - xy_motor2_calculted[0]) > 5 or
+            abs(xy_motor2[1] - xy_motor2_calculted[1]) > 5 or
+            abs(xy_motor2[2] - xy_motor2_calculted[2]) > 15 or
+            abs(xy_motor3[0] - xy_motor3_calculted[0]) > 5 or
+            abs(xy_motor3[1] - xy_motor3_calculted[1]) > 5 or
+            abs(xy_motor3[2] - xy_motor3_calculted[2]) > 15
+        )
 
-            return 0
+        # Print transform details
+        print("Transform matrix" + str(transformation_matrix))
+        print("Displacement vector" + str(displacement_vector))
+        print("Original and transformed alignment marks")
+        print("mark 1: " + str(xy_motor1))
+        print("mark 1 calculated: " + str(xy_motor1_calculted))
+        print("mark 1 error: [" + str(xy_motor1[0] - xy_motor1_calculted[0]) + "," + str(xy_motor1[1] - xy_motor1_calculted[1]) + "," + str(xy_motor1[2] - xy_motor1_calculted[2]) + "]")
+        print("mark 2: " + str(xy_motor2))
+        print("mark 2 calculated: " + str(xy_motor2_calculted))
+        print("mark 2 error: [" + str(xy_motor2[0] - xy_motor2_calculted[0]) + "," + str(xy_motor2[1] - xy_motor2_calculted[1]) + "," + str(xy_motor2[2] - xy_motor2_calculted[2]) + "]")
+        print("mark 3: " + str(xy_motor3))
+        print("mark 3 calculated: " + str(xy_motor3_calculted))
+        print("mark 3 error: [" + str(xy_motor3[0] - xy_motor3_calculted[0]) + "," + str(xy_motor3[1] - xy_motor3_calculted[1]) + "," + str(xy_motor3[2] - xy_motor3_calculted[2]) + "]")
+
+        if large_error:
+            print("WARNING: Transform error exceeds threshold (XY > 5, Z > 15). Proceeding anyway.")
+
+        data = self.device_db.all()
+        print("Transforming devices this might take awhile")
+        total_length = len(data)
+        bracket = 0
+        current_complete = 0
+        updated = []
+        for item in data:
+            item["coordinate"] = (np.matmul(transformation_matrix, np.array(item["coordinate"])) + displacement_vector).tolist()
+            updated.append(item)
+
+        self.device_db.truncate()
+        for item in updated:
+            self.device_db.insert(item)
+            current_complete += 1
+            percent = current_complete / total_length * 100
+            if percent > bracket:
+                bracket += 10
+                print(str(round(percent, 0)) + "%")
+
+        return 1 if large_error else 0

@@ -2,6 +2,7 @@ from GUI.lib_gui import *
 from remi import start, App
 from GUI import lib_coordinates
 import threading, math, json, os, time, webview, wx, shutil
+import base64
 from GUI.lib_tsp import TSPSolver
 
 command_path = os.path.join("database", "command.json")
@@ -86,7 +87,15 @@ class testing(App):
                     image_path = data.get("Image", "")
                     if image_path != self.image_path:
                         self.image_path = image_path
-                        self.display_plot.set_image(f"my_res:{self.image_path}")
+                        # Use base64 data URI to avoid webview HTTP cache accumulation
+                        # that causes white-screen OOM after many sweeps
+                        try:
+                            img_full = os.path.join("res", self.image_path)
+                            with open(img_full, 'rb') as _imgf:
+                                _b64 = base64.b64encode(_imgf.read()).decode('ascii')
+                            self.display_plot.set_image(f"data:image/png;base64,{_b64}")
+                        except Exception:
+                            self.display_plot.set_image(f"my_res:{self.image_path}")
                     self.serial_list = set(data.get("Selection", []))
                     self.device_num = data.get("DeviceNum", 0)
                     self.auto_sweep = data.get("AutoSweep", 0)
@@ -97,13 +106,29 @@ class testing(App):
                     bias_cfg = sweep_data.get("bias_voltage", {})
                     self._bias_enabled = bias_cfg.get("enabled", False)
 
+                    # Detect Filtered changes (e.g. BSC XY filtering removed devices)
+                    filtered = data.get("Filtered", {})
+                    if filtered and self.auto_sweep == 1:
+                        new_idx = [int(k) - 1 for k in filtered.keys()]
+                        if new_idx != self.filtered_idx:
+                            self.filtered_idx = new_idx
+                            self.status = ["0"] * len(self.devicename)
+                            self.remaining = len(new_idx)
+                            self.elapsed = 0
+                            self.pre_num = -1
+                            self.elapsed_device.set_text(str(self.elapsed))
+                            self.remaining_device.set_text(str(self.remaining))
+                            self.build_table_rows()
+
             if self.auto_sweep == 1 and self.device_num != self.pre_num:
-                self.status[self.device_num - 1] = "1"
+                if 1 <= self.device_num <= len(self.status):
+                    self.status[self.device_num - 1] = "1"
                 self.build_table_rows()
                 self.pre_num = self.device_num
 
-                self.remaining -= 1
-                self.elapsed += 1
+                if self.remaining > 0:
+                    self.remaining -= 1
+                    self.elapsed += 1
                 self.elapsed_device.set_text(str(self.elapsed))
                 self.remaining_device.set_text(str(self.remaining))
         self.update_file_format()
@@ -355,7 +380,13 @@ class testing(App):
         self.elapsed_device.set_text(str(self.elapsed))
         self.remaining_device.set_text(str(self.remaining))
         sweep_type = self.sweep_type_dd.get_value()  # "Laser Sweep" or "EO"
-        SharedMemory.update({"AutoSweep": 1, "DeviceNum": -1, "AutoSweepType": sweep_type})
+        with SharedMemory.lock():
+            data = SharedMemory.read_unsafe({})
+            data["AutoSweep"] = 1
+            data["DeviceNum"] = -1
+            data["AutoSweepType"] = sweep_type
+            data["Filtered"] = filtered  # full replace, not merge
+            SharedMemory.write_unsafe(data)
 
     def stop_sequence(self):
         file = File("shared_memory", "AutoSweep", 0)
@@ -405,8 +436,10 @@ class testing(App):
             filtered = {str(i + 1): self.coordinate[i][0:2] for i in self.filtered_idx}
             self.remaining = len(filtered)
             self.elapsed = 0
-            file = File("shared_memory", "Image", f"TSP/{solver.path}", "Filtered", filtered)
-            file.save()
+            self.pre_num = -1
+            self.elapsed_device.set_text(str(self.elapsed))
+            self.remaining_device.set_text(str(self.remaining))
+            SharedMemory.update({"Image": f"TSP/{solver.path}", "Filtered": filtered}, deep_merge=False)
         else:
             print("You need to load the file first!")
 
@@ -574,7 +607,7 @@ class testing(App):
             "Setting",
             f"http://{local_ip}:7109",
             width=352 + web_w,
-            height=576 + web_h,
+            height=606 + web_h,
             resizable=True,
             on_top=True,
             hidden=False
@@ -604,4 +637,4 @@ if __name__ == "__main__":
         resizable=True,
         hidden=True,
     )
-    webview.start()
+    webview.start(private_mode=True)
