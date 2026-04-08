@@ -108,24 +108,24 @@ class Starts(App):
 
         StyledLabel(
             container=starts_container, text="Welcome to Probe Stage", variable_name="label_configuration",
-            left=180, top=20, width=300, height=20, font_size=150, color="#222", align="left",
+            left=220, top=20, width=300, height=20, font_size=150, color="#222", align="left",
         )
 
         self.add_btn = StyledButton(
             container=starts_container, text="Add", variable_name="add",
-            left=170, top=180, normal_color="#007BFF", press_color="#0056B3",
+            left=270, top=180, normal_color="#007BFF", press_color="#0056B3",
         )
 
-        self.settings_btn = StyledButton(
-            container=starts_container, text="Settings", variable_name="settings",
-            left=280, top=180, width=80, normal_color="#007BFF", press_color="#0056B3",
-        )
+        # self.settings_btn = StyledButton(
+        #     container=starts_container, text="Settings", variable_name="settings",
+        #     left=280, top=180, width=80, normal_color="#007BFF", press_color="#0056B3",
+        # )
 
-        self.apply_settings_btn = StyledButton(
-            container=starts_container, text="Apply Settings", variable_name="apply_settings",
-            left=370, top=180, width=120, height=30,
-            normal_color="#007BFF", press_color="#0056B3",
-        )
+        # self.apply_settings_btn = StyledButton(
+        #     container=starts_container, text="Apply Settings", variable_name="apply_settings",
+        #     left=370, top=180, width=120, height=30,
+        #     normal_color="#007BFF", press_color="#0056B3",
+        # )
 
         self.user_btn = StyledButton(
             container=starts_container, text="Remove", variable_name="user_remove",
@@ -149,12 +149,12 @@ class Starts(App):
 
         # --- Event bindings ---
         self.add_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_add))
-        self.settings_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_settings))
+        # self.settings_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_settings))
         self.user_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_user_remove))
         self.project_btn.do_onclick(lambda *_: self.run_in_thread(self.onclick_project_remove))
-        self.apply_settings_btn.do_onclick(
-            lambda *_: self.run_in_thread(self.onclick_apply_settings)
-        )
+        # self.apply_settings_btn.do_onclick(
+        #     lambda *_: self.run_in_thread(self.onclick_apply_settings)
+        # )
 
         self.starts_container = starts_container
         return starts_container
