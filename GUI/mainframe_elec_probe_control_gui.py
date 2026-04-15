@@ -1109,7 +1109,7 @@ class elecprobe(App):
                 StyledSpinBox(
                     container=smu_control_container,
                     variable_name=f"{name}_sb",
-                    max_value=30, min_value=0, value=0.0, step=0.1,
+                    max_value=1000000000, min_value=-1000000000, value=0.0, step=0.1,
                     left=158, top=top_pos, width=70, height=24
                 )
             )
@@ -1282,11 +1282,11 @@ class elecprobe(App):
             
             # Update spinbox ranges for current (µA)
             # Typical range: -1000 to 1000 µA (±1mA)
-            self.set_sweep_min_sb.attr_min = str(-1000)
-            self.set_sweep_min_sb.attr_max = str(1000)
-            self.set_sweep_max_sb.attr_min = str(-1000)
-            self.set_sweep_max_sb.attr_max = str(1000)
-            self.set_sweep_resolution_sb.attr_max = str(1000)
+            self.set_sweep_min_sb.attr_min = str(-1000000)
+            self.set_sweep_min_sb.attr_max = str(1000000)
+            self.set_sweep_max_sb.attr_min = str(-1000000)
+            self.set_sweep_max_sb.attr_max = str(1000000)
+            self.set_sweep_resolution_sb.attr_max = str(1000000)
             
             # Reset to default current values (0 to 100 µA, step 10 µA)
             self.set_sweep_min_sb.set_value(0.0)

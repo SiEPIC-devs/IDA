@@ -267,7 +267,7 @@ class add_btn(App):
 
         self.bias_start_v = StyledSpinBox(
             container=laser_sweep_container, variable_name="bias_start_v_in", left=95, top=204, value=0.0,
-            width=65, height=24, min_value=-200, max_value=200, step=0.1, position="absolute"
+            width=65, height=24, min_value=-1000000, max_value=1000000, step=0.1, position="absolute"
         )
         self.bias_start_v.attributes["disabled"] = "true"
 
@@ -284,7 +284,7 @@ class add_btn(App):
 
         self.bias_stop_v = StyledSpinBox(
             container=laser_sweep_container, variable_name="bias_stop_v_in", left=95, top=236, value=1.0,
-            width=65, height=24, min_value=-200, max_value=200, step=0.1, position="absolute"
+            width=65, height=24, min_value=-1000000, max_value=1000000, step=0.1, position="absolute"
         )
         self.bias_stop_v.attributes["disabled"] = "true"
 
@@ -301,7 +301,7 @@ class add_btn(App):
 
         self.bias_step_v = StyledSpinBox(
             container=laser_sweep_container, variable_name="bias_step_v_in", left=95, top=268, value=0.1,
-            width=65, height=24, min_value=0.001, max_value=200, step=0.01, position="absolute"
+            width=65, height=24, min_value=0.001, max_value=1000000, step=0.01, position="absolute"
         )
         self.bias_step_v.attributes["disabled"] = "true"
 
